@@ -9,5 +9,9 @@
       <element xsi:type="visualInterface:Text" foregroundColor="" backgroundColor="" format="Symbol 1"/>
       <position/>
     </children>
+    <children>
+      <element xsi:type="visualInterface:SymbolReference" uri="platform:/plugin/org.openscada.vi.sample1/resources/Symbol2.vi"/>
+      <position x="100.0"/>
+    </children>
   </root>
 </visualInterface:Symbol>

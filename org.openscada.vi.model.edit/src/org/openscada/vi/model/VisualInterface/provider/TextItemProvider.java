@@ -116,7 +116,7 @@ public class TextItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Text)object).getForegroundColor();
+        String label = ((Text)object).getFormat();
         return label == null || label.length() == 0 ?
             getString("_UI_Text_type") :
             getString("_UI_Text_type") + " " + label;

@@ -18,10 +18,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/height"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
-    <genClasses ecoreClass="VisualInterface.ecore#//Text"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/format">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/format"/>
+    </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
-      <genFeatures children="true" createChild="true" propertyCategory="" propertySortChoices="true"
-          ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
@@ -33,6 +34,17 @@
     <genClasses ecoreClass="VisualInterface.ecore#//Position">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Position/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Position/y"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Line">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Line/points"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Line/lineWidth"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Figure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
