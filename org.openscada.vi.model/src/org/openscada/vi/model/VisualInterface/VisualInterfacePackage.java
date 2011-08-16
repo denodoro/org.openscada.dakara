@@ -118,6 +118,25 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE = 11;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Container <em>Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.Container
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getContainer()
+     * @generated
+     */
+    int CONTAINER = 2;
+
+    /**
+     * The number of structural features of the '<em>Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINER_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 0;
+
+    /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -143,43 +162,6 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 2;
-
-    /**
-     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Container <em>Container</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.openscada.vi.model.VisualInterface.Container
-     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getContainer()
-     * @generated
-     */
-    int CONTAINER = 2;
-
-    /**
-     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONTAINER__FOREGROUND_COLOR = FIGURE__FOREGROUND_COLOR;
-
-    /**
-     * The feature id for the '<em><b>Background Color</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONTAINER__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
-
-    /**
-     * The number of structural features of the '<em>Container</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONTAINER_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl <em>Shape</em>}' class.
@@ -431,24 +413,6 @@ public interface VisualInterfacePackage extends EPackage
     int XY_CONTAINER = 8;
 
     /**
-     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int XY_CONTAINER__FOREGROUND_COLOR = CONTAINER__FOREGROUND_COLOR;
-
-    /**
-     * The feature id for the '<em><b>Background Color</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int XY_CONTAINER__BACKGROUND_COLOR = CONTAINER__BACKGROUND_COLOR;
-
-    /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -558,6 +522,35 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int LINE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
+
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSymbolReference()
+     * @generated
+     */
+    int SYMBOL_REFERENCE = 12;
+
+    /**
+     * The feature id for the '<em><b>Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_REFERENCE__URI = PRIMITIVE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Symbol Reference</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_REFERENCE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 1;
 
 
     /**
@@ -835,6 +828,27 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getFigure_BackgroundColor();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SymbolReference <em>Symbol Reference</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Symbol Reference</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SymbolReference
+     * @generated
+     */
+    EClass getSymbolReference();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getUri <em>Uri</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Uri</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SymbolReference#getUri()
+     * @see #getSymbolReference()
+     * @generated
+     */
+    EAttribute getSymbolReference_Uri();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1088,6 +1102,24 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute FIGURE__BACKGROUND_COLOR = eINSTANCE.getFigure_BackgroundColor();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSymbolReference()
+         * @generated
+         */
+        EClass SYMBOL_REFERENCE = eINSTANCE.getSymbolReference();
+
+        /**
+         * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL_REFERENCE__URI = eINSTANCE.getSymbolReference_Uri();
 
     }
 

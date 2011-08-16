@@ -8,7 +8,8 @@ Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.draw2d;bundle-version="3.7.0",
- org.openscada.vi.model;bundle-version="1.0.0"
+ org.openscada.vi.model;bundle-version="1.0.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
@@ -17,3 +18,4 @@ Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
    org.osgi.framework,
    org.eclipse.draw2d,
    org.eclipse.swt.widgets"
+Import-Package: org.slf4j;version="1.5.8"

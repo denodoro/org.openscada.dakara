@@ -1,15 +1,25 @@
 package org.openscada.vi.ui.draw2d;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PolylineShape;
 import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.resource.ColorDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
@@ -19,13 +29,22 @@ import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
+import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.XYChild;
 import org.openscada.vi.model.VisualInterface.XYContainer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ViewElementFactory
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( ViewElementFactory.class );
+
     private final ResourceManager manager;
+
+    private final Map<String, Symbol> symbolCache = new HashMap<String, Symbol> ();
 
     public ViewElementFactory ( final ResourceManager manager )
     {
@@ -47,6 +66,10 @@ public class ViewElementFactory
         {
             return createLine ( (Line)element );
         }
+        else if ( element instanceof SymbolReference )
+        {
+            return createSymbolReference ( (SymbolReference)element );
+        }
         else if ( element instanceof Rectangle )
         {
             return createRectangle ( (Rectangle)element );
@@ -54,10 +77,51 @@ public class ViewElementFactory
         return null;
     }
 
+    protected IFigure createSymbolReference ( final SymbolReference symbolReference )
+    {
+        final Figure rootWrapper = new Figure ();
+        rootWrapper.setLayoutManager ( new StackLayout () );
+
+        final Symbol symbol = load ( symbolReference.getUri () );
+
+        final IFigure rootFigure = create ( symbol.getRoot () );
+        rootWrapper.add ( rootFigure );
+
+        return rootWrapper;
+    }
+
+    protected Symbol load ( final String uri )
+    {
+        final Symbol symbol = this.symbolCache.get ( uri );
+        if ( symbol != null )
+        {
+            return symbol;
+        }
+
+        logger.info ( "Loading: {}", uri ); //$NON-NLS-1$
+
+        final ResourceSet resourceSet = new ResourceSetImpl ();
+
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( "vi", new XMIResourceFactoryImpl () ); //$NON-NLS-1$
+
+        final URI file = URI.createURI ( uri );
+        final Resource resource = resourceSet.getResource ( file, true );
+
+        for ( final EObject o : resource.getContents () )
+        {
+            if ( o instanceof Symbol )
+            {
+                this.symbolCache.put ( uri, (Symbol)o );
+                return (Symbol)o;
+            }
+        }
+        return null;
+    }
+
     private IFigure createRectangle ( final Rectangle element )
     {
         final PrecisionRectangle rect = new PrecisionRectangle ();
-        rect.setPreciseSize ( element.getWidth (), element.getWidth () );
+        rect.setPreciseSize ( element.getWidth (), element.getHeight () );
         final RectangleFigure fig = new RectangleFigure ();
         fig.setBounds ( rect );
 

@@ -17,6 +17,6 @@ package org.openscada.vi.model.VisualInterface;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Container extends Figure
+public interface Container extends Primitive
 {
 } // Container

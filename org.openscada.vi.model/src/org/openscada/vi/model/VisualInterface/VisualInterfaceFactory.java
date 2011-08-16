@@ -108,6 +108,15 @@ public interface VisualInterfaceFactory extends EFactory
     Figure createFigure();
 
     /**
+     * Returns a new object of class '<em>Symbol Reference</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Symbol Reference</em>'.
+     * @generated
+     */
+    SymbolReference createSymbolReference();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

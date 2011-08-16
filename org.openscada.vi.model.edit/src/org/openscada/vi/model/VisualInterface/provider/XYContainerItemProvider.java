@@ -37,7 +37,7 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
  * @generated
  */
 public class XYContainerItemProvider
-    extends FigureItemProvider
+    extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -127,10 +127,7 @@ public class XYContainerItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((XYContainer)object).getForegroundColor();
-        return label == null || label.length() == 0 ?
-            getString("_UI_XYContainer_type") :
-            getString("_UI_XYContainer_type") + " " + label;
+        return getString("_UI_XYContainer_type");
     }
 
     /**
@@ -170,6 +167,18 @@ public class XYContainerItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.XY_CONTAINER__CHILDREN,
                  VisualInterfaceFactory.eINSTANCE.createXYChild()));
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator()
+    {
+        return VisualInterfaceEditPlugin.INSTANCE;
     }
 
 }

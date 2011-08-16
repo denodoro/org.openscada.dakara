@@ -25,5 +25,13 @@
       </element>
       <position x="50.0" y="50.0"/>
     </children>
+    <children>
+      <element xsi:type="visualInterface:SymbolReference" uri="platform:/plugin/org.openscada.vi.sample1/resources/Symbol1.vi"/>
+      <position x="400.0" y="100.0"/>
+    </children>
+    <children>
+      <element xsi:type="visualInterface:SymbolReference" uri="platform:/plugin/org.openscada.vi.sample1/resources/Symbol1.vi"/>
+      <position x="400.0" y="200.0"/>
+    </children>
   </root>
 </visualInterface:Symbol>

@@ -13,7 +13,6 @@ import org.openscada.vi.model.VisualInterface.Symbol;
 
 public class VisualInterfaceViewer extends Composite
 {
-
     private final ViewElementFactory factory;
 
     private final FigureCanvas canvas;

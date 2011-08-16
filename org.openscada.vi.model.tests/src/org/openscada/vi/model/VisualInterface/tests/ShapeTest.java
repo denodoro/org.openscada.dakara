@@ -6,8 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.tests;
 
-import junit.framework.TestCase;
-
 import org.openscada.vi.model.VisualInterface.Shape;
 
 /**

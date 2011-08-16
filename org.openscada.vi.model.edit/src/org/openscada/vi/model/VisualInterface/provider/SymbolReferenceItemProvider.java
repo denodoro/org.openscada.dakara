@@ -15,28 +15,27 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.vi.model.VisualInterface.Symbol;
-import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
+import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Symbol} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.SymbolReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SymbolItemProvider
+public class SymbolReferenceItemProvider
     extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
@@ -51,7 +50,7 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public SymbolItemProvider(AdapterFactory adapterFactory)
+    public SymbolReferenceItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -69,45 +68,36 @@ public class SymbolItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addUriPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This adds a property descriptor for the Uri feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    protected void addUriPropertyDescriptor(Object object)
     {
-        if (childrenFeatures == null)
-        {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__ROOT);
-        }
-        return childrenFeatures;
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_SymbolReference_uri_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_SymbolReference_uri_feature", "_UI_SymbolReference_type"),
+                 VisualInterfacePackage.Literals.SYMBOL_REFERENCE__URI,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature(object, child);
-    }
-
-    /**
-     * This returns Symbol.gif.
+     * This returns SymbolReference.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -115,7 +105,7 @@ public class SymbolItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Symbol"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/SymbolReference"));
     }
 
     /**
@@ -127,7 +117,10 @@ public class SymbolItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_Symbol_type");
+        String label = ((SymbolReference)object).getUri();
+        return label == null || label.length() == 0 ?
+            getString("_UI_SymbolReference_type") :
+            getString("_UI_SymbolReference_type") + " " + label;
     }
 
     /**
@@ -142,10 +135,10 @@ public class SymbolItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Symbol.class))
+        switch (notification.getFeatureID(SymbolReference.class))
         {
-            case VisualInterfacePackage.SYMBOL__ROOT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
         super.notifyChanged(notification);
@@ -162,36 +155,6 @@ public class SymbolItemProvider
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
     {
         super.collectNewChildDescriptors(newChildDescriptors, object);
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createFigure()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createRectangle()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createText()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createXYContainer()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createLine()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
     }
 
     /**

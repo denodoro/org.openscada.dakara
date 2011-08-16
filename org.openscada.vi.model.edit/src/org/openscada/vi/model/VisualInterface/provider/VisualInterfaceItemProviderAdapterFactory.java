@@ -303,6 +303,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.SymbolReference} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SymbolReferenceItemProvider symbolReferenceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.SymbolReference}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSymbolReferenceAdapter()
+    {
+        if (symbolReferenceItemProvider == null)
+        {
+            symbolReferenceItemProvider = new SymbolReferenceItemProvider(this);
+        }
+
+        return symbolReferenceItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -422,6 +447,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (positionItemProvider != null) positionItemProvider.dispose();
         if (lineItemProvider != null) lineItemProvider.dispose();
         if (figureItemProvider != null) figureItemProvider.dispose();
+        if (symbolReferenceItemProvider != null) symbolReferenceItemProvider.dispose();
     }
 
 }

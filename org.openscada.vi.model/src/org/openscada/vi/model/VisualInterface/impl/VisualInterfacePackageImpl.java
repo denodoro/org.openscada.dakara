@@ -21,6 +21,7 @@ import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
 import org.openscada.vi.model.VisualInterface.Shape;
 import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
@@ -118,6 +119,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass figureEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass symbolReferenceEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -447,6 +455,26 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSymbolReference()
+    {
+        return symbolReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSymbolReference_Uri()
+    {
+        return (EAttribute)symbolReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public VisualInterfaceFactory getVisualInterfaceFactory()
     {
         return (VisualInterfaceFactory)getEFactoryInstance();
@@ -509,6 +537,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         figureEClass = createEClass(FIGURE);
         createEAttribute(figureEClass, FIGURE__FOREGROUND_COLOR);
         createEAttribute(figureEClass, FIGURE__BACKGROUND_COLOR);
+
+        symbolReferenceEClass = createEClass(SYMBOL_REFERENCE);
+        createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__URI);
     }
 
     /**
@@ -540,7 +571,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        containerEClass.getESuperTypes().add(this.getFigure());
+        containerEClass.getESuperTypes().add(this.getPrimitive());
         shapeEClass.getESuperTypes().add(this.getFigure());
         rectangleEClass.getESuperTypes().add(this.getShape());
         textEClass.getESuperTypes().add(this.getFigure());
@@ -548,6 +579,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         xyContainerEClass.getESuperTypes().add(this.getContainer());
         lineEClass.getESuperTypes().add(this.getFigure());
         figureEClass.getESuperTypes().add(this.getPrimitive());
+        symbolReferenceEClass.getESuperTypes().add(this.getPrimitive());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -587,6 +619,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(figureEClass, Figure.class, "Figure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFigure_ForegroundColor(), ecorePackage.getEString(), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFigure_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getSymbolReference_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

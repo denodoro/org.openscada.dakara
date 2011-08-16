@@ -94,7 +94,6 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
             {
                 Container container = (Container)theEObject;
                 T result = caseContainer(container);
-                if (result == null) result = caseFigure(container);
                 if (result == null) result = casePrimitive(container);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -147,7 +146,6 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                 XYContainer xyContainer = (XYContainer)theEObject;
                 T result = caseXYContainer(xyContainer);
                 if (result == null) result = caseContainer(xyContainer);
-                if (result == null) result = caseFigure(xyContainer);
                 if (result == null) result = casePrimitive(xyContainer);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
@@ -173,6 +171,14 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                 Figure figure = (Figure)theEObject;
                 T result = caseFigure(figure);
                 if (result == null) result = casePrimitive(figure);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.SYMBOL_REFERENCE:
+            {
+                SymbolReference symbolReference = (SymbolReference)theEObject;
+                T result = caseSymbolReference(symbolReference);
+                if (result == null) result = casePrimitive(symbolReference);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -368,6 +374,22 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseFigure(Figure object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Symbol Reference</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Symbol Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSymbolReference(SymbolReference object)
     {
         return null;
     }

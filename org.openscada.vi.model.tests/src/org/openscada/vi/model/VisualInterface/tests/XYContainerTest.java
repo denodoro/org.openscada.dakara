@@ -19,8 +19,16 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XYContainerTest extends FigureTest
+public class XYContainerTest extends TestCase
 {
+
+    /**
+     * The fixture for this XY Container test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected XYContainer fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -44,15 +52,25 @@ public class XYContainerTest extends FigureTest
     }
 
     /**
+     * Sets the fixture for this XY Container test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture(XYContainer fixture)
+    {
+        this.fixture = fixture;
+    }
+
+    /**
      * Returns the fixture for this XY Container test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     protected XYContainer getFixture()
     {
-        return (XYContainer)fixture;
+        return fixture;
     }
 
     /**

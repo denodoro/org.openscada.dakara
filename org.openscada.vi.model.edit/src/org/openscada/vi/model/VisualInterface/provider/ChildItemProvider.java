@@ -218,6 +218,11 @@ public class ChildItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.CHILD__ELEMENT,
                  VisualInterfaceFactory.eINSTANCE.createLine()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
     }
 
     /**
