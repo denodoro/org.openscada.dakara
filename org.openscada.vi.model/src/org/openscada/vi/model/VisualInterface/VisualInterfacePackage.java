@@ -544,13 +544,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL_REFERENCE__URI = PRIMITIVE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Zoom</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_REFERENCE__ZOOM = PRIMITIVE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Symbol Reference</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_REFERENCE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 1;
+    int SYMBOL_REFERENCE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 2;
 
 
     /**
@@ -849,6 +858,17 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getSymbolReference_Uri();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getZoom <em>Zoom</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Zoom</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SymbolReference#getZoom()
+     * @see #getSymbolReference()
+     * @generated
+     */
+    EAttribute getSymbolReference_Zoom();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1120,6 +1140,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SYMBOL_REFERENCE__URI = eINSTANCE.getSymbolReference_Uri();
+
+        /**
+         * The meta object literal for the '<em><b>Zoom</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL_REFERENCE__ZOOM = eINSTANCE.getSymbolReference_Zoom();
 
     }
 

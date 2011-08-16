@@ -6,8 +6,11 @@ import java.util.Map;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.Layer;
+import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.draw2d.PolylineShape;
 import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.ScalableLayeredPane;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Point;
@@ -79,13 +82,26 @@ public class ViewElementFactory
 
     protected IFigure createSymbolReference ( final SymbolReference symbolReference )
     {
-        final Figure rootWrapper = new Figure ();
-        rootWrapper.setLayoutManager ( new StackLayout () );
+        final LayeredPane rootWrapper;
+
+        if ( symbolReference.getZoom () != null )
+        {
+            rootWrapper = new ScalableLayeredPane ();
+            ( (ScalableLayeredPane)rootWrapper ).setScale ( symbolReference.getZoom () );
+        }
+        else
+        {
+            rootWrapper = new LayeredPane ();
+        }
 
         final Symbol symbol = load ( symbolReference.getUri () );
 
+        final Layer layer = new Layer ();
+        layer.setLayoutManager ( new StackLayout () );
+
         final IFigure rootFigure = create ( symbol.getRoot () );
-        rootWrapper.add ( rootFigure );
+        layer.add ( rootFigure );
+        rootWrapper.add ( layer );
 
         return rootWrapper;
     }

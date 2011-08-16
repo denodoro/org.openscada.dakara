@@ -475,6 +475,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getSymbolReference_Zoom()
+    {
+        return (EAttribute)symbolReferenceEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public VisualInterfaceFactory getVisualInterfaceFactory()
     {
         return (VisualInterfaceFactory)getEFactoryInstance();
@@ -540,6 +550,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         symbolReferenceEClass = createEClass(SYMBOL_REFERENCE);
         createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__URI);
+        createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__ZOOM);
     }
 
     /**
@@ -622,6 +633,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSymbolReference_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbolReference_Zoom(), ecorePackage.getEDoubleObject(), "zoom", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

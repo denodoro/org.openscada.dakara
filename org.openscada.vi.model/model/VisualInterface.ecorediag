@@ -235,6 +235,10 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//SymbolReference/uri"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_-TpHYcgGEeCAIKcTIp9H1A"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_5dLVcMgLEeCAIKcTIp9H1A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//SymbolReference/zoom"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_5dLVccgLEeCAIKcTIp9H1A"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_7wrbYsgGEeCAIKcTIp9H1A"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_7wrbY8gGEeCAIKcTIp9H1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_7wrbZMgGEeCAIKcTIp9H1A"/>

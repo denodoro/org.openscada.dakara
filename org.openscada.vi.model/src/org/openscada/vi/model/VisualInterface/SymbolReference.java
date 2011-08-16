@@ -16,6 +16,7 @@ package org.openscada.vi.model.VisualInterface;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.SymbolReference#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.SymbolReference#getZoom <em>Zoom</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +51,31 @@ public interface SymbolReference extends Primitive
      * @generated
      */
     void setUri(String value);
+
+    /**
+     * Returns the value of the '<em><b>Zoom</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Zoom</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Zoom</em>' attribute.
+     * @see #setZoom(Double)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbolReference_Zoom()
+     * @model
+     * @generated
+     */
+    Double getZoom();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getZoom <em>Zoom</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Zoom</em>' attribute.
+     * @see #getZoom()
+     * @generated
+     */
+    void setZoom(Double value);
 
 } // SymbolReference

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface">
+  <root xsi:type="visualInterface:XYContainer">
+    <children>
+      <element xsi:type="visualInterface:Rectangle" width="100.0" height="30.0"/>
+      <position/>
+    </children>
+    <children name="">
+      <element xsi:type="visualInterface:Text" foregroundColor="" backgroundColor="" format="Symbol 2"/>
+      <position/>
+    </children>
+  </root>
+</visualInterface:Symbol>

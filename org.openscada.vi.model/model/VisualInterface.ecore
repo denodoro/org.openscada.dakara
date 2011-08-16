@@ -58,5 +58,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SymbolReference" eSuperTypes="#//Primitive">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zoom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
   </eClassifiers>
 </ecore:EPackage>

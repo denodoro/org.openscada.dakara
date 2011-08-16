@@ -24,6 +24,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl#getZoom <em>Zoom</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +51,26 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @ordered
      */
     protected String uri = URI_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getZoom() <em>Zoom</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getZoom()
+     * @generated
+     * @ordered
+     */
+    protected static final Double ZOOM_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getZoom() <em>Zoom</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getZoom()
+     * @generated
+     * @ordered
+     */
+    protected Double zoom = ZOOM_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -100,6 +121,29 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
+    public Double getZoom()
+    {
+        return zoom;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setZoom(Double newZoom)
+    {
+        Double oldZoom = zoom;
+        zoom = newZoom;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM, oldZoom, zoom));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -107,6 +151,8 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
                 return getUri();
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
+                return getZoom();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -123,6 +169,9 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
                 setUri((String)newValue);
+                return;
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
+                setZoom((Double)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -141,6 +190,9 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
                 setUri(URI_EDEFAULT);
                 return;
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
+                setZoom(ZOOM_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -157,6 +209,8 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
                 return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
+                return ZOOM_EDEFAULT == null ? zoom != null : !ZOOM_EDEFAULT.equals(zoom);
         }
         return super.eIsSet(featureID);
     }
@@ -174,6 +228,8 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (uri: ");
         result.append(uri);
+        result.append(", zoom: ");
+        result.append(zoom);
         result.append(')');
         return result.toString();
     }

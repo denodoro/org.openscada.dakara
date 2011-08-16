@@ -69,6 +69,7 @@ public class SymbolReferenceItemProvider
             super.getPropertyDescriptors(object);
 
             addUriPropertyDescriptor(object);
+            addZoomPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -88,6 +89,29 @@ public class SymbolReferenceItemProvider
                  getString("_UI_SymbolReference_uri_feature"),
                  getString("_UI_PropertyDescriptor_description", "_UI_SymbolReference_uri_feature", "_UI_SymbolReference_type"),
                  VisualInterfacePackage.Literals.SYMBOL_REFERENCE__URI,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Zoom feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addZoomPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_SymbolReference_zoom_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_SymbolReference_zoom_feature", "_UI_SymbolReference_type"),
+                 VisualInterfacePackage.Literals.SYMBOL_REFERENCE__ZOOM,
                  true,
                  false,
                  false,
@@ -138,6 +162,7 @@ public class SymbolReferenceItemProvider
         switch (notification.getFeatureID(SymbolReference.class))
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
