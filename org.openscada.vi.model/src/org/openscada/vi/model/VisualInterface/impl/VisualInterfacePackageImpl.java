@@ -6,6 +6,7 @@
  */
 package org.openscada.vi.model.VisualInterface.impl;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -128,6 +129,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     private EClass symbolReferenceEClass = null;
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stringToStringMapEClass = null;
+
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -215,9 +223,59 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSymbol_Properties()
+    {
+        return (EReference)symbolEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSymbol_OnInit()
+    {
+        return (EAttribute)symbolEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSymbol_OnDispose()
+    {
+        return (EAttribute)symbolEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSymbol_OnUpdate()
+    {
+        return (EAttribute)symbolEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getPrimitive()
     {
         return primitiveEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPrimitive_Name()
+    {
+        return (EAttribute)primitiveEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -308,16 +366,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EReference getChild_Element()
     {
         return (EReference)childEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getChild_Name()
-    {
-        return (EAttribute)childEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -485,6 +533,56 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSymbolReference_Properties()
+    {
+        return (EReference)symbolReferenceEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSymbolReference_OnCreateProperties()
+    {
+        return (EAttribute)symbolReferenceEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getStringToStringMap()
+    {
+        return stringToStringMapEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getStringToStringMap_Key()
+    {
+        return (EAttribute)stringToStringMapEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getStringToStringMap_Value()
+    {
+        return (EAttribute)stringToStringMapEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public VisualInterfaceFactory getVisualInterfaceFactory()
     {
         return (VisualInterfaceFactory)getEFactoryInstance();
@@ -512,8 +610,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         // Create classes and their features
         symbolEClass = createEClass(SYMBOL);
         createEReference(symbolEClass, SYMBOL__ROOT);
+        createEReference(symbolEClass, SYMBOL__PROPERTIES);
+        createEAttribute(symbolEClass, SYMBOL__ON_INIT);
+        createEAttribute(symbolEClass, SYMBOL__ON_DISPOSE);
+        createEAttribute(symbolEClass, SYMBOL__ON_UPDATE);
 
         primitiveEClass = createEClass(PRIMITIVE);
+        createEAttribute(primitiveEClass, PRIMITIVE__NAME);
 
         containerEClass = createEClass(CONTAINER);
 
@@ -528,7 +631,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         childEClass = createEClass(CHILD);
         createEReference(childEClass, CHILD__ELEMENT);
-        createEAttribute(childEClass, CHILD__NAME);
 
         xyChildEClass = createEClass(XY_CHILD);
         createEReference(xyChildEClass, XY_CHILD__POSITION);
@@ -551,6 +653,12 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         symbolReferenceEClass = createEClass(SYMBOL_REFERENCE);
         createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__URI);
         createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__ZOOM);
+        createEReference(symbolReferenceEClass, SYMBOL_REFERENCE__PROPERTIES);
+        createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__ON_CREATE_PROPERTIES);
+
+        stringToStringMapEClass = createEClass(STRING_TO_STRING_MAP);
+        createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__KEY);
+        createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__VALUE);
     }
 
     /**
@@ -595,8 +703,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getSymbol_Root(), this.getPrimitive(), null, "root", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbol_Properties(), this.getStringToStringMap(), null, "properties", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbol_OnInit(), ecorePackage.getEString(), "onInit", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbol_OnDispose(), ecorePackage.getEString(), "onDispose", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbol_OnUpdate(), ecorePackage.getEString(), "onUpdate", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getPrimitive_Name(), ecorePackage.getEString(), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(containerEClass, org.openscada.vi.model.VisualInterface.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -611,7 +724,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getChild_Element(), this.getPrimitive(), null, "element", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getChild_Name(), ecorePackage.getEString(), "name", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(xyChildEClass, XYChild.class, "XYChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getXYChild_Position(), this.getPosition(), null, "position", null, 1, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -634,6 +746,12 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSymbolReference_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSymbolReference_Zoom(), ecorePackage.getEDoubleObject(), "zoom", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbolReference_Properties(), this.getStringToStringMap(), null, "properties", null, 0, -1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbolReference_OnCreateProperties(), ecorePackage.getEString(), "onCreateProperties", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(stringToStringMapEClass, Map.Entry.class, "StringToStringMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getStringToStringMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getStringToStringMap_Value(), ecorePackage.getEString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

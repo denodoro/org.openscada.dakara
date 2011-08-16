@@ -148,10 +148,7 @@ public class XYChildItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((XYChild)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_XYChild_type") :
-            getString("_UI_XYChild_type") + " " + label;
+        return getString("_UI_XYChild_type");
     }
 
     /**

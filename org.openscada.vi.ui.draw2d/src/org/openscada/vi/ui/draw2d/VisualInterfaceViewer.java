@@ -1,5 +1,8 @@
 package org.openscada.vi.ui.draw2d;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.jface.resource.JFaceResources;
@@ -19,7 +22,9 @@ public class VisualInterfaceViewer extends Composite
 
     private final LocalResourceManager manager;
 
-    public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol )
+    private SymbolController controller;
+
+    public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader symbolClassLoader )
     {
         super ( parent, style );
 
@@ -39,22 +44,42 @@ public class VisualInterfaceViewer extends Composite
         setLayout ( new FillLayout () );
         this.canvas = new FigureCanvas ( this );
 
-        this.canvas.setContents ( create ( symbol ) );
+        this.canvas.setContents ( create ( symbol, symbolClassLoader ) );
     }
 
-    protected IFigure create ( final Symbol symbol )
+    protected IFigure create ( final Symbol symbol, final ClassLoader classLoader )
     {
-        final IFigure fig = create ( symbol.getRoot () );
-        return fig;
+
+        try
+        {
+            final Map<String, String> properties = new HashMap<String, String> ( symbol.getProperties ().size () );
+            for ( final Map.Entry<String, String> entry : symbol.getProperties ().entrySet () )
+            {
+                properties.put ( entry.getKey (), entry.getValue () );
+            }
+
+            this.controller = new SymbolController ( symbol, classLoader, properties );
+
+            final IFigure fig = create ( symbol.getRoot () );
+
+            this.controller.init ();
+            return fig;
+        }
+        catch ( final Exception e )
+        {
+            return Helper.createErrorFigure ( e );
+        }
+
     }
 
     protected IFigure create ( final Primitive element )
     {
-        return this.factory.create ( element );
+        return this.factory.create ( this.controller, element );
     }
 
     private void internalDispose ()
     {
+        this.controller.dispose ();
         this.manager.dispose ();
     }
 

@@ -8,6 +8,7 @@ package org.openscada.vi.model.VisualInterface.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,6 +33,7 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.XYContainerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.XYContainerImpl#getChildren <em>Children</em>}</li>
  * </ul>
  * </p>
@@ -39,6 +42,24 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
  */
 public class XYContainerImpl extends EObjectImpl implements XYContainer
 {
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
     /**
      * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -68,6 +89,29 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
     protected EClass eStaticClass()
     {
         return VisualInterfacePackage.Literals.XY_CONTAINER;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName(String newName)
+    {
+        String oldName = name;
+        name = newName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.XY_CONTAINER__NAME, oldName, name));
     }
 
     /**
@@ -110,6 +154,8 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
     {
         switch (featureID)
         {
+            case VisualInterfacePackage.XY_CONTAINER__NAME:
+                return getName();
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
                 return getChildren();
         }
@@ -127,6 +173,9 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
     {
         switch (featureID)
         {
+            case VisualInterfacePackage.XY_CONTAINER__NAME:
+                setName((String)newValue);
+                return;
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
                 getChildren().clear();
                 getChildren().addAll((Collection<? extends XYChild>)newValue);
@@ -145,6 +194,9 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
     {
         switch (featureID)
         {
+            case VisualInterfacePackage.XY_CONTAINER__NAME:
+                setName(NAME_EDEFAULT);
+                return;
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
                 getChildren().clear();
                 return;
@@ -162,10 +214,29 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
     {
         switch (featureID)
         {
+            case VisualInterfacePackage.XY_CONTAINER__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
                 return children != null && !children.isEmpty();
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString()
+    {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (name: ");
+        result.append(name);
+        result.append(')');
+        return result.toString();
     }
 
 } //XYContainerImpl

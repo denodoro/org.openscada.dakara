@@ -30,7 +30,7 @@ public class VisualInterfaceViewPart extends ViewPart
     @Override
     public void createPartControl ( final Composite parent )
     {
-        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, load ( "platform:/plugin/org.openscada.vi.sample1/resources/My.vi" ) );
+        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, load ( "platform:/plugin/org.openscada.vi.sample1/resources/My.vi" ), Activator.class.getClassLoader () );
     }
 
     private Symbol load ( final String uri )

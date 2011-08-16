@@ -153,7 +153,7 @@ public class LineItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Line)object).getForegroundColor();
+        String label = ((Line)object).getName();
         return label == null || label.length() == 0 ?
             getString("_UI_Line_type") :
             getString("_UI_Line_type") + " " + label;

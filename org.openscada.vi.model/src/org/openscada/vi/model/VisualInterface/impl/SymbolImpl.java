@@ -9,12 +9,16 @@ package org.openscada.vi.model.VisualInterface.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EcoreEMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
@@ -27,6 +31,10 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getRoot <em>Root</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnInit <em>On Init</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnDispose <em>On Dispose</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnUpdate <em>On Update</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +51,76 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected Primitive root;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' map.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EMap<String, String> properties;
+
+    /**
+     * The default value of the '{@link #getOnInit() <em>On Init</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnInit()
+     * @generated
+     * @ordered
+     */
+    protected static final String ON_INIT_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOnInit() <em>On Init</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnInit()
+     * @generated
+     * @ordered
+     */
+    protected String onInit = ON_INIT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOnDispose() <em>On Dispose</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnDispose()
+     * @generated
+     * @ordered
+     */
+    protected static final String ON_DISPOSE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOnDispose() <em>On Dispose</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnDispose()
+     * @generated
+     * @ordered
+     */
+    protected String onDispose = ON_DISPOSE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOnUpdate() <em>On Update</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnUpdate()
+     * @generated
+     * @ordered
+     */
+    protected static final String ON_UPDATE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOnUpdate() <em>On Update</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnUpdate()
+     * @generated
+     * @ordered
+     */
+    protected String onUpdate = ON_UPDATE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -118,6 +196,89 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public EMap<String, String> getProperties()
+    {
+        if (properties == null)
+        {
+            properties = new EcoreEMap<String,String>(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, VisualInterfacePackage.SYMBOL__PROPERTIES);
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getOnInit()
+    {
+        return onInit;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnInit(String newOnInit)
+    {
+        String oldOnInit = onInit;
+        onInit = newOnInit;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_INIT, oldOnInit, onInit));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getOnDispose()
+    {
+        return onDispose;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnDispose(String newOnDispose)
+    {
+        String oldOnDispose = onDispose;
+        onDispose = newOnDispose;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_DISPOSE, oldOnDispose, onDispose));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getOnUpdate()
+    {
+        return onUpdate;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnUpdate(String newOnUpdate)
+    {
+        String oldOnUpdate = onUpdate;
+        onUpdate = newOnUpdate;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_UPDATE, oldOnUpdate, onUpdate));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -125,6 +286,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
                 return basicSetRoot(null, msgs);
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
+                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -141,6 +304,15 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
                 return getRoot();
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
+                if (coreType) return getProperties();
+                else return getProperties().map();
+            case VisualInterfacePackage.SYMBOL__ON_INIT:
+                return getOnInit();
+            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
+                return getOnDispose();
+            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+                return getOnUpdate();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -157,6 +329,18 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
                 setRoot((Primitive)newValue);
+                return;
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
+                ((EStructuralFeature.Setting)getProperties()).set(newValue);
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_INIT:
+                setOnInit((String)newValue);
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
+                setOnDispose((String)newValue);
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+                setOnUpdate((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -175,6 +359,18 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__ROOT:
                 setRoot((Primitive)null);
                 return;
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
+                getProperties().clear();
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_INIT:
+                setOnInit(ON_INIT_EDEFAULT);
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
+                setOnDispose(ON_DISPOSE_EDEFAULT);
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+                setOnUpdate(ON_UPDATE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -191,8 +387,37 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
                 return root != null;
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
+                return properties != null && !properties.isEmpty();
+            case VisualInterfacePackage.SYMBOL__ON_INIT:
+                return ON_INIT_EDEFAULT == null ? onInit != null : !ON_INIT_EDEFAULT.equals(onInit);
+            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
+                return ON_DISPOSE_EDEFAULT == null ? onDispose != null : !ON_DISPOSE_EDEFAULT.equals(onDispose);
+            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+                return ON_UPDATE_EDEFAULT == null ? onUpdate != null : !ON_UPDATE_EDEFAULT.equals(onUpdate);
         }
         return super.eIsSet(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString()
+    {
+        if (eIsProxy()) return super.toString();
+
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (onInit: ");
+        result.append(onInit);
+        result.append(", onDispose: ");
+        result.append(onDispose);
+        result.append(", onUpdate: ");
+        result.append(onUpdate);
+        result.append(')');
+        return result.toString();
     }
 
 } //SymbolImpl

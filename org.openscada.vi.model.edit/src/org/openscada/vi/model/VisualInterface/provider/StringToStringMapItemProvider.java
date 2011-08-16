@@ -9,6 +9,7 @@ package org.openscada.vi.model.VisualInterface.provider;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -26,17 +27,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.vi.model.VisualInterface.Shape;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Shape} object.
+ * This is the item provider adapter for a {@link java.util.Map.Entry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ShapeItemProvider
-    extends FigureItemProvider
+public class StringToStringMapItemProvider
+    extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -50,7 +50,7 @@ public class ShapeItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ShapeItemProvider(AdapterFactory adapterFactory)
+    public StringToStringMapItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -68,56 +68,68 @@ public class ShapeItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addWidthPropertyDescriptor(object);
-            addHeightPropertyDescriptor(object);
+            addKeyPropertyDescriptor(object);
+            addValuePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Width feature.
+     * This adds a property descriptor for the Key feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addWidthPropertyDescriptor(Object object)
+    protected void addKeyPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Shape_width_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_width_feature", "_UI_Shape_type"),
-                 VisualInterfacePackage.Literals.SHAPE__WIDTH,
+                 getString("_UI_StringToStringMap_key_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type"),
+                 VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__KEY,
                  true,
                  false,
                  false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                  null,
                  null));
     }
 
     /**
-     * This adds a property descriptor for the Height feature.
+     * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHeightPropertyDescriptor(Object object)
+    protected void addValuePropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Shape_height_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_height_feature", "_UI_Shape_type"),
-                 VisualInterfacePackage.Literals.SHAPE__HEIGHT,
+                 getString("_UI_StringToStringMap_value_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type"),
+                 VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__VALUE,
                  true,
                  false,
                  false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                  null,
                  null));
+    }
+
+    /**
+     * This returns StringToStringMap.gif.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getImage(Object object)
+    {
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/StringToStringMap"));
     }
 
     /**
@@ -129,10 +141,8 @@ public class ShapeItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Shape)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_Shape_type") :
-            getString("_UI_Shape_type") + " " + label;
+        Map.Entry<?, ?> stringToStringMap = (Map.Entry<?, ?>)object;
+        return "" + stringToStringMap.getKey() + " -> " + stringToStringMap.getValue();
     }
 
     /**
@@ -147,10 +157,10 @@ public class ShapeItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Shape.class))
+        switch (notification.getFeatureID(Map.Entry.class))
         {
-            case VisualInterfacePackage.SHAPE__WIDTH:
-            case VisualInterfacePackage.SHAPE__HEIGHT:
+            case VisualInterfacePackage.STRING_TO_STRING_MAP__KEY:
+            case VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
@@ -168,6 +178,18 @@ public class ShapeItemProvider
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
     {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator()
+    {
+        return VisualInterfaceEditPlugin.INSTANCE;
     }
 
 }

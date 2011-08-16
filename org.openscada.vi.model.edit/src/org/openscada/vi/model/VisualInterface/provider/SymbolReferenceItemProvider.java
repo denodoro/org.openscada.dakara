@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +28,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.openscada.vi.model.VisualInterface.SymbolReference;
+import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
@@ -68,10 +70,35 @@ public class SymbolReferenceItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addNamePropertyDescriptor(object);
             addUriPropertyDescriptor(object);
             addZoomPropertyDescriptor(object);
+            addOnCreatePropertiesPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Primitive_name_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"),
+                 VisualInterfacePackage.Literals.PRIMITIVE__NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -121,6 +148,62 @@ public class SymbolReferenceItemProvider
     }
 
     /**
+     * This adds a property descriptor for the On Create Properties feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnCreatePropertiesPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_SymbolReference_onCreateProperties_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_SymbolReference_onCreateProperties_feature", "_UI_SymbolReference_type"),
+                 VisualInterfacePackage.Literals.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES,
+                 true,
+                 true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    {
+        if (childrenFeatures == null)
+        {
+            super.getChildrenFeatures(object);
+            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL_REFERENCE__PROPERTIES);
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature(Object object, Object child)
+    {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature(object, child);
+    }
+
+    /**
      * This returns SymbolReference.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -141,7 +224,7 @@ public class SymbolReferenceItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((SymbolReference)object).getUri();
+        String label = ((SymbolReference)object).getName();
         return label == null || label.length() == 0 ?
             getString("_UI_SymbolReference_type") :
             getString("_UI_SymbolReference_type") + " " + label;
@@ -161,9 +244,14 @@ public class SymbolReferenceItemProvider
 
         switch (notification.getFeatureID(SymbolReference.class))
         {
+            case VisualInterfacePackage.SYMBOL_REFERENCE__NAME:
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
             case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+            case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
         super.notifyChanged(notification);
@@ -180,6 +268,11 @@ public class SymbolReferenceItemProvider
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
     {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.SYMBOL_REFERENCE__PROPERTIES,
+                 VisualInterfaceFactory.eINSTANCE.create(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP)));
     }
 
     /**

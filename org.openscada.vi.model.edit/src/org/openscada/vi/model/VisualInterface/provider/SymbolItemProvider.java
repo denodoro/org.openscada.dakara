@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -69,8 +71,80 @@ public class SymbolItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addOnInitPropertyDescriptor(object);
+            addOnDisposePropertyDescriptor(object);
+            addOnUpdatePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the On Init feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnInitPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Symbol_onInit_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onInit_feature", "_UI_Symbol_type"),
+                 VisualInterfacePackage.Literals.SYMBOL__ON_INIT,
+                 true,
+                 true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the On Dispose feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnDisposePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Symbol_onDispose_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onDispose_feature", "_UI_Symbol_type"),
+                 VisualInterfacePackage.Literals.SYMBOL__ON_DISPOSE,
+                 true,
+                 true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the On Update feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnUpdatePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Symbol_onUpdate_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onUpdate_feature", "_UI_Symbol_type"),
+                 VisualInterfacePackage.Literals.SYMBOL__ON_UPDATE,
+                 true,
+                 true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -88,6 +162,7 @@ public class SymbolItemProvider
         {
             super.getChildrenFeatures(object);
             childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__ROOT);
+            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__PROPERTIES);
         }
         return childrenFeatures;
     }
@@ -127,7 +202,10 @@ public class SymbolItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_Symbol_type");
+        String label = crop(((Symbol)object).getOnInit());
+        return label == null || label.length() == 0 ?
+            getString("_UI_Symbol_type") :
+            getString("_UI_Symbol_type") + " " + label;
     }
 
     /**
@@ -144,7 +222,13 @@ public class SymbolItemProvider
 
         switch (notification.getFeatureID(Symbol.class))
         {
+            case VisualInterfacePackage.SYMBOL__ON_INIT:
+            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
+            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
             case VisualInterfacePackage.SYMBOL__ROOT:
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -192,6 +276,11 @@ public class SymbolItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.SYMBOL__ROOT,
                  VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.SYMBOL__PROPERTIES,
+                 VisualInterfaceFactory.eINSTANCE.create(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP)));
     }
 
     /**

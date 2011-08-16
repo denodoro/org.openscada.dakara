@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface">
   <root xsi:type="visualInterface:XYContainer">
-    <children name="Test">
+    <children>
       <element xsi:type="visualInterface:Rectangle" foregroundColor="" backgroundColor="#FF0000" width="100.0" height="100.0"/>
       <position x="10.0" y="10.0"/>
     </children>
@@ -9,7 +9,7 @@
       <element xsi:type="visualInterface:Text" format="Hello World"/>
       <position x="200.0" y="200.0"/>
     </children>
-    <children name="">
+    <children>
       <element xsi:type="visualInterface:Line">
         <points x="10.0" y="10.0"/>
         <points x="200.0" y="200.0"/>
@@ -17,7 +17,7 @@
       </element>
       <position x="300.0" y="100.0"/>
     </children>
-    <children name="">
+    <children>
       <element xsi:type="visualInterface:Line">
         <points y="10.0"/>
         <points x="10.0" y="20.0"/>
@@ -38,4 +38,5 @@
       <position x="400.0" y="300.0"/>
     </children>
   </root>
+  <properties key="key" value="value"/>
 </visualInterface:Symbol>

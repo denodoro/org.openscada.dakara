@@ -1,8 +1,10 @@
 package org.openscada.vi.ui.draw2d;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -47,40 +49,41 @@ public class ViewElementFactory
 
     private final ResourceManager manager;
 
-    private final Map<String, Symbol> symbolCache = new HashMap<String, Symbol> ();
+    private final Map<URI, Symbol> symbolCache = new HashMap<URI, Symbol> ();
 
     public ViewElementFactory ( final ResourceManager manager )
     {
         this.manager = manager;
     }
 
-    public IFigure create ( final Primitive element )
+    public IFigure create ( final SymbolController controller, final Primitive element )
     {
         if ( element instanceof XYContainer )
         {
-            return createXYLayout ( (XYContainer)element );
+            return createXYLayout ( controller, (XYContainer)element );
         }
         else if ( element instanceof Text )
         {
             final Label label = new Label ( ( (Text)element ).getFormat () );
+            controller.addElement ( element.getName (), label );
             return applyFigure ( (Text)element, label );
         }
         else if ( element instanceof Line )
         {
-            return createLine ( (Line)element );
+            return createLine ( controller, (Line)element );
         }
         else if ( element instanceof SymbolReference )
         {
-            return createSymbolReference ( (SymbolReference)element );
+            return createSymbolReference ( controller, (SymbolReference)element );
         }
         else if ( element instanceof Rectangle )
         {
-            return createRectangle ( (Rectangle)element );
+            return createRectangle ( controller, (Rectangle)element );
         }
         return null;
     }
 
-    protected IFigure createSymbolReference ( final SymbolReference symbolReference )
+    protected IFigure createSymbolReference ( final SymbolController controller, final SymbolReference symbolReference )
     {
         final LayeredPane rootWrapper;
 
@@ -94,19 +97,63 @@ public class ViewElementFactory
             rootWrapper = new LayeredPane ();
         }
 
-        final Symbol symbol = load ( symbolReference.getUri () );
+        final URI uri = URI.createURI ( symbolReference.getUri () );
+        final Symbol symbol = load ( uri );
 
         final Layer layer = new Layer ();
         layer.setLayoutManager ( new StackLayout () );
 
-        final IFigure rootFigure = create ( symbol.getRoot () );
-        layer.add ( rootFigure );
         rootWrapper.add ( layer );
+
+        try
+        {
+            final Map<String, String> properties = createProperties ( controller, symbolReference );
+
+            // TODO: use class loader of providing bundle
+            final SymbolController childController = new SymbolController ( controller, symbol, Activator.class.getClassLoader (), properties );
+
+            final IFigure rootFigure = create ( childController, symbol.getRoot () );
+            layer.add ( rootFigure );
+        }
+        catch ( final Exception e )
+        {
+            layer.add ( Helper.createErrorFigure ( e ) );
+        }
 
         return rootWrapper;
     }
 
-    protected Symbol load ( final String uri )
+    private Map<String, String> createProperties ( final SymbolController controller, final SymbolReference symbolReference ) throws Exception
+    {
+        final Object properties = controller.createProperties ( "JavaScript", symbolReference.getOnCreateProperties () );
+
+        if ( properties instanceof Map )
+        {
+            return convert ( (Map<?, ?>)properties );
+        }
+        else if ( properties != null )
+        {
+            return convert ( BeanUtils.describe ( properties ) );
+        }
+
+        return Collections.emptyMap ();
+    }
+
+    private Map<String, String> convert ( final Map<?, ?> properties )
+    {
+        final Map<String, String> result = new HashMap<String, String> ();
+
+        for ( final Map.Entry<?, ?> entry : properties.entrySet () )
+        {
+            if ( entry.getKey () != null )
+            {
+                result.put ( entry.getKey ().toString (), entry.getValue () == null ? null : entry.getValue ().toString () );
+            }
+        }
+        return result;
+    }
+
+    protected Symbol load ( final URI uri )
     {
         final Symbol symbol = this.symbolCache.get ( uri );
         if ( symbol != null )
@@ -120,8 +167,7 @@ public class ViewElementFactory
 
         resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( "vi", new XMIResourceFactoryImpl () ); //$NON-NLS-1$
 
-        final URI file = URI.createURI ( uri );
-        final Resource resource = resourceSet.getResource ( file, true );
+        final Resource resource = resourceSet.getResource ( uri, true );
 
         for ( final EObject o : resource.getContents () )
         {
@@ -134,17 +180,19 @@ public class ViewElementFactory
         return null;
     }
 
-    private IFigure createRectangle ( final Rectangle element )
+    private IFigure createRectangle ( final SymbolController controller, final Rectangle element )
     {
         final PrecisionRectangle rect = new PrecisionRectangle ();
         rect.setPreciseSize ( element.getWidth (), element.getHeight () );
         final RectangleFigure fig = new RectangleFigure ();
         fig.setBounds ( rect );
 
+        controller.addElement ( element.getName (), fig );
+
         return applyFigure ( element, fig );
     }
 
-    private IFigure createLine ( final Line element )
+    private IFigure createLine ( final SymbolController controller, final Line element )
     {
         final PolylineShape polyline = new PolylineShape ();
 
@@ -164,6 +212,8 @@ public class ViewElementFactory
         polyline.setBounds ( points.getBounds ().expand ( 5, 5 ) );
         polyline.setOpaque ( true );
 
+        controller.addElement ( element.getName (), polyline );
+
         return applyFigure ( element, polyline );
     }
 
@@ -175,7 +225,7 @@ public class ViewElementFactory
         return rect;
     }
 
-    protected IFigure createXYLayout ( final XYContainer element )
+    protected IFigure createXYLayout ( final SymbolController controller, final XYContainer element )
     {
         final Figure pane = new Figure ();
 
@@ -183,9 +233,11 @@ public class ViewElementFactory
 
         for ( final XYChild child : element.getChildren () )
         {
-            final IFigure childFigure = create ( child.getElement () );
+            final IFigure childFigure = create ( controller, child.getElement () );
             pane.add ( childFigure, create ( child.getPosition () ) );
         }
+
+        controller.addElement ( element.getName (), pane );
 
         return pane;
     }

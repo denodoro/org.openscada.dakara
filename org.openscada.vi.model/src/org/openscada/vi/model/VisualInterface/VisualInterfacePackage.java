@@ -80,13 +80,49 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__ROOT = 0;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' map.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__PROPERTIES = 1;
+
+    /**
+     * The feature id for the '<em><b>On Init</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__ON_INIT = 2;
+
+    /**
+     * The feature id for the '<em><b>On Dispose</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__ON_DISPOSE = 3;
+
+    /**
+     * The feature id for the '<em><b>On Update</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__ON_UPDATE = 4;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 1;
+    int SYMBOL_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -99,13 +135,22 @@ public interface VisualInterfacePackage extends EPackage
     int PRIMITIVE = 1;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PRIMITIVE__NAME = 0;
+
+    /**
      * The number of structural features of the '<em>Primitive</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PRIMITIVE_FEATURE_COUNT = 0;
+    int PRIMITIVE_FEATURE_COUNT = 1;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl <em>Figure</em>}' class.
@@ -128,6 +173,15 @@ public interface VisualInterfacePackage extends EPackage
     int CONTAINER = 2;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINER__NAME = PRIMITIVE__NAME;
+
+    /**
      * The number of structural features of the '<em>Container</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -135,6 +189,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int CONTAINER_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__NAME = PRIMITIVE__NAME;
 
     /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
@@ -172,6 +235,15 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     int SHAPE = 3;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__NAME = FIGURE__NAME;
 
     /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
@@ -229,6 +301,15 @@ public interface VisualInterfacePackage extends EPackage
     int RECTANGLE = 4;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__NAME = SHAPE__NAME;
+
+    /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -282,6 +363,15 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     int TEXT = 5;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__NAME = FIGURE__NAME;
 
     /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
@@ -339,22 +429,13 @@ public interface VisualInterfacePackage extends EPackage
     int CHILD__ELEMENT = 0;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHILD__NAME = 1;
-
-    /**
      * The number of structural features of the '<em>Child</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHILD_FEATURE_COUNT = 2;
+    int CHILD_FEATURE_COUNT = 1;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.XYChildImpl <em>XY Child</em>}' class.
@@ -374,15 +455,6 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int XY_CHILD__ELEMENT = CHILD__ELEMENT;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int XY_CHILD__NAME = CHILD__NAME;
 
     /**
      * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -411,6 +483,15 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     int XY_CONTAINER = 8;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int XY_CONTAINER__NAME = CONTAINER__NAME;
 
     /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -479,6 +560,15 @@ public interface VisualInterfacePackage extends EPackage
     int LINE = 10;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__NAME = FIGURE__NAME;
+
+    /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -535,6 +625,15 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL_REFERENCE = 12;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_REFERENCE__NAME = PRIMITIVE__NAME;
+
+    /**
      * The feature id for the '<em><b>Uri</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -553,13 +652,69 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL_REFERENCE__ZOOM = PRIMITIVE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' map.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_REFERENCE__PROPERTIES = PRIMITIVE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>On Create Properties</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL_REFERENCE__ON_CREATE_PROPERTIES = PRIMITIVE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Symbol Reference</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_REFERENCE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 2;
+    int SYMBOL_REFERENCE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 4;
+
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.StringToStringMapImpl <em>String To String Map</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.StringToStringMapImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getStringToStringMap()
+     * @generated
+     */
+    int STRING_TO_STRING_MAP = 13;
+
+    /**
+     * The feature id for the '<em><b>Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TO_STRING_MAP__KEY = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TO_STRING_MAP__VALUE = 1;
+
+    /**
+     * The number of structural features of the '<em>String To String Map</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TO_STRING_MAP_FEATURE_COUNT = 2;
 
 
     /**
@@ -584,6 +739,50 @@ public interface VisualInterfacePackage extends EPackage
     EReference getSymbol_Root();
 
     /**
+     * Returns the meta object for the map '{@link org.openscada.vi.model.VisualInterface.Symbol#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the map '<em>Properties</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getProperties()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_Properties();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Symbol#getOnInit <em>On Init</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Init</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getOnInit()
+     * @see #getSymbol()
+     * @generated
+     */
+    EAttribute getSymbol_OnInit();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Symbol#getOnDispose <em>On Dispose</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Dispose</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getOnDispose()
+     * @see #getSymbol()
+     * @generated
+     */
+    EAttribute getSymbol_OnDispose();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Symbol#getOnUpdate <em>On Update</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Update</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getOnUpdate()
+     * @see #getSymbol()
+     * @generated
+     */
+    EAttribute getSymbol_OnUpdate();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -592,6 +791,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EClass getPrimitive();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Primitive#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Primitive#getName()
+     * @see #getPrimitive()
+     * @generated
+     */
+    EAttribute getPrimitive_Name();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Container <em>Container</em>}'.
@@ -686,17 +896,6 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EReference getChild_Element();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Child#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Child#getName()
-     * @see #getChild()
-     * @generated
-     */
-    EAttribute getChild_Name();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.XYChild <em>XY Child</em>}'.
@@ -869,6 +1068,62 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getSymbolReference_Zoom();
 
     /**
+     * Returns the meta object for the map '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the map '<em>Properties</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SymbolReference#getProperties()
+     * @see #getSymbolReference()
+     * @generated
+     */
+    EReference getSymbolReference_Properties();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getOnCreateProperties <em>On Create Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Create Properties</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SymbolReference#getOnCreateProperties()
+     * @see #getSymbolReference()
+     * @generated
+     */
+    EAttribute getSymbolReference_OnCreateProperties();
+
+    /**
+     * Returns the meta object for class '{@link java.util.Map.Entry <em>String To String Map</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>String To String Map</em>'.
+     * @see java.util.Map.Entry
+     * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
+     *        valueDataType="org.eclipse.emf.ecore.EString"
+     * @generated
+     */
+    EClass getStringToStringMap();
+
+    /**
+     * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Key</em>'.
+     * @see java.util.Map.Entry
+     * @see #getStringToStringMap()
+     * @generated
+     */
+    EAttribute getStringToStringMap_Key();
+
+    /**
+     * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see java.util.Map.Entry
+     * @see #getStringToStringMap()
+     * @generated
+     */
+    EAttribute getStringToStringMap_Value();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -910,6 +1165,38 @@ public interface VisualInterfacePackage extends EPackage
         EReference SYMBOL__ROOT = eINSTANCE.getSymbol_Root();
 
         /**
+         * The meta object literal for the '<em><b>Properties</b></em>' map feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__PROPERTIES = eINSTANCE.getSymbol_Properties();
+
+        /**
+         * The meta object literal for the '<em><b>On Init</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL__ON_INIT = eINSTANCE.getSymbol_OnInit();
+
+        /**
+         * The meta object literal for the '<em><b>On Dispose</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL__ON_DISPOSE = eINSTANCE.getSymbol_OnDispose();
+
+        /**
+         * The meta object literal for the '<em><b>On Update</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL__ON_UPDATE = eINSTANCE.getSymbol_OnUpdate();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -918,6 +1205,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EClass PRIMITIVE = eINSTANCE.getPrimitive();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PRIMITIVE__NAME = eINSTANCE.getPrimitive_Name();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Container <em>Container</em>}' class.
@@ -1000,14 +1295,6 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference CHILD__ELEMENT = eINSTANCE.getChild_Element();
-
-        /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute CHILD__NAME = eINSTANCE.getChild_Name();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.XYChildImpl <em>XY Child</em>}' class.
@@ -1148,6 +1435,48 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SYMBOL_REFERENCE__ZOOM = eINSTANCE.getSymbolReference_Zoom();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' map feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL_REFERENCE__PROPERTIES = eINSTANCE.getSymbolReference_Properties();
+
+        /**
+         * The meta object literal for the '<em><b>On Create Properties</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL_REFERENCE__ON_CREATE_PROPERTIES = eINSTANCE.getSymbolReference_OnCreateProperties();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.StringToStringMapImpl <em>String To String Map</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.StringToStringMapImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getStringToStringMap()
+         * @generated
+         */
+        EClass STRING_TO_STRING_MAP = eINSTANCE.getStringToStringMap();
+
+        /**
+         * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute STRING_TO_STRING_MAP__KEY = eINSTANCE.getStringToStringMap_Key();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute STRING_TO_STRING_MAP__VALUE = eINSTANCE.getStringToStringMap_Value();
 
     }
 

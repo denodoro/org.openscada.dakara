@@ -5,7 +5,7 @@
       <element xsi:type="visualInterface:Rectangle" width="100.0" height="30.0"/>
       <position/>
     </children>
-    <children name="">
+    <children>
       <element xsi:type="visualInterface:Text" foregroundColor="" backgroundColor="" format="Symbol 1"/>
       <position/>
     </children>

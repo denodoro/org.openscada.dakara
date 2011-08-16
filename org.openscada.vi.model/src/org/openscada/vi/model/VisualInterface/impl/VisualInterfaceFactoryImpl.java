@@ -6,6 +6,7 @@
  */
 package org.openscada.vi.model.VisualInterface.impl;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -78,6 +79,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.LINE: return createLine();
             case VisualInterfacePackage.FIGURE: return createFigure();
             case VisualInterfacePackage.SYMBOL_REFERENCE: return createSymbolReference();
+            case VisualInterfacePackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -191,6 +193,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         SymbolReferenceImpl symbolReference = new SymbolReferenceImpl();
         return symbolReference;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Map.Entry<String, String> createStringToStringMap()
+    {
+        StringToStringMapImpl stringToStringMap = new StringToStringMapImpl();
+        return stringToStringMap;
     }
 
     /**
