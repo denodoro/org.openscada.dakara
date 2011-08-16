@@ -37,7 +37,7 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
  *
  * @generated
  */
-public class XYContainerImpl extends EObjectImpl implements XYContainer
+public class XYContainerImpl extends FigureImpl implements XYContainer
 {
     /**
      * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.

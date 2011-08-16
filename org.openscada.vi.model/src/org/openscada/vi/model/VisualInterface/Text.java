@@ -23,7 +23,7 @@ package org.openscada.vi.model.VisualInterface;
  * @model
  * @generated
  */
-public interface Text extends Primitive
+public interface Text extends Figure
 {
 
     /**

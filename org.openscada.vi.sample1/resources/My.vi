@@ -2,7 +2,7 @@
 <visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface">
   <root xsi:type="visualInterface:XYContainer">
     <children name="Test">
-      <element xsi:type="visualInterface:Rectangle" width="100.0" height="100.0"/>
+      <element xsi:type="visualInterface:Rectangle" foregroundColor="" backgroundColor="#FF0000" width="100.0" height="100.0"/>
       <position x="10.0" y="10.0"/>
     </children>
     <children>

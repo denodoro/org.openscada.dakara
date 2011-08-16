@@ -86,8 +86,10 @@ public class RectangleItemProvider
     @Override
     public String getText(Object object)
     {
-        Rectangle rectangle = (Rectangle)object;
-        return getString("_UI_Rectangle_type") + " " + rectangle.getWidth();
+        String label = ((Rectangle)object).getForegroundColor();
+        return label == null || label.length() == 0 ?
+            getString("_UI_Rectangle_type") :
+            getString("_UI_Rectangle_type") + " " + label;
     }
 
     /**

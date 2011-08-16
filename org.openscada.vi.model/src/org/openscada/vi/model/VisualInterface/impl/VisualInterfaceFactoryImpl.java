@@ -76,6 +76,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.XY_CONTAINER: return createXYContainer();
             case VisualInterfacePackage.POSITION: return createPosition();
             case VisualInterfacePackage.LINE: return createLine();
+            case VisualInterfacePackage.FIGURE: return createFigure();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -167,6 +168,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         LineImpl line = new LineImpl();
         return line;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Figure createFigure()
+    {
+        FigureImpl figure = new FigureImpl();
+        return figure;
     }
 
     /**

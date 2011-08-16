@@ -16,16 +16,8 @@ import org.openscada.vi.model.VisualInterface.Container;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ContainerTest extends TestCase
+public abstract class ContainerTest extends FigureTest
 {
-
-    /**
-     * The fixture for this Container test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Container fixture = null;
 
     /**
      * Constructs a new Container test case with the given name.
@@ -39,25 +31,15 @@ public abstract class ContainerTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Container test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture(Container fixture)
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Container test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected Container getFixture()
     {
-        return fixture;
+        return (Container)fixture;
     }
 
 } //ContainerTest

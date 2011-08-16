@@ -24,7 +24,7 @@ package org.openscada.vi.model.VisualInterface;
  * @model abstract="true"
  * @generated
  */
-public interface Shape extends Primitive
+public interface Shape extends Figure
 {
     /**
      * Returns the value of the '<em><b>Width</b></em>' attribute.

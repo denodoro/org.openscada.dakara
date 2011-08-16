@@ -19,16 +19,8 @@ import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LineTest extends TestCase
+public class LineTest extends FigureTest
 {
-
-    /**
-     * The fixture for this Line test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Line fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -52,25 +44,15 @@ public class LineTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Line test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture(Line fixture)
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Line test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected Line getFixture()
     {
-        return fixture;
+        return (Line)fixture;
     }
 
     /**

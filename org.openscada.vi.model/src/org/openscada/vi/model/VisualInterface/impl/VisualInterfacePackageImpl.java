@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.openscada.vi.model.VisualInterface.Child;
+import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -110,6 +111,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass lineEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass figureEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -399,6 +407,46 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getLine_LineWidth()
+    {
+        return (EAttribute)lineEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getFigure()
+    {
+        return figureEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFigure_ForegroundColor()
+    {
+        return (EAttribute)figureEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFigure_BackgroundColor()
+    {
+        return (EAttribute)figureEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public VisualInterfaceFactory getVisualInterfaceFactory()
     {
         return (VisualInterfaceFactory)getEFactoryInstance();
@@ -456,6 +504,11 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         lineEClass = createEClass(LINE);
         createEReference(lineEClass, LINE__POINTS);
+        createEAttribute(lineEClass, LINE__LINE_WIDTH);
+
+        figureEClass = createEClass(FIGURE);
+        createEAttribute(figureEClass, FIGURE__FOREGROUND_COLOR);
+        createEAttribute(figureEClass, FIGURE__BACKGROUND_COLOR);
     }
 
     /**
@@ -487,13 +540,14 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        containerEClass.getESuperTypes().add(this.getPrimitive());
-        shapeEClass.getESuperTypes().add(this.getPrimitive());
+        containerEClass.getESuperTypes().add(this.getFigure());
+        shapeEClass.getESuperTypes().add(this.getFigure());
         rectangleEClass.getESuperTypes().add(this.getShape());
-        textEClass.getESuperTypes().add(this.getPrimitive());
+        textEClass.getESuperTypes().add(this.getFigure());
         xyChildEClass.getESuperTypes().add(this.getChild());
         xyContainerEClass.getESuperTypes().add(this.getContainer());
-        lineEClass.getESuperTypes().add(this.getPrimitive());
+        lineEClass.getESuperTypes().add(this.getFigure());
+        figureEClass.getESuperTypes().add(this.getPrimitive());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -528,6 +582,11 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getLine_Points(), this.getPosition(), null, "points", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getLine_LineWidth(), ecorePackage.getEInt(), "lineWidth", "1", 0, 1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(figureEClass, Figure.class, "Figure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getFigure_ForegroundColor(), ecorePackage.getEString(), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFigure_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

@@ -16,16 +16,8 @@ import org.openscada.vi.model.VisualInterface.Shape;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ShapeTest extends TestCase
+public abstract class ShapeTest extends FigureTest
 {
-
-    /**
-     * The fixture for this Shape test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Shape fixture = null;
 
     /**
      * Constructs a new Shape test case with the given name.
@@ -39,25 +31,15 @@ public abstract class ShapeTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Shape test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture(Shape fixture)
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Shape test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected Shape getFixture()
     {
-        return fixture;
+        return (Shape)fixture;
     }
 
 } //ShapeTest

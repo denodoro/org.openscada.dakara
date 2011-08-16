@@ -99,6 +99,15 @@ public interface VisualInterfaceFactory extends EFactory
     Line createLine();
 
     /**
+     * Returns a new object of class '<em>Figure</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Figure</em>'.
+     * @generated
+     */
+    Figure createFigure();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

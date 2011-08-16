@@ -197,6 +197,11 @@ public class ChildItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createFigure()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
                  VisualInterfaceFactory.eINSTANCE.createRectangle()));
 
         newChildDescriptors.add

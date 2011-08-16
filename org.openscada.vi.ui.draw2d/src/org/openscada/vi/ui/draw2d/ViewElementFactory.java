@@ -1,10 +1,8 @@
 package org.openscada.vi.ui.draw2d;
 
-import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
-import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.PolylineShape;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.XYLayout;
@@ -12,8 +10,11 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.jface.resource.ColorDescriptor;
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -24,6 +25,13 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
 
 public class ViewElementFactory
 {
+    private final ResourceManager manager;
+
+    public ViewElementFactory ( final ResourceManager manager )
+    {
+        this.manager = manager;
+    }
+
     public IFigure create ( final Primitive element )
     {
         if ( element instanceof XYContainer )
@@ -33,8 +41,7 @@ public class ViewElementFactory
         else if ( element instanceof Text )
         {
             final Label label = new Label ( ( (Text)element ).getFormat () );
-            label.setForegroundColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_BLACK ) );
-            return label;
+            return applyFigure ( (Text)element, label );
         }
         else if ( element instanceof Line )
         {
@@ -42,19 +49,19 @@ public class ViewElementFactory
         }
         else if ( element instanceof Rectangle )
         {
-            final PrecisionRectangle rect = new PrecisionRectangle ();
-            rect.setPreciseSize ( ( (Rectangle)element ).getWidth (), ( (Rectangle)element ).getWidth () );
-            final RectangleFigure fig = new RectangleFigure ();
-            fig.setBounds ( rect );
-
-            final Border border = new LineBorder ( 2 );
-            fig.setBorder ( border );
-            fig.setForegroundColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_BLACK ) );
-            fig.setBackgroundColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_WHITE ) );
-
-            return fig;
+            return createRectangle ( (Rectangle)element );
         }
         return null;
+    }
+
+    private IFigure createRectangle ( final Rectangle element )
+    {
+        final PrecisionRectangle rect = new PrecisionRectangle ();
+        rect.setPreciseSize ( element.getWidth (), element.getWidth () );
+        final RectangleFigure fig = new RectangleFigure ();
+        fig.setBounds ( rect );
+
+        return applyFigure ( element, fig );
     }
 
     private IFigure createLine ( final Line element )
@@ -70,16 +77,14 @@ public class ViewElementFactory
         polyline.setAntialias ( SWT.ON );
         polyline.setPoints ( points );
 
-        polyline.setLineCap ( SWT.CAP_FLAT );
-        polyline.setForegroundColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_BLACK ) );
-        polyline.setBackgroundColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_WHITE ) );
-        polyline.setLineWidth ( 1 );
+        polyline.setLineCap ( SWT.CAP_SQUARE );
+        polyline.setLineWidth ( element.getLineWidth () );
 
         // set bounds from line data, expanding WTF
         polyline.setBounds ( points.getBounds ().expand ( 5, 5 ) );
         polyline.setOpaque ( true );
 
-        return polyline;
+        return applyFigure ( element, polyline );
     }
 
     private org.eclipse.draw2d.geometry.Rectangle create ( final Position position )
@@ -103,5 +108,44 @@ public class ViewElementFactory
         }
 
         return pane;
+    }
+
+    protected IFigure applyFigure ( final org.openscada.vi.model.VisualInterface.Figure figureModel, final IFigure figure )
+    {
+        figure.setForegroundColor ( makeColor ( figureModel.getForegroundColor () ) );
+        figure.setBackgroundColor ( makeColor ( figureModel.getBackgroundColor () ) );
+        return figure;
+    }
+
+    private Color makeColor ( final String color )
+    {
+        if ( color == null )
+        {
+            return null;
+        }
+
+        if ( color.startsWith ( "#" ) )
+        {
+            if ( color.length () == 1 + 3 )
+            {
+                return this.manager.createColor ( makeColor ( color.substring ( 1, 2 ), color.substring ( 2, 3 ), color.substring ( 3, 4 ) ) );
+            }
+            else if ( color.length () >= 1 + 6 )
+            {
+                return this.manager.createColor ( makeColor ( color.substring ( 1, 3 ), color.substring ( 3, 5 ), color.substring ( 5, 7 ) ) );
+            }
+            return null;
+        }
+        return null;
+    }
+
+    private ColorDescriptor makeColor ( final String r, final String g, final String b )
+    {
+        return makeColor ( Integer.parseInt ( r, 16 ), Integer.parseInt ( g, 16 ), Integer.parseInt ( b, 16 ) );
+    }
+
+    private ColorDescriptor makeColor ( final int r, final int g, final int b )
+    {
+        return ColorDescriptor.createFrom ( new RGB ( r, g, b ) );
     }
 }

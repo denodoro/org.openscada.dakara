@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -37,7 +39,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * @generated
  */
 public class LineItemProvider
-    extends ItemProviderAdapter
+    extends FigureItemProvider
     implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -69,8 +71,32 @@ public class LineItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addLineWidthPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Line Width feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLineWidthPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Line_lineWidth_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Line_lineWidth_feature", "_UI_Line_type"),
+                 VisualInterfacePackage.Literals.LINE__LINE_WIDTH,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -127,7 +153,10 @@ public class LineItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_Line_type");
+        String label = ((Line)object).getForegroundColor();
+        return label == null || label.length() == 0 ?
+            getString("_UI_Line_type") :
+            getString("_UI_Line_type") + " " + label;
     }
 
     /**
@@ -144,6 +173,9 @@ public class LineItemProvider
 
         switch (notification.getFeatureID(Line.class))
         {
+            case VisualInterfacePackage.LINE__LINE_WIDTH:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
             case VisualInterfacePackage.LINE__POINTS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
@@ -167,18 +199,6 @@ public class LineItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.LINE__POINTS,
                  VisualInterfaceFactory.eINSTANCE.createPosition()));
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator()
-    {
-        return VisualInterfaceEditPlugin.INSTANCE;
     }
 
 }

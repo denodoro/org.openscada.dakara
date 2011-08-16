@@ -28,7 +28,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *
  * @generated
  */
-public class TextImpl extends EObjectImpl implements Text
+public class TextImpl extends FigureImpl implements Text
 {
     /**
      * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.

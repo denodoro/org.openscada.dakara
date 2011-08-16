@@ -15,29 +15,28 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
+import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
-import org.openscada.vi.model.VisualInterface.XYContainer;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.XYContainer} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Figure} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XYContainerItemProvider
-    extends FigureItemProvider
+public class FigureItemProvider
+    extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -51,7 +50,7 @@ public class XYContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public XYContainerItemProvider(AdapterFactory adapterFactory)
+    public FigureItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -69,45 +68,60 @@ public class XYContainerItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addForegroundColorPropertyDescriptor(object);
+            addBackgroundColorPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This adds a property descriptor for the Foreground Color feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    protected void addForegroundColorPropertyDescriptor(Object object)
     {
-        if (childrenFeatures == null)
-        {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.XY_CONTAINER__CHILDREN);
-        }
-        return childrenFeatures;
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_foregroundColor_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_foregroundColor_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__FOREGROUND_COLOR,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
+     * This adds a property descriptor for the Background Color feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected void addBackgroundColorPropertyDescriptor(Object object)
     {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature(object, child);
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_backgroundColor_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_backgroundColor_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__BACKGROUND_COLOR,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
-     * This returns XYContainer.gif.
+     * This returns Figure.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -115,7 +129,7 @@ public class XYContainerItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/XYContainer"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Figure"));
     }
 
     /**
@@ -127,10 +141,10 @@ public class XYContainerItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((XYContainer)object).getForegroundColor();
+        String label = ((Figure)object).getForegroundColor();
         return label == null || label.length() == 0 ?
-            getString("_UI_XYContainer_type") :
-            getString("_UI_XYContainer_type") + " " + label;
+            getString("_UI_Figure_type") :
+            getString("_UI_Figure_type") + " " + label;
     }
 
     /**
@@ -145,10 +159,11 @@ public class XYContainerItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(XYContainer.class))
+        switch (notification.getFeatureID(Figure.class))
         {
-            case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
+            case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
         super.notifyChanged(notification);
@@ -165,11 +180,18 @@ public class XYContainerItemProvider
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
     {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+    }
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.XY_CONTAINER__CHILDREN,
-                 VisualInterfaceFactory.eINSTANCE.createXYChild()));
+    /**
+     * Return the resource locator for this item provider's resources.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator()
+    {
+        return VisualInterfaceEditPlugin.INSTANCE;
     }
 
 }

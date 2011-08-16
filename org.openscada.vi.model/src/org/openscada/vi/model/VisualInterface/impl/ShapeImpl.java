@@ -30,7 +30,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *
  * @generated
  */
-public abstract class ShapeImpl extends EObjectImpl implements Shape
+public abstract class ShapeImpl extends FigureImpl implements Shape
 {
     /**
      * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.

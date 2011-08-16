@@ -2,6 +2,8 @@ package org.openscada.vi.ui.draw2d;
 
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.layout.FillLayout;
@@ -16,11 +18,15 @@ public class VisualInterfaceViewer extends Composite
 
     private final FigureCanvas canvas;
 
+    private final LocalResourceManager manager;
+
     public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol )
     {
         super ( parent, style );
 
-        this.factory = new ViewElementFactory ();
+        this.manager = new LocalResourceManager ( JFaceResources.getResources () );
+
+        this.factory = new ViewElementFactory ( this.manager );
 
         addDisposeListener ( new DisposeListener () {
 
@@ -50,6 +56,7 @@ public class VisualInterfaceViewer extends Composite
 
     private void internalDispose ()
     {
+        this.manager.dispose ();
     }
 
 }
