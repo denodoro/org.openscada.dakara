@@ -1,10 +1,8 @@
 package org.openscada.vi.ui.draw2d;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -19,6 +17,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -107,7 +106,9 @@ public class ViewElementFactory
 
         try
         {
-            final Map<String, String> properties = createProperties ( controller, symbolReference );
+            final Map<String, String> properties = new HashMap<String, String> ();
+            properties.putAll ( convert ( symbolReference.getProperties () ) );
+            createProperties ( controller, symbolReference, properties );
 
             // TODO: use class loader of providing bundle
             final SymbolController childController = new SymbolController ( controller, symbol, Activator.class.getClassLoader (), properties );
@@ -123,34 +124,22 @@ public class ViewElementFactory
         return rootWrapper;
     }
 
-    private Map<String, String> createProperties ( final SymbolController controller, final SymbolReference symbolReference ) throws Exception
+    private Map<? extends String, ? extends String> convert ( final EMap<String, String> properties )
     {
-        final Object properties = controller.createProperties ( "JavaScript", symbolReference.getOnCreateProperties () );
-
-        if ( properties instanceof Map )
+        final Map<String, String> p = new HashMap<String, String> ();
+        if ( properties != null )
         {
-            return convert ( (Map<?, ?>)properties );
-        }
-        else if ( properties != null )
-        {
-            return convert ( BeanUtils.describe ( properties ) );
-        }
-
-        return Collections.emptyMap ();
-    }
-
-    private Map<String, String> convert ( final Map<?, ?> properties )
-    {
-        final Map<String, String> result = new HashMap<String, String> ();
-
-        for ( final Map.Entry<?, ?> entry : properties.entrySet () )
-        {
-            if ( entry.getKey () != null )
+            for ( final Map.Entry<String, String> entry : properties.entrySet () )
             {
-                result.put ( entry.getKey ().toString (), entry.getValue () == null ? null : entry.getValue ().toString () );
+                p.put ( entry.getKey (), entry.getValue () );
             }
         }
-        return result;
+        return p;
+    }
+
+    private void createProperties ( final SymbolController controller, final SymbolReference symbolReference, final Map<String, String> currentProperties ) throws Exception
+    {
+        controller.createProperties ( "JavaScript", symbolReference.getOnCreateProperties (), currentProperties );
     }
 
     protected Symbol load ( final URI uri )

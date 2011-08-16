@@ -10,7 +10,9 @@
       <position/>
     </children>
     <children>
-      <element xsi:type="visualInterface:SymbolReference" uri="platform:/plugin/org.openscada.vi.sample1/resources/Symbol2.vi"/>
+      <element xsi:type="visualInterface:SymbolReference" uri="platform:/plugin/org.openscada.vi.sample1/resources/Symbol2.vi" onCreateProperties="properties.put(&quot;localScript&quot;,&quot;Lokal Script&quot;);">
+        <properties key="local" value="Lokal"/>
+      </element>
       <position x="100.0"/>
     </children>
   </root>

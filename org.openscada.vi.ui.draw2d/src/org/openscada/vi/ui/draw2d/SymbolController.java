@@ -7,10 +7,12 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import javax.script.Bindings;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import javax.script.SimpleScriptContext;
 
 import org.eclipse.draw2d.IFigure;
 import org.openscada.utils.script.ScriptExecutor;
@@ -75,6 +77,7 @@ public class SymbolController
         {
             this.properties.put ( entry.getKey (), entry.getValue () );
         }
+        this.properties.putAll ( properties );
 
         this.engine = this.engineManager.getEngineByName ( "JavaScript" );
         this.context = new SymbolContext ( this );
@@ -141,10 +144,14 @@ public class SymbolController
         this.controllers.clear ();
     }
 
-    public Object createProperties ( final String command, final String onCreateProperties ) throws Exception
+    public Object createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
     {
         final ScriptExecutor executor = new ScriptExecutor ( this.engine, onCreateProperties, this.classLoader );
-        return executor.execute ( this.scriptContext );
+        final SimpleScriptContext currentContext = new SimpleScriptContext ();
+        final Bindings bindings = this.engine.createBindings ();
+        bindings.put ( "properties", currentProperties );
+        currentContext.setBindings ( bindings, ScriptContext.ENGINE_SCOPE );
+        return executor.execute ( currentContext );
     }
 
     public Object getElement ( final String name )
