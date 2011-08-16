@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="org.openscada.core.ui.category"
+            class="org.openscada.vi.view.VisualInterfaceViewPart"
+            id="org.openscada.vi.view.VisualInterfaceView"
+            name="Visual Interface View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

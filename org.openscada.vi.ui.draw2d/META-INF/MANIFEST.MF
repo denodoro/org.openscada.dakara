@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Draw2d
+Bundle-SymbolicName: org.openscada.vi.ui.draw2d
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.openscada.vi.ui.draw2d.Activator
+Bundle-Vendor: TH4 SYSTEMS GmbH
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.draw2d;bundle-version="3.7.0",
+ org.openscada.vi.model;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
+  uses:="org.openscada.vi.model.VisualInterface,
+   org.eclipse.ui.plugin,
+   org.osgi.framework,
+   org.eclipse.draw2d,
+   org.eclipse.swt.widgets"

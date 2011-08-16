@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceModelWizardID"
+            name="%_UI_VisualInterfaceModelWizard_label"
+            class="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/VisualInterfaceModelFile.gif">
+         <description>%_UI_VisualInterfaceModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceEditorID"
+            name="%_UI_VisualInterfaceEditor_label"
+            icon="icons/full/obj16/VisualInterfaceModelFile.gif"
+            extensions="vi"
+            class="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceEditor"
+            contributorClass="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
