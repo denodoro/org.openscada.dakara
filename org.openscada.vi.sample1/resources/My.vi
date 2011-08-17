@@ -6,7 +6,7 @@
       <position x="10.0" y="10.0"/>
     </children>
     <children>
-      <element xsi:type="visualInterface:Text" format="Hello World"/>
+      <element xsi:type="visualInterface:Text" text="Hello World"/>
       <position x="200.0" y="200.0"/>
     </children>
     <children>

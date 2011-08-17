@@ -25,6 +25,38 @@ public class VisualInterfaceViewer extends Composite
 
     private SymbolController controller;
 
+    public VisualInterfaceViewer ( final Composite parent, final int style, final String uri )
+    {
+        super ( parent, style );
+
+        this.manager = new LocalResourceManager ( JFaceResources.getResources () );
+
+        this.factory = new ViewElementFactory ( this.manager );
+
+        addDisposeListener ( new DisposeListener () {
+
+            @Override
+            public void widgetDisposed ( final DisposeEvent e )
+            {
+                internalDispose ();
+            }
+        } );
+
+        setLayout ( new FillLayout () );
+        this.canvas = new FigureCanvas ( this );
+
+        try
+        {
+            final SymbolLoader loader = new SymbolLoader ( uri );
+            this.canvas.setContents ( create ( loader.getSymbol (), loader.getClassLoader () ) );
+        }
+        catch ( final Exception e )
+        {
+            this.canvas.setContents ( Helper.createErrorFigure ( e ) );
+        }
+
+    }
+
     public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader symbolClassLoader )
     {
         super ( parent, style );

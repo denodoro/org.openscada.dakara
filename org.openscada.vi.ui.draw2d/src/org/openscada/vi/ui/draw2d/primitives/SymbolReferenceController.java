@@ -10,11 +10,10 @@ import org.eclipse.draw2d.ScalableLayeredPane;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
-import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
-import org.openscada.vi.ui.draw2d.Activator;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
+import org.openscada.vi.ui.draw2d.SymbolLoader;
 import org.openscada.vi.ui.draw2d.ViewElementFactory;
 
 public class SymbolReferenceController implements Controller
@@ -33,9 +32,6 @@ public class SymbolReferenceController implements Controller
             this.figure = new LayeredPane ();
         }
 
-        final URI uri = URI.createURI ( symbolReference.getUri () );
-        final Symbol symbol = factory.load ( uri );
-
         final Layer layer = new Layer ();
         layer.setLayoutManager ( new StackLayout () );
 
@@ -43,18 +39,21 @@ public class SymbolReferenceController implements Controller
 
         try
         {
+
+            final URI uri = URI.createURI ( symbolReference.getUri () );
+            final SymbolLoader symbolLoader = factory.load ( uri );
+
             final Map<String, String> properties = new HashMap<String, String> ();
             properties.putAll ( convert ( symbolReference.getProperties () ) );
             createProperties ( controller, symbolReference, properties );
 
-            // TODO: use class loader of providing bundle
-            final SymbolController childController = new SymbolController ( controller, symbol, Activator.class.getClassLoader (), properties );
+            final SymbolController childController = new SymbolController ( controller, symbolLoader.getSymbol (), symbolLoader.getClassLoader (), properties );
 
-            final Controller elementController = factory.create ( childController, symbol.getRoot () );
+            final Controller elementController = factory.create ( childController, symbolLoader.getSymbol ().getRoot () );
             final IFigure rootFigure = elementController.getFigure ();
             layer.add ( rootFigure );
 
-            // TODO: register with parent controller
+            // FIXME: register with parent controller
         }
         catch ( final Exception e )
         {

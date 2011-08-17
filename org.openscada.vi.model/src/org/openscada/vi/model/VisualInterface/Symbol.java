@@ -6,6 +6,7 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getOnInit <em>On Init</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getOnDispose <em>On Dispose</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getOnUpdate <em>On Update</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getScriptModules <em>Script Modules</em>}</li>
  * </ul>
  * </p>
  *
@@ -151,5 +153,21 @@ public interface Symbol extends EObject
      * @generated
      */
     void setOnUpdate(String value);
+
+    /**
+     * Returns the value of the '<em><b>Script Modules</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Script Modules</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Script Modules</em>' attribute list.
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbol_ScriptModules()
+     * @model
+     * @generated
+     */
+    EList<String> getScriptModules();
 
 } // Symbol

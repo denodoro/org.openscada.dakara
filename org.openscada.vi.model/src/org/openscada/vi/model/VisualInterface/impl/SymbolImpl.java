@@ -6,9 +6,11 @@
  */
 package org.openscada.vi.model.VisualInterface.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -35,6 +38,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnInit <em>On Init</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnDispose <em>On Dispose</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnUpdate <em>On Update</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getScriptModules <em>Script Modules</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,6 +125,16 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected String onUpdate = ON_UPDATE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getScriptModules() <em>Script Modules</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getScriptModules()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> scriptModules;
 
     /**
      * <!-- begin-user-doc -->
@@ -279,6 +293,20 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getScriptModules()
+    {
+        if (scriptModules == null)
+        {
+            scriptModules = new EDataTypeUniqueEList<String>(String.class, this, VisualInterfacePackage.SYMBOL__SCRIPT_MODULES);
+        }
+        return scriptModules;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -313,6 +341,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getOnDispose();
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
                 return getOnUpdate();
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
+                return getScriptModules();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -322,6 +352,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue)
     {
@@ -341,6 +372,10 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return;
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
                 setOnUpdate((String)newValue);
+                return;
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
+                getScriptModules().clear();
+                getScriptModules().addAll((Collection<? extends String>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -371,6 +406,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
                 setOnUpdate(ON_UPDATE_EDEFAULT);
                 return;
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
+                getScriptModules().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -395,6 +433,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return ON_DISPOSE_EDEFAULT == null ? onDispose != null : !ON_DISPOSE_EDEFAULT.equals(onDispose);
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
                 return ON_UPDATE_EDEFAULT == null ? onUpdate != null : !ON_UPDATE_EDEFAULT.equals(onUpdate);
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
+                return scriptModules != null && !scriptModules.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -416,6 +456,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         result.append(onDispose);
         result.append(", onUpdate: ");
         result.append(onUpdate);
+        result.append(", scriptModules: ");
+        result.append(scriptModules);
         result.append(')');
         return result.toString();
     }

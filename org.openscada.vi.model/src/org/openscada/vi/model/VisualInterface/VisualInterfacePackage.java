@@ -117,13 +117,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__ON_UPDATE = 4;
 
     /**
+     * The feature id for the '<em><b>Script Modules</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__SCRIPT_MODULES = 5;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 5;
+    int SYMBOL_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -905,6 +914,17 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getSymbol_OnUpdate();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.openscada.vi.model.VisualInterface.Symbol#getScriptModules <em>Script Modules</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Script Modules</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getScriptModules()
+     * @see #getSymbol()
+     * @generated
+     */
+    EAttribute getSymbol_ScriptModules();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1403,6 +1423,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SYMBOL__ON_UPDATE = eINSTANCE.getSymbol_OnUpdate();
+
+        /**
+         * The meta object literal for the '<em><b>Script Modules</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL__SCRIPT_MODULES = eINSTANCE.getSymbol_ScriptModules();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.

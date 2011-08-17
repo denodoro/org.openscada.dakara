@@ -4,17 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
-import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.XYContainer;
@@ -34,7 +28,7 @@ public class ViewElementFactory
 
     private final ResourceManager manager;
 
-    private final Map<URI, Symbol> symbolCache = new HashMap<URI, Symbol> ();
+    private final Map<URI, SymbolLoader> symbolCache = new HashMap<URI, SymbolLoader> ();
 
     public ViewElementFactory ( final ResourceManager manager )
     {
@@ -75,9 +69,9 @@ public class ViewElementFactory
         return rect;
     }
 
-    public Symbol load ( final URI uri )
+    public SymbolLoader load ( final URI uri ) throws Exception
     {
-        final Symbol symbol = this.symbolCache.get ( uri );
+        final SymbolLoader symbol = this.symbolCache.get ( uri );
         if ( symbol != null )
         {
             return symbol;
@@ -85,21 +79,8 @@ public class ViewElementFactory
 
         logger.info ( "Loading: {}", uri ); //$NON-NLS-1$
 
-        final ResourceSet resourceSet = new ResourceSetImpl ();
-
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( "vi", new XMIResourceFactoryImpl () ); //$NON-NLS-1$
-
-        final Resource resource = resourceSet.getResource ( uri, true );
-
-        for ( final EObject o : resource.getContents () )
-        {
-            if ( o instanceof Symbol )
-            {
-                this.symbolCache.put ( uri, (Symbol)o );
-                return (Symbol)o;
-            }
-        }
-        return null;
+        final SymbolLoader loader = new SymbolLoader ( uri );
+        return loader;
     }
 
 }

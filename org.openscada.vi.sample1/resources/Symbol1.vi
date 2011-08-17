@@ -6,7 +6,7 @@
       <position/>
     </children>
     <children>
-      <element xsi:type="visualInterface:Text" name="sym1" foregroundColor="" backgroundColor="" format="Symbol 1"/>
+      <element xsi:type="visualInterface:Text" name="sym1" foregroundColor="" backgroundColor="" text="Symbol 1"/>
       <position/>
     </children>
     <children>

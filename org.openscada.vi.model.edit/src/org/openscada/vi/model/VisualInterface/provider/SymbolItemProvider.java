@@ -74,6 +74,7 @@ public class SymbolItemProvider
             addOnInitPropertyDescriptor(object);
             addOnDisposePropertyDescriptor(object);
             addOnUpdatePropertyDescriptor(object);
+            addScriptModulesPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -141,6 +142,29 @@ public class SymbolItemProvider
                  VisualInterfacePackage.Literals.SYMBOL__ON_UPDATE,
                  true,
                  true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Script Modules feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addScriptModulesPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Symbol_scriptModules_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_scriptModules_feature", "_UI_Symbol_type"),
+                 VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES,
+                 true,
+                 false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                  null,
@@ -225,6 +249,7 @@ public class SymbolItemProvider
             case VisualInterfacePackage.SYMBOL__ON_INIT:
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case VisualInterfacePackage.SYMBOL__ROOT:

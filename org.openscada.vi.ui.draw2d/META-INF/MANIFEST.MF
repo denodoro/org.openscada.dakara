@@ -18,7 +18,8 @@ Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
    org.osgi.framework,
    org.eclipse.draw2d,
    org.eclipse.swt.widgets"
-Import-Package: org.apache.commons.beanutils;version="1.8.0",
+Import-Package: com.google.common.io;version="0.6.0",
+ org.apache.commons.beanutils;version="1.8.0",
  org.openscada.core;version="0.17.0",
  org.openscada.core.client;version="0.16.0",
  org.openscada.core.connection.provider;version="0.14.0",

@@ -1,5 +1,7 @@
 package org.openscada.vi.ui.draw2d;
 
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -23,6 +25,8 @@ import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.io.Resources;
 
 public class SymbolController
 {
@@ -96,14 +100,25 @@ public class SymbolController
             parentController.addChild ( this );
         }
 
-        // this.engineManager.put ( "context", this.context );
         this.scriptContext = this.engine.getContext ();
+
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.GLOBAL_SCOPE );
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.GLOBAL_SCOPE );
+
+        for ( final String module : symbol.getScriptModules () )
+        {
+            loadScript ( module );
+        }
 
         this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), classLoader );
         this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), classLoader );
         this.onUpdate = new ScriptExecutor ( this.engine, symbol.getOnUpdate (), classLoader );
+    }
+
+    private void loadScript ( final String module ) throws Exception
+    {
+        final String moduleSource = Resources.toString ( new URL ( module ), Charset.forName ( "UTF-8" ) );
+        new ScriptExecutor ( this.engine, moduleSource, this.classLoader ).execute ( this.scriptContext );
     }
 
     public void init () throws Exception
