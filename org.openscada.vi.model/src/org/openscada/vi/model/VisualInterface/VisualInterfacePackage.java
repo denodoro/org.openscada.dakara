@@ -8,6 +8,7 @@ package org.openscada.vi.model.VisualInterface;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -437,13 +438,22 @@ public interface VisualInterfacePackage extends EPackage
     int TEXT__FORMAT = FIGURE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__ALIGNMENT = FIGURE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Text</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 1;
+    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ChildImpl <em>Child</em>}' class.
@@ -801,6 +811,17 @@ public interface VisualInterfacePackage extends EPackage
 
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.Alignment
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
+     * @generated
+     */
+    int ALIGNMENT = 15;
+
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Symbol <em>Symbol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -958,6 +979,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getText_Format();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getAlignment <em>Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getAlignment()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_Alignment();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Child <em>Child</em>}'.
@@ -1250,6 +1282,16 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getDimension_Height();
 
     /**
+     * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Alignment
+     * @generated
+     */
+    EEnum getAlignment();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1403,6 +1445,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute TEXT__FORMAT = eINSTANCE.getText_Format();
+
+        /**
+         * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__ALIGNMENT = eINSTANCE.getText_Alignment();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ChildImpl <em>Child</em>}' class.
@@ -1637,6 +1687,16 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute DIMENSION__HEIGHT = eINSTANCE.getDimension_Height();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.Alignment
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
+         * @generated
+         */
+        EEnum ALIGNMENT = eINSTANCE.getAlignment();
 
     }
 

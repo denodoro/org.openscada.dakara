@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.openscada.vi.model.VisualInterface.Alignment;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.openscada.vi.model.VisualInterface.Text;
@@ -23,6 +24,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getAlignment <em>Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +50,25 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected String format = FORMAT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAlignment()
+     * @generated
+     * @ordered
+     */
+    protected static final Alignment ALIGNMENT_EDEFAULT = Alignment.LEFT;
+    /**
+     * The cached value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAlignment()
+     * @generated
+     * @ordered
+     */
+    protected Alignment alignment = ALIGNMENT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -98,6 +119,29 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
+    public Alignment getAlignment()
+    {
+        return alignment;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAlignment(Alignment newAlignment)
+    {
+        Alignment oldAlignment = alignment;
+        alignment = newAlignment == null ? ALIGNMENT_EDEFAULT : newAlignment;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__ALIGNMENT, oldAlignment, alignment));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -105,6 +149,8 @@ public class TextImpl extends FigureImpl implements Text
         {
             case VisualInterfacePackage.TEXT__FORMAT:
                 return getFormat();
+            case VisualInterfacePackage.TEXT__ALIGNMENT:
+                return getAlignment();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -121,6 +167,9 @@ public class TextImpl extends FigureImpl implements Text
         {
             case VisualInterfacePackage.TEXT__FORMAT:
                 setFormat((String)newValue);
+                return;
+            case VisualInterfacePackage.TEXT__ALIGNMENT:
+                setAlignment((Alignment)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -139,6 +188,9 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__FORMAT:
                 setFormat(FORMAT_EDEFAULT);
                 return;
+            case VisualInterfacePackage.TEXT__ALIGNMENT:
+                setAlignment(ALIGNMENT_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -155,6 +207,8 @@ public class TextImpl extends FigureImpl implements Text
         {
             case VisualInterfacePackage.TEXT__FORMAT:
                 return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+            case VisualInterfacePackage.TEXT__ALIGNMENT:
+                return alignment != ALIGNMENT_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -172,6 +226,8 @@ public class TextImpl extends FigureImpl implements Text
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (format: ");
         result.append(format);
+        result.append(", alignment: ");
+        result.append(alignment);
         result.append(')');
         return result.toString();
     }

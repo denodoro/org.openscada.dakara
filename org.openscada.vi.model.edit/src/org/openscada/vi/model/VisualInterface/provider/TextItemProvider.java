@@ -68,6 +68,7 @@ public class TextItemProvider
             super.getPropertyDescriptors(object);
 
             addFormatPropertyDescriptor(object);
+            addAlignmentPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -87,6 +88,29 @@ public class TextItemProvider
                  getString("_UI_Text_format_feature"),
                  getString("_UI_PropertyDescriptor_description", "_UI_Text_format_feature", "_UI_Text_type"),
                  VisualInterfacePackage.Literals.TEXT__FORMAT,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Alignment feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAlignmentPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_alignment_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_alignment_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__ALIGNMENT,
                  true,
                  false,
                  false,
@@ -137,6 +161,7 @@ public class TextItemProvider
         switch (notification.getFeatureID(Text.class))
         {
             case VisualInterfacePackage.TEXT__FORMAT:
+            case VisualInterfacePackage.TEXT__ALIGNMENT:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
