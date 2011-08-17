@@ -15,6 +15,10 @@ import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.da.client.DataItemValue;
+import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.slf4j.Logger;
@@ -51,6 +55,12 @@ public class SymbolController
 
     private final Map<String, Object> elements = new HashMap<String, Object> ();
 
+    private final RegistrationManager registrationManager;
+
+    private final SymbolData symbolData;
+
+    private Map<String, DataItemValue> lastData;
+
     public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties ) throws Exception
     {
         this ( null, symbol, classLoader, properties );
@@ -62,6 +72,8 @@ public class SymbolController
         this.classLoader = classLoader;
         this.symbol = symbol;
 
+        this.symbolData = new SymbolData ( this );
+        this.registrationManager = new RegistrationManager ( this );
         this.engineManager = new ScriptEngineManager ( classLoader );
 
         if ( parentController != null )
@@ -90,6 +102,7 @@ public class SymbolController
         // this.engineManager.put ( "context", this.context );
         this.scriptContext = this.engine.getContext ();
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.GLOBAL_SCOPE );
+        this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.GLOBAL_SCOPE );
 
         this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), classLoader );
         this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), classLoader );
@@ -174,5 +187,63 @@ public class SymbolController
     public void removeElement ( final String name )
     {
         this.elements.remove ( name );
+    }
+
+    public void unregisterItem ( final String name )
+    {
+        this.registrationManager.unregisterItem ( name );
+    }
+
+    public void registerItem ( final String name, final String itemId, final String connectionId )
+    {
+        this.registrationManager.registerItem ( name, itemId, connectionId );
+    }
+
+    /**
+     * Trigger the controller to update the data from the registration manager
+     * <p>
+     * This method can be called from any thread and must synchronized to the UI
+     * </p>
+     */
+    public void triggerDataUpdate ()
+    {
+        try
+        {
+            Display.getDefault ().asyncExec ( new Runnable () {
+                @Override
+                public void run ()
+                {
+                    handleDataUpdate ();
+                };
+            } );
+        }
+        catch ( final Exception e )
+        {
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
+        }
+    }
+
+    public Map<String, DataItemValue> getData ()
+    {
+        return this.registrationManager.getData ();
+    }
+
+    protected void handleDataUpdate ()
+    {
+        final Map<String, DataItemValue> currentData = this.registrationManager.getData ();
+        if ( currentData == this.lastData )
+        {
+            return;
+        }
+        this.lastData = currentData;
+
+        try
+        {
+            this.onUpdate.execute ( this.scriptContext );
+        }
+        catch ( final Exception e )
+        {
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
+        }
     }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface">
+<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface" onInit="controller.registerItem ( &quot;A&quot;, &quot;memory-cell-0&quot;, &quot;connection.test&quot; );" onUpdate="controller.getElement(&quot;sym1&quot;).setText ( &quot;Value: &quot; + data.getPrimaryValue(&quot;A&quot; ).asString(&quot;&lt;none>&quot;) );">
   <root xsi:type="visualInterface:XYContainer">
     <children>
-      <element xsi:type="visualInterface:Rectangle" width="100.0" height="30.0"/>
+      <element xsi:type="visualInterface:Rectangle" backgroundColor="#AAAAAA" width="100.0" height="30.0"/>
       <position/>
     </children>
     <children>
-      <element xsi:type="visualInterface:Text" foregroundColor="" backgroundColor="" format="Symbol 1"/>
+      <element xsi:type="visualInterface:Text" name="sym1" foregroundColor="" backgroundColor="" format="Symbol 1"/>
       <position/>
     </children>
     <children>

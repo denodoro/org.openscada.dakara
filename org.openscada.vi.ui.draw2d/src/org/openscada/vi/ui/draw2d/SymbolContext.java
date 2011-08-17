@@ -25,4 +25,15 @@ public class SymbolContext
     {
         return this.controller.getProperties ().getProperty ( name );
     }
+
+    public void registerItem ( final String name, final String itemId, final String connectionId )
+    {
+        this.controller.registerItem ( name, itemId, connectionId );
+    }
+
+    public void unregisterItem ( final String name )
+    {
+        this.controller.unregisterItem ( name );
+    }
+
 }
