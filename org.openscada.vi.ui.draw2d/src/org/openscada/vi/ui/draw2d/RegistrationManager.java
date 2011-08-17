@@ -64,6 +64,6 @@ public class RegistrationManager
 
     public Map<String, DataItemValue> getData ()
     {
-        return this.currentValues.get ();
+        return Collections.unmodifiableMap ( this.currentValues.get () );
     }
 }
