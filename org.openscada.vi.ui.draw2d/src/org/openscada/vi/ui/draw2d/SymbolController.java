@@ -20,6 +20,7 @@ import org.openscada.da.client.DataItemValue;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
 import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.ui.draw2d.primitives.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -168,7 +169,7 @@ public class SymbolController
         return this.elements.get ( name );
     }
 
-    public void addElement ( final String name, final Object element )
+    public void addElement ( final String name, final Controller element )
     {
         if ( name == null )
         {

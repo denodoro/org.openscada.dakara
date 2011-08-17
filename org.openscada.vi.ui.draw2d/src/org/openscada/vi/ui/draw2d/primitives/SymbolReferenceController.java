@@ -53,6 +53,8 @@ public class SymbolReferenceController implements Controller
             final Controller elementController = factory.create ( childController, symbol.getRoot () );
             final IFigure rootFigure = elementController.getFigure ();
             layer.add ( rootFigure );
+
+            // TODO: register with parent controller
         }
         catch ( final Exception e )
         {

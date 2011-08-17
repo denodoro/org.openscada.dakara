@@ -19,7 +19,7 @@ public class RectangleController extends FigureController
         this.figure = new RectangleFigure ();
         this.figure.setBounds ( rect );
 
-        controller.addElement ( element.getName (), this.figure );
+        controller.addElement ( element.getName (), this );
 
         applyStyles ( element );
     }

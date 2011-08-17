@@ -14,7 +14,7 @@ public class TextController extends FigureController
     {
         super ( manager );
         this.figure = new Label ( element.getFormat () );
-        controller.addElement ( element.getName (), this.figure );
+        controller.addElement ( element.getName (), this );
         applyStyles ( element );
     }
 
@@ -22,5 +22,10 @@ public class TextController extends FigureController
     public IFigure getFigure ()
     {
         return this.figure;
+    }
+
+    public void setText ( final String text )
+    {
+        this.figure.setText ( text );
     }
 }

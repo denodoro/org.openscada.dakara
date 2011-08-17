@@ -39,4 +39,5 @@
     </children>
   </root>
   <properties key="key" value="value"/>
+  <properties key="color.invalid" value="#FF00FF"/>
 </visualInterface:Symbol>

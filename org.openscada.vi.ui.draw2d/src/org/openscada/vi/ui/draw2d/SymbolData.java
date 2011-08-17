@@ -75,17 +75,17 @@ public class SymbolData
         final DataItemValue div = this.controller.getData ().get ( name );
         if ( div == null )
         {
-            return true;
+            return false;
         }
         else
         {
             if ( !div.isConnected () || div.isError () || div.getValue () == null || div.getValue ().isNull () )
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }
