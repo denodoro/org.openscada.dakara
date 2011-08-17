@@ -106,6 +106,13 @@
   	
   	<openscada.builder.copyFeature id="org.openscada.dakara" />
   	<openscada.builder.copyFeature id="org.openscada.dakara.sdk" />
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.vi.model"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.model.edit"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.model.editor"/>
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.vi.model.ui.draw2d"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.model.ui.viewer"/>
 
   </target>
 
