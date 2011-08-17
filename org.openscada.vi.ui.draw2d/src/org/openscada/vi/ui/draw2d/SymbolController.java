@@ -14,7 +14,6 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.da.client.DataItemValue;
@@ -169,7 +168,7 @@ public class SymbolController
         return this.elements.get ( name );
     }
 
-    public void addElement ( final String name, final IFigure element )
+    public void addElement ( final String name, final Object element )
     {
         if ( name == null )
         {
@@ -243,4 +242,5 @@ public class SymbolController
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
     }
+
 }

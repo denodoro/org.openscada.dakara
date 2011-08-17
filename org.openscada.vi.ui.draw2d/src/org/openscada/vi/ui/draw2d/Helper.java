@@ -10,8 +10,8 @@ public class Helper
 {
     public static IFigure createErrorFigure ( final Throwable e )
     {
-        final Label label = new Label ( e.getMessage () );
-        label.setToolTip ( new Label ( formatException ( e ) ) );
+        final Label label = new Label ();
+        label.setText ( formatException ( e ) );
         return label;
     }
 
@@ -19,6 +19,7 @@ public class Helper
     {
         final StringWriter sw = new StringWriter ();
         final PrintWriter pw = new PrintWriter ( sw );
+
         e.printStackTrace ( pw );
         pw.close ();
         return sw.toString ();

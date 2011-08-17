@@ -7,7 +7,7 @@
             allowMultiple="true"
             category="org.openscada.core.ui.category"
             class="org.openscada.vi.ui.viewer.VisualInterfaceViewPart"
-            id="org.openscada.vi.view.VisualInterfaceView"
+            id="org.openscada.vi.ui.viewer.VisualInterfaceView"
             name="Visual Interface View"
             restorable="true">
       </view>

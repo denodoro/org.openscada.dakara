@@ -13,6 +13,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.ui.draw2d.primitives.Controller;
 
 public class VisualInterfaceViewer extends Composite
 {
@@ -49,7 +50,6 @@ public class VisualInterfaceViewer extends Composite
 
     protected IFigure create ( final Symbol symbol, final ClassLoader classLoader )
     {
-
         try
         {
             final Map<String, String> properties = new HashMap<String, String> ( symbol.getProperties ().size () );
@@ -60,19 +60,18 @@ public class VisualInterfaceViewer extends Composite
 
             this.controller = new SymbolController ( symbol, classLoader, properties );
 
-            final IFigure fig = create ( symbol.getRoot () );
+            final Controller controller = create ( symbol.getRoot () );
 
             this.controller.init ();
-            return fig;
+            return controller.getFigure ();
         }
         catch ( final Exception e )
         {
             return Helper.createErrorFigure ( e );
         }
-
     }
 
-    protected IFigure create ( final Primitive element )
+    protected Controller create ( final Primitive element )
     {
         return this.factory.create ( this.controller, element );
     }
