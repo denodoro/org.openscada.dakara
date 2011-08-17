@@ -36,7 +36,7 @@
       <perspectiveExtension
             targetID="org.openscada.vi.viewer.app.perspective">
          <view
-               id="org.openscada.vi.view.VisualInterfaceView"
+               id="org.openscada.vi.ui.viewer.VisualInterfaceView"
                minimized="false"
                ratio="1.0"
                relationship="top"

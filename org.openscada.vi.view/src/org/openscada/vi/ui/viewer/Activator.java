@@ -1,4 +1,4 @@
-package org.openscada.vi.view;
+package org.openscada.vi.ui.viewer;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -9,7 +9,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.openscada.vi.view"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.openscada.vi.ui.viewer"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;

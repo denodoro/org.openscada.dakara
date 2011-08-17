@@ -1,4 +1,4 @@
-package org.openscada.vi.view;
+package org.openscada.vi.ui.viewer;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;

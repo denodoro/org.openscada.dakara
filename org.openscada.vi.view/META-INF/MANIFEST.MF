@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: View Implementation
-Bundle-SymbolicName: org.openscada.vi.view;singleton:=true
+Bundle-SymbolicName: org.openscada.vi.ui.viewer;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.openscada.vi.view.Activator
+Bundle-Activator: org.openscada.vi.ui.viewer.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
