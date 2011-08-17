@@ -8,6 +8,11 @@
   <foreignModel>VisualInterface.ecore</foreignModel>
   <genPackages prefix="VisualInterface" basePackage="org.openscada.vi.model" disposableProviderFactory="true"
       fileExtensions="vi" ecorePackage="VisualInterface.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//Alignment">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/RIGHT"/>
+    </genEnums>
     <genClasses ecoreClass="VisualInterface.ecore#//Symbol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/properties"/>
@@ -15,19 +20,23 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onDispose"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onUpdate"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive"/>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Container"/>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/height"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
-    <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/format">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/format"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/labelAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/iconAlignment"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
@@ -46,6 +55,7 @@
     <genClasses ecoreClass="VisualInterface.ecore#//Figure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
@@ -56,6 +66,10 @@
     <genClasses ecoreClass="VisualInterface.ecore#//StringToStringMap">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//StringToStringMap/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//StringToStringMap/value"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Dimension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Dimension/height"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

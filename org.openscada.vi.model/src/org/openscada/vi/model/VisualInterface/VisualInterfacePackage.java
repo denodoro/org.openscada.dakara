@@ -429,22 +429,40 @@ public interface VisualInterfacePackage extends EPackage
     int TEXT__SIZE = FIGURE__SIZE;
 
     /**
-     * The feature id for the '<em><b>Format</b></em>' attribute.
+     * The feature id for the '<em><b>Text</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT__FORMAT = FIGURE_FEATURE_COUNT + 0;
+    int TEXT__TEXT = FIGURE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Alignment</b></em>' attribute.
+     * The feature id for the '<em><b>Label Alignment</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT__ALIGNMENT = FIGURE_FEATURE_COUNT + 1;
+    int TEXT__LABEL_ALIGNMENT = FIGURE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__TEXT_ALIGNMENT = FIGURE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Icon Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__ICON_ALIGNMENT = FIGURE_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Text</em>' class.
@@ -453,7 +471,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
+    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ChildImpl <em>Child</em>}' class.
@@ -970,26 +988,48 @@ public interface VisualInterfacePackage extends EPackage
     EClass getText();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getFormat <em>Format</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getText <em>Text</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Format</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Text#getFormat()
+     * @return the meta object for the attribute '<em>Text</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getText()
      * @see #getText()
      * @generated
      */
-    EAttribute getText_Format();
+    EAttribute getText_Text();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getAlignment <em>Alignment</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getLabelAlignment <em>Label Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Alignment</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Text#getAlignment()
+     * @return the meta object for the attribute '<em>Label Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getLabelAlignment()
      * @see #getText()
      * @generated
      */
-    EAttribute getText_Alignment();
+    EAttribute getText_LabelAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getTextAlignment <em>Text Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Text Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getTextAlignment()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_TextAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getIconAlignment <em>Icon Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Icon Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getIconAlignment()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_IconAlignment();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Child <em>Child</em>}'.
@@ -1439,20 +1479,36 @@ public interface VisualInterfacePackage extends EPackage
         EClass TEXT = eINSTANCE.getText();
 
         /**
-         * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT__FORMAT = eINSTANCE.getText_Format();
+        EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
 
         /**
-         * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Label Alignment</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT__ALIGNMENT = eINSTANCE.getText_Alignment();
+        EAttribute TEXT__LABEL_ALIGNMENT = eINSTANCE.getText_LabelAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Text Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__TEXT_ALIGNMENT = eINSTANCE.getText_TextAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Icon Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__ICON_ALIGNMENT = eINSTANCE.getText_IconAlignment();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ChildImpl <em>Child</em>}' class.

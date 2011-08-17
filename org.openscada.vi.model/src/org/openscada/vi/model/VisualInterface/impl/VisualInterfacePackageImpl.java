@@ -360,7 +360,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getText_Format()
+    public EAttribute getText_Text()
     {
         return (EAttribute)textEClass.getEStructuralFeatures().get(0);
     }
@@ -370,9 +370,29 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getText_Alignment()
+    public EAttribute getText_LabelAlignment()
     {
         return (EAttribute)textEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getText_TextAlignment()
+    {
+        return (EAttribute)textEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getText_IconAlignment()
+    {
+        return (EAttribute)textEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -704,8 +724,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         rectangleEClass = createEClass(RECTANGLE);
 
         textEClass = createEClass(TEXT);
-        createEAttribute(textEClass, TEXT__FORMAT);
-        createEAttribute(textEClass, TEXT__ALIGNMENT);
+        createEAttribute(textEClass, TEXT__TEXT);
+        createEAttribute(textEClass, TEXT__LABEL_ALIGNMENT);
+        createEAttribute(textEClass, TEXT__TEXT_ALIGNMENT);
+        createEAttribute(textEClass, TEXT__ICON_ALIGNMENT);
 
         childEClass = createEClass(CHILD);
         createEReference(childEClass, CHILD__ELEMENT);
@@ -806,8 +828,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getText_Format(), ecorePackage.getEString(), "format", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getText_Alignment(), this.getAlignment(), "alignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_Text(), ecorePackage.getEString(), "text", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_LabelAlignment(), this.getAlignment(), "labelAlignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_TextAlignment(), this.getAlignment(), "textAlignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_IconAlignment(), this.getAlignment(), "iconAlignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getChild_Element(), this.getPrimitive(), null, "element", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

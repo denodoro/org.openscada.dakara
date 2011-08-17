@@ -67,27 +67,29 @@ public class TextItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addFormatPropertyDescriptor(object);
-            addAlignmentPropertyDescriptor(object);
+            addTextPropertyDescriptor(object);
+            addLabelAlignmentPropertyDescriptor(object);
+            addTextAlignmentPropertyDescriptor(object);
+            addIconAlignmentPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Format feature.
+     * This adds a property descriptor for the Text feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFormatPropertyDescriptor(Object object)
+    protected void addTextPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_format_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_format_feature", "_UI_Text_type"),
-                 VisualInterfacePackage.Literals.TEXT__FORMAT,
+                 getString("_UI_Text_text_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__TEXT,
                  true,
                  false,
                  false,
@@ -97,20 +99,66 @@ public class TextItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Alignment feature.
+     * This adds a property descriptor for the Label Alignment feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAlignmentPropertyDescriptor(Object object)
+    protected void addLabelAlignmentPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_alignment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_alignment_feature", "_UI_Text_type"),
-                 VisualInterfacePackage.Literals.TEXT__ALIGNMENT,
+                 getString("_UI_Text_labelAlignment_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_labelAlignment_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__LABEL_ALIGNMENT,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Text Alignment feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTextAlignmentPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_textAlignment_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textAlignment_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__TEXT_ALIGNMENT,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Icon Alignment feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIconAlignmentPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_iconAlignment_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_iconAlignment_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__ICON_ALIGNMENT,
                  true,
                  false,
                  false,
@@ -140,7 +188,7 @@ public class TextItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Text)object).getFormat();
+        String label = ((Text)object).getText();
         return label == null || label.length() == 0 ?
             getString("_UI_Text_type") :
             getString("_UI_Text_type") + " " + label;
@@ -160,8 +208,10 @@ public class TextItemProvider
 
         switch (notification.getFeatureID(Text.class))
         {
-            case VisualInterfacePackage.TEXT__FORMAT:
-            case VisualInterfacePackage.TEXT__ALIGNMENT:
+            case VisualInterfacePackage.TEXT__TEXT:
+            case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
+            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
+            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
