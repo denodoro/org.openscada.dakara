@@ -1,10 +1,13 @@
 package org.openscada.vi.ui.draw2d.primitives;
 
+import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.jface.resource.ColorDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
+import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
+import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 
 public abstract class FigureController implements Controller
 {
@@ -19,6 +22,40 @@ public abstract class FigureController implements Controller
     {
         setBackgroundColor ( figure.getBackgroundColor () );
         setForegroundColor ( figure.getForegroundColor () );
+
+        setPreferredSize ( create ( figure.getSize () ) );
+    }
+
+    public void setPreferredSize ( final org.eclipse.draw2d.geometry.Dimension size )
+    {
+        getFigure ().setPreferredSize ( size );
+    }
+
+    public Dimension getPreferredSize ()
+    {
+        final Dimension dimension = VisualInterfaceFactory.eINSTANCE.createDimension ();
+        final org.eclipse.draw2d.geometry.Dimension size = getFigure ().getPreferredSize ();
+        dimension.setHeight ( size.preciseWidth () );
+        dimension.setWidth ( size.preciseWidth () );
+        return dimension;
+    }
+
+    public void setPreferredWidth ( final double value )
+    {
+        final PrecisionDimension dim = new PrecisionDimension ();
+        dim.setPreciseWidth ( value );
+        dim.setPreciseHeight ( getFigure ().getPreferredSize ().preciseHeight () );
+
+        getFigure ().setPreferredSize ( dim );
+    }
+
+    public void setPreferredHeight ( final double value )
+    {
+        final PrecisionDimension dim = new PrecisionDimension ();
+        dim.setPreciseWidth ( getFigure ().getPreferredSize ().preciseWidth () );
+        dim.setPreciseHeight ( value );
+
+        getFigure ().setPreferredSize ( dim );
     }
 
     public void setBackgroundColor ( final String color )
@@ -29,6 +66,15 @@ public abstract class FigureController implements Controller
     public void setForegroundColor ( final String color )
     {
         getFigure ().setForegroundColor ( makeColor ( color ) );
+    }
+
+    protected org.eclipse.draw2d.geometry.Dimension create ( final Dimension dimension )
+    {
+        if ( dimension == null )
+        {
+            return null;
+        }
+        return new PrecisionDimension ( dimension.getWidth (), dimension.getHeight () );
     }
 
     protected Color makeColor ( final String color )
