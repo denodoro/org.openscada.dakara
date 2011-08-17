@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="org.openscada.dakara"
             name="%_UI_Wizard_category"/>
       <wizard
             id="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceModelWizardID"
