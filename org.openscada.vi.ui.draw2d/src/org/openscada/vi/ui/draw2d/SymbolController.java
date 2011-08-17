@@ -29,8 +29,6 @@ public class SymbolController
 
     private final static Logger logger = LoggerFactory.getLogger ( SymbolController.class );
 
-    private final Symbol symbol;
-
     private final SymbolController parentController;
 
     private final Set<SymbolController> controllers = new LinkedHashSet<SymbolController> ();
@@ -70,7 +68,6 @@ public class SymbolController
     {
         this.parentController = parentController;
         this.classLoader = classLoader;
-        this.symbol = symbol;
 
         this.symbolData = new SymbolData ( this );
         this.registrationManager = new RegistrationManager ( this );
