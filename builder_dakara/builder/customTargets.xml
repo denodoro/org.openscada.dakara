@@ -111,8 +111,8 @@
   	<openscada.builder.copyPlugin id="org.openscada.vi.model.edit"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.model.editor"/>
   	
-  	<openscada.builder.copyPlugin id="org.openscada.vi.model.ui.draw2d"/>
-  	<openscada.builder.copyPlugin id="org.openscada.vi.model.ui.viewer"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.ui.draw2d"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.ui.viewer"/>
 
   </target>
 
