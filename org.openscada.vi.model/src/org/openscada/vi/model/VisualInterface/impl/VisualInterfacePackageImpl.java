@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.openscada.vi.model.VisualInterface.Child;
+import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
@@ -134,6 +135,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass stringToStringMapEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass dimensionEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -503,6 +511,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getFigure_Size()
+    {
+        return (EReference)figureEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSymbolReference()
     {
         return symbolReferenceEClass;
@@ -583,6 +601,36 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getDimension()
+    {
+        return dimensionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDimension_Width()
+    {
+        return (EAttribute)dimensionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDimension_Height()
+    {
+        return (EAttribute)dimensionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public VisualInterfaceFactory getVisualInterfaceFactory()
     {
         return (VisualInterfaceFactory)getEFactoryInstance();
@@ -649,6 +697,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         figureEClass = createEClass(FIGURE);
         createEAttribute(figureEClass, FIGURE__FOREGROUND_COLOR);
         createEAttribute(figureEClass, FIGURE__BACKGROUND_COLOR);
+        createEReference(figureEClass, FIGURE__SIZE);
 
         symbolReferenceEClass = createEClass(SYMBOL_REFERENCE);
         createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__URI);
@@ -659,6 +708,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         stringToStringMapEClass = createEClass(STRING_TO_STRING_MAP);
         createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__KEY);
         createEAttribute(stringToStringMapEClass, STRING_TO_STRING_MAP__VALUE);
+
+        dimensionEClass = createEClass(DIMENSION);
+        createEAttribute(dimensionEClass, DIMENSION__WIDTH);
+        createEAttribute(dimensionEClass, DIMENSION__HEIGHT);
     }
 
     /**
@@ -742,6 +795,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(figureEClass, Figure.class, "Figure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFigure_ForegroundColor(), ecorePackage.getEString(), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFigure_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getFigure_Size(), this.getDimension(), null, "size", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSymbolReference_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -752,6 +806,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(stringToStringMapEClass, Map.Entry.class, "StringToStringMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getStringToStringMap_Key(), ecorePackage.getEString(), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getStringToStringMap_Value(), ecorePackage.getEString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getDimension_Width(), ecorePackage.getEDouble(), "width", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getDimension_Height(), ecorePackage.getEDouble(), "height", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         createResource(eNS_URI);

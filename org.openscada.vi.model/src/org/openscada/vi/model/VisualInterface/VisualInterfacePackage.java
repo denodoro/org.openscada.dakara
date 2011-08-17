@@ -218,13 +218,22 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE__BACKGROUND_COLOR = PRIMITIVE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Size</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__SIZE = PRIMITIVE_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Figure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 2;
+    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl <em>Shape</em>}' class.
@@ -262,6 +271,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int SHAPE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__SIZE = FIGURE__SIZE;
 
     /**
      * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -328,6 +346,15 @@ public interface VisualInterfacePackage extends EPackage
     int RECTANGLE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
 
     /**
+     * The feature id for the '<em><b>Size</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__SIZE = SHAPE__SIZE;
+
+    /**
      * The feature id for the '<em><b>Width</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -390,6 +417,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int TEXT__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__SIZE = FIGURE__SIZE;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -587,6 +623,15 @@ public interface VisualInterfacePackage extends EPackage
     int LINE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
 
     /**
+     * The feature id for the '<em><b>Size</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__SIZE = FIGURE__SIZE;
+
+    /**
      * The feature id for the '<em><b>Points</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -715,6 +760,44 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int STRING_TO_STRING_MAP_FEATURE_COUNT = 2;
+
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.DimensionImpl <em>Dimension</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.DimensionImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getDimension()
+     * @generated
+     */
+    int DIMENSION = 14;
+
+    /**
+     * The feature id for the '<em><b>Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIMENSION__WIDTH = 0;
+
+    /**
+     * The feature id for the '<em><b>Height</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIMENSION__HEIGHT = 1;
+
+    /**
+     * The number of structural features of the '<em>Dimension</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DIMENSION_FEATURE_COUNT = 2;
 
 
     /**
@@ -1036,6 +1119,17 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getFigure_BackgroundColor();
 
     /**
+     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Size</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getSize()
+     * @see #getFigure()
+     * @generated
+     */
+    EReference getFigure_Size();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SymbolReference <em>Symbol Reference</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1122,6 +1216,38 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getStringToStringMap_Value();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Dimension <em>Dimension</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Dimension</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Dimension
+     * @generated
+     */
+    EClass getDimension();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Dimension#getWidth <em>Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Width</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Dimension#getWidth()
+     * @see #getDimension()
+     * @generated
+     */
+    EAttribute getDimension_Width();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Dimension#getHeight <em>Height</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Height</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Dimension#getHeight()
+     * @see #getDimension()
+     * @generated
+     */
+    EAttribute getDimension_Height();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -1411,6 +1537,14 @@ public interface VisualInterfacePackage extends EPackage
         EAttribute FIGURE__BACKGROUND_COLOR = eINSTANCE.getFigure_BackgroundColor();
 
         /**
+         * The meta object literal for the '<em><b>Size</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FIGURE__SIZE = eINSTANCE.getFigure_Size();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1477,6 +1611,32 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute STRING_TO_STRING_MAP__VALUE = eINSTANCE.getStringToStringMap_Value();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.DimensionImpl <em>Dimension</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.DimensionImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getDimension()
+         * @generated
+         */
+        EClass DIMENSION = eINSTANCE.getDimension();
+
+        /**
+         * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DIMENSION__WIDTH = eINSTANCE.getDimension_Width();
+
+        /**
+         * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DIMENSION__HEIGHT = eINSTANCE.getDimension_Height();
 
     }
 

@@ -17,6 +17,7 @@ package org.openscada.vi.model.VisualInterface;
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getForegroundColor <em>Foreground Color</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,31 @@ public interface Figure extends Primitive
      * @generated
      */
     void setBackgroundColor(String value);
+
+    /**
+     * Returns the value of the '<em><b>Size</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Size</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Size</em>' reference.
+     * @see #setSize(Dimension)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getFigure_Size()
+     * @model
+     * @generated
+     */
+    Dimension getSize();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Size</em>' reference.
+     * @see #getSize()
+     * @generated
+     */
+    void setSize(Dimension value);
 
 } // Figure

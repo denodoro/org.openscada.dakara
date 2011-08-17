@@ -26,16 +26,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.vi.model.VisualInterface.Figure;
+import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Figure} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Dimension} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FigureItemProvider
+public class DimensionItemProvider
     extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
@@ -50,7 +50,7 @@ public class FigureItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public FigureItemProvider(AdapterFactory adapterFactory)
+    public DimensionItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -68,108 +68,60 @@ public class FigureItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addNamePropertyDescriptor(object);
-            addForegroundColorPropertyDescriptor(object);
-            addBackgroundColorPropertyDescriptor(object);
-            addSizePropertyDescriptor(object);
+            addWidthPropertyDescriptor(object);
+            addHeightPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Name feature.
+     * This adds a property descriptor for the Width feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor(Object object)
+    protected void addWidthPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Primitive_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"),
-                 VisualInterfacePackage.Literals.PRIMITIVE__NAME,
+                 getString("_UI_Dimension_width_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Dimension_width_feature", "_UI_Dimension_type"),
+                 VisualInterfacePackage.Literals.DIMENSION__WIDTH,
                  true,
                  false,
                  false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
                  null,
                  null));
     }
 
     /**
-     * This adds a property descriptor for the Foreground Color feature.
+     * This adds a property descriptor for the Height feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addForegroundColorPropertyDescriptor(Object object)
+    protected void addHeightPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_foregroundColor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_foregroundColor_feature", "_UI_Figure_type"),
-                 VisualInterfacePackage.Literals.FIGURE__FOREGROUND_COLOR,
+                 getString("_UI_Dimension_height_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Dimension_height_feature", "_UI_Dimension_type"),
+                 VisualInterfacePackage.Literals.DIMENSION__HEIGHT,
                  true,
                  false,
                  false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
                  null,
                  null));
     }
 
     /**
-     * This adds a property descriptor for the Background Color feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addBackgroundColorPropertyDescriptor(Object object)
-    {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Figure_backgroundColor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_backgroundColor_feature", "_UI_Figure_type"),
-                 VisualInterfacePackage.Literals.FIGURE__BACKGROUND_COLOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-    /**
-     * This adds a property descriptor for the Size feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSizePropertyDescriptor(Object object)
-    {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Figure_size_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_size_feature", "_UI_Figure_type"),
-                 VisualInterfacePackage.Literals.FIGURE__SIZE,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
-    }
-
-    /**
-     * This returns Figure.gif.
+     * This returns Dimension.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -177,7 +129,7 @@ public class FigureItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Figure"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Dimension"));
     }
 
     /**
@@ -189,10 +141,8 @@ public class FigureItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Figure)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_Figure_type") :
-            getString("_UI_Figure_type") + " " + label;
+        Dimension dimension = (Dimension)object;
+        return getString("_UI_Dimension_type") + " " + dimension.getWidth();
     }
 
     /**
@@ -207,11 +157,10 @@ public class FigureItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Figure.class))
+        switch (notification.getFeatureID(Dimension.class))
         {
-            case VisualInterfacePackage.FIGURE__NAME:
-            case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
-            case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
+            case VisualInterfacePackage.DIMENSION__WIDTH:
+            case VisualInterfacePackage.DIMENSION__HEIGHT:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

@@ -10,9 +10,11 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
@@ -26,6 +28,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getForegroundColor <em>Foreground Color</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getSize <em>Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +95,16 @@ public class FigureImpl extends EObjectImpl implements Figure
      * @ordered
      */
     protected String backgroundColor = BACKGROUND_COLOR_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getSize() <em>Size</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSize()
+     * @generated
+     * @ordered
+     */
+    protected Dimension size;
 
     /**
      * <!-- begin-user-doc -->
@@ -188,6 +201,49 @@ public class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
+    public Dimension getSize()
+    {
+        if (size != null && size.eIsProxy())
+        {
+            InternalEObject oldSize = (InternalEObject)size;
+            size = (Dimension)eResolveProxy(oldSize);
+            if (size != oldSize)
+            {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, VisualInterfacePackage.FIGURE__SIZE, oldSize, size));
+            }
+        }
+        return size;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Dimension basicGetSize()
+    {
+        return size;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSize(Dimension newSize)
+    {
+        Dimension oldSize = size;
+        size = newSize;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, oldSize, size));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -199,6 +255,9 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return getForegroundColor();
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
                 return getBackgroundColor();
+            case VisualInterfacePackage.FIGURE__SIZE:
+                if (resolve) return getSize();
+                return basicGetSize();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -221,6 +280,9 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return;
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
                 setBackgroundColor((String)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__SIZE:
+                setSize((Dimension)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -245,6 +307,9 @@ public class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
                 setBackgroundColor(BACKGROUND_COLOR_EDEFAULT);
                 return;
+            case VisualInterfacePackage.FIGURE__SIZE:
+                setSize((Dimension)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -265,6 +330,8 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return FOREGROUND_COLOR_EDEFAULT == null ? foregroundColor != null : !FOREGROUND_COLOR_EDEFAULT.equals(foregroundColor);
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
                 return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
+            case VisualInterfacePackage.FIGURE__SIZE:
+                return size != null;
         }
         return super.eIsSet(featureID);
     }

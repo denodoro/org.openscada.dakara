@@ -353,6 +353,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Dimension} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DimensionItemProvider dimensionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Dimension}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDimensionAdapter()
+    {
+        if (dimensionItemProvider == null)
+        {
+            dimensionItemProvider = new DimensionItemProvider(this);
+        }
+
+        return dimensionItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -474,6 +499,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (figureItemProvider != null) figureItemProvider.dispose();
         if (symbolReferenceItemProvider != null) symbolReferenceItemProvider.dispose();
         if (stringToStringMapItemProvider != null) stringToStringMapItemProvider.dispose();
+        if (dimensionItemProvider != null) dimensionItemProvider.dispose();
     }
 
 }

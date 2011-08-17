@@ -117,6 +117,15 @@ public interface VisualInterfaceFactory extends EFactory
     SymbolReference createSymbolReference();
 
     /**
+     * Returns a new object of class '<em>Dimension</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Dimension</em>'.
+     * @generated
+     */
+    Dimension createDimension();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

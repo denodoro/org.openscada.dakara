@@ -80,6 +80,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.FIGURE: return createFigure();
             case VisualInterfacePackage.SYMBOL_REFERENCE: return createSymbolReference();
             case VisualInterfacePackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
+            case VisualInterfacePackage.DIMENSION: return createDimension();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -204,6 +205,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         StringToStringMapImpl stringToStringMap = new StringToStringMapImpl();
         return stringToStringMap;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Dimension createDimension()
+    {
+        DimensionImpl dimension = new DimensionImpl();
+        return dimension;
     }
 
     /**
