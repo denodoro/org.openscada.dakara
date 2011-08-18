@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface">
+<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface" onUpdate="var label = controller.getElement(&quot;label&quot;);&#xA;label.setText ( &quot;Data: &quot; + data.getSummary() );">
   <root xsi:type="visualInterface:XYContainer">
     <children>
       <element xsi:type="visualInterface:Rectangle" foregroundColor="" backgroundColor="#FF0000" width="100.0" height="100.0"/>
@@ -8,6 +8,10 @@
     <children>
       <element xsi:type="visualInterface:Text" text="Hello World"/>
       <position x="200.0" y="200.0"/>
+    </children>
+    <children>
+      <element xsi:type="visualInterface:Text" name="label" text="Summary" labelAlignment="LEFT" textAlignment="BOTTOM"/>
+      <dimension width="1000.0" height="500.0"/>
     </children>
     <children>
       <element xsi:type="visualInterface:Line">

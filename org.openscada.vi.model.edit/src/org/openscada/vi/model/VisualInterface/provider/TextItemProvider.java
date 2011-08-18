@@ -69,8 +69,9 @@ public class TextItemProvider
 
             addTextPropertyDescriptor(object);
             addLabelAlignmentPropertyDescriptor(object);
-            addTextAlignmentPropertyDescriptor(object);
             addIconAlignmentPropertyDescriptor(object);
+            addTextAlignmentPropertyDescriptor(object);
+            addTextPlacementPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -145,6 +146,29 @@ public class TextItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Text Placement feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTextPlacementPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_textPlacement_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textPlacement_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__TEXT_PLACEMENT,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This adds a property descriptor for the Icon Alignment feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -210,8 +234,9 @@ public class TextItemProvider
         {
             case VisualInterfacePackage.TEXT__TEXT:
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
-            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
+            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
+            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

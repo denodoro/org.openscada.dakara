@@ -119,13 +119,17 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/labelAlignment"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_OjReAcjTEeCen9TTpz68Pw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_nupr4MjUEeCen9TTpz68Pw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/iconAlignment"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nupr4cjUEeCen9TTpz68Pw"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_nkitoMjUEeCen9TTpz68Pw" type="2001">
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/textAlignment"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_nkitocjUEeCen9TTpz68Pw"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_nupr4MjUEeCen9TTpz68Pw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/iconAlignment"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_nupr4cjUEeCen9TTpz68Pw"/>
+      <children xmi:type="notation:Node" xmi:id="_gP66IMl8EeCen9TTpz68Pw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/textPlacement"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_gP66Icl8EeCen9TTpz68Pw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ZLioocfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ZLioosfgEeC1o4sZtTXACQ"/>
@@ -362,6 +366,33 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="__tq7scjSEeCen9TTpz68Pw" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="VisualInterface.ecore#//Alignment"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="__tq7ssjSEeCen9TTpz68Pw" x="84" y="60"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_bH_XAMl8EeCen9TTpz68Pw" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_bIBzQMl8EeCen9TTpz68Pw" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_bIBzQcl8EeCen9TTpz68Pw" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_cm-dgMl8EeCen9TTpz68Pw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="VisualInterface.ecore#//Orientation/NORTH"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cm-dgcl8EeCen9TTpz68Pw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_dnEBgMl8EeCen9TTpz68Pw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="VisualInterface.ecore#//Orientation/SOUTH"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_dnEBgcl8EeCen9TTpz68Pw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_eU6mAMl8EeCen9TTpz68Pw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="VisualInterface.ecore#//Orientation/EAST"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_eU6mAcl8EeCen9TTpz68Pw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_fC2DAMl8EeCen9TTpz68Pw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="VisualInterface.ecore#//Orientation/WEST"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_fC2DAcl8EeCen9TTpz68Pw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_bIBzQsl8EeCen9TTpz68Pw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_bIBzQ8l8EeCen9TTpz68Pw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_bIBzRMl8EeCen9TTpz68Pw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_bH_XAcl8EeCen9TTpz68Pw" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="VisualInterface.ecore#//Orientation"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bH_-EMl8EeCen9TTpz68Pw" x="240" y="60"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_MxTo4MToEeC1o4sZtTXACQ"/>
   <element xmi:type="ecore:EPackage" href="VisualInterface.ecore#/"/>

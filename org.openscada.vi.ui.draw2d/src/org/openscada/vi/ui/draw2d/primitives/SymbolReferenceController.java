@@ -53,7 +53,8 @@ public class SymbolReferenceController implements Controller
             final IFigure rootFigure = elementController.getFigure ();
             layer.add ( rootFigure );
 
-            // FIXME: register with parent controller
+            // register the symbol element controller 
+            controller.addElement ( symbolReference.getName (), elementController );
         }
         catch ( final Exception e )
         {

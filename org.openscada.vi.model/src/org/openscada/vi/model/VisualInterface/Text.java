@@ -17,8 +17,9 @@ package org.openscada.vi.model.VisualInterface;
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getText <em>Text</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getLabelAlignment <em>Label Alignment</em>}</li>
- *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getIconAlignment <em>Icon Alignment</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getTextAlignment <em>Text Alignment</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getTextPlacement <em>Text Placement</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +58,7 @@ public interface Text extends Figure
 
     /**
      * Returns the value of the '<em><b>Label Alignment</b></em>' attribute.
+     * The default value is <code>"CENTER"</code>.
      * The literals are from the enumeration {@link org.openscada.vi.model.VisualInterface.Alignment}.
      * <!-- begin-user-doc -->
      * <p>
@@ -68,7 +70,7 @@ public interface Text extends Figure
      * @see org.openscada.vi.model.VisualInterface.Alignment
      * @see #setLabelAlignment(Alignment)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_LabelAlignment()
-     * @model
+     * @model default="CENTER"
      * @generated
      */
     Alignment getLabelAlignment();
@@ -86,6 +88,7 @@ public interface Text extends Figure
 
     /**
      * Returns the value of the '<em><b>Text Alignment</b></em>' attribute.
+     * The default value is <code>"CENTER"</code>.
      * The literals are from the enumeration {@link org.openscada.vi.model.VisualInterface.Alignment}.
      * <!-- begin-user-doc -->
      * <p>
@@ -97,7 +100,7 @@ public interface Text extends Figure
      * @see org.openscada.vi.model.VisualInterface.Alignment
      * @see #setTextAlignment(Alignment)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_TextAlignment()
-     * @model
+     * @model default="CENTER"
      * @generated
      */
     Alignment getTextAlignment();
@@ -114,7 +117,38 @@ public interface Text extends Figure
     void setTextAlignment(Alignment value);
 
     /**
+     * Returns the value of the '<em><b>Text Placement</b></em>' attribute.
+     * The default value is <code>"EAST"</code>.
+     * The literals are from the enumeration {@link org.openscada.vi.model.VisualInterface.Orientation}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Text Placement</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Text Placement</em>' attribute.
+     * @see org.openscada.vi.model.VisualInterface.Orientation
+     * @see #setTextPlacement(Orientation)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_TextPlacement()
+     * @model default="EAST"
+     * @generated
+     */
+    Orientation getTextPlacement();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getTextPlacement <em>Text Placement</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Text Placement</em>' attribute.
+     * @see org.openscada.vi.model.VisualInterface.Orientation
+     * @see #getTextPlacement()
+     * @generated
+     */
+    void setTextPlacement(Orientation value);
+
+    /**
      * Returns the value of the '<em><b>Icon Alignment</b></em>' attribute.
+     * The default value is <code>"CENTER"</code>.
      * The literals are from the enumeration {@link org.openscada.vi.model.VisualInterface.Alignment}.
      * <!-- begin-user-doc -->
      * <p>
@@ -126,7 +160,7 @@ public interface Text extends Figure
      * @see org.openscada.vi.model.VisualInterface.Alignment
      * @see #setIconAlignment(Alignment)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_IconAlignment()
-     * @model
+     * @model default="CENTER"
      * @generated
      */
     Alignment getIconAlignment();

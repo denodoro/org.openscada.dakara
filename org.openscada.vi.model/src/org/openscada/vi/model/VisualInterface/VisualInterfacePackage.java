@@ -456,22 +456,31 @@ public interface VisualInterfacePackage extends EPackage
     int TEXT__LABEL_ALIGNMENT = FIGURE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TEXT__TEXT_ALIGNMENT = FIGURE_FEATURE_COUNT + 2;
-
-    /**
      * The feature id for the '<em><b>Icon Alignment</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT__ICON_ALIGNMENT = FIGURE_FEATURE_COUNT + 3;
+    int TEXT__ICON_ALIGNMENT = FIGURE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Text Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__TEXT_ALIGNMENT = FIGURE_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Text Placement</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__TEXT_PLACEMENT = FIGURE_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Text</em>' class.
@@ -480,7 +489,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 4;
+    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ChildImpl <em>Child</em>}' class.
@@ -858,6 +867,17 @@ public interface VisualInterfacePackage extends EPackage
 
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Orientation <em>Orientation</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.Orientation
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
+     * @generated
+     */
+    int ORIENTATION = 16;
+
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Symbol <em>Symbol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1048,6 +1068,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getText_TextAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getTextPlacement <em>Text Placement</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Text Placement</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getTextPlacement()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_TextPlacement();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getIconAlignment <em>Icon Alignment</em>}'.
@@ -1372,6 +1403,16 @@ public interface VisualInterfacePackage extends EPackage
     EEnum getAlignment();
 
     /**
+     * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Orientation <em>Orientation</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Orientation</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Orientation
+     * @generated
+     */
+    EEnum getOrientation();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1549,6 +1590,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute TEXT__TEXT_ALIGNMENT = eINSTANCE.getText_TextAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Text Placement</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__TEXT_PLACEMENT = eINSTANCE.getText_TextPlacement();
 
         /**
          * The meta object literal for the '<em><b>Icon Alignment</b></em>' attribute feature.
@@ -1809,6 +1858,16 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EEnum ALIGNMENT = eINSTANCE.getAlignment();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Orientation <em>Orientation</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.Orientation
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
+         * @generated
+         */
+        EEnum ORIENTATION = eINSTANCE.getOrientation();
 
     }
 
