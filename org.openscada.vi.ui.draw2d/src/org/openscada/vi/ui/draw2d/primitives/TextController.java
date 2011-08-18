@@ -1,5 +1,6 @@
 package org.openscada.vi.ui.draw2d.primitives;
 
+import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
@@ -7,6 +8,8 @@ import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.widgets.Display;
 import org.openscada.vi.model.VisualInterface.Alignment;
 import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Text;
@@ -16,9 +19,12 @@ public class TextController extends FigureController
 {
     private final Label figure;
 
-    public TextController ( final SymbolController controller, final Text element, final ResourceManager manager )
+    private final FigureCanvas canvas;
+
+    public TextController ( final FigureCanvas canvas, final SymbolController controller, final Text element, final ResourceManager manager )
     {
         super ( controller, manager );
+        this.canvas = canvas;
         this.figure = new Label ( element.getText () );
         controller.addElement ( element.getName (), this );
 
@@ -48,12 +54,46 @@ public class TextController extends FigureController
 
     private Font convertFont ( final String fontName, final int fontSize, final boolean bold, final boolean italic )
     {
-        if ( fontName == null )
+        if ( fontName == null && fontSize <= 0 )
         {
             return null;
         }
 
-        return this.manager.createFont ( FontDescriptor.createFrom ( fontName, fontSize, SWT.NORMAL | ( bold ? SWT.BOLD : 0 ) | ( italic ? SWT.ITALIC : 0 ) ) );
+        if ( fontName != null && fontSize > 0 )
+        {
+            return this.manager.createFont ( FontDescriptor.createFrom ( fontName, fontSize, makeStyle ( bold, italic ) ) );
+        }
+        else
+        {
+            Font font = this.figure.getFont ();
+            if ( font == null )
+            {
+                font = this.canvas.getFont ();
+            }
+            if ( font == null )
+            {
+                font = Display.getDefault ().getSystemFont ();
+            }
+            final FontData[] fontData = FontDescriptor.copy ( font.getFontData () );
+            for ( final FontData fd : fontData )
+            {
+                if ( fontName != null )
+                {
+                    fd.setName ( fontName );
+                }
+                if ( fontSize > 0 )
+                {
+                    fd.setHeight ( fontSize );
+                }
+                fd.setStyle ( makeStyle ( bold, italic ) );
+            }
+            return this.manager.createFont ( FontDescriptor.createFrom ( fontData ) );
+        }
+    }
+
+    private int makeStyle ( final boolean bold, final boolean italic )
+    {
+        return SWT.NORMAL | ( bold ? SWT.BOLD : 0 ) | ( italic ? SWT.ITALIC : 0 );
     }
 
     private int convertOrientation ( final Orientation orientation, final int defaultValue )

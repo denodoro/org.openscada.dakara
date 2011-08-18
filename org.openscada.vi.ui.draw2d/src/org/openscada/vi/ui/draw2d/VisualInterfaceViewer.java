@@ -62,8 +62,6 @@ public class VisualInterfaceViewer extends Composite
         this.scriptObjects = scriptObjects;
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
 
-        this.factory = new ViewElementFactory ( this.manager );
-
         addDisposeListener ( new DisposeListener () {
 
             @Override
@@ -75,6 +73,8 @@ public class VisualInterfaceViewer extends Composite
 
         setLayout ( new FillLayout () );
         this.canvas = createCanvas ();
+
+        this.factory = new ViewElementFactory ( this.canvas, this.manager );
 
         try
         {
@@ -95,8 +95,6 @@ public class VisualInterfaceViewer extends Composite
 
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
 
-        this.factory = new ViewElementFactory ( this.manager );
-
         addDisposeListener ( new DisposeListener () {
 
             @Override
@@ -108,6 +106,8 @@ public class VisualInterfaceViewer extends Composite
 
         setLayout ( new FillLayout () );
         this.canvas = createCanvas ();
+
+        this.factory = new ViewElementFactory ( this.canvas, this.manager );
 
         this.canvas.setContents ( create ( symbol, symbolClassLoader ) );
         applyColor ( symbol );

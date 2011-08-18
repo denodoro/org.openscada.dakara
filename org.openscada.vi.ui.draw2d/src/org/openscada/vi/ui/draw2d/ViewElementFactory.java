@@ -3,6 +3,7 @@ package org.openscada.vi.ui.draw2d;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.model.VisualInterface.Dimension;
@@ -31,9 +32,12 @@ public class ViewElementFactory
 
     private final Map<URI, SymbolLoader> symbolCache = new HashMap<URI, SymbolLoader> ();
 
-    public ViewElementFactory ( final ResourceManager manager )
+    private final FigureCanvas canvas;
+
+    public ViewElementFactory ( final FigureCanvas canvas, final ResourceManager manager )
     {
         this.manager = manager;
+        this.canvas = canvas;
     }
 
     public Controller create ( final SymbolController controller, final Primitive element )
@@ -44,7 +48,7 @@ public class ViewElementFactory
         }
         else if ( element instanceof Text )
         {
-            return new TextController ( controller, (Text)element, this.manager );
+            return new TextController ( this.canvas, controller, (Text)element, this.manager );
         }
         else if ( element instanceof Line )
         {
