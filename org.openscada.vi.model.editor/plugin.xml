@@ -18,7 +18,7 @@
             id="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceModelWizardID"
             name="%_UI_VisualInterfaceModelWizard_label"
             class="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.openscada.dakara"
             icon="icons/full/obj16/VisualInterfaceModelFile.gif">
          <description>%_UI_VisualInterfaceModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
