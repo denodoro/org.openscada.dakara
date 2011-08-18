@@ -126,13 +126,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__SCRIPT_MODULES = 5;
 
     /**
+     * The feature id for the '<em><b>Cursors</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__CURSORS = 6;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 6;
+    int SYMBOL_FEATURE_COUNT = 7;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -237,13 +246,49 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE__SIZE = PRIMITIVE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__ON_CLICK = PRIMITIVE_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__ON_DOUBLE_CLICK = PRIMITIVE_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__CURSOR = PRIMITIVE_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__VISIBLE = PRIMITIVE_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Figure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 3;
+    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 7;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl <em>Shape</em>}' class.
@@ -290,6 +335,42 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int SHAPE__SIZE = FIGURE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__ON_CLICK = FIGURE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__CURSOR = FIGURE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__VISIBLE = FIGURE__VISIBLE;
 
     /**
      * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -365,6 +446,42 @@ public interface VisualInterfacePackage extends EPackage
     int RECTANGLE__SIZE = SHAPE__SIZE;
 
     /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__VISIBLE = SHAPE__VISIBLE;
+
+    /**
      * The feature id for the '<em><b>Width</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -436,6 +553,42 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int TEXT__SIZE = FIGURE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__ON_CLICK = FIGURE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__CURSOR = FIGURE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__VISIBLE = FIGURE__VISIBLE;
 
     /**
      * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -687,6 +840,42 @@ public interface VisualInterfacePackage extends EPackage
     int LINE__SIZE = FIGURE__SIZE;
 
     /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__ON_CLICK = FIGURE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__CURSOR = FIGURE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__VISIBLE = FIGURE__VISIBLE;
+
+    /**
      * The feature id for the '<em><b>Points</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -856,6 +1045,53 @@ public interface VisualInterfacePackage extends EPackage
 
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.CursorImpl <em>Cursor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.CursorImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getCursor()
+     * @generated
+     */
+    int CURSOR = 15;
+
+    /**
+     * The number of structural features of the '<em>Cursor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURSOR_FEATURE_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.SystemCursorImpl <em>System Cursor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.SystemCursorImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursor()
+     * @generated
+     */
+    int SYSTEM_CURSOR = 16;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_CURSOR__TYPE = CURSOR_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>System Cursor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_CURSOR_FEATURE_COUNT = CURSOR_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -863,7 +1099,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 15;
+    int ALIGNMENT = 17;
 
 
     /**
@@ -874,7 +1110,18 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 16;
+    int ORIENTATION = 18;
+
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.SystemCursorType <em>System Cursor Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.SystemCursorType
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
+     * @generated
+     */
+    int SYSTEM_CURSOR_TYPE = 19;
 
 
     /**
@@ -952,6 +1199,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getSymbol_ScriptModules();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Cursors</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getCursors()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_Cursors();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}'.
@@ -1273,6 +1531,50 @@ public interface VisualInterfacePackage extends EPackage
     EReference getFigure_Size();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#getOnClick <em>On Click</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Click</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getOnClick()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_OnClick();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#getOnDoubleClick <em>On Double Click</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Double Click</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getOnDoubleClick()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_OnDoubleClick();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Figure#getCursor <em>Cursor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Cursor</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getCursor()
+     * @see #getFigure()
+     * @generated
+     */
+    EReference getFigure_Cursor();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#isVisible <em>Visible</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Visible</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#isVisible()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_Visible();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SymbolReference <em>Symbol Reference</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1393,6 +1695,37 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getDimension_Height();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Cursor <em>Cursor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Cursor</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Cursor
+     * @generated
+     */
+    EClass getCursor();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SystemCursor <em>System Cursor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>System Cursor</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SystemCursor
+     * @generated
+     */
+    EClass getSystemCursor();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.SystemCursor#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SystemCursor#getType()
+     * @see #getSystemCursor()
+     * @generated
+     */
+    EAttribute getSystemCursor_Type();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1411,6 +1744,16 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EEnum getOrientation();
+
+    /**
+     * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.SystemCursorType <em>System Cursor Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>System Cursor Type</em>'.
+     * @see org.openscada.vi.model.VisualInterface.SystemCursorType
+     * @generated
+     */
+    EEnum getSystemCursorType();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -1492,6 +1835,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SYMBOL__SCRIPT_MODULES = eINSTANCE.getSymbol_ScriptModules();
+
+        /**
+         * The meta object literal for the '<em><b>Cursors</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__CURSORS = eINSTANCE.getSymbol_Cursors();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -1756,6 +2107,38 @@ public interface VisualInterfacePackage extends EPackage
         EReference FIGURE__SIZE = eINSTANCE.getFigure_Size();
 
         /**
+         * The meta object literal for the '<em><b>On Click</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__ON_CLICK = eINSTANCE.getFigure_OnClick();
+
+        /**
+         * The meta object literal for the '<em><b>On Double Click</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__ON_DOUBLE_CLICK = eINSTANCE.getFigure_OnDoubleClick();
+
+        /**
+         * The meta object literal for the '<em><b>Cursor</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FIGURE__CURSOR = eINSTANCE.getFigure_Cursor();
+
+        /**
+         * The meta object literal for the '<em><b>Visible</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__VISIBLE = eINSTANCE.getFigure_Visible();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1850,6 +2233,34 @@ public interface VisualInterfacePackage extends EPackage
         EAttribute DIMENSION__HEIGHT = eINSTANCE.getDimension_Height();
 
         /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.CursorImpl <em>Cursor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.CursorImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getCursor()
+         * @generated
+         */
+        EClass CURSOR = eINSTANCE.getCursor();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SystemCursorImpl <em>System Cursor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.SystemCursorImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursor()
+         * @generated
+         */
+        EClass SYSTEM_CURSOR = eINSTANCE.getSystemCursor();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYSTEM_CURSOR__TYPE = eINSTANCE.getSystemCursor_Type();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1868,6 +2279,16 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EEnum ORIENTATION = eINSTANCE.getOrientation();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.SystemCursorType <em>System Cursor Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.SystemCursorType
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
+         * @generated
+         */
+        EEnum SYSTEM_CURSOR_TYPE = eINSTANCE.getSystemCursorType();
 
     }
 

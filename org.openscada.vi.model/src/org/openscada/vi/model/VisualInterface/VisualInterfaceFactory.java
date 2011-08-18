@@ -126,6 +126,15 @@ public interface VisualInterfaceFactory extends EFactory
     Dimension createDimension();
 
     /**
+     * Returns a new object of class '<em>System Cursor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>System Cursor</em>'.
+     * @generated
+     */
+    SystemCursor createSystemCursor();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

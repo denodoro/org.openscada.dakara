@@ -187,6 +187,7 @@ public class SymbolItemProvider
             super.getChildrenFeatures(object);
             childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__ROOT);
             childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__PROPERTIES);
+            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__CURSORS);
         }
         return childrenFeatures;
     }
@@ -254,6 +255,7 @@ public class SymbolItemProvider
                 return;
             case VisualInterfacePackage.SYMBOL__ROOT:
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
+            case VisualInterfacePackage.SYMBOL__CURSORS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -306,6 +308,11 @@ public class SymbolItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.SYMBOL__PROPERTIES,
                  VisualInterfaceFactory.eINSTANCE.create(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP)));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.SYMBOL__CURSORS,
+                 VisualInterfaceFactory.eINSTANCE.createSystemCursor()));
     }
 
     /**

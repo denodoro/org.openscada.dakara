@@ -17,7 +17,7 @@ public class LineController extends FigureController
 
     public LineController ( final SymbolController controller, final Line element, final ResourceManager manager )
     {
-        super ( manager );
+        super ( controller, manager );
 
         this.figure = new PolylineShape ();
 
@@ -39,7 +39,7 @@ public class LineController extends FigureController
 
         controller.addElement ( element.getName (), this );
 
-        applyStyles ( element );
+        applyCommon ( element );
     }
 
     @Override

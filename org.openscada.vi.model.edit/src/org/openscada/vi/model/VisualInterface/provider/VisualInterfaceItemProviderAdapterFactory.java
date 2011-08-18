@@ -378,6 +378,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.SystemCursor} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SystemCursorItemProvider systemCursorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.SystemCursor}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSystemCursorAdapter()
+    {
+        if (systemCursorItemProvider == null)
+        {
+            systemCursorItemProvider = new SystemCursorItemProvider(this);
+        }
+
+        return systemCursorItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -500,6 +525,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (symbolReferenceItemProvider != null) symbolReferenceItemProvider.dispose();
         if (stringToStringMapItemProvider != null) stringToStringMapItemProvider.dispose();
         if (dimensionItemProvider != null) dimensionItemProvider.dispose();
+        if (systemCursorItemProvider != null) systemCursorItemProvider.dispose();
     }
 
 }

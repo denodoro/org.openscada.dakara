@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.openscada.vi.model.VisualInterface.Alignment;
 import org.openscada.vi.model.VisualInterface.Child;
+import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.Line;
@@ -27,6 +28,8 @@ import org.openscada.vi.model.VisualInterface.Rectangle;
 import org.openscada.vi.model.VisualInterface.Shape;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
+import org.openscada.vi.model.VisualInterface.SystemCursor;
+import org.openscada.vi.model.VisualInterface.SystemCursorType;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
@@ -151,6 +154,20 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass cursorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass systemCursorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum alignmentEEnum = null;
 
     /**
@@ -159,6 +176,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EEnum orientationEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum systemCursorTypeEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -291,6 +315,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EAttribute getSymbol_ScriptModules()
     {
         return (EAttribute)symbolEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSymbol_Cursors()
+    {
+        return (EReference)symbolEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -598,6 +632,46 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getFigure_OnClick()
+    {
+        return (EAttribute)figureEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFigure_OnDoubleClick()
+    {
+        return (EAttribute)figureEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getFigure_Cursor()
+    {
+        return (EReference)figureEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFigure_Visible()
+    {
+        return (EAttribute)figureEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSymbolReference()
     {
         return symbolReferenceEClass;
@@ -708,6 +782,36 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getCursor()
+    {
+        return cursorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSystemCursor()
+    {
+        return systemCursorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSystemCursor_Type()
+    {
+        return (EAttribute)systemCursorEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getAlignment()
     {
         return alignmentEEnum;
@@ -721,6 +825,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EEnum getOrientation()
     {
         return orientationEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getSystemCursorType()
+    {
+        return systemCursorTypeEEnum;
     }
 
     /**
@@ -760,6 +874,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(symbolEClass, SYMBOL__ON_DISPOSE);
         createEAttribute(symbolEClass, SYMBOL__ON_UPDATE);
         createEAttribute(symbolEClass, SYMBOL__SCRIPT_MODULES);
+        createEReference(symbolEClass, SYMBOL__CURSORS);
 
         primitiveEClass = createEClass(PRIMITIVE);
         createEAttribute(primitiveEClass, PRIMITIVE__NAME);
@@ -801,6 +916,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(figureEClass, FIGURE__FOREGROUND_COLOR);
         createEAttribute(figureEClass, FIGURE__BACKGROUND_COLOR);
         createEReference(figureEClass, FIGURE__SIZE);
+        createEAttribute(figureEClass, FIGURE__ON_CLICK);
+        createEAttribute(figureEClass, FIGURE__ON_DOUBLE_CLICK);
+        createEReference(figureEClass, FIGURE__CURSOR);
+        createEAttribute(figureEClass, FIGURE__VISIBLE);
 
         symbolReferenceEClass = createEClass(SYMBOL_REFERENCE);
         createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__URI);
@@ -816,9 +935,15 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(dimensionEClass, DIMENSION__WIDTH);
         createEAttribute(dimensionEClass, DIMENSION__HEIGHT);
 
+        cursorEClass = createEClass(CURSOR);
+
+        systemCursorEClass = createEClass(SYSTEM_CURSOR);
+        createEAttribute(systemCursorEClass, SYSTEM_CURSOR__TYPE);
+
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
         orientationEEnum = createEEnum(ORIENTATION);
+        systemCursorTypeEEnum = createEEnum(SYSTEM_CURSOR_TYPE);
     }
 
     /**
@@ -859,6 +984,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         lineEClass.getESuperTypes().add(this.getFigure());
         figureEClass.getESuperTypes().add(this.getPrimitive());
         symbolReferenceEClass.getESuperTypes().add(this.getPrimitive());
+        systemCursorEClass.getESuperTypes().add(this.getCursor());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -868,6 +994,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getSymbol_OnDispose(), ecorePackage.getEString(), "onDispose", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSymbol_OnUpdate(), ecorePackage.getEString(), "onUpdate", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSymbol_ScriptModules(), ecorePackage.getEString(), "scriptModules", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getSymbol_Cursors(), this.getCursor(), null, "cursors", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getPrimitive_Name(), ecorePackage.getEString(), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -909,6 +1036,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getFigure_ForegroundColor(), ecorePackage.getEString(), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFigure_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getFigure_Size(), this.getDimension(), null, "size", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFigure_OnClick(), ecorePackage.getEString(), "onClick", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFigure_OnDoubleClick(), ecorePackage.getEString(), "onDoubleClick", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getFigure_Cursor(), this.getCursor(), null, "cursor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getFigure_Visible(), ecorePackage.getEBoolean(), "visible", "true", 1, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSymbolReference_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -924,6 +1055,11 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getDimension_Width(), ecorePackage.getEDouble(), "width", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getDimension_Height(), ecorePackage.getEDouble(), "height", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(cursorEClass, Cursor.class, "Cursor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(systemCursorEClass, SystemCursor.class, "SystemCursor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getSystemCursor_Type(), this.getSystemCursorType(), "type", null, 1, 1, SystemCursor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
         // Initialize enums and add enum literals
         initEEnum(alignmentEEnum, Alignment.class, "Alignment");
         addEEnumLiteral(alignmentEEnum, Alignment.LEFT);
@@ -937,6 +1073,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         addEEnumLiteral(orientationEEnum, Orientation.SOUTH);
         addEEnumLiteral(orientationEEnum, Orientation.EAST);
         addEEnumLiteral(orientationEEnum, Orientation.WEST);
+
+        initEEnum(systemCursorTypeEEnum, SystemCursorType.class, "SystemCursorType");
+        addEEnumLiteral(systemCursorTypeEEnum, SystemCursorType.ARROW);
+        addEEnumLiteral(systemCursorTypeEEnum, SystemCursorType.HAND);
 
         // Create resource
         createResource(eNS_URI);

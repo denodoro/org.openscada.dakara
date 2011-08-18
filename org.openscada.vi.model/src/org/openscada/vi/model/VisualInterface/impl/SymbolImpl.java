@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
@@ -39,6 +40,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnDispose <em>On Dispose</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnUpdate <em>On Update</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getScriptModules <em>Script Modules</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getCursors <em>Cursors</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,6 +137,16 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected EList<String> scriptModules;
+
+    /**
+     * The cached value of the '{@link #getCursors() <em>Cursors</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCursors()
+     * @generated
+     * @ordered
+     */
+    protected Cursor cursors;
 
     /**
      * <!-- begin-user-doc -->
@@ -307,6 +319,54 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public Cursor getCursors()
+    {
+        return cursors;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetCursors(Cursor newCursors, NotificationChain msgs)
+    {
+        Cursor oldCursors = cursors;
+        cursors = newCursors;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__CURSORS, oldCursors, newCursors);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCursors(Cursor newCursors)
+    {
+        if (newCursors != cursors)
+        {
+            NotificationChain msgs = null;
+            if (cursors != null)
+                msgs = ((InternalEObject)cursors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__CURSORS, null, msgs);
+            if (newCursors != null)
+                msgs = ((InternalEObject)newCursors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__CURSORS, null, msgs);
+            msgs = basicSetCursors(newCursors, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__CURSORS, newCursors, newCursors));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -316,6 +376,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return basicSetRoot(null, msgs);
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
                 return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case VisualInterfacePackage.SYMBOL__CURSORS:
+                return basicSetCursors(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -343,6 +405,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getOnUpdate();
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
                 return getScriptModules();
+            case VisualInterfacePackage.SYMBOL__CURSORS:
+                return getCursors();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -377,6 +441,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 getScriptModules().clear();
                 getScriptModules().addAll((Collection<? extends String>)newValue);
                 return;
+            case VisualInterfacePackage.SYMBOL__CURSORS:
+                setCursors((Cursor)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -409,6 +476,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
                 getScriptModules().clear();
                 return;
+            case VisualInterfacePackage.SYMBOL__CURSORS:
+                setCursors((Cursor)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -435,6 +505,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return ON_UPDATE_EDEFAULT == null ? onUpdate != null : !ON_UPDATE_EDEFAULT.equals(onUpdate);
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
                 return scriptModules != null && !scriptModules.isEmpty();
+            case VisualInterfacePackage.SYMBOL__CURSORS:
+                return cursors != null;
         }
         return super.eIsSet(featureID);
     }

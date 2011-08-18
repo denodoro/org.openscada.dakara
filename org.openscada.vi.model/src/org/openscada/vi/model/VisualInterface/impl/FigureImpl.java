@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
@@ -29,6 +30,10 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getForegroundColor <em>Foreground Color</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getBackgroundColor <em>Background Color</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOnClick <em>On Click</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOnDoubleClick <em>On Double Click</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getCursor <em>Cursor</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#isVisible <em>Visible</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +110,76 @@ public class FigureImpl extends EObjectImpl implements Figure
      * @ordered
      */
     protected Dimension size;
+
+    /**
+     * The default value of the '{@link #getOnClick() <em>On Click</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnClick()
+     * @generated
+     * @ordered
+     */
+    protected static final String ON_CLICK_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOnClick() <em>On Click</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnClick()
+     * @generated
+     * @ordered
+     */
+    protected String onClick = ON_CLICK_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOnDoubleClick() <em>On Double Click</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnDoubleClick()
+     * @generated
+     * @ordered
+     */
+    protected static final String ON_DOUBLE_CLICK_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOnDoubleClick() <em>On Double Click</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnDoubleClick()
+     * @generated
+     * @ordered
+     */
+    protected String onDoubleClick = ON_DOUBLE_CLICK_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getCursor() <em>Cursor</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCursor()
+     * @generated
+     * @ordered
+     */
+    protected Cursor cursor;
+
+    /**
+     * The default value of the '{@link #isVisible() <em>Visible</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isVisible()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean VISIBLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isVisible() <em>Visible</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isVisible()
+     * @generated
+     * @ordered
+     */
+    protected boolean visible = VISIBLE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -244,6 +319,118 @@ public class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getOnClick()
+    {
+        return onClick;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnClick(String newOnClick)
+    {
+        String oldOnClick = onClick;
+        onClick = newOnClick;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__ON_CLICK, oldOnClick, onClick));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getOnDoubleClick()
+    {
+        return onDoubleClick;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnDoubleClick(String newOnDoubleClick)
+    {
+        String oldOnDoubleClick = onDoubleClick;
+        onDoubleClick = newOnDoubleClick;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK, oldOnDoubleClick, onDoubleClick));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Cursor getCursor()
+    {
+        if (cursor != null && cursor.eIsProxy())
+        {
+            InternalEObject oldCursor = (InternalEObject)cursor;
+            cursor = (Cursor)eResolveProxy(oldCursor);
+            if (cursor != oldCursor)
+            {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, VisualInterfacePackage.FIGURE__CURSOR, oldCursor, cursor));
+            }
+        }
+        return cursor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Cursor basicGetCursor()
+    {
+        return cursor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCursor(Cursor newCursor)
+    {
+        Cursor oldCursor = cursor;
+        cursor = newCursor;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__CURSOR, oldCursor, cursor));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isVisible()
+    {
+        return visible;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setVisible(boolean newVisible)
+    {
+        boolean oldVisible = visible;
+        visible = newVisible;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__VISIBLE, oldVisible, visible));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -258,6 +445,15 @@ public class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__SIZE:
                 if (resolve) return getSize();
                 return basicGetSize();
+            case VisualInterfacePackage.FIGURE__ON_CLICK:
+                return getOnClick();
+            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
+                return getOnDoubleClick();
+            case VisualInterfacePackage.FIGURE__CURSOR:
+                if (resolve) return getCursor();
+                return basicGetCursor();
+            case VisualInterfacePackage.FIGURE__VISIBLE:
+                return isVisible();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -283,6 +479,18 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return;
             case VisualInterfacePackage.FIGURE__SIZE:
                 setSize((Dimension)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__ON_CLICK:
+                setOnClick((String)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
+                setOnDoubleClick((String)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__CURSOR:
+                setCursor((Cursor)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__VISIBLE:
+                setVisible((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -310,6 +518,18 @@ public class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__SIZE:
                 setSize((Dimension)null);
                 return;
+            case VisualInterfacePackage.FIGURE__ON_CLICK:
+                setOnClick(ON_CLICK_EDEFAULT);
+                return;
+            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
+                setOnDoubleClick(ON_DOUBLE_CLICK_EDEFAULT);
+                return;
+            case VisualInterfacePackage.FIGURE__CURSOR:
+                setCursor((Cursor)null);
+                return;
+            case VisualInterfacePackage.FIGURE__VISIBLE:
+                setVisible(VISIBLE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -332,6 +552,14 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
             case VisualInterfacePackage.FIGURE__SIZE:
                 return size != null;
+            case VisualInterfacePackage.FIGURE__ON_CLICK:
+                return ON_CLICK_EDEFAULT == null ? onClick != null : !ON_CLICK_EDEFAULT.equals(onClick);
+            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
+                return ON_DOUBLE_CLICK_EDEFAULT == null ? onDoubleClick != null : !ON_DOUBLE_CLICK_EDEFAULT.equals(onDoubleClick);
+            case VisualInterfacePackage.FIGURE__CURSOR:
+                return cursor != null;
+            case VisualInterfacePackage.FIGURE__VISIBLE:
+                return visible != VISIBLE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -353,6 +581,12 @@ public class FigureImpl extends EObjectImpl implements Figure
         result.append(foregroundColor);
         result.append(", backgroundColor: ");
         result.append(backgroundColor);
+        result.append(", onClick: ");
+        result.append(onClick);
+        result.append(", onDoubleClick: ");
+        result.append(onDoubleClick);
+        result.append(", visible: ");
+        result.append(visible);
         result.append(')');
         return result.toString();
     }

@@ -1,29 +1,124 @@
 package org.openscada.vi.ui.draw2d.primitives;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.script.ScriptException;
+
+import org.eclipse.draw2d.MouseEvent;
+import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.jface.resource.ColorDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.Display;
+import org.openscada.utils.script.ScriptExecutor;
+import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
+import org.openscada.vi.model.VisualInterface.SystemCursor;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
+import org.openscada.vi.ui.draw2d.SymbolController;
 
 public abstract class FigureController implements Controller
 {
     private final ResourceManager manager;
 
-    public FigureController ( final ResourceManager manager )
+    private final SymbolController controller;
+
+    private ScriptExecutor onClick;
+
+    private ScriptExecutor onDoubleClick;
+
+    public FigureController ( final SymbolController controller, final ResourceManager manager )
     {
         this.manager = manager;
+        this.controller = controller;
     }
 
-    protected void applyStyles ( final Figure figure )
+    protected void applyCommon ( final Figure figure )
     {
         setBackgroundColor ( figure.getBackgroundColor () );
         setForegroundColor ( figure.getForegroundColor () );
 
         setPreferredSize ( create ( figure.getSize () ) );
+
+        setCursor ( convert ( figure.getCursor () ) );
+        setVisible ( figure.isVisible () );
+
+        try
+        {
+            this.onClick = this.controller.createScriptExecutor ( figure.getOnClick () );
+            this.onDoubleClick = this.controller.createScriptExecutor ( figure.getOnDoubleClick () );
+        }
+        catch ( final ScriptException e )
+        {
+            throw new RuntimeException ( "Failed to initialize", e );
+        }
+
+        if ( this.onClick != null || this.onDoubleClick != null )
+        {
+            getFigure ().addMouseListener ( new MouseListener.Stub () {
+                @Override
+                public void mouseReleased ( final MouseEvent me )
+                {
+                    handleOnClick ( me );
+                }
+
+                @Override
+                public void mouseDoubleClicked ( final MouseEvent me )
+                {
+                    handleOnDoubleClick ( me );
+                }
+            } );
+        }
+    }
+
+    public void setCursor ( final String cursor )
+    {
+        getFigure ().setCursor ( getCursor ( cursor ) );
+    }
+
+    protected org.eclipse.swt.graphics.Cursor getCursor ( final String cursor )
+    {
+        if ( "ARROW".equals ( cursor ) )
+        {
+            return Display.getDefault ().getSystemCursor ( SWT.CURSOR_ARROW );
+        }
+        else if ( "HAND".equals ( cursor ) )
+        {
+            return Display.getDefault ().getSystemCursor ( SWT.CURSOR_HAND );
+        }
+        else
+        {
+            // TODO: try to load as resource instead
+            return null;
+        }
+    }
+
+    private String convert ( final Cursor cursor )
+    {
+        if ( cursor instanceof SystemCursor )
+        {
+            return ( (SystemCursor)cursor ).getType ().toString ();
+        }
+        return null;
+    }
+
+    protected void handleOnDoubleClick ( final MouseEvent me )
+    {
+        final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ( 1 );
+        scriptObjects.put ( "event", me );
+        this.controller.execute ( this.onDoubleClick, scriptObjects );
+    }
+
+    protected void handleOnClick ( final MouseEvent me )
+    {
+        final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ( 1 );
+        scriptObjects.put ( "event", me );
+        this.controller.execute ( this.onClick, scriptObjects );
     }
 
     public void setPreferredSize ( final org.eclipse.draw2d.geometry.Dimension size )
@@ -66,6 +161,11 @@ public abstract class FigureController implements Controller
     public void setForegroundColor ( final String color )
     {
         getFigure ().setForegroundColor ( makeColor ( color ) );
+    }
+
+    public void setVisible ( final boolean flag )
+    {
+        getFigure ().setVisible ( flag );
     }
 
     protected org.eclipse.draw2d.geometry.Dimension create ( final Dimension dimension )

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getOnDispose <em>On Dispose</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getOnUpdate <em>On Update</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getScriptModules <em>Script Modules</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}</li>
  * </ul>
  * </p>
  *
@@ -169,5 +170,31 @@ public interface Symbol extends EObject
      * @generated
      */
     EList<String> getScriptModules();
+
+    /**
+     * Returns the value of the '<em><b>Cursors</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Cursors</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Cursors</em>' containment reference.
+     * @see #setCursors(Cursor)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbol_Cursors()
+     * @model containment="true"
+     * @generated
+     */
+    Cursor getCursors();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Cursors</em>' containment reference.
+     * @see #getCursors()
+     * @generated
+     */
+    void setCursors(Cursor value);
 
 } // Symbol

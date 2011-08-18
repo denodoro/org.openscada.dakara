@@ -82,6 +82,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.SYMBOL_REFERENCE: return createSymbolReference();
             case VisualInterfacePackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
             case VisualInterfacePackage.DIMENSION: return createDimension();
+            case VisualInterfacePackage.SYSTEM_CURSOR: return createSystemCursor();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -101,6 +102,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return createAlignmentFromString(eDataType, initialValue);
             case VisualInterfacePackage.ORIENTATION:
                 return createOrientationFromString(eDataType, initialValue);
+            case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
+                return createSystemCursorTypeFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -120,6 +123,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return convertAlignmentToString(eDataType, instanceValue);
             case VisualInterfacePackage.ORIENTATION:
                 return convertOrientationToString(eDataType, instanceValue);
+            case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
+                return convertSystemCursorTypeToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -262,6 +267,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public SystemCursor createSystemCursor()
+    {
+        SystemCursorImpl systemCursor = new SystemCursorImpl();
+        return systemCursor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Alignment createAlignmentFromString(EDataType eDataType, String initialValue)
     {
         Alignment result = Alignment.get(initialValue);
@@ -297,6 +313,28 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * @generated
      */
     public String convertOrientationToString(EDataType eDataType, Object instanceValue)
+    {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SystemCursorType createSystemCursorTypeFromString(EDataType eDataType, String initialValue)
+    {
+        SystemCursorType result = SystemCursorType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertSystemCursorTypeToString(EDataType eDataType, Object instanceValue)
     {
         return instanceValue == null ? null : instanceValue.toString();
     }

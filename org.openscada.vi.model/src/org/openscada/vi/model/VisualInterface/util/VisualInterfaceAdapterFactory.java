@@ -155,6 +155,16 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
                 return createDimensionAdapter();
             }
             @Override
+            public Adapter caseCursor(Cursor object)
+            {
+                return createCursorAdapter();
+            }
+            @Override
+            public Adapter caseSystemCursor(SystemCursor object)
+            {
+                return createSystemCursorAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object)
             {
                 return createEObjectAdapter();
@@ -397,6 +407,36 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createDimensionAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Cursor <em>Cursor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.Cursor
+     * @generated
+     */
+    public Adapter createCursorAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.SystemCursor <em>System Cursor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.SystemCursor
+     * @generated
+     */
+    public Adapter createSystemCursorAdapter()
     {
         return null;
     }

@@ -1,5 +1,8 @@
 package org.openscada.vi.ui.user;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.layout.GridData;
@@ -45,7 +48,11 @@ public class ViewInstance implements SummaryListener
         }
 
         // create the visual interface view
-        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, descriptor.getUri () );
+
+        final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ();
+        scriptObjects.put ( "viewManager", viewManager );
+
+        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, descriptor.getUri (), scriptObjects );
         this.viewer.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         if ( this.button != null )
         {

@@ -15,15 +15,16 @@ public class TextController extends FigureController
 
     public TextController ( final SymbolController controller, final Text element, final ResourceManager manager )
     {
-        super ( manager );
+        super ( controller, manager );
         this.figure = new Label ( element.getText () );
         controller.addElement ( element.getName (), this );
-        applyStyles ( element );
+
+        applyCommon ( element );
     }
 
-    protected void applyStyles ( final Text element )
+    protected void applyCommon ( final Text element )
     {
-        super.applyStyles ( element );
+        super.applyCommon ( element );
         this.figure.setTextAlignment ( convertAlignment ( element.getTextAlignment (), PositionConstants.CENTER ) );
         this.figure.setLabelAlignment ( convertAlignment ( element.getLabelAlignment (), PositionConstants.CENTER ) );
         this.figure.setIconAlignment ( convertAlignment ( element.getIconAlignment (), PositionConstants.CENTER ) );

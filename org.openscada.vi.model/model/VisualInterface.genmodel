@@ -15,6 +15,16 @@
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/TOP"/>
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/BOTTOM"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//Orientation">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/NORTH"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/SOUTH"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/EAST"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/WEST"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//SystemCursorType">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//SystemCursorType/ARROW"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//SystemCursorType/HAND"/>
+    </genEnums>
     <genClasses ecoreClass="VisualInterface.ecore#//Symbol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/properties"/>
@@ -35,8 +45,9 @@
     <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/labelAlignment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textAlignment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/iconAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textPlacement"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
@@ -60,6 +71,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
+      <genFeatures createChild="false" propertyCategory="" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onClick"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onDoubleClick"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
@@ -74,6 +89,10 @@
     <genClasses ecoreClass="VisualInterface.ecore#//Dimension">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Dimension/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Dimension/height"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Cursor"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//SystemCursor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SystemCursor/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

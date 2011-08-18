@@ -26,15 +26,32 @@ public class VisualInterfaceViewer extends Composite
 
     private SymbolController controller;
 
-    public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri )
+    private Map<String, Object> scriptObjects;
+
+    /**
+     * Create a new viewer
+     * @param parent the parent composite
+     * @param style the composite style
+     * @param uri the URI from which the root symbol should be loaded
+     * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>
+     */
+    public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri, final Map<String, Object> scriptObjects )
     {
-        this ( parent, style, uri.toString () );
+        this ( parent, style, uri.toString (), scriptObjects );
     }
 
-    public VisualInterfaceViewer ( final Composite parent, final int style, final String uri )
+    /**
+     * Create a new viewer
+     * @param parent the parent composite
+     * @param style the composite style
+     * @param uri the URI from which the root symbol should be loaded
+     * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>
+     */
+    public VisualInterfaceViewer ( final Composite parent, final int style, final String uri, final Map<String, Object> scriptObjects )
     {
         super ( parent, style );
 
+        this.scriptObjects = scriptObjects;
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
 
         this.factory = new ViewElementFactory ( this.manager );
@@ -96,7 +113,7 @@ public class VisualInterfaceViewer extends Composite
                 properties.put ( entry.getKey (), entry.getValue () );
             }
 
-            this.controller = new SymbolController ( symbol, classLoader, properties );
+            this.controller = new SymbolController ( symbol, classLoader, properties, this.scriptObjects );
 
             final Controller controller = create ( symbol.getRoot () );
 
@@ -123,7 +140,6 @@ public class VisualInterfaceViewer extends Composite
     public void addSummaryListener ( final SummaryListener listener )
     {
         this.controller.addSummaryListener ( listener );
-
     }
 
     public void removeSummaryListener ( final SummaryListener listener )

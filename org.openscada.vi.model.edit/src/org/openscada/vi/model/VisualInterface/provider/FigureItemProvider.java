@@ -72,6 +72,10 @@ public class FigureItemProvider
             addForegroundColorPropertyDescriptor(object);
             addBackgroundColorPropertyDescriptor(object);
             addSizePropertyDescriptor(object);
+            addOnClickPropertyDescriptor(object);
+            addOnDoubleClickPropertyDescriptor(object);
+            addCursorPropertyDescriptor(object);
+            addVisiblePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -169,6 +173,98 @@ public class FigureItemProvider
     }
 
     /**
+     * This adds a property descriptor for the On Click feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnClickPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_onClick_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_onClick_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__ON_CLICK,
+                 true,
+                 true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the On Double Click feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnDoubleClickPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_onDoubleClick_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_onDoubleClick_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__ON_DOUBLE_CLICK,
+                 true,
+                 true,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Cursor feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addCursorPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_cursor_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_cursor_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__CURSOR,
+                 true,
+                 false,
+                 true,
+                 null,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Visible feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addVisiblePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_visible_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_visible_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__VISIBLE,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This returns Figure.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -212,6 +308,9 @@ public class FigureItemProvider
             case VisualInterfacePackage.FIGURE__NAME:
             case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
+            case VisualInterfacePackage.FIGURE__ON_CLICK:
+            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
+            case VisualInterfacePackage.FIGURE__VISIBLE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

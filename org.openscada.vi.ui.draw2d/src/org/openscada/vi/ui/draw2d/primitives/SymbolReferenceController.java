@@ -47,7 +47,7 @@ public class SymbolReferenceController implements Controller
             properties.putAll ( convert ( symbolReference.getProperties () ) );
             createProperties ( controller, symbolReference, properties );
 
-            final SymbolController childController = new SymbolController ( controller, symbolLoader.getSymbol (), symbolLoader.getClassLoader (), properties );
+            final SymbolController childController = new SymbolController ( controller, symbolLoader.getSymbol (), symbolLoader.getClassLoader (), properties, controller.getScriptObjects () );
 
             final Controller elementController = factory.create ( childController, symbolLoader.getSymbol ().getRoot () );
             final IFigure rootFigure = elementController.getFigure ();

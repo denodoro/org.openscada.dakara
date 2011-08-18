@@ -13,7 +13,7 @@ public class RectangleController extends FigureController
 
     public RectangleController ( final SymbolController controller, final Rectangle element, final ResourceManager manager )
     {
-        super ( manager );
+        super ( controller, manager );
         final PrecisionRectangle rect = new PrecisionRectangle ();
         rect.setPreciseSize ( element.getWidth (), element.getHeight () );
         this.figure = new RectangleFigure ();
@@ -21,7 +21,7 @@ public class RectangleController extends FigureController
 
         controller.addElement ( element.getName (), this );
 
-        applyStyles ( element );
+        applyCommon ( element );
     }
 
     @Override

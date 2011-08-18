@@ -197,6 +197,21 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case VisualInterfacePackage.CURSOR:
+            {
+                Cursor cursor = (Cursor)theEObject;
+                T result = caseCursor(cursor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.SYSTEM_CURSOR:
+            {
+                SystemCursor systemCursor = (SystemCursor)theEObject;
+                T result = caseSystemCursor(systemCursor);
+                if (result == null) result = caseCursor(systemCursor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
     }
@@ -437,6 +452,38 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDimension(Dimension object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Cursor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Cursor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCursor(Cursor object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>System Cursor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>System Cursor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSystemCursor(SystemCursor object)
     {
         return null;
     }

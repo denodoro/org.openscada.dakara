@@ -67,12 +67,14 @@ public class SymbolController
 
     private final Set<SummaryListener> summaryListeners = new LinkedHashSet<SummaryListener> ( 1 );
 
-    public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties ) throws Exception
+    private final Map<String, Object> scriptObjects;
+
+    public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
-        this ( null, symbol, classLoader, properties );
+        this ( null, symbol, classLoader, properties, scriptObjects );
     }
 
-    public SymbolController ( final SymbolController parentController, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties ) throws Exception
+    public SymbolController ( final SymbolController parentController, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
         this.parentController = parentController;
         this.classLoader = classLoader;
@@ -106,8 +108,16 @@ public class SymbolController
 
         this.scriptContext = this.engine.getContext ();
 
-        this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.GLOBAL_SCOPE );
-        this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.GLOBAL_SCOPE );
+        this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE );
+        this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE );
+        this.scriptObjects = scriptObjects;
+        if ( scriptObjects != null )
+        {
+            for ( final Map.Entry<String, Object> entry : scriptObjects.entrySet () )
+            {
+                this.scriptContext.setAttribute ( entry.getKey (), entry.getValue (), ScriptContext.ENGINE_SCOPE );
+            }
+        }
 
         for ( final String module : symbol.getScriptModules () )
         {
@@ -117,6 +127,11 @@ public class SymbolController
         this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), classLoader );
         this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), classLoader );
         this.onUpdate = new ScriptExecutor ( this.engine, symbol.getOnUpdate (), classLoader );
+    }
+
+    public Map<String, Object> getScriptObjects ()
+    {
+        return this.scriptObjects;
     }
 
     private void loadScript ( final String module ) throws Exception
@@ -312,6 +327,33 @@ public class SymbolController
     public void removeSummaryListener ( final SummaryListener listener )
     {
         this.summaryListeners.remove ( listener );
+    }
+
+    public ScriptExecutor createScriptExecutor ( final String command ) throws ScriptException
+    {
+        if ( command == null || command.isEmpty () )
+        {
+            return null;
+        }
+
+        return new ScriptExecutor ( this.engine, command, this.classLoader );
+    }
+
+    public void execute ( final ScriptExecutor scriptExecutor, final Map<String, Object> scriptObjects )
+    {
+        if ( scriptExecutor == null )
+        {
+            return;
+        }
+
+        try
+        {
+            scriptExecutor.execute ( this.scriptContext, scriptObjects );
+        }
+        catch ( final Exception e )
+        {
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
+        }
     }
 
 }
