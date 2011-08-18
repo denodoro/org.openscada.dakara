@@ -237,7 +237,7 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE__BACKGROUND_COLOR = PRIMITIVE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Size</b></em>' reference.
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -328,7 +328,7 @@ public interface VisualInterfacePackage extends EPackage
     int SHAPE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
 
     /**
-     * The feature id for the '<em><b>Size</b></em>' reference.
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -373,31 +373,13 @@ public interface VisualInterfacePackage extends EPackage
     int SHAPE__VISIBLE = FIGURE__VISIBLE;
 
     /**
-     * The feature id for the '<em><b>Width</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SHAPE__WIDTH = FIGURE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Height</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SHAPE__HEIGHT = FIGURE_FEATURE_COUNT + 1;
-
-    /**
      * The number of structural features of the '<em>Shape</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
+    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -437,7 +419,7 @@ public interface VisualInterfacePackage extends EPackage
     int RECTANGLE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
 
     /**
-     * The feature id for the '<em><b>Size</b></em>' reference.
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -480,24 +462,6 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int RECTANGLE__VISIBLE = SHAPE__VISIBLE;
-
-    /**
-     * The feature id for the '<em><b>Width</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RECTANGLE__WIDTH = SHAPE__WIDTH;
-
-    /**
-     * The feature id for the '<em><b>Height</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int RECTANGLE__HEIGHT = SHAPE__HEIGHT;
 
     /**
      * The number of structural features of the '<em>Rectangle</em>' class.
@@ -546,7 +510,7 @@ public interface VisualInterfacePackage extends EPackage
     int TEXT__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
 
     /**
-     * The feature id for the '<em><b>Size</b></em>' reference.
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -831,7 +795,7 @@ public interface VisualInterfacePackage extends EPackage
     int LINE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
 
     /**
-     * The feature id for the '<em><b>Size</b></em>' reference.
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1253,28 +1217,6 @@ public interface VisualInterfacePackage extends EPackage
     EClass getShape();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getWidth <em>Width</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Width</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Shape#getWidth()
-     * @see #getShape()
-     * @generated
-     */
-    EAttribute getShape_Width();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getHeight <em>Height</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Height</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Shape#getHeight()
-     * @see #getShape()
-     * @generated
-     */
-    EAttribute getShape_Height();
-
-    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Rectangle <em>Rectangle</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1520,10 +1462,10 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getFigure_BackgroundColor();
 
     /**
-     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}'.
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Size</em>'.
+     * @return the meta object for the containment reference '<em>Size</em>'.
      * @see org.openscada.vi.model.VisualInterface.Figure#getSize()
      * @see #getFigure()
      * @generated
@@ -1883,22 +1825,6 @@ public interface VisualInterfacePackage extends EPackage
         EClass SHAPE = eINSTANCE.getShape();
 
         /**
-         * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SHAPE__WIDTH = eINSTANCE.getShape_Width();
-
-        /**
-         * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute SHAPE__HEIGHT = eINSTANCE.getShape_Height();
-
-        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2099,7 +2025,7 @@ public interface VisualInterfacePackage extends EPackage
         EAttribute FIGURE__BACKGROUND_COLOR = eINSTANCE.getFigure_BackgroundColor();
 
         /**
-         * The meta object literal for the '<em><b>Size</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

@@ -32,15 +32,13 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onDispose"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onUpdate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/scriptModules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/cursors"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Container"/>
-    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/width"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/height"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape"/>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
     <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
@@ -70,11 +68,13 @@
     <genClasses ecoreClass="VisualInterface.ecore#//Figure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
       <genFeatures createChild="false" propertyCategory="" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onClick"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onDoubleClick"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>

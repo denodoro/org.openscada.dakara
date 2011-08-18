@@ -21,11 +21,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" interface="true"
       eSuperTypes="#//Primitive"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//Figure">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//Figure"/>
   <eClassifiers xsi:type="ecore:EClass" name="Rectangle" eSuperTypes="#//Shape"/>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Figure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -78,7 +74,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Figure" eSuperTypes="#//Primitive">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foregroundColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Dimension"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Dimension"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="onClick" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="onDoubleClick" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cursor" eType="#//Cursor"/>

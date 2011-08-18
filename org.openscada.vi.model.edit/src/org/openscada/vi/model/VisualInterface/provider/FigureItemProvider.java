@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +28,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.openscada.vi.model.VisualInterface.Figure;
+import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
@@ -71,7 +73,6 @@ public class FigureItemProvider
             addNamePropertyDescriptor(object);
             addForegroundColorPropertyDescriptor(object);
             addBackgroundColorPropertyDescriptor(object);
-            addSizePropertyDescriptor(object);
             addOnClickPropertyDescriptor(object);
             addOnDoubleClickPropertyDescriptor(object);
             addCursorPropertyDescriptor(object);
@@ -145,29 +146,6 @@ public class FigureItemProvider
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-    /**
-     * This adds a property descriptor for the Size feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSizePropertyDescriptor(Object object)
-    {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Figure_size_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_size_feature", "_UI_Figure_type"),
-                 VisualInterfacePackage.Literals.FIGURE__SIZE,
-                 true,
-                 false,
-                 true,
-                 null,
                  null,
                  null));
     }
@@ -265,6 +243,39 @@ public class FigureItemProvider
     }
 
     /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    {
+        if (childrenFeatures == null)
+        {
+            super.getChildrenFeatures(object);
+            childrenFeatures.add(VisualInterfacePackage.Literals.FIGURE__SIZE);
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature(Object object, Object child)
+    {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature(object, child);
+    }
+
+    /**
      * This returns Figure.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -313,6 +324,9 @@ public class FigureItemProvider
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
+            case VisualInterfacePackage.FIGURE__SIZE:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                return;
         }
         super.notifyChanged(notification);
     }
@@ -328,6 +342,11 @@ public class FigureItemProvider
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
     {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE__SIZE,
+                 VisualInterfaceFactory.eINSTANCE.createDimension()));
     }
 
     /**

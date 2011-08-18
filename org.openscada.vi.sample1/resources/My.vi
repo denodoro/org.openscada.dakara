@@ -2,7 +2,9 @@
 <visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface" onInit="if ( !(viewManager === undefined) )&#xA;{&#xA;&#x9;var link = controller.getElement ( &quot;link&quot; );&#xA;&#x9;link.setVisible ( true );&#xA;}" onUpdate="var label = controller.getElement(&quot;label&quot;);&#xA;label.setText ( &quot;Data: &quot; + data.getSummary() );">
   <root xsi:type="visualInterface:XYContainer">
     <children>
-      <element xsi:type="visualInterface:Rectangle" foregroundColor="" backgroundColor="#FF0000" width="100.0" height="100.0"/>
+      <element xsi:type="visualInterface:Rectangle" foregroundColor="" backgroundColor="#FF0000">
+        <size width="100.0" height="100.0"/>
+      </element>
       <position x="10.0" y="10.0"/>
     </children>
     <children>
@@ -42,7 +44,7 @@
       <position x="400.0" y="300.0"/>
     </children>
     <children>
-      <element xsi:type="visualInterface:Text" name="link" onClick="viewManager.showView ( &quot;view2&quot; );" cursor="//@cursors" visible="false" text="Go forward"/>
+      <element xsi:type="visualInterface:Text" name="link" backgroundColor="" onClick="viewManager.showView ( &quot;view2&quot; );" cursor="//@cursors" visible="false" text="Go forward"/>
       <position y="600.0"/>
     </children>
   </root>

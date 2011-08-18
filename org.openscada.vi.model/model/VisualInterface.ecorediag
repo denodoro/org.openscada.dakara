@@ -71,14 +71,6 @@
   <children xmi:type="notation:Node" xmi:id="_UcZY8MfgEeC1o4sZtTXACQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_UcaAAMfgEeC1o4sZtTXACQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_UcaAAcfgEeC1o4sZtTXACQ" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_7CWgIMfiEeC1o4sZtTXACQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Shape/width"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7CWgIcfiEeC1o4sZtTXACQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_7-ZRoMfiEeC1o4sZtTXACQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Shape/height"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7-ZRocfiEeC1o4sZtTXACQ"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_UcaAAsfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_UcaAA8fgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_UcaABMfgEeC1o4sZtTXACQ"/>
@@ -346,7 +338,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_pgiSgcjPEeCen9TTpz68Pw" fontColor="4210752" fontName="Ubuntu" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="VisualInterface.ecore#//Dimension"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pgiSgsjPEeCen9TTpz68Pw" x="648" y="480"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pgiSgsjPEeCen9TTpz68Pw" x="612" y="444"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="__tq7sMjSEeCen9TTpz68Pw" type="1005">
     <children xmi:type="notation:Node" xmi:id="__tsw4MjSEeCen9TTpz68Pw" type="4010"/>

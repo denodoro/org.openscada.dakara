@@ -84,26 +84,26 @@ public interface Figure extends Primitive
     void setBackgroundColor(String value);
 
     /**
-     * Returns the value of the '<em><b>Size</b></em>' reference.
+     * Returns the value of the '<em><b>Size</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Size</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Size</em>' reference.
+     * @return the value of the '<em>Size</em>' containment reference.
      * @see #setSize(Dimension)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getFigure_Size()
-     * @model
+     * @model containment="true"
      * @generated
      */
     Dimension getSize();
 
     /**
-     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}' reference.
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Size</em>' reference.
+     * @param value the new value of the '<em>Size</em>' containment reference.
      * @see #getSize()
      * @generated
      */

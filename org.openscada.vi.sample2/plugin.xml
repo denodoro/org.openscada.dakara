@@ -14,6 +14,11 @@
             name="My Second View"
             uri="platform:/plugin/org.openscada.vi.sample2/resources/My.vi">
       </viewInstance>
+      <viewInstance
+            id="sample1.blinking"
+            name="Blink"
+            uri="platform:/plugin/org.openscada.vi.sample1/resources/Blink.vi">
+      </viewInstance>
    </extension>
 
 </plugin>

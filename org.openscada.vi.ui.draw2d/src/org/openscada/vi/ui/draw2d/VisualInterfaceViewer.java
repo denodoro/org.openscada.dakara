@@ -147,12 +147,18 @@ public class VisualInterfaceViewer extends Composite
 
     public void addSummaryListener ( final SummaryListener listener )
     {
-        this.controller.addSummaryListener ( listener );
+        if ( this.controller != null )
+        {
+            this.controller.addSummaryListener ( listener );
+        }
     }
 
     public void removeSummaryListener ( final SummaryListener listener )
     {
-        this.controller.removeSummaryListener ( listener );
+        if ( this.controller != null )
+        {
+            this.controller.removeSummaryListener ( listener );
+        }
     }
 
 }

@@ -15,7 +15,10 @@ public class RectangleController extends FigureController
     {
         super ( controller, manager );
         final PrecisionRectangle rect = new PrecisionRectangle ();
-        rect.setPreciseSize ( element.getWidth (), element.getHeight () );
+        if ( element.getSize () != null )
+        {
+            rect.setPreciseSize ( element.getSize ().getWidth (), element.getSize ().getHeight () );
+        }
         this.figure = new RectangleFigure ();
         this.figure.setBounds ( rect );
 

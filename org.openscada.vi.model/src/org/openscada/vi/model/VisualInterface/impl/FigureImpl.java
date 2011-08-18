@@ -8,6 +8,7 @@ package org.openscada.vi.model.VisualInterface.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -102,7 +103,7 @@ public class FigureImpl extends EObjectImpl implements Figure
     protected String backgroundColor = BACKGROUND_COLOR_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getSize() <em>Size</em>}' reference.
+     * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getSize()
@@ -278,16 +279,6 @@ public class FigureImpl extends EObjectImpl implements Figure
      */
     public Dimension getSize()
     {
-        if (size != null && size.eIsProxy())
-        {
-            InternalEObject oldSize = (InternalEObject)size;
-            size = (Dimension)eResolveProxy(oldSize);
-            if (size != oldSize)
-            {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, VisualInterfacePackage.FIGURE__SIZE, oldSize, size));
-            }
-        }
         return size;
     }
 
@@ -296,9 +287,16 @@ public class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dimension basicGetSize()
+    public NotificationChain basicSetSize(Dimension newSize, NotificationChain msgs)
     {
-        return size;
+        Dimension oldSize = size;
+        size = newSize;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, oldSize, newSize);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
     }
 
     /**
@@ -308,10 +306,18 @@ public class FigureImpl extends EObjectImpl implements Figure
      */
     public void setSize(Dimension newSize)
     {
-        Dimension oldSize = size;
-        size = newSize;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, oldSize, size));
+        if (newSize != size)
+        {
+            NotificationChain msgs = null;
+            if (size != null)
+                msgs = ((InternalEObject)size).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE__SIZE, null, msgs);
+            if (newSize != null)
+                msgs = ((InternalEObject)newSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE__SIZE, null, msgs);
+            msgs = basicSetSize(newSize, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, newSize, newSize));
     }
 
     /**
@@ -432,6 +438,22 @@ public class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    {
+        switch (featureID)
+        {
+            case VisualInterfacePackage.FIGURE__SIZE:
+                return basicSetSize(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
         switch (featureID)
@@ -443,8 +465,7 @@ public class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
                 return getBackgroundColor();
             case VisualInterfacePackage.FIGURE__SIZE:
-                if (resolve) return getSize();
-                return basicGetSize();
+                return getSize();
             case VisualInterfacePackage.FIGURE__ON_CLICK:
                 return getOnClick();
             case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
