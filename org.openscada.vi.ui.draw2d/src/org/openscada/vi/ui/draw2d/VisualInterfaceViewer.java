@@ -11,6 +11,7 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -73,18 +74,33 @@ public class VisualInterfaceViewer extends Composite
         } );
 
         setLayout ( new FillLayout () );
-        this.canvas = new FigureCanvas ( this );
+        this.canvas = createCanvas ();
 
         try
         {
             final SymbolLoader loader = new SymbolLoader ( uri );
             this.canvas.setContents ( create ( loader.getSymbol (), loader.getClassLoader () ) );
+            applyColor ( loader.getSymbol () );
         }
         catch ( final Exception e )
         {
             this.canvas.setContents ( Helper.createErrorFigure ( e ) );
         }
 
+    }
+
+    private void applyColor ( final Symbol symbol )
+    {
+        final RGB color = org.openscada.vi.ui.draw2d.primitives.Helper.makeColor ( symbol.getBackgroundColor () );
+        if ( color != null )
+        {
+            this.canvas.setBackground ( this.manager.createColor ( color ) );
+        }
+    }
+
+    protected FigureCanvas createCanvas ()
+    {
+        return new FigureCanvas ( this );
     }
 
     public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader symbolClassLoader )
@@ -105,10 +121,10 @@ public class VisualInterfaceViewer extends Composite
         } );
 
         setLayout ( new FillLayout () );
-        this.canvas = new FigureCanvas ( this );
+        this.canvas = createCanvas ();
 
         this.canvas.setContents ( create ( symbol, symbolClassLoader ) );
-        this.canvas.setBackground ( this.manager.createColor ( org.openscada.vi.ui.draw2d.primitives.Helper.makeColor ( symbol.getBackgroundColor () ) ) );
+        applyColor ( symbol );
     }
 
     protected IFigure create ( final Symbol symbol, final ClassLoader classLoader )
@@ -127,6 +143,7 @@ public class VisualInterfaceViewer extends Composite
             final Controller controller = create ( symbol.getRoot () );
 
             this.controller.init ();
+
             return controller.getFigure ();
         }
         catch ( final Exception e )

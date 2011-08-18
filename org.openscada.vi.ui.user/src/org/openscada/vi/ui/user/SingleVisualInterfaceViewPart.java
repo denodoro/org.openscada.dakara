@@ -43,6 +43,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.toolBar.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
 
         this.viewHolder = new Composite ( wrapper, SWT.NONE );
+        this.viewHolder.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         this.viewHolder.setLayout ( this.stackLayout = new StackLayout () );
         for ( final ViewInstanceDescriptor descriptor : Activator.getDescriptors () )
         {
