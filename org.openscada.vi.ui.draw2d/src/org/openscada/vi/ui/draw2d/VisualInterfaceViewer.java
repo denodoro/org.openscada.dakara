@@ -1,5 +1,6 @@
 package org.openscada.vi.ui.draw2d;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +25,11 @@ public class VisualInterfaceViewer extends Composite
     private final LocalResourceManager manager;
 
     private SymbolController controller;
+
+    public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri )
+    {
+        this ( parent, style, uri.toString () );
+    }
 
     public VisualInterfaceViewer ( final Composite parent, final int style, final String uri )
     {
