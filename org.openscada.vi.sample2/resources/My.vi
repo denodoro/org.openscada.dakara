@@ -6,7 +6,7 @@
       <position/>
     </children>
     <children>
-      <element xsi:type="visualInterface:Text" onClick="viewManager.showView ( &quot;view1&quot; );" text="Go Back"/>
+      <element xsi:type="visualInterface:Text" onClick="" onDoubleClick="viewManager.showView ( &quot;view1&quot; );" text="Go Back"/>
       <position y="50.0"/>
     </children>
   </root>
