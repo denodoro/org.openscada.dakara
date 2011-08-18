@@ -82,7 +82,6 @@ public abstract class FigureController implements Controller
             @Override
             public void ancestorAdded ( final IFigure ancestor )
             {
-                System.out.println ( "added: " + ancestor );
             }
 
             @Override
@@ -93,7 +92,10 @@ public abstract class FigureController implements Controller
             @Override
             public void ancestorRemoved ( final IFigure ancestor )
             {
-                System.out.println ( "removed: " + ancestor );
+                if ( ancestor == getFigure () )
+                {
+                    internalDispose ();
+                }
             };
         } );
 

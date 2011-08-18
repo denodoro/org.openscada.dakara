@@ -89,20 +89,6 @@ public class VisualInterfaceViewer extends Composite
 
     }
 
-    private void applyColor ( final Symbol symbol )
-    {
-        final RGB color = org.openscada.vi.ui.draw2d.primitives.Helper.makeColor ( symbol.getBackgroundColor () );
-        if ( color != null )
-        {
-            this.canvas.setBackground ( this.manager.createColor ( color ) );
-        }
-    }
-
-    protected FigureCanvas createCanvas ()
-    {
-        return new FigureCanvas ( this );
-    }
-
     public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader symbolClassLoader )
     {
         super ( parent, style );
@@ -125,6 +111,20 @@ public class VisualInterfaceViewer extends Composite
 
         this.canvas.setContents ( create ( symbol, symbolClassLoader ) );
         applyColor ( symbol );
+    }
+
+    private void applyColor ( final Symbol symbol )
+    {
+        final RGB color = org.openscada.vi.ui.draw2d.primitives.Helper.makeColor ( symbol.getBackgroundColor () );
+        if ( color != null )
+        {
+            this.canvas.setBackground ( this.manager.createColor ( color ) );
+        }
+    }
+
+    protected FigureCanvas createCanvas ()
+    {
+        return new FigureCanvas ( this );
     }
 
     protected IFigure create ( final Symbol symbol, final ClassLoader classLoader )

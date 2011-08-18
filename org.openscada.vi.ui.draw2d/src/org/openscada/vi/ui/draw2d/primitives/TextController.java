@@ -48,6 +48,11 @@ public class TextController extends FigureController
 
     private Font convertFont ( final String fontName, final int fontSize, final boolean bold, final boolean italic )
     {
+        if ( fontName == null )
+        {
+            return null;
+        }
+
         return this.manager.createFont ( FontDescriptor.createFrom ( fontName, fontSize, SWT.NORMAL | ( bold ? SWT.BOLD : 0 ) | ( italic ? SWT.ITALIC : 0 ) ) );
     }
 

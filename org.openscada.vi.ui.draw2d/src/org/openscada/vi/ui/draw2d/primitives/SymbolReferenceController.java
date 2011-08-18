@@ -12,7 +12,10 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
+import org.openscada.vi.ui.draw2d.Activator;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
 import org.openscada.vi.ui.draw2d.SymbolLoader;
@@ -66,6 +69,7 @@ public class SymbolReferenceController implements Controller
         }
         catch ( final Exception e )
         {
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
             layer.add ( Helper.createErrorFigure ( e ) );
         }
     }
