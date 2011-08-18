@@ -65,6 +65,8 @@ public class SymbolController
 
     private Map<String, DataItemValue> lastData;
 
+    private final Set<SummaryListener> summaryListeners = new LinkedHashSet<SummaryListener> ( 1 );
+
     public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties ) throws Exception
     {
         this ( null, symbol, classLoader, properties );
@@ -282,11 +284,34 @@ public class SymbolController
         try
         {
             this.onUpdate.execute ( this.scriptContext );
+            notifySummaryListeners ();
         }
         catch ( final Exception e )
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
+    }
+
+    protected void notifySummaryListeners ()
+    {
+        final SummaryInformation info = getSummaryInformation ();
+        for ( final SummaryListener listener : this.summaryListeners )
+        {
+            listener.summaryChanged ( info );
+        }
+    }
+
+    public void addSummaryListener ( final SummaryListener listener )
+    {
+        if ( this.summaryListeners.add ( listener ) )
+        {
+            listener.summaryChanged ( getSummaryInformation () );
+        }
+    }
+
+    public void removeSummaryListener ( final SummaryListener listener )
+    {
+        this.summaryListeners.remove ( listener );
     }
 
 }
