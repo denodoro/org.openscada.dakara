@@ -65,6 +65,11 @@ public class SummaryInformation
         return isAttribute ( "blocked", false );
     }
 
+    public boolean isAckRequired ()
+    {
+        return isAttribute ( "ackRequired", false );
+    }
+
     public boolean isAttribute ( final String attributeName, final boolean defaultValue )
     {
         for ( final DataItemValue value : this.data.values () )
