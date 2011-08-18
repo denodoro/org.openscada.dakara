@@ -109,6 +109,7 @@ public class XYChildItemProvider
         {
             super.getChildrenFeatures(object);
             childrenFeatures.add(VisualInterfacePackage.Literals.XY_CHILD__POSITION);
+            childrenFeatures.add(VisualInterfacePackage.Literals.XY_CHILD__DIMENSION);
         }
         return childrenFeatures;
     }
@@ -166,6 +167,7 @@ public class XYChildItemProvider
         switch (notification.getFeatureID(XYChild.class))
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
+            case VisualInterfacePackage.XY_CHILD__DIMENSION:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -188,6 +190,11 @@ public class XYChildItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.XY_CHILD__POSITION,
                  VisualInterfaceFactory.eINSTANCE.createPosition()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.XY_CHILD__DIMENSION,
+                 VisualInterfaceFactory.eINSTANCE.createDimension()));
     }
 
 }

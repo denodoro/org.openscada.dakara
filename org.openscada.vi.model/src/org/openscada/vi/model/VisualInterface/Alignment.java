@@ -51,7 +51,23 @@ public enum Alignment implements Enumerator
      * @generated
      * @ordered
      */
-    RIGHT(2, "RIGHT", "RIGHT");
+    RIGHT(2, "RIGHT", "RIGHT"), /**
+     * The '<em><b>TOP</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #TOP_VALUE
+     * @generated
+     * @ordered
+     */
+    TOP(3, "TOP", "TOP"), /**
+     * The '<em><b>BOTTOM</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #BOTTOM_VALUE
+     * @generated
+     * @ordered
+     */
+    BOTTOM(4, "BOTTOM", "BOTTOM");
 
     /**
      * The '<em><b>LEFT</b></em>' literal value.
@@ -99,6 +115,36 @@ public enum Alignment implements Enumerator
     public static final int RIGHT_VALUE = 2;
 
     /**
+     * The '<em><b>TOP</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>TOP</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #TOP
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int TOP_VALUE = 3;
+
+    /**
+     * The '<em><b>BOTTOM</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>BOTTOM</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #BOTTOM
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int BOTTOM_VALUE = 4;
+
+    /**
      * An array of all the '<em><b>Alignment</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -110,6 +156,8 @@ public enum Alignment implements Enumerator
             LEFT,
             CENTER,
             RIGHT,
+            TOP,
+            BOTTOM,
         };
 
     /**
@@ -171,6 +219,8 @@ public enum Alignment implements Enumerator
             case LEFT_VALUE: return LEFT;
             case CENTER_VALUE: return CENTER;
             case RIGHT_VALUE: return RIGHT;
+            case TOP_VALUE: return TOP;
+            case BOTTOM_VALUE: return BOTTOM;
         }
         return null;
     }

@@ -539,13 +539,22 @@ public interface VisualInterfacePackage extends EPackage
     int XY_CHILD__POSITION = CHILD_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int XY_CHILD__DIMENSION = CHILD_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>XY Child</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int XY_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 1;
+    int XY_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.XYContainerImpl <em>XY Container</em>}' class.
@@ -1094,6 +1103,17 @@ public interface VisualInterfacePackage extends EPackage
     EReference getXYChild_Position();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.model.VisualInterface.XYChild#getDimension <em>Dimension</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Dimension</em>'.
+     * @see org.openscada.vi.model.VisualInterface.XYChild#getDimension()
+     * @see #getXYChild()
+     * @generated
+     */
+    EReference getXYChild_Dimension();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.XYContainer <em>XY Container</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1573,6 +1593,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference XY_CHILD__POSITION = eINSTANCE.getXYChild_Position();
+
+        /**
+         * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference XY_CHILD__DIMENSION = eINSTANCE.getXYChild_Dimension();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.XYContainerImpl <em>XY Container</em>}' class.

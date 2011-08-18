@@ -47,6 +47,12 @@
         <details key="kind" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Dimension"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An optional dimension for the XYLayout. If not set the preferred dimension of the child will be used."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XYContainer" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
@@ -88,5 +94,7 @@
     <eLiterals name="LEFT" value="1"/>
     <eLiterals name="CENTER"/>
     <eLiterals name="RIGHT" value="2"/>
+    <eLiterals name="TOP" value="3"/>
+    <eLiterals name="BOTTOM" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

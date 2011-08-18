@@ -16,6 +16,7 @@ package org.openscada.vi.model.VisualInterface;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.XYChild#getPosition <em>Position</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.XYChild#getDimension <em>Dimension</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,30 @@ public interface XYChild extends Child
      * @generated
      */
     void setPosition(Position value);
+
+    /**
+     * Returns the value of the '<em><b>Dimension</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * An optional dimension for the XYLayout
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Dimension</em>' containment reference.
+     * @see #setDimension(Dimension)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getXYChild_Dimension()
+     * @model containment="true"
+     * @generated
+     */
+    Dimension getDimension();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.XYChild#getDimension <em>Dimension</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Dimension</em>' containment reference.
+     * @see #getDimension()
+     * @generated
+     */
+    void setDimension(Dimension value);
 
 } // XYChild

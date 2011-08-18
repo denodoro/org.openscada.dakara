@@ -22,7 +22,7 @@ public class XYContainerController implements Controller
         {
             final Controller elementController = factory.create ( controller, child.getElement () );
             final IFigure childFigure = elementController.getFigure ();
-            this.figure.add ( childFigure, factory.create ( child.getPosition () ) );
+            this.figure.add ( childFigure, factory.create ( child.getPosition (), child.getDimension () ) );
         }
 
         controller.addElement ( element.getName (), this );

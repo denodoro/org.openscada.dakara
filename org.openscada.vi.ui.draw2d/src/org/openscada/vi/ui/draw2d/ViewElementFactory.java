@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
+import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -61,7 +62,7 @@ public class ViewElementFactory
         return null;
     }
 
-    public org.eclipse.draw2d.geometry.Rectangle create ( final Position position )
+    public org.eclipse.draw2d.geometry.Rectangle create ( final Position position, final Dimension dimension )
     {
         if ( position == null )
         {
@@ -70,7 +71,14 @@ public class ViewElementFactory
 
         final org.eclipse.draw2d.geometry.PrecisionRectangle rect = new org.eclipse.draw2d.geometry.PrecisionRectangle ();
         rect.setPreciseLocation ( position.getX (), position.getY () );
-        rect.setPreciseSize ( -1, -1 );
+        if ( dimension == null )
+        {
+            rect.setPreciseSize ( -1, -1 );
+        }
+        else
+        {
+            rect.setPreciseSize ( dimension.getWidth (), dimension.getHeight () );
+        }
         return rect;
     }
 

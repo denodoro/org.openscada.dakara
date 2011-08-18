@@ -450,6 +450,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getXYChild_Dimension()
+    {
+        return (EReference)xyChildEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getXYContainer()
     {
         return xyContainerEClass;
@@ -745,6 +755,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         xyChildEClass = createEClass(XY_CHILD);
         createEReference(xyChildEClass, XY_CHILD__POSITION);
+        createEReference(xyChildEClass, XY_CHILD__DIMENSION);
 
         xyContainerEClass = createEClass(XY_CONTAINER);
         createEReference(xyContainerEClass, XY_CONTAINER__CHILDREN);
@@ -850,6 +861,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(xyChildEClass, XYChild.class, "XYChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getXYChild_Position(), this.getPosition(), null, "position", null, 1, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getXYChild_Dimension(), this.getDimension(), null, "dimension", null, 0, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(xyContainerEClass, XYContainer.class, "XYContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getXYContainer_Children(), this.getXYChild(), null, "children", null, 0, -1, XYContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -886,6 +898,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         addEEnumLiteral(alignmentEEnum, Alignment.LEFT);
         addEEnumLiteral(alignmentEEnum, Alignment.CENTER);
         addEEnumLiteral(alignmentEEnum, Alignment.RIGHT);
+        addEEnumLiteral(alignmentEEnum, Alignment.TOP);
+        addEEnumLiteral(alignmentEEnum, Alignment.BOTTOM);
 
         // Create resource
         createResource(eNS_URI);
@@ -918,7 +932,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
            new String[] 
            {
              "kind", "element"
-           });
+           });	
     }
 
 } //VisualInterfacePackageImpl
