@@ -10,6 +10,7 @@ import org.eclipse.draw2d.ScalableLayeredPane;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
@@ -20,7 +21,7 @@ public class SymbolReferenceController implements Controller
 {
     private final LayeredPane figure;
 
-    public SymbolReferenceController ( final SymbolController controller, final SymbolReference symbolReference, final ViewElementFactory factory )
+    public SymbolReferenceController ( final SymbolController controller, final SymbolReference symbolReference, final ViewElementFactory factory, final ResourceManager manager )
     {
         if ( symbolReference.getZoom () != null )
         {
@@ -52,6 +53,8 @@ public class SymbolReferenceController implements Controller
             final Controller elementController = factory.create ( childController, symbolLoader.getSymbol ().getRoot () );
             final IFigure rootFigure = elementController.getFigure ();
             layer.add ( rootFigure );
+
+            layer.setBackgroundColor ( manager.createColor ( org.openscada.vi.ui.draw2d.primitives.Helper.makeColor ( symbolLoader.getSymbol ().getBackgroundColor () ) ) );
 
             // register the symbol element controller 
             controller.addElement ( symbolReference.getName (), elementController );

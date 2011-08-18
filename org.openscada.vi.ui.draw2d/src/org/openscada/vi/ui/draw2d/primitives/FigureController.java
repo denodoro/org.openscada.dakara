@@ -349,17 +349,17 @@ public abstract class FigureController implements Controller
 
         if ( color.startsWith ( "#" ) && !color.contains ( "|" ) )
         {
-            return new StaticColor ( getFigure (), applier, createColor ( makeColor ( color ) ) );
+            return new StaticColor ( getFigure (), applier, createColor ( Helper.makeColor ( color ) ) );
         }
         else if ( ( color.startsWith ( "#" ) || color.startsWith ( "|" ) ) && color.contains ( "|" ) )
         {
             final String tok[] = color.split ( "\\|" );
-            final Color onColor = createColor ( makeColor ( tok[0] ) );
+            final Color onColor = createColor ( Helper.makeColor ( tok[0] ) );
             Color offColor;
             int frequency = 1;
             if ( tok.length > 1 )
             {
-                offColor = createColor ( makeColor ( tok[1] ) );
+                offColor = createColor ( Helper.makeColor ( tok[1] ) );
             }
             else
             {
@@ -383,24 +383,4 @@ public abstract class FigureController implements Controller
         return this.manager.createColor ( rgb );
     }
 
-    protected static RGB makeColor ( final String color )
-    {
-        if ( color.startsWith ( "#" ) )
-        {
-            if ( color.length () == 1 + 3 )
-            {
-                return makeRGB ( color.substring ( 1, 2 ), color.substring ( 2, 3 ), color.substring ( 3, 4 ) );
-            }
-            else if ( color.length () >= 1 + 6 )
-            {
-                return makeRGB ( color.substring ( 1, 3 ), color.substring ( 3, 5 ), color.substring ( 5, 7 ) );
-            }
-        }
-        return null;
-    }
-
-    protected static RGB makeRGB ( final String r, final String g, final String b )
-    {
-        return new RGB ( Integer.parseInt ( r, 16 ), Integer.parseInt ( g, 16 ), Integer.parseInt ( b, 16 ) );
-    }
 }

@@ -41,6 +41,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getOnUpdate <em>On Update</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getScriptModules <em>Script Modules</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getCursors <em>Cursors</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getBackgroundColor <em>Background Color</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,6 +148,26 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected Cursor cursors;
+
+    /**
+     * The default value of the '{@link #getBackgroundColor() <em>Background Color</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBackgroundColor()
+     * @generated
+     * @ordered
+     */
+    protected static final String BACKGROUND_COLOR_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getBackgroundColor() <em>Background Color</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBackgroundColor()
+     * @generated
+     * @ordered
+     */
+    protected String backgroundColor = BACKGROUND_COLOR_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -367,6 +388,29 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getBackgroundColor()
+    {
+        return backgroundColor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBackgroundColor(String newBackgroundColor)
+    {
+        String oldBackgroundColor = backgroundColor;
+        backgroundColor = newBackgroundColor;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR, oldBackgroundColor, backgroundColor));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -407,6 +451,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getScriptModules();
             case VisualInterfacePackage.SYMBOL__CURSORS:
                 return getCursors();
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
+                return getBackgroundColor();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -444,6 +490,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__CURSORS:
                 setCursors((Cursor)newValue);
                 return;
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
+                setBackgroundColor((String)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -479,6 +528,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__CURSORS:
                 setCursors((Cursor)null);
                 return;
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
+                setBackgroundColor(BACKGROUND_COLOR_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -507,6 +559,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return scriptModules != null && !scriptModules.isEmpty();
             case VisualInterfacePackage.SYMBOL__CURSORS:
                 return cursors != null;
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
+                return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
         }
         return super.eIsSet(featureID);
     }
@@ -530,6 +584,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         result.append(onUpdate);
         result.append(", scriptModules: ");
         result.append(scriptModules);
+        result.append(", backgroundColor: ");
+        result.append(backgroundColor);
         result.append(')');
         return result.toString();
     }

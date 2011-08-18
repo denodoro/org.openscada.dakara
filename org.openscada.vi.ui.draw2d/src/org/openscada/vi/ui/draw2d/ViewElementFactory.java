@@ -52,7 +52,7 @@ public class ViewElementFactory
         }
         else if ( element instanceof SymbolReference )
         {
-            return new SymbolReferenceController ( controller, (SymbolReference)element, this );
+            return new SymbolReferenceController ( controller, (SymbolReference)element, this, this.manager );
         }
         else if ( element instanceof Rectangle )
         {

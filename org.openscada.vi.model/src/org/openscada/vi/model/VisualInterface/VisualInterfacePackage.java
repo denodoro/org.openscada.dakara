@@ -135,13 +135,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__CURSORS = 6;
 
     /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__BACKGROUND_COLOR = 7;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 7;
+    int SYMBOL_FEATURE_COUNT = 8;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -1176,6 +1185,17 @@ public interface VisualInterfacePackage extends EPackage
     EReference getSymbol_Cursors();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor <em>Background Color</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Background Color</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor()
+     * @see #getSymbol()
+     * @generated
+     */
+    EAttribute getSymbol_BackgroundColor();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1785,6 +1805,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference SYMBOL__CURSORS = eINSTANCE.getSymbol_Cursors();
+
+        /**
+         * The meta object literal for the '<em><b>Background Color</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL__BACKGROUND_COLOR = eINSTANCE.getSymbol_BackgroundColor();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.

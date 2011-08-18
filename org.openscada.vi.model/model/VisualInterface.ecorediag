@@ -19,6 +19,10 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Symbol/scriptModules"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_OXa1gcjiEeCr0ZmxkWjqDg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_KnRn0MmqEeCVtLrQw_TS7A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Symbol/backgroundColor"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_KnRn0cmqEeCVtLrQw_TS7A"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_GXLKtcfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_GXLKtsfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_GXLKt8fgEeC1o4sZtTXACQ"/>

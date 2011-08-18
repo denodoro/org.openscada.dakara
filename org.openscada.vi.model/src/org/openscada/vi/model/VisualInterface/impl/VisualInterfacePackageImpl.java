@@ -332,6 +332,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getSymbol_BackgroundColor()
+    {
+        return (EAttribute)symbolEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getPrimitive()
     {
         return primitiveEClass;
@@ -855,6 +865,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(symbolEClass, SYMBOL__ON_UPDATE);
         createEAttribute(symbolEClass, SYMBOL__SCRIPT_MODULES);
         createEReference(symbolEClass, SYMBOL__CURSORS);
+        createEAttribute(symbolEClass, SYMBOL__BACKGROUND_COLOR);
 
         primitiveEClass = createEClass(PRIMITIVE);
         createEAttribute(primitiveEClass, PRIMITIVE__NAME);
@@ -973,6 +984,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getSymbol_OnUpdate(), ecorePackage.getEString(), "onUpdate", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getSymbol_ScriptModules(), ecorePackage.getEString(), "scriptModules", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getSymbol_Cursors(), this.getCursor(), null, "cursors", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getSymbol_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getPrimitive_Name(), ecorePackage.getEString(), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

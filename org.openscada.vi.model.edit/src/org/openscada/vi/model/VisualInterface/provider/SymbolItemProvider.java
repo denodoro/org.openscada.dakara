@@ -75,6 +75,7 @@ public class SymbolItemProvider
             addOnDisposePropertyDescriptor(object);
             addOnUpdatePropertyDescriptor(object);
             addScriptModulesPropertyDescriptor(object);
+            addBackgroundColorPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -172,6 +173,29 @@ public class SymbolItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Background Color feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addBackgroundColorPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Symbol_backgroundColor_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_backgroundColor_feature", "_UI_Symbol_type"),
+                 VisualInterfacePackage.Literals.SYMBOL__BACKGROUND_COLOR,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -251,6 +275,7 @@ public class SymbolItemProvider
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case VisualInterfacePackage.SYMBOL__ROOT:

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getOnUpdate <em>On Update</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getScriptModules <em>Script Modules</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor <em>Background Color</em>}</li>
  * </ul>
  * </p>
  *
@@ -196,5 +197,31 @@ public interface Symbol extends EObject
      * @generated
      */
     void setCursors(Cursor value);
+
+    /**
+     * Returns the value of the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Background Color</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Background Color</em>' attribute.
+     * @see #setBackgroundColor(String)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbol_BackgroundColor()
+     * @model
+     * @generated
+     */
+    String getBackgroundColor();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor <em>Background Color</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Background Color</em>' attribute.
+     * @see #getBackgroundColor()
+     * @generated
+     */
+    void setBackgroundColor(String value);
 
 } // Symbol

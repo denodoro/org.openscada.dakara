@@ -108,6 +108,7 @@ public class VisualInterfaceViewer extends Composite
         this.canvas = new FigureCanvas ( this );
 
         this.canvas.setContents ( create ( symbol, symbolClassLoader ) );
+        this.canvas.setBackground ( this.manager.createColor ( org.openscada.vi.ui.draw2d.primitives.Helper.makeColor ( symbol.getBackgroundColor () ) ) );
     }
 
     protected IFigure create ( final Symbol symbol, final ClassLoader classLoader )
