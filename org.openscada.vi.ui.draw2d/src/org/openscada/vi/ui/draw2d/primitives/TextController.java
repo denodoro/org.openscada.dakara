@@ -3,7 +3,10 @@ package org.openscada.vi.ui.draw2d.primitives;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
 import org.openscada.vi.model.VisualInterface.Alignment;
 import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Text;
@@ -29,6 +32,23 @@ public class TextController extends FigureController
         this.figure.setLabelAlignment ( convertAlignment ( element.getLabelAlignment (), PositionConstants.CENTER ) );
         this.figure.setIconAlignment ( convertAlignment ( element.getIconAlignment (), PositionConstants.CENTER ) );
         this.figure.setTextPlacement ( convertOrientation ( element.getTextPlacement (), PositionConstants.EAST ) );
+
+        setFontFull ( element.getFontName (), element.getFontSize (), element.isFontBold (), element.isFontItalic () );
+    }
+
+    public void setFont ( final String fontName, final int fontSize )
+    {
+        setFontFull ( fontName, fontSize, false, false );
+    }
+
+    public void setFontFull ( final String fontName, final int fontSize, final boolean bold, final boolean italic )
+    {
+        this.figure.setFont ( convertFont ( fontName, fontSize, bold, italic ) );
+    }
+
+    private Font convertFont ( final String fontName, final int fontSize, final boolean bold, final boolean italic )
+    {
+        return this.manager.createFont ( FontDescriptor.createFrom ( fontName, fontSize, SWT.NORMAL | ( bold ? SWT.BOLD : 0 ) | ( italic ? SWT.ITALIC : 0 ) ) );
     }
 
     private int convertOrientation ( final Orientation orientation, final int defaultValue )

@@ -51,7 +51,7 @@ public abstract class FigureController implements Controller
         }
     }
 
-    private final ResourceManager manager;
+    protected final ResourceManager manager;
 
     private final SymbolController controller;
 

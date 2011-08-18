@@ -29,6 +29,10 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getIconAlignment <em>Icon Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getTextPlacement <em>Text Placement</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getFontName <em>Font Name</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getFontSize <em>Font Size</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#isFontBold <em>Font Bold</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#isFontItalic <em>Font Italic</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,6 +130,78 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected Orientation textPlacement = TEXT_PLACEMENT_EDEFAULT;
+    /**
+     * The default value of the '{@link #getFontName() <em>Font Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFontName()
+     * @generated
+     * @ordered
+     */
+    protected static final String FONT_NAME_EDEFAULT = null;
+    /**
+     * The cached value of the '{@link #getFontName() <em>Font Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFontName()
+     * @generated
+     * @ordered
+     */
+    protected String fontName = FONT_NAME_EDEFAULT;
+    /**
+     * The default value of the '{@link #getFontSize() <em>Font Size</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFontSize()
+     * @generated
+     * @ordered
+     */
+    protected static final int FONT_SIZE_EDEFAULT = 0;
+    /**
+     * The cached value of the '{@link #getFontSize() <em>Font Size</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getFontSize()
+     * @generated
+     * @ordered
+     */
+    protected int fontSize = FONT_SIZE_EDEFAULT;
+    /**
+     * The default value of the '{@link #isFontBold() <em>Font Bold</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isFontBold()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean FONT_BOLD_EDEFAULT = false;
+    /**
+     * The cached value of the '{@link #isFontBold() <em>Font Bold</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isFontBold()
+     * @generated
+     * @ordered
+     */
+    protected boolean fontBold = FONT_BOLD_EDEFAULT;
+    /**
+     * The default value of the '{@link #isFontItalic() <em>Font Italic</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isFontItalic()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean FONT_ITALIC_EDEFAULT = false;
+    /**
+     * The cached value of the '{@link #isFontItalic() <em>Font Italic</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isFontItalic()
+     * @generated
+     * @ordered
+     */
+    protected boolean fontItalic = FONT_ITALIC_EDEFAULT;
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -244,6 +320,98 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getFontName()
+    {
+        return fontName;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFontName(String newFontName)
+    {
+        String oldFontName = fontName;
+        fontName = newFontName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_NAME, oldFontName, fontName));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getFontSize()
+    {
+        return fontSize;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFontSize(int newFontSize)
+    {
+        int oldFontSize = fontSize;
+        fontSize = newFontSize;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_SIZE, oldFontSize, fontSize));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isFontBold()
+    {
+        return fontBold;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFontBold(boolean newFontBold)
+    {
+        boolean oldFontBold = fontBold;
+        fontBold = newFontBold;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_BOLD, oldFontBold, fontBold));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isFontItalic()
+    {
+        return fontItalic;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFontItalic(boolean newFontItalic)
+    {
+        boolean oldFontItalic = fontItalic;
+        fontItalic = newFontItalic;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_ITALIC, oldFontItalic, fontItalic));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Alignment getIconAlignment()
     {
         return iconAlignment;
@@ -282,6 +450,14 @@ public class TextImpl extends FigureImpl implements Text
                 return getTextAlignment();
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
                 return getTextPlacement();
+            case VisualInterfacePackage.TEXT__FONT_NAME:
+                return getFontName();
+            case VisualInterfacePackage.TEXT__FONT_SIZE:
+                return getFontSize();
+            case VisualInterfacePackage.TEXT__FONT_BOLD:
+                return isFontBold();
+            case VisualInterfacePackage.TEXT__FONT_ITALIC:
+                return isFontItalic();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -310,6 +486,18 @@ public class TextImpl extends FigureImpl implements Text
                 return;
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
                 setTextPlacement((Orientation)newValue);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_NAME:
+                setFontName((String)newValue);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_SIZE:
+                setFontSize((Integer)newValue);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_BOLD:
+                setFontBold((Boolean)newValue);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_ITALIC:
+                setFontItalic((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -340,6 +528,18 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
                 setTextPlacement(TEXT_PLACEMENT_EDEFAULT);
                 return;
+            case VisualInterfacePackage.TEXT__FONT_NAME:
+                setFontName(FONT_NAME_EDEFAULT);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_SIZE:
+                setFontSize(FONT_SIZE_EDEFAULT);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_BOLD:
+                setFontBold(FONT_BOLD_EDEFAULT);
+                return;
+            case VisualInterfacePackage.TEXT__FONT_ITALIC:
+                setFontItalic(FONT_ITALIC_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -364,6 +564,14 @@ public class TextImpl extends FigureImpl implements Text
                 return textAlignment != TEXT_ALIGNMENT_EDEFAULT;
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
                 return textPlacement != TEXT_PLACEMENT_EDEFAULT;
+            case VisualInterfacePackage.TEXT__FONT_NAME:
+                return FONT_NAME_EDEFAULT == null ? fontName != null : !FONT_NAME_EDEFAULT.equals(fontName);
+            case VisualInterfacePackage.TEXT__FONT_SIZE:
+                return fontSize != FONT_SIZE_EDEFAULT;
+            case VisualInterfacePackage.TEXT__FONT_BOLD:
+                return fontBold != FONT_BOLD_EDEFAULT;
+            case VisualInterfacePackage.TEXT__FONT_ITALIC:
+                return fontItalic != FONT_ITALIC_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -389,6 +597,14 @@ public class TextImpl extends FigureImpl implements Text
         result.append(textAlignment);
         result.append(", textPlacement: ");
         result.append(textPlacement);
+        result.append(", fontName: ");
+        result.append(fontName);
+        result.append(", fontSize: ");
+        result.append(fontSize);
+        result.append(", fontBold: ");
+        result.append(fontBold);
+        result.append(", fontItalic: ");
+        result.append(fontItalic);
         result.append(')');
         return result.toString();
     }

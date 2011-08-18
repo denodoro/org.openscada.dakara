@@ -609,13 +609,49 @@ public interface VisualInterfacePackage extends EPackage
     int TEXT__TEXT_PLACEMENT = FIGURE_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Font Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__FONT_NAME = FIGURE_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Font Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__FONT_SIZE = FIGURE_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Font Bold</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__FONT_BOLD = FIGURE_FEATURE_COUNT + 7;
+
+    /**
+     * The feature id for the '<em><b>Font Italic</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__FONT_ITALIC = FIGURE_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Text</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 5;
+    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 9;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ChildImpl <em>Child</em>}' class.
@@ -1301,6 +1337,50 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getText_TextPlacement();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getFontName <em>Font Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Font Name</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getFontName()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_FontName();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getFontSize <em>Font Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Font Size</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#getFontSize()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_FontSize();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#isFontBold <em>Font Bold</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Font Bold</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#isFontBold()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_FontBold();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#isFontItalic <em>Font Italic</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Font Italic</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Text#isFontItalic()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_FontItalic();
+
+    /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Text#getIconAlignment <em>Icon Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1903,6 +1983,38 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute TEXT__TEXT_PLACEMENT = eINSTANCE.getText_TextPlacement();
+
+        /**
+         * The meta object literal for the '<em><b>Font Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__FONT_NAME = eINSTANCE.getText_FontName();
+
+        /**
+         * The meta object literal for the '<em><b>Font Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__FONT_SIZE = eINSTANCE.getText_FontSize();
+
+        /**
+         * The meta object literal for the '<em><b>Font Bold</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__FONT_BOLD = eINSTANCE.getText_FontBold();
+
+        /**
+         * The meta object literal for the '<em><b>Font Italic</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__FONT_ITALIC = eINSTANCE.getText_FontItalic();
 
         /**
          * The meta object literal for the '<em><b>Icon Alignment</b></em>' attribute feature.

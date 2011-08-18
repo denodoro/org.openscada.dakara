@@ -72,6 +72,10 @@ public class TextItemProvider
             addIconAlignmentPropertyDescriptor(object);
             addTextAlignmentPropertyDescriptor(object);
             addTextPlacementPropertyDescriptor(object);
+            addFontNamePropertyDescriptor(object);
+            addFontSizePropertyDescriptor(object);
+            addFontBoldPropertyDescriptor(object);
+            addFontItalicPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -169,6 +173,98 @@ public class TextItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Font Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFontNamePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_fontName_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontName_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__FONT_NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Font Size feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFontSizePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_fontSize_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontSize_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__FONT_SIZE,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Font Bold feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFontBoldPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_fontBold_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontBold_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__FONT_BOLD,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Font Italic feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFontItalicPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Text_fontItalic_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontItalic_feature", "_UI_Text_type"),
+                 VisualInterfacePackage.Literals.TEXT__FONT_ITALIC,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This adds a property descriptor for the Icon Alignment feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -237,6 +333,10 @@ public class TextItemProvider
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
             case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
+            case VisualInterfacePackage.TEXT__FONT_NAME:
+            case VisualInterfacePackage.TEXT__FONT_SIZE:
+            case VisualInterfacePackage.TEXT__FONT_BOLD:
+            case VisualInterfacePackage.TEXT__FONT_ITALIC:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

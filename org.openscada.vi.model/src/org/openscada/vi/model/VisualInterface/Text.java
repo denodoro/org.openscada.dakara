@@ -20,6 +20,10 @@ package org.openscada.vi.model.VisualInterface;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getIconAlignment <em>Icon Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getTextPlacement <em>Text Placement</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getFontName <em>Font Name</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Text#getFontSize <em>Font Size</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Text#isFontBold <em>Font Bold</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Text#isFontItalic <em>Font Italic</em>}</li>
  * </ul>
  * </p>
  *
@@ -145,6 +149,112 @@ public interface Text extends Figure
      * @generated
      */
     void setTextPlacement(Orientation value);
+
+    /**
+     * Returns the value of the '<em><b>Font Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Font Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Font Name</em>' attribute.
+     * @see #setFontName(String)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_FontName()
+     * @model
+     * @generated
+     */
+    String getFontName();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getFontName <em>Font Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Font Name</em>' attribute.
+     * @see #getFontName()
+     * @generated
+     */
+    void setFontName(String value);
+
+    /**
+     * Returns the value of the '<em><b>Font Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Font Size</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Font Size</em>' attribute.
+     * @see #setFontSize(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_FontSize()
+     * @model
+     * @generated
+     */
+    int getFontSize();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getFontSize <em>Font Size</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Font Size</em>' attribute.
+     * @see #getFontSize()
+     * @generated
+     */
+    void setFontSize(int value);
+
+    /**
+     * Returns the value of the '<em><b>Font Bold</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Font Bold</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Font Bold</em>' attribute.
+     * @see #setFontBold(boolean)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_FontBold()
+     * @model default="false" required="true"
+     * @generated
+     */
+    boolean isFontBold();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#isFontBold <em>Font Bold</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Font Bold</em>' attribute.
+     * @see #isFontBold()
+     * @generated
+     */
+    void setFontBold(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Font Italic</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Font Italic</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Font Italic</em>' attribute.
+     * @see #setFontItalic(boolean)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getText_FontItalic()
+     * @model default="false" required="true"
+     * @generated
+     */
+    boolean isFontItalic();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#isFontItalic <em>Font Italic</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Font Italic</em>' attribute.
+     * @see #isFontItalic()
+     * @generated
+     */
+    void setFontItalic(boolean value);
 
     /**
      * Returns the value of the '<em><b>Icon Alignment</b></em>' attribute.

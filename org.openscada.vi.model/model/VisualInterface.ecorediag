@@ -127,6 +127,22 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/textPlacement"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_gP66Icl8EeCen9TTpz68Pw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_UJV3IMmuEeCVtLrQw_TS7A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/fontName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UJV3IcmuEeCVtLrQw_TS7A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vbtd8MmuEeCVtLrQw_TS7A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/fontSize"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vbtd8cmuEeCVtLrQw_TS7A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_BZWtcMmvEeCVtLrQw_TS7A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/fontBold"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BZWtccmvEeCVtLrQw_TS7A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_CPsfkMmvEeCVtLrQw_TS7A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Text/fontItalic"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_CPsfkcmvEeCVtLrQw_TS7A"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ZLioocfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ZLioosfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ZLioo8fgEeC1o4sZtTXACQ"/>
