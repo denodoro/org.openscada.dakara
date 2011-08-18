@@ -1,15 +1,20 @@
 package org.openscada.vi.ui.user;
 
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -111,7 +116,7 @@ public class Activator extends AbstractUIPlugin
             final String id = element.getAttribute ( "id" );
             final String name = element.getAttribute ( "name" );
             final String parentId = element.getAttribute ( "parentId" );
-            final URI uri = new URI ( element.getAttribute ( "uri" ) );
+            final URI uri = makeUri ( element.getContributor ().getName (), element.getAttribute ( "resource" ), element.getAttribute ( "uri" ) );
 
             final Map<String, String> properties = new LinkedHashMap<String, String> ( 0 );
 
@@ -129,5 +134,15 @@ public class Activator extends AbstractUIPlugin
             plugin.getLog ().log ( StatusHelper.convertStatus ( PLUGIN_ID, e ) );
             return null;
         }
+    }
+
+    private static URI makeUri ( final String contributerId, final String resource, final String uri ) throws URISyntaxException
+    {
+        if ( uri != null && !uri.isEmpty () )
+        {
+            return new URI ( uri );
+        }
+        final Bundle bundle = Platform.getBundle ( contributerId );
+        return FileLocator.find ( bundle, new Path ( resource ), new HashMap<String, String> () ).toURI ();
     }
 }

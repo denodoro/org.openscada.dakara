@@ -12,7 +12,7 @@
       <viewInstance
             id="view2"
             name="My Second View"
-            uri="platform:/plugin/org.openscada.vi.sample2/resources/My.vi">
+            resource="resources/My.vi">
       </viewInstance>
       <viewInstance
             id="sample1.blinking"
