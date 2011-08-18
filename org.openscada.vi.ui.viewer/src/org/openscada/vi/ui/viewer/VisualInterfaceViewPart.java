@@ -8,7 +8,6 @@ import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
 public class VisualInterfaceViewPart extends ViewPart
 {
 
-    @SuppressWarnings ( "unused" )
     private VisualInterfaceViewer viewer;
 
     public VisualInterfaceViewPart ()
@@ -24,6 +23,7 @@ public class VisualInterfaceViewPart extends ViewPart
     @Override
     public void setFocus ()
     {
+        this.viewer.setFocus ();
     }
 
 }
