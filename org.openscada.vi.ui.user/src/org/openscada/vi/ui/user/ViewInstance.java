@@ -52,7 +52,7 @@ public class ViewInstance implements SummaryListener
         final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ();
         scriptObjects.put ( "viewManager", viewManager );
 
-        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, descriptor.getUri (), scriptObjects );
+        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, descriptor.getUri (), scriptObjects, descriptor.getProperties () );
         this.viewer.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         if ( this.button != null )
         {

@@ -1,6 +1,7 @@
 package org.openscada.vi.ui.draw2d;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,16 +29,19 @@ public class VisualInterfaceViewer extends Composite
 
     private Map<String, Object> scriptObjects;
 
+    private Map<String, String> initialProperties;
+
     /**
      * Create a new viewer
      * @param parent the parent composite
      * @param style the composite style
      * @param uri the URI from which the root symbol should be loaded
-     * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>
+     * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>.
+     * @param properties additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
      */
-    public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri, final Map<String, Object> scriptObjects )
+    public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
-        this ( parent, style, uri.toString (), scriptObjects );
+        this ( parent, style, uri.toString (), scriptObjects, properties );
     }
 
     /**
@@ -46,10 +50,13 @@ public class VisualInterfaceViewer extends Composite
      * @param style the composite style
      * @param uri the URI from which the root symbol should be loaded
      * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>
+     * @param properties additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
      */
-    public VisualInterfaceViewer ( final Composite parent, final int style, final String uri, final Map<String, Object> scriptObjects )
+    public VisualInterfaceViewer ( final Composite parent, final int style, final String uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
         super ( parent, style );
+
+        this.initialProperties = properties == null ? Collections.<String, String> emptyMap () : properties;
 
         this.scriptObjects = scriptObjects;
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
@@ -112,6 +119,7 @@ public class VisualInterfaceViewer extends Composite
             {
                 properties.put ( entry.getKey (), entry.getValue () );
             }
+            properties.putAll ( this.initialProperties );
 
             this.controller = new SymbolController ( symbol, classLoader, properties, this.scriptObjects );
 

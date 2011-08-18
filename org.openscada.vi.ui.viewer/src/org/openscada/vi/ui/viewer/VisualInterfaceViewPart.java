@@ -18,7 +18,7 @@ public class VisualInterfaceViewPart extends ViewPart
     @Override
     public void createPartControl ( final Composite parent )
     {
-        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, "platform:/plugin/org.openscada.vi.sample1/resources/My.vi", null );
+        this.viewer = new VisualInterfaceViewer ( parent, SWT.NONE, "platform:/plugin/org.openscada.vi.sample1/resources/My.vi", null, null );
     }
 
     @Override
