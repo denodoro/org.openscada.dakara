@@ -134,7 +134,7 @@ public class SymbolData
 
     public SummaryInformation getSummary ()
     {
-        return new SummaryInformation ( this.controller.getData () );
+        return this.controller.getSummaryInformation ();
     }
 
 }

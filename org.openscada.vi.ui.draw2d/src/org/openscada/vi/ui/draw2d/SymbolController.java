@@ -3,8 +3,10 @@ package org.openscada.vi.ui.draw2d;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -62,6 +64,8 @@ public class SymbolController
     private final SymbolData symbolData;
 
     private Map<String, DataItemValue> lastData;
+
+    private final Set<SummaryListener> summaryListeners = new LinkedHashSet<SummaryListener> ( 1 );
 
     public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties ) throws Exception
     {
@@ -240,6 +244,23 @@ public class SymbolController
         return this.registrationManager.getData ();
     }
 
+    public SummaryInformation getSummaryInformation ()
+    {
+        return new SummaryInformation ( getData (), collectChildrenData () );
+    }
+
+    private Collection<SummaryInformation> collectChildrenData ()
+    {
+        final Collection<SummaryInformation> result = new LinkedList<SummaryInformation> ();
+
+        for ( final SymbolController controller : this.controllers )
+        {
+            result.add ( controller.getSummaryInformation () );
+        }
+
+        return result;
+    }
+
     protected void handleDataUpdate ()
     {
         final Map<String, DataItemValue> currentData = this.registrationManager.getData ();
@@ -249,14 +270,48 @@ public class SymbolController
         }
         this.lastData = currentData;
 
+        runUpdate ();
+
+        // propagate update
+        if ( this.parentController != null )
+        {
+            this.parentController.runUpdate ();
+        }
+    }
+
+    private void runUpdate ()
+    {
         try
         {
             this.onUpdate.execute ( this.scriptContext );
+            notifySummaryListeners ();
         }
         catch ( final Exception e )
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
+    }
+
+    protected void notifySummaryListeners ()
+    {
+        final SummaryInformation info = getSummaryInformation ();
+        for ( final SummaryListener listener : this.summaryListeners )
+        {
+            listener.summaryChanged ( info );
+        }
+    }
+
+    public void addSummaryListener ( final SummaryListener listener )
+    {
+        if ( this.summaryListeners.add ( listener ) )
+        {
+            listener.summaryChanged ( getSummaryInformation () );
+        }
+    }
+
+    public void removeSummaryListener ( final SummaryListener listener )
+    {
+        this.summaryListeners.remove ( listener );
     }
 
 }

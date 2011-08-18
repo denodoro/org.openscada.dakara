@@ -99,6 +99,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
         {
             case VisualInterfacePackage.ALIGNMENT:
                 return createAlignmentFromString(eDataType, initialValue);
+            case VisualInterfacePackage.ORIENTATION:
+                return createOrientationFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -116,6 +118,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
         {
             case VisualInterfacePackage.ALIGNMENT:
                 return convertAlignmentToString(eDataType, instanceValue);
+            case VisualInterfacePackage.ORIENTATION:
+                return convertOrientationToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -271,6 +275,28 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * @generated
      */
     public String convertAlignmentToString(EDataType eDataType, Object instanceValue)
+    {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Orientation createOrientationFromString(EDataType eDataType, String initialValue)
+    {
+        Orientation result = Orientation.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertOrientationToString(EDataType eDataType, Object instanceValue)
     {
         return instanceValue == null ? null : instanceValue.toString();
     }

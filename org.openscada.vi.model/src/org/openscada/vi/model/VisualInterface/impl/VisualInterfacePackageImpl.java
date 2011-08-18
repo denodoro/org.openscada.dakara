@@ -20,6 +20,7 @@ import org.openscada.vi.model.VisualInterface.Child;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.Line;
+import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
@@ -151,6 +152,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EEnum alignmentEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum orientationEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -392,7 +400,17 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      */
     public EAttribute getText_TextAlignment()
     {
-        return (EAttribute)textEClass.getEStructuralFeatures().get(2);
+        return (EAttribute)textEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getText_TextPlacement()
+    {
+        return (EAttribute)textEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -402,7 +420,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      */
     public EAttribute getText_IconAlignment()
     {
-        return (EAttribute)textEClass.getEStructuralFeatures().get(3);
+        return (EAttribute)textEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -700,6 +718,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getOrientation()
+    {
+        return orientationEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public VisualInterfaceFactory getVisualInterfaceFactory()
     {
         return (VisualInterfaceFactory)getEFactoryInstance();
@@ -747,8 +775,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         textEClass = createEClass(TEXT);
         createEAttribute(textEClass, TEXT__TEXT);
         createEAttribute(textEClass, TEXT__LABEL_ALIGNMENT);
-        createEAttribute(textEClass, TEXT__TEXT_ALIGNMENT);
         createEAttribute(textEClass, TEXT__ICON_ALIGNMENT);
+        createEAttribute(textEClass, TEXT__TEXT_ALIGNMENT);
+        createEAttribute(textEClass, TEXT__TEXT_PLACEMENT);
 
         childEClass = createEClass(CHILD);
         createEReference(childEClass, CHILD__ELEMENT);
@@ -789,6 +818,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
+        orientationEEnum = createEEnum(ORIENTATION);
     }
 
     /**
@@ -852,9 +882,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getText_Text(), ecorePackage.getEString(), "text", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getText_LabelAlignment(), this.getAlignment(), "labelAlignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getText_TextAlignment(), this.getAlignment(), "textAlignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getText_IconAlignment(), this.getAlignment(), "iconAlignment", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_LabelAlignment(), this.getAlignment(), "labelAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_IconAlignment(), this.getAlignment(), "iconAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_TextAlignment(), this.getAlignment(), "textAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getText_TextPlacement(), this.getOrientation(), "textPlacement", "EAST", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getChild_Element(), this.getPrimitive(), null, "element", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -900,6 +931,12 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         addEEnumLiteral(alignmentEEnum, Alignment.RIGHT);
         addEEnumLiteral(alignmentEEnum, Alignment.TOP);
         addEEnumLiteral(alignmentEEnum, Alignment.BOTTOM);
+
+        initEEnum(orientationEEnum, Orientation.class, "Orientation");
+        addEEnumLiteral(orientationEEnum, Orientation.NORTH);
+        addEEnumLiteral(orientationEEnum, Orientation.SOUTH);
+        addEEnumLiteral(orientationEEnum, Orientation.EAST);
+        addEEnumLiteral(orientationEEnum, Orientation.WEST);
 
         // Create resource
         createResource(eNS_URI);

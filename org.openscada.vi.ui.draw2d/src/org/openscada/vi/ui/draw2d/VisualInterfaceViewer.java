@@ -120,4 +120,15 @@ public class VisualInterfaceViewer extends Composite
         this.manager.dispose ();
     }
 
+    public void addSummaryListener ( final SummaryListener listener )
+    {
+        this.controller.addSummaryListener ( listener );
+
+    }
+
+    public void removeSummaryListener ( final SummaryListener listener )
+    {
+        this.controller.removeSummaryListener ( listener );
+    }
+
 }

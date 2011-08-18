@@ -5,6 +5,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.model.VisualInterface.Alignment;
+import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.ui.draw2d.SymbolController;
 
@@ -23,44 +24,73 @@ public class TextController extends FigureController
     protected void applyStyles ( final Text element )
     {
         super.applyStyles ( element );
-        this.figure.setTextAlignment ( convertAlignment ( element.getTextAlignment () ) );
-        this.figure.setLabelAlignment ( convertAlignment ( element.getLabelAlignment () ) );
-        this.figure.setIconAlignment ( convertAlignment ( element.getIconAlignment () ) );
+        this.figure.setTextAlignment ( convertAlignment ( element.getTextAlignment (), PositionConstants.CENTER ) );
+        this.figure.setLabelAlignment ( convertAlignment ( element.getLabelAlignment (), PositionConstants.CENTER ) );
+        this.figure.setIconAlignment ( convertAlignment ( element.getIconAlignment (), PositionConstants.CENTER ) );
+        this.figure.setTextPlacement ( convertOrientation ( element.getTextPlacement (), PositionConstants.EAST ) );
     }
 
-    private int convertAlignment ( final Alignment alignment )
+    private int convertOrientation ( final Orientation orientation, final int defaultValue )
     {
-        if ( alignment == null )
+        if ( orientation == null )
         {
-            return convertAlignment ( (String)null, PositionConstants.LEFT );
+            return defaultValue;
         }
         else
         {
-            return convertAlignment ( alignment.getName (), PositionConstants.LEFT );
+            return convertPosition ( orientation.getName (), defaultValue );
         }
     }
 
-    protected int convertAlignment ( final String alignment, final int defaultValue )
+    private int convertAlignment ( final Alignment alignment, final int defaultValue )
     {
-        if ( "CENTER".equals ( alignment ) )
+        if ( alignment == null )
+        {
+            return defaultValue;
+        }
+        else
+        {
+            return convertPosition ( alignment.getName (), defaultValue );
+        }
+    }
+
+    protected int convertPosition ( final String position, final int defaultValue )
+    {
+        if ( "CENTER".equals ( position ) )
         {
             return PositionConstants.CENTER;
         }
-        else if ( "LEFT".equals ( alignment ) )
+        else if ( "LEFT".equals ( position ) )
         {
             return PositionConstants.LEFT;
         }
-        else if ( "RIGHT".equals ( alignment ) )
+        else if ( "RIGHT".equals ( position ) )
         {
             return PositionConstants.RIGHT;
         }
-        else if ( "TOP".equals ( alignment ) )
+        else if ( "TOP".equals ( position ) )
         {
             return PositionConstants.TOP;
         }
-        else if ( "BOTTOM".equals ( alignment ) )
+        else if ( "BOTTOM".equals ( position ) )
         {
             return PositionConstants.BOTTOM;
+        }
+        else if ( "EAST".equals ( position ) )
+        {
+            return PositionConstants.EAST;
+        }
+        else if ( "WEST".equals ( position ) )
+        {
+            return PositionConstants.WEST;
+        }
+        else if ( "NORTH".equals ( position ) )
+        {
+            return PositionConstants.NORTH;
+        }
+        else if ( "SOUTH".equals ( position ) )
+        {
+            return PositionConstants.SOUTH;
         }
 
         return defaultValue;

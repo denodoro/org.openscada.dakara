@@ -64,13 +64,22 @@ public class ViewElementFactory
 
     public org.eclipse.draw2d.geometry.Rectangle create ( final Position position, final Dimension dimension )
     {
-        if ( position == null )
+        if ( position == null && dimension == null )
         {
             return null;
         }
 
         final org.eclipse.draw2d.geometry.PrecisionRectangle rect = new org.eclipse.draw2d.geometry.PrecisionRectangle ();
-        rect.setPreciseLocation ( position.getX (), position.getY () );
+
+        if ( position != null )
+        {
+            rect.setPreciseLocation ( position.getX (), position.getY () );
+        }
+        else
+        {
+            rect.setPreciseLocation ( 0.0, 0.0 );
+        }
+
         if ( dimension == null )
         {
             rect.setPreciseSize ( -1, -1 );

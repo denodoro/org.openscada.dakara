@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.openscada.vi.model.VisualInterface.Alignment;
+import org.openscada.vi.model.VisualInterface.Orientation;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.openscada.vi.model.VisualInterface.Text;
@@ -25,8 +26,9 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getLabelAlignment <em>Label Alignment</em>}</li>
- *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getTextAlignment <em>Text Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getIconAlignment <em>Icon Alignment</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getTextAlignment <em>Text Alignment</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.TextImpl#getTextPlacement <em>Text Placement</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,7 +62,7 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      * @ordered
      */
-    protected static final Alignment LABEL_ALIGNMENT_EDEFAULT = Alignment.LEFT;
+    protected static final Alignment LABEL_ALIGNMENT_EDEFAULT = Alignment.CENTER;
     /**
      * The cached value of the '{@link #getLabelAlignment() <em>Label Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -71,6 +73,24 @@ public class TextImpl extends FigureImpl implements Text
      */
     protected Alignment labelAlignment = LABEL_ALIGNMENT_EDEFAULT;
     /**
+     * The default value of the '{@link #getIconAlignment() <em>Icon Alignment</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getIconAlignment()
+     * @generated
+     * @ordered
+     */
+    protected static final Alignment ICON_ALIGNMENT_EDEFAULT = Alignment.CENTER;
+    /**
+     * The cached value of the '{@link #getIconAlignment() <em>Icon Alignment</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getIconAlignment()
+     * @generated
+     * @ordered
+     */
+    protected Alignment iconAlignment = ICON_ALIGNMENT_EDEFAULT;
+    /**
      * The default value of the '{@link #getTextAlignment() <em>Text Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -78,7 +98,7 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      * @ordered
      */
-    protected static final Alignment TEXT_ALIGNMENT_EDEFAULT = Alignment.LEFT;
+    protected static final Alignment TEXT_ALIGNMENT_EDEFAULT = Alignment.CENTER;
     /**
      * The cached value of the '{@link #getTextAlignment() <em>Text Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -89,23 +109,23 @@ public class TextImpl extends FigureImpl implements Text
      */
     protected Alignment textAlignment = TEXT_ALIGNMENT_EDEFAULT;
     /**
-     * The default value of the '{@link #getIconAlignment() <em>Icon Alignment</em>}' attribute.
+     * The default value of the '{@link #getTextPlacement() <em>Text Placement</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getIconAlignment()
+     * @see #getTextPlacement()
      * @generated
      * @ordered
      */
-    protected static final Alignment ICON_ALIGNMENT_EDEFAULT = Alignment.LEFT;
+    protected static final Orientation TEXT_PLACEMENT_EDEFAULT = Orientation.EAST;
     /**
-     * The cached value of the '{@link #getIconAlignment() <em>Icon Alignment</em>}' attribute.
+     * The cached value of the '{@link #getTextPlacement() <em>Text Placement</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getIconAlignment()
+     * @see #getTextPlacement()
      * @generated
      * @ordered
      */
-    protected Alignment iconAlignment = ICON_ALIGNMENT_EDEFAULT;
+    protected Orientation textPlacement = TEXT_PLACEMENT_EDEFAULT;
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -201,6 +221,29 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
+    public Orientation getTextPlacement()
+    {
+        return textPlacement;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTextPlacement(Orientation newTextPlacement)
+    {
+        Orientation oldTextPlacement = textPlacement;
+        textPlacement = newTextPlacement == null ? TEXT_PLACEMENT_EDEFAULT : newTextPlacement;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__TEXT_PLACEMENT, oldTextPlacement, textPlacement));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Alignment getIconAlignment()
     {
         return iconAlignment;
@@ -233,10 +276,12 @@ public class TextImpl extends FigureImpl implements Text
                 return getText();
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
                 return getLabelAlignment();
-            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
-                return getTextAlignment();
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
                 return getIconAlignment();
+            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
+                return getTextAlignment();
+            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
+                return getTextPlacement();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -257,11 +302,14 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
                 setLabelAlignment((Alignment)newValue);
                 return;
+            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
+                setIconAlignment((Alignment)newValue);
+                return;
             case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
                 setTextAlignment((Alignment)newValue);
                 return;
-            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
-                setIconAlignment((Alignment)newValue);
+            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
+                setTextPlacement((Orientation)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -283,11 +331,14 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
                 setLabelAlignment(LABEL_ALIGNMENT_EDEFAULT);
                 return;
+            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
+                setIconAlignment(ICON_ALIGNMENT_EDEFAULT);
+                return;
             case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
                 setTextAlignment(TEXT_ALIGNMENT_EDEFAULT);
                 return;
-            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
-                setIconAlignment(ICON_ALIGNMENT_EDEFAULT);
+            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
+                setTextPlacement(TEXT_PLACEMENT_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
@@ -307,10 +358,12 @@ public class TextImpl extends FigureImpl implements Text
                 return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
                 return labelAlignment != LABEL_ALIGNMENT_EDEFAULT;
-            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
-                return textAlignment != TEXT_ALIGNMENT_EDEFAULT;
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
                 return iconAlignment != ICON_ALIGNMENT_EDEFAULT;
+            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
+                return textAlignment != TEXT_ALIGNMENT_EDEFAULT;
+            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
+                return textPlacement != TEXT_PLACEMENT_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -330,10 +383,12 @@ public class TextImpl extends FigureImpl implements Text
         result.append(text);
         result.append(", labelAlignment: ");
         result.append(labelAlignment);
-        result.append(", textAlignment: ");
-        result.append(textAlignment);
         result.append(", iconAlignment: ");
         result.append(iconAlignment);
+        result.append(", textAlignment: ");
+        result.append(textAlignment);
+        result.append(", textPlacement: ");
+        result.append(textPlacement);
         result.append(')');
         return result.toString();
     }
