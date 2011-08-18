@@ -66,32 +66,8 @@ public class XYChildItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addPositionPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Position feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addPositionPropertyDescriptor(Object object)
-    {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_XYChild_position_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_XYChild_position_feature", "_UI_XYChild_type"),
-                 VisualInterfacePackage.Literals.XY_CHILD__POSITION,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
     }
 
     /**

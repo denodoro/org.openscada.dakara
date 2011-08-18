@@ -58,7 +58,7 @@ public interface XYChild extends Child
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * An optional dimension for the XYLayout
+     * An optional dimension for the XYLayout. If not set the preferred dimension of the child will be used.
      * <!-- end-model-doc -->
      * @return the value of the '<em>Dimension</em>' containment reference.
      * @see #setDimension(Dimension)

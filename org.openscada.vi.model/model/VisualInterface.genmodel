@@ -12,6 +12,8 @@
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/LEFT"/>
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/CENTER"/>
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/TOP"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/BOTTOM"/>
     </genEnums>
     <genClasses ecoreClass="VisualInterface.ecore#//Symbol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/root"/>
@@ -19,6 +21,7 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onInit"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onDispose"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onUpdate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/scriptModules"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
@@ -39,7 +42,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
-      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/dimension"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYContainer/children"/>
