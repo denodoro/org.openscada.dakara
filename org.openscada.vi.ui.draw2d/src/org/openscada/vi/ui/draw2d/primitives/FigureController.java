@@ -3,7 +3,6 @@ package org.openscada.vi.ui.draw2d.primitives;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.script.ScriptException;
 
@@ -352,23 +351,23 @@ public abstract class FigureController implements Controller
         {
             return new StaticColor ( getFigure (), applier, createColor ( makeColor ( color ) ) );
         }
-        else if ( color.startsWith ( "#" ) && color.contains ( "|" ) )
+        else if ( ( color.startsWith ( "#" ) || color.startsWith ( "|" ) ) && color.contains ( "|" ) )
         {
-            final StringTokenizer tok = new StringTokenizer ( color, "|" );
-            final Color onColor = createColor ( makeColor ( tok.nextToken () ) );
+            final String tok[] = color.split ( "\\|" );
+            final Color onColor = createColor ( makeColor ( tok[0] ) );
             Color offColor;
             int frequency = 1;
-            if ( tok.hasMoreElements () )
+            if ( tok.length > 1 )
             {
-                offColor = createColor ( makeColor ( tok.nextToken () ) );
+                offColor = createColor ( makeColor ( tok[1] ) );
             }
             else
             {
                 offColor = null;
             }
-            if ( tok.hasMoreElements () )
+            if ( tok.length > 2 )
             {
-                frequency = Integer.parseInt ( tok.nextToken () );
+                frequency = Integer.parseInt ( tok[2] );
             }
             return new BlinkingColor ( getFigure (), applier, onColor, offColor, frequency );
         }
