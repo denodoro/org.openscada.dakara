@@ -76,10 +76,11 @@
 
 	
 	<target name="preProcessRepos">	
-		<openscada.import.repository id="org.openscada.external" version="${external.version}" todir="${repoBaseLocation}"/>
-		<openscada.import.repository id="org.openscada.aurora" version="${aurora.version}" todir="${repoBaseLocation}"/>
-		<openscada.import.repository id="org.openscada.atlantis" version="${atlantis.version}" todir="${repoBaseLocation}"/>
-		<openscada.import.repository id="org.openscada.orilla" version="${orilla.version}" todir="${repoBaseLocation}"/>
+		<openscada.import.repository id="org.openscada.external" version="${external.version}"/>
+		<openscada.import.repository id="org.openscada.aurora.sdk" version="${aurora.version}"/>
+		<openscada.import.repository id="org.openscada.atlantis.sdk" version="${atlantis.version}"/>
+		<openscada.import.repository id="org.openscada.orilla.sdk" version="${orilla.version}"/>
+		
 		<openscada.import.externalRepository file="emf-xsd-Update-2.7.0.zip"/>
 		<openscada.import.externalRepository file="GEF-Update-3.7.0.zip" />
   	</target>
