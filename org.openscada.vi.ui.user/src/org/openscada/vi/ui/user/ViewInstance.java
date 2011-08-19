@@ -1,10 +1,15 @@
 package org.openscada.vi.ui.user;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -13,6 +18,7 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.openscada.vi.ui.draw2d.SummaryInformation;
 import org.openscada.vi.ui.draw2d.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
+import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
 public class ViewInstance implements SummaryListener
 {
@@ -22,18 +28,38 @@ public class ViewInstance implements SummaryListener
 
     private VisualInterfaceViewer viewer;
 
-    private final ViewInstanceDescriptor descriptor;
+    private final ResourceManager manager;
 
-    public ViewInstance ( final ViewManager viewManager, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor )
+    private final Image imageOk;
+
+    private final Image imageInvalid;
+
+    private final Image imageAlarm;
+
+    private final Image imageManual;
+
+    private final Image imageBlocked;
+
+    private final Image imageAckRequired;
+
+    public ViewInstance ( final ViewManager viewManager, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager )
     {
         this.viewManager = viewManager;
-        this.descriptor = descriptor;
+        this.manager = manager;
+
+        this.imageOk = createImage ( PreferenceConstants.P_IMG_OK );
+        this.imageInvalid = createImage ( PreferenceConstants.P_IMG_INVALID );
+        this.imageAlarm = createImage ( PreferenceConstants.P_IMG_ALARM );
+        this.imageManual = createImage ( PreferenceConstants.P_IMG_MANUAL );
+        this.imageBlocked = createImage ( PreferenceConstants.P_IMG_BLOCKED );
+        this.imageAckRequired = createImage ( PreferenceConstants.P_IMG_ACK_REQUIRED );
 
         // create the main button
         if ( descriptor.getParentId () == null || descriptor.getParentId ().isEmpty () )
         {
-            this.button = new ToolItem ( toolbar, SWT.RADIO );
+            this.button = new ToolItem ( toolbar, SWT.PUSH );
             this.button.setText ( descriptor.getName () );
+            this.button.setImage ( this.imageOk );
             this.button.addSelectionListener ( new SelectionAdapter () {
                 @Override
                 public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
@@ -57,6 +83,19 @@ public class ViewInstance implements SummaryListener
         if ( this.button != null )
         {
             this.viewer.addSummaryListener ( this );
+        }
+    }
+
+    private Image createImage ( final String key )
+    {
+        try
+        {
+            final String uri = Activator.getDefault ().getPreferenceStore ().getString ( key );
+            return this.manager.createImageWithDefault ( ImageDescriptor.createFromURL ( new URL ( uri ) ) );
+        }
+        catch ( final MalformedURLException e )
+        {
+            return this.manager.createImageWithDefault ( ImageDescriptor.getMissingImageDescriptor () );
         }
     }
 
@@ -113,23 +152,23 @@ public class ViewInstance implements SummaryListener
         {
             if ( summary.isError () || !summary.isValid () )
             {
-                this.button.setText ( this.descriptor.getName () + " [E]" );
+                this.button.setImage ( this.imageInvalid );
             }
             else if ( summary.isAlarm () )
             {
-                this.button.setText ( this.descriptor.getName () + " [A]" );
+                this.button.setImage ( this.imageAlarm );
             }
             else if ( summary.isManual () )
             {
-                this.button.setText ( this.descriptor.getName () + " [M]" );
+                this.button.setImage ( this.imageManual );
             }
             else if ( summary.isBlocked () )
             {
-                this.button.setText ( this.descriptor.getName () + " [B]" );
+                this.button.setImage ( this.imageBlocked );
             }
             else
             {
-                this.button.setText ( this.descriptor.getName () + " []" );
+                this.button.setImage ( this.imageOk );
             }
             this.button.getParent ().layout ();
         }

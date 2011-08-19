@@ -13,5 +13,11 @@
             restorable="true">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.openscada.vi.ui.user.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 </plugin>
