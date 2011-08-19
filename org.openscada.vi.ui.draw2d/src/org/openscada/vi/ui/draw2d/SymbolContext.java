@@ -11,9 +11,14 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SymbolContext
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( SymbolContext.class );
+
     private final SymbolController controller;
 
     public SymbolContext ( final SymbolController controller )
@@ -70,6 +75,7 @@ public class SymbolContext
         }
         catch ( final Exception e )
         {
+            logger.warn ( "Failed to execute command", e );
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.BLOCK );
         }
     }
