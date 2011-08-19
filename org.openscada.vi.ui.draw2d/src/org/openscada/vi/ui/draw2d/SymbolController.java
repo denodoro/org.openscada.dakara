@@ -111,12 +111,10 @@ public class SymbolController
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE );
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE );
         this.scriptObjects = scriptObjects;
-        if ( scriptObjects != null )
+        addScriptObjects ( scriptObjects );
+        if ( parentController != null )
         {
-            for ( final Map.Entry<String, Object> entry : scriptObjects.entrySet () )
-            {
-                this.scriptContext.setAttribute ( entry.getKey (), entry.getValue (), ScriptContext.ENGINE_SCOPE );
-            }
+            addScriptObjects ( parentController.getScriptObjects () );
         }
 
         for ( final String module : symbol.getScriptModules () )
@@ -127,6 +125,17 @@ public class SymbolController
         this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), classLoader );
         this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), classLoader );
         this.onUpdate = new ScriptExecutor ( this.engine, symbol.getOnUpdate (), classLoader );
+    }
+
+    private void addScriptObjects ( final Map<String, Object> scriptObjects )
+    {
+        if ( scriptObjects != null )
+        {
+            for ( final Map.Entry<String, Object> entry : scriptObjects.entrySet () )
+            {
+                this.scriptContext.setAttribute ( entry.getKey (), entry.getValue (), ScriptContext.ENGINE_SCOPE );
+            }
+        }
     }
 
     public Map<String, Object> getScriptObjects ()

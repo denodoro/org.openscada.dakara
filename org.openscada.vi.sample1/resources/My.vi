@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface" onInit="try {&#xA;&#x9;viewManager;&#xA;}&#xA;catch ( e )&#xA;{&#xA;&#x9;var link = controller.getElement ( &quot;link&quot; );&#xA;&#x9;link.setVisible ( true );&#xA;}" onUpdate="var label = controller.getElement(&quot;label&quot;);&#xA;label.setText ( &quot;Data: &quot; + data.getSummary() );">
+<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="urn:openscada:visualInterface" onInit="try {&#xA;&#x9;viewManager;&#xA;&#x9;var link = controller.getElement ( &quot;link&quot; );&#xA;&#x9;link.setVisible ( true );&#xA;}&#xA;catch ( e )&#xA;{}" onUpdate="var label = controller.getElement(&quot;label&quot;);&#xA;label.setText ( &quot;Data: &quot; + data.getSummary() );">
   <root xsi:type="visualInterface:XYContainer">
     <children>
       <element xsi:type="visualInterface:Rectangle" foregroundColor="" backgroundColor="#FF0000">
