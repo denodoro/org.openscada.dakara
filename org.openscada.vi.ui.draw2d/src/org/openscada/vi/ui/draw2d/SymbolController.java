@@ -29,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.io.Resources;
+import com.google.gson.GsonBuilder;
 
 public class SymbolController
 {
@@ -110,6 +111,7 @@ public class SymbolController
 
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE );
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE );
+        this.scriptContext.setAttribute ( "GSON", new GsonBuilder ().serializeNulls ().setDateFormat ( "yyyy-MM-dd hh:mm:ss.SSS" ).create (), ScriptContext.ENGINE_SCOPE );
         this.scriptObjects = scriptObjects;
         addScriptObjects ( scriptObjects );
         if ( parentController != null )
