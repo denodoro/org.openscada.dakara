@@ -105,8 +105,7 @@ public class ViewElementFactory
 
         logger.info ( "Loading: {}", uri ); //$NON-NLS-1$
 
-        final SymbolLoader loader = new SymbolLoader ( uri );
-        return loader;
+        return new SymbolLoader ( uri );
     }
 
 }
