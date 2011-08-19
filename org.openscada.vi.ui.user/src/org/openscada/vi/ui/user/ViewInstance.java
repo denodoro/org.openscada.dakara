@@ -8,6 +8,8 @@ import java.util.Map;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -15,6 +17,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.openscada.ui.utils.blink.Blinker;
+import org.openscada.ui.utils.blink.Blinker.Handler;
+import org.openscada.ui.utils.blink.Blinker.State;
 import org.openscada.vi.ui.draw2d.SummaryInformation;
 import org.openscada.vi.ui.draw2d.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
@@ -40,7 +45,11 @@ public class ViewInstance implements SummaryListener
 
     private final Image imageBlocked;
 
-    private final Image imageAckRequired;
+    private Blinker blinker;
+
+    private final Image imageAlarm0;
+
+    private final Image imageAlarm1;
 
     public ViewInstance ( final ViewManager viewManager, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager )
     {
@@ -52,7 +61,8 @@ public class ViewInstance implements SummaryListener
         this.imageAlarm = createImage ( PreferenceConstants.P_IMG_ALARM );
         this.imageManual = createImage ( PreferenceConstants.P_IMG_MANUAL );
         this.imageBlocked = createImage ( PreferenceConstants.P_IMG_BLOCKED );
-        this.imageAckRequired = createImage ( PreferenceConstants.P_IMG_ACK_REQUIRED );
+        this.imageAlarm0 = createImage ( PreferenceConstants.P_IMG_ALARM_0 );
+        this.imageAlarm1 = createImage ( PreferenceConstants.P_IMG_ALARM_1 );
 
         // create the main button
         if ( descriptor.getParentId () == null || descriptor.getParentId ().isEmpty () )
@@ -84,6 +94,25 @@ public class ViewInstance implements SummaryListener
         {
             this.viewer.addSummaryListener ( this );
         }
+
+        this.viewer.addDisposeListener ( new DisposeListener () {
+
+            @Override
+            public void widgetDisposed ( final DisposeEvent e )
+            {
+                internalDispose ();
+            }
+        } );
+
+        this.blinker = new Blinker ( new Handler () {
+
+            @Override
+            public void setState ( final State state )
+            {
+                handleBlink ( state );
+            }
+        } );
+
     }
 
     private Image createImage ( final String key )
@@ -102,6 +131,15 @@ public class ViewInstance implements SummaryListener
     protected void showView ( final String id )
     {
         this.viewManager.showView ( id );
+    }
+
+    protected void internalDispose ()
+    {
+        if ( this.blinker != null )
+        {
+            this.blinker.dispose ();
+            this.blinker = null;
+        }
     }
 
     public void dispose ()
@@ -145,30 +183,60 @@ public class ViewInstance implements SummaryListener
         return this.viewer;
     }
 
+    protected void handleBlink ( final State state )
+    {
+        switch ( state )
+        {
+        case ALARM_0:
+            this.button.setImage ( this.imageAlarm0 );
+            break;
+        case ALARM_1:
+            this.button.setImage ( this.imageAlarm1 );
+            break;
+        case DISCONNECTED:
+        case ERROR:
+            this.button.setImage ( this.imageInvalid );
+            break;
+        case MANUAL:
+            this.button.setImage ( this.imageManual );
+            break;
+        case BLOCKED:
+            this.button.setImage ( this.imageBlocked );
+            break;
+        case ALARM:
+            this.button.setImage ( this.imageAlarm );
+            break;
+        case OK:
+            this.button.setImage ( this.imageOk );
+            break;
+        }
+    }
+
     @Override
     public void summaryChanged ( final SummaryInformation summary )
     {
+        this.blinker.setState ( summary.isAlarm (), summary.isAckRequired (), summary.isManual (), summary.isConnected (), summary.isError (), summary.isBlocked () );
         if ( this.button != null )
         {
             if ( summary.isError () || !summary.isValid () )
             {
-                this.button.setImage ( this.imageInvalid );
+
             }
             else if ( summary.isAlarm () )
             {
-                this.button.setImage ( this.imageAlarm );
+
             }
             else if ( summary.isManual () )
             {
-                this.button.setImage ( this.imageManual );
+
             }
             else if ( summary.isBlocked () )
             {
-                this.button.setImage ( this.imageBlocked );
+
             }
             else
             {
-                this.button.setImage ( this.imageOk );
+
             }
             this.button.getParent ().layout ();
         }

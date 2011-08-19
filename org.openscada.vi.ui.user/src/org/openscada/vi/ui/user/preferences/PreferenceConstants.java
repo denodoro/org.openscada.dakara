@@ -15,5 +15,7 @@ public class PreferenceConstants
 
     public static final String P_IMG_BLOCKED = "image.blocked";
 
-    public static final String P_IMG_ACK_REQUIRED = "image.ackRequired";
+    public static final String P_IMG_ALARM_0 = "image.alarm0";
+
+    public static final String P_IMG_ALARM_1 = "image.alarm1";
 }

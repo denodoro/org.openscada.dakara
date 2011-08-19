@@ -24,7 +24,8 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
         store.setDefault ( PreferenceConstants.P_IMG_INVALID, makeURI ( "invalid.png" ) );
         store.setDefault ( PreferenceConstants.P_IMG_MANUAL, makeURI ( "manual.png" ) );
         store.setDefault ( PreferenceConstants.P_IMG_BLOCKED, makeURI ( "blocked.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_ACK_REQUIRED, makeURI ( "ackRequired.png" ) );
+        store.setDefault ( PreferenceConstants.P_IMG_ALARM_0, makeURI ( "alarm0.png" ) );
+        store.setDefault ( PreferenceConstants.P_IMG_ALARM_1, makeURI ( "alarm1.png" ) );
     }
 
     private String makeURI ( final String file )

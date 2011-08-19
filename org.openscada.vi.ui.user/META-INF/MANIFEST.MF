@@ -10,4 +10,5 @@ Require-Bundle: org.eclipse.ui,
  org.openscada.vi.ui.draw2d;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: org.openscada.ui.utils.status;version="0.17.0"
+Import-Package: org.openscada.ui.utils.blink;version="0.17.0",
+ org.openscada.ui.utils.status;version="0.17.0"
