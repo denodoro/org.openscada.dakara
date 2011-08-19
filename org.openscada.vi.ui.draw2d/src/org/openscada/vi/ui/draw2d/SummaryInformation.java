@@ -45,6 +45,27 @@ public class SummaryInformation
         return true;
     }
 
+    public boolean isConnected ()
+    {
+        for ( final Map.Entry<String, DataItemValue> entry : this.data.entrySet () )
+        {
+            if ( !entry.getValue ().isConnected () )
+            {
+                return false;
+            }
+        }
+
+        for ( final SummaryInformation child : this.childData )
+        {
+            if ( !child.isConnected () )
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public boolean isError ()
     {
         return isAttribute ( "error", false );
