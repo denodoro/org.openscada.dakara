@@ -83,6 +83,17 @@ public class ViewInstance implements SummaryListener
             this.button = null;
         }
 
+        // create the blinker
+
+        this.blinker = new Blinker ( new Handler () {
+
+            @Override
+            public void setState ( final State state )
+            {
+                handleBlink ( state );
+            }
+        } );
+
         // create the visual interface view
 
         final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ();
@@ -101,15 +112,6 @@ public class ViewInstance implements SummaryListener
             public void widgetDisposed ( final DisposeEvent e )
             {
                 internalDispose ();
-            }
-        } );
-
-        this.blinker = new Blinker ( new Handler () {
-
-            @Override
-            public void setState ( final State state )
-            {
-                handleBlink ( state );
             }
         } );
 
@@ -185,6 +187,11 @@ public class ViewInstance implements SummaryListener
 
     protected void handleBlink ( final State state )
     {
+        if ( this.button == null )
+        {
+            return;
+        }
+
         switch ( state )
         {
         case ALARM_0:
