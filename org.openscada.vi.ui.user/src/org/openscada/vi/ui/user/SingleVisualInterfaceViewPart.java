@@ -27,7 +27,6 @@ import java.util.Map;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.beans.PojoObservables;
-import org.eclipse.core.databinding.conversion.IConverter;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
@@ -49,43 +48,11 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.part.ViewPart;
 import org.openscada.core.Variant;
 import org.openscada.ui.databinding.DataItemObservableValue;
+import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
 public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManager
 {
-
-    public static class VariantToStringConverter implements IConverter
-    {
-        private final String defaultValue;
-
-        public VariantToStringConverter ()
-        {
-            this ( null );
-        }
-
-        public VariantToStringConverter ( final String defaultValue )
-        {
-            this.defaultValue = defaultValue;
-        }
-
-        @Override
-        public Object getFromType ()
-        {
-            return Variant.class;
-        }
-
-        @Override
-        public Object getToType ()
-        {
-            return String.class;
-        }
-
-        @Override
-        public Object convert ( final Object fromObject )
-        {
-            return ( (Variant)fromObject ).asString ( this.defaultValue );
-        }
-    }
 
     private Composite viewHolder;
 
