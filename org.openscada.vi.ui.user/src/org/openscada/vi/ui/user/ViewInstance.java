@@ -86,7 +86,7 @@ public class ViewInstance implements SummaryListener
         // create the main button
         if ( descriptor.getParentId () == null || descriptor.getParentId ().isEmpty () )
         {
-            this.button = new ToolItem ( toolbar, SWT.PUSH );
+            this.button = new ToolItem ( toolbar, SWT.RADIO );
             this.button.setText ( descriptor.getName () );
             this.button.setImage ( this.imageOk );
             this.button.addSelectionListener ( new SelectionAdapter () {
