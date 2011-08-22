@@ -29,6 +29,7 @@ import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.GridContainer;
+import org.openscada.vi.model.VisualInterface.Image;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -41,6 +42,7 @@ import org.openscada.vi.ui.draw2d.primitives.BorderContainerController;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
 import org.openscada.vi.ui.draw2d.primitives.FigureContainerController;
 import org.openscada.vi.ui.draw2d.primitives.GridContainerController;
+import org.openscada.vi.ui.draw2d.primitives.ImageController;
 import org.openscada.vi.ui.draw2d.primitives.LineController;
 import org.openscada.vi.ui.draw2d.primitives.RectangleController;
 import org.openscada.vi.ui.draw2d.primitives.SymbolReferenceController;
@@ -100,7 +102,10 @@ public class ViewElementFactory
         {
             return new FigureContainerController ( controller, (FigureContainer)element, this.manager, this );
         }
-
+        else if ( element instanceof Image )
+        {
+            return new ImageController ( this.canvas, controller, (Image)element, this.manager );
+        }
         throw new IllegalArgumentException ( String.format ( "Element type %s is unknown", element.eClass ().getName () ) );
     }
 
