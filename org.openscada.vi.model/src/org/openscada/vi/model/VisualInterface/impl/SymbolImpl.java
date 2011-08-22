@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.vi.model.VisualInterface.Cursor;
+import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
@@ -42,6 +43,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getScriptModules <em>Script Modules</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getCursors <em>Cursors</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getDesignSize <em>Design Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -168,6 +170,16 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected String backgroundColor = BACKGROUND_COLOR_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getDesignSize() <em>Design Size</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDesignSize()
+     * @generated
+     * @ordered
+     */
+    protected Dimension designSize;
 
     /**
      * <!-- begin-user-doc -->
@@ -411,6 +423,54 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public Dimension getDesignSize()
+    {
+        return designSize;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetDesignSize(Dimension newDesignSize, NotificationChain msgs)
+    {
+        Dimension oldDesignSize = designSize;
+        designSize = newDesignSize;
+        if (eNotificationRequired())
+        {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__DESIGN_SIZE, oldDesignSize, newDesignSize);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDesignSize(Dimension newDesignSize)
+    {
+        if (newDesignSize != designSize)
+        {
+            NotificationChain msgs = null;
+            if (designSize != null)
+                msgs = ((InternalEObject)designSize).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__DESIGN_SIZE, null, msgs);
+            if (newDesignSize != null)
+                msgs = ((InternalEObject)newDesignSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__DESIGN_SIZE, null, msgs);
+            msgs = basicSetDesignSize(newDesignSize, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__DESIGN_SIZE, newDesignSize, newDesignSize));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -422,6 +482,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
             case VisualInterfacePackage.SYMBOL__CURSORS:
                 return basicSetCursors(null, msgs);
+            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+                return basicSetDesignSize(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -453,6 +515,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getCursors();
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
                 return getBackgroundColor();
+            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+                return getDesignSize();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -493,6 +557,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
                 setBackgroundColor((String)newValue);
                 return;
+            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+                setDesignSize((Dimension)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -531,6 +598,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
                 setBackgroundColor(BACKGROUND_COLOR_EDEFAULT);
                 return;
+            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+                setDesignSize((Dimension)null);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -561,6 +631,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return cursors != null;
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
                 return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
+            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+                return designSize != null;
         }
         return super.eIsSet(featureID);
     }

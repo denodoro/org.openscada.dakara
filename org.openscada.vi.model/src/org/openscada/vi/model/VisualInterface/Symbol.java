@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getScriptModules <em>Script Modules</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getDesignSize <em>Design Size</em>}</li>
  * </ul>
  * </p>
  *
@@ -223,5 +224,30 @@ public interface Symbol extends EObject
      * @generated
      */
     void setBackgroundColor(String value);
+
+    /**
+     * Returns the value of the '<em><b>Design Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The size as intended by the designer. May be used for layouting as preferred size.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Design Size</em>' containment reference.
+     * @see #setDesignSize(Dimension)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbol_DesignSize()
+     * @model containment="true"
+     * @generated
+     */
+    Dimension getDesignSize();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getDesignSize <em>Design Size</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Design Size</em>' containment reference.
+     * @see #getDesignSize()
+     * @generated
+     */
+    void setDesignSize(Dimension value);
 
 } // Symbol

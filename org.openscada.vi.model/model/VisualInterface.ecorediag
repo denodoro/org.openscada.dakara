@@ -678,4 +678,17 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NUqTk8mIEeCWJO2tEYL8Sg" points="[54, -5, -890, 86]$[941, -111, -3, -20]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NUsIwMmIEeCWJO2tEYL8Sg" id="(0.6823529411764706,0.16494845360824742)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_SRXWgMybEeClUIxIQf78tQ" type="3002" source="_GXLKsMfgEeC1o4sZtTXACQ" target="_pgiSgMjPEeCen9TTpz68Pw">
+    <children xmi:type="notation:Node" xmi:id="_SRbA4MybEeClUIxIQf78tQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_SRbA4cybEeClUIxIQf78tQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_SRbn8MybEeClUIxIQf78tQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_SRbn8cybEeClUIxIQf78tQ" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_SRXWgcybEeClUIxIQf78tQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_SRXWgsybEeClUIxIQf78tQ" fontColor="4210752" fontName="Ubuntu" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="VisualInterface.ecore#//Symbol/designSize"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SRXWg8ybEeClUIxIQf78tQ" points="[4, 43, 2, 42]$[4, 43, 2, 42]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SRerQMybEeClUIxIQf78tQ" id="(0.8105263157894737,0.6194690265486725)"/>
+  </edges>
 </notation:Diagram>
