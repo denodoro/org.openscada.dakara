@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Draw2d
+Bundle-Name: Dakara Draw2D Implementation
 Bundle-SymbolicName: org.openscada.vi.ui.draw2d;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.17.0.qualifier
 Bundle-Activator: org.openscada.vi.ui.draw2d.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.draw2d;bundle-version="3.7.0",
- org.openscada.vi.model;bundle-version="1.0.0",
+ org.openscada.vi.model;bundle-version="0.17.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

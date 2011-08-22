@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: End User UI
 Bundle-SymbolicName: org.openscada.vi.ui.user;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.17.0.qualifier
 Bundle-Activator: org.openscada.vi.ui.user.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.openscada.vi.ui.draw2d;bundle-version="1.0.0"
+ org.openscada.vi.ui.draw2d;bundle-version="0.17.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.openscada.ui.utils.blink;version="0.17.0",
