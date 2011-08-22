@@ -6,7 +6,7 @@
    <feature url="features/org.openscada.dakara.sdk_0.17.0.qualifier.jar" id="org.openscada.dakara.sdk" version="0.17.0.qualifier">
       <category name="org.openscada.dakara.sdk"/>
    </feature>
-   <feature url="features/org.openscada.dakara.editor_1.0.0.qualifier.jar" id="org.openscada.dakara.editor" version="1.0.0.qualifier">
+   <feature url="features/org.openscada.dakara.editor_0.17.0.qualifier.jar" id="org.openscada.dakara.editor" version="0.17.0.qualifier">
       <category name="org.openscada.dakara.editor"/>
    </feature>
    <category-def name="org.openscada.dakara" label="openSCADA Dakara">
