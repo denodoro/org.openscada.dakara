@@ -25,7 +25,21 @@ public class TextController extends FigureController
     {
         super ( controller, manager );
         this.canvas = canvas;
-        this.figure = new Label ( element.getText () );
+        this.figure = new Label ( element.getText () ) {
+            @Override
+            public void addNotify ()
+            {
+                super.addNotify ();
+                start ();
+            }
+
+            @Override
+            public void removeNotify ()
+            {
+                stop ();
+                super.removeNotify ();
+            }
+        };
         controller.addElement ( element.getName (), this );
 
         applyCommon ( element );

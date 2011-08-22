@@ -19,7 +19,21 @@ public class RectangleController extends FigureController
         {
             rect.setPreciseSize ( element.getSize ().getWidth (), element.getSize ().getHeight () );
         }
-        this.figure = new RectangleFigure ();
+        this.figure = new RectangleFigure () {
+            @Override
+            public void addNotify ()
+            {
+                super.addNotify ();
+                start ();
+            }
+
+            @Override
+            public void removeNotify ()
+            {
+                stop ();
+                super.removeNotify ();
+            }
+        };
         this.figure.setBounds ( rect );
 
         controller.addElement ( element.getName (), this );

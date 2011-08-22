@@ -5,4 +5,5 @@ import org.eclipse.draw2d.IFigure;
 public interface Controller
 {
     public IFigure getFigure ();
+
 }

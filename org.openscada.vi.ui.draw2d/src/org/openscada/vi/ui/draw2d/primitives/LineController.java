@@ -19,7 +19,21 @@ public class LineController extends FigureController
     {
         super ( controller, manager );
 
-        this.figure = new PolylineShape ();
+        this.figure = new PolylineShape () {
+            @Override
+            public void addNotify ()
+            {
+                super.addNotify ();
+                start ();
+            }
+
+            @Override
+            public void removeNotify ()
+            {
+                stop ();
+                super.removeNotify ();
+            }
+        };
 
         final PointList points = new PointList ();
         for ( final Position pos : element.getPoints () )

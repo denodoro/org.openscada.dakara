@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.script.ScriptException;
 
-import org.eclipse.draw2d.AncestorListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
@@ -25,6 +24,33 @@ import org.openscada.vi.model.VisualInterface.SystemCursor;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.ui.draw2d.SymbolController;
 
+/**
+ * A figure controller
+ * <p>
+ * This figure controller needs to know when the figure it controls was added
+ * or removed. Since draw2d does not provide a "addRemovedListener" for IFigure
+ * but a {@link IFigure#removeNotify()} that can be overridden it is the
+ * responsibility of the implementing controller to call {@link #start()} and
+ * {@link #stop()} when the implementing {@link IFigure#addNotify()} and
+ * {@link IFigure#removeNotify()} get called.
+ * So create your figure like the following snippet shows:
+ * <code><pre>
+IFigure figure = new PolylineShape () {
+    public void addNotify () {
+        super.addNotify ();
+        start (); // FigureController.start ();
+    }
+
+    public void removeNotify () {
+        stop (); // FigureController.stop ();
+        super.removeNotify ();
+    }
+};
+ * </pre></code>
+ * </p>
+ * @author Jens Reimann
+ *
+ */
 public abstract class FigureController implements Controller
 {
 
@@ -59,7 +85,9 @@ public abstract class FigureController implements Controller
 
     private ScriptExecutor onDoubleClick;
 
-    private final Map<Object, BaseColor> colorHandler = new HashMap<Object, FigureController.BaseColor> ();
+    private final Map<Object, ColorHandler> colorHandler = new HashMap<Object, FigureController.ColorHandler> ();
+
+    private boolean started;
 
     public FigureController ( final SymbolController controller, final ResourceManager manager )
     {
@@ -67,38 +95,8 @@ public abstract class FigureController implements Controller
         this.controller = controller;
     }
 
-    protected void internalDispose ()
-    {
-        for ( final BaseColor color : this.colorHandler.values () )
-        {
-            color.dispose ();
-        }
-        this.colorHandler.clear ();
-    }
-
     protected void applyCommon ( final Figure figure )
     {
-        getFigure ().addAncestorListener ( new AncestorListener () {
-            @Override
-            public void ancestorAdded ( final IFigure ancestor )
-            {
-            }
-
-            @Override
-            public void ancestorMoved ( final IFigure ancestor )
-            {
-            }
-
-            @Override
-            public void ancestorRemoved ( final IFigure ancestor )
-            {
-                if ( ancestor == getFigure () )
-                {
-                    internalDispose ();
-                }
-            };
-        } );
-
         setBackgroundColor ( figure.getBackgroundColor () );
         setForegroundColor ( figure.getForegroundColor () );
 
@@ -139,6 +137,8 @@ public abstract class FigureController implements Controller
     {
         getFigure ().setCursor ( getCursor ( cursor ) );
     }
+
+    // TODO: SWT cursor enum
 
     protected org.eclipse.swt.graphics.Cursor getCursor ( final String cursor )
     {
@@ -212,14 +212,14 @@ public abstract class FigureController implements Controller
         getFigure ().setPreferredSize ( dim );
     }
 
-    private static interface BaseColor
+    private static interface ColorHandler
     {
         public void start ();
 
-        public void dispose ();
+        public void stop ();
     }
 
-    private static class DefaultColor implements BaseColor
+    private static class DefaultColor implements ColorHandler
     {
         private final IFigure figure;
 
@@ -238,13 +238,13 @@ public abstract class FigureController implements Controller
         }
 
         @Override
-        public void dispose ()
+        public void stop ()
         {
             // nothing to do  
         }
     }
 
-    private static class StaticColor implements BaseColor
+    private static class StaticColor implements ColorHandler
     {
         private final IFigure figure;
 
@@ -266,13 +266,13 @@ public abstract class FigureController implements Controller
         }
 
         @Override
-        public void dispose ()
+        public void stop ()
         {
             // nothing to do
         }
     }
 
-    private static class BlinkingColor extends AbstractBlinker implements BaseColor
+    private static class BlinkingColor extends AbstractBlinker implements ColorHandler
     {
         private final IFigure figure;
 
@@ -300,6 +300,12 @@ public abstract class FigureController implements Controller
         }
 
         @Override
+        public void stop ()
+        {
+            super.dispose ();
+        }
+
+        @Override
         public void toggle ( final boolean on )
         {
             this.applier.applyColor ( this.figure, on ? this.onColor : this.offColor );
@@ -308,24 +314,60 @@ public abstract class FigureController implements Controller
 
     public void setBackgroundColor ( final String color )
     {
-        final BaseColor colorHandler = makeColorHandler ( color, new BackgroundApplier () );
+        final ColorHandler colorHandler = makeColorHandler ( color, new BackgroundApplier () );
         setColor ( "backgroundColor", colorHandler );
     }
 
     public void setForegroundColor ( final String color )
     {
-        final BaseColor colorHandler = makeColorHandler ( color, new ForegroundApplier () );
+        final ColorHandler colorHandler = makeColorHandler ( color, new ForegroundApplier () );
         setColor ( "foregroundColor", colorHandler );
     }
 
-    protected void setColor ( final Object key, final BaseColor colorHandler )
+    protected void setColor ( final Object key, final ColorHandler colorHandler )
     {
-        final BaseColor oldColorHandler = this.colorHandler.put ( key, colorHandler );
+        final ColorHandler oldColorHandler = this.colorHandler.put ( key, colorHandler );
         if ( oldColorHandler != null )
         {
-            oldColorHandler.dispose ();
+            // dispose
+            oldColorHandler.stop ();
         }
-        colorHandler.start ();
+
+        // we are started, so start the color
+        if ( this.started )
+        {
+            colorHandler.start ();
+        }
+    }
+
+    public void start ()
+    {
+        if ( this.started )
+        {
+            return;
+        }
+        this.started = true;
+
+        // start all colors
+        for ( final ColorHandler color : this.colorHandler.values () )
+        {
+            color.start ();
+        }
+    }
+
+    public void stop ()
+    {
+        if ( !this.started )
+        {
+            return;
+        }
+        this.started = false;
+
+        // stop all colors
+        for ( final ColorHandler color : this.colorHandler.values () )
+        {
+            color.stop ();
+        }
     }
 
     public void setVisible ( final boolean flag )
@@ -342,7 +384,7 @@ public abstract class FigureController implements Controller
         return new PrecisionDimension ( dimension.getWidth (), dimension.getHeight () );
     }
 
-    protected BaseColor makeColorHandler ( final String color, final ColorApplier applier )
+    protected ColorHandler makeColorHandler ( final String color, final ColorApplier applier )
     {
         if ( color == null )
         {
