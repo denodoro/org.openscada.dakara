@@ -7,15 +7,26 @@ import java.util.Map;
 
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Layer;
+import org.eclipse.draw2d.ScalableLayeredPane;
+import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
 
 public class VisualInterfaceViewer extends Composite
@@ -32,7 +43,13 @@ public class VisualInterfaceViewer extends Composite
 
     private final Map<String, String> initialProperties;
 
-    private boolean zooming;
+    private Boolean zooming;
+
+    private ScalableLayeredPane pane;
+
+    private IFigure figure;
+
+    private Symbol symbol;
 
     /**
      * Create a new viewer
@@ -91,7 +108,8 @@ public class VisualInterfaceViewer extends Composite
         try
         {
             loader.load ();
-            this.canvas.setContents ( create ( loader.getSymbol (), loader.getClassLoader () ) );
+            this.symbol = loader.getSymbol ();
+            create ( loader.getSymbol (), loader.getClassLoader () );
             applyColor ( loader.getSymbol () );
         }
         catch ( final Exception e )
@@ -102,10 +120,17 @@ public class VisualInterfaceViewer extends Composite
 
     public boolean isZooming ()
     {
-        return this.zooming;
+        if ( this.zooming == null )
+        {
+            return Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_ZOOMING );
+        }
+        else
+        {
+            return this.zooming;
+        }
     }
 
-    public void setZooming ( final boolean zooming )
+    public void setZooming ( final Boolean zooming )
     {
         this.zooming = zooming;
     }
@@ -121,11 +146,71 @@ public class VisualInterfaceViewer extends Composite
 
     protected FigureCanvas createCanvas ()
     {
-        return new FigureCanvas ( this );
+        final FigureCanvas canvas = new FigureCanvas ( this );
+
+        addControlListener ( new ControlAdapter () {
+            @Override
+            public void controlResized ( final ControlEvent e )
+            {
+                handleResize ( getBounds () );
+            }
+        } );
+
+        return canvas;
     }
 
-    protected IFigure create ( final Symbol symbol, final ClassLoader classLoader )
+    protected void handleResize ( final Rectangle bounds )
     {
+        if ( !this.zooming )
+        {
+            setZoom ( 1.0 );
+            return;
+        }
+
+        final Dimension prefSize = getPreferredSize ( bounds );
+
+        final double ar = prefSize.preciseWidth () / prefSize.preciseHeight ();
+
+        final int newWidth;
+        final int newHeight;
+        final double zoom;
+        if ( bounds.width < bounds.height )
+        {
+            newWidth = bounds.width;
+            newHeight = (int) ( newWidth * ar );
+            zoom = newWidth / prefSize.preciseWidth ();
+        }
+        else
+        {
+            newHeight = bounds.height;
+            newWidth = (int) ( newHeight / ar );
+            zoom = newHeight / prefSize.preciseHeight ();
+        }
+
+        setZoom ( zoom );
+    }
+
+    private Dimension getPreferredSize ( final Rectangle bounds )
+    {
+        if ( this.symbol != null && this.symbol.getDesignSize () != null )
+        {
+            return new PrecisionDimension ( this.symbol.getDesignSize ().getWidth (), this.symbol.getDesignSize ().getHeight () );
+        }
+        return this.figure.getPreferredSize ( bounds.width, bounds.height );
+    }
+
+    private void setZoom ( final double zoom )
+    {
+        this.pane.setScale ( zoom );
+    }
+
+    protected void create ( final Symbol symbol, final ClassLoader classLoader )
+    {
+        this.pane = new ScalableLayeredPane ();
+        final Layer layer = new Layer ();
+        layer.setLayoutManager ( new StackLayout () );
+        this.pane.add ( layer );
+
         try
         {
             final Map<String, String> properties = new HashMap<String, String> ( symbol.getProperties ().size () );
@@ -141,12 +226,15 @@ public class VisualInterfaceViewer extends Composite
 
             this.controller.init ();
 
-            return controller.getFigure ();
+            layer.add ( this.figure = controller.getFigure () );
         }
         catch ( final Exception e )
         {
-            return Helper.createErrorFigure ( e );
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
+            layer.add ( this.figure = Helper.createErrorFigure ( e ) );
         }
+
+        this.canvas.setContents ( this.pane );
     }
 
     protected Controller create ( final Primitive element )

@@ -18,8 +18,8 @@ import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.ui.draw2d.Activator;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.ViewElementFactory;
+import org.openscada.vi.ui.draw2d.XMISymbolLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,6 +51,7 @@ public class SymbolReferenceController implements Controller
         {
             final URI uri = URI.createURI ( symbolReference.getUri () );
             final XMISymbolLoader symbolLoader = factory.load ( uri );
+            symbolLoader.load ();
 
             final Map<String, String> properties = new HashMap<String, String> ();
             properties.putAll ( convert ( symbolReference.getProperties () ) );
