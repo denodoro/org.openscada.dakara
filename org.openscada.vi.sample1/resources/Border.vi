@@ -26,5 +26,10 @@
         <content xsi:type="visualInterface:Text" text="Hello World!"/>
       </element>
     </children>
+    <children horizontalAlignment="FILL" spanCols="2">
+      <element xsi:type="visualInterface:FigureContainer" border="TITLE:Title Name">
+        <content xsi:type="visualInterface:Text" text="Hello World!"/>
+      </element>
+    </children>
   </root>
 </visualInterface:Symbol>

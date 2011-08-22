@@ -33,6 +33,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
+import org.eclipse.draw2d.TitleBarBorder;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
@@ -422,6 +423,10 @@ public abstract class FigureController implements Controller
         if ( border.startsWith ( "GROUP:" ) )
         {
             return new GroupBoxBorder ( border.substring ( "GROUP:".length () ) );
+        }
+        if ( border.startsWith ( "TITLE:" ) )
+        {
+            return new TitleBarBorder ( border.substring ( "TITLE:".length () ) );
         }
 
         StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Invalid border string: " + border ), StatusManager.LOG );
