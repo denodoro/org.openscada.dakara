@@ -161,7 +161,7 @@ public class VisualInterfaceViewer extends Composite
 
     protected void handleResize ( final Rectangle bounds )
     {
-        if ( !this.zooming )
+        if ( !isZooming () )
         {
             setZoom ( 1.0 );
             return;
