@@ -30,7 +30,7 @@ public class ViewElementFactory
 
     private final ResourceManager manager;
 
-    private final Map<URI, SymbolLoader> symbolCache = new HashMap<URI, SymbolLoader> ();
+    private final Map<URI, XMISymbolLoader> symbolCache = new HashMap<URI, XMISymbolLoader> ();
 
     private final FigureCanvas canvas;
 
@@ -95,9 +95,9 @@ public class ViewElementFactory
         return rect;
     }
 
-    public SymbolLoader load ( final URI uri ) throws Exception
+    public XMISymbolLoader load ( final URI uri ) throws Exception
     {
-        final SymbolLoader symbol = this.symbolCache.get ( uri );
+        final XMISymbolLoader symbol = this.symbolCache.get ( uri );
         if ( symbol != null )
         {
             return symbol;
@@ -105,7 +105,7 @@ public class ViewElementFactory
 
         logger.info ( "Loading: {}", uri ); //$NON-NLS-1$
 
-        return new SymbolLoader ( uri );
+        return new XMISymbolLoader ( uri );
     }
 
 }

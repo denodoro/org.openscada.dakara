@@ -28,9 +28,11 @@ public class VisualInterfaceViewer extends Composite
 
     private SymbolController controller;
 
-    private Map<String, Object> scriptObjects;
+    private final Map<String, Object> scriptObjects;
 
-    private Map<String, String> initialProperties;
+    private final Map<String, String> initialProperties;
+
+    private boolean zooming;
 
     /**
      * Create a new viewer
@@ -55,11 +57,21 @@ public class VisualInterfaceViewer extends Composite
      */
     public VisualInterfaceViewer ( final Composite parent, final int style, final String uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
+        this ( parent, style, new XMISymbolLoader ( uri ), scriptObjects, properties );
+    }
+
+    public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader classLoader, final Map<String, Object> scriptObjects, final Map<String, String> properties )
+    {
+        this ( parent, style, new StaticSymbolLoader ( symbol, classLoader ), scriptObjects, properties );
+    }
+
+    public VisualInterfaceViewer ( final Composite parent, final int style, final SymbolLoader loader, final Map<String, Object> scriptObjects, final Map<String, String> properties )
+    {
         super ( parent, style );
 
         this.initialProperties = properties == null ? Collections.<String, String> emptyMap () : properties;
-
         this.scriptObjects = scriptObjects;
+
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
 
         addDisposeListener ( new DisposeListener () {
@@ -78,7 +90,7 @@ public class VisualInterfaceViewer extends Composite
 
         try
         {
-            final SymbolLoader loader = new SymbolLoader ( uri );
+            loader.load ();
             this.canvas.setContents ( create ( loader.getSymbol (), loader.getClassLoader () ) );
             applyColor ( loader.getSymbol () );
         }
@@ -86,31 +98,16 @@ public class VisualInterfaceViewer extends Composite
         {
             this.canvas.setContents ( Helper.createErrorFigure ( e ) );
         }
-
     }
 
-    public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader symbolClassLoader )
+    public boolean isZooming ()
     {
-        super ( parent, style );
+        return this.zooming;
+    }
 
-        this.manager = new LocalResourceManager ( JFaceResources.getResources () );
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                internalDispose ();
-            }
-        } );
-
-        setLayout ( new FillLayout () );
-        this.canvas = createCanvas ();
-
-        this.factory = new ViewElementFactory ( this.canvas, this.manager );
-
-        this.canvas.setContents ( create ( symbol, symbolClassLoader ) );
-        applyColor ( symbol );
+    public void setZooming ( final boolean zooming )
+    {
+        this.zooming = zooming;
     }
 
     private void applyColor ( final Symbol symbol )

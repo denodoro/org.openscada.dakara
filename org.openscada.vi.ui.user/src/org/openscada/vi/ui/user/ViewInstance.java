@@ -114,7 +114,6 @@ public class ViewInstance implements SummaryListener
                 internalDispose ();
             }
         } );
-
     }
 
     private Image createImage ( final String key )
