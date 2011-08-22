@@ -112,7 +112,7 @@ public class FigureContainerItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/FigureContainer"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/FigureContainer")); //$NON-NLS-1$
     }
 
     /**
@@ -126,8 +126,8 @@ public class FigureContainerItemProvider
     {
         String label = ((FigureContainer)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_FigureContainer_type") :
-            getString("_UI_FigureContainer_type") + " " + label;
+            getString("_UI_FigureContainer_type") : //$NON-NLS-1$
+            getString("_UI_FigureContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

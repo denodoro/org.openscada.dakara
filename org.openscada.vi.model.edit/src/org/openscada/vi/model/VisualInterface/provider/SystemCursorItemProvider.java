@@ -83,8 +83,8 @@ public class SystemCursorItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_SystemCursor_type_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SystemCursor_type_feature", "_UI_SystemCursor_type"),
+                 getString("_UI_SystemCursor_type_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_SystemCursor_type_feature", "_UI_SystemCursor_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SYSTEM_CURSOR__TYPE,
                  true,
                  false,
@@ -103,7 +103,7 @@ public class SystemCursorItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemCursor"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemCursor")); //$NON-NLS-1$
     }
 
     /**
@@ -118,8 +118,8 @@ public class SystemCursorItemProvider
         SystemCursorType labelValue = ((SystemCursor)object).getType();
         String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ?
-            getString("_UI_SystemCursor_type") :
-            getString("_UI_SystemCursor_type") + " " + label;
+            getString("_UI_SystemCursor_type") : //$NON-NLS-1$
+            getString("_UI_SystemCursor_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

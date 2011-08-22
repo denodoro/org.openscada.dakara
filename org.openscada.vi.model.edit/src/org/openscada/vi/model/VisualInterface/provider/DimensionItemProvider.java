@@ -86,8 +86,8 @@ public class DimensionItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Dimension_width_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Dimension_width_feature", "_UI_Dimension_type"),
+                 getString("_UI_Dimension_width_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Dimension_width_feature", "_UI_Dimension_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.DIMENSION__WIDTH,
                  true,
                  false,
@@ -109,8 +109,8 @@ public class DimensionItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Dimension_height_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Dimension_height_feature", "_UI_Dimension_type"),
+                 getString("_UI_Dimension_height_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Dimension_height_feature", "_UI_Dimension_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.DIMENSION__HEIGHT,
                  true,
                  false,
@@ -129,7 +129,7 @@ public class DimensionItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Dimension"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Dimension")); //$NON-NLS-1$
     }
 
     /**
@@ -142,7 +142,7 @@ public class DimensionItemProvider
     public String getText(Object object)
     {
         Dimension dimension = (Dimension)object;
-        return getString("_UI_Dimension_type") + " " + dimension.getWidth();
+        return getString("_UI_Dimension_type") + " " + dimension.getWidth(); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -36,7 +36,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         try
         {
-            VisualInterfaceFactory theVisualInterfaceFactory = (VisualInterfaceFactory)EPackage.Registry.INSTANCE.getEFactory("urn:openscada:visualInterface"); 
+            VisualInterfaceFactory theVisualInterfaceFactory = (VisualInterfaceFactory)EPackage.Registry.INSTANCE.getEFactory("urn:openscada:visualInterface"); //$NON-NLS-1$ 
             if (theVisualInterfaceFactory != null)
             {
                 return theVisualInterfaceFactory;
@@ -89,7 +89,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.FIGURE_CONTAINER: return createFigureContainer();
             case VisualInterfacePackage.IMAGE: return createImage();
             default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -112,7 +112,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.GRID_ALIGNMENT:
                 return createGridAlignmentFromString(eDataType, initialValue);
             default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -135,7 +135,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.GRID_ALIGNMENT:
                 return convertGridAlignmentToString(eDataType, instanceValue);
             default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -345,7 +345,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     public Alignment createAlignmentFromString(EDataType eDataType, String initialValue)
     {
         Alignment result = Alignment.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -367,7 +367,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     public Orientation createOrientationFromString(EDataType eDataType, String initialValue)
     {
         Orientation result = Orientation.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -389,7 +389,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     public SystemCursorType createSystemCursorTypeFromString(EDataType eDataType, String initialValue)
     {
         SystemCursorType result = SystemCursorType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -411,7 +411,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     public GridAlignment createGridAlignmentFromString(EDataType eDataType, String initialValue)
     {
         GridAlignment result = GridAlignment.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 

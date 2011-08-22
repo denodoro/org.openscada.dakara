@@ -94,8 +94,8 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Primitive_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"),
+                 getString("_UI_Primitive_name_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.PRIMITIVE__NAME,
                  true,
                  false,
@@ -117,14 +117,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_foregroundColor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_foregroundColor_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_foregroundColor_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_foregroundColor_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__FOREGROUND_COLOR,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_figurePropertyCategory"),
+                 getString("_UI_figurePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -140,14 +140,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_backgroundColor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_backgroundColor_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_backgroundColor_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_backgroundColor_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__BACKGROUND_COLOR,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_figurePropertyCategory"),
+                 getString("_UI_figurePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -163,14 +163,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_onClick_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_onClick_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_onClick_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_onClick_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__ON_CLICK,
                  true,
                  true,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_handlerPropertyCategory"),
+                 getString("_UI_handlerPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -186,14 +186,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_onDoubleClick_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_onDoubleClick_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_onDoubleClick_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_onDoubleClick_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__ON_DOUBLE_CLICK,
                  true,
                  true,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_handlerPropertyCategory"),
+                 getString("_UI_handlerPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -209,14 +209,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_cursor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_cursor_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_cursor_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_cursor_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__CURSOR,
                  true,
                  false,
                  true,
                  null,
-                 getString("_UI_figurePropertyCategory"),
+                 getString("_UI_figurePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -232,14 +232,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_visible_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_visible_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_visible_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_visible_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__VISIBLE,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 getString("_UI_figurePropertyCategory"),
+                 getString("_UI_figurePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -255,14 +255,14 @@ public class FigureItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Figure_border_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_border_feature", "_UI_Figure_type"),
+                 getString("_UI_Figure_border_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_border_feature", "_UI_Figure_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.FIGURE__BORDER,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_figurePropertyCategory"),
+                 getString("_UI_figurePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -308,7 +308,7 @@ public class FigureItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Figure"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Figure")); //$NON-NLS-1$
     }
 
     /**
@@ -322,8 +322,8 @@ public class FigureItemProvider
     {
         String label = ((Figure)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Figure_type") :
-            getString("_UI_Figure_type") + " " + label;
+            getString("_UI_Figure_type") : //$NON-NLS-1$
+            getString("_UI_Figure_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

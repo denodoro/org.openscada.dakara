@@ -89,8 +89,8 @@ public class GridContainerItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Primitive_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"),
+                 getString("_UI_Primitive_name_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.PRIMITIVE__NAME,
                  true,
                  false,
@@ -112,8 +112,8 @@ public class GridContainerItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_GridContainer_columns_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_columns_feature", "_UI_GridContainer_type"),
+                 getString("_UI_GridContainer_columns_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_columns_feature", "_UI_GridContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.GRID_CONTAINER__COLUMNS,
                  true,
                  false,
@@ -135,8 +135,8 @@ public class GridContainerItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_GridContainer_equalWidth_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type"),
+                 getString("_UI_GridContainer_equalWidth_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH,
                  true,
                  false,
@@ -188,7 +188,7 @@ public class GridContainerItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/GridContainer"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/GridContainer")); //$NON-NLS-1$
     }
 
     /**
@@ -202,8 +202,8 @@ public class GridContainerItemProvider
     {
         String label = ((GridContainer)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_GridContainer_type") :
-            getString("_UI_GridContainer_type") + " " + label;
+            getString("_UI_GridContainer_type") : //$NON-NLS-1$
+            getString("_UI_GridContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

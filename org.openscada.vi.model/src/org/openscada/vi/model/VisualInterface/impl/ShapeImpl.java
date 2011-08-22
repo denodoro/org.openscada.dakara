@@ -277,11 +277,11 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (lineWidth: ");
+        result.append(" (lineWidth: "); //$NON-NLS-1$
         result.append(lineWidth);
-        result.append(", antialias: ");
+        result.append(", antialias: "); //$NON-NLS-1$
         result.append(antialias);
-        result.append(", alpha: ");
+        result.append(", alpha: "); //$NON-NLS-1$
         result.append(alpha);
         result.append(')');
         return result.toString();

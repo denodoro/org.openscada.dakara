@@ -442,17 +442,17 @@ public class GridChildImpl extends ChildImpl implements GridChild
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (horizontalAlignment: ");
+        result.append(" (horizontalAlignment: "); //$NON-NLS-1$
         result.append(horizontalAlignment);
-        result.append(", verticalAlignment: ");
+        result.append(", verticalAlignment: "); //$NON-NLS-1$
         result.append(verticalAlignment);
-        result.append(", grabHorizontalSpace: ");
+        result.append(", grabHorizontalSpace: "); //$NON-NLS-1$
         result.append(grabHorizontalSpace);
-        result.append(", grabVerticalSpace: ");
+        result.append(", grabVerticalSpace: "); //$NON-NLS-1$
         result.append(grabVerticalSpace);
-        result.append(", spanCols: ");
+        result.append(", spanCols: "); //$NON-NLS-1$
         result.append(spanCols);
-        result.append(", spanRows: ");
+        result.append(", spanRows: "); //$NON-NLS-1$
         result.append(spanRows);
         result.append(')');
         return result.toString();

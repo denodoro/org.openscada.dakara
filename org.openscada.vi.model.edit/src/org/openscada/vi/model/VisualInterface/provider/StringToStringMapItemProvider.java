@@ -86,8 +86,8 @@ public class StringToStringMapItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_StringToStringMap_key_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type"),
+                 getString("_UI_StringToStringMap_key_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__KEY,
                  true,
                  false,
@@ -109,8 +109,8 @@ public class StringToStringMapItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_StringToStringMap_value_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type"),
+                 getString("_UI_StringToStringMap_value_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__VALUE,
                  true,
                  false,
@@ -129,7 +129,7 @@ public class StringToStringMapItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/StringToStringMap"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/StringToStringMap")); //$NON-NLS-1$
     }
 
     /**
@@ -142,7 +142,7 @@ public class StringToStringMapItemProvider
     public String getText(Object object)
     {
         Map.Entry<?, ?> stringToStringMap = (Map.Entry<?, ?>)object;
-        return "" + stringToStringMap.getKey() + " -> " + stringToStringMap.getValue();
+        return "" + stringToStringMap.getKey() + " -> " + stringToStringMap.getValue(); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

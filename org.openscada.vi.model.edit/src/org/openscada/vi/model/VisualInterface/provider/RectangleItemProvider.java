@@ -74,7 +74,7 @@ public class RectangleItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Rectangle"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Rectangle")); //$NON-NLS-1$
     }
 
     /**
@@ -88,8 +88,8 @@ public class RectangleItemProvider
     {
         String label = ((Rectangle)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Rectangle_type") :
-            getString("_UI_Rectangle_type") + " " + label;
+            getString("_UI_Rectangle_type") : //$NON-NLS-1$
+            getString("_UI_Rectangle_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

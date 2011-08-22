@@ -87,14 +87,14 @@ public class ShapeItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Shape_lineWidth_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_lineWidth_feature", "_UI_Shape_type"),
+                 getString("_UI_Shape_lineWidth_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_lineWidth_feature", "_UI_Shape_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SHAPE__LINE_WIDTH,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                 getString("_UI_shapePropertyCategory"),
+                 getString("_UI_shapePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -110,14 +110,14 @@ public class ShapeItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Shape_antialias_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_antialias_feature", "_UI_Shape_type"),
+                 getString("_UI_Shape_antialias_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_antialias_feature", "_UI_Shape_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SHAPE__ANTIALIAS,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_shapePropertyCategory"),
+                 getString("_UI_shapePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -133,14 +133,14 @@ public class ShapeItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Shape_alpha_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_alpha_feature", "_UI_Shape_type"),
+                 getString("_UI_Shape_alpha_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_alpha_feature", "_UI_Shape_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SHAPE__ALPHA,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_shapePropertyCategory"),
+                 getString("_UI_shapePropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -155,8 +155,8 @@ public class ShapeItemProvider
     {
         String label = ((Shape)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Shape_type") :
-            getString("_UI_Shape_type") + " " + label;
+            getString("_UI_Shape_type") : //$NON-NLS-1$
+            getString("_UI_Shape_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

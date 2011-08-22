@@ -92,8 +92,8 @@ public class SymbolItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Symbol_onInit_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onInit_feature", "_UI_Symbol_type"),
+                 getString("_UI_Symbol_onInit_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onInit_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SYMBOL__ON_INIT,
                  true,
                  true,
@@ -115,8 +115,8 @@ public class SymbolItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Symbol_onDispose_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onDispose_feature", "_UI_Symbol_type"),
+                 getString("_UI_Symbol_onDispose_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onDispose_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SYMBOL__ON_DISPOSE,
                  true,
                  true,
@@ -138,8 +138,8 @@ public class SymbolItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Symbol_onUpdate_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onUpdate_feature", "_UI_Symbol_type"),
+                 getString("_UI_Symbol_onUpdate_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onUpdate_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SYMBOL__ON_UPDATE,
                  true,
                  true,
@@ -161,8 +161,8 @@ public class SymbolItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Symbol_scriptModules_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_scriptModules_feature", "_UI_Symbol_type"),
+                 getString("_UI_Symbol_scriptModules_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_scriptModules_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES,
                  true,
                  false,
@@ -184,8 +184,8 @@ public class SymbolItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Symbol_backgroundColor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_backgroundColor_feature", "_UI_Symbol_type"),
+                 getString("_UI_Symbol_backgroundColor_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_backgroundColor_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.SYMBOL__BACKGROUND_COLOR,
                  true,
                  false,
@@ -240,7 +240,7 @@ public class SymbolItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Symbol"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Symbol")); //$NON-NLS-1$
     }
 
     /**
@@ -254,8 +254,8 @@ public class SymbolItemProvider
     {
         String label = crop(((Symbol)object).getOnInit());
         return label == null || label.length() == 0 ?
-            getString("_UI_Symbol_type") :
-            getString("_UI_Symbol_type") + " " + label;
+            getString("_UI_Symbol_type") : //$NON-NLS-1$
+            getString("_UI_Symbol_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

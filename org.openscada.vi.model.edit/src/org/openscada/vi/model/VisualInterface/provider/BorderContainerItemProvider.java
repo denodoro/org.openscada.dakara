@@ -87,8 +87,8 @@ public class BorderContainerItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Primitive_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"),
+                 getString("_UI_Primitive_name_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.PRIMITIVE__NAME,
                  true,
                  false,
@@ -140,7 +140,7 @@ public class BorderContainerItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/BorderContainer"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/BorderContainer")); //$NON-NLS-1$
     }
 
     /**
@@ -154,8 +154,8 @@ public class BorderContainerItemProvider
     {
         String label = ((BorderContainer)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_BorderContainer_type") :
-            getString("_UI_BorderContainer_type") + " " + label;
+            getString("_UI_BorderContainer_type") : //$NON-NLS-1$
+            getString("_UI_BorderContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -117,7 +117,7 @@ public class LineItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Line"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Line")); //$NON-NLS-1$
     }
 
     /**
@@ -131,8 +131,8 @@ public class LineItemProvider
     {
         String label = ((Line)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Line_type") :
-            getString("_UI_Line_type") + " " + label;
+            getString("_UI_Line_type") : //$NON-NLS-1$
+            getString("_UI_Line_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

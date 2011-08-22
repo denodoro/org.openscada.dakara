@@ -340,11 +340,11 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
+        result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
-        result.append(", columns: ");
+        result.append(", columns: "); //$NON-NLS-1$
         result.append(columns);
-        result.append(", equalWidth: ");
+        result.append(", equalWidth: "); //$NON-NLS-1$
         result.append(equalWidth);
         result.append(')');
         return result.toString();

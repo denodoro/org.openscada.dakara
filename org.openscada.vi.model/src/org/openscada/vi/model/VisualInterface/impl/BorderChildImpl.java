@@ -172,7 +172,7 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (alignment: ");
+        result.append(" (alignment: "); //$NON-NLS-1$
         result.append(alignment);
         result.append(')');
         return result.toString();

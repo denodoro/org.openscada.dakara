@@ -75,7 +75,7 @@ public class CursorItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_Cursor_type");
+        return getString("_UI_Cursor_type"); //$NON-NLS-1$
     }
 
     /**

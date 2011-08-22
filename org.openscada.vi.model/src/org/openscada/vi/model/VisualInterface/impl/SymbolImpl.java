@@ -648,15 +648,15 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (onInit: ");
+        result.append(" (onInit: "); //$NON-NLS-1$
         result.append(onInit);
-        result.append(", onDispose: ");
+        result.append(", onDispose: "); //$NON-NLS-1$
         result.append(onDispose);
-        result.append(", onUpdate: ");
+        result.append(", onUpdate: "); //$NON-NLS-1$
         result.append(onUpdate);
-        result.append(", scriptModules: ");
+        result.append(", scriptModules: "); //$NON-NLS-1$
         result.append(scriptModules);
-        result.append(", backgroundColor: ");
+        result.append(", backgroundColor: "); //$NON-NLS-1$
         result.append(backgroundColor);
         result.append(')');
         return result.toString();

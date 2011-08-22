@@ -171,7 +171,7 @@ public class ImageImpl extends FigureImpl implements Image
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (uri: ");
+        result.append(" (uri: "); //$NON-NLS-1$
         result.append(uri);
         result.append(')');
         return result.toString();

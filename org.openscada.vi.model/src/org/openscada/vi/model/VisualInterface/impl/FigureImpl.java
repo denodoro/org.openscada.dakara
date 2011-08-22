@@ -650,19 +650,19 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
+        result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
-        result.append(", foregroundColor: ");
+        result.append(", foregroundColor: "); //$NON-NLS-1$
         result.append(foregroundColor);
-        result.append(", backgroundColor: ");
+        result.append(", backgroundColor: "); //$NON-NLS-1$
         result.append(backgroundColor);
-        result.append(", onClick: ");
+        result.append(", onClick: "); //$NON-NLS-1$
         result.append(onClick);
-        result.append(", onDoubleClick: ");
+        result.append(", onDoubleClick: "); //$NON-NLS-1$
         result.append(onDoubleClick);
-        result.append(", visible: ");
+        result.append(", visible: "); //$NON-NLS-1$
         result.append(visible);
-        result.append(", border: ");
+        result.append(", border: "); //$NON-NLS-1$
         result.append(border);
         result.append(')');
         return result.toString();

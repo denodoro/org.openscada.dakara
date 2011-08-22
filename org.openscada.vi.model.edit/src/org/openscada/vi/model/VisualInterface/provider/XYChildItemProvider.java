@@ -113,7 +113,7 @@ public class XYChildItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/XYChild"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/XYChild")); //$NON-NLS-1$
     }
 
     /**
@@ -125,7 +125,7 @@ public class XYChildItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_XYChild_type");
+        return getString("_UI_XYChild_type"); //$NON-NLS-1$
     }
 
     /**

@@ -392,13 +392,13 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
+        result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
-        result.append(", uri: ");
+        result.append(", uri: "); //$NON-NLS-1$
         result.append(uri);
-        result.append(", zoom: ");
+        result.append(", zoom: "); //$NON-NLS-1$
         result.append(zoom);
-        result.append(", onCreateProperties: ");
+        result.append(", onCreateProperties: "); //$NON-NLS-1$
         result.append(onCreateProperties);
         result.append(')');
         return result.toString();
