@@ -19,6 +19,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
     public void initializeDefaultPreferences ()
     {
         final IPreferenceStore store = Activator.getDefault ().getPreferenceStore ();
-        store.setDefault ( PreferenceConstants.P_DEFAULT_ZOOMING, true );
+        store.setDefault ( PreferenceConstants.P_DEFAULT_ZOOMING, false );
     }
 }
