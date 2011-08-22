@@ -16,10 +16,15 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.openscada.vi.model.VisualInterface.Alignment;
+import org.openscada.vi.model.VisualInterface.BorderChild;
+import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Child;
 import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
+import org.openscada.vi.model.VisualInterface.GridAlignment;
+import org.openscada.vi.model.VisualInterface.GridChild;
+import org.openscada.vi.model.VisualInterface.GridContainer;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Position;
@@ -168,6 +173,34 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass gridContainerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass borderContainerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass borderChildEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass gridChildEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum alignmentEEnum = null;
 
     /**
@@ -183,6 +216,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EEnum systemCursorTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum gridAlignmentEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -862,6 +902,156 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getGridContainer()
+    {
+        return gridContainerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridContainer_Columns()
+    {
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridContainer_EqualWidth()
+    {
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGridContainer_Children()
+    {
+        return (EReference)gridContainerEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getBorderContainer()
+    {
+        return borderContainerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getBorderContainer_Children()
+    {
+        return (EReference)borderContainerEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getBorderChild()
+    {
+        return borderChildEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBorderChild_Alignment()
+    {
+        return (EAttribute)borderChildEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getGridChild()
+    {
+        return gridChildEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridChild_HorizontalAligment()
+    {
+        return (EAttribute)gridChildEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridChild_VerticalAlignment()
+    {
+        return (EAttribute)gridChildEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridChild_GrabHorizontalSpace()
+    {
+        return (EAttribute)gridChildEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridChild_GrabVerticalSpace()
+    {
+        return (EAttribute)gridChildEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridChild_SpanCols()
+    {
+        return (EAttribute)gridChildEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridChild_SpanRows()
+    {
+        return (EAttribute)gridChildEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getAlignment()
     {
         return alignmentEEnum;
@@ -885,6 +1075,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EEnum getSystemCursorType()
     {
         return systemCursorTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getGridAlignment()
+    {
+        return gridAlignmentEEnum;
     }
 
     /**
@@ -995,10 +1195,30 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         systemCursorEClass = createEClass(SYSTEM_CURSOR);
         createEAttribute(systemCursorEClass, SYSTEM_CURSOR__TYPE);
 
+        gridContainerEClass = createEClass(GRID_CONTAINER);
+        createEAttribute(gridContainerEClass, GRID_CONTAINER__COLUMNS);
+        createEAttribute(gridContainerEClass, GRID_CONTAINER__EQUAL_WIDTH);
+        createEReference(gridContainerEClass, GRID_CONTAINER__CHILDREN);
+
+        borderContainerEClass = createEClass(BORDER_CONTAINER);
+        createEReference(borderContainerEClass, BORDER_CONTAINER__CHILDREN);
+
+        borderChildEClass = createEClass(BORDER_CHILD);
+        createEAttribute(borderChildEClass, BORDER_CHILD__ALIGNMENT);
+
+        gridChildEClass = createEClass(GRID_CHILD);
+        createEAttribute(gridChildEClass, GRID_CHILD__HORIZONTAL_ALIGMENT);
+        createEAttribute(gridChildEClass, GRID_CHILD__VERTICAL_ALIGNMENT);
+        createEAttribute(gridChildEClass, GRID_CHILD__GRAB_HORIZONTAL_SPACE);
+        createEAttribute(gridChildEClass, GRID_CHILD__GRAB_VERTICAL_SPACE);
+        createEAttribute(gridChildEClass, GRID_CHILD__SPAN_COLS);
+        createEAttribute(gridChildEClass, GRID_CHILD__SPAN_ROWS);
+
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
         orientationEEnum = createEEnum(ORIENTATION);
         systemCursorTypeEEnum = createEEnum(SYSTEM_CURSOR_TYPE);
+        gridAlignmentEEnum = createEEnum(GRID_ALIGNMENT);
     }
 
     /**
@@ -1040,6 +1260,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         figureEClass.getESuperTypes().add(this.getPrimitive());
         symbolReferenceEClass.getESuperTypes().add(this.getPrimitive());
         systemCursorEClass.getESuperTypes().add(this.getCursor());
+        gridContainerEClass.getESuperTypes().add(this.getContainer());
+        borderContainerEClass.getESuperTypes().add(this.getContainer());
+        borderChildEClass.getESuperTypes().add(this.getChild());
+        gridChildEClass.getESuperTypes().add(this.getChild());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1120,6 +1344,25 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(systemCursorEClass, SystemCursor.class, "SystemCursor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getSystemCursor_Type(), this.getSystemCursorType(), "type", null, 1, 1, SystemCursor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+        initEClass(gridContainerEClass, GridContainer.class, "GridContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getGridContainer_Columns(), ecorePackage.getEInt(), "columns", "1", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridContainer_EqualWidth(), ecorePackage.getEBoolean(), "equalWidth", "false", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getGridContainer_Children(), this.getGridChild(), null, "children", null, 0, -1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(borderContainerEClass, BorderContainer.class, "BorderContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getBorderContainer_Children(), this.getBorderChild(), null, "children", null, 0, -1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(borderChildEClass, BorderChild.class, "BorderChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getBorderChild_Alignment(), this.getAlignment(), "alignment", "CENTER", 1, 1, BorderChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(gridChildEClass, GridChild.class, "GridChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getGridChild_HorizontalAligment(), this.getGridAlignment(), "horizontalAligment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridChild_VerticalAlignment(), this.getGridAlignment(), "verticalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridChild_GrabHorizontalSpace(), ecorePackage.getEBoolean(), "grabHorizontalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridChild_GrabVerticalSpace(), ecorePackage.getEBoolean(), "grabVerticalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridChild_SpanCols(), ecorePackage.getEInt(), "spanCols", "0", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridChild_SpanRows(), ecorePackage.getEInt(), "spanRows", "0", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
         // Initialize enums and add enum literals
         initEEnum(alignmentEEnum, Alignment.class, "Alignment");
         addEEnumLiteral(alignmentEEnum, Alignment.LEFT);
@@ -1137,6 +1380,12 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEEnum(systemCursorTypeEEnum, SystemCursorType.class, "SystemCursorType");
         addEEnumLiteral(systemCursorTypeEEnum, SystemCursorType.ARROW);
         addEEnumLiteral(systemCursorTypeEEnum, SystemCursorType.HAND);
+
+        initEEnum(gridAlignmentEEnum, GridAlignment.class, "GridAlignment");
+        addEEnumLiteral(gridAlignmentEEnum, GridAlignment.CENTER);
+        addEEnumLiteral(gridAlignmentEEnum, GridAlignment.FILL);
+        addEEnumLiteral(gridAlignmentEEnum, GridAlignment.BEGINNING);
+        addEEnumLiteral(gridAlignmentEEnum, GridAlignment.END);
 
         // Create resource
         createResource(eNS_URI);

@@ -134,4 +134,40 @@
     <eLiterals name="ARROW" value="1"/>
     <eLiterals name="HAND"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridContainer" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="equalWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//GridChild" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BorderContainer" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//BorderChild" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BorderChild" eSuperTypes="#//Child">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" lowerBound="1"
+        eType="#//Alignment" defaultValueLiteral="CENTER"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridChild" eSuperTypes="#//Child">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAligment" lowerBound="1"
+        eType="#//GridAlignment" defaultValueLiteral="BEGINNING"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" lowerBound="1"
+        eType="#//GridAlignment" defaultValueLiteral="BEGINNING"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabHorizontalSpace" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabVerticalSpace" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spanCols" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spanRows" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GridAlignment">
+    <eLiterals name="CENTER"/>
+    <eLiterals name="FILL" value="1"/>
+    <eLiterals name="BEGINNING" value="2"/>
+    <eLiterals name="END" value="3"/>
+  </eClassifiers>
 </ecore:EPackage>

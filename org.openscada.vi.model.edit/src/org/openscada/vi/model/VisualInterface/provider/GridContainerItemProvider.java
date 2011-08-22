@@ -25,19 +25,19 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.vi.model.VisualInterface.Child;
+
+import org.openscada.vi.model.VisualInterface.GridContainer;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Child} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.GridContainer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChildItemProvider
+public class GridContainerItemProvider
     extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
@@ -52,7 +52,7 @@ public class ChildItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ChildItemProvider(AdapterFactory adapterFactory)
+    public GridContainerItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -70,8 +70,80 @@ public class ChildItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addNamePropertyDescriptor(object);
+            addColumnsPropertyDescriptor(object);
+            addEqualWidthPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Primitive_name_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"),
+                 VisualInterfacePackage.Literals.PRIMITIVE__NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Columns feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addColumnsPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_GridContainer_columns_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_columns_feature", "_UI_GridContainer_type"),
+                 VisualInterfacePackage.Literals.GRID_CONTAINER__COLUMNS,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Equal Width feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addEqualWidthPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_GridContainer_equalWidth_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type"),
+                 VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -88,7 +160,7 @@ public class ChildItemProvider
         if (childrenFeatures == null)
         {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.CHILD__ELEMENT);
+            childrenFeatures.add(VisualInterfacePackage.Literals.GRID_CONTAINER__CHILDREN);
         }
         return childrenFeatures;
     }
@@ -108,7 +180,7 @@ public class ChildItemProvider
     }
 
     /**
-     * This returns Child.gif.
+     * This returns GridContainer.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -116,7 +188,7 @@ public class ChildItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Child"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/GridContainer"));
     }
 
     /**
@@ -128,7 +200,10 @@ public class ChildItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_Child_type");
+        String label = ((GridContainer)object).getName();
+        return label == null || label.length() == 0 ?
+            getString("_UI_GridContainer_type") :
+            getString("_UI_GridContainer_type") + " " + label;
     }
 
     /**
@@ -143,9 +218,14 @@ public class ChildItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Child.class))
+        switch (notification.getFeatureID(GridContainer.class))
         {
-            case VisualInterfacePackage.CHILD__ELEMENT:
+            case VisualInterfacePackage.GRID_CONTAINER__NAME:
+            case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
+            case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -166,43 +246,8 @@ public class ChildItemProvider
 
         newChildDescriptors.add
             (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createFigure()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createRectangle()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createText()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createXYContainer()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createLine()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createGridContainer()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+                (VisualInterfacePackage.Literals.GRID_CONTAINER__CHILDREN,
+                 VisualInterfaceFactory.eINSTANCE.createGridChild()));
     }
 
     /**

@@ -1155,6 +1155,217 @@ public interface VisualInterfacePackage extends EPackage
     int SYSTEM_CURSOR_FEATURE_COUNT = CURSOR_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl <em>Grid Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.GridContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridContainer()
+     * @generated
+     */
+    int GRID_CONTAINER = 17;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__NAME = CONTAINER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Columns</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__COLUMNS = CONTAINER_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Equal Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__EQUAL_WIDTH = CONTAINER_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Grid Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl <em>Border Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderContainer()
+     * @generated
+     */
+    int BORDER_CONTAINER = 18;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__NAME = CONTAINER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Border Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderChildImpl <em>Border Child</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.BorderChildImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderChild()
+     * @generated
+     */
+    int BORDER_CHILD = 19;
+
+    /**
+     * The feature id for the '<em><b>Element</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD__ALIGNMENT = CHILD_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Border Child</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl <em>Grid Child</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.GridChildImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridChild()
+     * @generated
+     */
+    int GRID_CHILD = 20;
+
+    /**
+     * The feature id for the '<em><b>Element</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Horizontal Aligment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__HORIZONTAL_ALIGMENT = CHILD_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Vertical Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__VERTICAL_ALIGNMENT = CHILD_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Grab Horizontal Space</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__GRAB_HORIZONTAL_SPACE = CHILD_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Grab Vertical Space</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__GRAB_VERTICAL_SPACE = CHILD_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Span Cols</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__SPAN_COLS = CHILD_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Span Rows</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__SPAN_ROWS = CHILD_FEATURE_COUNT + 5;
+
+    /**
+     * The number of structural features of the '<em>Grid Child</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 6;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1162,7 +1373,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 17;
+    int ALIGNMENT = 21;
 
 
     /**
@@ -1173,7 +1384,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 18;
+    int ORIENTATION = 22;
 
 
     /**
@@ -1184,7 +1395,18 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 19;
+    int SYSTEM_CURSOR_TYPE = 23;
+
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.GridAlignment
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
+     * @generated
+     */
+    int GRID_ALIGNMENT = 24;
 
 
     /**
@@ -1844,6 +2066,167 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getSystemCursor_Type();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.GridContainer <em>Grid Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Grid Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer
+     * @generated
+     */
+    EClass getGridContainer();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#getColumns <em>Columns</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Columns</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getColumns()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_Columns();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#isEqualWidth <em>Equal Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Equal Width</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#isEqualWidth()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_EqualWidth();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.GridContainer#getChildren <em>Children</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getChildren()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EReference getGridContainer_Children();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.BorderContainer <em>Border Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Border Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer
+     * @generated
+     */
+    EClass getBorderContainer();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getChildren <em>Children</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer#getChildren()
+     * @see #getBorderContainer()
+     * @generated
+     */
+    EReference getBorderContainer_Children();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.BorderChild <em>Border Child</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Border Child</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderChild
+     * @generated
+     */
+    EClass getBorderChild();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.BorderChild#getAlignment <em>Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderChild#getAlignment()
+     * @see #getBorderChild()
+     * @generated
+     */
+    EAttribute getBorderChild_Alignment();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.GridChild <em>Grid Child</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Grid Child</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild
+     * @generated
+     */
+    EClass getGridChild();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAligment <em>Horizontal Aligment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Horizontal Aligment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAligment()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_HorizontalAligment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment <em>Vertical Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Vertical Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_VerticalAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Grab Horizontal Space</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#isGrabHorizontalSpace()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_GrabHorizontalSpace();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace <em>Grab Vertical Space</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Grab Vertical Space</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_GrabVerticalSpace();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanCols <em>Span Cols</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Span Cols</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getSpanCols()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_SpanCols();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanRows <em>Span Rows</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Span Rows</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getSpanRows()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_SpanRows();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1872,6 +2255,16 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EEnum getSystemCursorType();
+
+    /**
+     * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Grid Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridAlignment
+     * @generated
+     */
+    EEnum getGridAlignment();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -2419,6 +2812,134 @@ public interface VisualInterfacePackage extends EPackage
         EAttribute SYSTEM_CURSOR__TYPE = eINSTANCE.getSystemCursor_Type();
 
         /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl <em>Grid Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.GridContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridContainer()
+         * @generated
+         */
+        EClass GRID_CONTAINER = eINSTANCE.getGridContainer();
+
+        /**
+         * The meta object literal for the '<em><b>Columns</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__COLUMNS = eINSTANCE.getGridContainer_Columns();
+
+        /**
+         * The meta object literal for the '<em><b>Equal Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__EQUAL_WIDTH = eINSTANCE.getGridContainer_EqualWidth();
+
+        /**
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GRID_CONTAINER__CHILDREN = eINSTANCE.getGridContainer_Children();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl <em>Border Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderContainer()
+         * @generated
+         */
+        EClass BORDER_CONTAINER = eINSTANCE.getBorderContainer();
+
+        /**
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BORDER_CONTAINER__CHILDREN = eINSTANCE.getBorderContainer_Children();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderChildImpl <em>Border Child</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.BorderChildImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderChild()
+         * @generated
+         */
+        EClass BORDER_CHILD = eINSTANCE.getBorderChild();
+
+        /**
+         * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BORDER_CHILD__ALIGNMENT = eINSTANCE.getBorderChild_Alignment();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl <em>Grid Child</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.GridChildImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridChild()
+         * @generated
+         */
+        EClass GRID_CHILD = eINSTANCE.getGridChild();
+
+        /**
+         * The meta object literal for the '<em><b>Horizontal Aligment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__HORIZONTAL_ALIGMENT = eINSTANCE.getGridChild_HorizontalAligment();
+
+        /**
+         * The meta object literal for the '<em><b>Vertical Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__VERTICAL_ALIGNMENT = eINSTANCE.getGridChild_VerticalAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Grab Horizontal Space</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__GRAB_HORIZONTAL_SPACE = eINSTANCE.getGridChild_GrabHorizontalSpace();
+
+        /**
+         * The meta object literal for the '<em><b>Grab Vertical Space</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__GRAB_VERTICAL_SPACE = eINSTANCE.getGridChild_GrabVerticalSpace();
+
+        /**
+         * The meta object literal for the '<em><b>Span Cols</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__SPAN_COLS = eINSTANCE.getGridChild_SpanCols();
+
+        /**
+         * The meta object literal for the '<em><b>Span Rows</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__SPAN_ROWS = eINSTANCE.getGridChild_SpanRows();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2447,6 +2968,16 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EEnum SYSTEM_CURSOR_TYPE = eINSTANCE.getSystemCursorType();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.GridAlignment
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
+         * @generated
+         */
+        EEnum GRID_ALIGNMENT = eINSTANCE.getGridAlignment();
 
     }
 

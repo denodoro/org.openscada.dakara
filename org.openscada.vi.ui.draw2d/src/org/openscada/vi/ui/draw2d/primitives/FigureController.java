@@ -28,6 +28,7 @@ import javax.script.ScriptException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.Border;
+import org.eclipse.draw2d.GroupBoxBorder;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MouseEvent;
@@ -416,6 +417,11 @@ public abstract class FigureController implements Controller
         if ( border.matches ( "[0-9]+" ) )
         {
             return new LineBorder ( Integer.parseInt ( border ) );
+        }
+
+        if ( border.startsWith ( "GROUP:" ) )
+        {
+            return new GroupBoxBorder ( border.substring ( "GROUP:".length () ) );
         }
 
         StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Invalid border string: " + border ), StatusManager.LOG );

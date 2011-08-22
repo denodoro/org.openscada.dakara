@@ -212,6 +212,40 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
+            case VisualInterfacePackage.GRID_CONTAINER:
+            {
+                GridContainer gridContainer = (GridContainer)theEObject;
+                T result = caseGridContainer(gridContainer);
+                if (result == null) result = caseContainer(gridContainer);
+                if (result == null) result = casePrimitive(gridContainer);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.BORDER_CONTAINER:
+            {
+                BorderContainer borderContainer = (BorderContainer)theEObject;
+                T result = caseBorderContainer(borderContainer);
+                if (result == null) result = caseContainer(borderContainer);
+                if (result == null) result = casePrimitive(borderContainer);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.BORDER_CHILD:
+            {
+                BorderChild borderChild = (BorderChild)theEObject;
+                T result = caseBorderChild(borderChild);
+                if (result == null) result = caseChild(borderChild);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.GRID_CHILD:
+            {
+                GridChild gridChild = (GridChild)theEObject;
+                T result = caseGridChild(gridChild);
+                if (result == null) result = caseChild(gridChild);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
             default: return defaultCase(theEObject);
         }
     }
@@ -484,6 +518,70 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSystemCursor(SystemCursor object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Grid Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Grid Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGridContainer(GridContainer object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Border Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Border Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBorderContainer(BorderContainer object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Border Child</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Border Child</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBorderChild(BorderChild object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Grid Child</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Grid Child</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGridChild(GridChild object)
     {
         return null;
     }

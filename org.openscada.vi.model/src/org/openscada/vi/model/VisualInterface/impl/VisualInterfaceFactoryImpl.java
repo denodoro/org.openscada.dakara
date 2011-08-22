@@ -83,6 +83,10 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
             case VisualInterfacePackage.DIMENSION: return createDimension();
             case VisualInterfacePackage.SYSTEM_CURSOR: return createSystemCursor();
+            case VisualInterfacePackage.GRID_CONTAINER: return createGridContainer();
+            case VisualInterfacePackage.BORDER_CONTAINER: return createBorderContainer();
+            case VisualInterfacePackage.BORDER_CHILD: return createBorderChild();
+            case VisualInterfacePackage.GRID_CHILD: return createGridChild();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -104,6 +108,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return createOrientationFromString(eDataType, initialValue);
             case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
                 return createSystemCursorTypeFromString(eDataType, initialValue);
+            case VisualInterfacePackage.GRID_ALIGNMENT:
+                return createGridAlignmentFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -125,6 +131,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return convertOrientationToString(eDataType, instanceValue);
             case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
                 return convertSystemCursorTypeToString(eDataType, instanceValue);
+            case VisualInterfacePackage.GRID_ALIGNMENT:
+                return convertGridAlignmentToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -278,6 +286,50 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public GridContainer createGridContainer()
+    {
+        GridContainerImpl gridContainer = new GridContainerImpl();
+        return gridContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BorderContainer createBorderContainer()
+    {
+        BorderContainerImpl borderContainer = new BorderContainerImpl();
+        return borderContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BorderChild createBorderChild()
+    {
+        BorderChildImpl borderChild = new BorderChildImpl();
+        return borderChild;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GridChild createGridChild()
+    {
+        GridChildImpl gridChild = new GridChildImpl();
+        return gridChild;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Alignment createAlignmentFromString(EDataType eDataType, String initialValue)
     {
         Alignment result = Alignment.get(initialValue);
@@ -335,6 +387,28 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * @generated
      */
     public String convertSystemCursorTypeToString(EDataType eDataType, Object instanceValue)
+    {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GridAlignment createGridAlignmentFromString(EDataType eDataType, String initialValue)
+    {
+        GridAlignment result = GridAlignment.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertGridAlignmentToString(EDataType eDataType, Object instanceValue)
     {
         return instanceValue == null ? null : instanceValue.toString();
     }

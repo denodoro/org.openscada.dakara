@@ -135,6 +135,42 @@ public interface VisualInterfaceFactory extends EFactory
     SystemCursor createSystemCursor();
 
     /**
+     * Returns a new object of class '<em>Grid Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Grid Container</em>'.
+     * @generated
+     */
+    GridContainer createGridContainer();
+
+    /**
+     * Returns a new object of class '<em>Border Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Border Container</em>'.
+     * @generated
+     */
+    BorderContainer createBorderContainer();
+
+    /**
+     * Returns a new object of class '<em>Border Child</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Border Child</em>'.
+     * @generated
+     */
+    BorderChild createBorderChild();
+
+    /**
+     * Returns a new object of class '<em>Grid Child</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Grid Child</em>'.
+     * @generated
+     */
+    GridChild createGridChild();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

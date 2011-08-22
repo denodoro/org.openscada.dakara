@@ -403,6 +403,106 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.GridContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GridContainerItemProvider gridContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.GridContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGridContainerAdapter()
+    {
+        if (gridContainerItemProvider == null)
+        {
+            gridContainerItemProvider = new GridContainerItemProvider(this);
+        }
+
+        return gridContainerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.BorderContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BorderContainerItemProvider borderContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.BorderContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBorderContainerAdapter()
+    {
+        if (borderContainerItemProvider == null)
+        {
+            borderContainerItemProvider = new BorderContainerItemProvider(this);
+        }
+
+        return borderContainerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.BorderChild} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BorderChildItemProvider borderChildItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.BorderChild}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBorderChildAdapter()
+    {
+        if (borderChildItemProvider == null)
+        {
+            borderChildItemProvider = new BorderChildItemProvider(this);
+        }
+
+        return borderChildItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.GridChild} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GridChildItemProvider gridChildItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.GridChild}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGridChildAdapter()
+    {
+        if (gridChildItemProvider == null)
+        {
+            gridChildItemProvider = new GridChildItemProvider(this);
+        }
+
+        return gridChildItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -526,6 +626,10 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (stringToStringMapItemProvider != null) stringToStringMapItemProvider.dispose();
         if (dimensionItemProvider != null) dimensionItemProvider.dispose();
         if (systemCursorItemProvider != null) systemCursorItemProvider.dispose();
+        if (gridContainerItemProvider != null) gridContainerItemProvider.dispose();
+        if (borderContainerItemProvider != null) borderContainerItemProvider.dispose();
+        if (borderChildItemProvider != null) borderChildItemProvider.dispose();
+        if (gridChildItemProvider != null) gridChildItemProvider.dispose();
     }
 
 }
