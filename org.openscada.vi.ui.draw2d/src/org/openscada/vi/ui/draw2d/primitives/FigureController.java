@@ -25,7 +25,11 @@ import java.util.Map;
 
 import javax.script.ScriptException;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
@@ -34,6 +38,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.blink.AbstractBlinker;
 import org.openscada.utils.script.ScriptExecutor;
 import org.openscada.vi.model.VisualInterface.Cursor;
@@ -41,6 +46,7 @@ import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.SystemCursor;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
+import org.openscada.vi.ui.draw2d.Activator;
 import org.openscada.vi.ui.draw2d.SymbolController;
 
 /**
@@ -96,6 +102,106 @@ public abstract class FigureController implements Controller
         }
     }
 
+    private static interface ColorHandler
+    {
+        public void start ();
+
+        public void stop ();
+    }
+
+    private static class DefaultColor implements ColorHandler
+    {
+        private final IFigure figure;
+
+        private final ColorApplier applier;
+
+        public DefaultColor ( final IFigure figure, final ColorApplier applier )
+        {
+            this.figure = figure;
+            this.applier = applier;
+        }
+
+        @Override
+        public void start ()
+        {
+            this.applier.applyColor ( this.figure, null );
+        }
+
+        @Override
+        public void stop ()
+        {
+            // nothing to do  
+        }
+    }
+
+    private static class StaticColor implements ColorHandler
+    {
+        private final IFigure figure;
+
+        private final ColorApplier applier;
+
+        private final Color color;
+
+        public StaticColor ( final IFigure figure, final ColorApplier applier, final Color color )
+        {
+            this.figure = figure;
+            this.applier = applier;
+            this.color = color;
+        }
+
+        @Override
+        public void start ()
+        {
+            this.applier.applyColor ( this.figure, this.color );
+        }
+
+        @Override
+        public void stop ()
+        {
+            // nothing to do
+        }
+    }
+
+    private static class BlinkingColor extends AbstractBlinker implements ColorHandler
+    {
+        private final IFigure figure;
+
+        private final ColorApplier applier;
+
+        private final Color onColor;
+
+        private final Color offColor;
+
+        private final int frequency;
+
+        public BlinkingColor ( final IFigure figure, final ColorApplier applier, final Color onColor, final Color offColor, final int frequency )
+        {
+            this.figure = figure;
+            this.applier = applier;
+            this.onColor = onColor;
+            this.offColor = offColor;
+            this.frequency = frequency;
+        }
+
+        @Override
+        public void start ()
+        {
+            enableBlinking ( this.frequency );
+        }
+
+        @Override
+        public void stop ()
+        {
+            super.dispose ();
+        }
+
+        @Override
+        public void toggle ( final boolean on )
+        {
+            this.applier.applyColor ( this.figure, on ? this.onColor : this.offColor );
+        }
+    }
+
     protected final ResourceManager manager;
 
     private final SymbolController controller;
@@ -116,6 +222,7 @@ public abstract class FigureController implements Controller
 
     protected void applyCommon ( final Figure figure )
     {
+        setBorder ( figure.getBorder () );
         setBackgroundColor ( figure.getBackgroundColor () );
         setForegroundColor ( figure.getForegroundColor () );
 
@@ -231,104 +338,9 @@ public abstract class FigureController implements Controller
         getFigure ().setPreferredSize ( dim );
     }
 
-    private static interface ColorHandler
+    public void setBorder ( final String border )
     {
-        public void start ();
-
-        public void stop ();
-    }
-
-    private static class DefaultColor implements ColorHandler
-    {
-        private final IFigure figure;
-
-        private final ColorApplier applier;
-
-        public DefaultColor ( final IFigure figure, final ColorApplier applier )
-        {
-            this.figure = figure;
-            this.applier = applier;
-        }
-
-        @Override
-        public void start ()
-        {
-            this.applier.applyColor ( this.figure, null );
-        }
-
-        @Override
-        public void stop ()
-        {
-            // nothing to do  
-        }
-    }
-
-    private static class StaticColor implements ColorHandler
-    {
-        private final IFigure figure;
-
-        private final ColorApplier applier;
-
-        private final Color color;
-
-        public StaticColor ( final IFigure figure, final ColorApplier applier, final Color color )
-        {
-            this.figure = figure;
-            this.applier = applier;
-            this.color = color;
-        }
-
-        @Override
-        public void start ()
-        {
-            this.applier.applyColor ( this.figure, this.color );
-        }
-
-        @Override
-        public void stop ()
-        {
-            // nothing to do
-        }
-    }
-
-    private static class BlinkingColor extends AbstractBlinker implements ColorHandler
-    {
-        private final IFigure figure;
-
-        private final ColorApplier applier;
-
-        private final Color onColor;
-
-        private final Color offColor;
-
-        private final int frequency;
-
-        public BlinkingColor ( final IFigure figure, final ColorApplier applier, final Color onColor, final Color offColor, final int frequency )
-        {
-            this.figure = figure;
-            this.applier = applier;
-            this.onColor = onColor;
-            this.offColor = offColor;
-            this.frequency = frequency;
-        }
-
-        @Override
-        public void start ()
-        {
-            enableBlinking ( this.frequency );
-        }
-
-        @Override
-        public void stop ()
-        {
-            super.dispose ();
-        }
-
-        @Override
-        public void toggle ( final boolean on )
-        {
-            this.applier.applyColor ( this.figure, on ? this.onColor : this.offColor );
-        }
+        getFigure ().setBorder ( makeBorder ( border ) );
     }
 
     public void setBackgroundColor ( final String color )
@@ -392,6 +404,22 @@ public abstract class FigureController implements Controller
     public void setVisible ( final boolean flag )
     {
         getFigure ().setVisible ( flag );
+    }
+
+    protected Border makeBorder ( final String border )
+    {
+        if ( border == null || border.isEmpty () )
+        {
+            return null;
+        }
+
+        if ( border.matches ( "[0-9]+" ) )
+        {
+            return new LineBorder ( Integer.parseInt ( border ) );
+        }
+
+        StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Invalid border string: " + border ), StatusManager.LOG );
+        return null;
     }
 
     protected org.eclipse.draw2d.geometry.Dimension create ( final Dimension dimension )
