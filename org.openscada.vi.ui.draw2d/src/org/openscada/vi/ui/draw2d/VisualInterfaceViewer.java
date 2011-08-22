@@ -45,6 +45,9 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.ui.draw2d.loader.StaticSymbolLoader;
+import org.openscada.vi.ui.draw2d.loader.SymbolLoader;
+import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
 

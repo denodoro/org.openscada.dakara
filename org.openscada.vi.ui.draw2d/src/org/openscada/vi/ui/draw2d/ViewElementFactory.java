@@ -33,6 +33,7 @@ import org.openscada.vi.model.VisualInterface.Rectangle;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.XYContainer;
+import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
 import org.openscada.vi.ui.draw2d.primitives.LineController;
 import org.openscada.vi.ui.draw2d.primitives.RectangleController;

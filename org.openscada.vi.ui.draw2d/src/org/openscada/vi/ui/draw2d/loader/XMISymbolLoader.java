@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.draw2d;
+package org.openscada.vi.ui.draw2d.loader;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
+import org.openscada.vi.ui.draw2d.Activator;
 
 public class XMISymbolLoader implements SymbolLoader
 {

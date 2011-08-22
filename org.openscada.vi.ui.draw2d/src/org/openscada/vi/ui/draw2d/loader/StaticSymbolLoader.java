@@ -17,17 +17,38 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.draw2d;
+package org.openscada.vi.ui.draw2d.loader;
 
 import org.openscada.vi.model.VisualInterface.Symbol;
 
-public interface SymbolLoader
+public class StaticSymbolLoader implements SymbolLoader
 {
+    private final Symbol symbol;
 
-    public void load () throws Exception;
+    private final ClassLoader classLoader;
 
-    public Symbol getSymbol ();
+    public StaticSymbolLoader ( final Symbol symbol, final ClassLoader classLoader )
+    {
+        this.symbol = symbol;
+        this.classLoader = classLoader;
+    }
 
-    public ClassLoader getClassLoader ();
+    @Override
+    public void load ()
+    {
+        // nothing to do
+    }
+
+    @Override
+    public Symbol getSymbol ()
+    {
+        return this.symbol;
+    }
+
+    @Override
+    public ClassLoader getClassLoader ()
+    {
+        return this.classLoader;
+    }
 
 }

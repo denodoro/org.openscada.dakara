@@ -38,7 +38,7 @@ import org.openscada.vi.ui.draw2d.Activator;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
 import org.openscada.vi.ui.draw2d.ViewElementFactory;
-import org.openscada.vi.ui.draw2d.XMISymbolLoader;
+import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
