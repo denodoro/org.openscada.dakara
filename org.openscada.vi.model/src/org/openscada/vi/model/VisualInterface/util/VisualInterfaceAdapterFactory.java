@@ -185,6 +185,11 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
                 return createGridChildAdapter();
             }
             @Override
+            public Adapter caseFigureContainer(FigureContainer object)
+            {
+                return createFigureContainerAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object)
             {
                 return createEObjectAdapter();
@@ -517,6 +522,21 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createGridChildAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.FigureContainer <em>Figure Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.FigureContainer
+     * @generated
+     */
+    public Adapter createFigureContainerAdapter()
     {
         return null;
     }

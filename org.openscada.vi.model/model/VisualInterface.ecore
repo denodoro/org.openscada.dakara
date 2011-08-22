@@ -28,7 +28,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" interface="true"
       eSuperTypes="#//Primitive"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//Figure"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true" eSuperTypes="#//Figure">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineWidth" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="antialias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rectangle" eSuperTypes="#//Shape"/>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Figure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -78,13 +83,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Figure">
+  <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Shape">
     <eStructuralFeatures xsi:type="ecore:EReference" name="points" upperBound="-1"
         eType="#//Position" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Figure" eSuperTypes="#//Primitive">
+  <eClassifiers xsi:type="ecore:EClass" name="Figure" abstract="true" eSuperTypes="#//Primitive">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="foregroundColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Dimension"
@@ -169,5 +172,9 @@
     <eLiterals name="FILL" value="1"/>
     <eLiterals name="BEGINNING" value="2"/>
     <eLiterals name="END" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FigureContainer" eSuperTypes="#//Figure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//Primitive"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

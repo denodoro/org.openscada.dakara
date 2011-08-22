@@ -162,6 +162,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
             {
                 Line line = (Line)theEObject;
                 T result = caseLine(line);
+                if (result == null) result = caseShape(line);
                 if (result == null) result = caseFigure(line);
                 if (result == null) result = casePrimitive(line);
                 if (result == null) result = defaultCase(theEObject);
@@ -243,6 +244,15 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                 GridChild gridChild = (GridChild)theEObject;
                 T result = caseGridChild(gridChild);
                 if (result == null) result = caseChild(gridChild);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.FIGURE_CONTAINER:
+            {
+                FigureContainer figureContainer = (FigureContainer)theEObject;
+                T result = caseFigureContainer(figureContainer);
+                if (result == null) result = caseFigure(figureContainer);
+                if (result == null) result = casePrimitive(figureContainer);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -582,6 +592,22 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseGridChild(GridChild object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Figure Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Figure Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFigureContainer(FigureContainer object)
     {
         return null;
     }

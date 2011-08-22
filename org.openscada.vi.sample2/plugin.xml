@@ -19,6 +19,11 @@
             name="Blink"
             uri="platform:/plugin/org.openscada.vi.sample1/resources/Blink.vi">
       </viewInstance>
+      <viewInstance
+            id="sample1.borders"
+            name="Borders"
+            uri="platform:/plugin/org.openscada.vi.sample1/resources/Border.vi">
+      </viewInstance>
    </extension>
 
 </plugin>

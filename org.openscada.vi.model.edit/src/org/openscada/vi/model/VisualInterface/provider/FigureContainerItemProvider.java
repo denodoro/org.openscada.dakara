@@ -13,33 +13,28 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.vi.model.VisualInterface.Line;
+import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Line} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.FigureContainer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LineItemProvider
-    extends ShapeItemProvider
+public class FigureContainerItemProvider
+    extends FigureItemProvider
     implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -53,7 +48,7 @@ public class LineItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public LineItemProvider(AdapterFactory adapterFactory)
+    public FigureContainerItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -89,7 +84,7 @@ public class LineItemProvider
         if (childrenFeatures == null)
         {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.LINE__POINTS);
+            childrenFeatures.add(VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT);
         }
         return childrenFeatures;
     }
@@ -109,7 +104,7 @@ public class LineItemProvider
     }
 
     /**
-     * This returns Line.gif.
+     * This returns FigureContainer.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -117,7 +112,7 @@ public class LineItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Line"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/FigureContainer"));
     }
 
     /**
@@ -129,10 +124,10 @@ public class LineItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Line)object).getName();
+        String label = ((FigureContainer)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Line_type") :
-            getString("_UI_Line_type") + " " + label;
+            getString("_UI_FigureContainer_type") :
+            getString("_UI_FigureContainer_type") + " " + label;
     }
 
     /**
@@ -147,9 +142,9 @@ public class LineItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Line.class))
+        switch (notification.getFeatureID(FigureContainer.class))
         {
-            case VisualInterfacePackage.LINE__POINTS:
+            case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -170,8 +165,43 @@ public class LineItemProvider
 
         newChildDescriptors.add
             (createChildParameter
-                (VisualInterfacePackage.Literals.LINE__POINTS,
-                 VisualInterfaceFactory.eINSTANCE.createPosition()));
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createRectangle()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createText()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createXYContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createLine()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createGridContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
     }
 
 }

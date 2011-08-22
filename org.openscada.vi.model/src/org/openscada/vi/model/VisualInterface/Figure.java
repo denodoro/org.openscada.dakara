@@ -27,7 +27,7 @@ package org.openscada.vi.model.VisualInterface;
  * </p>
  *
  * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getFigure()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Figure extends Primitive

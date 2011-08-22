@@ -409,13 +409,40 @@ public interface VisualInterfacePackage extends EPackage
     int SHAPE__BORDER = FIGURE__BORDER;
 
     /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__LINE_WIDTH = FIGURE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__ANTIALIAS = FIGURE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__ALPHA = FIGURE_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Shape</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 0;
+    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -507,6 +534,33 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int RECTANGLE__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__ALPHA = SHAPE__ALPHA;
 
     /**
      * The number of structural features of the '<em>Rectangle</em>' class.
@@ -864,7 +918,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__NAME = FIGURE__NAME;
+    int LINE__NAME = SHAPE__NAME;
 
     /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
@@ -873,7 +927,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__FOREGROUND_COLOR = FIGURE__FOREGROUND_COLOR;
+    int LINE__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
 
     /**
      * The feature id for the '<em><b>Background Color</b></em>' attribute.
@@ -882,7 +936,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+    int LINE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
 
     /**
      * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -891,7 +945,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__SIZE = FIGURE__SIZE;
+    int LINE__SIZE = SHAPE__SIZE;
 
     /**
      * The feature id for the '<em><b>On Click</b></em>' attribute.
@@ -900,7 +954,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__ON_CLICK = FIGURE__ON_CLICK;
+    int LINE__ON_CLICK = SHAPE__ON_CLICK;
 
     /**
      * The feature id for the '<em><b>On Double Click</b></em>' attribute.
@@ -909,7 +963,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+    int LINE__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
 
     /**
      * The feature id for the '<em><b>Cursor</b></em>' reference.
@@ -918,7 +972,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__CURSOR = FIGURE__CURSOR;
+    int LINE__CURSOR = SHAPE__CURSOR;
 
     /**
      * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -927,7 +981,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__VISIBLE = FIGURE__VISIBLE;
+    int LINE__VISIBLE = SHAPE__VISIBLE;
 
     /**
      * The feature id for the '<em><b>Border</b></em>' attribute.
@@ -936,16 +990,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__BORDER = FIGURE__BORDER;
-
-    /**
-     * The feature id for the '<em><b>Points</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LINE__POINTS = FIGURE_FEATURE_COUNT + 0;
+    int LINE__BORDER = SHAPE__BORDER;
 
     /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
@@ -954,7 +999,34 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__LINE_WIDTH = FIGURE_FEATURE_COUNT + 1;
+    int LINE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Points</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__POINTS = SHAPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Line</em>' class.
@@ -963,7 +1035,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
+    int LINE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 1;
 
 
     /**
@@ -1366,6 +1438,115 @@ public interface VisualInterfacePackage extends EPackage
     int GRID_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 6;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl <em>Figure Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getFigureContainer()
+     * @generated
+     */
+    int FIGURE_CONTAINER = 21;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__NAME = FIGURE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__FOREGROUND_COLOR = FIGURE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__SIZE = FIGURE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__ON_CLICK = FIGURE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__CURSOR = FIGURE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__BORDER = FIGURE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Content</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__CONTENT = FIGURE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Figure Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1373,7 +1554,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 21;
+    int ALIGNMENT = 22;
 
 
     /**
@@ -1384,7 +1565,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 22;
+    int ORIENTATION = 23;
 
 
     /**
@@ -1395,7 +1576,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 23;
+    int SYSTEM_CURSOR_TYPE = 24;
 
 
     /**
@@ -1406,7 +1587,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 24;
+    int GRID_ALIGNMENT = 25;
 
 
     /**
@@ -1558,6 +1739,39 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EClass getShape();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getLineWidth <em>Line Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Line Width</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#getLineWidth()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_LineWidth();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getAntialias <em>Antialias</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Antialias</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#getAntialias()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Antialias();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getAlpha <em>Alpha</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alpha</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#getAlpha()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Alpha();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Rectangle <em>Rectangle</em>}'.
@@ -1804,17 +2018,6 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EReference getLine_Points();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Line#getLineWidth <em>Line Width</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Line Width</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Line#getLineWidth()
-     * @see #getLine()
-     * @generated
-     */
-    EAttribute getLine_LineWidth();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Figure <em>Figure</em>}'.
@@ -2227,6 +2430,27 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getGridChild_SpanRows();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.FigureContainer <em>Figure Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Figure Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.FigureContainer
+     * @generated
+     */
+    EClass getFigureContainer();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.model.VisualInterface.FigureContainer#getContent <em>Content</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Content</em>'.
+     * @see org.openscada.vi.model.VisualInterface.FigureContainer#getContent()
+     * @see #getFigureContainer()
+     * @generated
+     */
+    EReference getFigureContainer_Content();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2408,6 +2632,30 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EClass SHAPE = eINSTANCE.getShape();
+
+        /**
+         * The meta object literal for the '<em><b>Line Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__LINE_WIDTH = eINSTANCE.getShape_LineWidth();
+
+        /**
+         * The meta object literal for the '<em><b>Antialias</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__ANTIALIAS = eINSTANCE.getShape_Antialias();
+
+        /**
+         * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__ALPHA = eINSTANCE.getShape_Alpha();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -2606,14 +2854,6 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference LINE__POINTS = eINSTANCE.getLine_Points();
-
-        /**
-         * The meta object literal for the '<em><b>Line Width</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute LINE__LINE_WIDTH = eINSTANCE.getLine_LineWidth();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl <em>Figure</em>}' class.
@@ -2938,6 +3178,24 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute GRID_CHILD__SPAN_ROWS = eINSTANCE.getGridChild_SpanRows();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl <em>Figure Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getFigureContainer()
+         * @generated
+         */
+        EClass FIGURE_CONTAINER = eINSTANCE.getFigureContainer();
+
+        /**
+         * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FIGURE_CONTAINER__CONTENT = eINSTANCE.getFigureContainer_Content();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.

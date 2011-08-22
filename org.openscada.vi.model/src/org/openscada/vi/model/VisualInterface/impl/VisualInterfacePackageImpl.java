@@ -22,6 +22,7 @@ import org.openscada.vi.model.VisualInterface.Child;
 import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Figure;
+import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.GridAlignment;
 import org.openscada.vi.model.VisualInterface.GridChild;
 import org.openscada.vi.model.VisualInterface.GridContainer;
@@ -195,6 +196,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass gridChildEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass figureContainerEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -432,6 +440,36 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getShape_LineWidth()
+    {
+        return (EAttribute)shapeEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getShape_Antialias()
+    {
+        return (EAttribute)shapeEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getShape_Alpha()
+    {
+        return (EAttribute)shapeEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getRectangle()
     {
         return rectangleEClass;
@@ -655,16 +693,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EReference getLine_Points()
     {
         return (EReference)lineEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getLine_LineWidth()
-    {
-        return (EAttribute)lineEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1052,6 +1080,26 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getFigureContainer()
+    {
+        return figureContainerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getFigureContainer_Content()
+    {
+        return (EReference)figureContainerEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getAlignment()
     {
         return alignmentEEnum;
@@ -1134,6 +1182,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         containerEClass = createEClass(CONTAINER);
 
         shapeEClass = createEClass(SHAPE);
+        createEAttribute(shapeEClass, SHAPE__LINE_WIDTH);
+        createEAttribute(shapeEClass, SHAPE__ANTIALIAS);
+        createEAttribute(shapeEClass, SHAPE__ALPHA);
 
         rectangleEClass = createEClass(RECTANGLE);
 
@@ -1164,7 +1215,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         lineEClass = createEClass(LINE);
         createEReference(lineEClass, LINE__POINTS);
-        createEAttribute(lineEClass, LINE__LINE_WIDTH);
 
         figureEClass = createEClass(FIGURE);
         createEAttribute(figureEClass, FIGURE__FOREGROUND_COLOR);
@@ -1214,6 +1264,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(gridChildEClass, GRID_CHILD__SPAN_COLS);
         createEAttribute(gridChildEClass, GRID_CHILD__SPAN_ROWS);
 
+        figureContainerEClass = createEClass(FIGURE_CONTAINER);
+        createEReference(figureContainerEClass, FIGURE_CONTAINER__CONTENT);
+
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
         orientationEEnum = createEEnum(ORIENTATION);
@@ -1256,7 +1309,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         textEClass.getESuperTypes().add(this.getFigure());
         xyChildEClass.getESuperTypes().add(this.getChild());
         xyContainerEClass.getESuperTypes().add(this.getContainer());
-        lineEClass.getESuperTypes().add(this.getFigure());
+        lineEClass.getESuperTypes().add(this.getShape());
         figureEClass.getESuperTypes().add(this.getPrimitive());
         symbolReferenceEClass.getESuperTypes().add(this.getPrimitive());
         systemCursorEClass.getESuperTypes().add(this.getCursor());
@@ -1264,6 +1317,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         borderContainerEClass.getESuperTypes().add(this.getContainer());
         borderChildEClass.getESuperTypes().add(this.getChild());
         gridChildEClass.getESuperTypes().add(this.getChild());
+        figureContainerEClass.getESuperTypes().add(this.getFigure());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1283,6 +1337,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(containerEClass, org.openscada.vi.model.VisualInterface.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(shapeEClass, Shape.class, "Shape", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getShape_LineWidth(), ecorePackage.getEFloat(), "lineWidth", "1", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getShape_Antialias(), ecorePackage.getEBooleanObject(), "antialias", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getShape_Alpha(), ecorePackage.getEDoubleObject(), "alpha", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1313,9 +1370,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getLine_Points(), this.getPosition(), null, "points", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getLine_LineWidth(), ecorePackage.getEInt(), "lineWidth", "1", 0, 1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(figureEClass, Figure.class, "Figure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(figureEClass, Figure.class, "Figure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getFigure_ForegroundColor(), ecorePackage.getEString(), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getFigure_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getFigure_Size(), this.getDimension(), null, "size", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1362,6 +1418,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getGridChild_GrabVerticalSpace(), ecorePackage.getEBoolean(), "grabVerticalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getGridChild_SpanCols(), ecorePackage.getEInt(), "spanCols", "0", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getGridChild_SpanRows(), ecorePackage.getEInt(), "spanRows", "0", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(figureContainerEClass, FigureContainer.class, "FigureContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getFigureContainer_Content(), this.getPrimitive(), null, "content", null, 0, 1, FigureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(alignmentEEnum, Alignment.class, "Alignment");

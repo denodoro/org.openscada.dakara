@@ -78,7 +78,6 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.XY_CONTAINER: return createXYContainer();
             case VisualInterfacePackage.POSITION: return createPosition();
             case VisualInterfacePackage.LINE: return createLine();
-            case VisualInterfacePackage.FIGURE: return createFigure();
             case VisualInterfacePackage.SYMBOL_REFERENCE: return createSymbolReference();
             case VisualInterfacePackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
             case VisualInterfacePackage.DIMENSION: return createDimension();
@@ -87,6 +86,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.BORDER_CONTAINER: return createBorderContainer();
             case VisualInterfacePackage.BORDER_CHILD: return createBorderChild();
             case VisualInterfacePackage.GRID_CHILD: return createGridChild();
+            case VisualInterfacePackage.FIGURE_CONTAINER: return createFigureContainer();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -231,17 +231,6 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Figure createFigure()
-    {
-        FigureImpl figure = new FigureImpl();
-        return figure;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public SymbolReference createSymbolReference()
     {
         SymbolReferenceImpl symbolReference = new SymbolReferenceImpl();
@@ -323,6 +312,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         GridChildImpl gridChild = new GridChildImpl();
         return gridChild;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public FigureContainer createFigureContainer()
+    {
+        FigureContainerImpl figureContainer = new FigureContainerImpl();
+        return figureContainer;
     }
 
     /**

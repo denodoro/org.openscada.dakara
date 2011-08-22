@@ -19,7 +19,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FigureTest extends TestCase
+public abstract class FigureTest extends TestCase
 {
 
     /**
@@ -29,16 +29,6 @@ public class FigureTest extends TestCase
      * @generated
      */
     protected Figure fixture = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main(String[] args)
-    {
-        TestRunner.run(FigureTest.class);
-    }
 
     /**
      * Constructs a new Figure test case with the given name.
@@ -71,30 +61,6 @@ public class FigureTest extends TestCase
     protected Figure getFixture()
     {
         return fixture;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp() throws Exception
-    {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createFigure());
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown() throws Exception
-    {
-        setFixture(null);
     }
 
 } //FigureTest

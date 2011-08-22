@@ -25,7 +25,10 @@ import java.util.Map;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
+import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Dimension;
+import org.openscada.vi.model.VisualInterface.FigureContainer;
+import org.openscada.vi.model.VisualInterface.GridContainer;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -34,7 +37,10 @@ import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.XYContainer;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
+import org.openscada.vi.ui.draw2d.primitives.BorderContainerController;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
+import org.openscada.vi.ui.draw2d.primitives.FigureContainerController;
+import org.openscada.vi.ui.draw2d.primitives.GridContainerController;
 import org.openscada.vi.ui.draw2d.primitives.LineController;
 import org.openscada.vi.ui.draw2d.primitives.RectangleController;
 import org.openscada.vi.ui.draw2d.primitives.SymbolReferenceController;
@@ -82,8 +88,20 @@ public class ViewElementFactory
         {
             return new RectangleController ( controller, (Rectangle)element, this.manager );
         }
-        logger.warn ( "Unknown element: {}", element );
-        return null;
+        else if ( element instanceof GridContainer )
+        {
+            return new GridContainerController ( controller, (GridContainer)element, this );
+        }
+        else if ( element instanceof BorderContainer )
+        {
+            return new BorderContainerController ( controller, (BorderContainer)element, this );
+        }
+        else if ( element instanceof FigureContainer )
+        {
+            return new FigureContainerController ( controller, (FigureContainer)element, this.manager, this );
+        }
+
+        throw new IllegalArgumentException ( String.format ( "Element type %s is unknown", element.eClass ().getName () ) );
     }
 
     public org.eclipse.draw2d.geometry.Rectangle create ( final Position position, final Dimension dimension )

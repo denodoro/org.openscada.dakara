@@ -41,7 +41,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *
  * @generated
  */
-public class FigureImpl extends EObjectImpl implements Figure
+public abstract class FigureImpl extends EObjectImpl implements Figure
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.

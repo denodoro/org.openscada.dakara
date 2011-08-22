@@ -19,26 +19,23 @@
 
 package org.openscada.vi.ui.draw2d.primitives;
 
-import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.Shape;
+import org.eclipse.draw2d.Figure;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.jface.resource.ResourceManager;
-import org.openscada.vi.model.VisualInterface.Rectangle;
+import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.ui.draw2d.SymbolController;
+import org.openscada.vi.ui.draw2d.ViewElementFactory;
 
-public class RectangleController extends ShapeController
+public class FigureContainerController extends FigureController
 {
-    private final RectangleFigure figure;
+    private final Figure figure;
 
-    public RectangleController ( final SymbolController controller, final Rectangle element, final ResourceManager manager )
+    public FigureContainerController ( final SymbolController controller, final FigureContainer element, final ResourceManager manager, final ViewElementFactory viewElementFactory )
     {
         super ( controller, manager );
-        final PrecisionRectangle rect = new PrecisionRectangle ();
-        if ( element.getSize () != null )
-        {
-            rect.setPreciseSize ( element.getSize ().getWidth (), element.getSize ().getHeight () );
-        }
-        this.figure = new RectangleFigure () {
+
+        this.figure = new Figure () {
             @Override
             public void addNotify ()
             {
@@ -53,21 +50,24 @@ public class RectangleController extends ShapeController
                 super.removeNotify ();
             }
         };
-        this.figure.setBounds ( rect );
+
+        if ( element.getSize () != null )
+        {
+            final PrecisionRectangle rect = new PrecisionRectangle ();
+            rect.setPreciseSize ( element.getSize ().getWidth (), element.getSize ().getHeight () );
+            this.figure.setBounds ( rect );
+        }
 
         controller.addElement ( element.getName (), this );
+
+        this.figure.setLayoutManager ( new StackLayout () );
+        this.figure.add ( viewElementFactory.create ( controller, element.getContent () ).getFigure () );
 
         applyCommon ( element );
     }
 
     @Override
-    public void setAntialias ( final Boolean value )
-    {
-        setAntialias ( value, false );
-    }
-
-    @Override
-    public Shape getFigure ()
+    public Figure getFigure ()
     {
         return this.figure;
     }

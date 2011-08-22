@@ -304,11 +304,6 @@ public class SymbolItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createFigure()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
                  VisualInterfaceFactory.eINSTANCE.createRectangle()));
 
         newChildDescriptors.add
@@ -340,6 +335,11 @@ public class SymbolItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.SYMBOL__ROOT,
                  VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
+                 VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
 
         newChildDescriptors.add
             (createChildParameter

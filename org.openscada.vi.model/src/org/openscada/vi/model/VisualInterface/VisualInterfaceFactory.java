@@ -99,15 +99,6 @@ public interface VisualInterfaceFactory extends EFactory
     Line createLine();
 
     /**
-     * Returns a new object of class '<em>Figure</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Figure</em>'.
-     * @generated
-     */
-    Figure createFigure();
-
-    /**
      * Returns a new object of class '<em>Symbol Reference</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -169,6 +160,15 @@ public interface VisualInterfaceFactory extends EFactory
      * @generated
      */
     GridChild createGridChild();
+
+    /**
+     * Returns a new object of class '<em>Figure Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Figure Container</em>'.
+     * @generated
+     */
+    FigureContainer createFigureContainer();
 
     /**
      * Returns the package supported by this factory.

@@ -93,7 +93,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
         final Composite toolWrapper = new Composite ( wrapper, SWT.NONE );
         toolWrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
-        final GridLayout toolLayout = new GridLayout ( 3, false );
+        final GridLayout toolLayout = new GridLayout ( 1 + ( hasTime () ? 1 : 0 ) + ( hasLogo () ? 1 : 0 ), false );
         toolLayout.marginHeight = toolLayout.marginWidth = 0;
         toolWrapper.setLayout ( toolLayout );
 
@@ -116,13 +116,24 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         }
     }
 
-    protected void createLogo ( final Composite parent )
+    protected boolean hasLogo ()
     {
         final String logoUri = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_IMG_LOGO );
         if ( logoUri == null || logoUri.isEmpty () )
         {
+            return false;
+        }
+        return true;
+    }
+
+    protected void createLogo ( final Composite parent )
+    {
+        if ( !hasLogo () )
+        {
             return;
         }
+
+        final String logoUri = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_IMG_LOGO );
 
         final Label label = new Label ( parent, SWT.NONE );
         try
@@ -154,15 +165,27 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         } );
     }
 
-    protected void createTime ( final Composite parent )
+    protected boolean hasTime ()
     {
         final String connectionId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_CONNECTION_ID );
         final String dataItemId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_DATA_ITEM );
 
         if ( connectionId == null || dataItemId == null || connectionId.isEmpty () || dataItemId.isEmpty () )
         {
+            return false;
+        }
+        return true;
+    }
+
+    protected void createTime ( final Composite parent )
+    {
+        if ( !hasTime () )
+        {
             return;
         }
+
+        final String connectionId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_CONNECTION_ID );
+        final String dataItemId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_DATA_ITEM );
 
         this.timeLabel = new Label ( parent, SWT.NONE );
         this.timeLabel.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );

@@ -8,16 +8,16 @@ package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.textui.TestRunner;
 
-import org.openscada.vi.model.VisualInterface.Line;
+import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Line</b></em>'.
+ * A test case for the model object '<em><b>Figure Container</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class LineTest extends ShapeTest
+public class FigureContainerTest extends FigureTest
 {
 
     /**
@@ -27,30 +27,30 @@ public class LineTest extends ShapeTest
      */
     public static void main(String[] args)
     {
-        TestRunner.run(LineTest.class);
+        TestRunner.run(FigureContainerTest.class);
     }
 
     /**
-     * Constructs a new Line test case with the given name.
+     * Constructs a new Figure Container test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public LineTest(String name)
+    public FigureContainerTest(String name)
     {
         super(name);
     }
 
     /**
-     * Returns the fixture for this Line test case.
+     * Returns the fixture for this Figure Container test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    protected Line getFixture()
+    protected FigureContainer getFixture()
     {
-        return (Line)fixture;
+        return (FigureContainer)fixture;
     }
 
     /**
@@ -62,7 +62,7 @@ public class LineTest extends ShapeTest
     @Override
     protected void setUp() throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createLine());
+        setFixture(VisualInterfaceFactory.eINSTANCE.createFigureContainer());
     }
 
     /**
@@ -77,4 +77,4 @@ public class LineTest extends ShapeTest
         setFixture(null);
     }
 
-} //LineTest
+} //FigureContainerTest

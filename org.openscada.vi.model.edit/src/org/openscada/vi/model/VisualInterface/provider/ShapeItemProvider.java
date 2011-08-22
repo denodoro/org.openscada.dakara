@@ -68,8 +68,80 @@ public class ShapeItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addLineWidthPropertyDescriptor(object);
+            addAntialiasPropertyDescriptor(object);
+            addAlphaPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Line Width feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLineWidthPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Shape_lineWidth_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_lineWidth_feature", "_UI_Shape_type"),
+                 VisualInterfacePackage.Literals.SHAPE__LINE_WIDTH,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Antialias feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAntialiasPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Shape_antialias_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_antialias_feature", "_UI_Shape_type"),
+                 VisualInterfacePackage.Literals.SHAPE__ANTIALIAS,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Alpha feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAlphaPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Shape_alpha_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_alpha_feature", "_UI_Shape_type"),
+                 VisualInterfacePackage.Literals.SHAPE__ALPHA,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -98,6 +170,15 @@ public class ShapeItemProvider
     public void notifyChanged(Notification notification)
     {
         updateChildren(notification);
+
+        switch (notification.getFeatureID(Shape.class))
+        {
+            case VisualInterfacePackage.SHAPE__LINE_WIDTH:
+            case VisualInterfacePackage.SHAPE__ANTIALIAS:
+            case VisualInterfacePackage.SHAPE__ALPHA:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
+        }
         super.notifyChanged(notification);
     }
 

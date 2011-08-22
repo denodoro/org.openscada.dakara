@@ -167,11 +167,6 @@ public class ChildItemProvider
         newChildDescriptors.add
             (createChildParameter
                 (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createFigure()));
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
                  VisualInterfaceFactory.eINSTANCE.createRectangle()));
 
         newChildDescriptors.add
@@ -203,6 +198,11 @@ public class ChildItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.CHILD__ELEMENT,
                  VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
     }
 
     /**
