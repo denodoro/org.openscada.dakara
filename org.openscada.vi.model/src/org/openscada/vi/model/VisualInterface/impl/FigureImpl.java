@@ -35,6 +35,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOnDoubleClick <em>On Double Click</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getCursor <em>Cursor</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#isVisible <em>Visible</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getBorder <em>Border</em>}</li>
  * </ul>
  * </p>
  *
@@ -181,6 +182,26 @@ public class FigureImpl extends EObjectImpl implements Figure
      * @ordered
      */
     protected boolean visible = VISIBLE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getBorder() <em>Border</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBorder()
+     * @generated
+     * @ordered
+     */
+    protected static final String BORDER_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getBorder() <em>Border</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBorder()
+     * @generated
+     * @ordered
+     */
+    protected String border = BORDER_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -437,6 +458,29 @@ public class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getBorder()
+    {
+        return border;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBorder(String newBorder)
+    {
+        String oldBorder = border;
+        border = newBorder;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__BORDER, oldBorder, border));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -475,6 +519,8 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return basicGetCursor();
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 return isVisible();
+            case VisualInterfacePackage.FIGURE__BORDER:
+                return getBorder();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -512,6 +558,9 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return;
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 setVisible((Boolean)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                setBorder((String)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -551,6 +600,9 @@ public class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 setVisible(VISIBLE_EDEFAULT);
                 return;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                setBorder(BORDER_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -581,6 +633,8 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return cursor != null;
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 return visible != VISIBLE_EDEFAULT;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                return BORDER_EDEFAULT == null ? border != null : !BORDER_EDEFAULT.equals(border);
         }
         return super.eIsSet(featureID);
     }
@@ -608,6 +662,8 @@ public class FigureImpl extends EObjectImpl implements Figure
         result.append(onDoubleClick);
         result.append(", visible: ");
         result.append(visible);
+        result.append(", border: ");
+        result.append(border);
         result.append(')');
         return result.toString();
     }

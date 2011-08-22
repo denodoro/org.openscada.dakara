@@ -300,13 +300,22 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE__VISIBLE = PRIMITIVE_FEATURE_COUNT + 6;
 
     /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__BORDER = PRIMITIVE_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Figure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 7;
+    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl <em>Shape</em>}' class.
@@ -389,6 +398,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int SHAPE__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__BORDER = FIGURE__BORDER;
 
     /**
      * The number of structural features of the '<em>Shape</em>' class.
@@ -482,6 +500,15 @@ public interface VisualInterfacePackage extends EPackage
     int RECTANGLE__VISIBLE = SHAPE__VISIBLE;
 
     /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__BORDER = SHAPE__BORDER;
+
+    /**
      * The number of structural features of the '<em>Rectangle</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -571,6 +598,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int TEXT__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__BORDER = FIGURE__BORDER;
 
     /**
      * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -892,6 +928,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int LINE__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__BORDER = FIGURE__BORDER;
 
     /**
      * The feature id for the '<em><b>Points</b></em>' containment reference list.
@@ -1637,6 +1682,17 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getFigure_Visible();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#getBorder <em>Border</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Border</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getBorder()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_Border();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SymbolReference <em>Symbol Reference</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2231,6 +2287,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute FIGURE__VISIBLE = eINSTANCE.getFigure_Visible();
+
+        /**
+         * The meta object literal for the '<em><b>Border</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__BORDER = eINSTANCE.getFigure_Border();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.

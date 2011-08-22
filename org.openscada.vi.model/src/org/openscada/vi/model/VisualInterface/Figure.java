@@ -22,6 +22,7 @@ package org.openscada.vi.model.VisualInterface;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getOnDoubleClick <em>On Double Click</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getCursor <em>Cursor</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#isVisible <em>Visible</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getBorder <em>Border</em>}</li>
  * </ul>
  * </p>
  *
@@ -213,5 +214,31 @@ public interface Figure extends Primitive
      * @generated
      */
     void setVisible(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Border</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Border</em>' attribute.
+     * @see #setBorder(String)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getFigure_Border()
+     * @model
+     * @generated
+     */
+    String getBorder();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getBorder <em>Border</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Border</em>' attribute.
+     * @see #getBorder()
+     * @generated
+     */
+    void setBorder(String value);
 
 } // Figure

@@ -77,6 +77,7 @@ public class FigureItemProvider
             addOnDoubleClickPropertyDescriptor(object);
             addCursorPropertyDescriptor(object);
             addVisiblePropertyDescriptor(object);
+            addBorderPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -243,6 +244,29 @@ public class FigureItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Border feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addBorderPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Figure_border_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Figure_border_feature", "_UI_Figure_type"),
+                 VisualInterfacePackage.Literals.FIGURE__BORDER,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -322,6 +346,7 @@ public class FigureItemProvider
             case VisualInterfacePackage.FIGURE__ON_CLICK:
             case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
             case VisualInterfacePackage.FIGURE__VISIBLE:
+            case VisualInterfacePackage.FIGURE__BORDER:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
             case VisualInterfacePackage.FIGURE__SIZE:
