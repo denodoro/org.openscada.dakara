@@ -15,7 +15,7 @@ package org.openscada.vi.model.VisualInterface;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAligment <em>Horizontal Aligment</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment <em>Horizontal Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment <em>Vertical Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
@@ -31,34 +31,34 @@ package org.openscada.vi.model.VisualInterface;
 public interface GridChild extends Child
 {
     /**
-     * Returns the value of the '<em><b>Horizontal Aligment</b></em>' attribute.
+     * Returns the value of the '<em><b>Horizontal Alignment</b></em>' attribute.
      * The default value is <code>"BEGINNING"</code>.
      * The literals are from the enumeration {@link org.openscada.vi.model.VisualInterface.GridAlignment}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Horizontal Aligment</em>' attribute isn't clear,
+     * If the meaning of the '<em>Horizontal Alignment</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Horizontal Aligment</em>' attribute.
+     * @return the value of the '<em>Horizontal Alignment</em>' attribute.
      * @see org.openscada.vi.model.VisualInterface.GridAlignment
-     * @see #setHorizontalAligment(GridAlignment)
-     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridChild_HorizontalAligment()
+     * @see #setHorizontalAlignment(GridAlignment)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridChild_HorizontalAlignment()
      * @model default="BEGINNING" required="true"
      * @generated
      */
-    GridAlignment getHorizontalAligment();
+    GridAlignment getHorizontalAlignment();
 
     /**
-     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAligment <em>Horizontal Aligment</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment <em>Horizontal Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Horizontal Aligment</em>' attribute.
+     * @param value the new value of the '<em>Horizontal Alignment</em>' attribute.
      * @see org.openscada.vi.model.VisualInterface.GridAlignment
-     * @see #getHorizontalAligment()
+     * @see #getHorizontalAlignment()
      * @generated
      */
-    void setHorizontalAligment(GridAlignment value);
+    void setHorizontalAlignment(GridAlignment value);
 
     /**
      * Returns the value of the '<em><b>Vertical Alignment</b></em>' attribute.

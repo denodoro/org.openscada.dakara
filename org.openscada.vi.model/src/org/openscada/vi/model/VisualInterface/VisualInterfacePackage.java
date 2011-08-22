@@ -1303,13 +1303,13 @@ public interface VisualInterfacePackage extends EPackage
     int GRID_CHILD__ELEMENT = CHILD__ELEMENT;
 
     /**
-     * The feature id for the '<em><b>Horizontal Aligment</b></em>' attribute.
+     * The feature id for the '<em><b>Horizontal Alignment</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GRID_CHILD__HORIZONTAL_ALIGMENT = CHILD_FEATURE_COUNT + 0;
+    int GRID_CHILD__HORIZONTAL_ALIGNMENT = CHILD_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Vertical Alignment</b></em>' attribute.
@@ -2161,15 +2161,15 @@ public interface VisualInterfacePackage extends EPackage
     EClass getGridChild();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAligment <em>Horizontal Aligment</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment <em>Horizontal Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Horizontal Aligment</em>'.
-     * @see org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAligment()
+     * @return the meta object for the attribute '<em>Horizontal Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment()
      * @see #getGridChild()
      * @generated
      */
-    EAttribute getGridChild_HorizontalAligment();
+    EAttribute getGridChild_HorizontalAlignment();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment <em>Vertical Alignment</em>}'.
@@ -2892,12 +2892,12 @@ public interface VisualInterfacePackage extends EPackage
         EClass GRID_CHILD = eINSTANCE.getGridChild();
 
         /**
-         * The meta object literal for the '<em><b>Horizontal Aligment</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Horizontal Alignment</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GRID_CHILD__HORIZONTAL_ALIGMENT = eINSTANCE.getGridChild_HorizontalAligment();
+        EAttribute GRID_CHILD__HORIZONTAL_ALIGNMENT = eINSTANCE.getGridChild_HorizontalAlignment();
 
         /**
          * The meta object literal for the '<em><b>Vertical Alignment</b></em>' attribute feature.

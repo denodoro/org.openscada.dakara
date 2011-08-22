@@ -992,7 +992,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGridChild_HorizontalAligment()
+    public EAttribute getGridChild_HorizontalAlignment()
     {
         return (EAttribute)gridChildEClass.getEStructuralFeatures().get(0);
     }
@@ -1207,7 +1207,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(borderChildEClass, BORDER_CHILD__ALIGNMENT);
 
         gridChildEClass = createEClass(GRID_CHILD);
-        createEAttribute(gridChildEClass, GRID_CHILD__HORIZONTAL_ALIGMENT);
+        createEAttribute(gridChildEClass, GRID_CHILD__HORIZONTAL_ALIGNMENT);
         createEAttribute(gridChildEClass, GRID_CHILD__VERTICAL_ALIGNMENT);
         createEAttribute(gridChildEClass, GRID_CHILD__GRAB_HORIZONTAL_SPACE);
         createEAttribute(gridChildEClass, GRID_CHILD__GRAB_VERTICAL_SPACE);
@@ -1356,7 +1356,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getBorderChild_Alignment(), this.getAlignment(), "alignment", "CENTER", 1, 1, BorderChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(gridChildEClass, GridChild.class, "GridChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getGridChild_HorizontalAligment(), this.getGridAlignment(), "horizontalAligment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getGridChild_HorizontalAlignment(), this.getGridAlignment(), "horizontalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getGridChild_VerticalAlignment(), this.getGridAlignment(), "verticalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getGridChild_GrabHorizontalSpace(), ecorePackage.getEBoolean(), "grabHorizontalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getGridChild_GrabVerticalSpace(), ecorePackage.getEBoolean(), "grabVerticalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

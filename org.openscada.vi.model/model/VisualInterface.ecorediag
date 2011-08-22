@@ -541,7 +541,7 @@
     <children xmi:type="notation:Node" xmi:id="_sMEM4My6EeCZatunG8aJEQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_sMEM4cy6EeCZatunG8aJEQ" type="5001">
       <children xmi:type="notation:Node" xmi:id="_-Zm7YMy6EeCZatunG8aJEQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridChild/horizontalAligment"/>
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridChild/horizontalAlignment"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_-Zm7Ycy6EeCZatunG8aJEQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_Vt_A0My7EeCZatunG8aJEQ" type="2001">

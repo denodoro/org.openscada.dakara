@@ -66,7 +66,7 @@ public class GridChildItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addHorizontalAligmentPropertyDescriptor(object);
+            addHorizontalAlignmentPropertyDescriptor(object);
             addVerticalAlignmentPropertyDescriptor(object);
             addGrabHorizontalSpacePropertyDescriptor(object);
             addGrabVerticalSpacePropertyDescriptor(object);
@@ -77,20 +77,20 @@ public class GridChildItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Horizontal Aligment feature.
+     * This adds a property descriptor for the Horizontal Alignment feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHorizontalAligmentPropertyDescriptor(Object object)
+    protected void addHorizontalAlignmentPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_GridChild_horizontalAligment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_GridChild_horizontalAligment_feature", "_UI_GridChild_type"),
-                 VisualInterfacePackage.Literals.GRID_CHILD__HORIZONTAL_ALIGMENT,
+                 getString("_UI_GridChild_horizontalAlignment_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_GridChild_horizontalAlignment_feature", "_UI_GridChild_type"),
+                 VisualInterfacePackage.Literals.GRID_CHILD__HORIZONTAL_ALIGNMENT,
                  true,
                  false,
                  false,
@@ -235,7 +235,7 @@ public class GridChildItemProvider
     @Override
     public String getText(Object object)
     {
-        GridAlignment labelValue = ((GridChild)object).getHorizontalAligment();
+        GridAlignment labelValue = ((GridChild)object).getHorizontalAlignment();
         String label = labelValue == null ? null : labelValue.toString();
         return label == null || label.length() == 0 ?
             getString("_UI_GridChild_type") :
@@ -256,7 +256,7 @@ public class GridChildItemProvider
 
         switch (notification.getFeatureID(GridChild.class))
         {
-            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGMENT:
+            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
             case VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE:
             case VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE:

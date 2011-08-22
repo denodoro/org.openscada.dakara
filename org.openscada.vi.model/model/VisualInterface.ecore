@@ -151,7 +151,7 @@
         eType="#//Alignment" defaultValueLiteral="CENTER"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GridChild" eSuperTypes="#//Child">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAligment" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horizontalAlignment" lowerBound="1"
         eType="#//GridAlignment" defaultValueLiteral="BEGINNING"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verticalAlignment" lowerBound="1"
         eType="#//GridAlignment" defaultValueLiteral="BEGINNING"/>

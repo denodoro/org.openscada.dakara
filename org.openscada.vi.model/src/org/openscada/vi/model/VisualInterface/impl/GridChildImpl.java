@@ -23,7 +23,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getHorizontalAligment <em>Horizontal Aligment</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getHorizontalAlignment <em>Horizontal Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getVerticalAlignment <em>Vertical Alignment</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
@@ -37,24 +37,24 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 public class GridChildImpl extends ChildImpl implements GridChild
 {
     /**
-     * The default value of the '{@link #getHorizontalAligment() <em>Horizontal Aligment</em>}' attribute.
+     * The default value of the '{@link #getHorizontalAlignment() <em>Horizontal Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHorizontalAligment()
+     * @see #getHorizontalAlignment()
      * @generated
      * @ordered
      */
-    protected static final GridAlignment HORIZONTAL_ALIGMENT_EDEFAULT = GridAlignment.BEGINNING;
+    protected static final GridAlignment HORIZONTAL_ALIGNMENT_EDEFAULT = GridAlignment.BEGINNING;
 
     /**
-     * The cached value of the '{@link #getHorizontalAligment() <em>Horizontal Aligment</em>}' attribute.
+     * The cached value of the '{@link #getHorizontalAlignment() <em>Horizontal Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHorizontalAligment()
+     * @see #getHorizontalAlignment()
      * @generated
      * @ordered
      */
-    protected GridAlignment horizontalAligment = HORIZONTAL_ALIGMENT_EDEFAULT;
+    protected GridAlignment horizontalAlignment = HORIZONTAL_ALIGNMENT_EDEFAULT;
 
     /**
      * The default value of the '{@link #getVerticalAlignment() <em>Vertical Alignment</em>}' attribute.
@@ -182,9 +182,9 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridAlignment getHorizontalAligment()
+    public GridAlignment getHorizontalAlignment()
     {
-        return horizontalAligment;
+        return horizontalAlignment;
     }
 
     /**
@@ -192,12 +192,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHorizontalAligment(GridAlignment newHorizontalAligment)
+    public void setHorizontalAlignment(GridAlignment newHorizontalAlignment)
     {
-        GridAlignment oldHorizontalAligment = horizontalAligment;
-        horizontalAligment = newHorizontalAligment == null ? HORIZONTAL_ALIGMENT_EDEFAULT : newHorizontalAligment;
+        GridAlignment oldHorizontalAlignment = horizontalAlignment;
+        horizontalAlignment = newHorizontalAlignment == null ? HORIZONTAL_ALIGNMENT_EDEFAULT : newHorizontalAlignment;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGMENT, oldHorizontalAligment, horizontalAligment));
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT, oldHorizontalAlignment, horizontalAlignment));
     }
 
     /**
@@ -325,8 +325,8 @@ public class GridChildImpl extends ChildImpl implements GridChild
     {
         switch (featureID)
         {
-            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGMENT:
-                return getHorizontalAligment();
+            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
+                return getHorizontalAlignment();
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
                 return getVerticalAlignment();
             case VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE:
@@ -351,8 +351,8 @@ public class GridChildImpl extends ChildImpl implements GridChild
     {
         switch (featureID)
         {
-            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGMENT:
-                setHorizontalAligment((GridAlignment)newValue);
+            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
+                setHorizontalAlignment((GridAlignment)newValue);
                 return;
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
                 setVerticalAlignment((GridAlignment)newValue);
@@ -383,8 +383,8 @@ public class GridChildImpl extends ChildImpl implements GridChild
     {
         switch (featureID)
         {
-            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGMENT:
-                setHorizontalAligment(HORIZONTAL_ALIGMENT_EDEFAULT);
+            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
+                setHorizontalAlignment(HORIZONTAL_ALIGNMENT_EDEFAULT);
                 return;
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
                 setVerticalAlignment(VERTICAL_ALIGNMENT_EDEFAULT);
@@ -415,8 +415,8 @@ public class GridChildImpl extends ChildImpl implements GridChild
     {
         switch (featureID)
         {
-            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGMENT:
-                return horizontalAligment != HORIZONTAL_ALIGMENT_EDEFAULT;
+            case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
+                return horizontalAlignment != HORIZONTAL_ALIGNMENT_EDEFAULT;
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
                 return verticalAlignment != VERTICAL_ALIGNMENT_EDEFAULT;
             case VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE:
@@ -442,8 +442,8 @@ public class GridChildImpl extends ChildImpl implements GridChild
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (horizontalAligment: ");
-        result.append(horizontalAligment);
+        result.append(" (horizontalAlignment: ");
+        result.append(horizontalAlignment);
         result.append(", verticalAlignment: ");
         result.append(verticalAlignment);
         result.append(", grabHorizontalSpace: ");
