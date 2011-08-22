@@ -266,19 +266,37 @@ public abstract class FigureController implements Controller
         getFigure ().setCursor ( getCursor ( cursor ) );
     }
 
-    // TODO: SWT cursor enum
+    public static enum SWTCursors
+    {
+        ARROW ( SWT.CURSOR_ARROW ),
+        HAND ( SWT.CURSOR_HAND ),
+        HELP ( SWT.CURSOR_HELP ),
+        WAIT ( SWT.CURSOR_WAIT ),
+        CROSS ( SWT.CURSOR_CROSS ),
+        IBEAM ( SWT.CURSOR_IBEAM ),
+        NO ( SWT.CURSOR_NO );
+
+        private int id;
+
+        private SWTCursors ( final int id )
+        {
+            this.id = id;
+        }
+
+        public int id ()
+        {
+            return this.id;
+        }
+    }
 
     protected org.eclipse.swt.graphics.Cursor getCursor ( final String cursor )
     {
-        if ( "ARROW".equals ( cursor ) )
+        try
         {
-            return Display.getDefault ().getSystemCursor ( SWT.CURSOR_ARROW );
+            final SWTCursors cursorValue = SWTCursors.valueOf ( cursor );
+            return Display.getDefault ().getSystemCursor ( cursorValue.id () );
         }
-        else if ( "HAND".equals ( cursor ) )
-        {
-            return Display.getDefault ().getSystemCursor ( SWT.CURSOR_HAND );
-        }
-        else
+        catch ( final Exception e )
         {
             // TODO: try to load as resource instead
             return null;
