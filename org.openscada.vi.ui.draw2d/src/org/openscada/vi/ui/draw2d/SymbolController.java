@@ -19,6 +19,8 @@
 
 package org.openscada.vi.ui.draw2d;
 
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -37,7 +39,13 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.console.ConsolePlugin;
+import org.eclipse.ui.console.IConsole;
+import org.eclipse.ui.console.IConsoleManager;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.ui.utils.status.StatusHelper;
@@ -90,6 +98,10 @@ public class SymbolController
 
     private final Map<String, Object> scriptObjects;
 
+    private MessageConsole console;
+
+    private MessageConsole createdConsole;
+
     public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
         this ( null, symbol, classLoader, properties, scriptObjects );
@@ -128,6 +140,7 @@ public class SymbolController
         }
 
         this.scriptContext = this.engine.getContext ();
+        assignConsole ( this.scriptContext );
 
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE );
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE );
@@ -147,6 +160,50 @@ public class SymbolController
         this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), classLoader );
         this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), classLoader );
         this.onUpdate = new ScriptExecutor ( this.engine, symbol.getOnUpdate (), classLoader );
+    }
+
+    private void assignConsole ( final ScriptContext scriptContext )
+    {
+        this.console = createOrGetConsole ();
+
+        // scriptContext.setReader ( new InputStreamReader ( this.console.getInputStream () ) );
+
+        /* wrapping into a PrintWriter is necessary due to
+         * http://bugs.sun.com/view_bug.do?bug_id=6759414
+         * */
+
+        final MessageConsoleStream writerStream = this.console.newMessageStream ();
+        scriptContext.setWriter ( new PrintWriter ( new OutputStreamWriter ( writerStream ) ) );
+
+        final MessageConsoleStream errorStream = this.console.newMessageStream ();
+        errorStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
+        scriptContext.setErrorWriter ( new PrintWriter ( new OutputStreamWriter ( errorStream ) ) );
+    }
+
+    private MessageConsole createOrGetConsole ()
+    {
+        if ( this.parentController != null && this.parentController.getConsole () != null )
+        {
+            return this.parentController.getConsole ();
+        }
+
+        final IConsoleManager manager = ConsolePlugin.getDefault ().getConsoleManager ();
+        final MessageConsole console = new MessageConsole ( "Symbol Debug Console", null, null, true );
+        manager.addConsoles ( new IConsole[] { console } );
+        this.createdConsole = console;
+        return console;
+    }
+
+    protected MessageConsole getConsole ()
+    {
+        if ( this.console != null )
+        {
+            return this.console;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     private Gson createJson ()
@@ -202,6 +259,12 @@ public class SymbolController
 
     public void dispose ()
     {
+        if ( this.createdConsole != null )
+        {
+            ConsolePlugin.getDefault ().getConsoleManager ().removeConsoles ( new IConsole[] { this.createdConsole } );
+            this.createdConsole = null;
+        }
+
         try
         {
             this.onDispose.execute ( this.scriptContext );
