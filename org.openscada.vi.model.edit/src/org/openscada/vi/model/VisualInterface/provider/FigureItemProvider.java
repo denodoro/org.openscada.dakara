@@ -124,7 +124,7 @@ public class FigureItemProvider
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_figurePropertyCategory"),
                  null));
     }
 
@@ -147,7 +147,7 @@ public class FigureItemProvider
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_figurePropertyCategory"),
                  null));
     }
 
@@ -170,7 +170,7 @@ public class FigureItemProvider
                  true,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_handlerPropertyCategory"),
                  null));
     }
 
@@ -193,7 +193,7 @@ public class FigureItemProvider
                  true,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_handlerPropertyCategory"),
                  null));
     }
 
@@ -216,7 +216,7 @@ public class FigureItemProvider
                  false,
                  true,
                  null,
-                 null,
+                 getString("_UI_figurePropertyCategory"),
                  null));
     }
 
@@ -239,7 +239,7 @@ public class FigureItemProvider
                  false,
                  false,
                  ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
+                 getString("_UI_figurePropertyCategory"),
                  null));
     }
 
@@ -262,7 +262,7 @@ public class FigureItemProvider
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_figurePropertyCategory"),
                  null));
     }
 

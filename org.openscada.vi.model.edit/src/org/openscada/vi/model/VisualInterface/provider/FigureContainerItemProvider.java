@@ -202,6 +202,11 @@ public class FigureContainerItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
                  VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                 VisualInterfaceFactory.eINSTANCE.createImage()));
     }
 
 }

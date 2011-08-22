@@ -343,6 +343,11 @@ public class SymbolItemProvider
 
         newChildDescriptors.add
             (createChildParameter
+                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
+                 VisualInterfaceFactory.eINSTANCE.createImage()));
+
+        newChildDescriptors.add
+            (createChildParameter
                 (VisualInterfacePackage.Literals.SYMBOL__PROPERTIES,
                  VisualInterfaceFactory.eINSTANCE.create(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP)));
 

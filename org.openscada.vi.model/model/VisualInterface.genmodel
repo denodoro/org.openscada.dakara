@@ -25,6 +25,12 @@
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//SystemCursorType/ARROW"/>
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//SystemCursorType/HAND"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//GridAlignment">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/FILL"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/BEGINNING"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/END"/>
+    </genEnums>
     <genClasses ecoreClass="VisualInterface.ecore#//Symbol">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/properties"/>
@@ -33,19 +39,29 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onUpdate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/scriptModules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/cursors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/designSize"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Container"/>
-    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape"/>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape">
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/lineWidth"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/antialias"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/alpha"/>
+    </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
     <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/text">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/labelAlignment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/iconAlignment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textAlignment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textPlacement"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/labelAlignment"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/iconAlignment"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textAlignment"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textPlacement"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontName"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontSize"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontBold"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontItalic"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
@@ -63,18 +79,20 @@
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Line">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Line/points"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Line/lineWidth"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Figure">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
-      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
-          ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
-      <genFeatures createChild="false" propertyCategory="" propertyMultiLine="true"
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="figure"
+          propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onClick"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onDoubleClick"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onDoubleClick"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="figure" propertySortChoices="true"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/border"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
@@ -93,6 +111,31 @@
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Cursor"/>
     <genClasses ecoreClass="VisualInterface.ecore#//SystemCursor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SystemCursor/type"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//GridContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/columns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/equalWidth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//GridContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//BorderContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//BorderContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//BorderChild">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderChild/alignment"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//GridChild">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/horizontalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/verticalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabHorizontalSpace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabVerticalSpace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanCols"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanRows"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//FigureContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//FigureContainer/content"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/uri"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

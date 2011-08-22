@@ -503,6 +503,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Image} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ImageItemProvider imageItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Image}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createImageAdapter()
+    {
+        if (imageItemProvider == null)
+        {
+            imageItemProvider = new ImageItemProvider(this);
+        }
+
+        return imageItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -630,6 +655,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (borderChildItemProvider != null) borderChildItemProvider.dispose();
         if (gridChildItemProvider != null) gridChildItemProvider.dispose();
         if (figureContainerItemProvider != null) figureContainerItemProvider.dispose();
+        if (imageItemProvider != null) imageItemProvider.dispose();
     }
 
 }

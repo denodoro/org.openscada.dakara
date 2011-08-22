@@ -26,6 +26,7 @@ import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.GridAlignment;
 import org.openscada.vi.model.VisualInterface.GridChild;
 import org.openscada.vi.model.VisualInterface.GridContainer;
+import org.openscada.vi.model.VisualInterface.Image;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Position;
@@ -203,6 +204,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass figureContainerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass imageEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1100,6 +1108,26 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getImage()
+    {
+        return imageEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getImage_Uri()
+    {
+        return (EAttribute)imageEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getAlignment()
     {
         return alignmentEEnum;
@@ -1267,6 +1295,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         figureContainerEClass = createEClass(FIGURE_CONTAINER);
         createEReference(figureContainerEClass, FIGURE_CONTAINER__CONTENT);
 
+        imageEClass = createEClass(IMAGE);
+        createEAttribute(imageEClass, IMAGE__URI);
+
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
         orientationEEnum = createEEnum(ORIENTATION);
@@ -1318,6 +1349,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         borderChildEClass.getESuperTypes().add(this.getChild());
         gridChildEClass.getESuperTypes().add(this.getChild());
         figureContainerEClass.getESuperTypes().add(this.getFigure());
+        imageEClass.getESuperTypes().add(this.getFigure());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1421,6 +1453,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(figureContainerEClass, FigureContainer.class, "FigureContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getFigureContainer_Content(), this.getPrimitive(), null, "content", null, 0, 1, FigureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getImage_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         initEEnum(alignmentEEnum, Alignment.class, "Alignment");

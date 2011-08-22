@@ -87,6 +87,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.BORDER_CHILD: return createBorderChild();
             case VisualInterfacePackage.GRID_CHILD: return createGridChild();
             case VisualInterfacePackage.FIGURE_CONTAINER: return createFigureContainer();
+            case VisualInterfacePackage.IMAGE: return createImage();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -323,6 +324,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         FigureContainerImpl figureContainer = new FigureContainerImpl();
         return figureContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Image createImage()
+    {
+        ImageImpl image = new ImageImpl();
+        return image;
     }
 
     /**

@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,19 +21,18 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.openscada.vi.model.VisualInterface.Shape;
+import org.openscada.vi.model.VisualInterface.Image;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Shape} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Image} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ShapeItemProvider
+public class ImageItemProvider
     extends FigureItemProvider
     implements
         IEditingDomainItemProvider,
@@ -50,7 +47,7 @@ public class ShapeItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ShapeItemProvider(AdapterFactory adapterFactory)
+    public ImageItemProvider(AdapterFactory adapterFactory)
     {
         super(adapterFactory);
     }
@@ -68,80 +65,44 @@ public class ShapeItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addLineWidthPropertyDescriptor(object);
-            addAntialiasPropertyDescriptor(object);
-            addAlphaPropertyDescriptor(object);
+            addUriPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Line Width feature.
+     * This adds a property descriptor for the Uri feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addLineWidthPropertyDescriptor(Object object)
+    protected void addUriPropertyDescriptor(Object object)
     {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Shape_lineWidth_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_lineWidth_feature", "_UI_Shape_type"),
-                 VisualInterfacePackage.Literals.SHAPE__LINE_WIDTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                 getString("_UI_shapePropertyCategory"),
-                 null));
-    }
-
-    /**
-     * This adds a property descriptor for the Antialias feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addAntialiasPropertyDescriptor(Object object)
-    {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Shape_antialias_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_antialias_feature", "_UI_Shape_type"),
-                 VisualInterfacePackage.Literals.SHAPE__ANTIALIAS,
+                 getString("_UI_Image_uri_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Image_uri_feature", "_UI_Image_type"),
+                 VisualInterfacePackage.Literals.IMAGE__URI,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_shapePropertyCategory"),
+                 null,
                  null));
     }
 
     /**
-     * This adds a property descriptor for the Alpha feature.
+     * This returns Image.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAlphaPropertyDescriptor(Object object)
+    @Override
+    public Object getImage(Object object)
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Shape_alpha_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_alpha_feature", "_UI_Shape_type"),
-                 VisualInterfacePackage.Literals.SHAPE__ALPHA,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_shapePropertyCategory"),
-                 null));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Image"));
     }
 
     /**
@@ -153,10 +114,10 @@ public class ShapeItemProvider
     @Override
     public String getText(Object object)
     {
-        String label = ((Shape)object).getName();
+        String label = ((Image)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Shape_type") :
-            getString("_UI_Shape_type") + " " + label;
+            getString("_UI_Image_type") :
+            getString("_UI_Image_type") + " " + label;
     }
 
     /**
@@ -171,11 +132,9 @@ public class ShapeItemProvider
     {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Shape.class))
+        switch (notification.getFeatureID(Image.class))
         {
-            case VisualInterfacePackage.SHAPE__LINE_WIDTH:
-            case VisualInterfacePackage.SHAPE__ANTIALIAS:
-            case VisualInterfacePackage.SHAPE__ALPHA:
+            case VisualInterfacePackage.IMAGE__URI:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
