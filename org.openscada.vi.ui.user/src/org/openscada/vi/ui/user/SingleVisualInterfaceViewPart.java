@@ -37,6 +37,8 @@ import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -133,6 +135,23 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         {
             label.setImage ( this.manager.createImageWithDefault ( ImageDescriptor.getMissingImageDescriptor () ) );
         }
+
+        label.addMouseListener ( new MouseAdapter () {
+
+            @Override
+            public void mouseDoubleClick ( final MouseEvent e )
+            {
+                if ( ( e.stateMask & SWT.MOD1 ) == 0 && e.button != 3 )
+                {
+                    return;
+                }
+
+                if ( SingleVisualInterfaceViewPart.this.currentInstance != null )
+                {
+                    SingleVisualInterfaceViewPart.this.currentInstance.reload ();
+                }
+            }
+        } );
     }
 
     protected void createTime ( final Composite parent )
@@ -183,12 +202,18 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     @Override
     public void showView ( final String id )
     {
+        showView ( id, false );
+    }
+
+    @Override
+    public void showView ( final String id, final boolean force )
+    {
         final ViewInstance instance = this.instances.get ( id );
         if ( instance == null )
         {
             return;
         }
-        if ( this.currentInstance == instance )
+        if ( this.currentInstance == instance && !force )
         {
             return;
         }

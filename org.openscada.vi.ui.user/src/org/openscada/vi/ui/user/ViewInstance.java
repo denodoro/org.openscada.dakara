@@ -144,9 +144,15 @@ public class ViewInstance implements SummaryListener
         // dispose first
         if ( this.viewer != null )
         {
+            if ( this.button != null )
+            {
+                this.viewer.removeSummaryListener ( this );
+            }
+
             // no need to dispose when changing the viewer
             this.viewer.removeDisposeListener ( this.disposeListener );
             this.viewer.dispose ();
+            this.viewer = null;
         }
 
         // now create
@@ -160,6 +166,8 @@ public class ViewInstance implements SummaryListener
 
         // re-add listener
         this.viewer.addDisposeListener ( this.disposeListener );
+
+        this.viewManager.showView ( this.descriptor.getId (), true );
     }
 
     private Image createImage ( final String key )
