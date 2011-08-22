@@ -182,7 +182,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.timeLabel.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
 
         this.dataItem = new DataItemObservableValue ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, dataItemId );
-        final IObservableValue model = PojoObservables.observeDetailValue ( this.dataItem, "value", Variant.class );
+        final IObservableValue model = PojoObservables.observeDetailValue ( this.dataItem, "value", Variant.class ); //$NON-NLS-1$
         this.dbc.bindValue ( SWTObservables.observeText ( this.timeLabel ), model, null, new UpdateValueStrategy ().setConverter ( new VariantToStringConverter () ) );
         model.addValueChangeListener ( new IValueChangeListener () {
 
