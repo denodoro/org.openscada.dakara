@@ -193,22 +193,15 @@ public class VisualInterfaceViewer extends Composite
 
         final double ar = prefSize.preciseWidth () / prefSize.preciseHeight ();
 
-        final int newWidth;
-        final int newHeight;
+        double newHeight = bounds.width / ar;
         final double zoom;
-        if ( bounds.width < bounds.height )
-        {
-            newWidth = bounds.width;
-            newHeight = (int) ( newWidth * ar );
-            zoom = newWidth / prefSize.preciseWidth ();
-        }
-        else
+
+        if ( newHeight > bounds.height )
         {
             newHeight = bounds.height;
-            newWidth = (int) ( newHeight / ar );
-            zoom = newHeight / prefSize.preciseHeight ();
         }
 
+        zoom = newHeight / prefSize.preciseHeight ();
         setZoom ( zoom );
     }
 
@@ -218,7 +211,10 @@ public class VisualInterfaceViewer extends Composite
         {
             return new PrecisionDimension ( this.symbol.getDesignSize ().getWidth (), this.symbol.getDesignSize ().getHeight () );
         }
-        return this.figure.getPreferredSize ( bounds.width, bounds.height );
+        else
+        {
+            return this.figure.getPreferredSize ( bounds.width, bounds.height );
+        }
     }
 
     private void setZoom ( final double zoom )
