@@ -135,11 +135,6 @@ public class ViewElementFactory
 
     public org.eclipse.draw2d.geometry.Rectangle create ( final Position position, final Dimension dimension )
     {
-        if ( position == null && dimension == null )
-        {
-            return null;
-        }
-
         final org.eclipse.draw2d.geometry.PrecisionRectangle rect = new org.eclipse.draw2d.geometry.PrecisionRectangle ();
 
         if ( position != null )
