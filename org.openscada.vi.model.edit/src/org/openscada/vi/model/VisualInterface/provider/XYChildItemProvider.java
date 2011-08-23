@@ -125,7 +125,10 @@ public class XYChildItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_XYChild_type"); //$NON-NLS-1$
+        String label = ((XYChild)object).getName();
+        return label == null || label.length() == 0 ?
+            getString("_UI_XYChild_type") : //$NON-NLS-1$
+            getString("_UI_XYChild_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

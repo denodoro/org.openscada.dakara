@@ -119,6 +119,10 @@
   <children xmi:type="notation:Node" xmi:id="_37hkAMfgEeC1o4sZtTXACQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_37hkA8fgEeC1o4sZtTXACQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_37hkBMfgEeC1o4sZtTXACQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_vNp6EM10EeCcyLDEFQz-bQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Child/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vNp6Ec10EeCcyLDEFQz-bQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_37hkBcfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_37hkBsfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_37hkB8fgEeC1o4sZtTXACQ"/>

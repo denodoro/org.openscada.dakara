@@ -60,6 +60,7 @@
         <details key="name" value="element"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XYChild" eSuperTypes="#//Child">
     <eStructuralFeatures xsi:type="ecore:EReference" name="position" lowerBound="1"

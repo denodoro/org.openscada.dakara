@@ -235,8 +235,7 @@ public class GridChildItemProvider
     @Override
     public String getText(Object object)
     {
-        GridAlignment labelValue = ((GridChild)object).getHorizontalAlignment();
-        String label = labelValue == null ? null : labelValue.toString();
+        String label = ((GridChild)object).getName();
         return label == null || label.length() == 0 ?
             getString("_UI_GridChild_type") : //$NON-NLS-1$
             getString("_UI_GridChild_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$

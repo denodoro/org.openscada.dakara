@@ -808,13 +808,22 @@ public interface VisualInterfacePackage extends EPackage
     int CHILD__ELEMENT = 0;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHILD__NAME = 1;
+
+    /**
      * The number of structural features of the '<em>Child</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHILD_FEATURE_COUNT = 1;
+    int CHILD_FEATURE_COUNT = 2;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.XYChildImpl <em>XY Child</em>}' class.
@@ -834,6 +843,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int XY_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int XY_CHILD__NAME = CHILD__NAME;
 
     /**
      * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -1383,6 +1401,15 @@ public interface VisualInterfacePackage extends EPackage
     int BORDER_CHILD__ELEMENT = CHILD__ELEMENT;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD__NAME = CHILD__NAME;
+
+    /**
      * The feature id for the '<em><b>Alignment</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1418,6 +1445,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int GRID_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__NAME = CHILD__NAME;
 
     /**
      * The feature id for the '<em><b>Horizontal Alignment</b></em>' attribute.
@@ -2376,6 +2412,17 @@ public interface VisualInterfacePackage extends EPackage
     EReference getChild_Element();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Child#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Child#getName()
+     * @see #getChild()
+     * @generated
+     */
+    EAttribute getChild_Name();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.XYChild <em>XY Child</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3302,6 +3349,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference CHILD__ELEMENT = eINSTANCE.getChild_Element();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHILD__NAME = eINSTANCE.getChild_Name();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.XYChildImpl <em>XY Child</em>}' class.
