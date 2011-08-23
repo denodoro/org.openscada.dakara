@@ -208,6 +208,11 @@ public class ChildItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.CHILD__ELEMENT,
                  VisualInterfaceFactory.eINSTANCE.createImage()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createEllipse()));
     }
 
     /**

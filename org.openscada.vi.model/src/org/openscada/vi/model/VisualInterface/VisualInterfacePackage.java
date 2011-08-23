@@ -1719,6 +1719,142 @@ public interface VisualInterfacePackage extends EPackage
     int IMAGE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.EllipseImpl <em>Ellipse</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.EllipseImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getEllipse()
+     * @generated
+     */
+    int ELLIPSE = 23;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__NAME = SHAPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__SIZE = SHAPE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The number of structural features of the '<em>Ellipse</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1726,7 +1862,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 23;
+    int ALIGNMENT = 24;
 
 
     /**
@@ -1737,7 +1873,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 24;
+    int ORIENTATION = 25;
 
 
     /**
@@ -1748,7 +1884,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 25;
+    int SYSTEM_CURSOR_TYPE = 26;
 
 
     /**
@@ -1759,7 +1895,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 26;
+    int GRID_ALIGNMENT = 27;
 
 
     /**
@@ -2655,6 +2791,16 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getImage_Uri();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Ellipse <em>Ellipse</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Ellipse</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Ellipse
+     * @generated
+     */
+    EClass getEllipse();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3426,6 +3572,16 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute IMAGE__URI = eINSTANCE.getImage_Uri();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.EllipseImpl <em>Ellipse</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.EllipseImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getEllipse()
+         * @generated
+         */
+        EClass ELLIPSE = eINSTANCE.getEllipse();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.

@@ -32,6 +32,7 @@ import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Dimension;
+import org.openscada.vi.model.VisualInterface.Ellipse;
 import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.GridContainer;
 import org.openscada.vi.model.VisualInterface.Image;
@@ -45,6 +46,7 @@ import org.openscada.vi.model.VisualInterface.XYContainer;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.primitives.BorderContainerController;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
+import org.openscada.vi.ui.draw2d.primitives.EllipseController;
 import org.openscada.vi.ui.draw2d.primitives.FigureContainerController;
 import org.openscada.vi.ui.draw2d.primitives.GridContainerController;
 import org.openscada.vi.ui.draw2d.primitives.ImageController;
@@ -107,6 +109,10 @@ public class ViewElementFactory
         else if ( element instanceof Rectangle )
         {
             return new RectangleController ( controller, (Rectangle)element, this.manager );
+        }
+        else if ( element instanceof Ellipse )
+        {
+            return new EllipseController ( controller, (Ellipse)element, this.manager );
         }
         else if ( element instanceof GridContainer )
         {

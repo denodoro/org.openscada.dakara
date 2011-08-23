@@ -21,6 +21,7 @@ import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Child;
 import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
+import org.openscada.vi.model.VisualInterface.Ellipse;
 import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.FigureContainer;
 import org.openscada.vi.model.VisualInterface.GridAlignment;
@@ -211,6 +212,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass imageEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass ellipseEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1138,6 +1146,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getEllipse()
+    {
+        return ellipseEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getAlignment()
     {
         return alignmentEEnum;
@@ -1309,6 +1327,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         imageEClass = createEClass(IMAGE);
         createEAttribute(imageEClass, IMAGE__URI);
 
+        ellipseEClass = createEClass(ELLIPSE);
+
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
         orientationEEnum = createEEnum(ORIENTATION);
@@ -1361,6 +1381,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         gridChildEClass.getESuperTypes().add(this.getChild());
         figureContainerEClass.getESuperTypes().add(this.getFigure());
         imageEClass.getESuperTypes().add(this.getFigure());
+        ellipseEClass.getESuperTypes().add(this.getShape());
 
         // Initialize classes and features; add operations and parameters
         initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -1468,6 +1489,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getImage_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+        initEClass(ellipseEClass, Ellipse.class, "Ellipse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum(alignmentEEnum, Alignment.class, "Alignment"); //$NON-NLS-1$

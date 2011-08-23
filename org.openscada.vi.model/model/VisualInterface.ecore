@@ -181,4 +181,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Figure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ellipse" eSuperTypes="#//Shape"/>
 </ecore:EPackage>

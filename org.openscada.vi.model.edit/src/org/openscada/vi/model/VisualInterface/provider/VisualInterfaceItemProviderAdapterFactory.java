@@ -528,6 +528,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Ellipse} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EllipseItemProvider ellipseItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Ellipse}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEllipseAdapter()
+    {
+        if (ellipseItemProvider == null)
+        {
+            ellipseItemProvider = new EllipseItemProvider(this);
+        }
+
+        return ellipseItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -656,6 +681,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (gridChildItemProvider != null) gridChildItemProvider.dispose();
         if (figureContainerItemProvider != null) figureContainerItemProvider.dispose();
         if (imageItemProvider != null) imageItemProvider.dispose();
+        if (ellipseItemProvider != null) ellipseItemProvider.dispose();
     }
 
 }
