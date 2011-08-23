@@ -26,6 +26,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#getLineWidth <em>Line Width</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#getAntialias <em>Antialias</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#getAlpha <em>Alpha</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#isFill <em>Fill</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,6 +90,25 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected Double alpha = ALPHA_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isFill() <em>Fill</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isFill()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean FILL_EDEFAULT = true;
+    /**
+     * The cached value of the '{@link #isFill() <em>Fill</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isFill()
+     * @generated
+     * @ordered
+     */
+    protected boolean fill = FILL_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -185,6 +205,29 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isFill()
+    {
+        return fill;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setFill(boolean newFill)
+    {
+        boolean oldFill = fill;
+        fill = newFill;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__FILL, oldFill, fill));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -196,6 +239,8 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
                 return getAntialias();
             case VisualInterfacePackage.SHAPE__ALPHA:
                 return getAlpha();
+            case VisualInterfacePackage.SHAPE__FILL:
+                return isFill();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -218,6 +263,9 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
                 return;
             case VisualInterfacePackage.SHAPE__ALPHA:
                 setAlpha((Double)newValue);
+                return;
+            case VisualInterfacePackage.SHAPE__FILL:
+                setFill((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -242,6 +290,9 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
             case VisualInterfacePackage.SHAPE__ALPHA:
                 setAlpha(ALPHA_EDEFAULT);
                 return;
+            case VisualInterfacePackage.SHAPE__FILL:
+                setFill(FILL_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -262,6 +313,8 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
                 return ANTIALIAS_EDEFAULT == null ? antialias != null : !ANTIALIAS_EDEFAULT.equals(antialias);
             case VisualInterfacePackage.SHAPE__ALPHA:
                 return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals(alpha);
+            case VisualInterfacePackage.SHAPE__FILL:
+                return fill != FILL_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -283,6 +336,8 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
         result.append(antialias);
         result.append(", alpha: "); //$NON-NLS-1$
         result.append(alpha);
+        result.append(", fill: "); //$NON-NLS-1$
+        result.append(fill);
         result.append(')');
         return result.toString();
     }

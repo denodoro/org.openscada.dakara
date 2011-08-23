@@ -19,7 +19,7 @@ public class BorderChildController
         {
             this.figure.getParent ().setConstraint ( this.figure, BorderContainerController.convert ( Alignment.valueOf ( alignment ) ) );
         }
-        finally
+        catch ( final Exception e )
         {
             this.figure.getParent ().setConstraint ( this.figure, null );
         }

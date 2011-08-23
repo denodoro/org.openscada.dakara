@@ -39,6 +39,7 @@ public abstract class ShapeController extends FigureController
         setLineWidth ( element.getLineWidth () );
         setAntialias ( element.getAntialias () );
         setAlpha ( element.getAlpha () );
+        setFill ( element.isFill () );
     }
 
     public void setAlpha ( final Double alpha )
@@ -56,6 +57,11 @@ public abstract class ShapeController extends FigureController
     public void setLineWidth ( final float width )
     {
         getFigure ().setLineWidthFloat ( width );
+    }
+
+    public void setFill ( final boolean state )
+    {
+        getFigure ().setFill ( state );
     }
 
     protected void setAntialias ( final Boolean value, final boolean defaultValue )

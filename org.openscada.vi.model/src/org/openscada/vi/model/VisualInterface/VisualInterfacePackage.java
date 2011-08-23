@@ -454,13 +454,22 @@ public interface VisualInterfacePackage extends EPackage
     int SHAPE__ALPHA = FIGURE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__FILL = FIGURE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Shape</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 3;
+    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -588,6 +597,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int RECTANGLE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__FILL = SHAPE__FILL;
 
     /**
      * The number of structural features of the '<em>Rectangle</em>' class.
@@ -1081,6 +1099,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int LINE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__FILL = SHAPE__FILL;
 
     /**
      * The feature id for the '<em><b>Points</b></em>' containment reference list.
@@ -1882,6 +1909,15 @@ public interface VisualInterfacePackage extends EPackage
     int ELLIPSE__ALPHA = SHAPE__ALPHA;
 
     /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__FILL = SHAPE__FILL;
+
+    /**
      * The number of structural features of the '<em>Ellipse</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2016,6 +2052,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int ARC__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__FILL = SHAPE__FILL;
 
     /**
      * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -2270,6 +2315,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getShape_Alpha();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#isFill <em>Fill</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Fill</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#isFill()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Fill();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Rectangle <em>Rectangle</em>}'.
@@ -3239,6 +3295,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SHAPE__ALPHA = eINSTANCE.getShape_Alpha();
+
+        /**
+         * The meta object literal for the '<em><b>Fill</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__FILL = eINSTANCE.getShape_Fill();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.

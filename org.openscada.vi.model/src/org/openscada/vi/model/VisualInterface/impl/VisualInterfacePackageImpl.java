@@ -494,6 +494,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getShape_Fill()
+    {
+        return (EAttribute)shapeEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getRectangle()
     {
         return rectangleEClass;
@@ -1289,6 +1299,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(shapeEClass, SHAPE__LINE_WIDTH);
         createEAttribute(shapeEClass, SHAPE__ANTIALIAS);
         createEAttribute(shapeEClass, SHAPE__ALPHA);
+        createEAttribute(shapeEClass, SHAPE__FILL);
 
         rectangleEClass = createEClass(RECTANGLE);
 
@@ -1458,6 +1469,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute(getShape_LineWidth(), ecorePackage.getEFloat(), "lineWidth", "1", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute(getShape_Antialias(), ecorePackage.getEBooleanObject(), "antialias", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
         initEAttribute(getShape_Alpha(), ecorePackage.getEDoubleObject(), "alpha", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+        initEAttribute(getShape_Fill(), ecorePackage.getEBoolean(), "fill", "true", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

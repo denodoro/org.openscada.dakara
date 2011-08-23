@@ -71,6 +71,7 @@ public class ShapeItemProvider
             addLineWidthPropertyDescriptor(object);
             addAntialiasPropertyDescriptor(object);
             addAlphaPropertyDescriptor(object);
+            addFillPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -145,6 +146,29 @@ public class ShapeItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Fill feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addFillPropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Shape_fill_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Shape_fill_feature", "_UI_Shape_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                 VisualInterfacePackage.Literals.SHAPE__FILL,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -176,6 +200,7 @@ public class ShapeItemProvider
             case VisualInterfacePackage.SHAPE__LINE_WIDTH:
             case VisualInterfacePackage.SHAPE__ANTIALIAS:
             case VisualInterfacePackage.SHAPE__ALPHA:
+            case VisualInterfacePackage.SHAPE__FILL:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }
