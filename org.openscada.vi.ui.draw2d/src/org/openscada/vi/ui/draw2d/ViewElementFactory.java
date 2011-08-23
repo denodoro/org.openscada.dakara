@@ -30,6 +30,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.vi.model.VisualInterface.Arc;
 import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Ellipse;
@@ -44,6 +45,7 @@ import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.XYContainer;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
+import org.openscada.vi.ui.draw2d.primitives.ArcController;
 import org.openscada.vi.ui.draw2d.primitives.BorderContainerController;
 import org.openscada.vi.ui.draw2d.primitives.Controller;
 import org.openscada.vi.ui.draw2d.primitives.EllipseController;
@@ -101,6 +103,10 @@ public class ViewElementFactory
         else if ( element instanceof Line )
         {
             return new LineController ( controller, (Line)element, this.manager );
+        }
+        else if ( element instanceof Arc )
+        {
+            return new ArcController ( controller, (Arc)element, this.manager );
         }
         else if ( element instanceof SymbolReference )
         {

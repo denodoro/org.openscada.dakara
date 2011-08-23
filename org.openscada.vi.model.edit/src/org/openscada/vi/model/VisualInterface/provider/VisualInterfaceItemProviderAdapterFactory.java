@@ -553,6 +553,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Arc} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArcItemProvider arcItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Arc}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createArcAdapter()
+    {
+        if (arcItemProvider == null)
+        {
+            arcItemProvider = new ArcItemProvider(this);
+        }
+
+        return arcItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -682,6 +707,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (figureContainerItemProvider != null) figureContainerItemProvider.dispose();
         if (imageItemProvider != null) imageItemProvider.dispose();
         if (ellipseItemProvider != null) ellipseItemProvider.dispose();
+        if (arcItemProvider != null) arcItemProvider.dispose();
     }
 
 }

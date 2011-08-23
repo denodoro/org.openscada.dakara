@@ -1855,6 +1855,160 @@ public interface VisualInterfacePackage extends EPackage
     int ELLIPSE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ArcImpl <em>Arc</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.ArcImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getArc()
+     * @generated
+     */
+    int ARC = 24;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__NAME = SHAPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__SIZE = SHAPE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Start</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__START = SHAPE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__LENGTH = SHAPE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Arc</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 2;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1862,7 +2016,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 24;
+    int ALIGNMENT = 25;
 
 
     /**
@@ -1873,7 +2027,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 25;
+    int ORIENTATION = 26;
 
 
     /**
@@ -1884,7 +2038,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 26;
+    int SYSTEM_CURSOR_TYPE = 27;
 
 
     /**
@@ -1895,7 +2049,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 27;
+    int GRID_ALIGNMENT = 28;
 
 
     /**
@@ -2801,6 +2955,38 @@ public interface VisualInterfacePackage extends EPackage
     EClass getEllipse();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Arc <em>Arc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Arc</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Arc
+     * @generated
+     */
+    EClass getArc();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Arc#getStart <em>Start</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Start</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Arc#getStart()
+     * @see #getArc()
+     * @generated
+     */
+    EAttribute getArc_Start();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Arc#getLength <em>Length</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Length</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Arc#getLength()
+     * @see #getArc()
+     * @generated
+     */
+    EAttribute getArc_Length();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3582,6 +3768,32 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EClass ELLIPSE = eINSTANCE.getEllipse();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ArcImpl <em>Arc</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.ArcImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getArc()
+         * @generated
+         */
+        EClass ARC = eINSTANCE.getArc();
+
+        /**
+         * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARC__START = eINSTANCE.getArc_Start();
+
+        /**
+         * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARC__LENGTH = eINSTANCE.getArc_Length();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.

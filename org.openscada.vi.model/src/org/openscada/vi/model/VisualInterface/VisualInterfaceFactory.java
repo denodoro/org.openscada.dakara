@@ -189,6 +189,15 @@ public interface VisualInterfaceFactory extends EFactory
     Ellipse createEllipse();
 
     /**
+     * Returns a new object of class '<em>Arc</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Arc</em>'.
+     * @generated
+     */
+    Arc createArc();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
