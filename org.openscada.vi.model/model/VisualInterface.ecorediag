@@ -91,6 +91,10 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Shape/fill"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cJmHYc2BEeC8cJVN8X-6fg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_Vl8EwM2PEeC8cJVN8X-6fg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Shape/outline"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vl8Ewc2PEeC8cJVN8X-6fg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_UcaAAsfgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_UcaAA8fgEeC1o4sZtTXACQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_UcaABMfgEeC1o4sZtTXACQ"/>

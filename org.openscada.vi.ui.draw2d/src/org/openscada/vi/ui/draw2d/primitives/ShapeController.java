@@ -40,6 +40,12 @@ public abstract class ShapeController extends FigureController
         setAntialias ( element.getAntialias () );
         setAlpha ( element.getAlpha () );
         setFill ( element.isFill () );
+        setOutline ( element.isOutline () );
+    }
+
+    public void setOutline ( final boolean flag )
+    {
+        getFigure ().setOutline ( flag );
     }
 
     public void setAlpha ( final Double alpha )

@@ -19,6 +19,7 @@ package org.openscada.vi.model.VisualInterface;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Shape#getAntialias <em>Antialias</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Shape#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Shape#isFill <em>Fill</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Shape#isOutline <em>Outline</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,5 +135,32 @@ public interface Shape extends Figure
      * @generated
      */
     void setFill(boolean value);
+
+    /**
+     * Returns the value of the '<em><b>Outline</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Outline</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Outline</em>' attribute.
+     * @see #setOutline(boolean)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getShape_Outline()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isOutline();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Shape#isOutline <em>Outline</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Outline</em>' attribute.
+     * @see #isOutline()
+     * @generated
+     */
+    void setOutline(boolean value);
 
 } // Shape

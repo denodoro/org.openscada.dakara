@@ -27,6 +27,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#getAntialias <em>Antialias</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#getAlpha <em>Alpha</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#isFill <em>Fill</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl#isOutline <em>Outline</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,25 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected boolean fill = FILL_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isOutline() <em>Outline</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isOutline()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean OUTLINE_EDEFAULT = true;
+    /**
+     * The cached value of the '{@link #isOutline() <em>Outline</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isOutline()
+     * @generated
+     * @ordered
+     */
+    protected boolean outline = OUTLINE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -228,6 +248,29 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isOutline()
+    {
+        return outline;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOutline(boolean newOutline)
+    {
+        boolean oldOutline = outline;
+        outline = newOutline;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__OUTLINE, oldOutline, outline));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType)
     {
@@ -241,6 +284,8 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
                 return getAlpha();
             case VisualInterfacePackage.SHAPE__FILL:
                 return isFill();
+            case VisualInterfacePackage.SHAPE__OUTLINE:
+                return isOutline();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -266,6 +311,9 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
                 return;
             case VisualInterfacePackage.SHAPE__FILL:
                 setFill((Boolean)newValue);
+                return;
+            case VisualInterfacePackage.SHAPE__OUTLINE:
+                setOutline((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -293,6 +341,9 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
             case VisualInterfacePackage.SHAPE__FILL:
                 setFill(FILL_EDEFAULT);
                 return;
+            case VisualInterfacePackage.SHAPE__OUTLINE:
+                setOutline(OUTLINE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -315,6 +366,8 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
                 return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals(alpha);
             case VisualInterfacePackage.SHAPE__FILL:
                 return fill != FILL_EDEFAULT;
+            case VisualInterfacePackage.SHAPE__OUTLINE:
+                return outline != OUTLINE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -338,6 +391,8 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
         result.append(alpha);
         result.append(", fill: "); //$NON-NLS-1$
         result.append(fill);
+        result.append(", outline: "); //$NON-NLS-1$
+        result.append(outline);
         result.append(')');
         return result.toString();
     }

@@ -463,13 +463,22 @@ public interface VisualInterfacePackage extends EPackage
     int SHAPE__FILL = FIGURE_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__OUTLINE = FIGURE_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Shape</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 4;
+    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -606,6 +615,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int RECTANGLE__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__OUTLINE = SHAPE__OUTLINE;
 
     /**
      * The number of structural features of the '<em>Rectangle</em>' class.
@@ -1108,6 +1126,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int LINE__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__OUTLINE = SHAPE__OUTLINE;
 
     /**
      * The feature id for the '<em><b>Points</b></em>' containment reference list.
@@ -1918,6 +1945,15 @@ public interface VisualInterfacePackage extends EPackage
     int ELLIPSE__FILL = SHAPE__FILL;
 
     /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__OUTLINE = SHAPE__OUTLINE;
+
+    /**
      * The number of structural features of the '<em>Ellipse</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2061,6 +2097,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int ARC__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__OUTLINE = SHAPE__OUTLINE;
 
     /**
      * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -2326,6 +2371,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getShape_Fill();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#isOutline <em>Outline</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Outline</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#isOutline()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Outline();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Rectangle <em>Rectangle</em>}'.
@@ -3303,6 +3359,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SHAPE__FILL = eINSTANCE.getShape_Fill();
+
+        /**
+         * The meta object literal for the '<em><b>Outline</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__OUTLINE = eINSTANCE.getShape_Outline();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.

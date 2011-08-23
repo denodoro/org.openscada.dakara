@@ -60,6 +60,11 @@ public class SymbolContext
         return this.controller.getProperties ().getProperty ( name );
     }
 
+    public Object getProperty ( final String name, final String defaultValue )
+    {
+        return this.controller.getProperties ().getProperty ( name, defaultValue );
+    }
+
     public void registerItem ( final String name, final String itemId, final String connectionId )
     {
         this.controller.registerItem ( name, itemId, connectionId );
