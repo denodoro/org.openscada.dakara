@@ -232,6 +232,7 @@ public abstract class FigureController implements Controller
 
         setCursor ( convert ( figure.getCursor () ) );
         setVisible ( figure.isVisible () );
+        setOpaque ( figure.getOpaque () );
 
         try
         {
