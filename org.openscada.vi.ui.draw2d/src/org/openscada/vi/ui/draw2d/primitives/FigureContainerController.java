@@ -67,6 +67,12 @@ public class FigureContainerController extends FigureController
     }
 
     @Override
+    public void setOpaque ( final Boolean flag )
+    {
+        setOpaque ( flag, false );
+    }
+
+    @Override
     public Figure getFigure ()
     {
         return this.figure;

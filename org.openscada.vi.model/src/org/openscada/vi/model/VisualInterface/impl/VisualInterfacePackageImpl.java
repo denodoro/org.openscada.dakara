@@ -798,6 +798,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getFigure_Opaque()
+    {
+        return (EAttribute)figureEClass.getEStructuralFeatures().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getSymbolReference()
     {
         return symbolReferenceEClass;
@@ -1253,6 +1263,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEReference(figureEClass, FIGURE__CURSOR);
         createEAttribute(figureEClass, FIGURE__VISIBLE);
         createEAttribute(figureEClass, FIGURE__BORDER);
+        createEAttribute(figureEClass, FIGURE__OPAQUE);
 
         symbolReferenceEClass = createEClass(SYMBOL_REFERENCE);
         createEAttribute(symbolReferenceEClass, SYMBOL_REFERENCE__URI);
@@ -1412,6 +1423,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEReference(getFigure_Cursor(), this.getCursor(), null, "cursor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
         initEAttribute(getFigure_Visible(), ecorePackage.getEBoolean(), "visible", "true", 1, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute(getFigure_Border(), ecorePackage.getEString(), "border", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+        initEAttribute(getFigure_Opaque(), ecorePackage.getEBooleanObject(), "opaque", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
         initEClass(symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getSymbolReference_Uri(), ecorePackage.getEString(), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

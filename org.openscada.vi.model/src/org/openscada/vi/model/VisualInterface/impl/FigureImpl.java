@@ -36,6 +36,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getCursor <em>Cursor</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getBorder <em>Border</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOpaque <em>Opaque</em>}</li>
  * </ul>
  * </p>
  *
@@ -202,6 +203,26 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @ordered
      */
     protected String border = BORDER_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOpaque() <em>Opaque</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOpaque()
+     * @generated
+     * @ordered
+     */
+    protected static final Boolean OPAQUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOpaque() <em>Opaque</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOpaque()
+     * @generated
+     * @ordered
+     */
+    protected Boolean opaque = OPAQUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -481,6 +502,29 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
+    public Boolean getOpaque()
+    {
+        return opaque;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOpaque(Boolean newOpaque)
+    {
+        Boolean oldOpaque = opaque;
+        opaque = newOpaque;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__OPAQUE, oldOpaque, opaque));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -521,6 +565,8 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
                 return isVisible();
             case VisualInterfacePackage.FIGURE__BORDER:
                 return getBorder();
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                return getOpaque();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -561,6 +607,9 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
                 return;
             case VisualInterfacePackage.FIGURE__BORDER:
                 setBorder((String)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                setOpaque((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -603,6 +652,9 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__BORDER:
                 setBorder(BORDER_EDEFAULT);
                 return;
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                setOpaque(OPAQUE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -635,6 +687,8 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
                 return visible != VISIBLE_EDEFAULT;
             case VisualInterfacePackage.FIGURE__BORDER:
                 return BORDER_EDEFAULT == null ? border != null : !BORDER_EDEFAULT.equals(border);
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                return OPAQUE_EDEFAULT == null ? opaque != null : !OPAQUE_EDEFAULT.equals(opaque);
         }
         return super.eIsSet(featureID);
     }
@@ -664,6 +718,8 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
         result.append(visible);
         result.append(", border: "); //$NON-NLS-1$
         result.append(border);
+        result.append(", opaque: "); //$NON-NLS-1$
+        result.append(opaque);
         result.append(')');
         return result.toString();
     }

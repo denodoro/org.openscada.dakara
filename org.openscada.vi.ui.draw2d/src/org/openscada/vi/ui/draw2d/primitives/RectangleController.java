@@ -61,6 +61,12 @@ public class RectangleController extends ShapeController
     }
 
     @Override
+    public void setOpaque ( final Boolean flag )
+    {
+        setOpaque ( flag, true );
+    }
+
+    @Override
     public void setAntialias ( final Boolean value )
     {
         setAntialias ( value, false );

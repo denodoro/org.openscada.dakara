@@ -426,6 +426,20 @@ public abstract class FigureController implements Controller
         getFigure ().setVisible ( flag );
     }
 
+    public abstract void setOpaque ( final Boolean flag );
+
+    protected void setOpaque ( final Boolean flag, final boolean defaultValue )
+    {
+        if ( flag == null )
+        {
+            getFigure ().setOpaque ( defaultValue );
+        }
+        else
+        {
+            getFigure ().setOpaque ( flag );
+        }
+    }
+
     protected Border makeBorder ( final String border )
     {
         if ( border == null || border.isEmpty () )

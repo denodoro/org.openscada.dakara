@@ -267,7 +267,10 @@ public class SymbolController
 
         try
         {
-            this.onDispose.execute ( this.scriptContext );
+            if ( this.onDispose != null )
+            {
+                this.onDispose.execute ( this.scriptContext );
+            }
         }
         catch ( final ScriptException e )
         {

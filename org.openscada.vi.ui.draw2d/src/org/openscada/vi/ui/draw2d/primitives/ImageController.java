@@ -61,6 +61,12 @@ public class ImageController extends FigureController
         setImage ( element.getUri () );
     }
 
+    @Override
+    public void setOpaque ( final Boolean flag )
+    {
+        setOpaque ( flag, true );
+    }
+
     public void setImage ( final String uri )
     {
         if ( this.currentImage != null )

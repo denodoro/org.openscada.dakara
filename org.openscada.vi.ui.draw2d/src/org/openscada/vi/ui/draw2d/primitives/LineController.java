@@ -80,6 +80,12 @@ public class LineController extends ShapeController
     }
 
     @Override
+    public void setOpaque ( final Boolean flag )
+    {
+        setOpaque ( flag, true );
+    }
+
+    @Override
     public Shape getFigure ()
     {
         return this.figure;

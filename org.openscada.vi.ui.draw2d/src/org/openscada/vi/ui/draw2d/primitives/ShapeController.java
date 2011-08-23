@@ -45,7 +45,7 @@ public abstract class ShapeController extends FigureController
     {
         if ( alpha != null )
         {
-            getFigure ().setAlpha ( (int) ( Math.min ( 0.0, Math.max ( 1.0, alpha ) ) * 255.0 ) );
+            getFigure ().setAlpha ( (int) ( Math.max ( 0.0, Math.min ( 1.0, alpha ) ) * 255.0 ) );
         }
         else
         {

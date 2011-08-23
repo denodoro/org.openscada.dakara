@@ -22,9 +22,14 @@ package org.openscada.vi.ui.draw2d;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.FigureCanvas;
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.FigureContainer;
@@ -70,6 +75,19 @@ public class ViewElementFactory
 
     public Controller create ( final SymbolController controller, final Primitive element )
     {
+        if ( element == null )
+        {
+            StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Empty element found" ), StatusManager.LOG );
+            return new Controller () {
+
+                @Override
+                public IFigure getFigure ()
+                {
+                    return new Label ( "Empty figure" );
+                }
+            };
+        }
+
         if ( element instanceof XYContainer )
         {
             return new XYContainerController ( controller, (XYContainer)element, this );

@@ -64,6 +64,12 @@ public class TextController extends FigureController
         applyCommon ( element );
     }
 
+    @Override
+    public void setOpaque ( final Boolean flag )
+    {
+        setOpaque ( flag, false );
+    }
+
     protected void applyCommon ( final Text element )
     {
         super.applyCommon ( element );
