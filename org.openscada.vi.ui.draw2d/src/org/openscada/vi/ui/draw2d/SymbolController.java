@@ -126,9 +126,19 @@ public class SymbolController
 
         for ( final Map.Entry<String, String> entry : symbol.getProperties ().entrySet () )
         {
-            this.properties.put ( entry.getKey (), entry.getValue () );
+            if ( entry.getValue () != null )
+            {
+                this.properties.put ( entry.getKey (), entry.getValue () );
+            }
         }
-        this.properties.putAll ( properties );
+
+        for ( final Map.Entry<String, String> entry : properties.entrySet () )
+        {
+            if ( entry.getValue () != null )
+            {
+                this.properties.put ( entry.getKey (), entry.getValue () );
+            }
+        }
 
         this.engine = this.engineManager.getEngineByName ( "JavaScript" );
         this.context = new SymbolContext ( this );
@@ -295,6 +305,7 @@ public class SymbolController
         final SimpleScriptContext currentContext = new SimpleScriptContext ();
         final Bindings bindings = this.engine.createBindings ();
         bindings.put ( "properties", currentProperties );
+        bindings.put ( "controller", this.context );
         currentContext.setBindings ( bindings, ScriptContext.ENGINE_SCOPE );
         return executor.execute ( currentContext );
     }
