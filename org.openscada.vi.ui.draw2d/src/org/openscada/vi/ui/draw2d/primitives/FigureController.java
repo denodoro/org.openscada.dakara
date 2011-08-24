@@ -19,6 +19,7 @@
 
 package org.openscada.vi.ui.draw2d.primitives;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -28,9 +29,11 @@ import javax.script.ScriptException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.Border;
+import org.eclipse.draw2d.CompoundBorder;
 import org.eclipse.draw2d.GroupBoxBorder;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.TitleBarBorder;
@@ -443,6 +446,16 @@ public abstract class FigureController implements Controller
         }
     }
 
+    /**
+     * Create a new border
+     * <p>
+     * 3
+     * GROUP:x
+     * COMPOUND:[GROUP:2|GROUP:3]
+     * </P>
+     * @param border
+     * @return
+     */
     protected Border makeBorder ( final String border )
     {
         if ( border == null || border.isEmpty () )
@@ -455,17 +468,107 @@ public abstract class FigureController implements Controller
             return new LineBorder ( Integer.parseInt ( border ) );
         }
 
+        if ( border.startsWith ( "LINE:" ) )
+        {
+            final Map<String, String> args = parseBorderArguments ( "lineWidth", border.substring ( "LINE:".length () ) );
+            final LineBorder lineBorder = new LineBorder ();
+            if ( args.containsKey ( "lineWidth" ) )
+            {
+                lineBorder.setWidth ( Integer.parseInt ( args.get ( "lineWidth" ) ) );
+            }
+            lineBorder.setColor ( createColor ( Helper.makeColor ( args.get ( "color" ) ) ) );
+
+            return lineBorder;
+        }
         if ( border.startsWith ( "GROUP:" ) )
         {
-            return new GroupBoxBorder ( border.substring ( "GROUP:".length () ) );
+            final GroupBoxBorder groupBorder = new GroupBoxBorder ();
+
+            final Map<String, String> args = parseBorderArguments ( "text", border.substring ( "GROUP:".length () ) );
+            if ( args.containsKey ( "text" ) )
+            {
+                groupBorder.setLabel ( args.get ( "text" ) );
+            }
+            final Color color = createColor ( Helper.makeColor ( args.get ( "textColor" ) ) );
+            if ( color != null )
+            {
+                groupBorder.setTextColor ( color );
+            }
+
+            return groupBorder;
         }
         if ( border.startsWith ( "TITLE:" ) )
         {
-            return new TitleBarBorder ( border.substring ( "TITLE:".length () ) );
+            final TitleBarBorder titleBorder = new TitleBarBorder ();
+
+            final Map<String, String> args = parseBorderArguments ( "text", border.substring ( "TITLE:".length () ) );
+            if ( args.containsKey ( "text" ) )
+            {
+                titleBorder.setLabel ( args.get ( "text" ) );
+            }
+            final Color color = createColor ( Helper.makeColor ( args.get ( "textColor" ) ) );
+            if ( color != null )
+            {
+                titleBorder.setTextColor ( color );
+            }
+            final Color backgroundColor = createColor ( Helper.makeColor ( args.get ( "backgroundColor" ) ) );
+            if ( backgroundColor != null )
+            {
+                titleBorder.setBackgroundColor ( backgroundColor );
+            }
+
+            return titleBorder;
+        }
+        if ( border.startsWith ( "MARGIN:" ) )
+        {
+            final Map<String, String> args = parseBorderArguments ( "inset", border.substring ( "MARGIN:".length () ) );
+            final int inset;
+            if ( args.containsKey ( "inset" ) )
+            {
+                inset = Integer.parseInt ( args.get ( "inset" ) );
+            }
+            else
+            {
+                inset = 0;
+            }
+            return new MarginBorder ( inset );
+        }
+        if ( border.startsWith ( "COMPOUND:" ) )
+        {
+            final Map<String, String> args = parseBorderArguments ( "", border.substring ( "COMPOUND:".length () ) );
+            return new CompoundBorder ( makeBorder ( args.get ( "outer" ) ), makeBorder ( args.get ( "inner" ) ) );
         }
 
         StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Invalid border string: " + border ), StatusManager.LOG );
         return null;
+    }
+
+    protected Map<String, String> parseBorderArguments ( final String singleArgumentName, final String border )
+    {
+        if ( border == null || border.isEmpty () )
+        {
+            return Collections.emptyMap ();
+        }
+        if ( border.startsWith ( "[" ) && border.endsWith ( "]" ) )
+        {
+            final Map<String, String> result = new LinkedHashMap<String, String> ();
+            final String str = border.substring ( 1, border.length () - 1 );
+            for ( final String tok : str.split ( "[, \\t\\n\\r]" ) )
+            {
+                final String[] ele = tok.split ( "=", 2 );
+                if ( ele.length > 1 )
+                {
+                    result.put ( ele[0], ele[1] );
+                }
+            }
+            return result;
+        }
+        else
+        {
+            final Map<String, String> result = new LinkedHashMap<String, String> ( 1 );
+            result.put ( singleArgumentName, border );
+            return result;
+        }
     }
 
     protected org.eclipse.draw2d.geometry.Dimension create ( final Dimension dimension )

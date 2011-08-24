@@ -1072,6 +1072,26 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getBorderContainer_VerticalSpacing()
+    {
+        return (EAttribute)borderContainerEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBorderContainer_HorizontalSpacing()
+    {
+        return (EAttribute)borderContainerEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getBorderChild()
     {
         return borderChildEClass;
@@ -1429,6 +1449,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         borderContainerEClass = createEClass(BORDER_CONTAINER);
         createEReference(borderContainerEClass, BORDER_CONTAINER__CHILDREN);
+        createEAttribute(borderContainerEClass, BORDER_CONTAINER__VERTICAL_SPACING);
+        createEAttribute(borderContainerEClass, BORDER_CONTAINER__HORIZONTAL_SPACING);
 
         borderChildEClass = createEClass(BORDER_CHILD);
         createEAttribute(borderChildEClass, BORDER_CHILD__ALIGNMENT);
@@ -1605,6 +1627,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass(borderContainerEClass, BorderContainer.class, "BorderContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEReference(getBorderContainer_Children(), this.getBorderChild(), null, "children", null, 0, -1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+        initEAttribute(getBorderContainer_VerticalSpacing(), ecorePackage.getEInt(), "verticalSpacing", "0", 1, 1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute(getBorderContainer_HorizontalSpacing(), ecorePackage.getEInt(), "horizontalSpacing", "0", 1, 1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass(borderChildEClass, BorderChild.class, "BorderChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getBorderChild_Alignment(), this.getAlignment(), "alignment", "CENTER", 1, 1, BorderChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$

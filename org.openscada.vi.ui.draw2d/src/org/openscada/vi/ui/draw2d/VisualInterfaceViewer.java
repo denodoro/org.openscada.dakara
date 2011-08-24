@@ -24,9 +24,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.draw2d.ConnectionLayer;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Layer;
+import org.eclipse.draw2d.ManhattanConnectionRouter;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
@@ -75,7 +77,7 @@ public class VisualInterfaceViewer extends Composite
 
     private Layer layer;
 
-    private Layer connectionLayer;
+    private ConnectionLayer connectionLayer;
 
     /**
      * Create a new viewer
@@ -135,7 +137,8 @@ public class VisualInterfaceViewer extends Composite
         {
             this.pane = new ScalableLayeredPane ();
             this.layer = new Layer ();
-            this.connectionLayer = new Layer ();
+            this.connectionLayer = new ConnectionLayer ();
+            this.connectionLayer.setConnectionRouter ( new ManhattanConnectionRouter () );
             this.layer.setLayoutManager ( new StackLayout () );
             this.pane.add ( this.connectionLayer );
             this.pane.add ( this.layer );
@@ -239,7 +242,6 @@ public class VisualInterfaceViewer extends Composite
 
     protected void create ( final Symbol symbol, final ClassLoader classLoader )
     {
-
         try
         {
             final Map<String, String> properties = new HashMap<String, String> ( symbol.getProperties ().size () );

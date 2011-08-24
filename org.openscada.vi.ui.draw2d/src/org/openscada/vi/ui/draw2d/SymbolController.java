@@ -91,7 +91,7 @@ public class SymbolController
 
     private final Map<Primitive, Object> primitives = new HashMap<Primitive, Object> ();
 
-    private final RegistrationManager registrationManager;
+    private RegistrationManager registrationManager;
 
     private final SymbolData symbolData;
 
@@ -285,7 +285,7 @@ public class SymbolController
                 this.onDispose.execute ( this.scriptContext );
             }
         }
-        catch ( final ScriptException e )
+        catch ( final Exception e )
         {
             logger.warn ( "Failed to dispose", e );
         }
@@ -301,6 +301,12 @@ public class SymbolController
             controller.dispose ();
         }
         this.controllers.clear ();
+
+        if ( this.registrationManager != null )
+        {
+            this.registrationManager.dispose ();
+            this.registrationManager = null;
+        }
     }
 
     public Object createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
@@ -415,6 +421,12 @@ public class SymbolController
 
     protected void handleDataUpdate ()
     {
+        if ( this.registrationManager == null )
+        {
+            // dispose7
+            return;
+        }
+
         final Map<String, DataItemValue> currentData = this.registrationManager.getData ();
         if ( currentData == this.lastData )
         {

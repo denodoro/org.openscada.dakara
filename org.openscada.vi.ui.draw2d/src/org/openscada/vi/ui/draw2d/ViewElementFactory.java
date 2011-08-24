@@ -29,7 +29,6 @@ import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.Layer;
-import org.eclipse.draw2d.ManhattanConnectionRouter;
 import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -201,7 +200,6 @@ public class ViewElementFactory
                 final PolylineConnection c = new PolylineConnection ();
                 c.setSourceAnchor ( new ChopboxAnchor ( start.getFigure () ) );
                 c.setTargetAnchor ( new ChopboxAnchor ( end.getFigure () ) );
-                c.setConnectionRouter ( new ManhattanConnectionRouter () );
                 c.setAntialias ( SWT.ON );
                 layer.add ( c );
             }

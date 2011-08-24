@@ -32,6 +32,8 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl#getVerticalSpacing <em>Vertical Spacing</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl#getHorizontalSpacing <em>Horizontal Spacing</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +70,46 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * @ordered
      */
     protected EList<BorderChild> children;
+
+    /**
+     * The default value of the '{@link #getVerticalSpacing() <em>Vertical Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVerticalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected static final int VERTICAL_SPACING_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getVerticalSpacing() <em>Vertical Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVerticalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected int verticalSpacing = VERTICAL_SPACING_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getHorizontalSpacing() <em>Horizontal Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHorizontalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected static final int HORIZONTAL_SPACING_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getHorizontalSpacing() <em>Horizontal Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHorizontalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected int horizontalSpacing = HORIZONTAL_SPACING_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -132,6 +174,52 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getVerticalSpacing()
+    {
+        return verticalSpacing;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setVerticalSpacing(int newVerticalSpacing)
+    {
+        int oldVerticalSpacing = verticalSpacing;
+        verticalSpacing = newVerticalSpacing;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING, oldVerticalSpacing, verticalSpacing));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getHorizontalSpacing()
+    {
+        return horizontalSpacing;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setHorizontalSpacing(int newHorizontalSpacing)
+    {
+        int oldHorizontalSpacing = horizontalSpacing;
+        horizontalSpacing = newHorizontalSpacing;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING, oldHorizontalSpacing, horizontalSpacing));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -157,6 +245,10 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
                 return getName();
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
                 return getChildren();
+            case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
+                return getVerticalSpacing();
+            case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
+                return getHorizontalSpacing();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -179,6 +271,12 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
                 getChildren().clear();
                 getChildren().addAll((Collection<? extends BorderChild>)newValue);
                 return;
+            case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
+                setVerticalSpacing((Integer)newValue);
+                return;
+            case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
+                setHorizontalSpacing((Integer)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -199,6 +297,12 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
                 getChildren().clear();
                 return;
+            case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
+                setVerticalSpacing(VERTICAL_SPACING_EDEFAULT);
+                return;
+            case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
+                setHorizontalSpacing(HORIZONTAL_SPACING_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -217,6 +321,10 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
                 return children != null && !children.isEmpty();
+            case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
+                return verticalSpacing != VERTICAL_SPACING_EDEFAULT;
+            case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
+                return horizontalSpacing != HORIZONTAL_SPACING_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -234,6 +342,10 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
+        result.append(", verticalSpacing: "); //$NON-NLS-1$
+        result.append(verticalSpacing);
+        result.append(", horizontalSpacing: "); //$NON-NLS-1$
+        result.append(horizontalSpacing);
         result.append(')');
         return result.toString();
     }

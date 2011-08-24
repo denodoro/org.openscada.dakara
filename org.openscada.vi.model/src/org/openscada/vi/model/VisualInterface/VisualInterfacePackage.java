@@ -1436,13 +1436,31 @@ public interface VisualInterfacePackage extends EPackage
     int BORDER_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Vertical Spacing</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__VERTICAL_SPACING = CONTAINER_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Horizontal Spacing</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__HORIZONTAL_SPACING = CONTAINER_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Border Container</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BORDER_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 1;
+    int BORDER_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderChildImpl <em>Border Child</em>}' class.
@@ -3022,6 +3040,28 @@ public interface VisualInterfacePackage extends EPackage
     EReference getBorderContainer_Children();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing <em>Vertical Spacing</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Vertical Spacing</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing()
+     * @see #getBorderContainer()
+     * @generated
+     */
+    EAttribute getBorderContainer_VerticalSpacing();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Horizontal Spacing</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing()
+     * @see #getBorderContainer()
+     * @generated
+     */
+    EAttribute getBorderContainer_HorizontalSpacing();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.BorderChild <em>Border Child</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3926,6 +3966,22 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference BORDER_CONTAINER__CHILDREN = eINSTANCE.getBorderContainer_Children();
+
+        /**
+         * The meta object literal for the '<em><b>Vertical Spacing</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BORDER_CONTAINER__VERTICAL_SPACING = eINSTANCE.getBorderContainer_VerticalSpacing();
+
+        /**
+         * The meta object literal for the '<em><b>Horizontal Spacing</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BORDER_CONTAINER__HORIZONTAL_SPACING = eINSTANCE.getBorderContainer_HorizontalSpacing();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderChildImpl <em>Border Child</em>}' class.

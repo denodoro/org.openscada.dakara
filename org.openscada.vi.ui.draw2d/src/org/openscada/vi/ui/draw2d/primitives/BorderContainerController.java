@@ -32,11 +32,16 @@ public class BorderContainerController implements Controller
 {
     private final Figure figure;
 
+    private BorderLayout layout;
+
     public BorderContainerController ( final SymbolController controller, final BorderContainer element, final ViewElementFactory factory )
     {
         this.figure = new Figure ();
 
-        this.figure.setLayoutManager ( new BorderLayout () );
+        this.figure.setLayoutManager ( this.layout = new BorderLayout () );
+
+        this.layout.setHorizontalSpacing ( element.getHorizontalSpacing () );
+        this.layout.setVerticalSpacing ( element.getVerticalSpacing () );
 
         for ( final BorderChild child : element.getChildren () )
         {

@@ -18,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.BorderContainer#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing <em>Vertical Spacing</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,4 +45,58 @@ public interface BorderContainer extends Container
      * @generated
      */
     EList<BorderChild> getChildren();
+
+    /**
+     * Returns the value of the '<em><b>Vertical Spacing</b></em>' attribute.
+     * The default value is <code>"0"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Vertical Spacing</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Vertical Spacing</em>' attribute.
+     * @see #setVerticalSpacing(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getBorderContainer_VerticalSpacing()
+     * @model default="0" required="true"
+     * @generated
+     */
+    int getVerticalSpacing();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing <em>Vertical Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Vertical Spacing</em>' attribute.
+     * @see #getVerticalSpacing()
+     * @generated
+     */
+    void setVerticalSpacing(int value);
+
+    /**
+     * Returns the value of the '<em><b>Horizontal Spacing</b></em>' attribute.
+     * The default value is <code>"0"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Horizontal Spacing</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Horizontal Spacing</em>' attribute.
+     * @see #setHorizontalSpacing(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getBorderContainer_HorizontalSpacing()
+     * @model default="0" required="true"
+     * @generated
+     */
+    int getHorizontalSpacing();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Horizontal Spacing</em>' attribute.
+     * @see #getHorizontalSpacing()
+     * @generated
+     */
+    void setHorizontalSpacing(int value);
 } // BorderContainer
