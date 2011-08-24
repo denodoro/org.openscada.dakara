@@ -578,6 +578,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Connection} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ConnectionItemProvider connectionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Connection}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createConnectionAdapter()
+    {
+        if (connectionItemProvider == null)
+        {
+            connectionItemProvider = new ConnectionItemProvider(this);
+        }
+
+        return connectionItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -708,6 +733,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (imageItemProvider != null) imageItemProvider.dispose();
         if (ellipseItemProvider != null) ellipseItemProvider.dispose();
         if (arcItemProvider != null) arcItemProvider.dispose();
+        if (connectionItemProvider != null) connectionItemProvider.dispose();
     }
 
 }

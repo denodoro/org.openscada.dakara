@@ -245,6 +245,9 @@ public class VisualInterfaceViewer extends Composite
             this.controller.init ();
 
             layer.add ( this.figure = controller.getFigure () );
+
+            this.factory.createConnections ( layer, this.controller, symbol.getConnections () );
+
         }
         catch ( final Exception e )
         {

@@ -40,7 +40,7 @@ public class RectangleController extends ShapeController
         this.figure = new RectangleFigureExtension ( this );
         this.figure.setBounds ( rect );
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
 
         applyCommon ( element );
     }

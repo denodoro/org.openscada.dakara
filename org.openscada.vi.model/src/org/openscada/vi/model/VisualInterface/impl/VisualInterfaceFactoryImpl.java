@@ -90,6 +90,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
             case VisualInterfacePackage.IMAGE: return createImage();
             case VisualInterfacePackage.ELLIPSE: return createEllipse();
             case VisualInterfacePackage.ARC: return createArc();
+            case VisualInterfacePackage.CONNECTION: return createConnection();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -359,6 +360,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         ArcImpl arc = new ArcImpl();
         return arc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Connection createConnection()
+    {
+        ConnectionImpl connection = new ConnectionImpl();
+        return connection;
     }
 
     /**

@@ -46,7 +46,7 @@ public class GridContainerController implements Controller
             this.figure.add ( childFigure, convert ( child ) );
         }
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
     }
 
     private Object convert ( final GridChild child )

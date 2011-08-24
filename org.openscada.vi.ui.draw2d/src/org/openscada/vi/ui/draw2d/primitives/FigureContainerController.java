@@ -58,7 +58,7 @@ public class FigureContainerController extends FigureController
             this.figure.setBounds ( rect );
         }
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
 
         this.figure.setLayoutManager ( new StackLayout () );
         this.figure.add ( viewElementFactory.create ( controller, element.getContent () ).getFigure () );

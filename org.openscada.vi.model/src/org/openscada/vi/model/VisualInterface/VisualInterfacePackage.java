@@ -153,13 +153,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__DESIGN_SIZE = 8;
 
     /**
+     * The feature id for the '<em><b>Connections</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__CONNECTIONS = 9;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 9;
+    int SYMBOL_FEATURE_COUNT = 10;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -2135,6 +2144,43 @@ public interface VisualInterfacePackage extends EPackage
     int ARC_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 2;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ConnectionImpl <em>Connection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.ConnectionImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getConnection()
+     * @generated
+     */
+    int CONNECTION = 25;
+
+    /**
+     * The feature id for the '<em><b>Start</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION__START = 0;
+
+    /**
+     * The feature id for the '<em><b>End</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION__END = 1;
+
+    /**
+     * The number of structural features of the '<em>Connection</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION_FEATURE_COUNT = 2;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2142,7 +2188,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 25;
+    int ALIGNMENT = 26;
 
 
     /**
@@ -2153,7 +2199,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 26;
+    int ORIENTATION = 27;
 
 
     /**
@@ -2164,7 +2210,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 27;
+    int SYSTEM_CURSOR_TYPE = 28;
 
 
     /**
@@ -2175,7 +2221,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 28;
+    int GRID_ALIGNMENT = 29;
 
 
     /**
@@ -2286,6 +2332,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EReference getSymbol_DesignSize();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.Symbol#getConnections <em>Connections</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Connections</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getConnections()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_Connections();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}'.
@@ -3146,6 +3203,38 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getArc_Length();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Connection <em>Connection</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Connection</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Connection
+     * @generated
+     */
+    EClass getConnection();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Connection#getStart <em>Start</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Start</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Connection#getStart()
+     * @see #getConnection()
+     * @generated
+     */
+    EReference getConnection_Start();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Connection#getEnd <em>End</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>End</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Connection#getEnd()
+     * @see #getConnection()
+     * @generated
+     */
+    EReference getConnection_End();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3289,6 +3378,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference SYMBOL__DESIGN_SIZE = eINSTANCE.getSymbol_DesignSize();
+
+        /**
+         * The meta object literal for the '<em><b>Connections</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__CONNECTIONS = eINSTANCE.getSymbol_Connections();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -3977,6 +4074,32 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute ARC__LENGTH = eINSTANCE.getArc_Length();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ConnectionImpl <em>Connection</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.ConnectionImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getConnection()
+         * @generated
+         */
+        EClass CONNECTION = eINSTANCE.getConnection();
+
+        /**
+         * The meta object literal for the '<em><b>Start</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONNECTION__START = eINSTANCE.getConnection_Start();
+
+        /**
+         * The meta object literal for the '<em><b>End</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONNECTION__END = eINSTANCE.getConnection_End();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.

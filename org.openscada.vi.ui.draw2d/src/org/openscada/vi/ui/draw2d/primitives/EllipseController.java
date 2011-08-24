@@ -54,7 +54,7 @@ public class EllipseController extends ShapeController
         };
         this.figure.setBounds ( rect );
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
 
         applyCommon ( element );
     }

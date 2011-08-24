@@ -50,6 +50,7 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
+import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,6 +87,8 @@ public class SymbolController
     private final ClassLoader classLoader;
 
     private final Map<String, Object> elements = new HashMap<String, Object> ();
+
+    private final Map<Primitive, Object> primitives = new HashMap<Primitive, Object> ();
 
     private final RegistrationManager registrationManager;
 
@@ -315,21 +318,42 @@ public class SymbolController
         return this.elements.get ( name );
     }
 
-    public void addElement ( final String name, final Object element )
+    public Object getElement ( final Primitive primitive )
+    {
+        return this.primitives.get ( primitive );
+    }
+
+    public void addRawElement ( final String name, final Object element )
     {
         if ( name == null )
         {
             return;
         }
-        else
-        {
-            this.elements.put ( name, element );
-        }
+        this.elements.put ( name, element );
     }
 
-    public void removeElement ( final String name )
+    public void addElement ( final Primitive primitive, final Object element )
     {
-        this.elements.remove ( name );
+        if ( primitive == null )
+        {
+            return;
+        }
+
+        if ( primitive.getName () != null )
+        {
+            this.elements.put ( primitive.getName (), element );
+        }
+        this.primitives.put ( primitive, element );
+    }
+
+    public void removeElement ( final Primitive primitive )
+    {
+        if ( primitive == null )
+        {
+            return;
+        }
+        this.primitives.remove ( primitive );
+        this.elements.remove ( primitive.getName () );
     }
 
     public void unregisterItem ( final String name )

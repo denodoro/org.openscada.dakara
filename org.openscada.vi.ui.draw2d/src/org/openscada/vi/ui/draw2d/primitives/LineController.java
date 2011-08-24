@@ -68,7 +68,7 @@ public class LineController extends ShapeController
         // set bounds from line data, expanding WTF
         this.figure.setBounds ( points.getBounds ().expand ( 5, 5 ) );
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
 
         applyCommon ( element );
     }

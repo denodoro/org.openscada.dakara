@@ -50,7 +50,7 @@ public class ArcController extends ShapeController
 
         this.figure.setArc ( element.getStart (), element.getLength () );
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
 
         applyCommon ( element );
     }

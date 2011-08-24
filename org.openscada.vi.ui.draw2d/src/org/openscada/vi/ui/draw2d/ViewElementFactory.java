@@ -24,14 +24,22 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.Layer;
+import org.eclipse.draw2d.ManhattanConnectionRouter;
+import org.eclipse.draw2d.PolylineConnection;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.swt.SWT;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.ui.databinding.AdapterHelper;
 import org.openscada.vi.model.VisualInterface.Arc;
 import org.openscada.vi.model.VisualInterface.BorderContainer;
+import org.openscada.vi.model.VisualInterface.Connection;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Ellipse;
 import org.openscada.vi.model.VisualInterface.FigureContainer;
@@ -176,4 +184,27 @@ public class ViewElementFactory
         return new XMISymbolLoader ( uri );
     }
 
+    public void createConnections ( final Layer layer, final SymbolController controller, final EList<Connection> connections )
+    {
+        if ( connections == null )
+        {
+            return;
+        }
+
+        for ( final Connection connection : connections )
+        {
+            final Controller start = AdapterHelper.adapt ( controller.getElement ( connection.getStart () ), Controller.class );
+            final Controller end = AdapterHelper.adapt ( controller.getElement ( connection.getEnd () ), Controller.class );
+
+            if ( start != null && end != null )
+            {
+                final PolylineConnection c = new PolylineConnection ();
+                c.setSourceAnchor ( new ChopboxAnchor ( start.getFigure () ) );
+                c.setTargetAnchor ( new ChopboxAnchor ( end.getFigure () ) );
+                c.setConnectionRouter ( new ManhattanConnectionRouter () );
+                c.setAntialias ( SWT.ON );
+                layer.add ( c );
+            }
+        }
+    }
 }

@@ -44,7 +44,7 @@ public class XYContainerController implements Controller
             this.figure.add ( childFigure, factory.create ( child.getPosition (), child.getDimension () ) );
         }
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
     }
 
     @Override

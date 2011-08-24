@@ -59,7 +59,7 @@ public class TextController extends FigureController
                 super.removeNotify ();
             }
         };
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
 
         applyCommon ( element );
     }

@@ -43,12 +43,12 @@ public class BorderContainerController implements Controller
             final Controller elementController = factory.create ( controller, child.getElement () );
             final IFigure childFigure = elementController.getFigure ();
 
-            controller.addElement ( child.getName (), new BorderChildController ( childFigure ) );
+            controller.addRawElement ( child.getName (), new BorderChildController ( childFigure ) );
 
             this.figure.add ( childFigure, convert ( child.getAlignment () ) );
         }
 
-        controller.addElement ( element.getName (), this );
+        controller.addElement ( element, this );
     }
 
     public static Object convert ( final Alignment alignment )

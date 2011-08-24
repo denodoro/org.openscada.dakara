@@ -20,6 +20,7 @@ import org.openscada.vi.model.VisualInterface.Arc;
 import org.openscada.vi.model.VisualInterface.BorderChild;
 import org.openscada.vi.model.VisualInterface.BorderContainer;
 import org.openscada.vi.model.VisualInterface.Child;
+import org.openscada.vi.model.VisualInterface.Connection;
 import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Ellipse;
@@ -233,6 +234,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass connectionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum alignmentEEnum = null;
 
     /**
@@ -417,6 +425,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EReference getSymbol_DesignSize()
     {
         return (EReference)symbolEClass.getEStructuralFeatures().get(8);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSymbol_Connections()
+    {
+        return (EReference)symbolEClass.getEStructuralFeatures().get(9);
     }
 
     /**
@@ -1224,6 +1242,36 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getConnection()
+    {
+        return connectionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getConnection_Start()
+    {
+        return (EReference)connectionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getConnection_End()
+    {
+        return (EReference)connectionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getAlignment()
     {
         return alignmentEEnum;
@@ -1299,6 +1347,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEReference(symbolEClass, SYMBOL__CURSORS);
         createEAttribute(symbolEClass, SYMBOL__BACKGROUND_COLOR);
         createEReference(symbolEClass, SYMBOL__DESIGN_SIZE);
+        createEReference(symbolEClass, SYMBOL__CONNECTIONS);
 
         primitiveEClass = createEClass(PRIMITIVE);
         createEAttribute(primitiveEClass, PRIMITIVE__NAME);
@@ -1404,6 +1453,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute(arcEClass, ARC__START);
         createEAttribute(arcEClass, ARC__LENGTH);
 
+        connectionEClass = createEClass(CONNECTION);
+        createEReference(connectionEClass, CONNECTION__START);
+        createEReference(connectionEClass, CONNECTION__END);
+
         // Create enums
         alignmentEEnum = createEEnum(ALIGNMENT);
         orientationEEnum = createEEnum(ORIENTATION);
@@ -1470,6 +1523,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEReference(getSymbol_Cursors(), this.getCursor(), null, "cursors", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
         initEAttribute(getSymbol_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
         initEReference(getSymbol_DesignSize(), this.getDimension(), null, "designSize", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+        initEReference(getSymbol_Connections(), this.getConnection(), null, "connections", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
         initEClass(primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getPrimitive_Name(), ecorePackage.getEString(), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1574,6 +1628,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass(arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
         initEAttribute(getArc_Start(), ecorePackage.getEInt(), "start", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
         initEAttribute(getArc_Length(), ecorePackage.getEInt(), "length", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+        initEClass(connectionEClass, Connection.class, "Connection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+        initEReference(getConnection_Start(), this.getPrimitive(), null, "start", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+        initEReference(getConnection_End(), this.getPrimitive(), null, "end", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum(alignmentEEnum, Alignment.class, "Alignment"); //$NON-NLS-1$

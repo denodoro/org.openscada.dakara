@@ -20,8 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.openscada.vi.model.VisualInterface.Connection;
 import org.openscada.vi.model.VisualInterface.Cursor;
 import org.openscada.vi.model.VisualInterface.Dimension;
 import org.openscada.vi.model.VisualInterface.Primitive;
@@ -44,6 +46,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getCursors <em>Cursors</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getBackgroundColor <em>Background Color</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getDesignSize <em>Design Size</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.SymbolImpl#getConnections <em>Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -180,6 +183,16 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected Dimension designSize;
+
+    /**
+     * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getConnections()
+     * @generated
+     * @ordered
+     */
+    protected EList<Connection> connections;
 
     /**
      * <!-- begin-user-doc -->
@@ -471,6 +484,20 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Connection> getConnections()
+    {
+        if (connections == null)
+        {
+            connections = new EObjectContainmentEList<Connection>(Connection.class, this, VisualInterfacePackage.SYMBOL__CONNECTIONS);
+        }
+        return connections;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -484,6 +511,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return basicSetCursors(null, msgs);
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
                 return basicSetDesignSize(null, msgs);
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+                return ((InternalEList<?>)getConnections()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -517,6 +546,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getBackgroundColor();
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
                 return getDesignSize();
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+                return getConnections();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -560,6 +591,10 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
                 setDesignSize((Dimension)newValue);
                 return;
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+                getConnections().clear();
+                getConnections().addAll((Collection<? extends Connection>)newValue);
+                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -601,6 +636,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
                 setDesignSize((Dimension)null);
                 return;
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+                getConnections().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -633,6 +671,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
                 return designSize != null;
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+                return connections != null && !connections.isEmpty();
         }
         return super.eIsSet(featureID);
     }

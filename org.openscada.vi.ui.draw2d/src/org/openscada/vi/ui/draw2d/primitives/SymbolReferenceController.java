@@ -89,7 +89,7 @@ public class SymbolReferenceController implements Controller
             }
 
             // register the symbol element controller 
-            controller.addElement ( symbolReference.getName (), elementController );
+            controller.addElement ( symbolReference, elementController );
         }
         catch ( final Exception e )
         {

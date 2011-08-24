@@ -213,6 +213,7 @@ public class SymbolItemProvider
             childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__PROPERTIES);
             childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__CURSORS);
             childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE);
+            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS);
         }
         return childrenFeatures;
     }
@@ -283,6 +284,7 @@ public class SymbolItemProvider
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
             case VisualInterfacePackage.SYMBOL__CURSORS:
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
         }
@@ -370,6 +372,11 @@ public class SymbolItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE,
                  VisualInterfaceFactory.eINSTANCE.createDimension()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS,
+                 VisualInterfaceFactory.eINSTANCE.createConnection()));
     }
 
     /**
