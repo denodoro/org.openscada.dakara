@@ -19,7 +19,6 @@
 
 package org.openscada.vi.ui.draw2d.primitives;
 
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.jface.resource.ResourceManager;
@@ -28,7 +27,7 @@ import org.openscada.vi.ui.draw2d.SymbolController;
 
 public class RectangleController extends ShapeController
 {
-    private final RectangleFigure figure;
+    private final Shape figure;
 
     public RectangleController ( final SymbolController controller, final Rectangle element, final ResourceManager manager )
     {
@@ -38,21 +37,7 @@ public class RectangleController extends ShapeController
         {
             rect.setPreciseSize ( element.getSize ().getWidth (), element.getSize ().getHeight () );
         }
-        this.figure = new RectangleFigure () {
-            @Override
-            public void addNotify ()
-            {
-                super.addNotify ();
-                start ();
-            }
-
-            @Override
-            public void removeNotify ()
-            {
-                stop ();
-                super.removeNotify ();
-            }
-        };
+        this.figure = new RectangleFigureExtension ( this );
         this.figure.setBounds ( rect );
 
         controller.addElement ( element.getName (), this );
