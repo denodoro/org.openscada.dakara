@@ -59,6 +59,11 @@ public class RegistrationManager
 
     public void registerItem ( final String name, final String itemId, final String connectionId )
     {
+        if ( itemId == null )
+        {
+            throw new IllegalArgumentException ( String.format ( "'itemId' must not be null" ) );
+        }
+
         notifyChange ( name, DataItemValue.DISCONNECTED );
         final DataItemRegistration oldRegistration = this.registrations.put ( name, new DataItemRegistration ( this, name, itemId, connectionId ) );
         if ( oldRegistration != null )

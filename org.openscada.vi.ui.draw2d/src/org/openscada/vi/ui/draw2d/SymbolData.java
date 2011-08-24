@@ -89,6 +89,45 @@ public class SymbolData
         }
     }
 
+    public boolean isManual ( final String name )
+    {
+        final DataItemValue div = this.controller.getData ().get ( name );
+        if ( div == null )
+        {
+            return false;
+        }
+        else
+        {
+            return div.isManual ();
+        }
+    }
+
+    public boolean isBlocked ( final String name )
+    {
+        final DataItemValue div = this.controller.getData ().get ( name );
+        if ( div == null )
+        {
+            return false;
+        }
+        else
+        {
+            return div.isBlocked ();
+        }
+    }
+
+    public boolean isAckRequired ( final String name )
+    {
+        final DataItemValue div = this.controller.getData ().get ( name );
+        if ( div == null )
+        {
+            return false;
+        }
+        else
+        {
+            return div.isAttribute ( "ackRequired", false );
+        }
+    }
+
     public boolean isValid ( final String name )
     {
         final DataItemValue div = this.controller.getData ().get ( name );
