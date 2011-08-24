@@ -58,7 +58,7 @@ public class DataItemRegistration implements Observer
         this.connectionTracker.open ();
     }
 
-    protected void setConnection ( final ConnectionService connectionService )
+    protected synchronized void setConnection ( final ConnectionService connectionService )
     {
         disconnect ();
 
