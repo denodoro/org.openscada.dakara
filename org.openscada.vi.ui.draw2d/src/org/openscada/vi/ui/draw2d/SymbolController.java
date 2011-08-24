@@ -19,6 +19,7 @@
 
 package org.openscada.vi.ui.draw2d;
 
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URL;
@@ -488,7 +489,23 @@ public class SymbolController
         }
         catch ( final Exception e )
         {
-            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
+        }
+    }
+
+    public void debugLog ( final String string )
+    {
+        final MessageConsoleStream stream = this.console.newMessageStream ();
+        final PrintWriter ps = new PrintWriter ( stream );
+        ps.println ( string );
+
+        try
+        {
+            ps.close ();
+            stream.close ();
+        }
+        catch ( final IOException e )
+        {
         }
     }
 

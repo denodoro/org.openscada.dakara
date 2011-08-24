@@ -315,6 +315,7 @@ public abstract class FigureController implements Controller
 
     protected void handleOnDoubleClick ( final MouseEvent me )
     {
+        this.controller.debugLog ( String.format ( "Double click: %s", me ) );
         final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ( 1 );
         scriptObjects.put ( "event", me );
         this.controller.execute ( this.onDoubleClick, scriptObjects );
@@ -322,6 +323,7 @@ public abstract class FigureController implements Controller
 
     protected void handleOnClick ( final MouseEvent me )
     {
+        this.controller.debugLog ( String.format ( "Click: %s", me ) );
         final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ( 1 );
         scriptObjects.put ( "event", me );
         this.controller.execute ( this.onClick, scriptObjects );

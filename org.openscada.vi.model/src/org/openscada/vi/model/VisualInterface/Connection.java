@@ -64,7 +64,7 @@ public interface Connection extends EObject
      * @return the value of the '<em>End</em>' reference.
      * @see #setEnd(Primitive)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getConnection_End()
-     * @model required="true"
+     * @model keys="name" required="true"
      * @generated
      */
     Primitive getEnd();

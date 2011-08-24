@@ -38,7 +38,7 @@ public interface Primitive extends EObject
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getPrimitive_Name()
-     * @model
+     * @model id="true"
      * @generated
      */
     String getName();

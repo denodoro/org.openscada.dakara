@@ -73,6 +73,8 @@ public class VisualInterfaceViewer extends Composite
 
     private Symbol symbol;
 
+    private Layer layer;
+
     /**
      * Create a new viewer
      * @param parent the parent composite
@@ -129,6 +131,11 @@ public class VisualInterfaceViewer extends Composite
 
         try
         {
+            this.pane = new ScalableLayeredPane ();
+            this.layer = new Layer ();
+            this.layer.setLayoutManager ( new StackLayout () );
+            this.pane.add ( this.layer );
+
             loader.load ();
             this.symbol = loader.getSymbol ();
             create ( loader.getSymbol (), loader.getClassLoader () );
@@ -211,9 +218,13 @@ public class VisualInterfaceViewer extends Composite
         {
             return new PrecisionDimension ( this.symbol.getDesignSize ().getWidth (), this.symbol.getDesignSize ().getHeight () );
         }
-        else
+        else if ( this.figure != null )
         {
             return this.figure.getPreferredSize ( bounds.width, bounds.height );
+        }
+        else
+        {
+            return new PrecisionDimension ( bounds.width, bounds.height );
         }
     }
 
@@ -224,10 +235,6 @@ public class VisualInterfaceViewer extends Composite
 
     protected void create ( final Symbol symbol, final ClassLoader classLoader )
     {
-        this.pane = new ScalableLayeredPane ();
-        final Layer layer = new Layer ();
-        layer.setLayoutManager ( new StackLayout () );
-        this.pane.add ( layer );
 
         try
         {
@@ -244,15 +251,15 @@ public class VisualInterfaceViewer extends Composite
 
             this.controller.init ();
 
-            layer.add ( this.figure = controller.getFigure () );
+            this.layer.add ( this.figure = controller.getFigure () );
 
-            this.factory.createConnections ( layer, this.controller, symbol.getConnections () );
+            this.factory.createConnections ( this.layer, this.controller, symbol.getConnections () );
 
         }
         catch ( final Exception e )
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
-            layer.add ( this.figure = Helper.createErrorFigure ( e ) );
+            this.layer.add ( this.figure = Helper.createErrorFigure ( e ) );
         }
 
         this.canvas.setContents ( this.pane );
@@ -265,8 +272,14 @@ public class VisualInterfaceViewer extends Composite
 
     private void internalDispose ()
     {
-        this.controller.dispose ();
-        this.manager.dispose ();
+        if ( this.controller != null )
+        {
+            this.controller.dispose ();
+        }
+        if ( this.manager != null )
+        {
+            this.manager.dispose ();
+        }
     }
 
     public void addSummaryListener ( final SummaryListener listener )
