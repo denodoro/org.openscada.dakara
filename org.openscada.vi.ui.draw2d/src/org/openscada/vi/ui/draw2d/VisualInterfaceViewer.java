@@ -75,6 +75,8 @@ public class VisualInterfaceViewer extends Composite
 
     private Layer layer;
 
+    private Layer connectionLayer;
+
     /**
      * Create a new viewer
      * @param parent the parent composite
@@ -133,7 +135,9 @@ public class VisualInterfaceViewer extends Composite
         {
             this.pane = new ScalableLayeredPane ();
             this.layer = new Layer ();
+            this.connectionLayer = new Layer ();
             this.layer.setLayoutManager ( new StackLayout () );
+            this.pane.add ( this.connectionLayer );
             this.pane.add ( this.layer );
 
             loader.load ();
@@ -253,7 +257,7 @@ public class VisualInterfaceViewer extends Composite
 
             this.layer.add ( this.figure = controller.getFigure () );
 
-            this.factory.createConnections ( this.layer, this.controller, symbol.getConnections () );
+            this.factory.createConnections ( this.connectionLayer, this.controller, symbol.getConnections () );
 
         }
         catch ( final Exception e )
