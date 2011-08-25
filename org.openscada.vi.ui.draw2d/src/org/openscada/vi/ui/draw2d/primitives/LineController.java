@@ -21,11 +21,11 @@ package org.openscada.vi.ui.draw2d.primitives;
 
 import org.eclipse.draw2d.PolylineShape;
 import org.eclipse.draw2d.Shape;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.jface.resource.ResourceManager;
-import org.eclipse.swt.SWT;
 import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.ui.draw2d.SymbolController;
@@ -33,6 +33,8 @@ import org.openscada.vi.ui.draw2d.SymbolController;
 public class LineController extends ShapeController
 {
     private final PolylineShape figure;
+
+    private final PointList points;
 
     public LineController ( final SymbolController controller, final Line element, final ResourceManager manager )
     {
@@ -54,23 +56,33 @@ public class LineController extends ShapeController
             }
         };
 
-        final PointList points = new PointList ();
+        this.points = new PointList ();
         for ( final Position pos : element.getPoints () )
         {
             final Point p = new PrecisionPoint ( pos.getX (), pos.getY () );
-            points.addPoint ( p );
+            this.points.addPoint ( p );
         }
 
-        this.figure.setPoints ( points );
-
-        this.figure.setLineCap ( SWT.CAP_SQUARE );
-
-        // set bounds from line data, expanding WTF
-        this.figure.setBounds ( points.getBounds ().expand ( 5, 5 ) );
+        this.figure.setPoints ( this.points );
+        this.figure.getPreferredSize ();
+        // this.figure.setBounds ( this.points.getBounds ().expand ( 10, 10 ) );
 
         controller.addElement ( element, this );
 
         applyCommon ( element );
+    }
+
+    @Override
+    public void setPreferredSize ( final Dimension size )
+    {
+        if ( size == null )
+        {
+            super.setPreferredSize ( this.points.getBounds ().expand ( 10, 10 ).getSize () );
+        }
+        else
+        {
+            super.setPreferredSize ( size );
+        }
     }
 
     @Override
