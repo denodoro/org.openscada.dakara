@@ -1203,10 +1203,6 @@ public class ScaledGraphics extends Graphics
         this.tempRECT.y = (int)Math.floor ( y * this.zoom + this.fractionalY );
         this.tempRECT.width = (int)Math.floor ( ( x + w ) * this.zoom + this.fractionalX ) - this.tempRECT.x;
         this.tempRECT.height = (int)Math.floor ( ( y + h ) * this.zoom + this.fractionalY ) - this.tempRECT.y;
-        if ( this.fractionalX < 0 )
-        {
-            System.out.println ( "Here" );
-        }
         return this.tempRECT;
     }
 
