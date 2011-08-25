@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBM Corporation - initial API and implementation
+ *     TH4 SYSTEMS GmbH - Hairline handling
  *******************************************************************************/
 package org.openscada.vi.ui.draw2d.impl;
 

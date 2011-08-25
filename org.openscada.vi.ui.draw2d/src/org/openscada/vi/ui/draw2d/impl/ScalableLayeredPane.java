@@ -13,6 +13,7 @@ import org.eclipse.swt.SWT;
  * A non-freeform, scalable layered pane.
  * 
  * @author Eric Bordeau
+ * @author Jens Reimann
  * @since 2.1.1
  */
 public class ScalableLayeredPane extends LayeredPane implements ScalableFigure
