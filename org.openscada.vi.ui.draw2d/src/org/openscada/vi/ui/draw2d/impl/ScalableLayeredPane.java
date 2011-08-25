@@ -37,6 +37,13 @@ public class ScalableLayeredPane extends LayeredPane implements ScalableFigure
         rect.width = (int)Math.ceil ( rect.width / this.scale ) - dx;
         rect.height = (int)Math.ceil ( rect.height / this.scale ) - dy;
 
+        /*
+        rect.x /= this.scale;
+        rect.y /= this.scale;
+        rect.width /= this.scale;
+        rect.height /= this.scale;
+        */
+
         return rect;
     }
 
