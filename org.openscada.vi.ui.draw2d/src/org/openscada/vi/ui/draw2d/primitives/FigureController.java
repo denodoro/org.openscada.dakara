@@ -38,6 +38,8 @@ import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.TitleBarBorder;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
+import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -335,6 +337,27 @@ public abstract class FigureController implements Controller
     public void setPreferredSize ( final org.eclipse.draw2d.geometry.Dimension size )
     {
         getFigure ().setPreferredSize ( size );
+    }
+
+    public void setSize ( final double width, final double height )
+    {
+        final Rectangle b = getFigure ().getBounds ();
+
+        getFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), width, height ) );
+    }
+
+    public void setWidth ( final double width )
+    {
+        final Rectangle b = getFigure ().getBounds ();
+
+        getFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), width, b.preciseHeight () ) );
+    }
+
+    public void setHeight ( final double height )
+    {
+        final Rectangle b = getFigure ().getBounds ();
+
+        getFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), b.preciseWidth (), height ) );
     }
 
     public Dimension getPreferredSize ()
