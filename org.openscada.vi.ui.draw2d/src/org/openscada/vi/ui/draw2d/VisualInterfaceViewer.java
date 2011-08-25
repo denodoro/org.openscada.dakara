@@ -157,7 +157,7 @@ public class VisualInterfaceViewer extends Composite
 
     private LayeredPane createPane ()
     {
-        if ( Boolean.getBoolean ( "org.openscada.vi.ui.draw2d.hairline" ) )
+        if ( Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_HAIRLINE ) )
         {
             return new ScalableLayeredPane ();
         }

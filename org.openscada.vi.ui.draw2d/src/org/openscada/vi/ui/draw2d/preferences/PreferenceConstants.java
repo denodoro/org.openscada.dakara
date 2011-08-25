@@ -26,4 +26,6 @@ public class PreferenceConstants
 {
     public static final String P_DEFAULT_ZOOMING = "default.zooming";
 
+    public static final String P_DEFAULT_HAIRLINE = "default.hairline";
+
 }

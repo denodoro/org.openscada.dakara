@@ -39,6 +39,7 @@ import org.openscada.vi.ui.draw2d.SymbolController;
 import org.openscada.vi.ui.draw2d.ViewElementFactory;
 import org.openscada.vi.ui.draw2d.impl.ScalableLayeredPane;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
+import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +54,7 @@ public class SymbolReferenceController implements Controller
     {
         if ( symbolReference.getZoom () != null )
         {
-            if ( Boolean.getBoolean ( "org.openscada.vi.ui.draw2d.hairline" ) )
+            if ( Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_HAIRLINE ) )
             {
                 this.figure = new ScalableLayeredPane ();
                 ( (ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );

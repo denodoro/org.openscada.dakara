@@ -34,5 +34,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
     {
         final IPreferenceStore store = Activator.getDefault ().getPreferenceStore ();
         store.setDefault ( PreferenceConstants.P_DEFAULT_ZOOMING, false );
+        store.setDefault ( PreferenceConstants.P_DEFAULT_HAIRLINE, true );
     }
 }
