@@ -53,8 +53,16 @@ public class SymbolReferenceController implements Controller
     {
         if ( symbolReference.getZoom () != null )
         {
-            this.figure = new ScalableLayeredPane ();
-            ( (ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
+            if ( Boolean.getBoolean ( "org.openscada.vi.ui.draw2d.hairline" ) )
+            {
+                this.figure = new ScalableLayeredPane ();
+                ( (ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
+            }
+            else
+            {
+                this.figure = new org.eclipse.draw2d.ScalableLayeredPane ();
+                ( (org.eclipse.draw2d.ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
+            }
         }
         else
         {

@@ -28,6 +28,7 @@ import org.eclipse.draw2d.ConnectionLayer;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Layer;
+import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.draw2d.ManhattanConnectionRouter;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -69,7 +70,7 @@ public class VisualInterfaceViewer extends Composite
 
     private Boolean zooming;
 
-    private ScalableLayeredPane pane;
+    private LayeredPane pane;
 
     private IFigure figure;
 
@@ -135,7 +136,7 @@ public class VisualInterfaceViewer extends Composite
 
         try
         {
-            this.pane = new ScalableLayeredPane ();
+            this.pane = createPane ();
             this.layer = new Layer ();
             this.connectionLayer = new ConnectionLayer ();
             this.connectionLayer.setConnectionRouter ( new ManhattanConnectionRouter () );
@@ -151,6 +152,18 @@ public class VisualInterfaceViewer extends Composite
         catch ( final Exception e )
         {
             this.canvas.setContents ( Helper.createErrorFigure ( e ) );
+        }
+    }
+
+    private LayeredPane createPane ()
+    {
+        if ( Boolean.getBoolean ( "org.openscada.vi.ui.draw2d.hairline" ) )
+        {
+            return new ScalableLayeredPane ();
+        }
+        else
+        {
+            return new org.eclipse.draw2d.ScalableLayeredPane ();
         }
     }
 
@@ -235,9 +248,16 @@ public class VisualInterfaceViewer extends Composite
         }
     }
 
-    private void setZoom ( final double zoom )
+    private void setZoom ( final double newZoom )
     {
-        this.pane.setScale ( zoom );
+        if ( this.pane instanceof org.eclipse.draw2d.ScalableLayeredPane )
+        {
+            ( (org.eclipse.draw2d.ScalableLayeredPane)this.pane ).setScale ( newZoom );
+        }
+        else if ( this.pane instanceof ScalableLayeredPane )
+        {
+            ( (ScalableLayeredPane)this.pane ).setScale ( newZoom );
+        }
     }
 
     protected void create ( final Symbol symbol, final ClassLoader classLoader )
