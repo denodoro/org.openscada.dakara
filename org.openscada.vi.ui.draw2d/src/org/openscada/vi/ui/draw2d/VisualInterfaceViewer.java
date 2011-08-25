@@ -131,6 +131,7 @@ public class VisualInterfaceViewer extends Composite
 
         setLayout ( new FillLayout () );
         this.canvas = createCanvas ();
+        setZooming ( null );
 
         this.factory = new ViewElementFactory ( this.canvas, this.manager );
 
@@ -182,6 +183,7 @@ public class VisualInterfaceViewer extends Composite
     public void setZooming ( final Boolean zooming )
     {
         this.zooming = zooming;
+        this.canvas.setScrollBarVisibility ( isZooming () ? FigureCanvas.NEVER : FigureCanvas.AUTOMATIC );
     }
 
     private void applyColor ( final Symbol symbol )
