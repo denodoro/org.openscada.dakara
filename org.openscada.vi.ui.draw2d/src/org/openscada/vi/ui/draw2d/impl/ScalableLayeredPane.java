@@ -27,10 +27,15 @@ public class ScalableLayeredPane extends LayeredPane implements ScalableFigure
     public Rectangle getClientArea ( final Rectangle rect )
     {
         super.getClientArea ( rect );
-        rect.width /= this.scale;
-        rect.height /= this.scale;
-        rect.x /= this.scale;
-        rect.y /= this.scale;
+
+        // try to compensate scaling artifacts
+
+        final int dx = (int) ( rect.x / this.scale ) - ( rect.x = (int)Math.ceil ( rect.x / this.scale ) );
+        final int dy = (int) ( rect.y / this.scale ) - ( rect.y = (int)Math.ceil ( rect.y / this.scale ) );
+
+        rect.width = (int)Math.ceil ( rect.width / this.scale ) - dx;
+        rect.height = (int)Math.ceil ( rect.height / this.scale ) - dy;
+
         return rect;
     }
 
