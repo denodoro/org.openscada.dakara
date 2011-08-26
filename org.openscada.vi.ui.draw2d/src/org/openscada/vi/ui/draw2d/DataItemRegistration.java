@@ -85,6 +85,12 @@ public class DataItemRegistration implements Observer
             this.dataItem.addObserver ( this );
             this.dataItem.register ( this.connectionService.getItemManager () );
         }
+
+        // at the end we are disconnected ... notify as last operation
+        if ( connectionService == null )
+        {
+            notifyChange ( DataItemValue.DISCONNECTED );
+        }
     }
 
     private void disconnect ()
