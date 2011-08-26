@@ -41,11 +41,14 @@ public class DataItemRegistration implements Observer
 
     private DataItem dataItem;
 
-    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId )
+    private final boolean ignoreSummary;
+
+    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId, final boolean ignoreSummary )
     {
         this.registrationManager = registrationManager;
         this.name = name;
         this.itemId = itemId;
+        this.ignoreSummary = ignoreSummary;
 
         this.connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, new ConnectionIdTracker.Listener () {
 
@@ -56,6 +59,11 @@ public class DataItemRegistration implements Observer
             }
         } );
         this.connectionTracker.open ();
+    }
+
+    public boolean isIgnoreSummary ()
+    {
+        return this.ignoreSummary;
     }
 
     protected synchronized void setConnection ( final ConnectionService connectionService )
@@ -94,7 +102,7 @@ public class DataItemRegistration implements Observer
 
     public void notifyChange ( final DataItemValue value )
     {
-        this.registrationManager.notifyChange ( this.name, value );
+        this.registrationManager.notifyChange ( this.name, value, this.ignoreSummary );
     }
 
     @Override

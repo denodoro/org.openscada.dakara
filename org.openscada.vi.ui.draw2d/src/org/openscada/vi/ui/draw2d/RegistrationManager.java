@@ -32,7 +32,7 @@ public class RegistrationManager
 
     private final Map<String, DataItemRegistration> registrations = new LinkedHashMap<String, DataItemRegistration> ();
 
-    private final AtomicReference<Map<String, DataItemValue>> currentValues = new AtomicReference<Map<String, DataItemValue>> ( Collections.<String, DataItemValue> emptyMap () );
+    private final AtomicReference<Map<String, DataValue>> currentValues = new AtomicReference<Map<String, DataValue>> ( Collections.<String, DataValue> emptyMap () );
 
     public RegistrationManager ( final SymbolController symbolController )
     {
@@ -57,36 +57,36 @@ public class RegistrationManager
         }
     }
 
-    public void registerItem ( final String name, final String itemId, final String connectionId )
+    public void registerItem ( final String name, final String itemId, final String connectionId, final boolean ignoreSummary )
     {
         if ( itemId == null )
         {
             throw new IllegalArgumentException ( String.format ( "'itemId' must not be null" ) );
         }
 
-        notifyChange ( name, DataItemValue.DISCONNECTED );
-        final DataItemRegistration oldRegistration = this.registrations.put ( name, new DataItemRegistration ( this, name, itemId, connectionId ) );
+        notifyChange ( name, DataItemValue.DISCONNECTED, ignoreSummary );
+        final DataItemRegistration oldRegistration = this.registrations.put ( name, new DataItemRegistration ( this, name, itemId, connectionId, ignoreSummary ) );
         if ( oldRegistration != null )
         {
             oldRegistration.dispose ();
         }
     }
 
-    public void notifyChange ( final String name, final DataItemValue value )
+    public void notifyChange ( final String name, final DataItemValue value, final boolean ignoreSummary )
     {
-        Map<String, DataItemValue> currentMap;
-        Map<String, DataItemValue> newMap;
+        Map<String, DataValue> currentMap;
+        Map<String, DataValue> newMap;
         do
         {
             currentMap = this.currentValues.get ();
-            newMap = new LinkedHashMap<String, DataItemValue> ( currentMap );
-            newMap.put ( name, value );
+            newMap = new LinkedHashMap<String, DataValue> ( currentMap );
+            newMap.put ( name, new DataValue ( value, ignoreSummary ) );
         } while ( !this.currentValues.compareAndSet ( currentMap, newMap ) );
 
         this.controller.triggerDataUpdate ();
     }
 
-    public Map<String, DataItemValue> getData ()
+    public Map<String, DataValue> getData ()
     {
         return Collections.unmodifiableMap ( this.currentValues.get () );
     }

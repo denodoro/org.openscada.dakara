@@ -27,6 +27,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
@@ -95,7 +96,7 @@ public class SymbolController
 
     private final SymbolData symbolData;
 
-    private Map<String, DataItemValue> lastData;
+    private Map<String, DataValue> lastData;
 
     private final Set<SummaryListener> summaryListeners = new LinkedHashSet<SummaryListener> ( 1 );
 
@@ -368,9 +369,9 @@ public class SymbolController
         this.registrationManager.unregisterItem ( name );
     }
 
-    public void registerItem ( final String name, final String itemId, final String connectionId )
+    public void registerItem ( final String name, final String itemId, final String connectionId, final boolean ignoreSummary )
     {
-        this.registrationManager.registerItem ( name, itemId, connectionId );
+        this.registrationManager.registerItem ( name, itemId, connectionId, ignoreSummary );
     }
 
     /**
@@ -399,12 +400,26 @@ public class SymbolController
 
     public Map<String, DataItemValue> getData ()
     {
-        return this.registrationManager.getData ();
+        return convert ( this.registrationManager.getData () );
+    }
+
+    private Map<String, DataItemValue> convert ( final Map<String, DataValue> data )
+    {
+        final Map<String, DataItemValue> values = new LinkedHashMap<String, DataItemValue> ( data.size () );
+        for ( final Map.Entry<String, DataValue> entry : data.entrySet () )
+        {
+            if ( entry.getValue () == null )
+            {
+                continue;
+            }
+            values.put ( entry.getKey (), entry.getValue ().getValue () );
+        }
+        return values;
     }
 
     public SummaryInformation getSummaryInformation ()
     {
-        return new SummaryInformation ( getData (), collectChildrenData () );
+        return new SummaryInformation ( this.registrationManager.getData (), collectChildrenData () );
     }
 
     private Collection<SummaryInformation> collectChildrenData ()
@@ -427,7 +442,7 @@ public class SymbolController
             return;
         }
 
-        final Map<String, DataItemValue> currentData = this.registrationManager.getData ();
+        final Map<String, DataValue> currentData = this.registrationManager.getData ();
         if ( currentData == this.lastData )
         {
             return;

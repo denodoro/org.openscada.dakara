@@ -339,6 +339,14 @@ public abstract class FigureController implements Controller
         getFigure ().setPreferredSize ( size );
     }
 
+    public void setSize ( final org.eclipse.draw2d.geometry.Dimension size )
+    {
+        if ( size != null )
+        {
+            getFigure ().setSize ( size );
+        }
+    }
+
     public void setSize ( final double width, final double height )
     {
         final Rectangle b = getFigure ().getBounds ();
