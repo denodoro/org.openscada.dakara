@@ -54,7 +54,7 @@ public class SummaryInformation
             }
 
             final DataItemValue value = entry.getValue ().getValue ();
-            if ( value == null || !value.isConnected () || value.isError () || value.getValue () == null || value.getValue ().isNull () )
+            if ( value == null || !value.isConnected () || value.isError () || value.getValue () == null || value.getValue ().isNull () && entry.getValue ().isNullInvalid () )
             {
                 return false;
             }

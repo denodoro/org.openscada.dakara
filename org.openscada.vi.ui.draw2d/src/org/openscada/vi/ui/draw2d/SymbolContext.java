@@ -67,12 +67,12 @@ public class SymbolContext
 
     public void registerItem ( final String name, final String itemId, final String connectionId )
     {
-        registerItem ( name, itemId, connectionId, false );
+        registerItem ( name, itemId, connectionId, false, true );
     }
 
-    public void registerItem ( final String name, final String itemId, final String connectionId, final boolean ignoreSummary )
+    public void registerItem ( final String name, final String itemId, final String connectionId, final boolean ignoreSummary, final boolean nullInvalid )
     {
-        this.controller.registerItem ( name, itemId, connectionId, ignoreSummary );
+        this.controller.registerItem ( name, itemId, connectionId, ignoreSummary, nullInvalid );
     }
 
     public void unregisterItem ( final String name )

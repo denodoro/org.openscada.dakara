@@ -29,11 +29,14 @@ public class DataValue
 
     private final boolean ignoreSummary;
 
-    public DataValue ( final DataItemValue value, final boolean ignoreSummary )
+    private final boolean nullInvalid;
+
+    public DataValue ( final DataItemValue value, final boolean ignoreSummary, final boolean nullInvalid )
     {
         super ();
         this.value = value;
         this.ignoreSummary = ignoreSummary;
+        this.nullInvalid = nullInvalid;
     }
 
     public DataItemValue getValue ()
@@ -44,6 +47,11 @@ public class DataValue
     public boolean isIgnoreSummary ()
     {
         return this.ignoreSummary;
+    }
+
+    public boolean isNullInvalid ()
+    {
+        return this.nullInvalid;
     }
 
     @Override

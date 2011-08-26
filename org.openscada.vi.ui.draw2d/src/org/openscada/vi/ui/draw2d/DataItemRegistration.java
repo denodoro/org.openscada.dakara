@@ -43,12 +43,15 @@ public class DataItemRegistration implements Observer
 
     private final boolean ignoreSummary;
 
-    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId, final boolean ignoreSummary )
+    private final boolean nullInvalid;
+
+    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId, final boolean ignoreSummary, final boolean nullInvalid )
     {
         this.registrationManager = registrationManager;
         this.name = name;
         this.itemId = itemId;
         this.ignoreSummary = ignoreSummary;
+        this.nullInvalid = nullInvalid;
 
         this.connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, new ConnectionIdTracker.Listener () {
 
@@ -64,6 +67,11 @@ public class DataItemRegistration implements Observer
     public boolean isIgnoreSummary ()
     {
         return this.ignoreSummary;
+    }
+
+    public boolean isNullInvalid ()
+    {
+        return this.nullInvalid;
     }
 
     protected synchronized void setConnection ( final ConnectionService connectionService )
@@ -102,7 +110,7 @@ public class DataItemRegistration implements Observer
 
     public void notifyChange ( final DataItemValue value )
     {
-        this.registrationManager.notifyChange ( this.name, value, this.ignoreSummary );
+        this.registrationManager.notifyChange ( this.name, value, this.ignoreSummary, this.nullInvalid );
     }
 
     @Override

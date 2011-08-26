@@ -57,22 +57,22 @@ public class RegistrationManager
         }
     }
 
-    public void registerItem ( final String name, final String itemId, final String connectionId, final boolean ignoreSummary )
+    public void registerItem ( final String name, final String itemId, final String connectionId, final boolean ignoreSummary, final boolean nullInvalid )
     {
         if ( itemId == null )
         {
             throw new IllegalArgumentException ( String.format ( "'itemId' must not be null" ) );
         }
 
-        notifyChange ( name, DataItemValue.DISCONNECTED, ignoreSummary );
-        final DataItemRegistration oldRegistration = this.registrations.put ( name, new DataItemRegistration ( this, name, itemId, connectionId, ignoreSummary ) );
+        notifyChange ( name, DataItemValue.DISCONNECTED, ignoreSummary, nullInvalid );
+        final DataItemRegistration oldRegistration = this.registrations.put ( name, new DataItemRegistration ( this, name, itemId, connectionId, ignoreSummary, nullInvalid ) );
         if ( oldRegistration != null )
         {
             oldRegistration.dispose ();
         }
     }
 
-    public void notifyChange ( final String name, final DataItemValue value, final boolean ignoreSummary )
+    public void notifyChange ( final String name, final DataItemValue value, final boolean ignoreSummary, final boolean nullInvalid )
     {
         Map<String, DataValue> currentMap;
         Map<String, DataValue> newMap;
@@ -80,7 +80,7 @@ public class RegistrationManager
         {
             currentMap = this.currentValues.get ();
             newMap = new LinkedHashMap<String, DataValue> ( currentMap );
-            newMap.put ( name, new DataValue ( value, ignoreSummary ) );
+            newMap.put ( name, new DataValue ( value, ignoreSummary, nullInvalid ) );
         } while ( !this.currentValues.compareAndSet ( currentMap, newMap ) );
 
         this.controller.triggerDataUpdate ();
