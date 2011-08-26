@@ -1,15 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Draw2d
-Bundle-SymbolicName: org.openscada.vi.ui.draw2d
-Bundle-Version: 1.0.0.qualifier
+Bundle-Name: Dakara Draw2D Implementation
+Bundle-SymbolicName: org.openscada.vi.ui.draw2d;singleton:=true
+Bundle-Version: 0.17.0.qualifier
 Bundle-Activator: org.openscada.vi.ui.draw2d.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.draw2d;bundle-version="3.7.0",
- org.openscada.vi.model;bundle-version="1.0.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.7.0"
+ org.openscada.vi.model;bundle-version="0.17.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.7.0",
+ org.eclipse.ui.console;bundle-version="3.5.100"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
@@ -19,13 +20,17 @@ Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
    org.eclipse.draw2d,
    org.eclipse.swt.widgets"
 Import-Package: com.google.common.io;version="0.6.0",
+ com.google.gson;version="1.4.0",
  org.apache.commons.beanutils;version="1.8.0",
  org.openscada.core;version="0.17.0",
  org.openscada.core.client;version="0.16.0",
  org.openscada.core.connection.provider;version="0.14.0",
  org.openscada.da.client;version="0.16.0",
  org.openscada.da.connection.provider;version="0.15.0",
+ org.openscada.ui.databinding;version="0.17.0",
+ org.openscada.ui.utils;version="0.17.0",
  org.openscada.ui.utils.blink;version="0.17.0",
  org.openscada.ui.utils.status;version="0.17.0",
+ org.openscada.utils.lang;version="0.17.0",
  org.openscada.utils.script;version="0.17.0",
  org.slf4j;version="1.5.8"

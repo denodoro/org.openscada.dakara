@@ -86,8 +86,8 @@ public class PositionItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Position_x_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Position_x_feature", "_UI_Position_type"),
+                 getString("_UI_Position_x_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Position_x_feature", "_UI_Position_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.POSITION__X,
                  true,
                  false,
@@ -109,8 +109,8 @@ public class PositionItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Position_y_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Position_y_feature", "_UI_Position_type"),
+                 getString("_UI_Position_y_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Position_y_feature", "_UI_Position_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.POSITION__Y,
                  true,
                  false,
@@ -129,7 +129,7 @@ public class PositionItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Position"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Position")); //$NON-NLS-1$
     }
 
     /**
@@ -142,7 +142,7 @@ public class PositionItemProvider
     public String getText(Object object)
     {
         Position position = (Position)object;
-        return getString("_UI_Position_type") + " " + position.getX();
+        return getString("_UI_Position_type") + " " + position.getX(); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

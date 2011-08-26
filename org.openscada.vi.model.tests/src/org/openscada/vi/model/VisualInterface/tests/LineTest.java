@@ -17,7 +17,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LineTest extends FigureTest
+public class LineTest extends ShapeTest
 {
 
     /**

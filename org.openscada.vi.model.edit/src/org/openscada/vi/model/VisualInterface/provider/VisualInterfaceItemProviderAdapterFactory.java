@@ -278,31 +278,6 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Figure} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FigureItemProvider figureItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Figure}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createFigureAdapter()
-    {
-        if (figureItemProvider == null)
-        {
-            figureItemProvider = new FigureItemProvider(this);
-        }
-
-        return figureItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.SymbolReference} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -400,6 +375,231 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         }
 
         return systemCursorItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.GridContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GridContainerItemProvider gridContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.GridContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGridContainerAdapter()
+    {
+        if (gridContainerItemProvider == null)
+        {
+            gridContainerItemProvider = new GridContainerItemProvider(this);
+        }
+
+        return gridContainerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.BorderContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BorderContainerItemProvider borderContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.BorderContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBorderContainerAdapter()
+    {
+        if (borderContainerItemProvider == null)
+        {
+            borderContainerItemProvider = new BorderContainerItemProvider(this);
+        }
+
+        return borderContainerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.BorderChild} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BorderChildItemProvider borderChildItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.BorderChild}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBorderChildAdapter()
+    {
+        if (borderChildItemProvider == null)
+        {
+            borderChildItemProvider = new BorderChildItemProvider(this);
+        }
+
+        return borderChildItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.GridChild} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GridChildItemProvider gridChildItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.GridChild}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGridChildAdapter()
+    {
+        if (gridChildItemProvider == null)
+        {
+            gridChildItemProvider = new GridChildItemProvider(this);
+        }
+
+        return gridChildItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.FigureContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected FigureContainerItemProvider figureContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.FigureContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createFigureContainerAdapter()
+    {
+        if (figureContainerItemProvider == null)
+        {
+            figureContainerItemProvider = new FigureContainerItemProvider(this);
+        }
+
+        return figureContainerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Image} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ImageItemProvider imageItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Image}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createImageAdapter()
+    {
+        if (imageItemProvider == null)
+        {
+            imageItemProvider = new ImageItemProvider(this);
+        }
+
+        return imageItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Ellipse} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EllipseItemProvider ellipseItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Ellipse}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEllipseAdapter()
+    {
+        if (ellipseItemProvider == null)
+        {
+            ellipseItemProvider = new EllipseItemProvider(this);
+        }
+
+        return ellipseItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Arc} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArcItemProvider arcItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Arc}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createArcAdapter()
+    {
+        if (arcItemProvider == null)
+        {
+            arcItemProvider = new ArcItemProvider(this);
+        }
+
+        return arcItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.Connection} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ConnectionItemProvider connectionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.Connection}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createConnectionAdapter()
+    {
+        if (connectionItemProvider == null)
+        {
+            connectionItemProvider = new ConnectionItemProvider(this);
+        }
+
+        return connectionItemProvider;
     }
 
     /**
@@ -521,11 +721,19 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
         if (xyContainerItemProvider != null) xyContainerItemProvider.dispose();
         if (positionItemProvider != null) positionItemProvider.dispose();
         if (lineItemProvider != null) lineItemProvider.dispose();
-        if (figureItemProvider != null) figureItemProvider.dispose();
         if (symbolReferenceItemProvider != null) symbolReferenceItemProvider.dispose();
         if (stringToStringMapItemProvider != null) stringToStringMapItemProvider.dispose();
         if (dimensionItemProvider != null) dimensionItemProvider.dispose();
         if (systemCursorItemProvider != null) systemCursorItemProvider.dispose();
+        if (gridContainerItemProvider != null) gridContainerItemProvider.dispose();
+        if (borderContainerItemProvider != null) borderContainerItemProvider.dispose();
+        if (borderChildItemProvider != null) borderChildItemProvider.dispose();
+        if (gridChildItemProvider != null) gridChildItemProvider.dispose();
+        if (figureContainerItemProvider != null) figureContainerItemProvider.dispose();
+        if (imageItemProvider != null) imageItemProvider.dispose();
+        if (ellipseItemProvider != null) ellipseItemProvider.dispose();
+        if (arcItemProvider != null) arcItemProvider.dispose();
+        if (connectionItemProvider != null) connectionItemProvider.dispose();
     }
 
 }

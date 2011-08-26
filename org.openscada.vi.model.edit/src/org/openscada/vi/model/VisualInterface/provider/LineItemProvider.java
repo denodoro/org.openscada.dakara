@@ -39,7 +39,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * @generated
  */
 public class LineItemProvider
-    extends FigureItemProvider
+    extends ShapeItemProvider
     implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -71,32 +71,8 @@ public class LineItemProvider
         {
             super.getPropertyDescriptors(object);
 
-            addLineWidthPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Line Width feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addLineWidthPropertyDescriptor(Object object)
-    {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Line_lineWidth_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Line_lineWidth_feature", "_UI_Line_type"),
-                 VisualInterfacePackage.Literals.LINE__LINE_WIDTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
     }
 
     /**
@@ -141,7 +117,7 @@ public class LineItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Line"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Line")); //$NON-NLS-1$
     }
 
     /**
@@ -155,8 +131,8 @@ public class LineItemProvider
     {
         String label = ((Line)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Line_type") :
-            getString("_UI_Line_type") + " " + label;
+            getString("_UI_Line_type") : //$NON-NLS-1$
+            getString("_UI_Line_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -173,9 +149,6 @@ public class LineItemProvider
 
         switch (notification.getFeatureID(Line.class))
         {
-            case VisualInterfacePackage.LINE__LINE_WIDTH:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                return;
             case VisualInterfacePackage.LINE__POINTS:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;

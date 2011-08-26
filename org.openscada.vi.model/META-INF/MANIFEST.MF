@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.openscada.vi.model;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.17.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -10,6 +10,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: org.openscada.vi.model.VisualInterface,
- org.openscada.vi.model.VisualInterface.impl,
- org.openscada.vi.model.VisualInterface.util
+Export-Package: org.openscada.vi.model.VisualInterface;version="0.17.0",
+ org.openscada.vi.model.VisualInterface.impl;version="0.17.0",
+ org.openscada.vi.model.VisualInterface.util;version="0.17.0"

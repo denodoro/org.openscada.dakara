@@ -1,3 +1,22 @@
+/*
+ * This file is part of the openSCADA project
+ * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ *
+ * openSCADA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License version 3
+ * only, as published by the Free Software Foundation.
+ *
+ * openSCADA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License version 3 for more details
+ * (a copy is included in the LICENSE file that accompanied this code).
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * version 3 along with openSCADA. If not, see
+ * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
+ */
+
 package org.openscada.vi.ui.draw2d;
 
 import java.util.Observable;
@@ -22,11 +41,17 @@ public class DataItemRegistration implements Observer
 
     private DataItem dataItem;
 
-    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId )
+    private final boolean ignoreSummary;
+
+    private final boolean nullInvalid;
+
+    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId, final boolean ignoreSummary, final boolean nullInvalid )
     {
         this.registrationManager = registrationManager;
         this.name = name;
         this.itemId = itemId;
+        this.ignoreSummary = ignoreSummary;
+        this.nullInvalid = nullInvalid;
 
         this.connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, new ConnectionIdTracker.Listener () {
 
@@ -39,7 +64,17 @@ public class DataItemRegistration implements Observer
         this.connectionTracker.open ();
     }
 
-    protected void setConnection ( final ConnectionService connectionService )
+    public boolean isIgnoreSummary ()
+    {
+        return this.ignoreSummary;
+    }
+
+    public boolean isNullInvalid ()
+    {
+        return this.nullInvalid;
+    }
+
+    protected synchronized void setConnection ( final ConnectionService connectionService )
     {
         disconnect ();
 
@@ -49,6 +84,12 @@ public class DataItemRegistration implements Observer
             this.dataItem = new DataItem ( this.itemId );
             this.dataItem.addObserver ( this );
             this.dataItem.register ( this.connectionService.getItemManager () );
+        }
+
+        // at the end we are disconnected ... notify as last operation
+        if ( connectionService == null )
+        {
+            notifyChange ( DataItemValue.DISCONNECTED );
         }
     }
 
@@ -75,7 +116,7 @@ public class DataItemRegistration implements Observer
 
     public void notifyChange ( final DataItemValue value )
     {
-        this.registrationManager.notifyChange ( this.name, value );
+        this.registrationManager.notifyChange ( this.name, value, this.ignoreSummary, this.nullInvalid );
     }
 
     @Override

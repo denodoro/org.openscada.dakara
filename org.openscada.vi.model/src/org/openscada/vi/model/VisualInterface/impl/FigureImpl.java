@@ -35,12 +35,14 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOnDoubleClick <em>On Double Click</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getCursor <em>Cursor</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#isVisible <em>Visible</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getBorder <em>Border</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOpaque <em>Opaque</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FigureImpl extends EObjectImpl implements Figure
+public abstract class FigureImpl extends EObjectImpl implements Figure
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -181,6 +183,46 @@ public class FigureImpl extends EObjectImpl implements Figure
      * @ordered
      */
     protected boolean visible = VISIBLE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getBorder() <em>Border</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBorder()
+     * @generated
+     * @ordered
+     */
+    protected static final String BORDER_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getBorder() <em>Border</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBorder()
+     * @generated
+     * @ordered
+     */
+    protected String border = BORDER_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getOpaque() <em>Opaque</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOpaque()
+     * @generated
+     * @ordered
+     */
+    protected static final Boolean OPAQUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getOpaque() <em>Opaque</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOpaque()
+     * @generated
+     * @ordered
+     */
+    protected Boolean opaque = OPAQUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -437,6 +479,52 @@ public class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getBorder()
+    {
+        return border;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBorder(String newBorder)
+    {
+        String oldBorder = border;
+        border = newBorder;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__BORDER, oldBorder, border));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Boolean getOpaque()
+    {
+        return opaque;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOpaque(Boolean newOpaque)
+    {
+        Boolean oldOpaque = opaque;
+        opaque = newOpaque;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__OPAQUE, oldOpaque, opaque));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -475,6 +563,10 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return basicGetCursor();
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 return isVisible();
+            case VisualInterfacePackage.FIGURE__BORDER:
+                return getBorder();
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                return getOpaque();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -512,6 +604,12 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return;
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 setVisible((Boolean)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                setBorder((String)newValue);
+                return;
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                setOpaque((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -551,6 +649,12 @@ public class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 setVisible(VISIBLE_EDEFAULT);
                 return;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                setBorder(BORDER_EDEFAULT);
+                return;
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                setOpaque(OPAQUE_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -581,6 +685,10 @@ public class FigureImpl extends EObjectImpl implements Figure
                 return cursor != null;
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 return visible != VISIBLE_EDEFAULT;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                return BORDER_EDEFAULT == null ? border != null : !BORDER_EDEFAULT.equals(border);
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                return OPAQUE_EDEFAULT == null ? opaque != null : !OPAQUE_EDEFAULT.equals(opaque);
         }
         return super.eIsSet(featureID);
     }
@@ -596,18 +704,22 @@ public class FigureImpl extends EObjectImpl implements Figure
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
+        result.append(" (name: "); //$NON-NLS-1$
         result.append(name);
-        result.append(", foregroundColor: ");
+        result.append(", foregroundColor: "); //$NON-NLS-1$
         result.append(foregroundColor);
-        result.append(", backgroundColor: ");
+        result.append(", backgroundColor: "); //$NON-NLS-1$
         result.append(backgroundColor);
-        result.append(", onClick: ");
+        result.append(", onClick: "); //$NON-NLS-1$
         result.append(onClick);
-        result.append(", onDoubleClick: ");
+        result.append(", onDoubleClick: "); //$NON-NLS-1$
         result.append(onDoubleClick);
-        result.append(", visible: ");
+        result.append(", visible: "); //$NON-NLS-1$
         result.append(visible);
+        result.append(", border: "); //$NON-NLS-1$
+        result.append(border);
+        result.append(", opaque: "); //$NON-NLS-1$
+        result.append(opaque);
         result.append(')');
         return result.toString();
     }

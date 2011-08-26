@@ -1,3 +1,22 @@
+/*
+ * This file is part of the openSCADA project
+ * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ *
+ * openSCADA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License version 3
+ * only, as published by the Free Software Foundation.
+ *
+ * openSCADA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License version 3 for more details
+ * (a copy is included in the LICENSE file that accompanied this code).
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * version 3 along with openSCADA. If not, see
+ * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
+ */
+
 package org.openscada.vi.ui.draw2d.primitives;
 
 import java.util.HashMap;
@@ -6,7 +25,6 @@ import java.util.Map;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.LayeredPane;
-import org.eclipse.draw2d.ScalableLayeredPane;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.URI;
@@ -18,8 +36,10 @@ import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.ui.draw2d.Activator;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.SymbolLoader;
 import org.openscada.vi.ui.draw2d.ViewElementFactory;
+import org.openscada.vi.ui.draw2d.impl.ScalableLayeredPane;
+import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
+import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,8 +54,16 @@ public class SymbolReferenceController implements Controller
     {
         if ( symbolReference.getZoom () != null )
         {
-            this.figure = new ScalableLayeredPane ();
-            ( (ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
+            if ( Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_HAIRLINE ) )
+            {
+                this.figure = new ScalableLayeredPane ();
+                ( (ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
+            }
+            else
+            {
+                this.figure = new org.eclipse.draw2d.ScalableLayeredPane ();
+                ( (org.eclipse.draw2d.ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
+            }
         }
         else
         {
@@ -50,7 +78,8 @@ public class SymbolReferenceController implements Controller
         try
         {
             final URI uri = URI.createURI ( symbolReference.getUri () );
-            final SymbolLoader symbolLoader = factory.load ( uri );
+            final XMISymbolLoader symbolLoader = factory.load ( uri );
+            symbolLoader.load ();
 
             final Map<String, String> properties = new HashMap<String, String> ();
             properties.putAll ( convert ( symbolReference.getProperties () ) );
@@ -69,7 +98,7 @@ public class SymbolReferenceController implements Controller
             }
 
             // register the symbol element controller 
-            controller.addElement ( symbolReference.getName (), elementController );
+            controller.addElement ( symbolReference, elementController );
         }
         catch ( final Exception e )
         {

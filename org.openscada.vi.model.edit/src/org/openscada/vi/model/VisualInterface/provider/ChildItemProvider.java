@@ -70,8 +70,32 @@ public class ChildItemProvider
         {
             super.getPropertyDescriptors(object);
 
+            addNamePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamePropertyDescriptor(Object object)
+    {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Child_name_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Child_name_feature", "_UI_Child_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                 VisualInterfacePackage.Literals.CHILD__NAME,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
     }
 
     /**
@@ -116,7 +140,7 @@ public class ChildItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Child"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Child")); //$NON-NLS-1$
     }
 
     /**
@@ -128,7 +152,10 @@ public class ChildItemProvider
     @Override
     public String getText(Object object)
     {
-        return getString("_UI_Child_type");
+        String label = ((Child)object).getName();
+        return label == null || label.length() == 0 ?
+            getString("_UI_Child_type") : //$NON-NLS-1$
+            getString("_UI_Child_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -145,6 +172,9 @@ public class ChildItemProvider
 
         switch (notification.getFeatureID(Child.class))
         {
+            case VisualInterfacePackage.CHILD__NAME:
+                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                return;
             case VisualInterfacePackage.CHILD__ELEMENT:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                 return;
@@ -163,11 +193,6 @@ public class ChildItemProvider
     protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
     {
         super.collectNewChildDescriptors(newChildDescriptors, object);
-
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
-                 VisualInterfaceFactory.eINSTANCE.createFigure()));
 
         newChildDescriptors.add
             (createChildParameter
@@ -193,6 +218,36 @@ public class ChildItemProvider
             (createChildParameter
                 (VisualInterfacePackage.Literals.CHILD__ELEMENT,
                  VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createGridContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createImage()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createEllipse()));
+
+        newChildDescriptors.add
+            (createChildParameter
+                (VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                 VisualInterfaceFactory.eINSTANCE.createArc()));
     }
 
     /**

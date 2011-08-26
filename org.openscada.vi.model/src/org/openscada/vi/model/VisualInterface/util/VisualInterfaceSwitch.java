@@ -162,6 +162,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
             {
                 Line line = (Line)theEObject;
                 T result = caseLine(line);
+                if (result == null) result = caseShape(line);
                 if (result == null) result = caseFigure(line);
                 if (result == null) result = casePrimitive(line);
                 if (result == null) result = defaultCase(theEObject);
@@ -209,6 +210,85 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                 SystemCursor systemCursor = (SystemCursor)theEObject;
                 T result = caseSystemCursor(systemCursor);
                 if (result == null) result = caseCursor(systemCursor);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.GRID_CONTAINER:
+            {
+                GridContainer gridContainer = (GridContainer)theEObject;
+                T result = caseGridContainer(gridContainer);
+                if (result == null) result = caseContainer(gridContainer);
+                if (result == null) result = casePrimitive(gridContainer);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.BORDER_CONTAINER:
+            {
+                BorderContainer borderContainer = (BorderContainer)theEObject;
+                T result = caseBorderContainer(borderContainer);
+                if (result == null) result = caseContainer(borderContainer);
+                if (result == null) result = casePrimitive(borderContainer);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.BORDER_CHILD:
+            {
+                BorderChild borderChild = (BorderChild)theEObject;
+                T result = caseBorderChild(borderChild);
+                if (result == null) result = caseChild(borderChild);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.GRID_CHILD:
+            {
+                GridChild gridChild = (GridChild)theEObject;
+                T result = caseGridChild(gridChild);
+                if (result == null) result = caseChild(gridChild);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.FIGURE_CONTAINER:
+            {
+                FigureContainer figureContainer = (FigureContainer)theEObject;
+                T result = caseFigureContainer(figureContainer);
+                if (result == null) result = caseFigure(figureContainer);
+                if (result == null) result = casePrimitive(figureContainer);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.IMAGE:
+            {
+                Image image = (Image)theEObject;
+                T result = caseImage(image);
+                if (result == null) result = caseFigure(image);
+                if (result == null) result = casePrimitive(image);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.ELLIPSE:
+            {
+                Ellipse ellipse = (Ellipse)theEObject;
+                T result = caseEllipse(ellipse);
+                if (result == null) result = caseShape(ellipse);
+                if (result == null) result = caseFigure(ellipse);
+                if (result == null) result = casePrimitive(ellipse);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.ARC:
+            {
+                Arc arc = (Arc)theEObject;
+                T result = caseArc(arc);
+                if (result == null) result = caseShape(arc);
+                if (result == null) result = caseFigure(arc);
+                if (result == null) result = casePrimitive(arc);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            case VisualInterfacePackage.CONNECTION:
+            {
+                Connection connection = (Connection)theEObject;
+                T result = caseConnection(connection);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -484,6 +564,150 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSystemCursor(SystemCursor object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Grid Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Grid Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGridContainer(GridContainer object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Border Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Border Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBorderContainer(BorderContainer object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Border Child</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Border Child</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBorderChild(BorderChild object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Grid Child</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Grid Child</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGridChild(GridChild object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Figure Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Figure Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFigureContainer(FigureContainer object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseImage(Image object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ellipse</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ellipse</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEllipse(Ellipse object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Arc</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Arc</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseArc(Arc object)
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Connection</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Connection</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseConnection(Connection object)
     {
         return null;
     }

@@ -34,13 +34,12 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.LineImpl#getPoints <em>Points</em>}</li>
- *   <li>{@link org.openscada.vi.model.VisualInterface.impl.LineImpl#getLineWidth <em>Line Width</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LineImpl extends FigureImpl implements Line
+public class LineImpl extends ShapeImpl implements Line
 {
     /**
      * The cached value of the '{@link #getPoints() <em>Points</em>}' containment reference list.
@@ -51,25 +50,6 @@ public class LineImpl extends FigureImpl implements Line
      * @ordered
      */
     protected EList<Position> points;
-
-    /**
-     * The default value of the '{@link #getLineWidth() <em>Line Width</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLineWidth()
-     * @generated
-     * @ordered
-     */
-    protected static final int LINE_WIDTH_EDEFAULT = 1;
-    /**
-     * The cached value of the '{@link #getLineWidth() <em>Line Width</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLineWidth()
-     * @generated
-     * @ordered
-     */
-    protected int lineWidth = LINE_WIDTH_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -111,29 +91,6 @@ public class LineImpl extends FigureImpl implements Line
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getLineWidth()
-    {
-        return lineWidth;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLineWidth(int newLineWidth)
-    {
-        int oldLineWidth = lineWidth;
-        lineWidth = newLineWidth;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.LINE__LINE_WIDTH, oldLineWidth, lineWidth));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
     {
@@ -157,8 +114,6 @@ public class LineImpl extends FigureImpl implements Line
         {
             case VisualInterfacePackage.LINE__POINTS:
                 return getPoints();
-            case VisualInterfacePackage.LINE__LINE_WIDTH:
-                return getLineWidth();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -178,9 +133,6 @@ public class LineImpl extends FigureImpl implements Line
                 getPoints().clear();
                 getPoints().addAll((Collection<? extends Position>)newValue);
                 return;
-            case VisualInterfacePackage.LINE__LINE_WIDTH:
-                setLineWidth((Integer)newValue);
-                return;
         }
         super.eSet(featureID, newValue);
     }
@@ -198,9 +150,6 @@ public class LineImpl extends FigureImpl implements Line
             case VisualInterfacePackage.LINE__POINTS:
                 getPoints().clear();
                 return;
-            case VisualInterfacePackage.LINE__LINE_WIDTH:
-                setLineWidth(LINE_WIDTH_EDEFAULT);
-                return;
         }
         super.eUnset(featureID);
     }
@@ -217,27 +166,8 @@ public class LineImpl extends FigureImpl implements Line
         {
             case VisualInterfacePackage.LINE__POINTS:
                 return points != null && !points.isEmpty();
-            case VisualInterfacePackage.LINE__LINE_WIDTH:
-                return lineWidth != LINE_WIDTH_EDEFAULT;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString()
-    {
-        if (eIsProxy()) return super.toString();
-
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (lineWidth: ");
-        result.append(lineWidth);
-        result.append(')');
-        return result.toString();
     }
 
 } //LineImpl

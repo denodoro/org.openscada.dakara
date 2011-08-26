@@ -92,14 +92,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_text_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type"),
+                 getString("_UI_Text_text_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__TEXT,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -115,14 +115,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_labelAlignment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_labelAlignment_feature", "_UI_Text_type"),
+                 getString("_UI_Text_labelAlignment_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_labelAlignment_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__LABEL_ALIGNMENT,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -138,14 +138,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_textAlignment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textAlignment_feature", "_UI_Text_type"),
+                 getString("_UI_Text_textAlignment_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textAlignment_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__TEXT_ALIGNMENT,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -161,14 +161,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_textPlacement_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textPlacement_feature", "_UI_Text_type"),
+                 getString("_UI_Text_textPlacement_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textPlacement_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__TEXT_PLACEMENT,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -184,14 +184,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_fontName_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontName_feature", "_UI_Text_type"),
+                 getString("_UI_Text_fontName_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontName_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__FONT_NAME,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -207,14 +207,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_fontSize_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontSize_feature", "_UI_Text_type"),
+                 getString("_UI_Text_fontSize_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontSize_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__FONT_SIZE,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
+                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -230,14 +230,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_fontBold_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontBold_feature", "_UI_Text_type"),
+                 getString("_UI_Text_fontBold_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontBold_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__FONT_BOLD,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
+                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -253,14 +253,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_fontItalic_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontItalic_feature", "_UI_Text_type"),
+                 getString("_UI_Text_fontItalic_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontItalic_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__FONT_ITALIC,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
+                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -276,14 +276,14 @@ public class TextItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Text_iconAlignment_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_iconAlignment_feature", "_UI_Text_type"),
+                 getString("_UI_Text_iconAlignment_feature"), //$NON-NLS-1$
+                 getString("_UI_PropertyDescriptor_description", "_UI_Text_iconAlignment_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                  VisualInterfacePackage.Literals.TEXT__ICON_ALIGNMENT,
                  true,
                  false,
                  false,
                  ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
+                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
                  null));
     }
 
@@ -296,7 +296,7 @@ public class TextItemProvider
     @Override
     public Object getImage(Object object)
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Text"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Text")); //$NON-NLS-1$
     }
 
     /**
@@ -310,8 +310,8 @@ public class TextItemProvider
     {
         String label = ((Text)object).getText();
         return label == null || label.length() == 0 ?
-            getString("_UI_Text_type") :
-            getString("_UI_Text_type") + " " + label;
+            getString("_UI_Text_type") : //$NON-NLS-1$
+            getString("_UI_Text_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

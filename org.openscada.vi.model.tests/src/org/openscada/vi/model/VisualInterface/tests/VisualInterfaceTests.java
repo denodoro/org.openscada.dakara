@@ -37,7 +37,7 @@ public class VisualInterfaceTests extends TestSuite
      */
     public static Test suite()
     {
-        TestSuite suite = new VisualInterfaceTests("VisualInterface Tests");
+        TestSuite suite = new VisualInterfaceTests("VisualInterface Tests"); //$NON-NLS-1$
         return suite;
     }
 

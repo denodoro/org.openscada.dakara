@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.openscada.vi.model.editor;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.17.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.openscada.vi.model.VisualInterface.presentation
+Export-Package: org.openscada.vi.model.VisualInterface.presentation;version="0.17.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.openscada.vi.model.edit;visibility:=reexport,

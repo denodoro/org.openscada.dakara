@@ -587,23 +587,23 @@ public class TextImpl extends FigureImpl implements Text
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (text: ");
+        result.append(" (text: "); //$NON-NLS-1$
         result.append(text);
-        result.append(", labelAlignment: ");
+        result.append(", labelAlignment: "); //$NON-NLS-1$
         result.append(labelAlignment);
-        result.append(", iconAlignment: ");
+        result.append(", iconAlignment: "); //$NON-NLS-1$
         result.append(iconAlignment);
-        result.append(", textAlignment: ");
+        result.append(", textAlignment: "); //$NON-NLS-1$
         result.append(textAlignment);
-        result.append(", textPlacement: ");
+        result.append(", textPlacement: "); //$NON-NLS-1$
         result.append(textPlacement);
-        result.append(", fontName: ");
+        result.append(", fontName: "); //$NON-NLS-1$
         result.append(fontName);
-        result.append(", fontSize: ");
+        result.append(", fontSize: "); //$NON-NLS-1$
         result.append(fontSize);
-        result.append(", fontBold: ");
+        result.append(", fontBold: "); //$NON-NLS-1$
         result.append(fontBold);
-        result.append(", fontItalic: ");
+        result.append(", fontItalic: "); //$NON-NLS-1$
         result.append(fontItalic);
         result.append(')');
         return result.toString();

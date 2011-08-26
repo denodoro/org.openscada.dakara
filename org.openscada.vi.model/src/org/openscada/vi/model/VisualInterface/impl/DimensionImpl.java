@@ -226,9 +226,9 @@ public class DimensionImpl extends EObjectImpl implements Dimension
         if (eIsProxy()) return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (width: ");
+        result.append(" (width: "); //$NON-NLS-1$
         result.append(width);
-        result.append(", height: ");
+        result.append(", height: "); //$NON-NLS-1$
         result.append(height);
         result.append(')');
         return result.toString();

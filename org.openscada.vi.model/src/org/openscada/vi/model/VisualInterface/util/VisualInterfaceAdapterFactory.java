@@ -165,6 +165,51 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
                 return createSystemCursorAdapter();
             }
             @Override
+            public Adapter caseGridContainer(GridContainer object)
+            {
+                return createGridContainerAdapter();
+            }
+            @Override
+            public Adapter caseBorderContainer(BorderContainer object)
+            {
+                return createBorderContainerAdapter();
+            }
+            @Override
+            public Adapter caseBorderChild(BorderChild object)
+            {
+                return createBorderChildAdapter();
+            }
+            @Override
+            public Adapter caseGridChild(GridChild object)
+            {
+                return createGridChildAdapter();
+            }
+            @Override
+            public Adapter caseFigureContainer(FigureContainer object)
+            {
+                return createFigureContainerAdapter();
+            }
+            @Override
+            public Adapter caseImage(Image object)
+            {
+                return createImageAdapter();
+            }
+            @Override
+            public Adapter caseEllipse(Ellipse object)
+            {
+                return createEllipseAdapter();
+            }
+            @Override
+            public Adapter caseArc(Arc object)
+            {
+                return createArcAdapter();
+            }
+            @Override
+            public Adapter caseConnection(Connection object)
+            {
+                return createConnectionAdapter();
+            }
+            @Override
             public Adapter defaultCase(EObject object)
             {
                 return createEObjectAdapter();
@@ -437,6 +482,141 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSystemCursorAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.GridContainer <em>Grid Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer
+     * @generated
+     */
+    public Adapter createGridContainerAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.BorderContainer <em>Border Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer
+     * @generated
+     */
+    public Adapter createBorderContainerAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.BorderChild <em>Border Child</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.BorderChild
+     * @generated
+     */
+    public Adapter createBorderChildAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.GridChild <em>Grid Child</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.GridChild
+     * @generated
+     */
+    public Adapter createGridChildAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.FigureContainer <em>Figure Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.FigureContainer
+     * @generated
+     */
+    public Adapter createFigureContainerAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Image <em>Image</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.Image
+     * @generated
+     */
+    public Adapter createImageAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Ellipse <em>Ellipse</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.Ellipse
+     * @generated
+     */
+    public Adapter createEllipseAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Arc <em>Arc</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.Arc
+     * @generated
+     */
+    public Adapter createArcAdapter()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Connection <em>Connection</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.Connection
+     * @generated
+     */
+    public Adapter createConnectionAdapter()
     {
         return null;
     }

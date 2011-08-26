@@ -181,8 +181,8 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
     {
         this.workbench = workbench;
         this.selection = selection;
-        setWindowTitle(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-        setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(VisualInterfaceEditorPlugin.INSTANCE.getImage("full/wizban/NewVisualInterface")));
+        setWindowTitle(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_Wizard_label")); //$NON-NLS-1$
+        setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(VisualInterfaceEditorPlugin.INSTANCE.getImage("full/wizban/NewVisualInterface"))); //$NON-NLS-1$
     }
 
     /**
@@ -317,7 +317,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
             }
             catch (PartInitException exception)
             {
-                MessageDialog.openError(workbenchWindow.getShell(), VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+                MessageDialog.openError(workbenchWindow.getShell(), VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage()); //$NON-NLS-1$
                 return false;
             }
 
@@ -363,7 +363,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
                 String extension = new Path(getFileName()).getFileExtension();
                 if (extension == null || !FILE_EXTENSIONS.contains(extension))
                 {
-                    String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+                    String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension"; //$NON-NLS-1$ //$NON-NLS-2$
                     setErrorMessage(VisualInterfaceEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
                     return false;
                 }
@@ -446,7 +446,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
             Label containerLabel = new Label(composite, SWT.LEFT);
             {
-                containerLabel.setText(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+                containerLabel.setText(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_ModelObject")); //$NON-NLS-1$
 
                 GridData data = new GridData();
                 data.horizontalAlignment = GridData.FILL;
@@ -474,7 +474,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
             Label encodingLabel = new Label(composite, SWT.LEFT);
             {
-                encodingLabel.setText(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+                encodingLabel.setText(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_XMLEncoding")); //$NON-NLS-1$
 
                 GridData data = new GridData();
                 data.horizontalAlignment = GridData.FILL;
@@ -587,7 +587,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         {
             try
             {
-                return VisualInterfaceEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+                return VisualInterfaceEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type"); //$NON-NLS-1$ //$NON-NLS-2$
             }
             catch(MissingResourceException mre)
             {
@@ -606,7 +606,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
             if (encodings == null)
             {
                 encodings = new ArrayList<String>();
-                for (StringTokenizer stringTokenizer = new StringTokenizer(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
+                for (StringTokenizer stringTokenizer = new StringTokenizer(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) //$NON-NLS-1$
                 {
                     encodings.add(stringTokenizer.nextToken());
                 }
@@ -626,10 +626,10 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
     {
         // Create a page, set the title, and the initial model file name.
         //
-        newFileCreationPage = new VisualInterfaceModelWizardNewFileCreationPage("Whatever", selection);
-        newFileCreationPage.setTitle(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceModelWizard_label"));
-        newFileCreationPage.setDescription(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceModelWizard_description"));
-        newFileCreationPage.setFileName(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+        newFileCreationPage = new VisualInterfaceModelWizardNewFileCreationPage("Whatever", selection); //$NON-NLS-1$
+        newFileCreationPage.setTitle(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceModelWizard_label")); //$NON-NLS-1$
+        newFileCreationPage.setDescription(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceModelWizard_description")); //$NON-NLS-1$
+        newFileCreationPage.setFileName(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0)); //$NON-NLS-1$ //$NON-NLS-2$
         addPage(newFileCreationPage);
 
         // Try and get the resource selection to determine a current directory for the file dialog.
@@ -659,20 +659,20 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
                     // Make up a unique new name here.
                     //
-                    String defaultModelBaseFilename = VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceEditorFilenameDefaultBase");
+                    String defaultModelBaseFilename = VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceEditorFilenameDefaultBase"); //$NON-NLS-1$
                     String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension; //$NON-NLS-1$
                     for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
                     {
-                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension; //$NON-NLS-1$
                     }
                     newFileCreationPage.setFileName(modelFilename);
                 }
             }
         }
-        initialObjectCreationPage = new VisualInterfaceModelWizardInitialObjectCreationPage("Whatever2");
-        initialObjectCreationPage.setTitle(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceModelWizard_label"));
-        initialObjectCreationPage.setDescription(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+        initialObjectCreationPage = new VisualInterfaceModelWizardInitialObjectCreationPage("Whatever2"); //$NON-NLS-1$
+        initialObjectCreationPage.setTitle(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_VisualInterfaceModelWizard_label")); //$NON-NLS-1$
+        initialObjectCreationPage.setDescription(VisualInterfaceEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description")); //$NON-NLS-1$
         addPage(initialObjectCreationPage);
     }
 

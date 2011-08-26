@@ -99,15 +99,6 @@ public interface VisualInterfaceFactory extends EFactory
     Line createLine();
 
     /**
-     * Returns a new object of class '<em>Figure</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Figure</em>'.
-     * @generated
-     */
-    Figure createFigure();
-
-    /**
      * Returns a new object of class '<em>Symbol Reference</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -133,6 +124,87 @@ public interface VisualInterfaceFactory extends EFactory
      * @generated
      */
     SystemCursor createSystemCursor();
+
+    /**
+     * Returns a new object of class '<em>Grid Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Grid Container</em>'.
+     * @generated
+     */
+    GridContainer createGridContainer();
+
+    /**
+     * Returns a new object of class '<em>Border Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Border Container</em>'.
+     * @generated
+     */
+    BorderContainer createBorderContainer();
+
+    /**
+     * Returns a new object of class '<em>Border Child</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Border Child</em>'.
+     * @generated
+     */
+    BorderChild createBorderChild();
+
+    /**
+     * Returns a new object of class '<em>Grid Child</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Grid Child</em>'.
+     * @generated
+     */
+    GridChild createGridChild();
+
+    /**
+     * Returns a new object of class '<em>Figure Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Figure Container</em>'.
+     * @generated
+     */
+    FigureContainer createFigureContainer();
+
+    /**
+     * Returns a new object of class '<em>Image</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Image</em>'.
+     * @generated
+     */
+    Image createImage();
+
+    /**
+     * Returns a new object of class '<em>Ellipse</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Ellipse</em>'.
+     * @generated
+     */
+    Ellipse createEllipse();
+
+    /**
+     * Returns a new object of class '<em>Arc</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Arc</em>'.
+     * @generated
+     */
+    Arc createArc();
+
+    /**
+     * Returns a new object of class '<em>Connection</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Connection</em>'.
+     * @generated
+     */
+    Connection createConnection();
 
     /**
      * Returns the package supported by this factory.

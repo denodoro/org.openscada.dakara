@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getScriptModules <em>Script Modules</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor <em>Background Color</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getDesignSize <em>Design Size</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Symbol#getConnections <em>Connections</em>}</li>
  * </ul>
  * </p>
  *
@@ -223,5 +225,46 @@ public interface Symbol extends EObject
      * @generated
      */
     void setBackgroundColor(String value);
+
+    /**
+     * Returns the value of the '<em><b>Design Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The size as intended by the designer. May be used for layouting as preferred size.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Design Size</em>' containment reference.
+     * @see #setDesignSize(Dimension)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbol_DesignSize()
+     * @model containment="true"
+     * @generated
+     */
+    Dimension getDesignSize();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getDesignSize <em>Design Size</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Design Size</em>' containment reference.
+     * @see #getDesignSize()
+     * @generated
+     */
+    void setDesignSize(Dimension value);
+
+    /**
+     * Returns the value of the '<em><b>Connections</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.vi.model.VisualInterface.Connection}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Connections</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Connections</em>' containment reference list.
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getSymbol_Connections()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Connection> getConnections();
 
 } // Symbol

@@ -144,13 +144,31 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__BACKGROUND_COLOR = 7;
 
     /**
+     * The feature id for the '<em><b>Design Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__DESIGN_SIZE = 8;
+
+    /**
+     * The feature id for the '<em><b>Connections</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__CONNECTIONS = 9;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 8;
+    int SYMBOL_FEATURE_COUNT = 10;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
@@ -291,13 +309,31 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE__VISIBLE = PRIMITIVE_FEATURE_COUNT + 6;
 
     /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__BORDER = PRIMITIVE_FEATURE_COUNT + 7;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__OPAQUE = PRIMITIVE_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Figure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 7;
+    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 9;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl <em>Shape</em>}' class.
@@ -382,13 +418,76 @@ public interface VisualInterfacePackage extends EPackage
     int SHAPE__VISIBLE = FIGURE__VISIBLE;
 
     /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__BORDER = FIGURE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__OPAQUE = FIGURE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__LINE_WIDTH = FIGURE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__ANTIALIAS = FIGURE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__ALPHA = FIGURE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__FILL = FIGURE_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__OUTLINE = FIGURE_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Shape</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 0;
+    int SHAPE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -471,6 +570,69 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int RECTANGLE__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__OUTLINE = SHAPE__OUTLINE;
 
     /**
      * The number of structural features of the '<em>Rectangle</em>' class.
@@ -562,6 +724,24 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int TEXT__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__BORDER = FIGURE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__OPAQUE = FIGURE__OPAQUE;
 
     /**
      * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -673,13 +853,22 @@ public interface VisualInterfacePackage extends EPackage
     int CHILD__ELEMENT = 0;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHILD__NAME = 1;
+
+    /**
      * The number of structural features of the '<em>Child</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHILD_FEATURE_COUNT = 1;
+    int CHILD_FEATURE_COUNT = 2;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.XYChildImpl <em>XY Child</em>}' class.
@@ -699,6 +888,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int XY_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int XY_CHILD__NAME = CHILD__NAME;
 
     /**
      * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -819,7 +1017,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__NAME = FIGURE__NAME;
+    int LINE__NAME = SHAPE__NAME;
 
     /**
      * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
@@ -828,7 +1026,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__FOREGROUND_COLOR = FIGURE__FOREGROUND_COLOR;
+    int LINE__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
 
     /**
      * The feature id for the '<em><b>Background Color</b></em>' attribute.
@@ -837,7 +1035,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+    int LINE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
 
     /**
      * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -846,7 +1044,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__SIZE = FIGURE__SIZE;
+    int LINE__SIZE = SHAPE__SIZE;
 
     /**
      * The feature id for the '<em><b>On Click</b></em>' attribute.
@@ -855,7 +1053,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__ON_CLICK = FIGURE__ON_CLICK;
+    int LINE__ON_CLICK = SHAPE__ON_CLICK;
 
     /**
      * The feature id for the '<em><b>On Double Click</b></em>' attribute.
@@ -864,7 +1062,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+    int LINE__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
 
     /**
      * The feature id for the '<em><b>Cursor</b></em>' reference.
@@ -873,7 +1071,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__CURSOR = FIGURE__CURSOR;
+    int LINE__CURSOR = SHAPE__CURSOR;
 
     /**
      * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -882,16 +1080,25 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__VISIBLE = FIGURE__VISIBLE;
+    int LINE__VISIBLE = SHAPE__VISIBLE;
 
     /**
-     * The feature id for the '<em><b>Points</b></em>' containment reference list.
+     * The feature id for the '<em><b>Border</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LINE__POINTS = FIGURE_FEATURE_COUNT + 0;
+    int LINE__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__OPAQUE = SHAPE__OPAQUE;
 
     /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
@@ -900,7 +1107,52 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE__LINE_WIDTH = FIGURE_FEATURE_COUNT + 1;
+    int LINE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__OUTLINE = SHAPE__OUTLINE;
+
+    /**
+     * The feature id for the '<em><b>Points</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__POINTS = SHAPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Line</em>' class.
@@ -909,7 +1161,7 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      * @ordered
      */
-    int LINE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
+    int LINE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 1;
 
 
     /**
@@ -1101,6 +1353,852 @@ public interface VisualInterfacePackage extends EPackage
     int SYSTEM_CURSOR_FEATURE_COUNT = CURSOR_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl <em>Grid Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.GridContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridContainer()
+     * @generated
+     */
+    int GRID_CONTAINER = 17;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__NAME = CONTAINER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Columns</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__COLUMNS = CONTAINER_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Equal Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__EQUAL_WIDTH = CONTAINER_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Grid Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl <em>Border Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderContainer()
+     * @generated
+     */
+    int BORDER_CONTAINER = 18;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__NAME = CONTAINER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Vertical Spacing</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__VERTICAL_SPACING = CONTAINER_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Horizontal Spacing</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER__HORIZONTAL_SPACING = CONTAINER_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Border Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderChildImpl <em>Border Child</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.BorderChildImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderChild()
+     * @generated
+     */
+    int BORDER_CHILD = 19;
+
+    /**
+     * The feature id for the '<em><b>Element</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD__NAME = CHILD__NAME;
+
+    /**
+     * The feature id for the '<em><b>Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD__ALIGNMENT = CHILD_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Border Child</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BORDER_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl <em>Grid Child</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.GridChildImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridChild()
+     * @generated
+     */
+    int GRID_CHILD = 20;
+
+    /**
+     * The feature id for the '<em><b>Element</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__ELEMENT = CHILD__ELEMENT;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__NAME = CHILD__NAME;
+
+    /**
+     * The feature id for the '<em><b>Horizontal Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__HORIZONTAL_ALIGNMENT = CHILD_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Vertical Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__VERTICAL_ALIGNMENT = CHILD_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Grab Horizontal Space</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__GRAB_HORIZONTAL_SPACE = CHILD_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Grab Vertical Space</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__GRAB_VERTICAL_SPACE = CHILD_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Span Cols</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__SPAN_COLS = CHILD_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Span Rows</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__SPAN_ROWS = CHILD_FEATURE_COUNT + 5;
+
+    /**
+     * The number of structural features of the '<em>Grid Child</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 6;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl <em>Figure Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getFigureContainer()
+     * @generated
+     */
+    int FIGURE_CONTAINER = 21;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__NAME = FIGURE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__FOREGROUND_COLOR = FIGURE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__SIZE = FIGURE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__ON_CLICK = FIGURE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__CURSOR = FIGURE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__BORDER = FIGURE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__OPAQUE = FIGURE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Content</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__CONTENT = FIGURE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Figure Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ImageImpl <em>Image</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.ImageImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getImage()
+     * @generated
+     */
+    int IMAGE = 22;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__NAME = FIGURE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__FOREGROUND_COLOR = FIGURE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__BACKGROUND_COLOR = FIGURE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__SIZE = FIGURE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__ON_CLICK = FIGURE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__ON_DOUBLE_CLICK = FIGURE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__CURSOR = FIGURE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__VISIBLE = FIGURE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__BORDER = FIGURE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__OPAQUE = FIGURE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__URI = FIGURE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Image</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.EllipseImpl <em>Ellipse</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.EllipseImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getEllipse()
+     * @generated
+     */
+    int ELLIPSE = 23;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__NAME = SHAPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__SIZE = SHAPE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__OUTLINE = SHAPE__OUTLINE;
+
+    /**
+     * The number of structural features of the '<em>Ellipse</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ArcImpl <em>Arc</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.ArcImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getArc()
+     * @generated
+     */
+    int ARC = 24;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__NAME = SHAPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__SIZE = SHAPE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__OUTLINE = SHAPE__OUTLINE;
+
+    /**
+     * The feature id for the '<em><b>Start</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__START = SHAPE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__LENGTH = SHAPE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Arc</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 2;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ConnectionImpl <em>Connection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.ConnectionImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getConnection()
+     * @generated
+     */
+    int CONNECTION = 25;
+
+    /**
+     * The feature id for the '<em><b>Start</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION__START = 0;
+
+    /**
+     * The feature id for the '<em><b>End</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION__END = 1;
+
+    /**
+     * The number of structural features of the '<em>Connection</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION_FEATURE_COUNT = 2;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1108,7 +2206,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 17;
+    int ALIGNMENT = 26;
 
 
     /**
@@ -1119,7 +2217,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 18;
+    int ORIENTATION = 27;
 
 
     /**
@@ -1130,7 +2228,18 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 19;
+    int SYSTEM_CURSOR_TYPE = 28;
+
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.GridAlignment
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
+     * @generated
+     */
+    int GRID_ALIGNMENT = 29;
 
 
     /**
@@ -1232,6 +2341,28 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getSymbol_BackgroundColor();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.model.VisualInterface.Symbol#getDesignSize <em>Design Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Design Size</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getDesignSize()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_DesignSize();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.Symbol#getConnections <em>Connections</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Connections</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Symbol#getConnections()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_Connections();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1271,6 +2402,61 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EClass getShape();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getLineWidth <em>Line Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Line Width</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#getLineWidth()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_LineWidth();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getAntialias <em>Antialias</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Antialias</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#getAntialias()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Antialias();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#getAlpha <em>Alpha</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alpha</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#getAlpha()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Alpha();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#isFill <em>Fill</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Fill</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#isFill()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Fill();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Shape#isOutline <em>Outline</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Outline</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Shape#isOutline()
+     * @see #getShape()
+     * @generated
+     */
+    EAttribute getShape_Outline();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Rectangle <em>Rectangle</em>}'.
@@ -1413,6 +2599,17 @@ public interface VisualInterfacePackage extends EPackage
     EReference getChild_Element();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Child#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Child#getName()
+     * @see #getChild()
+     * @generated
+     */
+    EAttribute getChild_Name();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.XYChild <em>XY Child</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1519,17 +2716,6 @@ public interface VisualInterfacePackage extends EPackage
     EReference getLine_Points();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Line#getLineWidth <em>Line Width</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Line Width</em>'.
-     * @see org.openscada.vi.model.VisualInterface.Line#getLineWidth()
-     * @see #getLine()
-     * @generated
-     */
-    EAttribute getLine_LineWidth();
-
-    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Figure <em>Figure</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1615,6 +2801,28 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getFigure_Visible();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#getBorder <em>Border</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Border</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getBorder()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_Border();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#getOpaque <em>Opaque</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Opaque</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getOpaque()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_Opaque();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SymbolReference <em>Symbol Reference</em>}'.
@@ -1768,6 +2976,305 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getSystemCursor_Type();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.GridContainer <em>Grid Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Grid Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer
+     * @generated
+     */
+    EClass getGridContainer();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#getColumns <em>Columns</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Columns</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getColumns()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_Columns();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#isEqualWidth <em>Equal Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Equal Width</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#isEqualWidth()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_EqualWidth();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.GridContainer#getChildren <em>Children</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getChildren()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EReference getGridContainer_Children();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.BorderContainer <em>Border Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Border Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer
+     * @generated
+     */
+    EClass getBorderContainer();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getChildren <em>Children</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer#getChildren()
+     * @see #getBorderContainer()
+     * @generated
+     */
+    EReference getBorderContainer_Children();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing <em>Vertical Spacing</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Vertical Spacing</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing()
+     * @see #getBorderContainer()
+     * @generated
+     */
+    EAttribute getBorderContainer_VerticalSpacing();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Horizontal Spacing</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing()
+     * @see #getBorderContainer()
+     * @generated
+     */
+    EAttribute getBorderContainer_HorizontalSpacing();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.BorderChild <em>Border Child</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Border Child</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderChild
+     * @generated
+     */
+    EClass getBorderChild();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.BorderChild#getAlignment <em>Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.BorderChild#getAlignment()
+     * @see #getBorderChild()
+     * @generated
+     */
+    EAttribute getBorderChild_Alignment();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.GridChild <em>Grid Child</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Grid Child</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild
+     * @generated
+     */
+    EClass getGridChild();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment <em>Horizontal Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Horizontal Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_HorizontalAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment <em>Vertical Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Vertical Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_VerticalAlignment();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Grab Horizontal Space</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#isGrabHorizontalSpace()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_GrabHorizontalSpace();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace <em>Grab Vertical Space</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Grab Vertical Space</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_GrabVerticalSpace();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanCols <em>Span Cols</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Span Cols</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getSpanCols()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_SpanCols();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanRows <em>Span Rows</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Span Rows</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getSpanRows()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_SpanRows();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.FigureContainer <em>Figure Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Figure Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.FigureContainer
+     * @generated
+     */
+    EClass getFigureContainer();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.model.VisualInterface.FigureContainer#getContent <em>Content</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Content</em>'.
+     * @see org.openscada.vi.model.VisualInterface.FigureContainer#getContent()
+     * @see #getFigureContainer()
+     * @generated
+     */
+    EReference getFigureContainer_Content();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Image <em>Image</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Image</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Image
+     * @generated
+     */
+    EClass getImage();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Image#getUri <em>Uri</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Uri</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Image#getUri()
+     * @see #getImage()
+     * @generated
+     */
+    EAttribute getImage_Uri();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Ellipse <em>Ellipse</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Ellipse</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Ellipse
+     * @generated
+     */
+    EClass getEllipse();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Arc <em>Arc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Arc</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Arc
+     * @generated
+     */
+    EClass getArc();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Arc#getStart <em>Start</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Start</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Arc#getStart()
+     * @see #getArc()
+     * @generated
+     */
+    EAttribute getArc_Start();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Arc#getLength <em>Length</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Length</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Arc#getLength()
+     * @see #getArc()
+     * @generated
+     */
+    EAttribute getArc_Length();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Connection <em>Connection</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Connection</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Connection
+     * @generated
+     */
+    EClass getConnection();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Connection#getStart <em>Start</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Start</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Connection#getStart()
+     * @see #getConnection()
+     * @generated
+     */
+    EReference getConnection_Start();
+
+    /**
+     * Returns the meta object for the reference '{@link org.openscada.vi.model.VisualInterface.Connection#getEnd <em>End</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>End</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Connection#getEnd()
+     * @see #getConnection()
+     * @generated
+     */
+    EReference getConnection_End();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1796,6 +3303,16 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EEnum getSystemCursorType();
+
+    /**
+     * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Grid Alignment</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridAlignment
+     * @generated
+     */
+    EEnum getGridAlignment();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -1895,6 +3412,22 @@ public interface VisualInterfacePackage extends EPackage
         EAttribute SYMBOL__BACKGROUND_COLOR = eINSTANCE.getSymbol_BackgroundColor();
 
         /**
+         * The meta object literal for the '<em><b>Design Size</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__DESIGN_SIZE = eINSTANCE.getSymbol_DesignSize();
+
+        /**
+         * The meta object literal for the '<em><b>Connections</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__CONNECTIONS = eINSTANCE.getSymbol_Connections();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Primitive <em>Primitive</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1931,6 +3464,46 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EClass SHAPE = eINSTANCE.getShape();
+
+        /**
+         * The meta object literal for the '<em><b>Line Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__LINE_WIDTH = eINSTANCE.getShape_LineWidth();
+
+        /**
+         * The meta object literal for the '<em><b>Antialias</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__ANTIALIAS = eINSTANCE.getShape_Antialias();
+
+        /**
+         * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__ALPHA = eINSTANCE.getShape_Alpha();
+
+        /**
+         * The meta object literal for the '<em><b>Fill</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__FILL = eINSTANCE.getShape_Fill();
+
+        /**
+         * The meta object literal for the '<em><b>Outline</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SHAPE__OUTLINE = eINSTANCE.getShape_Outline();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -2043,6 +3616,14 @@ public interface VisualInterfacePackage extends EPackage
         EReference CHILD__ELEMENT = eINSTANCE.getChild_Element();
 
         /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHILD__NAME = eINSTANCE.getChild_Name();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.XYChildImpl <em>XY Child</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2131,14 +3712,6 @@ public interface VisualInterfacePackage extends EPackage
         EReference LINE__POINTS = eINSTANCE.getLine_Points();
 
         /**
-         * The meta object literal for the '<em><b>Line Width</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute LINE__LINE_WIDTH = eINSTANCE.getLine_LineWidth();
-
-        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl <em>Figure</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2203,6 +3776,22 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute FIGURE__VISIBLE = eINSTANCE.getFigure_Visible();
+
+        /**
+         * The meta object literal for the '<em><b>Border</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__BORDER = eINSTANCE.getFigure_Border();
+
+        /**
+         * The meta object literal for the '<em><b>Opaque</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__OPAQUE = eINSTANCE.getFigure_Opaque();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.
@@ -2327,6 +3916,248 @@ public interface VisualInterfacePackage extends EPackage
         EAttribute SYSTEM_CURSOR__TYPE = eINSTANCE.getSystemCursor_Type();
 
         /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl <em>Grid Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.GridContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridContainer()
+         * @generated
+         */
+        EClass GRID_CONTAINER = eINSTANCE.getGridContainer();
+
+        /**
+         * The meta object literal for the '<em><b>Columns</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__COLUMNS = eINSTANCE.getGridContainer_Columns();
+
+        /**
+         * The meta object literal for the '<em><b>Equal Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__EQUAL_WIDTH = eINSTANCE.getGridContainer_EqualWidth();
+
+        /**
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GRID_CONTAINER__CHILDREN = eINSTANCE.getGridContainer_Children();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl <em>Border Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderContainer()
+         * @generated
+         */
+        EClass BORDER_CONTAINER = eINSTANCE.getBorderContainer();
+
+        /**
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference BORDER_CONTAINER__CHILDREN = eINSTANCE.getBorderContainer_Children();
+
+        /**
+         * The meta object literal for the '<em><b>Vertical Spacing</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BORDER_CONTAINER__VERTICAL_SPACING = eINSTANCE.getBorderContainer_VerticalSpacing();
+
+        /**
+         * The meta object literal for the '<em><b>Horizontal Spacing</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BORDER_CONTAINER__HORIZONTAL_SPACING = eINSTANCE.getBorderContainer_HorizontalSpacing();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderChildImpl <em>Border Child</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.BorderChildImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getBorderChild()
+         * @generated
+         */
+        EClass BORDER_CHILD = eINSTANCE.getBorderChild();
+
+        /**
+         * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BORDER_CHILD__ALIGNMENT = eINSTANCE.getBorderChild_Alignment();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl <em>Grid Child</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.GridChildImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridChild()
+         * @generated
+         */
+        EClass GRID_CHILD = eINSTANCE.getGridChild();
+
+        /**
+         * The meta object literal for the '<em><b>Horizontal Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__HORIZONTAL_ALIGNMENT = eINSTANCE.getGridChild_HorizontalAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Vertical Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__VERTICAL_ALIGNMENT = eINSTANCE.getGridChild_VerticalAlignment();
+
+        /**
+         * The meta object literal for the '<em><b>Grab Horizontal Space</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__GRAB_HORIZONTAL_SPACE = eINSTANCE.getGridChild_GrabHorizontalSpace();
+
+        /**
+         * The meta object literal for the '<em><b>Grab Vertical Space</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__GRAB_VERTICAL_SPACE = eINSTANCE.getGridChild_GrabVerticalSpace();
+
+        /**
+         * The meta object literal for the '<em><b>Span Cols</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__SPAN_COLS = eINSTANCE.getGridChild_SpanCols();
+
+        /**
+         * The meta object literal for the '<em><b>Span Rows</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__SPAN_ROWS = eINSTANCE.getGridChild_SpanRows();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl <em>Figure Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getFigureContainer()
+         * @generated
+         */
+        EClass FIGURE_CONTAINER = eINSTANCE.getFigureContainer();
+
+        /**
+         * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FIGURE_CONTAINER__CONTENT = eINSTANCE.getFigureContainer_Content();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ImageImpl <em>Image</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.ImageImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getImage()
+         * @generated
+         */
+        EClass IMAGE = eINSTANCE.getImage();
+
+        /**
+         * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute IMAGE__URI = eINSTANCE.getImage_Uri();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.EllipseImpl <em>Ellipse</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.EllipseImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getEllipse()
+         * @generated
+         */
+        EClass ELLIPSE = eINSTANCE.getEllipse();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ArcImpl <em>Arc</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.ArcImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getArc()
+         * @generated
+         */
+        EClass ARC = eINSTANCE.getArc();
+
+        /**
+         * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARC__START = eINSTANCE.getArc_Start();
+
+        /**
+         * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARC__LENGTH = eINSTANCE.getArc_Length();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.ConnectionImpl <em>Connection</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.ConnectionImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getConnection()
+         * @generated
+         */
+        EClass CONNECTION = eINSTANCE.getConnection();
+
+        /**
+         * The meta object literal for the '<em><b>Start</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONNECTION__START = eINSTANCE.getConnection_Start();
+
+        /**
+         * The meta object literal for the '<em><b>End</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONNECTION__END = eINSTANCE.getConnection_End();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2355,6 +4186,16 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EEnum SYSTEM_CURSOR_TYPE = eINSTANCE.getSystemCursorType();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.GridAlignment
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
+         * @generated
+         */
+        EEnum GRID_ALIGNMENT = eINSTANCE.getGridAlignment();
 
     }
 
