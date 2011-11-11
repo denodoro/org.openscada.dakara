@@ -27,11 +27,15 @@
             name="openSCADA Single Viewer Application">
          <property
                name="windowImages"
-               value="platform:/plugin/org.openscada.othala.application/icons/app/Sign_open-Scada_16px.png,icons/alt_window_32.gif">
+               value="icons/app/Sign_open-Scada_16px.png,icons/app/Sign_open-Scada_32px.png,icons/app/Sign_open-Scada_48px.png,icons/app/Sign_open-Scada_64px.png,icons/app/Sign_open-Scada_128px.png">
          </property>
          <property
                name="appName"
                value="openSCADA Single Viewer Application">
+         </property>
+         <property
+               name="aboutText"
+               value="%aboutText">
          </property>
       </product>
    </extension>
