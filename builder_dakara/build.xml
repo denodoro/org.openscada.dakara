@@ -34,7 +34,7 @@
 	<!-- ================================= 
           target: build              
          ================================= -->
-    <target name="build" depends="" description="OpenSCADA Dakara">
+    <target name="build" depends="populate" description="OpenSCADA Dakara">
     	<openscada.bundleBuild builder="builder"/>
     </target>
 
@@ -49,6 +49,12 @@
          ================================= -->
     <target name="publish" depends="" description="Publish artifacts" unless="skipPublish">
     	<openscada.publish.repository id="org.openscada.dakara.sdk" project="dakara"/>
+    </target>
+	
+	<!-- ================================= 
+          target: populate              
+         ================================= -->
+    <target name="populate" depends="OpenSCADA Builder Common Library.populateEclipse" description="description" unless="skipPopulate">
     </target>
 	
 </project>
