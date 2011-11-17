@@ -3,8 +3,8 @@
 <!-- ====================================================================== 
 	 openSCADA Dakara
      ====================================================================== -->
-<project name="org.openscada.dakara" default="default" basedir=".">
 
+<project name="org.openscada.dakara" default="default" basedir=".">
     <description>
             openSCADA Dakara
     </description>
