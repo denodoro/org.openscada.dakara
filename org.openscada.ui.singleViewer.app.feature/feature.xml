@@ -2,7 +2,11 @@
 <feature
       id="org.openscada.ui.singleViewer.app"
       label="Single Viewer Application"
-      version="0.17.0.qualifier">
+      version="0.18.0.qualifier">
+
+   <description url="http://openscada.org">
+      The openSCADA Visual Interface
+   </description>
 
    <copyright>
       %copyright
@@ -11,10 +15,6 @@
    <license url="http://opensource.org/licenses/lgpl-3.0.html">
       %license
    </license>
-
-   <description url="http://openscada.org">
-      The openSCADA Visual Interface
-   </description>
 
    <plugin
          id="org.openscada.ui.singleViewer.app"
