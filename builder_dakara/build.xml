@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!-- ====================================================================== 
 	 openSCADA Dakara
      ====================================================================== -->
@@ -20,7 +21,7 @@
           target: default              
          ================================= -->
     <target name="default" depends="clean,openscada.build.profile.setup">
-    	<openscada.productBuild builder="builder"/>
+    	<openscada.bundleBuild builder="builder"/>
     </target>
 	
 	<!-- ================================= 
