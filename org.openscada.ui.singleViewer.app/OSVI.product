@@ -44,6 +44,7 @@
       <feature id="org.openscada.dakara" version="0.18.0.qualifier"/>
       <feature id="org.openscada.ui.singleViewer.app" version="0.18.0.qualifier"/>
       <feature id="org.eclipse.rcp" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature" version="1.0.1.R37x_v20110906-782EpBqNKGUkZQpuT8hAlWlFbUeo"/>
    </features>
 
 
