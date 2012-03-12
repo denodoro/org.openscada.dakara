@@ -275,30 +275,6 @@ public class ViewInstance implements SummaryListener
     @Override
     public void summaryChanged ( final SummaryInformation summary )
     {
-        this.blinker.setState ( summary.isAlarm (), summary.isAckRequired (), summary.isManual (), summary.isConnected (), summary.isError (), summary.isBlocked () );
-        if ( this.button != null )
-        {
-            if ( summary.isError () || !summary.isValid () )
-            {
-
-            }
-            else if ( summary.isAlarm () )
-            {
-
-            }
-            else if ( summary.isManual () )
-            {
-
-            }
-            else if ( summary.isBlocked () )
-            {
-
-            }
-            else
-            {
-
-            }
-            this.button.getParent ().layout ();
-        }
+        this.blinker.setState ( summary.isAlarm (), summary.isAckRequired (), summary.isManual (), !summary.isConnected (), summary.isError (), summary.isBlocked () );
     }
 }
