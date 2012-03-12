@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -29,10 +29,17 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.core.Variant;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The context object that is exported to the script context
+ * @author Jens Reimann
+ * @since 0.17.0
+ *
+ */
 public class SymbolContext
 {
 
@@ -78,6 +85,16 @@ public class SymbolContext
     public void unregisterItem ( final String name )
     {
         this.controller.unregisterItem ( name );
+    }
+
+    public void startWrite ( final String connectionId, final String itemId, final Variant value ) throws InterruptedException
+    {
+        this.controller.startWrite ( connectionId, itemId, value );
+    }
+
+    public void startWriteAttributes ( final String connectionId, final String itemId, final Map<String, Variant> attributes ) throws InterruptedException
+    {
+        this.controller.startWriteAttributes ( connectionId, itemId, attributes );
     }
 
     public void executeCommand ( final String commandId, final Map<String, String> eventData )

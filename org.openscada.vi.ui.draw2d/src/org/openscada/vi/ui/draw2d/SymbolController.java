@@ -49,6 +49,7 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
@@ -518,6 +519,16 @@ public class SymbolController
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
         }
+    }
+
+    public void startWrite ( final String connectionId, final String itemId, final Variant value ) throws InterruptedException
+    {
+        this.registrationManager.startWrite ( connectionId, itemId, value );
+    }
+
+    public void startWriteAttributes ( final String connectionId, final String itemId, final Map<String, Variant> attributes ) throws InterruptedException
+    {
+        this.registrationManager.startWriteAttributes ( connectionId, itemId, attributes );
     }
 
     public void debugLog ( final String string )

@@ -24,10 +24,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
+import org.openscada.core.Variant;
+import org.openscada.core.connection.provider.ConnectionIdTracker;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.da.connection.provider.ConnectionService;
 
 public class RegistrationManager
 {
+    private static final long SERVICE_TIMEOUT = Long.getLong ( "org.openscada.vi.ui.draw2d.serviceTimeout", 1000 );
+
     private final SymbolController controller;
 
     private final Map<String, DataItemRegistration> registrations = new LinkedHashMap<String, DataItemRegistration> ();
@@ -89,5 +94,35 @@ public class RegistrationManager
     public Map<String, DataValue> getData ()
     {
         return Collections.unmodifiableMap ( this.currentValues.get () );
+    }
+
+    public void startWrite ( final String connectionId, final String itemId, final Variant value ) throws InterruptedException
+    {
+        final ConnectionIdTracker connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, null, ConnectionService.class );
+        connectionTracker.open ();
+        try
+        {
+            final ConnectionService service = (ConnectionService)connectionTracker.waitForService ( SERVICE_TIMEOUT );
+            service.getConnection ().write ( itemId, value, null, null );
+        }
+        finally
+        {
+            connectionTracker.close ();
+        }
+    }
+
+    public void startWriteAttributes ( final String connectionId, final String itemId, final Map<String, Variant> attributes ) throws InterruptedException
+    {
+        final ConnectionIdTracker connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, null, ConnectionService.class );
+        connectionTracker.open ();
+        try
+        {
+            final ConnectionService service = (ConnectionService)connectionTracker.waitForService ( SERVICE_TIMEOUT );
+            service.getConnection ().writeAttributes ( itemId, attributes, null, null );
+        }
+        finally
+        {
+            connectionTracker.close ();
+        }
     }
 }
