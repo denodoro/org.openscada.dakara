@@ -31,6 +31,7 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.core.Variant;
+import org.openscada.core.VariantEditor;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,6 +92,20 @@ public class SymbolContext
     public void startWrite ( final String connectionId, final String itemId, final Object value ) throws InterruptedException
     {
         this.controller.startWrite ( connectionId, itemId, Variant.valueOf ( value ) );
+    }
+
+    public void startWriteString ( final String connectionId, final String itemId, final String value ) throws InterruptedException
+    {
+        this.controller.startWrite ( connectionId, itemId, VariantEditor.toVariant ( value ) );
+    }
+
+    public void startWriteAttributeString ( final String connectionId, final String itemId, final String key, final String value ) throws InterruptedException
+    {
+        final Map<String, Variant> attributes = new HashMap<String, Variant> ( 1 );
+
+        attributes.put ( key, VariantEditor.toVariant ( value ) );
+
+        this.controller.startWriteAttributes ( connectionId, itemId, attributes );
     }
 
     public void startWriteAttribute ( final String connectionId, final String itemId, final String key, final Object value ) throws InterruptedException
