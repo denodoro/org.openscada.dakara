@@ -19,6 +19,7 @@
 
 package org.openscada.vi.ui.draw2d;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -87,9 +88,18 @@ public class SymbolContext
         this.controller.unregisterItem ( name );
     }
 
-    public void startWrite ( final String connectionId, final String itemId, final Variant value ) throws InterruptedException
+    public void startWrite ( final String connectionId, final String itemId, final Object value ) throws InterruptedException
     {
-        this.controller.startWrite ( connectionId, itemId, value );
+        this.controller.startWrite ( connectionId, itemId, Variant.valueOf ( value ) );
+    }
+
+    public void startWriteAttribute ( final String connectionId, final String itemId, final String key, final Object value ) throws InterruptedException
+    {
+        final Map<String, Variant> attributes = new HashMap<String, Variant> ( 1 );
+
+        attributes.put ( key, Variant.valueOf ( value ) );
+
+        this.controller.startWriteAttributes ( connectionId, itemId, attributes );
     }
 
     public void startWriteAttributes ( final String connectionId, final String itemId, final Map<String, Variant> attributes ) throws InterruptedException
