@@ -14,7 +14,7 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            name="Visual Interface Perspective"
+            name="%perspective.name"
             class="org.openscada.ui.singleviewer.app.Perspective"
             id="org.openscada.ui.singleViewer.app.perspective">
       </perspective>
@@ -36,6 +36,14 @@
          <property
                name="aboutText"
                value="%aboutText">
+         </property>
+         <property
+               name="aboutImage"
+               value="branding/about.png">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
          </property>
       </product>
    </extension>

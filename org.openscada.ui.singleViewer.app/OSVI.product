@@ -4,6 +4,7 @@
 <product name="openSCADA Single Viewer Application" uid="org.openscada.ui.singleViewer.application" id="org.openscada.ui.singleViewer.app.product" application="org.openscada.ui.singleViewer.app.application" version="0.18.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
+      <image path="/org.openscada.ui.singleViewer.app/branding/about.png"/>
       <text>
          %aboutText
       </text>
@@ -29,6 +30,7 @@
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>

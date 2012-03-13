@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Single Viewer Application
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.openscada.ui.singleViewer.app; singleton:=true
 Bundle-Version: 0.17.0.qualifier
 Bundle-Activator: org.openscada.ui.singleviewer.app.Activator
-Bundle-Vendor: TH4 SYSTEMS GmbH
+Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.openscada.vi.ui;bundle-version="0.17.0",
