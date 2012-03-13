@@ -20,7 +20,10 @@
    <windowImages i16="/org.openscada.ui.singleViewer.app/icons/app/Sign_open-Scada_16px.png" i32="/org.openscada.ui.singleViewer.app/icons/app/Sign_open-Scada_32px.png" i48="/org.openscada.ui.singleViewer.app/icons/app/Sign_open-Scada_48px.png" i64="/org.openscada.ui.singleViewer.app/icons/app/Sign_open-Scada_64px.png" i128="/org.openscada.ui.singleViewer.app/icons/app/Sign_open-Scada_128px.png"/>
 
    <splash
-      location="org.openscada.ui.singleViewer.app" />
+      location="org.openscada.ui.singleViewer.app"
+      startupProgressRect="0,0,455,12"
+      startupMessageRect="18,30,264,49"
+      startupForegroundColor="00519E" />
    <launcher name="osvi">
       <linux icon="/org.openscada.ui.singleViewer.app/icons/app/openscada_128px.xpm"/>
       <macosx icon="/org.openscada.ui.singleViewer.app/icons/app/app_icon.icns"/>
