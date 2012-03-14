@@ -113,6 +113,13 @@ Behaviour is unspecified if more than one instance are marked as default.
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="zooming" type="boolean">
+            <annotation>
+               <documentation>
+                  Selecting zooming mode. May be &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;. If it is not set it is determined by the global preference.
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

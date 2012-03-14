@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -36,7 +36,9 @@ public class ViewInstanceDescriptor
 
     private final boolean defaultInstance;
 
-    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final boolean defaultInstance, final Map<String, String> properties )
+    private final Boolean zooming;
+
+    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final boolean defaultInstance, final Boolean zooming, final Map<String, String> properties )
     {
         super ();
         this.id = id;
@@ -45,6 +47,12 @@ public class ViewInstanceDescriptor
         this.name = name;
         this.properties = properties;
         this.defaultInstance = defaultInstance;
+        this.zooming = zooming;
+    }
+
+    public Boolean getZooming ()
+    {
+        return this.zooming;
     }
 
     public String getId ()
