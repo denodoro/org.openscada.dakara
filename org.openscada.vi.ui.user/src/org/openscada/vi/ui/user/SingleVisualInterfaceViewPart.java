@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -74,6 +74,8 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private DataBindingContext dbc;
 
+    private Image image;
+
     public SingleVisualInterfaceViewPart ()
     {
     }
@@ -116,36 +118,43 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         }
     }
 
-    protected boolean hasLogo ()
+    protected ImageDescriptor getLogoDescriptor ()
     {
         final String logoUri = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_IMG_LOGO );
-        if ( logoUri == null || logoUri.isEmpty () )
+
+        if ( logoUri != null && !logoUri.isEmpty () )
         {
-            return false;
+            try
+            {
+                return ImageDescriptor.createFromURL ( new URL ( logoUri ) );
+            }
+            catch ( final MalformedURLException e )
+            {
+                return ImageDescriptor.getMissingImageDescriptor ();
+            }
         }
-        return true;
+
+        return Activator.findLogoDescriptor ();
+    }
+
+    private boolean hasLogo ()
+    {
+        return getLogoDescriptor () != null;
     }
 
     protected void createLogo ( final Composite parent )
     {
-        if ( !hasLogo () )
+        final ImageDescriptor descriptor = getLogoDescriptor ();
+
+        if ( descriptor == null )
         {
             return;
         }
 
-        final String logoUri = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_IMG_LOGO );
-
         final Label label = new Label ( parent, SWT.NONE );
-        try
-        {
-            final Image image = this.manager.createImageWithDefault ( ImageDescriptor.createFromURL ( new URL ( logoUri ) ) );
-            label.setImage ( image );
-            label.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
-        }
-        catch ( final MalformedURLException e )
-        {
-            label.setImage ( this.manager.createImageWithDefault ( ImageDescriptor.getMissingImageDescriptor () ) );
-        }
+        this.image = this.manager.createImageWithDefault ( descriptor );
+        label.setImage ( this.image );
+        label.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
 
         label.addMouseListener ( new MouseAdapter () {
 
@@ -211,7 +220,6 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
             this.dataItem.dispose ();
             this.dataItem = null;
         }
-
         super.dispose ();
         this.manager.dispose ();
     }

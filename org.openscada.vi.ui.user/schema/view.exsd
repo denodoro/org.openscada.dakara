@@ -19,6 +19,7 @@
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="viewInstance"/>
+            <element ref="customerLogo"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -139,6 +140,21 @@ Behaviour is unspecified if more than one instance are marked as default.
                </documentation>
                <appinfo>
                   <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="customerLogo">
+      <complexType>
+         <attribute name="resource" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The image resource to the logo.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
                </appinfo>
             </annotation>
          </attribute>

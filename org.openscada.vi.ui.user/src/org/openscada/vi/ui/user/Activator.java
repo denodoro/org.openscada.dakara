@@ -31,6 +31,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.osgi.framework.Bundle;
@@ -45,11 +46,13 @@ public class Activator extends AbstractUIPlugin
     // The plug-in ID
     public static final String PLUGIN_ID = "org.openscada.vi.ui.user"; //$NON-NLS-1$
 
-    public static final String EXTP_VIEW = PLUGIN_ID + ".view";
+    public static final String EXTP_VIEW = PLUGIN_ID + ".view"; //$NON-NLS-1$
 
-    private static final String ELE_VIEW_INSTANCE = "viewInstance";
+    private static final String ELE_VIEW_INSTANCE = "viewInstance"; //$NON-NLS-1$
 
-    private static final String ELE_PROPERTY = "property";
+    private static final String ELE_CUSTOMER_LOGO = "customerLogo"; //$NON-NLS-1$
+
+    private static final String ELE_PROPERTY = "property"; //$NON-NLS-1$
 
     // The shared instance
     private static Activator plugin;
@@ -126,6 +129,21 @@ public class Activator extends AbstractUIPlugin
             }
         }
         return result;
+    }
+
+    protected static ImageDescriptor findLogoDescriptor ()
+    {
+        for ( final IConfigurationElement element : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_VIEW ) )
+        {
+            if ( !ELE_CUSTOMER_LOGO.equals ( element.getName () ) )
+            {
+                continue;
+            }
+            final String resource = element.getAttribute ( "resource" );
+            final String pluginId = element.getContributor ().getName ();
+            return imageDescriptorFromPlugin ( pluginId, resource );
+        }
+        return null;
     }
 
     private static ViewInstanceDescriptor convert ( final IConfigurationElement element )
