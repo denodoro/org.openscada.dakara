@@ -2,7 +2,7 @@
 <feature
       id="org.openscada.ui.singleViewer.app"
       label="Single Viewer Application"
-      version="0.18.0.qualifier">
+      version="1.0.0.qualifier">
 
    <description url="http://openscada.org">
       The openSCADA Visual Interface
