@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -19,6 +19,7 @@
 
 package org.openscada.ui.singleviewer.app;
 
+import org.eclipse.ui.application.IWorkbenchConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
@@ -32,6 +33,13 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor
     public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor ( final IWorkbenchWindowConfigurer configurer )
     {
         return new ApplicationWorkbenchWindowAdvisor ( configurer );
+    }
+
+    @Override
+    public void initialize ( final IWorkbenchConfigurer configurer )
+    {
+        super.initialize ( configurer );
+        configurer.setSaveAndRestore ( true );
     }
 
     @Override
