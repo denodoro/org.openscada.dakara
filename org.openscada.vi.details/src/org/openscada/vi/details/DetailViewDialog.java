@@ -96,7 +96,7 @@ public class DetailViewDialog implements SessionListener
         this.shell.setMinimumSize ( 400, 100 );
         this.shell.setText ( this.properties.get ( "linkName" ) + " | " + this.properties.get ( "linkDetailView" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         this.shell.setToolTipText ( "" ); //$NON-NLS-1$
-        if ( Boolean.getBoolean ( "com.thfour.developer" ) ) //$NON-NLS-1$
+        if ( Boolean.getBoolean ( "org.openscada.developer" ) ) //$NON-NLS-1$
         {
             for ( final String key : this.properties.keySet () )
             {
@@ -151,7 +151,7 @@ public class DetailViewDialog implements SessionListener
     {
         this.session = session;
 
-        if ( Boolean.getBoolean ( "com.thfour.developer" ) || Boolean.getBoolean ( "com.thfour.operator" ) ) //$NON-NLS-1$ //$NON-NLS-2$
+        if ( Boolean.getBoolean ( "org.openscada.developer" ) || Boolean.getBoolean ( "org.openscada.operator" ) ) //$NON-NLS-1$ //$NON-NLS-2$
         {
             return;
         }
