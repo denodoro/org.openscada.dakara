@@ -80,10 +80,6 @@ public class AttributeLockImage extends AttributeImage
         this.blockLabel = new Label ( this, 0 );
         this.blockLabel.setImage ( getImageEmpty () );
         this.blockLabel.addMouseListener ( new MouseAdapter () {
-            @Override
-            public void mouseUp ( final org.eclipse.swt.events.MouseEvent e )
-            {
-            }
 
             @Override
             public void mouseDown ( final org.eclipse.swt.events.MouseEvent e )
