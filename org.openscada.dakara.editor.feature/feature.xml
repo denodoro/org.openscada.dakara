@@ -39,4 +39,18 @@
          install-size="0"
          version="0.0.0"/>
 
+   <plugin
+         id="org.openscada.vi.details.model.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.openscada.vi.details.model.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
