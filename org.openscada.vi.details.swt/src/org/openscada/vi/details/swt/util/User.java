@@ -49,12 +49,12 @@ public class User
     synchronized public static boolean isPermitted ( final String permission )
     {
         //session.priviledge.admin=true will be checked, if configured in com.invare.gui.client.sphinx.resources.ossi plugin.xml
-        if ( Boolean.getBoolean ( "com.thfour.developer" ) ) //$NON-NLS-1$
+        if ( Boolean.getBoolean ( "org.openscada.developer" ) ) //$NON-NLS-1$
         {
             return true;
         }
 
-        if ( Boolean.getBoolean ( "com.thfour.operator" ) ) //$NON-NLS-1$
+        if ( Boolean.getBoolean ( "org.openscada.operator" ) ) //$NON-NLS-1$
         { //we need this to test client without authentication service
             if ( permission == null )
             {

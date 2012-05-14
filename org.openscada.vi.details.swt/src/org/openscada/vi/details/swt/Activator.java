@@ -35,7 +35,7 @@ public class Activator extends AbstractUIPlugin
 {
 
     // The plug-in ID
-    public static final String PLUGIN_ID = "org.openscada.vi.details.xml"; //$NON-NLS-1$
+    public static final String PLUGIN_ID = "org.openscada.vi.details.swt"; //$NON-NLS-1$
 
     public static final String IMG_CONTROLLER_BLOCKED = "blocked";
 
