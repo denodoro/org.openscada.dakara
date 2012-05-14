@@ -23,7 +23,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS
 {
-    private static final String BUNDLE_NAME = "org.openscada.vi.details.xml.widgets.messages"; //$NON-NLS-1$
+    private static final String BUNDLE_NAME = "org.openscada.vi.details.swt.widgets.messages"; //$NON-NLS-1$
 
     public static String AttributeImage_TrendError;
 
