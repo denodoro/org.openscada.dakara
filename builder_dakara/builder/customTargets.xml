@@ -104,6 +104,10 @@
   	<openscada.builder.copyPlugin id="org.openscada.vi.model.edit"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.model.editor"/>
   	
+  	<openscada.builder.copyPlugin id="org.openscada.vi.details"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.details.model"/>
+	<openscada.builder.copyPlugin id="org.openscada.vi.details.swt"/>
+  	
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.draw2d"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.viewer"/>
