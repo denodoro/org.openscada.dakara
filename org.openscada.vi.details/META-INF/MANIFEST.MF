@@ -5,9 +5,9 @@ Bundle-SymbolicName: org.openscada.vi.details;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.openscada.vi.details.Activator
 Bundle-Vendor: TH4 SYSTEMS GmbH
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.openscada.ui.databinding;bundle-version="0.17.0",
+Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.openscada.ui.databinding;bundle-version="1.0.0",
  org.openscada.ui.utils;bundle-version="0.17.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
