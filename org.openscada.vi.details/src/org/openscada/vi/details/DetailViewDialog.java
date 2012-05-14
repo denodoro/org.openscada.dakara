@@ -68,7 +68,7 @@ public class DetailViewDialog implements SessionListener
     {
         try
         {
-            if ( !Boolean.getBoolean ( "com.thfour.developer" ) && !Boolean.getBoolean ( "com.thfour.operator" ) ) //$NON-NLS-1$ //$NON-NLS-2$
+            if ( !Boolean.getBoolean ( "org.openscada.developer" ) && !Boolean.getBoolean ( "org.openscada.operator" ) ) //$NON-NLS-1$ //$NON-NLS-2$
             {
                 if ( this.session == null )
                 {
