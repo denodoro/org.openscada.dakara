@@ -50,10 +50,8 @@ Export-Package: org.openscada.vi.details.swt;version="1.0.0";
    org.openscada.core.subscription,
    org.openscada.vi.details.swt.source,
    org.openscada.vi.details.swt.data,
-   org.openscada.da.ui.connection.data,
    org.eclipse.osgi.util,
    org.openscada.da.client,
    org.eclipse.jface.viewers,
    org.eclipse.swt.widgets,
-   org.openscada.vi.details.swt,
-   org.eclipse.jface.dialogs"
+   org.openscada.vi.details.swt"
