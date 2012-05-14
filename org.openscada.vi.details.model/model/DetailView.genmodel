@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.vi.details.model/src"
+    modelPluginID="org.openscada.vi.details.model" modelName="DetailView"
+    modelPluginClass="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>DetailView.ecore</foreignModel>
+  <genPackages prefix="DetailView" basePackage="org.openscada.vi.details.model"
+      disposableProviderFactory="true" ecorePackage="DetailView.ecore#/">
+    <genClasses ecoreClass="DetailView.ecore#//View">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/headerComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/groups"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//Component"/>
+    <genClasses ecoreClass="DetailView.ecore#//GroupEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupEntry/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupEntry/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupEntry/permission"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//LabelComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//LabelComponent/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//LabelComponent/descriptor"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//CompositeComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//CompositeComponent/children"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//FillLayoutComponent"/>
+    <genClasses ecoreClass="DetailView.ecore#//ButtonComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ButtonComponent/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ButtonComponent/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ButtonComponent/readDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ButtonComponent/writeDescriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//ButtonComponent/active"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ButtonComponent/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ButtonComponent/textHeight"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//BoolLEDComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/alarm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/attribute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//ValueSource"/>
+    <genClasses ecoreClass="DetailView.ecore#//ItemValueSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ItemValueSource/valueKey"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//NotTransformer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//NotTransformer/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//GenericComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GenericComponent/registrations"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//Registration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//Registration/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//Registration/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//Registration/aggregateState"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//SimpleGridComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//SimpleGridComponent/equally"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//SimpleGridComponent/cols"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//GroupGridComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupGridComponent/groups"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupGridComponent/equally"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupGridComponent/cols"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//GroupGridEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupGridEntry/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupGridEntry/components"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupGridEntry/permission"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//ValueSetComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ValueSetComponent/valueDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ValueSetComponent/setDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ValueSetComponent/resetDescriptor"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//ValueComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ValueComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ValueComponent/date"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//CompositeTransformer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//CompositeTransformer/values"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//AndTransformer"/>
+    <genClasses ecoreClass="DetailView.ecore#//OrTransformer"/>
+    <genClasses ecoreClass="DetailView.ecore#//TextInputComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextInputComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextInputComponent/readDescriptor"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//WriteableComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//WriteableComponent/ceil"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//WriteableComponent/floor"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//ReadableComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/decimal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//VegaComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//VegaComponent/resultDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//VegaComponent/startDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//VegaComponent/stateDescriptor"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//TextComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/textHeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/textMap"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//TextInputMultiComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextInputMultiComponent/descriptor"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//CheckComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//CheckComponent/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//CheckComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//CheckComponent/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//CheckComponent/readDescriptor"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//LinkComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//LinkComponent/format"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

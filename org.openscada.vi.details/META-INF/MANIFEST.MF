@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: openSCADA VI Details
+Bundle-SymbolicName: org.openscada.vi.details;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.openscada.vi.details.Activator
+Bundle-Vendor: TH4 SYSTEMS GmbH
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.openscada.ui.databinding;bundle-version="0.17.0",
+ org.openscada.ui.utils;bundle-version="0.17.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.openscada.vi.details;version="1.0.0";
+  uses:="org.openscada.core.ui.connection.login,
+   org.eclipse.osgi.util,
+   org.eclipse.ui.plugin,
+   org.osgi.framework,
+   org.eclipse.swt.widgets"
+Import-Package: com.google.gson;version="1.4.0",
+ com.google.gson.annotations;version="1.4.0",
+ com.google.gson.reflect;version="1.4.0",
+ org.openscada.core.ui.connection.login;version="0.15.0",
+ org.slf4j;version="1.5.8"
