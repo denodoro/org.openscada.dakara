@@ -30,6 +30,7 @@ import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+import org.openscada.da.client.dataitem.details.dialog.DataItemDetailsDialog;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.da.ui.connection.data.Item.Type;
 import org.openscada.da.ui.widgets.realtime.ListEntry;
