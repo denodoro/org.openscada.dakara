@@ -165,6 +165,12 @@
   <!-- Steps to do before running assemble. -->
   <!-- ===================================================================== -->
   <target name="preAssemble">
+  	<ant
+  		antfile="javadoc.xml"
+  		dir="${source.root}/org.openscada.dakara.doc.isv"
+  		inheritall="true"
+  		>
+  	</ant>
   </target>
 
   <!-- ===================================================================== -->

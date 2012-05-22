@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="javadoc">
     <target name="javadoc">
+    	
+    	<path id="classpath">
+    		<fileset dir="${transformedRepoLocation}/plugins">
+    			<include name="**/*.jar"/>
+    		</fileset>
+    	</path>
+    	
         <javadoc
         		access="public"
         		author="true"
-        		classpathref="@dot.classpath"
+        		classpathref="classpath"
         		destdir="reference/api"
         		nodeprecated="false"
         		nodeprecatedlist="false"
