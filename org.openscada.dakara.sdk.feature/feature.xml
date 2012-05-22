@@ -39,4 +39,10 @@
       <import plugin="org.eclipse.ui.ide"/>
    </requires>
 
+   <plugin
+         id="org.openscada.dakara.doc.isv"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
 </feature>
