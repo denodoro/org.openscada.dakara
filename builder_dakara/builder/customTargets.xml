@@ -167,7 +167,7 @@
   <target name="preAssemble">
   	<ant
   		antfile="javadoc.xml"
-  		dir="${source.root}/org.openscada.dakara.doc.isv"
+  		dir="${buildDirectory}/plugins/org.openscada.dakara.doc.isv"
   		inheritall="true"
   		>
   	</ant>

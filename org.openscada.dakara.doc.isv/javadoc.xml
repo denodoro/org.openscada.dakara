@@ -16,7 +16,7 @@
         		access="public"
         		author="true"
         		classpathref="classpath"
-        		destdir="reference/api"
+        		destdir="${buildDirectory}/plugins/org.openscada.vi.ui.draw2d/reference/api"
         		nodeprecated="false"
         		nodeprecatedlist="false"
         		noindex="false"
