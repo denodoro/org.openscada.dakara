@@ -114,7 +114,8 @@
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.draw2d"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.viewer"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.user"/>
-
+  	
+  	<openscada.builder.copyPlugin id="org.openscada.dakara.doc.isv"/>
   </target>
 
   <!-- ===================================================================== -->
