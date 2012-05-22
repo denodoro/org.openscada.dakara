@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -33,14 +32,7 @@ import org.openscada.vi.model.VisualInterface.XYChild;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XYChildItemProvider
-    extends ChildItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class XYChildItemProvider extends ChildItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,9 +40,9 @@ public class XYChildItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public XYChildItemProvider(AdapterFactory adapterFactory)
+    public XYChildItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -60,11 +52,11 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -79,13 +71,13 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.XY_CHILD__POSITION);
-            childrenFeatures.add(VisualInterfacePackage.Literals.XY_CHILD__DIMENSION);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.XY_CHILD__POSITION );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.XY_CHILD__DIMENSION );
         }
         return childrenFeatures;
     }
@@ -96,12 +88,12 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -111,9 +103,9 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/XYChild")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/XYChild" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -123,12 +115,11 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((XYChild)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_XYChild_type") : //$NON-NLS-1$
-            getString("_UI_XYChild_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (XYChild)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_XYChild_type" ) : //$NON-NLS-1$
+        getString ( "_UI_XYChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -139,18 +130,18 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(XYChild.class))
+        switch ( notification.getFeatureID ( XYChild.class ) )
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
             case VisualInterfacePackage.XY_CHILD__DIMENSION:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -161,19 +152,13 @@ public class XYChildItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.XY_CHILD__POSITION,
-                 VisualInterfaceFactory.eINSTANCE.createPosition()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.XY_CHILD__POSITION, VisualInterfaceFactory.eINSTANCE.createPosition () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.XY_CHILD__DIMENSION,
-                 VisualInterfaceFactory.eINSTANCE.createDimension()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.XY_CHILD__DIMENSION, VisualInterfaceFactory.eINSTANCE.createDimension () ) );
     }
 
 }

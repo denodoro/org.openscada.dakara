@@ -27,9 +27,9 @@ public class RectangleImpl extends ShapeImpl implements Rectangle
      * <!-- end-user-doc -->
      * @generated
      */
-    protected RectangleImpl()
+    protected RectangleImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -38,7 +38,7 @@ public class RectangleImpl extends ShapeImpl implements Rectangle
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.RECTANGLE;
     }

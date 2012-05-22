@@ -60,9 +60,9 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    protected XYChildImpl()
+    protected XYChildImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -71,7 +71,7 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.XY_CHILD;
     }
@@ -81,7 +81,7 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public Position getPosition()
+    public Position getPosition ()
     {
         return position;
     }
@@ -91,14 +91,17 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPosition(Position newPosition, NotificationChain msgs)
+    public NotificationChain basicSetPosition ( Position newPosition, NotificationChain msgs )
     {
         Position oldPosition = position;
         position = newPosition;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.XY_CHILD__POSITION, oldPosition, newPosition);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.XY_CHILD__POSITION, oldPosition, newPosition );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -108,20 +111,21 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPosition(Position newPosition)
+    public void setPosition ( Position newPosition )
     {
-        if (newPosition != position)
+        if ( newPosition != position )
         {
             NotificationChain msgs = null;
-            if (position != null)
-                msgs = ((InternalEObject)position).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__POSITION, null, msgs);
-            if (newPosition != null)
-                msgs = ((InternalEObject)newPosition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__POSITION, null, msgs);
-            msgs = basicSetPosition(newPosition, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( position != null )
+                msgs = ( (InternalEObject)position ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__POSITION, null, msgs );
+            if ( newPosition != null )
+                msgs = ( (InternalEObject)newPosition ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__POSITION, null, msgs );
+            msgs = basicSetPosition ( newPosition, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.XY_CHILD__POSITION, newPosition, newPosition));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.XY_CHILD__POSITION, newPosition, newPosition ) );
     }
 
     /**
@@ -129,7 +133,7 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dimension getDimension()
+    public Dimension getDimension ()
     {
         return dimension;
     }
@@ -139,14 +143,17 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDimension(Dimension newDimension, NotificationChain msgs)
+    public NotificationChain basicSetDimension ( Dimension newDimension, NotificationChain msgs )
     {
         Dimension oldDimension = dimension;
         dimension = newDimension;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.XY_CHILD__DIMENSION, oldDimension, newDimension);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.XY_CHILD__DIMENSION, oldDimension, newDimension );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -156,20 +163,21 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDimension(Dimension newDimension)
+    public void setDimension ( Dimension newDimension )
     {
-        if (newDimension != dimension)
+        if ( newDimension != dimension )
         {
             NotificationChain msgs = null;
-            if (dimension != null)
-                msgs = ((InternalEObject)dimension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__DIMENSION, null, msgs);
-            if (newDimension != null)
-                msgs = ((InternalEObject)newDimension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__DIMENSION, null, msgs);
-            msgs = basicSetDimension(newDimension, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( dimension != null )
+                msgs = ( (InternalEObject)dimension ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__DIMENSION, null, msgs );
+            if ( newDimension != null )
+                msgs = ( (InternalEObject)newDimension ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.XY_CHILD__DIMENSION, null, msgs );
+            msgs = basicSetDimension ( newDimension, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.XY_CHILD__DIMENSION, newDimension, newDimension));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.XY_CHILD__DIMENSION, newDimension, newDimension ) );
     }
 
     /**
@@ -178,16 +186,16 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
-                return basicSetPosition(null, msgs);
+                return basicSetPosition ( null, msgs );
             case VisualInterfacePackage.XY_CHILD__DIMENSION:
-                return basicSetDimension(null, msgs);
+                return basicSetDimension ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -196,16 +204,16 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
-                return getPosition();
+                return getPosition ();
             case VisualInterfacePackage.XY_CHILD__DIMENSION:
-                return getDimension();
+                return getDimension ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -214,18 +222,18 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
-                setPosition((Position)newValue);
+                setPosition ( (Position)newValue );
                 return;
             case VisualInterfacePackage.XY_CHILD__DIMENSION:
-                setDimension((Dimension)newValue);
+                setDimension ( (Dimension)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -234,18 +242,18 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
-                setPosition((Position)null);
+                setPosition ( (Position)null );
                 return;
             case VisualInterfacePackage.XY_CHILD__DIMENSION:
-                setDimension((Dimension)null);
+                setDimension ( (Dimension)null );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -254,16 +262,16 @@ public class XYChildImpl extends ChildImpl implements XYChild
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CHILD__POSITION:
                 return position != null;
             case VisualInterfacePackage.XY_CHILD__DIMENSION:
                 return dimension != null;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //XYChildImpl

@@ -41,7 +41,7 @@ public interface Position extends EObject
      * @model required="true"
      * @generated
      */
-    double getX();
+    double getX ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Position#getX <em>X</em>}' attribute.
@@ -51,7 +51,7 @@ public interface Position extends EObject
      * @see #getX()
      * @generated
      */
-    void setX(double value);
+    void setX ( double value );
 
     /**
      * Returns the value of the '<em><b>Y</b></em>' attribute.
@@ -67,7 +67,7 @@ public interface Position extends EObject
      * @model required="true"
      * @generated
      */
-    double getY();
+    double getY ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Position#getY <em>Y</em>}' attribute.
@@ -77,6 +77,6 @@ public interface Position extends EObject
      * @see #getY()
      * @generated
      */
-    void setY(double value);
+    void setY ( double value );
 
 } // Position

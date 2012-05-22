@@ -40,9 +40,9 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceAdapterFactory()
+    public VisualInterfaceAdapterFactory ()
     {
-        if (modelPackage == null)
+        if ( modelPackage == null )
         {
             modelPackage = VisualInterfacePackage.eINSTANCE;
         }
@@ -57,15 +57,15 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object)
+    public boolean isFactoryForType ( Object object )
     {
-        if (object == modelPackage)
+        if ( object == modelPackage )
         {
             return true;
         }
-        if (object instanceof EObject)
+        if ( object instanceof EObject )
         {
-            return ((EObject)object).eClass().getEPackage() == modelPackage;
+            return ( (EObject)object ).eClass ().getEPackage () == modelPackage;
         }
         return false;
     }
@@ -76,145 +76,169 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected VisualInterfaceSwitch<Adapter> modelSwitch =
-        new VisualInterfaceSwitch<Adapter>()
+    protected VisualInterfaceSwitch<Adapter> modelSwitch = new VisualInterfaceSwitch<Adapter> () {
+        @Override
+        public Adapter caseSymbol ( Symbol object )
         {
-            @Override
-            public Adapter caseSymbol(Symbol object)
-            {
-                return createSymbolAdapter();
-            }
-            @Override
-            public Adapter casePrimitive(Primitive object)
-            {
-                return createPrimitiveAdapter();
-            }
-            @Override
-            public Adapter caseContainer(Container object)
-            {
-                return createContainerAdapter();
-            }
-            @Override
-            public Adapter caseShape(Shape object)
-            {
-                return createShapeAdapter();
-            }
-            @Override
-            public Adapter caseRectangle(Rectangle object)
-            {
-                return createRectangleAdapter();
-            }
-            @Override
-            public Adapter caseText(Text object)
-            {
-                return createTextAdapter();
-            }
-            @Override
-            public Adapter caseChild(Child object)
-            {
-                return createChildAdapter();
-            }
-            @Override
-            public Adapter caseXYChild(XYChild object)
-            {
-                return createXYChildAdapter();
-            }
-            @Override
-            public Adapter caseXYContainer(XYContainer object)
-            {
-                return createXYContainerAdapter();
-            }
-            @Override
-            public Adapter casePosition(Position object)
-            {
-                return createPositionAdapter();
-            }
-            @Override
-            public Adapter caseLine(Line object)
-            {
-                return createLineAdapter();
-            }
-            @Override
-            public Adapter caseFigure(Figure object)
-            {
-                return createFigureAdapter();
-            }
-            @Override
-            public Adapter caseSymbolReference(SymbolReference object)
-            {
-                return createSymbolReferenceAdapter();
-            }
-            @Override
-            public Adapter caseStringToStringMap(Map.Entry<String, String> object)
-            {
-                return createStringToStringMapAdapter();
-            }
-            @Override
-            public Adapter caseDimension(Dimension object)
-            {
-                return createDimensionAdapter();
-            }
-            @Override
-            public Adapter caseCursor(Cursor object)
-            {
-                return createCursorAdapter();
-            }
-            @Override
-            public Adapter caseSystemCursor(SystemCursor object)
-            {
-                return createSystemCursorAdapter();
-            }
-            @Override
-            public Adapter caseGridContainer(GridContainer object)
-            {
-                return createGridContainerAdapter();
-            }
-            @Override
-            public Adapter caseBorderContainer(BorderContainer object)
-            {
-                return createBorderContainerAdapter();
-            }
-            @Override
-            public Adapter caseBorderChild(BorderChild object)
-            {
-                return createBorderChildAdapter();
-            }
-            @Override
-            public Adapter caseGridChild(GridChild object)
-            {
-                return createGridChildAdapter();
-            }
-            @Override
-            public Adapter caseFigureContainer(FigureContainer object)
-            {
-                return createFigureContainerAdapter();
-            }
-            @Override
-            public Adapter caseImage(Image object)
-            {
-                return createImageAdapter();
-            }
-            @Override
-            public Adapter caseEllipse(Ellipse object)
-            {
-                return createEllipseAdapter();
-            }
-            @Override
-            public Adapter caseArc(Arc object)
-            {
-                return createArcAdapter();
-            }
-            @Override
-            public Adapter caseConnection(Connection object)
-            {
-                return createConnectionAdapter();
-            }
-            @Override
-            public Adapter defaultCase(EObject object)
-            {
-                return createEObjectAdapter();
-            }
-        };
+            return createSymbolAdapter ();
+        }
+
+        @Override
+        public Adapter casePrimitive ( Primitive object )
+        {
+            return createPrimitiveAdapter ();
+        }
+
+        @Override
+        public Adapter caseContainer ( Container object )
+        {
+            return createContainerAdapter ();
+        }
+
+        @Override
+        public Adapter caseShape ( Shape object )
+        {
+            return createShapeAdapter ();
+        }
+
+        @Override
+        public Adapter caseRectangle ( Rectangle object )
+        {
+            return createRectangleAdapter ();
+        }
+
+        @Override
+        public Adapter caseText ( Text object )
+        {
+            return createTextAdapter ();
+        }
+
+        @Override
+        public Adapter caseChild ( Child object )
+        {
+            return createChildAdapter ();
+        }
+
+        @Override
+        public Adapter caseXYChild ( XYChild object )
+        {
+            return createXYChildAdapter ();
+        }
+
+        @Override
+        public Adapter caseXYContainer ( XYContainer object )
+        {
+            return createXYContainerAdapter ();
+        }
+
+        @Override
+        public Adapter casePosition ( Position object )
+        {
+            return createPositionAdapter ();
+        }
+
+        @Override
+        public Adapter caseLine ( Line object )
+        {
+            return createLineAdapter ();
+        }
+
+        @Override
+        public Adapter caseFigure ( Figure object )
+        {
+            return createFigureAdapter ();
+        }
+
+        @Override
+        public Adapter caseSymbolReference ( SymbolReference object )
+        {
+            return createSymbolReferenceAdapter ();
+        }
+
+        @Override
+        public Adapter caseStringToStringMap ( Map.Entry<String, String> object )
+        {
+            return createStringToStringMapAdapter ();
+        }
+
+        @Override
+        public Adapter caseDimension ( Dimension object )
+        {
+            return createDimensionAdapter ();
+        }
+
+        @Override
+        public Adapter caseCursor ( Cursor object )
+        {
+            return createCursorAdapter ();
+        }
+
+        @Override
+        public Adapter caseSystemCursor ( SystemCursor object )
+        {
+            return createSystemCursorAdapter ();
+        }
+
+        @Override
+        public Adapter caseGridContainer ( GridContainer object )
+        {
+            return createGridContainerAdapter ();
+        }
+
+        @Override
+        public Adapter caseBorderContainer ( BorderContainer object )
+        {
+            return createBorderContainerAdapter ();
+        }
+
+        @Override
+        public Adapter caseBorderChild ( BorderChild object )
+        {
+            return createBorderChildAdapter ();
+        }
+
+        @Override
+        public Adapter caseGridChild ( GridChild object )
+        {
+            return createGridChildAdapter ();
+        }
+
+        @Override
+        public Adapter caseFigureContainer ( FigureContainer object )
+        {
+            return createFigureContainerAdapter ();
+        }
+
+        @Override
+        public Adapter caseImage ( Image object )
+        {
+            return createImageAdapter ();
+        }
+
+        @Override
+        public Adapter caseEllipse ( Ellipse object )
+        {
+            return createEllipseAdapter ();
+        }
+
+        @Override
+        public Adapter caseArc ( Arc object )
+        {
+            return createArcAdapter ();
+        }
+
+        @Override
+        public Adapter caseConnection ( Connection object )
+        {
+            return createConnectionAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.
@@ -225,11 +249,10 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target)
+    public Adapter createAdapter ( Notifier target )
     {
-        return modelSwitch.doSwitch((EObject)target);
+        return modelSwitch.doSwitch ( (EObject)target );
     }
-
 
     /**
      * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Symbol <em>Symbol</em>}'.
@@ -241,7 +264,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Symbol
      * @generated
      */
-    public Adapter createSymbolAdapter()
+    public Adapter createSymbolAdapter ()
     {
         return null;
     }
@@ -256,7 +279,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Primitive
      * @generated
      */
-    public Adapter createPrimitiveAdapter()
+    public Adapter createPrimitiveAdapter ()
     {
         return null;
     }
@@ -271,7 +294,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Container
      * @generated
      */
-    public Adapter createContainerAdapter()
+    public Adapter createContainerAdapter ()
     {
         return null;
     }
@@ -286,7 +309,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Shape
      * @generated
      */
-    public Adapter createShapeAdapter()
+    public Adapter createShapeAdapter ()
     {
         return null;
     }
@@ -301,7 +324,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Rectangle
      * @generated
      */
-    public Adapter createRectangleAdapter()
+    public Adapter createRectangleAdapter ()
     {
         return null;
     }
@@ -316,7 +339,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Text
      * @generated
      */
-    public Adapter createTextAdapter()
+    public Adapter createTextAdapter ()
     {
         return null;
     }
@@ -331,7 +354,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Child
      * @generated
      */
-    public Adapter createChildAdapter()
+    public Adapter createChildAdapter ()
     {
         return null;
     }
@@ -346,7 +369,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.XYChild
      * @generated
      */
-    public Adapter createXYChildAdapter()
+    public Adapter createXYChildAdapter ()
     {
         return null;
     }
@@ -361,7 +384,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.XYContainer
      * @generated
      */
-    public Adapter createXYContainerAdapter()
+    public Adapter createXYContainerAdapter ()
     {
         return null;
     }
@@ -376,7 +399,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Position
      * @generated
      */
-    public Adapter createPositionAdapter()
+    public Adapter createPositionAdapter ()
     {
         return null;
     }
@@ -391,7 +414,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Line
      * @generated
      */
-    public Adapter createLineAdapter()
+    public Adapter createLineAdapter ()
     {
         return null;
     }
@@ -406,7 +429,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Figure
      * @generated
      */
-    public Adapter createFigureAdapter()
+    public Adapter createFigureAdapter ()
     {
         return null;
     }
@@ -421,7 +444,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.SymbolReference
      * @generated
      */
-    public Adapter createSymbolReferenceAdapter()
+    public Adapter createSymbolReferenceAdapter ()
     {
         return null;
     }
@@ -436,7 +459,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see java.util.Map.Entry
      * @generated
      */
-    public Adapter createStringToStringMapAdapter()
+    public Adapter createStringToStringMapAdapter ()
     {
         return null;
     }
@@ -451,7 +474,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Dimension
      * @generated
      */
-    public Adapter createDimensionAdapter()
+    public Adapter createDimensionAdapter ()
     {
         return null;
     }
@@ -466,7 +489,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Cursor
      * @generated
      */
-    public Adapter createCursorAdapter()
+    public Adapter createCursorAdapter ()
     {
         return null;
     }
@@ -481,7 +504,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.SystemCursor
      * @generated
      */
-    public Adapter createSystemCursorAdapter()
+    public Adapter createSystemCursorAdapter ()
     {
         return null;
     }
@@ -496,7 +519,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.GridContainer
      * @generated
      */
-    public Adapter createGridContainerAdapter()
+    public Adapter createGridContainerAdapter ()
     {
         return null;
     }
@@ -511,7 +534,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.BorderContainer
      * @generated
      */
-    public Adapter createBorderContainerAdapter()
+    public Adapter createBorderContainerAdapter ()
     {
         return null;
     }
@@ -526,7 +549,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.BorderChild
      * @generated
      */
-    public Adapter createBorderChildAdapter()
+    public Adapter createBorderChildAdapter ()
     {
         return null;
     }
@@ -541,7 +564,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.GridChild
      * @generated
      */
-    public Adapter createGridChildAdapter()
+    public Adapter createGridChildAdapter ()
     {
         return null;
     }
@@ -556,7 +579,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.FigureContainer
      * @generated
      */
-    public Adapter createFigureContainerAdapter()
+    public Adapter createFigureContainerAdapter ()
     {
         return null;
     }
@@ -571,7 +594,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Image
      * @generated
      */
-    public Adapter createImageAdapter()
+    public Adapter createImageAdapter ()
     {
         return null;
     }
@@ -586,7 +609,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Ellipse
      * @generated
      */
-    public Adapter createEllipseAdapter()
+    public Adapter createEllipseAdapter ()
     {
         return null;
     }
@@ -601,7 +624,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Arc
      * @generated
      */
-    public Adapter createArcAdapter()
+    public Adapter createArcAdapter ()
     {
         return null;
     }
@@ -616,7 +639,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.model.VisualInterface.Connection
      * @generated
      */
-    public Adapter createConnectionAdapter()
+    public Adapter createConnectionAdapter ()
     {
         return null;
     }
@@ -629,7 +652,7 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @return the new adapter.
      * @generated
      */
-    public Adapter createEObjectAdapter()
+    public Adapter createEObjectAdapter ()
     {
         return null;
     }

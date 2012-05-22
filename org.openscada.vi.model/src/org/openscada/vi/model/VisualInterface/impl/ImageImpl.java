@@ -55,9 +55,9 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ImageImpl()
+    protected ImageImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,7 +66,7 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.IMAGE;
     }
@@ -76,7 +76,7 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getUri()
+    public String getUri ()
     {
         return uri;
     }
@@ -86,12 +86,12 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setUri(String newUri)
+    public void setUri ( String newUri )
     {
         String oldUri = uri;
         uri = newUri;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.IMAGE__URI, oldUri, uri));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.IMAGE__URI, oldUri, uri ) );
     }
 
     /**
@@ -100,14 +100,14 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.IMAGE__URI:
-                return getUri();
+                return getUri ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -116,15 +116,15 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.IMAGE__URI:
-                setUri((String)newValue);
+                setUri ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -133,15 +133,15 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.IMAGE__URI:
-                setUri(URI_EDEFAULT);
+                setUri ( URI_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -150,14 +150,14 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.IMAGE__URI:
-                return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+                return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals ( uri );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -166,15 +166,16 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (uri: "); //$NON-NLS-1$
-        result.append(uri);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (uri: " ); //$NON-NLS-1$
+        result.append ( uri );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ImageImpl

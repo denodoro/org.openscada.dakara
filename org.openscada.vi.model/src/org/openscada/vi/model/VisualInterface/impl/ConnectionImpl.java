@@ -59,9 +59,9 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ConnectionImpl()
+    protected ConnectionImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -70,7 +70,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.CONNECTION;
     }
@@ -80,16 +80,16 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive getStart()
+    public Primitive getStart ()
     {
-        if (start != null && start.eIsProxy())
+        if ( start != null && start.eIsProxy () )
         {
             InternalEObject oldStart = (InternalEObject)start;
-            start = (Primitive)eResolveProxy(oldStart);
-            if (start != oldStart)
+            start = (Primitive)eResolveProxy ( oldStart );
+            if ( start != oldStart )
             {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, VisualInterfacePackage.CONNECTION__START, oldStart, start));
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, VisualInterfacePackage.CONNECTION__START, oldStart, start ) );
             }
         }
         return start;
@@ -100,7 +100,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive basicGetStart()
+    public Primitive basicGetStart ()
     {
         return start;
     }
@@ -110,12 +110,12 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setStart(Primitive newStart)
+    public void setStart ( Primitive newStart )
     {
         Primitive oldStart = start;
         start = newStart;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.CONNECTION__START, oldStart, start));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.CONNECTION__START, oldStart, start ) );
     }
 
     /**
@@ -123,16 +123,16 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive getEnd()
+    public Primitive getEnd ()
     {
-        if (end != null && end.eIsProxy())
+        if ( end != null && end.eIsProxy () )
         {
             InternalEObject oldEnd = (InternalEObject)end;
-            end = (Primitive)eResolveProxy(oldEnd);
-            if (end != oldEnd)
+            end = (Primitive)eResolveProxy ( oldEnd );
+            if ( end != oldEnd )
             {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, VisualInterfacePackage.CONNECTION__END, oldEnd, end));
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, VisualInterfacePackage.CONNECTION__END, oldEnd, end ) );
             }
         }
         return end;
@@ -143,7 +143,7 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive basicGetEnd()
+    public Primitive basicGetEnd ()
     {
         return end;
     }
@@ -153,12 +153,12 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEnd(Primitive newEnd)
+    public void setEnd ( Primitive newEnd )
     {
         Primitive oldEnd = end;
         end = newEnd;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.CONNECTION__END, oldEnd, end));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.CONNECTION__END, oldEnd, end ) );
     }
 
     /**
@@ -167,18 +167,20 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CONNECTION__START:
-                if (resolve) return getStart();
-                return basicGetStart();
+                if ( resolve )
+                    return getStart ();
+                return basicGetStart ();
             case VisualInterfacePackage.CONNECTION__END:
-                if (resolve) return getEnd();
-                return basicGetEnd();
+                if ( resolve )
+                    return getEnd ();
+                return basicGetEnd ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -187,18 +189,18 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CONNECTION__START:
-                setStart((Primitive)newValue);
+                setStart ( (Primitive)newValue );
                 return;
             case VisualInterfacePackage.CONNECTION__END:
-                setEnd((Primitive)newValue);
+                setEnd ( (Primitive)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -207,18 +209,18 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CONNECTION__START:
-                setStart((Primitive)null);
+                setStart ( (Primitive)null );
                 return;
             case VisualInterfacePackage.CONNECTION__END:
-                setEnd((Primitive)null);
+                setEnd ( (Primitive)null );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -227,16 +229,16 @@ public class ConnectionImpl extends EObjectImpl implements Connection
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CONNECTION__START:
                 return start != null;
             case VisualInterfacePackage.CONNECTION__END:
                 return end != null;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //ConnectionImpl

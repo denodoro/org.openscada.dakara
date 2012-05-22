@@ -40,6 +40,6 @@ public interface XYContainer extends Container
      * @model containment="true"
      * @generated
      */
-    EList<XYChild> getChildren();
+    EList<XYChild> getChildren ();
 
 } // XYContainer

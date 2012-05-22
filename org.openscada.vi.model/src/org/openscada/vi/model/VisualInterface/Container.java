@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Container</b></em>'.

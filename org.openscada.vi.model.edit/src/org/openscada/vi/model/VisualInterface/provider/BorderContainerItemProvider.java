@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -37,14 +36,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BorderContainerItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class BorderContainerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -52,9 +44,9 @@ public class BorderContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public BorderContainerItemProvider(AdapterFactory adapterFactory)
+    public BorderContainerItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -64,15 +56,15 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addNamePropertyDescriptor(object);
-            addVerticalSpacingPropertyDescriptor(object);
-            addHorizontalSpacingPropertyDescriptor(object);
+            addNamePropertyDescriptor ( object );
+            addVerticalSpacingPropertyDescriptor ( object );
+            addHorizontalSpacingPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -83,21 +75,11 @@ public class BorderContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor(Object object)
+    protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Primitive_name_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.PRIMITIVE__NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -106,21 +88,11 @@ public class BorderContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addVerticalSpacingPropertyDescriptor(Object object)
+    protected void addVerticalSpacingPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_BorderContainer_verticalSpacing_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_BorderContainer_verticalSpacing_feature", "_UI_BorderContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.BORDER_CONTAINER__VERTICAL_SPACING,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BorderContainer_verticalSpacing_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BorderContainer_verticalSpacing_feature", "_UI_BorderContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.BORDER_CONTAINER__VERTICAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -129,21 +101,11 @@ public class BorderContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHorizontalSpacingPropertyDescriptor(Object object)
+    protected void addHorizontalSpacingPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_BorderContainer_horizontalSpacing_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_BorderContainer_horizontalSpacing_feature", "_UI_BorderContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.BORDER_CONTAINER__HORIZONTAL_SPACING,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BorderContainer_horizontalSpacing_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BorderContainer_horizontalSpacing_feature", "_UI_BorderContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.BORDER_CONTAINER__HORIZONTAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -155,12 +117,12 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.BORDER_CONTAINER__CHILDREN);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.BORDER_CONTAINER__CHILDREN );
         }
         return childrenFeatures;
     }
@@ -171,12 +133,12 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -186,9 +148,9 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/BorderContainer")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/BorderContainer" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -198,12 +160,11 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((BorderContainer)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_BorderContainer_type") : //$NON-NLS-1$
-            getString("_UI_BorderContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (BorderContainer)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_BorderContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_BorderContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -214,22 +175,22 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(BorderContainer.class))
+        switch ( notification.getFeatureID ( BorderContainer.class ) )
         {
             case VisualInterfacePackage.BORDER_CONTAINER__NAME:
             case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
             case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -240,14 +201,11 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.BORDER_CONTAINER__CHILDREN,
-                 VisualInterfaceFactory.eINSTANCE.createBorderChild()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.BORDER_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createBorderChild () ) );
     }
 
     /**
@@ -257,7 +215,7 @@ public class BorderContainerItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return VisualInterfaceEditPlugin.INSTANCE;
     }

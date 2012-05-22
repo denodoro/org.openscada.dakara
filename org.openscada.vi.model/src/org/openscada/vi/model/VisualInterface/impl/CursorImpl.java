@@ -29,9 +29,9 @@ public abstract class CursorImpl extends EObjectImpl implements Cursor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected CursorImpl()
+    protected CursorImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class CursorImpl extends EObjectImpl implements Cursor
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.CURSOR;
     }

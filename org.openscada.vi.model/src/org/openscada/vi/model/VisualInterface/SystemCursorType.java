@@ -31,7 +31,7 @@ public enum SystemCursorType implements Enumerator
      * @generated
      * @ordered
      */
-    ARROW(1, "ARROW", "ARROW"),
+    ARROW ( 1, "ARROW", "ARROW" ),
 
     /**
      * The '<em><b>HAND</b></em>' literal object.
@@ -41,7 +41,7 @@ public enum SystemCursorType implements Enumerator
      * @generated
      * @ordered
      */
-    HAND(0, "HAND", "HAND");
+    HAND ( 0, "HAND", "HAND" );
 
     /**
      * The '<em><b>ARROW</b></em>' literal value.
@@ -79,12 +79,7 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final SystemCursorType[] VALUES_ARRAY =
-        new SystemCursorType[]
-        {
-            ARROW,
-            HAND,
-        };
+    private static final SystemCursorType[] VALUES_ARRAY = new SystemCursorType[] { ARROW, HAND, };
 
     /**
      * A public read-only list of all the '<em><b>System Cursor Type</b></em>' enumerators.
@@ -92,7 +87,7 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<SystemCursorType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<SystemCursorType> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
      * Returns the '<em><b>System Cursor Type</b></em>' literal with the specified literal value.
@@ -100,12 +95,12 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static SystemCursorType get(String literal)
+    public static SystemCursorType get ( String literal )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             SystemCursorType result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal))
+            if ( result.toString ().equals ( literal ) )
             {
                 return result;
             }
@@ -119,12 +114,12 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static SystemCursorType getByName(String name)
+    public static SystemCursorType getByName ( String name )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             SystemCursorType result = VALUES_ARRAY[i];
-            if (result.getName().equals(name))
+            if ( result.getName ().equals ( name ) )
             {
                 return result;
             }
@@ -138,12 +133,14 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static SystemCursorType get(int value)
+    public static SystemCursorType get ( int value )
     {
-        switch (value)
+        switch ( value )
         {
-            case ARROW_VALUE: return ARROW;
-            case HAND_VALUE: return HAND;
+            case ARROW_VALUE:
+                return ARROW;
+            case HAND_VALUE:
+                return HAND;
         }
         return null;
     }
@@ -175,7 +172,7 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private SystemCursorType(int value, String name, String literal)
+    private SystemCursorType ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -187,9 +184,9 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getValue()
+    public int getValue ()
     {
-      return value;
+        return value;
     }
 
     /**
@@ -197,9 +194,9 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
-      return name;
+        return name;
     }
 
     /**
@@ -207,9 +204,9 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLiteral()
+    public String getLiteral ()
     {
-      return literal;
+        return literal;
     }
 
     /**
@@ -219,9 +216,9 @@ public enum SystemCursorType implements Enumerator
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return literal;
     }
-    
+
 } //SystemCursorType

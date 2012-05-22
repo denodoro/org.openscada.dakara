@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Text</b></em>'.
@@ -48,7 +47,7 @@ public interface Text extends Figure
      * @model required="true"
      * @generated
      */
-    String getText();
+    String getText ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getText <em>Text</em>}' attribute.
@@ -58,7 +57,7 @@ public interface Text extends Figure
      * @see #getText()
      * @generated
      */
-    void setText(String value);
+    void setText ( String value );
 
     /**
      * Returns the value of the '<em><b>Label Alignment</b></em>' attribute.
@@ -77,7 +76,7 @@ public interface Text extends Figure
      * @model default="CENTER"
      * @generated
      */
-    Alignment getLabelAlignment();
+    Alignment getLabelAlignment ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getLabelAlignment <em>Label Alignment</em>}' attribute.
@@ -88,7 +87,7 @@ public interface Text extends Figure
      * @see #getLabelAlignment()
      * @generated
      */
-    void setLabelAlignment(Alignment value);
+    void setLabelAlignment ( Alignment value );
 
     /**
      * Returns the value of the '<em><b>Text Alignment</b></em>' attribute.
@@ -107,7 +106,7 @@ public interface Text extends Figure
      * @model default="CENTER"
      * @generated
      */
-    Alignment getTextAlignment();
+    Alignment getTextAlignment ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getTextAlignment <em>Text Alignment</em>}' attribute.
@@ -118,7 +117,7 @@ public interface Text extends Figure
      * @see #getTextAlignment()
      * @generated
      */
-    void setTextAlignment(Alignment value);
+    void setTextAlignment ( Alignment value );
 
     /**
      * Returns the value of the '<em><b>Text Placement</b></em>' attribute.
@@ -137,7 +136,7 @@ public interface Text extends Figure
      * @model default="EAST"
      * @generated
      */
-    Orientation getTextPlacement();
+    Orientation getTextPlacement ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getTextPlacement <em>Text Placement</em>}' attribute.
@@ -148,7 +147,7 @@ public interface Text extends Figure
      * @see #getTextPlacement()
      * @generated
      */
-    void setTextPlacement(Orientation value);
+    void setTextPlacement ( Orientation value );
 
     /**
      * Returns the value of the '<em><b>Font Name</b></em>' attribute.
@@ -164,7 +163,7 @@ public interface Text extends Figure
      * @model
      * @generated
      */
-    String getFontName();
+    String getFontName ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getFontName <em>Font Name</em>}' attribute.
@@ -174,7 +173,7 @@ public interface Text extends Figure
      * @see #getFontName()
      * @generated
      */
-    void setFontName(String value);
+    void setFontName ( String value );
 
     /**
      * Returns the value of the '<em><b>Font Size</b></em>' attribute.
@@ -190,7 +189,7 @@ public interface Text extends Figure
      * @model
      * @generated
      */
-    int getFontSize();
+    int getFontSize ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getFontSize <em>Font Size</em>}' attribute.
@@ -200,7 +199,7 @@ public interface Text extends Figure
      * @see #getFontSize()
      * @generated
      */
-    void setFontSize(int value);
+    void setFontSize ( int value );
 
     /**
      * Returns the value of the '<em><b>Font Bold</b></em>' attribute.
@@ -217,7 +216,7 @@ public interface Text extends Figure
      * @model default="false" required="true"
      * @generated
      */
-    boolean isFontBold();
+    boolean isFontBold ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#isFontBold <em>Font Bold</em>}' attribute.
@@ -227,7 +226,7 @@ public interface Text extends Figure
      * @see #isFontBold()
      * @generated
      */
-    void setFontBold(boolean value);
+    void setFontBold ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Font Italic</b></em>' attribute.
@@ -244,7 +243,7 @@ public interface Text extends Figure
      * @model default="false" required="true"
      * @generated
      */
-    boolean isFontItalic();
+    boolean isFontItalic ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#isFontItalic <em>Font Italic</em>}' attribute.
@@ -254,7 +253,7 @@ public interface Text extends Figure
      * @see #isFontItalic()
      * @generated
      */
-    void setFontItalic(boolean value);
+    void setFontItalic ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Icon Alignment</b></em>' attribute.
@@ -273,7 +272,7 @@ public interface Text extends Figure
      * @model default="CENTER"
      * @generated
      */
-    Alignment getIconAlignment();
+    Alignment getIconAlignment ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Text#getIconAlignment <em>Icon Alignment</em>}' attribute.
@@ -284,5 +283,5 @@ public interface Text extends Figure
      * @see #getIconAlignment()
      * @generated
      */
-    void setIconAlignment(Alignment value);
+    void setIconAlignment ( Alignment value );
 } // Text

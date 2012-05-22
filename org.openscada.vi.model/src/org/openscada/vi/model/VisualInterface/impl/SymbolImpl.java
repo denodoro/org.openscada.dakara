@@ -199,9 +199,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SymbolImpl()
+    protected SymbolImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -210,7 +210,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.SYMBOL;
     }
@@ -220,7 +220,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive getRoot()
+    public Primitive getRoot ()
     {
         return root;
     }
@@ -230,14 +230,17 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRoot(Primitive newRoot, NotificationChain msgs)
+    public NotificationChain basicSetRoot ( Primitive newRoot, NotificationChain msgs )
     {
         Primitive oldRoot = root;
         root = newRoot;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ROOT, oldRoot, newRoot);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__ROOT, oldRoot, newRoot );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -247,20 +250,21 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setRoot(Primitive newRoot)
+    public void setRoot ( Primitive newRoot )
     {
-        if (newRoot != root)
+        if ( newRoot != root )
         {
             NotificationChain msgs = null;
-            if (root != null)
-                msgs = ((InternalEObject)root).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__ROOT, null, msgs);
-            if (newRoot != null)
-                msgs = ((InternalEObject)newRoot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__ROOT, null, msgs);
-            msgs = basicSetRoot(newRoot, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( root != null )
+                msgs = ( (InternalEObject)root ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__ROOT, null, msgs );
+            if ( newRoot != null )
+                msgs = ( (InternalEObject)newRoot ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__ROOT, null, msgs );
+            msgs = basicSetRoot ( newRoot, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ROOT, newRoot, newRoot));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__ROOT, newRoot, newRoot ) );
     }
 
     /**
@@ -268,11 +272,11 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public EMap<String, String> getProperties()
+    public EMap<String, String> getProperties ()
     {
-        if (properties == null)
+        if ( properties == null )
         {
-            properties = new EcoreEMap<String,String>(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, VisualInterfacePackage.SYMBOL__PROPERTIES);
+            properties = new EcoreEMap<String, String> ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, VisualInterfacePackage.SYMBOL__PROPERTIES );
         }
         return properties;
     }
@@ -282,7 +286,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOnInit()
+    public String getOnInit ()
     {
         return onInit;
     }
@@ -292,12 +296,12 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOnInit(String newOnInit)
+    public void setOnInit ( String newOnInit )
     {
         String oldOnInit = onInit;
         onInit = newOnInit;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_INIT, oldOnInit, onInit));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_INIT, oldOnInit, onInit ) );
     }
 
     /**
@@ -305,7 +309,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOnDispose()
+    public String getOnDispose ()
     {
         return onDispose;
     }
@@ -315,12 +319,12 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOnDispose(String newOnDispose)
+    public void setOnDispose ( String newOnDispose )
     {
         String oldOnDispose = onDispose;
         onDispose = newOnDispose;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_DISPOSE, oldOnDispose, onDispose));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_DISPOSE, oldOnDispose, onDispose ) );
     }
 
     /**
@@ -328,7 +332,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOnUpdate()
+    public String getOnUpdate ()
     {
         return onUpdate;
     }
@@ -338,12 +342,12 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOnUpdate(String newOnUpdate)
+    public void setOnUpdate ( String newOnUpdate )
     {
         String oldOnUpdate = onUpdate;
         onUpdate = newOnUpdate;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_UPDATE, oldOnUpdate, onUpdate));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__ON_UPDATE, oldOnUpdate, onUpdate ) );
     }
 
     /**
@@ -351,11 +355,11 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getScriptModules()
+    public EList<String> getScriptModules ()
     {
-        if (scriptModules == null)
+        if ( scriptModules == null )
         {
-            scriptModules = new EDataTypeUniqueEList<String>(String.class, this, VisualInterfacePackage.SYMBOL__SCRIPT_MODULES);
+            scriptModules = new EDataTypeUniqueEList<String> ( String.class, this, VisualInterfacePackage.SYMBOL__SCRIPT_MODULES );
         }
         return scriptModules;
     }
@@ -365,7 +369,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public Cursor getCursors()
+    public Cursor getCursors ()
     {
         return cursors;
     }
@@ -375,14 +379,17 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCursors(Cursor newCursors, NotificationChain msgs)
+    public NotificationChain basicSetCursors ( Cursor newCursors, NotificationChain msgs )
     {
         Cursor oldCursors = cursors;
         cursors = newCursors;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__CURSORS, oldCursors, newCursors);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__CURSORS, oldCursors, newCursors );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -392,20 +399,21 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCursors(Cursor newCursors)
+    public void setCursors ( Cursor newCursors )
     {
-        if (newCursors != cursors)
+        if ( newCursors != cursors )
         {
             NotificationChain msgs = null;
-            if (cursors != null)
-                msgs = ((InternalEObject)cursors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__CURSORS, null, msgs);
-            if (newCursors != null)
-                msgs = ((InternalEObject)newCursors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__CURSORS, null, msgs);
-            msgs = basicSetCursors(newCursors, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( cursors != null )
+                msgs = ( (InternalEObject)cursors ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__CURSORS, null, msgs );
+            if ( newCursors != null )
+                msgs = ( (InternalEObject)newCursors ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__CURSORS, null, msgs );
+            msgs = basicSetCursors ( newCursors, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__CURSORS, newCursors, newCursors));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__CURSORS, newCursors, newCursors ) );
     }
 
     /**
@@ -413,7 +421,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getBackgroundColor()
+    public String getBackgroundColor ()
     {
         return backgroundColor;
     }
@@ -423,12 +431,12 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBackgroundColor(String newBackgroundColor)
+    public void setBackgroundColor ( String newBackgroundColor )
     {
         String oldBackgroundColor = backgroundColor;
         backgroundColor = newBackgroundColor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR, oldBackgroundColor, backgroundColor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR, oldBackgroundColor, backgroundColor ) );
     }
 
     /**
@@ -436,7 +444,7 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dimension getDesignSize()
+    public Dimension getDesignSize ()
     {
         return designSize;
     }
@@ -446,14 +454,17 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetDesignSize(Dimension newDesignSize, NotificationChain msgs)
+    public NotificationChain basicSetDesignSize ( Dimension newDesignSize, NotificationChain msgs )
     {
         Dimension oldDesignSize = designSize;
         designSize = newDesignSize;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__DESIGN_SIZE, oldDesignSize, newDesignSize);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__DESIGN_SIZE, oldDesignSize, newDesignSize );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -463,20 +474,21 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDesignSize(Dimension newDesignSize)
+    public void setDesignSize ( Dimension newDesignSize )
     {
-        if (newDesignSize != designSize)
+        if ( newDesignSize != designSize )
         {
             NotificationChain msgs = null;
-            if (designSize != null)
-                msgs = ((InternalEObject)designSize).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__DESIGN_SIZE, null, msgs);
-            if (newDesignSize != null)
-                msgs = ((InternalEObject)newDesignSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__DESIGN_SIZE, null, msgs);
-            msgs = basicSetDesignSize(newDesignSize, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( designSize != null )
+                msgs = ( (InternalEObject)designSize ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__DESIGN_SIZE, null, msgs );
+            if ( newDesignSize != null )
+                msgs = ( (InternalEObject)newDesignSize ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.SYMBOL__DESIGN_SIZE, null, msgs );
+            msgs = basicSetDesignSize ( newDesignSize, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL__DESIGN_SIZE, newDesignSize, newDesignSize));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__DESIGN_SIZE, newDesignSize, newDesignSize ) );
     }
 
     /**
@@ -484,11 +496,11 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Connection> getConnections()
+    public EList<Connection> getConnections ()
     {
-        if (connections == null)
+        if ( connections == null )
         {
-            connections = new EObjectContainmentEList<Connection>(Connection.class, this, VisualInterfacePackage.SYMBOL__CONNECTIONS);
+            connections = new EObjectContainmentEList<Connection> ( Connection.class, this, VisualInterfacePackage.SYMBOL__CONNECTIONS );
         }
         return connections;
     }
@@ -499,22 +511,22 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
-                return basicSetRoot(null, msgs);
+                return basicSetRoot ( null, msgs );
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
             case VisualInterfacePackage.SYMBOL__CURSORS:
-                return basicSetCursors(null, msgs);
+                return basicSetCursors ( null, msgs );
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
-                return basicSetDesignSize(null, msgs);
+                return basicSetDesignSize ( null, msgs );
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
-                return ((InternalEList<?>)getConnections()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getConnections () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -523,33 +535,35 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
-                return getRoot();
+                return getRoot ();
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
-                if (coreType) return getProperties();
-                else return getProperties().map();
+                if ( coreType )
+                    return getProperties ();
+                else
+                    return getProperties ().map ();
             case VisualInterfacePackage.SYMBOL__ON_INIT:
-                return getOnInit();
+                return getOnInit ();
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
-                return getOnDispose();
+                return getOnDispose ();
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
-                return getOnUpdate();
+                return getOnUpdate ();
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
-                return getScriptModules();
+                return getScriptModules ();
             case VisualInterfacePackage.SYMBOL__CURSORS:
-                return getCursors();
+                return getCursors ();
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
-                return getBackgroundColor();
+                return getBackgroundColor ();
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
-                return getDesignSize();
+                return getDesignSize ();
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
-                return getConnections();
+                return getConnections ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -557,90 +571,46 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
-                setRoot((Primitive)newValue);
+                setRoot ( (Primitive)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
-                ((EStructuralFeature.Setting)getProperties()).set(newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__ON_INIT:
-                setOnInit((String)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
-                setOnDispose((String)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
-                setOnUpdate((String)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
-                getScriptModules().clear();
-                getScriptModules().addAll((Collection<? extends String>)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__CURSORS:
-                setCursors((Cursor)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
-                setBackgroundColor((String)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
-                setDesignSize((Dimension)newValue);
-                return;
-            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
-                getConnections().clear();
-                getConnections().addAll((Collection<? extends Connection>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.SYMBOL__ROOT:
-                setRoot((Primitive)null);
-                return;
-            case VisualInterfacePackage.SYMBOL__PROPERTIES:
-                getProperties().clear();
+                ( (EStructuralFeature.Setting)getProperties () ).set ( newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__ON_INIT:
-                setOnInit(ON_INIT_EDEFAULT);
+                setOnInit ( (String)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
-                setOnDispose(ON_DISPOSE_EDEFAULT);
+                setOnDispose ( (String)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
-                setOnUpdate(ON_UPDATE_EDEFAULT);
+                setOnUpdate ( (String)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
-                getScriptModules().clear();
+                getScriptModules ().clear ();
+                getScriptModules ().addAll ( (Collection<? extends String>)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__CURSORS:
-                setCursors((Cursor)null);
+                setCursors ( (Cursor)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
-                setBackgroundColor(BACKGROUND_COLOR_EDEFAULT);
+                setBackgroundColor ( (String)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
-                setDesignSize((Dimension)null);
+                setDesignSize ( (Dimension)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
-                getConnections().clear();
+                getConnections ().clear ();
+                getConnections ().addAll ( (Collection<? extends Connection>)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -649,32 +619,76 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.SYMBOL__ROOT:
+                setRoot ( (Primitive)null );
+                return;
+            case VisualInterfacePackage.SYMBOL__PROPERTIES:
+                getProperties ().clear ();
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_INIT:
+                setOnInit ( ON_INIT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
+                setOnDispose ( ON_DISPOSE_EDEFAULT );
+                return;
+            case VisualInterfacePackage.SYMBOL__ON_UPDATE:
+                setOnUpdate ( ON_UPDATE_EDEFAULT );
+                return;
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
+                getScriptModules ().clear ();
+                return;
+            case VisualInterfacePackage.SYMBOL__CURSORS:
+                setCursors ( (Cursor)null );
+                return;
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
+                setBackgroundColor ( BACKGROUND_COLOR_EDEFAULT );
+                return;
+            case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
+                setDesignSize ( (Dimension)null );
+                return;
+            case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+                getConnections ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL__ROOT:
                 return root != null;
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
-                return properties != null && !properties.isEmpty();
+                return properties != null && !properties.isEmpty ();
             case VisualInterfacePackage.SYMBOL__ON_INIT:
-                return ON_INIT_EDEFAULT == null ? onInit != null : !ON_INIT_EDEFAULT.equals(onInit);
+                return ON_INIT_EDEFAULT == null ? onInit != null : !ON_INIT_EDEFAULT.equals ( onInit );
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
-                return ON_DISPOSE_EDEFAULT == null ? onDispose != null : !ON_DISPOSE_EDEFAULT.equals(onDispose);
+                return ON_DISPOSE_EDEFAULT == null ? onDispose != null : !ON_DISPOSE_EDEFAULT.equals ( onDispose );
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
-                return ON_UPDATE_EDEFAULT == null ? onUpdate != null : !ON_UPDATE_EDEFAULT.equals(onUpdate);
+                return ON_UPDATE_EDEFAULT == null ? onUpdate != null : !ON_UPDATE_EDEFAULT.equals ( onUpdate );
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
-                return scriptModules != null && !scriptModules.isEmpty();
+                return scriptModules != null && !scriptModules.isEmpty ();
             case VisualInterfacePackage.SYMBOL__CURSORS:
                 return cursors != null;
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
-                return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
+                return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals ( backgroundColor );
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
                 return designSize != null;
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
-                return connections != null && !connections.isEmpty();
+                return connections != null && !connections.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -683,23 +697,24 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (onInit: "); //$NON-NLS-1$
-        result.append(onInit);
-        result.append(", onDispose: "); //$NON-NLS-1$
-        result.append(onDispose);
-        result.append(", onUpdate: "); //$NON-NLS-1$
-        result.append(onUpdate);
-        result.append(", scriptModules: "); //$NON-NLS-1$
-        result.append(scriptModules);
-        result.append(", backgroundColor: "); //$NON-NLS-1$
-        result.append(backgroundColor);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (onInit: " ); //$NON-NLS-1$
+        result.append ( onInit );
+        result.append ( ", onDispose: " ); //$NON-NLS-1$
+        result.append ( onDispose );
+        result.append ( ", onUpdate: " ); //$NON-NLS-1$
+        result.append ( onUpdate );
+        result.append ( ", scriptModules: " ); //$NON-NLS-1$
+        result.append ( scriptModules );
+        result.append ( ", backgroundColor: " ); //$NON-NLS-1$
+        result.append ( backgroundColor );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //SymbolImpl

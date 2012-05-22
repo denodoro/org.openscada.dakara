@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -34,14 +33,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextItemProvider
-    extends FigureItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class TextItemProvider extends FigureItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -49,9 +41,9 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextItemProvider(AdapterFactory adapterFactory)
+    public TextItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -61,21 +53,21 @@ public class TextItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addTextPropertyDescriptor(object);
-            addLabelAlignmentPropertyDescriptor(object);
-            addIconAlignmentPropertyDescriptor(object);
-            addTextAlignmentPropertyDescriptor(object);
-            addTextPlacementPropertyDescriptor(object);
-            addFontNamePropertyDescriptor(object);
-            addFontSizePropertyDescriptor(object);
-            addFontBoldPropertyDescriptor(object);
-            addFontItalicPropertyDescriptor(object);
+            addTextPropertyDescriptor ( object );
+            addLabelAlignmentPropertyDescriptor ( object );
+            addIconAlignmentPropertyDescriptor ( object );
+            addTextAlignmentPropertyDescriptor ( object );
+            addTextPlacementPropertyDescriptor ( object );
+            addFontNamePropertyDescriptor ( object );
+            addFontSizePropertyDescriptor ( object );
+            addFontBoldPropertyDescriptor ( object );
+            addFontItalicPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -86,21 +78,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTextPropertyDescriptor(Object object)
+    protected void addTextPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_text_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__TEXT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_text_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__TEXT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_textPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -109,21 +92,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addLabelAlignmentPropertyDescriptor(Object object)
+    protected void addLabelAlignmentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_labelAlignment_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_labelAlignment_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__LABEL_ALIGNMENT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_labelAlignment_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_labelAlignment_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__LABEL_ALIGNMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_textPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -132,21 +106,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTextAlignmentPropertyDescriptor(Object object)
+    protected void addTextAlignmentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_textAlignment_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textAlignment_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__TEXT_ALIGNMENT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_textAlignment_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_textAlignment_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__TEXT_ALIGNMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_textPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -155,21 +120,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTextPlacementPropertyDescriptor(Object object)
+    protected void addTextPlacementPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_textPlacement_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_textPlacement_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__TEXT_PLACEMENT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_textPlacement_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_textPlacement_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__TEXT_PLACEMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_textPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -178,21 +134,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFontNamePropertyDescriptor(Object object)
+    protected void addFontNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_fontName_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontName_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__FONT_NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_fontName_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_fontName_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__FONT_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_fontPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -201,21 +148,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFontSizePropertyDescriptor(Object object)
+    protected void addFontSizePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_fontSize_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontSize_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__FONT_SIZE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_fontSize_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_fontSize_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__FONT_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_fontPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -224,21 +162,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFontBoldPropertyDescriptor(Object object)
+    protected void addFontBoldPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_fontBold_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontBold_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__FONT_BOLD,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_fontBold_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_fontBold_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__FONT_BOLD, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_fontPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -247,21 +176,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFontItalicPropertyDescriptor(Object object)
+    protected void addFontItalicPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_fontItalic_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_fontItalic_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__FONT_ITALIC,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 getString("_UI_fontPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_fontItalic_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_fontItalic_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__FONT_ITALIC, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_fontPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -270,21 +190,12 @@ public class TextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIconAlignmentPropertyDescriptor(Object object)
+    protected void addIconAlignmentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Text_iconAlignment_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Text_iconAlignment_feature", "_UI_Text_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.TEXT__ICON_ALIGNMENT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 getString("_UI_textPropertyCategory"), //$NON-NLS-1$
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_iconAlignment_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_iconAlignment_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__ICON_ALIGNMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_textPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -294,9 +205,9 @@ public class TextItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Text")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Text" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -306,12 +217,11 @@ public class TextItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((Text)object).getText();
-        return label == null || label.length() == 0 ?
-            getString("_UI_Text_type") : //$NON-NLS-1$
-            getString("_UI_Text_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (Text)object ).getText ();
+        return label == null || label.length () == 0 ? getString ( "_UI_Text_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Text_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -322,11 +232,11 @@ public class TextItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(Text.class))
+        switch ( notification.getFeatureID ( Text.class ) )
         {
             case VisualInterfacePackage.TEXT__TEXT:
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
@@ -337,10 +247,10 @@ public class TextItemProvider
             case VisualInterfacePackage.TEXT__FONT_SIZE:
             case VisualInterfacePackage.TEXT__FONT_BOLD:
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -351,9 +261,9 @@ public class TextItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

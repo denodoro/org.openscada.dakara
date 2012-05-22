@@ -32,21 +32,21 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public static VisualInterfaceFactory init()
+    public static VisualInterfaceFactory init ()
     {
         try
         {
-            VisualInterfaceFactory theVisualInterfaceFactory = (VisualInterfaceFactory)EPackage.Registry.INSTANCE.getEFactory("urn:openscada:visualInterface"); //$NON-NLS-1$ 
-            if (theVisualInterfaceFactory != null)
+            VisualInterfaceFactory theVisualInterfaceFactory = (VisualInterfaceFactory)EPackage.Registry.INSTANCE.getEFactory ( "urn:openscada:visualInterface" ); //$NON-NLS-1$ 
+            if ( theVisualInterfaceFactory != null )
             {
                 return theVisualInterfaceFactory;
             }
         }
-        catch (Exception exception)
+        catch ( Exception exception )
         {
-            EcorePlugin.INSTANCE.log(exception);
+            EcorePlugin.INSTANCE.log ( exception );
         }
-        return new VisualInterfaceFactoryImpl();
+        return new VisualInterfaceFactoryImpl ();
     }
 
     /**
@@ -55,9 +55,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceFactoryImpl()
+    public VisualInterfaceFactoryImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,33 +66,54 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * @generated
      */
     @Override
-    public EObject create(EClass eClass)
+    public EObject create ( EClass eClass )
     {
-        switch (eClass.getClassifierID())
+        switch ( eClass.getClassifierID () )
         {
-            case VisualInterfacePackage.SYMBOL: return createSymbol();
-            case VisualInterfacePackage.RECTANGLE: return createRectangle();
-            case VisualInterfacePackage.TEXT: return createText();
-            case VisualInterfacePackage.CHILD: return createChild();
-            case VisualInterfacePackage.XY_CHILD: return createXYChild();
-            case VisualInterfacePackage.XY_CONTAINER: return createXYContainer();
-            case VisualInterfacePackage.POSITION: return createPosition();
-            case VisualInterfacePackage.LINE: return createLine();
-            case VisualInterfacePackage.SYMBOL_REFERENCE: return createSymbolReference();
-            case VisualInterfacePackage.STRING_TO_STRING_MAP: return (EObject)createStringToStringMap();
-            case VisualInterfacePackage.DIMENSION: return createDimension();
-            case VisualInterfacePackage.SYSTEM_CURSOR: return createSystemCursor();
-            case VisualInterfacePackage.GRID_CONTAINER: return createGridContainer();
-            case VisualInterfacePackage.BORDER_CONTAINER: return createBorderContainer();
-            case VisualInterfacePackage.BORDER_CHILD: return createBorderChild();
-            case VisualInterfacePackage.GRID_CHILD: return createGridChild();
-            case VisualInterfacePackage.FIGURE_CONTAINER: return createFigureContainer();
-            case VisualInterfacePackage.IMAGE: return createImage();
-            case VisualInterfacePackage.ELLIPSE: return createEllipse();
-            case VisualInterfacePackage.ARC: return createArc();
-            case VisualInterfacePackage.CONNECTION: return createConnection();
+            case VisualInterfacePackage.SYMBOL:
+                return createSymbol ();
+            case VisualInterfacePackage.RECTANGLE:
+                return createRectangle ();
+            case VisualInterfacePackage.TEXT:
+                return createText ();
+            case VisualInterfacePackage.CHILD:
+                return createChild ();
+            case VisualInterfacePackage.XY_CHILD:
+                return createXYChild ();
+            case VisualInterfacePackage.XY_CONTAINER:
+                return createXYContainer ();
+            case VisualInterfacePackage.POSITION:
+                return createPosition ();
+            case VisualInterfacePackage.LINE:
+                return createLine ();
+            case VisualInterfacePackage.SYMBOL_REFERENCE:
+                return createSymbolReference ();
+            case VisualInterfacePackage.STRING_TO_STRING_MAP:
+                return (EObject)createStringToStringMap ();
+            case VisualInterfacePackage.DIMENSION:
+                return createDimension ();
+            case VisualInterfacePackage.SYSTEM_CURSOR:
+                return createSystemCursor ();
+            case VisualInterfacePackage.GRID_CONTAINER:
+                return createGridContainer ();
+            case VisualInterfacePackage.BORDER_CONTAINER:
+                return createBorderContainer ();
+            case VisualInterfacePackage.BORDER_CHILD:
+                return createBorderChild ();
+            case VisualInterfacePackage.GRID_CHILD:
+                return createGridChild ();
+            case VisualInterfacePackage.FIGURE_CONTAINER:
+                return createFigureContainer ();
+            case VisualInterfacePackage.IMAGE:
+                return createImage ();
+            case VisualInterfacePackage.ELLIPSE:
+                return createEllipse ();
+            case VisualInterfacePackage.ARC:
+                return createArc ();
+            case VisualInterfacePackage.CONNECTION:
+                return createConnection ();
             default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -102,43 +123,20 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * @generated
      */
     @Override
-    public Object createFromString(EDataType eDataType, String initialValue)
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
-        switch (eDataType.getClassifierID())
-        {
-            case VisualInterfacePackage.ALIGNMENT:
-                return createAlignmentFromString(eDataType, initialValue);
-            case VisualInterfacePackage.ORIENTATION:
-                return createOrientationFromString(eDataType, initialValue);
-            case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
-                return createSystemCursorTypeFromString(eDataType, initialValue);
-            case VisualInterfacePackage.GRID_ALIGNMENT:
-                return createGridAlignmentFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String convertToString(EDataType eDataType, Object instanceValue)
-    {
-        switch (eDataType.getClassifierID())
+        switch ( eDataType.getClassifierID () )
         {
             case VisualInterfacePackage.ALIGNMENT:
-                return convertAlignmentToString(eDataType, instanceValue);
+                return createAlignmentFromString ( eDataType, initialValue );
             case VisualInterfacePackage.ORIENTATION:
-                return convertOrientationToString(eDataType, instanceValue);
+                return createOrientationFromString ( eDataType, initialValue );
             case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
-                return convertSystemCursorTypeToString(eDataType, instanceValue);
+                return createSystemCursorTypeFromString ( eDataType, initialValue );
             case VisualInterfacePackage.GRID_ALIGNMENT:
-                return convertGridAlignmentToString(eDataType, instanceValue);
+                return createGridAlignmentFromString ( eDataType, initialValue );
             default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -147,9 +145,32 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Symbol createSymbol()
+    @Override
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
-        SymbolImpl symbol = new SymbolImpl();
+        switch ( eDataType.getClassifierID () )
+        {
+            case VisualInterfacePackage.ALIGNMENT:
+                return convertAlignmentToString ( eDataType, instanceValue );
+            case VisualInterfacePackage.ORIENTATION:
+                return convertOrientationToString ( eDataType, instanceValue );
+            case VisualInterfacePackage.SYSTEM_CURSOR_TYPE:
+                return convertSystemCursorTypeToString ( eDataType, instanceValue );
+            case VisualInterfacePackage.GRID_ALIGNMENT:
+                return convertGridAlignmentToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Symbol createSymbol ()
+    {
+        SymbolImpl symbol = new SymbolImpl ();
         return symbol;
     }
 
@@ -158,9 +179,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Rectangle createRectangle()
+    public Rectangle createRectangle ()
     {
-        RectangleImpl rectangle = new RectangleImpl();
+        RectangleImpl rectangle = new RectangleImpl ();
         return rectangle;
     }
 
@@ -169,9 +190,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Text createText()
+    public Text createText ()
     {
-        TextImpl text = new TextImpl();
+        TextImpl text = new TextImpl ();
         return text;
     }
 
@@ -180,9 +201,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Child createChild()
+    public Child createChild ()
     {
-        ChildImpl child = new ChildImpl();
+        ChildImpl child = new ChildImpl ();
         return child;
     }
 
@@ -191,9 +212,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public XYChild createXYChild()
+    public XYChild createXYChild ()
     {
-        XYChildImpl xyChild = new XYChildImpl();
+        XYChildImpl xyChild = new XYChildImpl ();
         return xyChild;
     }
 
@@ -202,9 +223,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public XYContainer createXYContainer()
+    public XYContainer createXYContainer ()
     {
-        XYContainerImpl xyContainer = new XYContainerImpl();
+        XYContainerImpl xyContainer = new XYContainerImpl ();
         return xyContainer;
     }
 
@@ -213,9 +234,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Position createPosition()
+    public Position createPosition ()
     {
-        PositionImpl position = new PositionImpl();
+        PositionImpl position = new PositionImpl ();
         return position;
     }
 
@@ -224,9 +245,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Line createLine()
+    public Line createLine ()
     {
-        LineImpl line = new LineImpl();
+        LineImpl line = new LineImpl ();
         return line;
     }
 
@@ -235,9 +256,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public SymbolReference createSymbolReference()
+    public SymbolReference createSymbolReference ()
     {
-        SymbolReferenceImpl symbolReference = new SymbolReferenceImpl();
+        SymbolReferenceImpl symbolReference = new SymbolReferenceImpl ();
         return symbolReference;
     }
 
@@ -246,9 +267,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Map.Entry<String, String> createStringToStringMap()
+    public Map.Entry<String, String> createStringToStringMap ()
     {
-        StringToStringMapImpl stringToStringMap = new StringToStringMapImpl();
+        StringToStringMapImpl stringToStringMap = new StringToStringMapImpl ();
         return stringToStringMap;
     }
 
@@ -257,9 +278,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dimension createDimension()
+    public Dimension createDimension ()
     {
-        DimensionImpl dimension = new DimensionImpl();
+        DimensionImpl dimension = new DimensionImpl ();
         return dimension;
     }
 
@@ -268,9 +289,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemCursor createSystemCursor()
+    public SystemCursor createSystemCursor ()
     {
-        SystemCursorImpl systemCursor = new SystemCursorImpl();
+        SystemCursorImpl systemCursor = new SystemCursorImpl ();
         return systemCursor;
     }
 
@@ -279,9 +300,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridContainer createGridContainer()
+    public GridContainer createGridContainer ()
     {
-        GridContainerImpl gridContainer = new GridContainerImpl();
+        GridContainerImpl gridContainer = new GridContainerImpl ();
         return gridContainer;
     }
 
@@ -290,9 +311,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public BorderContainer createBorderContainer()
+    public BorderContainer createBorderContainer ()
     {
-        BorderContainerImpl borderContainer = new BorderContainerImpl();
+        BorderContainerImpl borderContainer = new BorderContainerImpl ();
         return borderContainer;
     }
 
@@ -301,9 +322,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public BorderChild createBorderChild()
+    public BorderChild createBorderChild ()
     {
-        BorderChildImpl borderChild = new BorderChildImpl();
+        BorderChildImpl borderChild = new BorderChildImpl ();
         return borderChild;
     }
 
@@ -312,9 +333,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridChild createGridChild()
+    public GridChild createGridChild ()
     {
-        GridChildImpl gridChild = new GridChildImpl();
+        GridChildImpl gridChild = new GridChildImpl ();
         return gridChild;
     }
 
@@ -323,9 +344,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public FigureContainer createFigureContainer()
+    public FigureContainer createFigureContainer ()
     {
-        FigureContainerImpl figureContainer = new FigureContainerImpl();
+        FigureContainerImpl figureContainer = new FigureContainerImpl ();
         return figureContainer;
     }
 
@@ -334,9 +355,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Image createImage()
+    public Image createImage ()
     {
-        ImageImpl image = new ImageImpl();
+        ImageImpl image = new ImageImpl ();
         return image;
     }
 
@@ -345,9 +366,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Ellipse createEllipse()
+    public Ellipse createEllipse ()
     {
-        EllipseImpl ellipse = new EllipseImpl();
+        EllipseImpl ellipse = new EllipseImpl ();
         return ellipse;
     }
 
@@ -356,9 +377,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Arc createArc()
+    public Arc createArc ()
     {
-        ArcImpl arc = new ArcImpl();
+        ArcImpl arc = new ArcImpl ();
         return arc;
     }
 
@@ -367,9 +388,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Connection createConnection()
+    public Connection createConnection ()
     {
-        ConnectionImpl connection = new ConnectionImpl();
+        ConnectionImpl connection = new ConnectionImpl ();
         return connection;
     }
 
@@ -378,10 +399,11 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Alignment createAlignmentFromString(EDataType eDataType, String initialValue)
+    public Alignment createAlignmentFromString ( EDataType eDataType, String initialValue )
     {
-        Alignment result = Alignment.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        Alignment result = Alignment.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -390,9 +412,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAlignmentToString(EDataType eDataType, Object instanceValue)
+    public String convertAlignmentToString ( EDataType eDataType, Object instanceValue )
     {
-        return instanceValue == null ? null : instanceValue.toString();
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
@@ -400,10 +422,11 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public Orientation createOrientationFromString(EDataType eDataType, String initialValue)
+    public Orientation createOrientationFromString ( EDataType eDataType, String initialValue )
     {
-        Orientation result = Orientation.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        Orientation result = Orientation.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -412,9 +435,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertOrientationToString(EDataType eDataType, Object instanceValue)
+    public String convertOrientationToString ( EDataType eDataType, Object instanceValue )
     {
-        return instanceValue == null ? null : instanceValue.toString();
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
@@ -422,10 +445,11 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemCursorType createSystemCursorTypeFromString(EDataType eDataType, String initialValue)
+    public SystemCursorType createSystemCursorTypeFromString ( EDataType eDataType, String initialValue )
     {
-        SystemCursorType result = SystemCursorType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        SystemCursorType result = SystemCursorType.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -434,9 +458,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSystemCursorTypeToString(EDataType eDataType, Object instanceValue)
+    public String convertSystemCursorTypeToString ( EDataType eDataType, Object instanceValue )
     {
-        return instanceValue == null ? null : instanceValue.toString();
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
@@ -444,10 +468,11 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridAlignment createGridAlignmentFromString(EDataType eDataType, String initialValue)
+    public GridAlignment createGridAlignmentFromString ( EDataType eDataType, String initialValue )
     {
-        GridAlignment result = GridAlignment.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        GridAlignment result = GridAlignment.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
@@ -456,9 +481,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertGridAlignmentToString(EDataType eDataType, Object instanceValue)
+    public String convertGridAlignmentToString ( EDataType eDataType, Object instanceValue )
     {
-        return instanceValue == null ? null : instanceValue.toString();
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**
@@ -466,9 +491,9 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfacePackage getVisualInterfacePackage()
+    public VisualInterfacePackage getVisualInterfacePackage ()
     {
-        return (VisualInterfacePackage)getEPackage();
+        return (VisualInterfacePackage)getEPackage ();
     }
 
     /**
@@ -478,7 +503,7 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
      * @generated
      */
     @Deprecated
-    public static VisualInterfacePackage getPackage()
+    public static VisualInterfacePackage getPackage ()
     {
         return VisualInterfacePackage.eINSTANCE;
     }

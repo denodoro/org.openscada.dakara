@@ -42,7 +42,7 @@ public interface Dimension extends EObject
      * @model default="0" required="true"
      * @generated
      */
-    double getWidth();
+    double getWidth ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Dimension#getWidth <em>Width</em>}' attribute.
@@ -52,7 +52,7 @@ public interface Dimension extends EObject
      * @see #getWidth()
      * @generated
      */
-    void setWidth(double value);
+    void setWidth ( double value );
 
     /**
      * Returns the value of the '<em><b>Height</b></em>' attribute.
@@ -69,7 +69,7 @@ public interface Dimension extends EObject
      * @model default="0" required="true"
      * @generated
      */
-    double getHeight();
+    double getHeight ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Dimension#getHeight <em>Height</em>}' attribute.
@@ -79,6 +79,6 @@ public interface Dimension extends EObject
      * @see #getHeight()
      * @generated
      */
-    void setHeight(double value);
+    void setHeight ( double value );
 
 } // Dimension

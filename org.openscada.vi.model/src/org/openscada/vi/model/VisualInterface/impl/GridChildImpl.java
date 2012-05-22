@@ -161,9 +161,9 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GridChildImpl()
+    protected GridChildImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -172,7 +172,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.GRID_CHILD;
     }
@@ -182,7 +182,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridAlignment getHorizontalAlignment()
+    public GridAlignment getHorizontalAlignment ()
     {
         return horizontalAlignment;
     }
@@ -192,12 +192,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHorizontalAlignment(GridAlignment newHorizontalAlignment)
+    public void setHorizontalAlignment ( GridAlignment newHorizontalAlignment )
     {
         GridAlignment oldHorizontalAlignment = horizontalAlignment;
         horizontalAlignment = newHorizontalAlignment == null ? HORIZONTAL_ALIGNMENT_EDEFAULT : newHorizontalAlignment;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT, oldHorizontalAlignment, horizontalAlignment));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT, oldHorizontalAlignment, horizontalAlignment ) );
     }
 
     /**
@@ -205,7 +205,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridAlignment getVerticalAlignment()
+    public GridAlignment getVerticalAlignment ()
     {
         return verticalAlignment;
     }
@@ -215,12 +215,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setVerticalAlignment(GridAlignment newVerticalAlignment)
+    public void setVerticalAlignment ( GridAlignment newVerticalAlignment )
     {
         GridAlignment oldVerticalAlignment = verticalAlignment;
         verticalAlignment = newVerticalAlignment == null ? VERTICAL_ALIGNMENT_EDEFAULT : newVerticalAlignment;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT, oldVerticalAlignment, verticalAlignment));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT, oldVerticalAlignment, verticalAlignment ) );
     }
 
     /**
@@ -228,7 +228,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isGrabHorizontalSpace()
+    public boolean isGrabHorizontalSpace ()
     {
         return grabHorizontalSpace;
     }
@@ -238,12 +238,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setGrabHorizontalSpace(boolean newGrabHorizontalSpace)
+    public void setGrabHorizontalSpace ( boolean newGrabHorizontalSpace )
     {
         boolean oldGrabHorizontalSpace = grabHorizontalSpace;
         grabHorizontalSpace = newGrabHorizontalSpace;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE, oldGrabHorizontalSpace, grabHorizontalSpace));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE, oldGrabHorizontalSpace, grabHorizontalSpace ) );
     }
 
     /**
@@ -251,7 +251,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isGrabVerticalSpace()
+    public boolean isGrabVerticalSpace ()
     {
         return grabVerticalSpace;
     }
@@ -261,12 +261,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setGrabVerticalSpace(boolean newGrabVerticalSpace)
+    public void setGrabVerticalSpace ( boolean newGrabVerticalSpace )
     {
         boolean oldGrabVerticalSpace = grabVerticalSpace;
         grabVerticalSpace = newGrabVerticalSpace;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE, oldGrabVerticalSpace, grabVerticalSpace));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE, oldGrabVerticalSpace, grabVerticalSpace ) );
     }
 
     /**
@@ -274,7 +274,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getSpanCols()
+    public int getSpanCols ()
     {
         return spanCols;
     }
@@ -284,12 +284,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSpanCols(int newSpanCols)
+    public void setSpanCols ( int newSpanCols )
     {
         int oldSpanCols = spanCols;
         spanCols = newSpanCols;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__SPAN_COLS, oldSpanCols, spanCols));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__SPAN_COLS, oldSpanCols, spanCols ) );
     }
 
     /**
@@ -297,7 +297,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getSpanRows()
+    public int getSpanRows ()
     {
         return spanRows;
     }
@@ -307,12 +307,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSpanRows(int newSpanRows)
+    public void setSpanRows ( int newSpanRows )
     {
         int oldSpanRows = spanRows;
         spanRows = newSpanRows;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CHILD__SPAN_ROWS, oldSpanRows, spanRows));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__SPAN_ROWS, oldSpanRows, spanRows ) );
     }
 
     /**
@@ -321,24 +321,24 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
-                return getHorizontalAlignment();
+                return getHorizontalAlignment ();
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
-                return getVerticalAlignment();
+                return getVerticalAlignment ();
             case VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE:
-                return isGrabHorizontalSpace();
+                return isGrabHorizontalSpace ();
             case VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE:
-                return isGrabVerticalSpace();
+                return isGrabVerticalSpace ();
             case VisualInterfacePackage.GRID_CHILD__SPAN_COLS:
-                return getSpanCols();
+                return getSpanCols ();
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
-                return getSpanRows();
+                return getSpanRows ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -347,30 +347,30 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
-                setHorizontalAlignment((GridAlignment)newValue);
+                setHorizontalAlignment ( (GridAlignment)newValue );
                 return;
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
-                setVerticalAlignment((GridAlignment)newValue);
+                setVerticalAlignment ( (GridAlignment)newValue );
                 return;
             case VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE:
-                setGrabHorizontalSpace((Boolean)newValue);
+                setGrabHorizontalSpace ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE:
-                setGrabVerticalSpace((Boolean)newValue);
+                setGrabVerticalSpace ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.GRID_CHILD__SPAN_COLS:
-                setSpanCols((Integer)newValue);
+                setSpanCols ( (Integer)newValue );
                 return;
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
-                setSpanRows((Integer)newValue);
+                setSpanRows ( (Integer)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -379,30 +379,30 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
-                setHorizontalAlignment(HORIZONTAL_ALIGNMENT_EDEFAULT);
+                setHorizontalAlignment ( HORIZONTAL_ALIGNMENT_EDEFAULT );
                 return;
             case VisualInterfacePackage.GRID_CHILD__VERTICAL_ALIGNMENT:
-                setVerticalAlignment(VERTICAL_ALIGNMENT_EDEFAULT);
+                setVerticalAlignment ( VERTICAL_ALIGNMENT_EDEFAULT );
                 return;
             case VisualInterfacePackage.GRID_CHILD__GRAB_HORIZONTAL_SPACE:
-                setGrabHorizontalSpace(GRAB_HORIZONTAL_SPACE_EDEFAULT);
+                setGrabHorizontalSpace ( GRAB_HORIZONTAL_SPACE_EDEFAULT );
                 return;
             case VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE:
-                setGrabVerticalSpace(GRAB_VERTICAL_SPACE_EDEFAULT);
+                setGrabVerticalSpace ( GRAB_VERTICAL_SPACE_EDEFAULT );
                 return;
             case VisualInterfacePackage.GRID_CHILD__SPAN_COLS:
-                setSpanCols(SPAN_COLS_EDEFAULT);
+                setSpanCols ( SPAN_COLS_EDEFAULT );
                 return;
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
-                setSpanRows(SPAN_ROWS_EDEFAULT);
+                setSpanRows ( SPAN_ROWS_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -411,9 +411,9 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CHILD__HORIZONTAL_ALIGNMENT:
                 return horizontalAlignment != HORIZONTAL_ALIGNMENT_EDEFAULT;
@@ -428,7 +428,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
                 return spanRows != SPAN_ROWS_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -437,25 +437,26 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (horizontalAlignment: "); //$NON-NLS-1$
-        result.append(horizontalAlignment);
-        result.append(", verticalAlignment: "); //$NON-NLS-1$
-        result.append(verticalAlignment);
-        result.append(", grabHorizontalSpace: "); //$NON-NLS-1$
-        result.append(grabHorizontalSpace);
-        result.append(", grabVerticalSpace: "); //$NON-NLS-1$
-        result.append(grabVerticalSpace);
-        result.append(", spanCols: "); //$NON-NLS-1$
-        result.append(spanCols);
-        result.append(", spanRows: "); //$NON-NLS-1$
-        result.append(spanRows);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (horizontalAlignment: " ); //$NON-NLS-1$
+        result.append ( horizontalAlignment );
+        result.append ( ", verticalAlignment: " ); //$NON-NLS-1$
+        result.append ( verticalAlignment );
+        result.append ( ", grabHorizontalSpace: " ); //$NON-NLS-1$
+        result.append ( grabHorizontalSpace );
+        result.append ( ", grabVerticalSpace: " ); //$NON-NLS-1$
+        result.append ( grabVerticalSpace );
+        result.append ( ", spanCols: " ); //$NON-NLS-1$
+        result.append ( spanCols );
+        result.append ( ", spanRows: " ); //$NON-NLS-1$
+        result.append ( spanRows );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GridChildImpl

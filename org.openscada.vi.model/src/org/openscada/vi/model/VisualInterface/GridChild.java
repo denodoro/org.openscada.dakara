@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Grid Child</b></em>'.
@@ -47,7 +46,7 @@ public interface GridChild extends Child
      * @model default="BEGINNING" required="true"
      * @generated
      */
-    GridAlignment getHorizontalAlignment();
+    GridAlignment getHorizontalAlignment ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getHorizontalAlignment <em>Horizontal Alignment</em>}' attribute.
@@ -58,7 +57,7 @@ public interface GridChild extends Child
      * @see #getHorizontalAlignment()
      * @generated
      */
-    void setHorizontalAlignment(GridAlignment value);
+    void setHorizontalAlignment ( GridAlignment value );
 
     /**
      * Returns the value of the '<em><b>Vertical Alignment</b></em>' attribute.
@@ -77,7 +76,7 @@ public interface GridChild extends Child
      * @model default="BEGINNING" required="true"
      * @generated
      */
-    GridAlignment getVerticalAlignment();
+    GridAlignment getVerticalAlignment ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getVerticalAlignment <em>Vertical Alignment</em>}' attribute.
@@ -88,7 +87,7 @@ public interface GridChild extends Child
      * @see #getVerticalAlignment()
      * @generated
      */
-    void setVerticalAlignment(GridAlignment value);
+    void setVerticalAlignment ( GridAlignment value );
 
     /**
      * Returns the value of the '<em><b>Grab Horizontal Space</b></em>' attribute.
@@ -105,7 +104,7 @@ public interface GridChild extends Child
      * @model default="false" required="true"
      * @generated
      */
-    boolean isGrabHorizontalSpace();
+    boolean isGrabHorizontalSpace ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}' attribute.
@@ -115,7 +114,7 @@ public interface GridChild extends Child
      * @see #isGrabHorizontalSpace()
      * @generated
      */
-    void setGrabHorizontalSpace(boolean value);
+    void setGrabHorizontalSpace ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Grab Vertical Space</b></em>' attribute.
@@ -132,7 +131,7 @@ public interface GridChild extends Child
      * @model default="false" required="true"
      * @generated
      */
-    boolean isGrabVerticalSpace();
+    boolean isGrabVerticalSpace ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace <em>Grab Vertical Space</em>}' attribute.
@@ -142,7 +141,7 @@ public interface GridChild extends Child
      * @see #isGrabVerticalSpace()
      * @generated
      */
-    void setGrabVerticalSpace(boolean value);
+    void setGrabVerticalSpace ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Span Cols</b></em>' attribute.
@@ -159,7 +158,7 @@ public interface GridChild extends Child
      * @model default="0" required="true"
      * @generated
      */
-    int getSpanCols();
+    int getSpanCols ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanCols <em>Span Cols</em>}' attribute.
@@ -169,7 +168,7 @@ public interface GridChild extends Child
      * @see #getSpanCols()
      * @generated
      */
-    void setSpanCols(int value);
+    void setSpanCols ( int value );
 
     /**
      * Returns the value of the '<em><b>Span Rows</b></em>' attribute.
@@ -186,7 +185,7 @@ public interface GridChild extends Child
      * @model default="0" required="true"
      * @generated
      */
-    int getSpanRows();
+    int getSpanRows ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanRows <em>Span Rows</em>}' attribute.
@@ -196,6 +195,6 @@ public interface GridChild extends Child
      * @see #getSpanRows()
      * @generated
      */
-    void setSpanRows(int value);
+    void setSpanRows ( int value );
 
 } // GridChild

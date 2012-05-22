@@ -42,7 +42,7 @@ public interface Child extends EObject
      *        extendedMetaData="kind='element' name='element'"
      * @generated
      */
-    Primitive getElement();
+    Primitive getElement ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Child#getElement <em>Element</em>}' containment reference.
@@ -52,7 +52,7 @@ public interface Child extends EObject
      * @see #getElement()
      * @generated
      */
-    void setElement(Primitive value);
+    void setElement ( Primitive value );
 
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -68,7 +68,7 @@ public interface Child extends EObject
      * @model
      * @generated
      */
-    String getName();
+    String getName ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Child#getName <em>Name</em>}' attribute.
@@ -78,6 +78,6 @@ public interface Child extends EObject
      * @see #getName()
      * @generated
      */
-    void setName(String value);
+    void setName ( String value );
 
 } // Child

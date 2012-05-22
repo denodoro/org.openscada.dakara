@@ -48,9 +48,9 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FigureContainerImpl()
+    protected FigureContainerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -59,7 +59,7 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.FIGURE_CONTAINER;
     }
@@ -69,7 +69,7 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive getContent()
+    public Primitive getContent ()
     {
         return content;
     }
@@ -79,14 +79,17 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetContent(Primitive newContent, NotificationChain msgs)
+    public NotificationChain basicSetContent ( Primitive newContent, NotificationChain msgs )
     {
         Primitive oldContent = content;
         content = newContent;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, oldContent, newContent);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, oldContent, newContent );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -96,20 +99,21 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setContent(Primitive newContent)
+    public void setContent ( Primitive newContent )
     {
-        if (newContent != content)
+        if ( newContent != content )
         {
             NotificationChain msgs = null;
-            if (content != null)
-                msgs = ((InternalEObject)content).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, null, msgs);
-            if (newContent != null)
-                msgs = ((InternalEObject)newContent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, null, msgs);
-            msgs = basicSetContent(newContent, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( content != null )
+                msgs = ( (InternalEObject)content ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, null, msgs );
+            if ( newContent != null )
+                msgs = ( (InternalEObject)newContent ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, null, msgs );
+            msgs = basicSetContent ( newContent, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, newContent, newContent));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE_CONTAINER__CONTENT, newContent, newContent ) );
     }
 
     /**
@@ -118,14 +122,14 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
-                return basicSetContent(null, msgs);
+                return basicSetContent ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -134,14 +138,14 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
-                return getContent();
+                return getContent ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -150,15 +154,15 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
-                setContent((Primitive)newValue);
+                setContent ( (Primitive)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -167,15 +171,15 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
-                setContent((Primitive)null);
+                setContent ( (Primitive)null );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -184,14 +188,14 @@ public class FigureContainerImpl extends FigureImpl implements FigureContainer
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
                 return content != null;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //FigureContainerImpl

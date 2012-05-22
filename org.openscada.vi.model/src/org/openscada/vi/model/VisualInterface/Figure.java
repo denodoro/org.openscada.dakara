@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Figure</b></em>'.
@@ -47,7 +46,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    String getForegroundColor();
+    String getForegroundColor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getForegroundColor <em>Foreground Color</em>}' attribute.
@@ -57,7 +56,7 @@ public interface Figure extends Primitive
      * @see #getForegroundColor()
      * @generated
      */
-    void setForegroundColor(String value);
+    void setForegroundColor ( String value );
 
     /**
      * Returns the value of the '<em><b>Background Color</b></em>' attribute.
@@ -73,7 +72,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    String getBackgroundColor();
+    String getBackgroundColor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getBackgroundColor <em>Background Color</em>}' attribute.
@@ -83,7 +82,7 @@ public interface Figure extends Primitive
      * @see #getBackgroundColor()
      * @generated
      */
-    void setBackgroundColor(String value);
+    void setBackgroundColor ( String value );
 
     /**
      * Returns the value of the '<em><b>Size</b></em>' containment reference.
@@ -99,7 +98,7 @@ public interface Figure extends Primitive
      * @model containment="true"
      * @generated
      */
-    Dimension getSize();
+    Dimension getSize ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getSize <em>Size</em>}' containment reference.
@@ -109,7 +108,7 @@ public interface Figure extends Primitive
      * @see #getSize()
      * @generated
      */
-    void setSize(Dimension value);
+    void setSize ( Dimension value );
 
     /**
      * Returns the value of the '<em><b>On Click</b></em>' attribute.
@@ -125,7 +124,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    String getOnClick();
+    String getOnClick ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getOnClick <em>On Click</em>}' attribute.
@@ -135,7 +134,7 @@ public interface Figure extends Primitive
      * @see #getOnClick()
      * @generated
      */
-    void setOnClick(String value);
+    void setOnClick ( String value );
 
     /**
      * Returns the value of the '<em><b>On Double Click</b></em>' attribute.
@@ -151,7 +150,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    String getOnDoubleClick();
+    String getOnDoubleClick ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getOnDoubleClick <em>On Double Click</em>}' attribute.
@@ -161,7 +160,7 @@ public interface Figure extends Primitive
      * @see #getOnDoubleClick()
      * @generated
      */
-    void setOnDoubleClick(String value);
+    void setOnDoubleClick ( String value );
 
     /**
      * Returns the value of the '<em><b>Cursor</b></em>' reference.
@@ -177,7 +176,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    Cursor getCursor();
+    Cursor getCursor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getCursor <em>Cursor</em>}' reference.
@@ -187,7 +186,7 @@ public interface Figure extends Primitive
      * @see #getCursor()
      * @generated
      */
-    void setCursor(Cursor value);
+    void setCursor ( Cursor value );
 
     /**
      * Returns the value of the '<em><b>Visible</b></em>' attribute.
@@ -204,7 +203,7 @@ public interface Figure extends Primitive
      * @model default="true" required="true"
      * @generated
      */
-    boolean isVisible();
+    boolean isVisible ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#isVisible <em>Visible</em>}' attribute.
@@ -214,7 +213,7 @@ public interface Figure extends Primitive
      * @see #isVisible()
      * @generated
      */
-    void setVisible(boolean value);
+    void setVisible ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Border</b></em>' attribute.
@@ -230,7 +229,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    String getBorder();
+    String getBorder ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getBorder <em>Border</em>}' attribute.
@@ -240,7 +239,7 @@ public interface Figure extends Primitive
      * @see #getBorder()
      * @generated
      */
-    void setBorder(String value);
+    void setBorder ( String value );
 
     /**
      * Returns the value of the '<em><b>Opaque</b></em>' attribute.
@@ -256,7 +255,7 @@ public interface Figure extends Primitive
      * @model
      * @generated
      */
-    Boolean getOpaque();
+    Boolean getOpaque ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getOpaque <em>Opaque</em>}' attribute.
@@ -266,6 +265,6 @@ public interface Figure extends Primitive
      * @see #getOpaque()
      * @generated
      */
-    void setOpaque(Boolean value);
+    void setOpaque ( Boolean value );
 
 } // Figure

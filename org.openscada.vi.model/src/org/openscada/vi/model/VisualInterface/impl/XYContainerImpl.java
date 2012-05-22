@@ -51,6 +51,7 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @ordered
      */
     protected static final String NAME_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -60,6 +61,7 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
     /**
      * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -75,9 +77,9 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    protected XYContainerImpl()
+    protected XYContainerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -86,7 +88,7 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.XY_CONTAINER;
     }
@@ -96,7 +98,7 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -106,12 +108,12 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.XY_CONTAINER__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.XY_CONTAINER__NAME, oldName, name ) );
     }
 
     /**
@@ -119,11 +121,11 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<XYChild> getChildren()
+    public EList<XYChild> getChildren ()
     {
-        if (children == null)
+        if ( children == null )
         {
-            children = new EObjectContainmentEList<XYChild>(XYChild.class, this, VisualInterfacePackage.XY_CONTAINER__CHILDREN);
+            children = new EObjectContainmentEList<XYChild> ( XYChild.class, this, VisualInterfacePackage.XY_CONTAINER__CHILDREN );
         }
         return children;
     }
@@ -134,14 +136,14 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
-                return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -150,38 +152,16 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.XY_CONTAINER__NAME:
-                return getName();
-            case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
-                return getChildren();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue)
-    {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CONTAINER__NAME:
-                setName((String)newValue);
-                return;
+                return getName ();
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
-                getChildren().clear();
-                getChildren().addAll((Collection<? extends XYChild>)newValue);
-                return;
+                return getChildren ();
         }
-        super.eSet(featureID, newValue);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -189,19 +169,21 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eUnset(int featureID)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CONTAINER__NAME:
-                setName(NAME_EDEFAULT);
+                setName ( (String)newValue );
                 return;
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
-                getChildren().clear();
+                getChildren ().clear ();
+                getChildren ().addAll ( (Collection<? extends XYChild>)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -210,16 +192,18 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.XY_CONTAINER__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
             case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
-                return children != null && !children.isEmpty();
+                getChildren ().clear ();
+                return;
         }
-        return super.eIsSet(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -228,15 +212,34 @@ public class XYContainerImpl extends EObjectImpl implements XYContainer
      * @generated
      */
     @Override
-    public String toString()
+    public boolean eIsSet ( int featureID )
     {
-        if (eIsProxy()) return super.toString();
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.XY_CONTAINER__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case VisualInterfacePackage.XY_CONTAINER__CHILDREN:
+                return children != null && !children.isEmpty ();
+        }
+        return super.eIsSet ( featureID );
+    }
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: "); //$NON-NLS-1$
-        result.append(name);
-        result.append(')');
-        return result.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //XYContainerImpl

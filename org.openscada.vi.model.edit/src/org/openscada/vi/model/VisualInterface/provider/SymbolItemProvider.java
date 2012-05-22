@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -38,14 +37,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SymbolItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class SymbolItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -53,9 +45,9 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public SymbolItemProvider(AdapterFactory adapterFactory)
+    public SymbolItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -65,17 +57,17 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addOnInitPropertyDescriptor(object);
-            addOnDisposePropertyDescriptor(object);
-            addOnUpdatePropertyDescriptor(object);
-            addScriptModulesPropertyDescriptor(object);
-            addBackgroundColorPropertyDescriptor(object);
+            addOnInitPropertyDescriptor ( object );
+            addOnDisposePropertyDescriptor ( object );
+            addOnUpdatePropertyDescriptor ( object );
+            addScriptModulesPropertyDescriptor ( object );
+            addBackgroundColorPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -86,21 +78,11 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addOnInitPropertyDescriptor(Object object)
+    protected void addOnInitPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Symbol_onInit_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onInit_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.SYMBOL__ON_INIT,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Symbol_onInit_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Symbol_onInit_feature", "_UI_Symbol_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.SYMBOL__ON_INIT, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -109,21 +91,11 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addOnDisposePropertyDescriptor(Object object)
+    protected void addOnDisposePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Symbol_onDispose_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onDispose_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.SYMBOL__ON_DISPOSE,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Symbol_onDispose_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Symbol_onDispose_feature", "_UI_Symbol_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.SYMBOL__ON_DISPOSE, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -132,21 +104,11 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addOnUpdatePropertyDescriptor(Object object)
+    protected void addOnUpdatePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Symbol_onUpdate_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_onUpdate_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.SYMBOL__ON_UPDATE,
-                 true,
-                 true,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Symbol_onUpdate_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Symbol_onUpdate_feature", "_UI_Symbol_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.SYMBOL__ON_UPDATE, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -155,21 +117,11 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addScriptModulesPropertyDescriptor(Object object)
+    protected void addScriptModulesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Symbol_scriptModules_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_scriptModules_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Symbol_scriptModules_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Symbol_scriptModules_feature", "_UI_Symbol_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -178,21 +130,11 @@ public class SymbolItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addBackgroundColorPropertyDescriptor(Object object)
+    protected void addBackgroundColorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Symbol_backgroundColor_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Symbol_backgroundColor_feature", "_UI_Symbol_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.SYMBOL__BACKGROUND_COLOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Symbol_backgroundColor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Symbol_backgroundColor_feature", "_UI_Symbol_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.SYMBOL__BACKGROUND_COLOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -204,16 +146,16 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__ROOT);
-            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__PROPERTIES);
-            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__CURSORS);
-            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE);
-            childrenFeatures.add(VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__ROOT );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__PROPERTIES );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__CURSORS );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS );
         }
         return childrenFeatures;
     }
@@ -224,12 +166,12 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -239,9 +181,9 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Symbol")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Symbol" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -251,12 +193,11 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = crop(((Symbol)object).getOnInit());
-        return label == null || label.length() == 0 ?
-            getString("_UI_Symbol_type") : //$NON-NLS-1$
-            getString("_UI_Symbol_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = crop ( ( (Symbol)object ).getOnInit () );
+        return label == null || label.length () == 0 ? getString ( "_UI_Symbol_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Symbol_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -267,28 +208,28 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(Symbol.class))
+        switch ( notification.getFeatureID ( Symbol.class ) )
         {
             case VisualInterfacePackage.SYMBOL__ON_INIT:
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
             case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case VisualInterfacePackage.SYMBOL__ROOT:
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
             case VisualInterfacePackage.SYMBOL__CURSORS:
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -299,84 +240,39 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createRectangle()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createText()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createText () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createXYContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createLine()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createLine () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createGridContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createImage()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createImage () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createEllipse()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__ROOT,
-                 VisualInterfaceFactory.eINSTANCE.createArc()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__PROPERTIES,
-                 VisualInterfaceFactory.eINSTANCE.create(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP)));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__PROPERTIES, VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__CURSORS,
-                 VisualInterfaceFactory.eINSTANCE.createSystemCursor()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__CURSORS, VisualInterfaceFactory.eINSTANCE.createSystemCursor () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE,
-                 VisualInterfaceFactory.eINSTANCE.createDimension()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE, VisualInterfaceFactory.eINSTANCE.createDimension () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS,
-                 VisualInterfaceFactory.eINSTANCE.createConnection()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS, VisualInterfaceFactory.eINSTANCE.createConnection () ) );
     }
 
     /**
@@ -386,7 +282,7 @@ public class SymbolItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return VisualInterfaceEditPlugin.INSTANCE;
     }

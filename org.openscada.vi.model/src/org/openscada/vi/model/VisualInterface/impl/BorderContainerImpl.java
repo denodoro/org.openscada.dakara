@@ -116,9 +116,9 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BorderContainerImpl()
+    protected BorderContainerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -127,7 +127,7 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.BORDER_CONTAINER;
     }
@@ -137,7 +137,7 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -147,12 +147,12 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__NAME, oldName, name ) );
     }
 
     /**
@@ -160,11 +160,11 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<BorderChild> getChildren()
+    public EList<BorderChild> getChildren ()
     {
-        if (children == null)
+        if ( children == null )
         {
-            children = new EObjectContainmentEList<BorderChild>(BorderChild.class, this, VisualInterfacePackage.BORDER_CONTAINER__CHILDREN);
+            children = new EObjectContainmentEList<BorderChild> ( BorderChild.class, this, VisualInterfacePackage.BORDER_CONTAINER__CHILDREN );
         }
         return children;
     }
@@ -174,7 +174,7 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getVerticalSpacing()
+    public int getVerticalSpacing ()
     {
         return verticalSpacing;
     }
@@ -184,12 +184,12 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setVerticalSpacing(int newVerticalSpacing)
+    public void setVerticalSpacing ( int newVerticalSpacing )
     {
         int oldVerticalSpacing = verticalSpacing;
         verticalSpacing = newVerticalSpacing;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING, oldVerticalSpacing, verticalSpacing));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING, oldVerticalSpacing, verticalSpacing ) );
     }
 
     /**
@@ -197,7 +197,7 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getHorizontalSpacing()
+    public int getHorizontalSpacing ()
     {
         return horizontalSpacing;
     }
@@ -207,12 +207,12 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHorizontalSpacing(int newHorizontalSpacing)
+    public void setHorizontalSpacing ( int newHorizontalSpacing )
     {
         int oldHorizontalSpacing = horizontalSpacing;
         horizontalSpacing = newHorizontalSpacing;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING, oldHorizontalSpacing, horizontalSpacing));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING, oldHorizontalSpacing, horizontalSpacing ) );
     }
 
     /**
@@ -221,14 +221,14 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
-                return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -237,20 +237,20 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CONTAINER__NAME:
-                return getName();
+                return getName ();
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
-                return getChildren();
+                return getChildren ();
             case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
-                return getVerticalSpacing();
+                return getVerticalSpacing ();
             case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
-                return getHorizontalSpacing();
+                return getHorizontalSpacing ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -258,53 +258,27 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CONTAINER__NAME:
-                setName((String)newValue);
+                setName ( (String)newValue );
                 return;
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
-                getChildren().clear();
-                getChildren().addAll((Collection<? extends BorderChild>)newValue);
-                return;
-            case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
-                setVerticalSpacing((Integer)newValue);
-                return;
-            case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
-                setHorizontalSpacing((Integer)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.BORDER_CONTAINER__NAME:
-                setName(NAME_EDEFAULT);
-                return;
-            case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
-                getChildren().clear();
+                getChildren ().clear ();
+                getChildren ().addAll ( (Collection<? extends BorderChild>)newValue );
                 return;
             case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
-                setVerticalSpacing(VERTICAL_SPACING_EDEFAULT);
+                setVerticalSpacing ( (Integer)newValue );
                 return;
             case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
-                setHorizontalSpacing(HORIZONTAL_SPACING_EDEFAULT);
+                setHorizontalSpacing ( (Integer)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -313,20 +287,46 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CONTAINER__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
             case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
-                return children != null && !children.isEmpty();
+                getChildren ().clear ();
+                return;
+            case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
+                setVerticalSpacing ( VERTICAL_SPACING_EDEFAULT );
+                return;
+            case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
+                setHorizontalSpacing ( HORIZONTAL_SPACING_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.BORDER_CONTAINER__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case VisualInterfacePackage.BORDER_CONTAINER__CHILDREN:
+                return children != null && !children.isEmpty ();
             case VisualInterfacePackage.BORDER_CONTAINER__VERTICAL_SPACING:
                 return verticalSpacing != VERTICAL_SPACING_EDEFAULT;
             case VisualInterfacePackage.BORDER_CONTAINER__HORIZONTAL_SPACING:
                 return horizontalSpacing != HORIZONTAL_SPACING_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -335,19 +335,20 @@ public class BorderContainerImpl extends EObjectImpl implements BorderContainer
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: "); //$NON-NLS-1$
-        result.append(name);
-        result.append(", verticalSpacing: "); //$NON-NLS-1$
-        result.append(verticalSpacing);
-        result.append(", horizontalSpacing: "); //$NON-NLS-1$
-        result.append(horizontalSpacing);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", verticalSpacing: " ); //$NON-NLS-1$
+        result.append ( verticalSpacing );
+        result.append ( ", horizontalSpacing: " ); //$NON-NLS-1$
+        result.append ( horizontalSpacing );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //BorderContainerImpl

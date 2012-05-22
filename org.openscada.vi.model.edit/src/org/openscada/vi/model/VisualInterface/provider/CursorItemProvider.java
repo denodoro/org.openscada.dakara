@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -29,14 +28,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CursorItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class CursorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -44,9 +36,9 @@ public class CursorItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public CursorItemProvider(AdapterFactory adapterFactory)
+    public CursorItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -56,11 +48,11 @@ public class CursorItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -73,9 +65,9 @@ public class CursorItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        return getString("_UI_Cursor_type"); //$NON-NLS-1$
+        return getString ( "_UI_Cursor_type" ); //$NON-NLS-1$
     }
 
     /**
@@ -86,10 +78,10 @@ public class CursorItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
-        super.notifyChanged(notification);
+        updateChildren ( notification );
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -100,9 +92,9 @@ public class CursorItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
     /**
@@ -112,7 +104,7 @@ public class CursorItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return VisualInterfaceEditPlugin.INSTANCE;
     }

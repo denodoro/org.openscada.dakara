@@ -77,9 +77,9 @@ public class PositionImpl extends EObjectImpl implements Position
      * <!-- end-user-doc -->
      * @generated
      */
-    protected PositionImpl()
+    protected PositionImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -88,7 +88,7 @@ public class PositionImpl extends EObjectImpl implements Position
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.POSITION;
     }
@@ -98,7 +98,7 @@ public class PositionImpl extends EObjectImpl implements Position
      * <!-- end-user-doc -->
      * @generated
      */
-    public double getX()
+    public double getX ()
     {
         return x;
     }
@@ -108,12 +108,12 @@ public class PositionImpl extends EObjectImpl implements Position
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setX(double newX)
+    public void setX ( double newX )
     {
         double oldX = x;
         x = newX;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.POSITION__X, oldX, x));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.POSITION__X, oldX, x ) );
     }
 
     /**
@@ -121,7 +121,7 @@ public class PositionImpl extends EObjectImpl implements Position
      * <!-- end-user-doc -->
      * @generated
      */
-    public double getY()
+    public double getY ()
     {
         return y;
     }
@@ -131,12 +131,12 @@ public class PositionImpl extends EObjectImpl implements Position
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setY(double newY)
+    public void setY ( double newY )
     {
         double oldY = y;
         y = newY;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.POSITION__Y, oldY, y));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.POSITION__Y, oldY, y ) );
     }
 
     /**
@@ -145,16 +145,16 @@ public class PositionImpl extends EObjectImpl implements Position
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.POSITION__X:
-                return getX();
+                return getX ();
             case VisualInterfacePackage.POSITION__Y:
-                return getY();
+                return getY ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -163,18 +163,18 @@ public class PositionImpl extends EObjectImpl implements Position
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.POSITION__X:
-                setX((Double)newValue);
+                setX ( (Double)newValue );
                 return;
             case VisualInterfacePackage.POSITION__Y:
-                setY((Double)newValue);
+                setY ( (Double)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -183,18 +183,18 @@ public class PositionImpl extends EObjectImpl implements Position
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.POSITION__X:
-                setX(X_EDEFAULT);
+                setX ( X_EDEFAULT );
                 return;
             case VisualInterfacePackage.POSITION__Y:
-                setY(Y_EDEFAULT);
+                setY ( Y_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -203,16 +203,16 @@ public class PositionImpl extends EObjectImpl implements Position
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.POSITION__X:
                 return x != X_EDEFAULT;
             case VisualInterfacePackage.POSITION__Y:
                 return y != Y_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -221,17 +221,18 @@ public class PositionImpl extends EObjectImpl implements Position
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (x: "); //$NON-NLS-1$
-        result.append(x);
-        result.append(", y: "); //$NON-NLS-1$
-        result.append(y);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (x: " ); //$NON-NLS-1$
+        result.append ( x );
+        result.append ( ", y: " ); //$NON-NLS-1$
+        result.append ( y );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //PositionImpl

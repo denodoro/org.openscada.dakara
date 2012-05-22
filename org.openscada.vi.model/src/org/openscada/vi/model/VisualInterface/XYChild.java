@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>XY Child</b></em>'.
@@ -41,7 +40,7 @@ public interface XYChild extends Child
      *        extendedMetaData="kind='element'"
      * @generated
      */
-    Position getPosition();
+    Position getPosition ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.XYChild#getPosition <em>Position</em>}' containment reference.
@@ -51,7 +50,7 @@ public interface XYChild extends Child
      * @see #getPosition()
      * @generated
      */
-    void setPosition(Position value);
+    void setPosition ( Position value );
 
     /**
      * Returns the value of the '<em><b>Dimension</b></em>' containment reference.
@@ -66,7 +65,7 @@ public interface XYChild extends Child
      * @model containment="true"
      * @generated
      */
-    Dimension getDimension();
+    Dimension getDimension ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.XYChild#getDimension <em>Dimension</em>}' containment reference.
@@ -76,6 +75,6 @@ public interface XYChild extends Child
      * @see #getDimension()
      * @generated
      */
-    void setDimension(Dimension value);
+    void setDimension ( Dimension value );
 
 } // XYChild

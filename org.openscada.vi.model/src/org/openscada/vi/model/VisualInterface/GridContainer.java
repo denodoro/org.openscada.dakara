@@ -8,7 +8,6 @@ package org.openscada.vi.model.VisualInterface;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Grid Container</b></em>'.
@@ -44,7 +43,7 @@ public interface GridContainer extends Container
      * @model default="1"
      * @generated
      */
-    int getColumns();
+    int getColumns ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridContainer#getColumns <em>Columns</em>}' attribute.
@@ -54,7 +53,7 @@ public interface GridContainer extends Container
      * @see #getColumns()
      * @generated
      */
-    void setColumns(int value);
+    void setColumns ( int value );
 
     /**
      * Returns the value of the '<em><b>Equal Width</b></em>' attribute.
@@ -71,7 +70,7 @@ public interface GridContainer extends Container
      * @model default="false"
      * @generated
      */
-    boolean isEqualWidth();
+    boolean isEqualWidth ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridContainer#isEqualWidth <em>Equal Width</em>}' attribute.
@@ -81,7 +80,7 @@ public interface GridContainer extends Container
      * @see #isEqualWidth()
      * @generated
      */
-    void setEqualWidth(boolean value);
+    void setEqualWidth ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Children</b></em>' containment reference list.
@@ -97,6 +96,6 @@ public interface GridContainer extends Container
      * @model containment="true"
      * @generated
      */
-    EList<GridChild> getChildren();
+    EList<GridChild> getChildren ();
 
 } // GridContainer

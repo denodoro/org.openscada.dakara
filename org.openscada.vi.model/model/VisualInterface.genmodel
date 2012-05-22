@@ -3,8 +3,9 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.vi.model/src"
     modelPluginID="org.openscada.vi.model" modelName="VisualInterface" modelPluginClass=""
-    nonNLSMarkers="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
-    copyrightFields="false" language="" interfaceNamePattern="" classNamePattern="">
+    nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" language="" interfaceNamePattern=""
+    classNamePattern="">
   <foreignModel>VisualInterface.ecore</foreignModel>
   <genPackages prefix="VisualInterface" basePackage="org.openscada.vi.model" disposableProviderFactory="true"
       fileExtensions="vi" ecorePackage="VisualInterface.ecore#/">
@@ -41,6 +42,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/cursors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundColor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/designSize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/connections"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
@@ -50,6 +52,8 @@
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/lineWidth"/>
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/antialias"/>
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/alpha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/fill"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/outline"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
     <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/text">
@@ -65,6 +69,7 @@
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
@@ -93,6 +98,7 @@
           ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/border"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/opaque"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
@@ -119,6 +125,8 @@
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//BorderContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//BorderContainer/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderContainer/verticalSpacing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderContainer/horizontalSpacing"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//BorderChild">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderChild/alignment"/>
@@ -136,6 +144,15 @@
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Image">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/uri"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Ellipse"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//Arc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Arc/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Arc/length"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Connection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Connection/start"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Connection/end"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -52,7 +52,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IChangeNotifier changeNotifier = new ChangeNotifier();
+    protected IChangeNotifier changeNotifier = new ChangeNotifier ();
 
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -60,7 +60,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<Object> supportedTypes = new ArrayList<Object>();
+    protected Collection<Object> supportedTypes = new ArrayList<Object> ();
 
     /**
      * This constructs an instance.
@@ -68,13 +68,13 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceItemProviderAdapterFactory()
+    public VisualInterfaceItemProviderAdapterFactory ()
     {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        supportedTypes.add ( IEditingDomainItemProvider.class );
+        supportedTypes.add ( IStructuredItemContentProvider.class );
+        supportedTypes.add ( ITreeItemContentProvider.class );
+        supportedTypes.add ( IItemLabelProvider.class );
+        supportedTypes.add ( IItemPropertySource.class );
     }
 
     /**
@@ -92,11 +92,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createSymbolAdapter()
+    public Adapter createSymbolAdapter ()
     {
-        if (symbolItemProvider == null)
+        if ( symbolItemProvider == null )
         {
-            symbolItemProvider = new SymbolItemProvider(this);
+            symbolItemProvider = new SymbolItemProvider ( this );
         }
 
         return symbolItemProvider;
@@ -117,11 +117,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createRectangleAdapter()
+    public Adapter createRectangleAdapter ()
     {
-        if (rectangleItemProvider == null)
+        if ( rectangleItemProvider == null )
         {
-            rectangleItemProvider = new RectangleItemProvider(this);
+            rectangleItemProvider = new RectangleItemProvider ( this );
         }
 
         return rectangleItemProvider;
@@ -142,11 +142,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createTextAdapter()
+    public Adapter createTextAdapter ()
     {
-        if (textItemProvider == null)
+        if ( textItemProvider == null )
         {
-            textItemProvider = new TextItemProvider(this);
+            textItemProvider = new TextItemProvider ( this );
         }
 
         return textItemProvider;
@@ -167,11 +167,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createChildAdapter()
+    public Adapter createChildAdapter ()
     {
-        if (childItemProvider == null)
+        if ( childItemProvider == null )
         {
-            childItemProvider = new ChildItemProvider(this);
+            childItemProvider = new ChildItemProvider ( this );
         }
 
         return childItemProvider;
@@ -192,11 +192,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createXYChildAdapter()
+    public Adapter createXYChildAdapter ()
     {
-        if (xyChildItemProvider == null)
+        if ( xyChildItemProvider == null )
         {
-            xyChildItemProvider = new XYChildItemProvider(this);
+            xyChildItemProvider = new XYChildItemProvider ( this );
         }
 
         return xyChildItemProvider;
@@ -217,11 +217,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createXYContainerAdapter()
+    public Adapter createXYContainerAdapter ()
     {
-        if (xyContainerItemProvider == null)
+        if ( xyContainerItemProvider == null )
         {
-            xyContainerItemProvider = new XYContainerItemProvider(this);
+            xyContainerItemProvider = new XYContainerItemProvider ( this );
         }
 
         return xyContainerItemProvider;
@@ -242,11 +242,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createPositionAdapter()
+    public Adapter createPositionAdapter ()
     {
-        if (positionItemProvider == null)
+        if ( positionItemProvider == null )
         {
-            positionItemProvider = new PositionItemProvider(this);
+            positionItemProvider = new PositionItemProvider ( this );
         }
 
         return positionItemProvider;
@@ -267,11 +267,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createLineAdapter()
+    public Adapter createLineAdapter ()
     {
-        if (lineItemProvider == null)
+        if ( lineItemProvider == null )
         {
-            lineItemProvider = new LineItemProvider(this);
+            lineItemProvider = new LineItemProvider ( this );
         }
 
         return lineItemProvider;
@@ -292,11 +292,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createSymbolReferenceAdapter()
+    public Adapter createSymbolReferenceAdapter ()
     {
-        if (symbolReferenceItemProvider == null)
+        if ( symbolReferenceItemProvider == null )
         {
-            symbolReferenceItemProvider = new SymbolReferenceItemProvider(this);
+            symbolReferenceItemProvider = new SymbolReferenceItemProvider ( this );
         }
 
         return symbolReferenceItemProvider;
@@ -317,11 +317,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createStringToStringMapAdapter()
+    public Adapter createStringToStringMapAdapter ()
     {
-        if (stringToStringMapItemProvider == null)
+        if ( stringToStringMapItemProvider == null )
         {
-            stringToStringMapItemProvider = new StringToStringMapItemProvider(this);
+            stringToStringMapItemProvider = new StringToStringMapItemProvider ( this );
         }
 
         return stringToStringMapItemProvider;
@@ -342,11 +342,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createDimensionAdapter()
+    public Adapter createDimensionAdapter ()
     {
-        if (dimensionItemProvider == null)
+        if ( dimensionItemProvider == null )
         {
-            dimensionItemProvider = new DimensionItemProvider(this);
+            dimensionItemProvider = new DimensionItemProvider ( this );
         }
 
         return dimensionItemProvider;
@@ -367,11 +367,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createSystemCursorAdapter()
+    public Adapter createSystemCursorAdapter ()
     {
-        if (systemCursorItemProvider == null)
+        if ( systemCursorItemProvider == null )
         {
-            systemCursorItemProvider = new SystemCursorItemProvider(this);
+            systemCursorItemProvider = new SystemCursorItemProvider ( this );
         }
 
         return systemCursorItemProvider;
@@ -392,11 +392,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createGridContainerAdapter()
+    public Adapter createGridContainerAdapter ()
     {
-        if (gridContainerItemProvider == null)
+        if ( gridContainerItemProvider == null )
         {
-            gridContainerItemProvider = new GridContainerItemProvider(this);
+            gridContainerItemProvider = new GridContainerItemProvider ( this );
         }
 
         return gridContainerItemProvider;
@@ -417,11 +417,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createBorderContainerAdapter()
+    public Adapter createBorderContainerAdapter ()
     {
-        if (borderContainerItemProvider == null)
+        if ( borderContainerItemProvider == null )
         {
-            borderContainerItemProvider = new BorderContainerItemProvider(this);
+            borderContainerItemProvider = new BorderContainerItemProvider ( this );
         }
 
         return borderContainerItemProvider;
@@ -442,11 +442,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createBorderChildAdapter()
+    public Adapter createBorderChildAdapter ()
     {
-        if (borderChildItemProvider == null)
+        if ( borderChildItemProvider == null )
         {
-            borderChildItemProvider = new BorderChildItemProvider(this);
+            borderChildItemProvider = new BorderChildItemProvider ( this );
         }
 
         return borderChildItemProvider;
@@ -467,11 +467,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createGridChildAdapter()
+    public Adapter createGridChildAdapter ()
     {
-        if (gridChildItemProvider == null)
+        if ( gridChildItemProvider == null )
         {
-            gridChildItemProvider = new GridChildItemProvider(this);
+            gridChildItemProvider = new GridChildItemProvider ( this );
         }
 
         return gridChildItemProvider;
@@ -492,11 +492,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createFigureContainerAdapter()
+    public Adapter createFigureContainerAdapter ()
     {
-        if (figureContainerItemProvider == null)
+        if ( figureContainerItemProvider == null )
         {
-            figureContainerItemProvider = new FigureContainerItemProvider(this);
+            figureContainerItemProvider = new FigureContainerItemProvider ( this );
         }
 
         return figureContainerItemProvider;
@@ -517,11 +517,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createImageAdapter()
+    public Adapter createImageAdapter ()
     {
-        if (imageItemProvider == null)
+        if ( imageItemProvider == null )
         {
-            imageItemProvider = new ImageItemProvider(this);
+            imageItemProvider = new ImageItemProvider ( this );
         }
 
         return imageItemProvider;
@@ -542,11 +542,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createEllipseAdapter()
+    public Adapter createEllipseAdapter ()
     {
-        if (ellipseItemProvider == null)
+        if ( ellipseItemProvider == null )
         {
-            ellipseItemProvider = new EllipseItemProvider(this);
+            ellipseItemProvider = new EllipseItemProvider ( this );
         }
 
         return ellipseItemProvider;
@@ -567,11 +567,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createArcAdapter()
+    public Adapter createArcAdapter ()
     {
-        if (arcItemProvider == null)
+        if ( arcItemProvider == null )
         {
-            arcItemProvider = new ArcItemProvider(this);
+            arcItemProvider = new ArcItemProvider ( this );
         }
 
         return arcItemProvider;
@@ -592,11 +592,11 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter createConnectionAdapter()
+    public Adapter createConnectionAdapter ()
     {
-        if (connectionItemProvider == null)
+        if ( connectionItemProvider == null )
         {
-            connectionItemProvider = new ConnectionItemProvider(this);
+            connectionItemProvider = new ConnectionItemProvider ( this );
         }
 
         return connectionItemProvider;
@@ -608,9 +608,9 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComposeableAdapterFactory getRootAdapterFactory()
+    public ComposeableAdapterFactory getRootAdapterFactory ()
     {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory ();
     }
 
     /**
@@ -619,7 +619,7 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
+    public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
     {
         this.parentAdapterFactory = parentAdapterFactory;
     }
@@ -630,9 +630,9 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type)
+    public boolean isFactoryForType ( Object type )
     {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+        return supportedTypes.contains ( type ) || super.isFactoryForType ( type );
     }
 
     /**
@@ -642,9 +642,9 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type)
+    public Adapter adapt ( Notifier notifier, Object type )
     {
-        return super.adapt(notifier, this);
+        return super.adapt ( notifier, this );
     }
 
     /**
@@ -653,12 +653,12 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type)
+    public Object adapt ( Object object, Object type )
     {
-        if (isFactoryForType(type))
+        if ( isFactoryForType ( type ) )
         {
-            Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
+            Object adapter = super.adapt ( object, type );
+            if ( ! ( type instanceof Class<?> ) || ( ( (Class<?>)type ).isInstance ( adapter ) ) )
             {
                 return adapter;
             }
@@ -673,9 +673,9 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener)
+    public void addListener ( INotifyChangedListener notifyChangedListener )
     {
-        changeNotifier.addListener(notifyChangedListener);
+        changeNotifier.addListener ( notifyChangedListener );
     }
 
     /**
@@ -684,9 +684,9 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener)
+    public void removeListener ( INotifyChangedListener notifyChangedListener )
     {
-        changeNotifier.removeListener(notifyChangedListener);
+        changeNotifier.removeListener ( notifyChangedListener );
     }
 
     /**
@@ -695,13 +695,13 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public void fireNotifyChanged(Notification notification)
+    public void fireNotifyChanged ( Notification notification )
     {
-        changeNotifier.fireNotifyChanged(notification);
+        changeNotifier.fireNotifyChanged ( notification );
 
-        if (parentAdapterFactory != null)
+        if ( parentAdapterFactory != null )
         {
-            parentAdapterFactory.fireNotifyChanged(notification);
+            parentAdapterFactory.fireNotifyChanged ( notification );
         }
     }
 
@@ -711,29 +711,50 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
      * <!-- end-user-doc -->
      * @generated
      */
-    public void dispose()
+    public void dispose ()
     {
-        if (symbolItemProvider != null) symbolItemProvider.dispose();
-        if (rectangleItemProvider != null) rectangleItemProvider.dispose();
-        if (textItemProvider != null) textItemProvider.dispose();
-        if (childItemProvider != null) childItemProvider.dispose();
-        if (xyChildItemProvider != null) xyChildItemProvider.dispose();
-        if (xyContainerItemProvider != null) xyContainerItemProvider.dispose();
-        if (positionItemProvider != null) positionItemProvider.dispose();
-        if (lineItemProvider != null) lineItemProvider.dispose();
-        if (symbolReferenceItemProvider != null) symbolReferenceItemProvider.dispose();
-        if (stringToStringMapItemProvider != null) stringToStringMapItemProvider.dispose();
-        if (dimensionItemProvider != null) dimensionItemProvider.dispose();
-        if (systemCursorItemProvider != null) systemCursorItemProvider.dispose();
-        if (gridContainerItemProvider != null) gridContainerItemProvider.dispose();
-        if (borderContainerItemProvider != null) borderContainerItemProvider.dispose();
-        if (borderChildItemProvider != null) borderChildItemProvider.dispose();
-        if (gridChildItemProvider != null) gridChildItemProvider.dispose();
-        if (figureContainerItemProvider != null) figureContainerItemProvider.dispose();
-        if (imageItemProvider != null) imageItemProvider.dispose();
-        if (ellipseItemProvider != null) ellipseItemProvider.dispose();
-        if (arcItemProvider != null) arcItemProvider.dispose();
-        if (connectionItemProvider != null) connectionItemProvider.dispose();
+        if ( symbolItemProvider != null )
+            symbolItemProvider.dispose ();
+        if ( rectangleItemProvider != null )
+            rectangleItemProvider.dispose ();
+        if ( textItemProvider != null )
+            textItemProvider.dispose ();
+        if ( childItemProvider != null )
+            childItemProvider.dispose ();
+        if ( xyChildItemProvider != null )
+            xyChildItemProvider.dispose ();
+        if ( xyContainerItemProvider != null )
+            xyContainerItemProvider.dispose ();
+        if ( positionItemProvider != null )
+            positionItemProvider.dispose ();
+        if ( lineItemProvider != null )
+            lineItemProvider.dispose ();
+        if ( symbolReferenceItemProvider != null )
+            symbolReferenceItemProvider.dispose ();
+        if ( stringToStringMapItemProvider != null )
+            stringToStringMapItemProvider.dispose ();
+        if ( dimensionItemProvider != null )
+            dimensionItemProvider.dispose ();
+        if ( systemCursorItemProvider != null )
+            systemCursorItemProvider.dispose ();
+        if ( gridContainerItemProvider != null )
+            gridContainerItemProvider.dispose ();
+        if ( borderContainerItemProvider != null )
+            borderContainerItemProvider.dispose ();
+        if ( borderChildItemProvider != null )
+            borderChildItemProvider.dispose ();
+        if ( gridChildItemProvider != null )
+            gridChildItemProvider.dispose ();
+        if ( figureContainerItemProvider != null )
+            figureContainerItemProvider.dispose ();
+        if ( imageItemProvider != null )
+            imageItemProvider.dispose ();
+        if ( ellipseItemProvider != null )
+            ellipseItemProvider.dispose ();
+        if ( arcItemProvider != null )
+            arcItemProvider.dispose ();
+        if ( connectionItemProvider != null )
+            connectionItemProvider.dispose ();
     }
 
 }

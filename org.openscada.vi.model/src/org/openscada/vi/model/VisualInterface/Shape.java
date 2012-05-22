@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Shape</b></em>'.
@@ -45,7 +44,7 @@ public interface Shape extends Figure
      * @model default="1" required="true"
      * @generated
      */
-    float getLineWidth();
+    float getLineWidth ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Shape#getLineWidth <em>Line Width</em>}' attribute.
@@ -55,7 +54,7 @@ public interface Shape extends Figure
      * @see #getLineWidth()
      * @generated
      */
-    void setLineWidth(float value);
+    void setLineWidth ( float value );
 
     /**
      * Returns the value of the '<em><b>Antialias</b></em>' attribute.
@@ -71,7 +70,7 @@ public interface Shape extends Figure
      * @model
      * @generated
      */
-    Boolean getAntialias();
+    Boolean getAntialias ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Shape#getAntialias <em>Antialias</em>}' attribute.
@@ -81,7 +80,7 @@ public interface Shape extends Figure
      * @see #getAntialias()
      * @generated
      */
-    void setAntialias(Boolean value);
+    void setAntialias ( Boolean value );
 
     /**
      * Returns the value of the '<em><b>Alpha</b></em>' attribute.
@@ -97,7 +96,7 @@ public interface Shape extends Figure
      * @model
      * @generated
      */
-    Double getAlpha();
+    Double getAlpha ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Shape#getAlpha <em>Alpha</em>}' attribute.
@@ -107,7 +106,7 @@ public interface Shape extends Figure
      * @see #getAlpha()
      * @generated
      */
-    void setAlpha(Double value);
+    void setAlpha ( Double value );
 
     /**
      * Returns the value of the '<em><b>Fill</b></em>' attribute.
@@ -124,7 +123,7 @@ public interface Shape extends Figure
      * @model default="true" required="true"
      * @generated
      */
-    boolean isFill();
+    boolean isFill ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Shape#isFill <em>Fill</em>}' attribute.
@@ -134,7 +133,7 @@ public interface Shape extends Figure
      * @see #isFill()
      * @generated
      */
-    void setFill(boolean value);
+    void setFill ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Outline</b></em>' attribute.
@@ -151,7 +150,7 @@ public interface Shape extends Figure
      * @model default="true" required="true"
      * @generated
      */
-    boolean isOutline();
+    boolean isOutline ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Shape#isOutline <em>Outline</em>}' attribute.
@@ -161,6 +160,6 @@ public interface Shape extends Figure
      * @see #isOutline()
      * @generated
      */
-    void setOutline(boolean value);
+    void setOutline ( boolean value );
 
 } // Shape

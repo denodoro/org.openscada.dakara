@@ -56,9 +56,9 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BorderChildImpl()
+    protected BorderChildImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -67,7 +67,7 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.BORDER_CHILD;
     }
@@ -77,7 +77,7 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public Alignment getAlignment()
+    public Alignment getAlignment ()
     {
         return alignment;
     }
@@ -87,12 +87,12 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAlignment(Alignment newAlignment)
+    public void setAlignment ( Alignment newAlignment )
     {
         Alignment oldAlignment = alignment;
         alignment = newAlignment == null ? ALIGNMENT_EDEFAULT : newAlignment;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.BORDER_CHILD__ALIGNMENT, oldAlignment, alignment));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.BORDER_CHILD__ALIGNMENT, oldAlignment, alignment ) );
     }
 
     /**
@@ -101,14 +101,14 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CHILD__ALIGNMENT:
-                return getAlignment();
+                return getAlignment ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -117,15 +117,15 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CHILD__ALIGNMENT:
-                setAlignment((Alignment)newValue);
+                setAlignment ( (Alignment)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -134,15 +134,15 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CHILD__ALIGNMENT:
-                setAlignment(ALIGNMENT_EDEFAULT);
+                setAlignment ( ALIGNMENT_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -151,14 +151,14 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.BORDER_CHILD__ALIGNMENT:
                 return alignment != ALIGNMENT_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -167,15 +167,16 @@ public class BorderChildImpl extends ChildImpl implements BorderChild
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (alignment: "); //$NON-NLS-1$
-        result.append(alignment);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (alignment: " ); //$NON-NLS-1$
+        result.append ( alignment );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //BorderChildImpl

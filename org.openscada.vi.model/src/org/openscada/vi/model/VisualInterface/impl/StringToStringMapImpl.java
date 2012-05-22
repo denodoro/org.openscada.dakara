@@ -33,7 +33,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *
  * @generated
  */
-public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entry<String,String>
+public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entry<String, String>
 {
     /**
      * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
@@ -80,9 +80,9 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    protected StringToStringMapImpl()
+    protected StringToStringMapImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -91,7 +91,7 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.STRING_TO_STRING_MAP;
     }
@@ -101,7 +101,7 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getTypedKey()
+    public String getTypedKey ()
     {
         return key;
     }
@@ -111,12 +111,12 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTypedKey(String newKey)
+    public void setTypedKey ( String newKey )
     {
         String oldKey = key;
         key = newKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.STRING_TO_STRING_MAP__KEY, oldKey, key));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.STRING_TO_STRING_MAP__KEY, oldKey, key ) );
     }
 
     /**
@@ -124,7 +124,7 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getTypedValue()
+    public String getTypedValue ()
     {
         return value;
     }
@@ -134,12 +134,12 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTypedValue(String newValue)
+    public void setTypedValue ( String newValue )
     {
         String oldValue = value;
         value = newValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE, oldValue, value));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE, oldValue, value ) );
     }
 
     /**
@@ -148,16 +148,16 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.STRING_TO_STRING_MAP__KEY:
-                return getTypedKey();
+                return getTypedKey ();
             case VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE:
-                return getTypedValue();
+                return getTypedValue ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -166,18 +166,18 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.STRING_TO_STRING_MAP__KEY:
-                setTypedKey((String)newValue);
+                setTypedKey ( (String)newValue );
                 return;
             case VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE:
-                setTypedValue((String)newValue);
+                setTypedValue ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -186,18 +186,18 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.STRING_TO_STRING_MAP__KEY:
-                setTypedKey(KEY_EDEFAULT);
+                setTypedKey ( KEY_EDEFAULT );
                 return;
             case VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE:
-                setTypedValue(VALUE_EDEFAULT);
+                setTypedValue ( VALUE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -206,16 +206,16 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.STRING_TO_STRING_MAP__KEY:
-                return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+                return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals ( key );
             case VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -224,17 +224,18 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (key: "); //$NON-NLS-1$
-        result.append(key);
-        result.append(", value: "); //$NON-NLS-1$
-        result.append(value);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (key: " ); //$NON-NLS-1$
+        result.append ( key );
+        result.append ( ", value: " ); //$NON-NLS-1$
+        result.append ( value );
+        result.append ( ')' );
+        return result.toString ();
     }
 
     /**
@@ -249,12 +250,12 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getHash()
+    public int getHash ()
     {
-        if (hash == -1)
+        if ( hash == -1 )
         {
-            Object theKey = getKey();
-            hash = (theKey == null ? 0 : theKey.hashCode());
+            Object theKey = getKey ();
+            hash = ( theKey == null ? 0 : theKey.hashCode () );
         }
         return hash;
     }
@@ -264,7 +265,7 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHash(int hash)
+    public void setHash ( int hash )
     {
         this.hash = hash;
     }
@@ -274,9 +275,9 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getKey()
+    public String getKey ()
     {
-        return getTypedKey();
+        return getTypedKey ();
     }
 
     /**
@@ -284,9 +285,9 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setKey(String key)
+    public void setKey ( String key )
     {
-        setTypedKey(key);
+        setTypedKey ( key );
     }
 
     /**
@@ -294,9 +295,9 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue()
+    public String getValue ()
     {
-        return getTypedValue();
+        return getTypedValue ();
     }
 
     /**
@@ -304,10 +305,10 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    public String setValue(String value)
+    public String setValue ( String value )
     {
-        String oldValue = getValue();
-        setTypedValue(value);
+        String oldValue = getValue ();
+        setTypedValue ( value );
         return oldValue;
     }
 
@@ -316,11 +317,11 @@ public class StringToStringMapImpl extends EObjectImpl implements BasicEMap.Entr
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
-    public EMap<String, String> getEMap()
+    @SuppressWarnings ( "unchecked" )
+    public EMap<String, String> getEMap ()
     {
-        EObject container = eContainer();
-        return container == null ? null : (EMap<String, String>)container.eGet(eContainmentFeature());
+        EObject container = eContainer ();
+        return container == null ? null : (EMap<String, String>)container.eGet ( eContainmentFeature () );
     }
 
 } //StringToStringMapImpl

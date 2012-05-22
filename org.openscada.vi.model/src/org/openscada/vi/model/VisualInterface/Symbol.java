@@ -51,7 +51,7 @@ public interface Symbol extends EObject
      * @model containment="true"
      * @generated
      */
-    Primitive getRoot();
+    Primitive getRoot ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getRoot <em>Root</em>}' containment reference.
@@ -61,7 +61,7 @@ public interface Symbol extends EObject
      * @see #getRoot()
      * @generated
      */
-    void setRoot(Primitive value);
+    void setRoot ( Primitive value );
 
     /**
      * Returns the value of the '<em><b>Properties</b></em>' map.
@@ -78,7 +78,7 @@ public interface Symbol extends EObject
      * @model mapType="org.openscada.vi.model.VisualInterface.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
      * @generated
      */
-    EMap<String, String> getProperties();
+    EMap<String, String> getProperties ();
 
     /**
      * Returns the value of the '<em><b>On Init</b></em>' attribute.
@@ -94,7 +94,7 @@ public interface Symbol extends EObject
      * @model
      * @generated
      */
-    String getOnInit();
+    String getOnInit ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getOnInit <em>On Init</em>}' attribute.
@@ -104,7 +104,7 @@ public interface Symbol extends EObject
      * @see #getOnInit()
      * @generated
      */
-    void setOnInit(String value);
+    void setOnInit ( String value );
 
     /**
      * Returns the value of the '<em><b>On Dispose</b></em>' attribute.
@@ -120,7 +120,7 @@ public interface Symbol extends EObject
      * @model
      * @generated
      */
-    String getOnDispose();
+    String getOnDispose ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getOnDispose <em>On Dispose</em>}' attribute.
@@ -130,7 +130,7 @@ public interface Symbol extends EObject
      * @see #getOnDispose()
      * @generated
      */
-    void setOnDispose(String value);
+    void setOnDispose ( String value );
 
     /**
      * Returns the value of the '<em><b>On Update</b></em>' attribute.
@@ -146,7 +146,7 @@ public interface Symbol extends EObject
      * @model
      * @generated
      */
-    String getOnUpdate();
+    String getOnUpdate ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getOnUpdate <em>On Update</em>}' attribute.
@@ -156,7 +156,7 @@ public interface Symbol extends EObject
      * @see #getOnUpdate()
      * @generated
      */
-    void setOnUpdate(String value);
+    void setOnUpdate ( String value );
 
     /**
      * Returns the value of the '<em><b>Script Modules</b></em>' attribute list.
@@ -172,7 +172,7 @@ public interface Symbol extends EObject
      * @model
      * @generated
      */
-    EList<String> getScriptModules();
+    EList<String> getScriptModules ();
 
     /**
      * Returns the value of the '<em><b>Cursors</b></em>' containment reference.
@@ -188,7 +188,7 @@ public interface Symbol extends EObject
      * @model containment="true"
      * @generated
      */
-    Cursor getCursors();
+    Cursor getCursors ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getCursors <em>Cursors</em>}' containment reference.
@@ -198,7 +198,7 @@ public interface Symbol extends EObject
      * @see #getCursors()
      * @generated
      */
-    void setCursors(Cursor value);
+    void setCursors ( Cursor value );
 
     /**
      * Returns the value of the '<em><b>Background Color</b></em>' attribute.
@@ -214,7 +214,7 @@ public interface Symbol extends EObject
      * @model
      * @generated
      */
-    String getBackgroundColor();
+    String getBackgroundColor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getBackgroundColor <em>Background Color</em>}' attribute.
@@ -224,7 +224,7 @@ public interface Symbol extends EObject
      * @see #getBackgroundColor()
      * @generated
      */
-    void setBackgroundColor(String value);
+    void setBackgroundColor ( String value );
 
     /**
      * Returns the value of the '<em><b>Design Size</b></em>' containment reference.
@@ -239,7 +239,7 @@ public interface Symbol extends EObject
      * @model containment="true"
      * @generated
      */
-    Dimension getDesignSize();
+    Dimension getDesignSize ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Symbol#getDesignSize <em>Design Size</em>}' containment reference.
@@ -249,7 +249,7 @@ public interface Symbol extends EObject
      * @see #getDesignSize()
      * @generated
      */
-    void setDesignSize(Dimension value);
+    void setDesignSize ( Dimension value );
 
     /**
      * Returns the value of the '<em><b>Connections</b></em>' containment reference list.
@@ -265,6 +265,6 @@ public interface Symbol extends EObject
      * @model containment="true"
      * @generated
      */
-    EList<Connection> getConnections();
+    EList<Connection> getConnections ();
 
 } // Symbol

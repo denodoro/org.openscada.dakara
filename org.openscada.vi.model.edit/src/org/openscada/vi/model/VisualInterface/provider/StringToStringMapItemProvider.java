@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -35,14 +34,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StringToStringMapItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class StringToStringMapItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -50,9 +42,9 @@ public class StringToStringMapItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public StringToStringMapItemProvider(AdapterFactory adapterFactory)
+    public StringToStringMapItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -62,14 +54,14 @@ public class StringToStringMapItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addKeyPropertyDescriptor(object);
-            addValuePropertyDescriptor(object);
+            addKeyPropertyDescriptor ( object );
+            addValuePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -80,21 +72,11 @@ public class StringToStringMapItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addKeyPropertyDescriptor(Object object)
+    protected void addKeyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_StringToStringMap_key_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__KEY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_StringToStringMap_key_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -103,21 +85,11 @@ public class StringToStringMapItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addValuePropertyDescriptor(Object object)
+    protected void addValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_StringToStringMap_value_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_StringToStringMap_value_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -127,9 +99,9 @@ public class StringToStringMapItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/StringToStringMap")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/StringToStringMap" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -139,10 +111,10 @@ public class StringToStringMapItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
         Map.Entry<?, ?> stringToStringMap = (Map.Entry<?, ?>)object;
-        return "" + stringToStringMap.getKey() + " -> " + stringToStringMap.getValue(); //$NON-NLS-1$ //$NON-NLS-2$
+        return "" + stringToStringMap.getKey () + " -> " + stringToStringMap.getValue (); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -153,18 +125,18 @@ public class StringToStringMapItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(Map.Entry.class))
+        switch ( notification.getFeatureID ( Map.Entry.class ) )
         {
             case VisualInterfacePackage.STRING_TO_STRING_MAP__KEY:
             case VisualInterfacePackage.STRING_TO_STRING_MAP__VALUE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -175,9 +147,9 @@ public class StringToStringMapItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
     /**
@@ -187,7 +159,7 @@ public class StringToStringMapItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return VisualInterfaceEditPlugin.INSTANCE;
     }

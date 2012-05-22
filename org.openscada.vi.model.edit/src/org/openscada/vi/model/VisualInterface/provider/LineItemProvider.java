@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -38,14 +37,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LineItemProvider
-    extends ShapeItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class LineItemProvider extends ShapeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -53,9 +45,9 @@ public class LineItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public LineItemProvider(AdapterFactory adapterFactory)
+    public LineItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -65,11 +57,11 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -84,12 +76,12 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.LINE__POINTS);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.LINE__POINTS );
         }
         return childrenFeatures;
     }
@@ -100,12 +92,12 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -115,9 +107,9 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Line")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Line" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -127,12 +119,11 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((Line)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_Line_type") : //$NON-NLS-1$
-            getString("_UI_Line_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (Line)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_Line_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Line_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -143,17 +134,17 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(Line.class))
+        switch ( notification.getFeatureID ( Line.class ) )
         {
             case VisualInterfacePackage.LINE__POINTS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -164,14 +155,11 @@ public class LineItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.LINE__POINTS,
-                 VisualInterfaceFactory.eINSTANCE.createPosition()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.LINE__POINTS, VisualInterfaceFactory.eINSTANCE.createPosition () ) );
     }
 
 }

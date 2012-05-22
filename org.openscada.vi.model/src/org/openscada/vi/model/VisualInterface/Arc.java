@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Arc</b></em>'.
@@ -40,7 +39,7 @@ public interface Arc extends Shape
      * @model required="true"
      * @generated
      */
-    int getStart();
+    int getStart ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Arc#getStart <em>Start</em>}' attribute.
@@ -50,7 +49,7 @@ public interface Arc extends Shape
      * @see #getStart()
      * @generated
      */
-    void setStart(int value);
+    void setStart ( int value );
 
     /**
      * Returns the value of the '<em><b>Length</b></em>' attribute.
@@ -66,7 +65,7 @@ public interface Arc extends Shape
      * @model required="true"
      * @generated
      */
-    int getLength();
+    int getLength ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Arc#getLength <em>Length</em>}' attribute.
@@ -76,6 +75,6 @@ public interface Arc extends Shape
      * @see #getLength()
      * @generated
      */
-    void setLength(int value);
+    void setLength ( int value );
 
 } // Arc

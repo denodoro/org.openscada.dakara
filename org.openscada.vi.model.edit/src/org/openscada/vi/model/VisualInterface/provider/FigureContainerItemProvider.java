@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -33,14 +32,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FigureContainerItemProvider
-    extends FigureItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class FigureContainerItemProvider extends FigureItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,9 +40,9 @@ public class FigureContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public FigureContainerItemProvider(AdapterFactory adapterFactory)
+    public FigureContainerItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -60,11 +52,11 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -79,12 +71,12 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT );
         }
         return childrenFeatures;
     }
@@ -95,12 +87,12 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -110,9 +102,9 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/FigureContainer")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/FigureContainer" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -122,12 +114,11 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((FigureContainer)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_FigureContainer_type") : //$NON-NLS-1$
-            getString("_UI_FigureContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (FigureContainer)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_FigureContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_FigureContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -138,17 +129,17 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(FigureContainer.class))
+        switch ( notification.getFeatureID ( FigureContainer.class ) )
         {
             case VisualInterfacePackage.FIGURE_CONTAINER__CONTENT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -159,64 +150,31 @@ public class FigureContainerItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createRectangle()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createText()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createText () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createXYContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createLine()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createLine () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createSymbolReference()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createGridContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createBorderContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createFigureContainer()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createImage()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createImage () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createEllipse()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                 VisualInterfaceFactory.eINSTANCE.createArc()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
     }
 
 }

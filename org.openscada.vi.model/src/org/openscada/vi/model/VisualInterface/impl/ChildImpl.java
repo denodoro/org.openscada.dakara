@@ -54,6 +54,7 @@ public class ChildImpl extends EObjectImpl implements Child
      * @ordered
      */
     protected static final String NAME_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -69,9 +70,9 @@ public class ChildImpl extends EObjectImpl implements Child
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ChildImpl()
+    protected ChildImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -80,7 +81,7 @@ public class ChildImpl extends EObjectImpl implements Child
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.CHILD;
     }
@@ -90,7 +91,7 @@ public class ChildImpl extends EObjectImpl implements Child
      * <!-- end-user-doc -->
      * @generated
      */
-    public Primitive getElement()
+    public Primitive getElement ()
     {
         return element;
     }
@@ -100,14 +101,17 @@ public class ChildImpl extends EObjectImpl implements Child
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetElement(Primitive newElement, NotificationChain msgs)
+    public NotificationChain basicSetElement ( Primitive newElement, NotificationChain msgs )
     {
         Primitive oldElement = element;
         element = newElement;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.CHILD__ELEMENT, oldElement, newElement);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.CHILD__ELEMENT, oldElement, newElement );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -117,20 +121,21 @@ public class ChildImpl extends EObjectImpl implements Child
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setElement(Primitive newElement)
+    public void setElement ( Primitive newElement )
     {
-        if (newElement != element)
+        if ( newElement != element )
         {
             NotificationChain msgs = null;
-            if (element != null)
-                msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.CHILD__ELEMENT, null, msgs);
-            if (newElement != null)
-                msgs = ((InternalEObject)newElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.CHILD__ELEMENT, null, msgs);
-            msgs = basicSetElement(newElement, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( element != null )
+                msgs = ( (InternalEObject)element ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.CHILD__ELEMENT, null, msgs );
+            if ( newElement != null )
+                msgs = ( (InternalEObject)newElement ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.CHILD__ELEMENT, null, msgs );
+            msgs = basicSetElement ( newElement, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.CHILD__ELEMENT, newElement, newElement));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.CHILD__ELEMENT, newElement, newElement ) );
     }
 
     /**
@@ -138,7 +143,7 @@ public class ChildImpl extends EObjectImpl implements Child
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -148,12 +153,12 @@ public class ChildImpl extends EObjectImpl implements Child
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.CHILD__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.CHILD__NAME, oldName, name ) );
     }
 
     /**
@@ -162,14 +167,14 @@ public class ChildImpl extends EObjectImpl implements Child
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CHILD__ELEMENT:
-                return basicSetElement(null, msgs);
+                return basicSetElement ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -178,16 +183,16 @@ public class ChildImpl extends EObjectImpl implements Child
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CHILD__ELEMENT:
-                return getElement();
+                return getElement ();
             case VisualInterfacePackage.CHILD__NAME:
-                return getName();
+                return getName ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -196,38 +201,18 @@ public class ChildImpl extends EObjectImpl implements Child
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.CHILD__ELEMENT:
-                setElement((Primitive)newValue);
-                return;
-            case VisualInterfacePackage.CHILD__NAME:
-                setName((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.CHILD__ELEMENT:
-                setElement((Primitive)null);
+                setElement ( (Primitive)newValue );
                 return;
             case VisualInterfacePackage.CHILD__NAME:
-                setName(NAME_EDEFAULT);
+                setName ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -236,16 +221,36 @@ public class ChildImpl extends EObjectImpl implements Child
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.CHILD__ELEMENT:
+                setElement ( (Primitive)null );
+                return;
+            case VisualInterfacePackage.CHILD__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
         {
             case VisualInterfacePackage.CHILD__ELEMENT:
                 return element != null;
             case VisualInterfacePackage.CHILD__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -254,15 +259,16 @@ public class ChildImpl extends EObjectImpl implements Child
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: "); //$NON-NLS-1$
-        result.append(name);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ChildImpl

@@ -27,9 +27,9 @@ public class EllipseImpl extends ShapeImpl implements Ellipse
      * <!-- end-user-doc -->
      * @generated
      */
-    protected EllipseImpl()
+    protected EllipseImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -38,7 +38,7 @@ public class EllipseImpl extends ShapeImpl implements Ellipse
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.ELLIPSE;
     }

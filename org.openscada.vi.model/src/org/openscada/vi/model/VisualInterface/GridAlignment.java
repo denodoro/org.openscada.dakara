@@ -31,7 +31,7 @@ public enum GridAlignment implements Enumerator
      * @generated
      * @ordered
      */
-    CENTER(0, "CENTER", "CENTER"),
+    CENTER ( 0, "CENTER", "CENTER" ),
 
     /**
      * The '<em><b>FILL</b></em>' literal object.
@@ -41,7 +41,7 @@ public enum GridAlignment implements Enumerator
      * @generated
      * @ordered
      */
-    FILL(1, "FILL", "FILL"),
+    FILL ( 1, "FILL", "FILL" ),
 
     /**
      * The '<em><b>BEGINNING</b></em>' literal object.
@@ -51,7 +51,7 @@ public enum GridAlignment implements Enumerator
      * @generated
      * @ordered
      */
-    BEGINNING(2, "BEGINNING", "BEGINNING"),
+    BEGINNING ( 2, "BEGINNING", "BEGINNING" ),
 
     /**
      * The '<em><b>END</b></em>' literal object.
@@ -61,7 +61,7 @@ public enum GridAlignment implements Enumerator
      * @generated
      * @ordered
      */
-    END(3, "END", "END");
+    END ( 3, "END", "END" );
 
     /**
      * The '<em><b>CENTER</b></em>' literal value.
@@ -129,14 +129,7 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final GridAlignment[] VALUES_ARRAY =
-        new GridAlignment[]
-        {
-            CENTER,
-            FILL,
-            BEGINNING,
-            END,
-        };
+    private static final GridAlignment[] VALUES_ARRAY = new GridAlignment[] { CENTER, FILL, BEGINNING, END, };
 
     /**
      * A public read-only list of all the '<em><b>Grid Alignment</b></em>' enumerators.
@@ -144,7 +137,7 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<GridAlignment> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<GridAlignment> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
      * Returns the '<em><b>Grid Alignment</b></em>' literal with the specified literal value.
@@ -152,12 +145,12 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static GridAlignment get(String literal)
+    public static GridAlignment get ( String literal )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             GridAlignment result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal))
+            if ( result.toString ().equals ( literal ) )
             {
                 return result;
             }
@@ -171,12 +164,12 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static GridAlignment getByName(String name)
+    public static GridAlignment getByName ( String name )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             GridAlignment result = VALUES_ARRAY[i];
-            if (result.getName().equals(name))
+            if ( result.getName ().equals ( name ) )
             {
                 return result;
             }
@@ -190,14 +183,18 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static GridAlignment get(int value)
+    public static GridAlignment get ( int value )
     {
-        switch (value)
+        switch ( value )
         {
-            case CENTER_VALUE: return CENTER;
-            case FILL_VALUE: return FILL;
-            case BEGINNING_VALUE: return BEGINNING;
-            case END_VALUE: return END;
+            case CENTER_VALUE:
+                return CENTER;
+            case FILL_VALUE:
+                return FILL;
+            case BEGINNING_VALUE:
+                return BEGINNING;
+            case END_VALUE:
+                return END;
         }
         return null;
     }
@@ -229,7 +226,7 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private GridAlignment(int value, String name, String literal)
+    private GridAlignment ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -241,9 +238,9 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getValue()
+    public int getValue ()
     {
-      return value;
+        return value;
     }
 
     /**
@@ -251,9 +248,9 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
-      return name;
+        return name;
     }
 
     /**
@@ -261,9 +258,9 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLiteral()
+    public String getLiteral ()
     {
-      return literal;
+        return literal;
     }
 
     /**
@@ -273,9 +270,9 @@ public enum GridAlignment implements Enumerator
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return literal;
     }
-    
+
 } //GridAlignment

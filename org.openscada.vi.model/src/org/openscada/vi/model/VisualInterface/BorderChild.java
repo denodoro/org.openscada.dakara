@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Border Child</b></em>'.
@@ -42,7 +41,7 @@ public interface BorderChild extends Child
      * @model default="CENTER" required="true"
      * @generated
      */
-    Alignment getAlignment();
+    Alignment getAlignment ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.BorderChild#getAlignment <em>Alignment</em>}' attribute.
@@ -53,6 +52,6 @@ public interface BorderChild extends Child
      * @see #getAlignment()
      * @generated
      */
-    void setAlignment(Alignment value);
+    void setAlignment ( Alignment value );
 
 } // BorderChild

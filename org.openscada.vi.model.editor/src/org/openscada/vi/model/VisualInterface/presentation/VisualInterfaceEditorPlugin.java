@@ -26,8 +26,8 @@ public final class VisualInterfaceEditorPlugin extends EMFPlugin
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final VisualInterfaceEditorPlugin INSTANCE = new VisualInterfaceEditorPlugin();
-    
+    public static final VisualInterfaceEditorPlugin INSTANCE = new VisualInterfaceEditorPlugin ();
+
     /**
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
@@ -42,12 +42,9 @@ public final class VisualInterfaceEditorPlugin extends EMFPlugin
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceEditorPlugin()
+    public VisualInterfaceEditorPlugin ()
     {
-        super
-            (new ResourceLocator [] 
-            {
-            });
+        super ( new ResourceLocator[] {} );
     }
 
     /**
@@ -58,11 +55,11 @@ public final class VisualInterfaceEditorPlugin extends EMFPlugin
      * @generated
      */
     @Override
-    public ResourceLocator getPluginResourceLocator()
+    public ResourceLocator getPluginResourceLocator ()
     {
         return plugin;
     }
-    
+
     /**
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
@@ -70,11 +67,11 @@ public final class VisualInterfaceEditorPlugin extends EMFPlugin
      * @return the singleton instance.
      * @generated
      */
-    public static Implementation getPlugin()
+    public static Implementation getPlugin ()
     {
         return plugin;
     }
-    
+
     /**
      * The actual implementation of the Eclipse <b>Plugin</b>.
      * <!-- begin-user-doc -->
@@ -89,10 +86,10 @@ public final class VisualInterfaceEditorPlugin extends EMFPlugin
          * <!-- end-user-doc -->
          * @generated
          */
-        public Implementation()
+        public Implementation ()
         {
-            super();
-    
+            super ();
+
             // Remember the static instance.
             //
             plugin = this;

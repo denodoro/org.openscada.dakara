@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Image</b></em>'.
@@ -39,7 +38,7 @@ public interface Image extends Figure
      * @model
      * @generated
      */
-    String getUri();
+    String getUri ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Image#getUri <em>Uri</em>}' attribute.
@@ -49,6 +48,6 @@ public interface Image extends Figure
      * @see #getUri()
      * @generated
      */
-    void setUri(String value);
+    void setUri ( String value );
 
 } // Image

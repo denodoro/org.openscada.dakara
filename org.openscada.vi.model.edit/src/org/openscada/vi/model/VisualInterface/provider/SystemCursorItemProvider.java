@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -33,14 +32,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemCursorItemProvider
-    extends CursorItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class SystemCursorItemProvider extends CursorItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,9 +40,9 @@ public class SystemCursorItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemCursorItemProvider(AdapterFactory adapterFactory)
+    public SystemCursorItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -60,13 +52,13 @@ public class SystemCursorItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addTypePropertyDescriptor(object);
+            addTypePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -77,21 +69,11 @@ public class SystemCursorItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTypePropertyDescriptor(Object object)
+    protected void addTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SystemCursor_type_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_SystemCursor_type_feature", "_UI_SystemCursor_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.SYSTEM_CURSOR__TYPE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SystemCursor_type_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SystemCursor_type_feature", "_UI_SystemCursor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.SYSTEM_CURSOR__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -101,9 +83,9 @@ public class SystemCursorItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemCursor")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SystemCursor" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -113,13 +95,12 @@ public class SystemCursorItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        SystemCursorType labelValue = ((SystemCursor)object).getType();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ?
-            getString("_UI_SystemCursor_type") : //$NON-NLS-1$
-            getString("_UI_SystemCursor_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        SystemCursorType labelValue = ( (SystemCursor)object ).getType ();
+        String label = labelValue == null ? null : labelValue.toString ();
+        return label == null || label.length () == 0 ? getString ( "_UI_SystemCursor_type" ) : //$NON-NLS-1$
+        getString ( "_UI_SystemCursor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -130,17 +111,17 @@ public class SystemCursorItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(SystemCursor.class))
+        switch ( notification.getFeatureID ( SystemCursor.class ) )
         {
             case VisualInterfacePackage.SYSTEM_CURSOR__TYPE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -151,9 +132,9 @@ public class SystemCursorItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

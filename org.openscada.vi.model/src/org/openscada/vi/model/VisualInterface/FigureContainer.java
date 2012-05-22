@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Figure Container</b></em>'.
@@ -39,7 +38,7 @@ public interface FigureContainer extends Figure
      * @model containment="true"
      * @generated
      */
-    Primitive getContent();
+    Primitive getContent ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.FigureContainer#getContent <em>Content</em>}' containment reference.
@@ -49,6 +48,6 @@ public interface FigureContainer extends Figure
      * @see #getContent()
      * @generated
      */
-    void setContent(Primitive value);
+    void setContent ( Primitive value );
 
 } // FigureContainer

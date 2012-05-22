@@ -76,9 +76,9 @@ public class ArcImpl extends ShapeImpl implements Arc
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ArcImpl()
+    protected ArcImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -87,7 +87,7 @@ public class ArcImpl extends ShapeImpl implements Arc
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.ARC;
     }
@@ -97,7 +97,7 @@ public class ArcImpl extends ShapeImpl implements Arc
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getStart()
+    public int getStart ()
     {
         return start;
     }
@@ -107,12 +107,12 @@ public class ArcImpl extends ShapeImpl implements Arc
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setStart(int newStart)
+    public void setStart ( int newStart )
     {
         int oldStart = start;
         start = newStart;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.ARC__START, oldStart, start));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.ARC__START, oldStart, start ) );
     }
 
     /**
@@ -120,7 +120,7 @@ public class ArcImpl extends ShapeImpl implements Arc
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getLength()
+    public int getLength ()
     {
         return length;
     }
@@ -130,12 +130,12 @@ public class ArcImpl extends ShapeImpl implements Arc
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLength(int newLength)
+    public void setLength ( int newLength )
     {
         int oldLength = length;
         length = newLength;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.ARC__LENGTH, oldLength, length));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.ARC__LENGTH, oldLength, length ) );
     }
 
     /**
@@ -144,16 +144,16 @@ public class ArcImpl extends ShapeImpl implements Arc
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.ARC__START:
-                return getStart();
+                return getStart ();
             case VisualInterfacePackage.ARC__LENGTH:
-                return getLength();
+                return getLength ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -162,18 +162,18 @@ public class ArcImpl extends ShapeImpl implements Arc
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.ARC__START:
-                setStart((Integer)newValue);
+                setStart ( (Integer)newValue );
                 return;
             case VisualInterfacePackage.ARC__LENGTH:
-                setLength((Integer)newValue);
+                setLength ( (Integer)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -182,18 +182,18 @@ public class ArcImpl extends ShapeImpl implements Arc
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.ARC__START:
-                setStart(START_EDEFAULT);
+                setStart ( START_EDEFAULT );
                 return;
             case VisualInterfacePackage.ARC__LENGTH:
-                setLength(LENGTH_EDEFAULT);
+                setLength ( LENGTH_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -202,16 +202,16 @@ public class ArcImpl extends ShapeImpl implements Arc
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.ARC__START:
                 return start != START_EDEFAULT;
             case VisualInterfacePackage.ARC__LENGTH:
                 return length != LENGTH_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -220,17 +220,18 @@ public class ArcImpl extends ShapeImpl implements Arc
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (start: "); //$NON-NLS-1$
-        result.append(start);
-        result.append(", length: "); //$NON-NLS-1$
-        result.append(length);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (start: " ); //$NON-NLS-1$
+        result.append ( start );
+        result.append ( ", length: " ); //$NON-NLS-1$
+        result.append ( length );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ArcImpl

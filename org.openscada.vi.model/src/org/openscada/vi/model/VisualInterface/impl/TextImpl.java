@@ -49,6 +49,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final String TEXT_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -58,6 +59,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected String text = TEXT_EDEFAULT;
+
     /**
      * The default value of the '{@link #getLabelAlignment() <em>Label Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -67,6 +69,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final Alignment LABEL_ALIGNMENT_EDEFAULT = Alignment.CENTER;
+
     /**
      * The cached value of the '{@link #getLabelAlignment() <em>Label Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -76,6 +79,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected Alignment labelAlignment = LABEL_ALIGNMENT_EDEFAULT;
+
     /**
      * The default value of the '{@link #getIconAlignment() <em>Icon Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -85,6 +89,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final Alignment ICON_ALIGNMENT_EDEFAULT = Alignment.CENTER;
+
     /**
      * The cached value of the '{@link #getIconAlignment() <em>Icon Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -94,6 +99,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected Alignment iconAlignment = ICON_ALIGNMENT_EDEFAULT;
+
     /**
      * The default value of the '{@link #getTextAlignment() <em>Text Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -103,6 +109,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final Alignment TEXT_ALIGNMENT_EDEFAULT = Alignment.CENTER;
+
     /**
      * The cached value of the '{@link #getTextAlignment() <em>Text Alignment</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -112,6 +119,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected Alignment textAlignment = TEXT_ALIGNMENT_EDEFAULT;
+
     /**
      * The default value of the '{@link #getTextPlacement() <em>Text Placement</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -121,6 +129,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final Orientation TEXT_PLACEMENT_EDEFAULT = Orientation.EAST;
+
     /**
      * The cached value of the '{@link #getTextPlacement() <em>Text Placement</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -130,6 +139,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected Orientation textPlacement = TEXT_PLACEMENT_EDEFAULT;
+
     /**
      * The default value of the '{@link #getFontName() <em>Font Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -139,6 +149,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final String FONT_NAME_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getFontName() <em>Font Name</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -148,6 +159,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected String fontName = FONT_NAME_EDEFAULT;
+
     /**
      * The default value of the '{@link #getFontSize() <em>Font Size</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -157,6 +169,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final int FONT_SIZE_EDEFAULT = 0;
+
     /**
      * The cached value of the '{@link #getFontSize() <em>Font Size</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -166,6 +179,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected int fontSize = FONT_SIZE_EDEFAULT;
+
     /**
      * The default value of the '{@link #isFontBold() <em>Font Bold</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -175,6 +189,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final boolean FONT_BOLD_EDEFAULT = false;
+
     /**
      * The cached value of the '{@link #isFontBold() <em>Font Bold</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -184,6 +199,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected boolean fontBold = FONT_BOLD_EDEFAULT;
+
     /**
      * The default value of the '{@link #isFontItalic() <em>Font Italic</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -193,6 +209,7 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected static final boolean FONT_ITALIC_EDEFAULT = false;
+
     /**
      * The cached value of the '{@link #isFontItalic() <em>Font Italic</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -202,14 +219,15 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected boolean fontItalic = FONT_ITALIC_EDEFAULT;
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TextImpl()
+    protected TextImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -218,7 +236,7 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.TEXT;
     }
@@ -228,7 +246,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getText()
+    public String getText ()
     {
         return text;
     }
@@ -238,12 +256,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setText(String newText)
+    public void setText ( String newText )
     {
         String oldText = text;
         text = newText;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__TEXT, oldText, text));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__TEXT, oldText, text ) );
     }
 
     /**
@@ -251,7 +269,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public Alignment getLabelAlignment()
+    public Alignment getLabelAlignment ()
     {
         return labelAlignment;
     }
@@ -261,12 +279,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLabelAlignment(Alignment newLabelAlignment)
+    public void setLabelAlignment ( Alignment newLabelAlignment )
     {
         Alignment oldLabelAlignment = labelAlignment;
         labelAlignment = newLabelAlignment == null ? LABEL_ALIGNMENT_EDEFAULT : newLabelAlignment;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__LABEL_ALIGNMENT, oldLabelAlignment, labelAlignment));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__LABEL_ALIGNMENT, oldLabelAlignment, labelAlignment ) );
     }
 
     /**
@@ -274,7 +292,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public Alignment getTextAlignment()
+    public Alignment getTextAlignment ()
     {
         return textAlignment;
     }
@@ -284,12 +302,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTextAlignment(Alignment newTextAlignment)
+    public void setTextAlignment ( Alignment newTextAlignment )
     {
         Alignment oldTextAlignment = textAlignment;
         textAlignment = newTextAlignment == null ? TEXT_ALIGNMENT_EDEFAULT : newTextAlignment;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__TEXT_ALIGNMENT, oldTextAlignment, textAlignment));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__TEXT_ALIGNMENT, oldTextAlignment, textAlignment ) );
     }
 
     /**
@@ -297,7 +315,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public Orientation getTextPlacement()
+    public Orientation getTextPlacement ()
     {
         return textPlacement;
     }
@@ -307,12 +325,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTextPlacement(Orientation newTextPlacement)
+    public void setTextPlacement ( Orientation newTextPlacement )
     {
         Orientation oldTextPlacement = textPlacement;
         textPlacement = newTextPlacement == null ? TEXT_PLACEMENT_EDEFAULT : newTextPlacement;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__TEXT_PLACEMENT, oldTextPlacement, textPlacement));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__TEXT_PLACEMENT, oldTextPlacement, textPlacement ) );
     }
 
     /**
@@ -320,7 +338,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFontName()
+    public String getFontName ()
     {
         return fontName;
     }
@@ -330,12 +348,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFontName(String newFontName)
+    public void setFontName ( String newFontName )
     {
         String oldFontName = fontName;
         fontName = newFontName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_NAME, oldFontName, fontName));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__FONT_NAME, oldFontName, fontName ) );
     }
 
     /**
@@ -343,7 +361,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getFontSize()
+    public int getFontSize ()
     {
         return fontSize;
     }
@@ -353,12 +371,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFontSize(int newFontSize)
+    public void setFontSize ( int newFontSize )
     {
         int oldFontSize = fontSize;
         fontSize = newFontSize;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_SIZE, oldFontSize, fontSize));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__FONT_SIZE, oldFontSize, fontSize ) );
     }
 
     /**
@@ -366,7 +384,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isFontBold()
+    public boolean isFontBold ()
     {
         return fontBold;
     }
@@ -376,12 +394,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFontBold(boolean newFontBold)
+    public void setFontBold ( boolean newFontBold )
     {
         boolean oldFontBold = fontBold;
         fontBold = newFontBold;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_BOLD, oldFontBold, fontBold));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__FONT_BOLD, oldFontBold, fontBold ) );
     }
 
     /**
@@ -389,7 +407,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isFontItalic()
+    public boolean isFontItalic ()
     {
         return fontItalic;
     }
@@ -399,12 +417,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFontItalic(boolean newFontItalic)
+    public void setFontItalic ( boolean newFontItalic )
     {
         boolean oldFontItalic = fontItalic;
         fontItalic = newFontItalic;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__FONT_ITALIC, oldFontItalic, fontItalic));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__FONT_ITALIC, oldFontItalic, fontItalic ) );
     }
 
     /**
@@ -412,7 +430,7 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public Alignment getIconAlignment()
+    public Alignment getIconAlignment ()
     {
         return iconAlignment;
     }
@@ -422,12 +440,12 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setIconAlignment(Alignment newIconAlignment)
+    public void setIconAlignment ( Alignment newIconAlignment )
     {
         Alignment oldIconAlignment = iconAlignment;
         iconAlignment = newIconAlignment == null ? ICON_ALIGNMENT_EDEFAULT : newIconAlignment;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.TEXT__ICON_ALIGNMENT, oldIconAlignment, iconAlignment));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__ICON_ALIGNMENT, oldIconAlignment, iconAlignment ) );
     }
 
     /**
@@ -436,30 +454,30 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.TEXT__TEXT:
-                return getText();
+                return getText ();
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
-                return getLabelAlignment();
+                return getLabelAlignment ();
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
-                return getIconAlignment();
+                return getIconAlignment ();
             case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
-                return getTextAlignment();
+                return getTextAlignment ();
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
-                return getTextPlacement();
+                return getTextPlacement ();
             case VisualInterfacePackage.TEXT__FONT_NAME:
-                return getFontName();
+                return getFontName ();
             case VisualInterfacePackage.TEXT__FONT_SIZE:
-                return getFontSize();
+                return getFontSize ();
             case VisualInterfacePackage.TEXT__FONT_BOLD:
-                return isFontBold();
+                return isFontBold ();
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
-                return isFontItalic();
+                return isFontItalic ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -468,80 +486,39 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.TEXT__TEXT:
-                setText((String)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
-                setLabelAlignment((Alignment)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
-                setIconAlignment((Alignment)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
-                setTextAlignment((Alignment)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
-                setTextPlacement((Orientation)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__FONT_NAME:
-                setFontName((String)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__FONT_SIZE:
-                setFontSize((Integer)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__FONT_BOLD:
-                setFontBold((Boolean)newValue);
-                return;
-            case VisualInterfacePackage.TEXT__FONT_ITALIC:
-                setFontItalic((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.TEXT__TEXT:
-                setText(TEXT_EDEFAULT);
+                setText ( (String)newValue );
                 return;
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
-                setLabelAlignment(LABEL_ALIGNMENT_EDEFAULT);
+                setLabelAlignment ( (Alignment)newValue );
                 return;
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
-                setIconAlignment(ICON_ALIGNMENT_EDEFAULT);
+                setIconAlignment ( (Alignment)newValue );
                 return;
             case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
-                setTextAlignment(TEXT_ALIGNMENT_EDEFAULT);
+                setTextAlignment ( (Alignment)newValue );
                 return;
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
-                setTextPlacement(TEXT_PLACEMENT_EDEFAULT);
+                setTextPlacement ( (Orientation)newValue );
                 return;
             case VisualInterfacePackage.TEXT__FONT_NAME:
-                setFontName(FONT_NAME_EDEFAULT);
+                setFontName ( (String)newValue );
                 return;
             case VisualInterfacePackage.TEXT__FONT_SIZE:
-                setFontSize(FONT_SIZE_EDEFAULT);
+                setFontSize ( (Integer)newValue );
                 return;
             case VisualInterfacePackage.TEXT__FONT_BOLD:
-                setFontBold(FONT_BOLD_EDEFAULT);
+                setFontBold ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
-                setFontItalic(FONT_ITALIC_EDEFAULT);
+                setFontItalic ( (Boolean)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -550,12 +527,53 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.TEXT__TEXT:
-                return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+                setText ( TEXT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
+                setLabelAlignment ( LABEL_ALIGNMENT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
+                setIconAlignment ( ICON_ALIGNMENT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__TEXT_ALIGNMENT:
+                setTextAlignment ( TEXT_ALIGNMENT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
+                setTextPlacement ( TEXT_PLACEMENT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__FONT_NAME:
+                setFontName ( FONT_NAME_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__FONT_SIZE:
+                setFontSize ( FONT_SIZE_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__FONT_BOLD:
+                setFontBold ( FONT_BOLD_EDEFAULT );
+                return;
+            case VisualInterfacePackage.TEXT__FONT_ITALIC:
+                setFontItalic ( FONT_ITALIC_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.TEXT__TEXT:
+                return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals ( text );
             case VisualInterfacePackage.TEXT__LABEL_ALIGNMENT:
                 return labelAlignment != LABEL_ALIGNMENT_EDEFAULT;
             case VisualInterfacePackage.TEXT__ICON_ALIGNMENT:
@@ -565,7 +583,7 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__TEXT_PLACEMENT:
                 return textPlacement != TEXT_PLACEMENT_EDEFAULT;
             case VisualInterfacePackage.TEXT__FONT_NAME:
-                return FONT_NAME_EDEFAULT == null ? fontName != null : !FONT_NAME_EDEFAULT.equals(fontName);
+                return FONT_NAME_EDEFAULT == null ? fontName != null : !FONT_NAME_EDEFAULT.equals ( fontName );
             case VisualInterfacePackage.TEXT__FONT_SIZE:
                 return fontSize != FONT_SIZE_EDEFAULT;
             case VisualInterfacePackage.TEXT__FONT_BOLD:
@@ -573,7 +591,7 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
                 return fontItalic != FONT_ITALIC_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -582,31 +600,32 @@ public class TextImpl extends FigureImpl implements Text
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (text: "); //$NON-NLS-1$
-        result.append(text);
-        result.append(", labelAlignment: "); //$NON-NLS-1$
-        result.append(labelAlignment);
-        result.append(", iconAlignment: "); //$NON-NLS-1$
-        result.append(iconAlignment);
-        result.append(", textAlignment: "); //$NON-NLS-1$
-        result.append(textAlignment);
-        result.append(", textPlacement: "); //$NON-NLS-1$
-        result.append(textPlacement);
-        result.append(", fontName: "); //$NON-NLS-1$
-        result.append(fontName);
-        result.append(", fontSize: "); //$NON-NLS-1$
-        result.append(fontSize);
-        result.append(", fontBold: "); //$NON-NLS-1$
-        result.append(fontBold);
-        result.append(", fontItalic: "); //$NON-NLS-1$
-        result.append(fontItalic);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (text: " ); //$NON-NLS-1$
+        result.append ( text );
+        result.append ( ", labelAlignment: " ); //$NON-NLS-1$
+        result.append ( labelAlignment );
+        result.append ( ", iconAlignment: " ); //$NON-NLS-1$
+        result.append ( iconAlignment );
+        result.append ( ", textAlignment: " ); //$NON-NLS-1$
+        result.append ( textAlignment );
+        result.append ( ", textPlacement: " ); //$NON-NLS-1$
+        result.append ( textPlacement );
+        result.append ( ", fontName: " ); //$NON-NLS-1$
+        result.append ( fontName );
+        result.append ( ", fontSize: " ); //$NON-NLS-1$
+        result.append ( fontSize );
+        result.append ( ", fontBold: " ); //$NON-NLS-1$
+        result.append ( fontBold );
+        result.append ( ", fontItalic: " ); //$NON-NLS-1$
+        result.append ( fontItalic );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //TextImpl

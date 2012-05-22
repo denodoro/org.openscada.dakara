@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>System Cursor</b></em>'.
@@ -41,7 +40,7 @@ public interface SystemCursor extends Cursor
      * @model required="true"
      * @generated
      */
-    SystemCursorType getType();
+    SystemCursorType getType ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.SystemCursor#getType <em>Type</em>}' attribute.
@@ -52,6 +51,6 @@ public interface SystemCursor extends Cursor
      * @see #getType()
      * @generated
      */
-    void setType(SystemCursorType value);
+    void setType ( SystemCursorType value );
 
 } // SystemCursor

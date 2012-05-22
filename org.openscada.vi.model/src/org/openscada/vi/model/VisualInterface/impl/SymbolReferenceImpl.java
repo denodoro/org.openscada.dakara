@@ -136,9 +136,9 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SymbolReferenceImpl()
+    protected SymbolReferenceImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -147,7 +147,7 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.SYMBOL_REFERENCE;
     }
@@ -157,7 +157,7 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -167,12 +167,12 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__NAME, oldName, name ) );
     }
 
     /**
@@ -180,7 +180,7 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getUri()
+    public String getUri ()
     {
         return uri;
     }
@@ -190,12 +190,12 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setUri(String newUri)
+    public void setUri ( String newUri )
     {
         String oldUri = uri;
         uri = newUri;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__URI, oldUri, uri));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__URI, oldUri, uri ) );
     }
 
     /**
@@ -203,7 +203,7 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getZoom()
+    public Double getZoom ()
     {
         return zoom;
     }
@@ -213,12 +213,12 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setZoom(Double newZoom)
+    public void setZoom ( Double newZoom )
     {
         Double oldZoom = zoom;
         zoom = newZoom;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM, oldZoom, zoom));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM, oldZoom, zoom ) );
     }
 
     /**
@@ -226,11 +226,11 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public EMap<String, String> getProperties()
+    public EMap<String, String> getProperties ()
     {
-        if (properties == null)
+        if ( properties == null )
         {
-            properties = new EcoreEMap<String,String>(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES);
+            properties = new EcoreEMap<String, String> ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP, StringToStringMapImpl.class, this, VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES );
         }
         return properties;
     }
@@ -240,7 +240,7 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOnCreateProperties()
+    public String getOnCreateProperties ()
     {
         return onCreateProperties;
     }
@@ -250,12 +250,12 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOnCreateProperties(String newOnCreateProperties)
+    public void setOnCreateProperties ( String newOnCreateProperties )
     {
         String oldOnCreateProperties = onCreateProperties;
         onCreateProperties = newOnCreateProperties;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES, oldOnCreateProperties, onCreateProperties));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES, oldOnCreateProperties, onCreateProperties ) );
     }
 
     /**
@@ -264,14 +264,14 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -280,52 +280,25 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.SYMBOL_REFERENCE__NAME:
-                return getName();
-            case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
-                return getUri();
-            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
-                return getZoom();
-            case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
-                if (coreType) return getProperties();
-                else return getProperties().map();
-            case VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES:
-                return getOnCreateProperties();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet(int featureID, Object newValue)
-    {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__NAME:
-                setName((String)newValue);
-                return;
+                return getName ();
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
-                setUri((String)newValue);
-                return;
+                return getUri ();
             case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
-                setZoom((Double)newValue);
-                return;
+                return getZoom ();
             case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
-                ((EStructuralFeature.Setting)getProperties()).set(newValue);
-                return;
+                if ( coreType )
+                    return getProperties ();
+                else
+                    return getProperties ().map ();
             case VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES:
-                setOnCreateProperties((String)newValue);
-                return;
+                return getOnCreateProperties ();
         }
-        super.eSet(featureID, newValue);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -334,27 +307,27 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__NAME:
-                setName(NAME_EDEFAULT);
+                setName ( (String)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
-                setUri(URI_EDEFAULT);
+                setUri ( (String)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
-                setZoom(ZOOM_EDEFAULT);
+                setZoom ( (Double)newValue );
                 return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
-                getProperties().clear();
+                ( (EStructuralFeature.Setting)getProperties () ).set ( newValue );
                 return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES:
-                setOnCreateProperties(ON_CREATE_PROPERTIES_EDEFAULT);
+                setOnCreateProperties ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -363,22 +336,27 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYMBOL_REFERENCE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
-                return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
+                setUri ( URI_EDEFAULT );
+                return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
-                return ZOOM_EDEFAULT == null ? zoom != null : !ZOOM_EDEFAULT.equals(zoom);
+                setZoom ( ZOOM_EDEFAULT );
+                return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
-                return properties != null && !properties.isEmpty();
+                getProperties ().clear ();
+                return;
             case VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES:
-                return ON_CREATE_PROPERTIES_EDEFAULT == null ? onCreateProperties != null : !ON_CREATE_PROPERTIES_EDEFAULT.equals(onCreateProperties);
+                setOnCreateProperties ( ON_CREATE_PROPERTIES_EDEFAULT );
+                return;
         }
-        return super.eIsSet(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -387,21 +365,46 @@ public class SymbolReferenceImpl extends EObjectImpl implements SymbolReference
      * @generated
      */
     @Override
-    public String toString()
+    public boolean eIsSet ( int featureID )
     {
-        if (eIsProxy()) return super.toString();
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.SYMBOL_REFERENCE__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case VisualInterfacePackage.SYMBOL_REFERENCE__URI:
+                return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals ( uri );
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ZOOM:
+                return ZOOM_EDEFAULT == null ? zoom != null : !ZOOM_EDEFAULT.equals ( zoom );
+            case VisualInterfacePackage.SYMBOL_REFERENCE__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
+            case VisualInterfacePackage.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES:
+                return ON_CREATE_PROPERTIES_EDEFAULT == null ? onCreateProperties != null : !ON_CREATE_PROPERTIES_EDEFAULT.equals ( onCreateProperties );
+        }
+        return super.eIsSet ( featureID );
+    }
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: "); //$NON-NLS-1$
-        result.append(name);
-        result.append(", uri: "); //$NON-NLS-1$
-        result.append(uri);
-        result.append(", zoom: "); //$NON-NLS-1$
-        result.append(zoom);
-        result.append(", onCreateProperties: "); //$NON-NLS-1$
-        result.append(onCreateProperties);
-        result.append(')');
-        return result.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", uri: " ); //$NON-NLS-1$
+        result.append ( uri );
+        result.append ( ", zoom: " ); //$NON-NLS-1$
+        result.append ( zoom );
+        result.append ( ", onCreateProperties: " ); //$NON-NLS-1$
+        result.append ( onCreateProperties );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //SymbolReferenceImpl

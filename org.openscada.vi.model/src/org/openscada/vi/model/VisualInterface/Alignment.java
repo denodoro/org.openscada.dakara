@@ -31,7 +31,7 @@ public enum Alignment implements Enumerator
      * @generated
      * @ordered
      */
-    LEFT(1, "LEFT", "LEFT"),
+    LEFT ( 1, "LEFT", "LEFT" ),
 
     /**
      * The '<em><b>CENTER</b></em>' literal object.
@@ -41,7 +41,7 @@ public enum Alignment implements Enumerator
      * @generated
      * @ordered
      */
-    CENTER(0, "CENTER", "CENTER"),
+    CENTER ( 0, "CENTER", "CENTER" ),
 
     /**
      * The '<em><b>RIGHT</b></em>' literal object.
@@ -51,7 +51,8 @@ public enum Alignment implements Enumerator
      * @generated
      * @ordered
      */
-    RIGHT(2, "RIGHT", "RIGHT"), /**
+    RIGHT ( 2, "RIGHT", "RIGHT" ),
+    /**
      * The '<em><b>TOP</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -59,7 +60,8 @@ public enum Alignment implements Enumerator
      * @generated
      * @ordered
      */
-    TOP(3, "TOP", "TOP"), /**
+    TOP ( 3, "TOP", "TOP" ),
+    /**
      * The '<em><b>BOTTOM</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -67,7 +69,7 @@ public enum Alignment implements Enumerator
      * @generated
      * @ordered
      */
-    BOTTOM(4, "BOTTOM", "BOTTOM");
+    BOTTOM ( 4, "BOTTOM", "BOTTOM" );
 
     /**
      * The '<em><b>LEFT</b></em>' literal value.
@@ -150,15 +152,7 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Alignment[] VALUES_ARRAY =
-        new Alignment[]
-        {
-            LEFT,
-            CENTER,
-            RIGHT,
-            TOP,
-            BOTTOM,
-        };
+    private static final Alignment[] VALUES_ARRAY = new Alignment[] { LEFT, CENTER, RIGHT, TOP, BOTTOM, };
 
     /**
      * A public read-only list of all the '<em><b>Alignment</b></em>' enumerators.
@@ -166,7 +160,7 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<Alignment> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<Alignment> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
      * Returns the '<em><b>Alignment</b></em>' literal with the specified literal value.
@@ -174,12 +168,12 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Alignment get(String literal)
+    public static Alignment get ( String literal )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             Alignment result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal))
+            if ( result.toString ().equals ( literal ) )
             {
                 return result;
             }
@@ -193,12 +187,12 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Alignment getByName(String name)
+    public static Alignment getByName ( String name )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             Alignment result = VALUES_ARRAY[i];
-            if (result.getName().equals(name))
+            if ( result.getName ().equals ( name ) )
             {
                 return result;
             }
@@ -212,15 +206,20 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Alignment get(int value)
+    public static Alignment get ( int value )
     {
-        switch (value)
+        switch ( value )
         {
-            case LEFT_VALUE: return LEFT;
-            case CENTER_VALUE: return CENTER;
-            case RIGHT_VALUE: return RIGHT;
-            case TOP_VALUE: return TOP;
-            case BOTTOM_VALUE: return BOTTOM;
+            case LEFT_VALUE:
+                return LEFT;
+            case CENTER_VALUE:
+                return CENTER;
+            case RIGHT_VALUE:
+                return RIGHT;
+            case TOP_VALUE:
+                return TOP;
+            case BOTTOM_VALUE:
+                return BOTTOM;
         }
         return null;
     }
@@ -252,7 +251,7 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private Alignment(int value, String name, String literal)
+    private Alignment ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -264,9 +263,9 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getValue()
+    public int getValue ()
     {
-      return value;
+        return value;
     }
 
     /**
@@ -274,9 +273,9 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
-      return name;
+        return name;
     }
 
     /**
@@ -284,9 +283,9 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLiteral()
+    public String getLiteral ()
     {
-      return literal;
+        return literal;
     }
 
     /**
@@ -296,9 +295,9 @@ public enum Alignment implements Enumerator
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return literal;
     }
-    
+
 } //Alignment

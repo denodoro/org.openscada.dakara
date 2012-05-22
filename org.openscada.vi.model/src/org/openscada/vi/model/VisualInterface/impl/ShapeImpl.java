@@ -44,6 +44,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected static final float LINE_WIDTH_EDEFAULT = 1.0F;
+
     /**
      * The cached value of the '{@link #getLineWidth() <em>Line Width</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -63,6 +64,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected static final Boolean ANTIALIAS_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getAntialias() <em>Antialias</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -82,6 +84,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected static final Double ALPHA_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -101,6 +104,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected static final boolean FILL_EDEFAULT = true;
+
     /**
      * The cached value of the '{@link #isFill() <em>Fill</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -120,6 +124,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @ordered
      */
     protected static final boolean OUTLINE_EDEFAULT = true;
+
     /**
      * The cached value of the '{@link #isOutline() <em>Outline</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -135,9 +140,9 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ShapeImpl()
+    protected ShapeImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -146,7 +151,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.SHAPE;
     }
@@ -156,7 +161,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public float getLineWidth()
+    public float getLineWidth ()
     {
         return lineWidth;
     }
@@ -166,12 +171,12 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLineWidth(float newLineWidth)
+    public void setLineWidth ( float newLineWidth )
     {
         float oldLineWidth = lineWidth;
         lineWidth = newLineWidth;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__LINE_WIDTH, oldLineWidth, lineWidth));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SHAPE__LINE_WIDTH, oldLineWidth, lineWidth ) );
     }
 
     /**
@@ -179,7 +184,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public Boolean getAntialias()
+    public Boolean getAntialias ()
     {
         return antialias;
     }
@@ -189,12 +194,12 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAntialias(Boolean newAntialias)
+    public void setAntialias ( Boolean newAntialias )
     {
         Boolean oldAntialias = antialias;
         antialias = newAntialias;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__ANTIALIAS, oldAntialias, antialias));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SHAPE__ANTIALIAS, oldAntialias, antialias ) );
     }
 
     /**
@@ -202,7 +207,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getAlpha()
+    public Double getAlpha ()
     {
         return alpha;
     }
@@ -212,12 +217,12 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAlpha(Double newAlpha)
+    public void setAlpha ( Double newAlpha )
     {
         Double oldAlpha = alpha;
         alpha = newAlpha;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__ALPHA, oldAlpha, alpha));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SHAPE__ALPHA, oldAlpha, alpha ) );
     }
 
     /**
@@ -225,7 +230,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isFill()
+    public boolean isFill ()
     {
         return fill;
     }
@@ -235,12 +240,12 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFill(boolean newFill)
+    public void setFill ( boolean newFill )
     {
         boolean oldFill = fill;
         fill = newFill;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__FILL, oldFill, fill));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SHAPE__FILL, oldFill, fill ) );
     }
 
     /**
@@ -248,7 +253,7 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isOutline()
+    public boolean isOutline ()
     {
         return outline;
     }
@@ -258,12 +263,12 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOutline(boolean newOutline)
+    public void setOutline ( boolean newOutline )
     {
         boolean oldOutline = outline;
         outline = newOutline;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SHAPE__OUTLINE, oldOutline, outline));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SHAPE__OUTLINE, oldOutline, outline ) );
     }
 
     /**
@@ -272,22 +277,22 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SHAPE__LINE_WIDTH:
-                return getLineWidth();
+                return getLineWidth ();
             case VisualInterfacePackage.SHAPE__ANTIALIAS:
-                return getAntialias();
+                return getAntialias ();
             case VisualInterfacePackage.SHAPE__ALPHA:
-                return getAlpha();
+                return getAlpha ();
             case VisualInterfacePackage.SHAPE__FILL:
-                return isFill();
+                return isFill ();
             case VisualInterfacePackage.SHAPE__OUTLINE:
-                return isOutline();
+                return isOutline ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -296,27 +301,27 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SHAPE__LINE_WIDTH:
-                setLineWidth((Float)newValue);
+                setLineWidth ( (Float)newValue );
                 return;
             case VisualInterfacePackage.SHAPE__ANTIALIAS:
-                setAntialias((Boolean)newValue);
+                setAntialias ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.SHAPE__ALPHA:
-                setAlpha((Double)newValue);
+                setAlpha ( (Double)newValue );
                 return;
             case VisualInterfacePackage.SHAPE__FILL:
-                setFill((Boolean)newValue);
+                setFill ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.SHAPE__OUTLINE:
-                setOutline((Boolean)newValue);
+                setOutline ( (Boolean)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -325,27 +330,27 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SHAPE__LINE_WIDTH:
-                setLineWidth(LINE_WIDTH_EDEFAULT);
+                setLineWidth ( LINE_WIDTH_EDEFAULT );
                 return;
             case VisualInterfacePackage.SHAPE__ANTIALIAS:
-                setAntialias(ANTIALIAS_EDEFAULT);
+                setAntialias ( ANTIALIAS_EDEFAULT );
                 return;
             case VisualInterfacePackage.SHAPE__ALPHA:
-                setAlpha(ALPHA_EDEFAULT);
+                setAlpha ( ALPHA_EDEFAULT );
                 return;
             case VisualInterfacePackage.SHAPE__FILL:
-                setFill(FILL_EDEFAULT);
+                setFill ( FILL_EDEFAULT );
                 return;
             case VisualInterfacePackage.SHAPE__OUTLINE:
-                setOutline(OUTLINE_EDEFAULT);
+                setOutline ( OUTLINE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -354,22 +359,22 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SHAPE__LINE_WIDTH:
                 return lineWidth != LINE_WIDTH_EDEFAULT;
             case VisualInterfacePackage.SHAPE__ANTIALIAS:
-                return ANTIALIAS_EDEFAULT == null ? antialias != null : !ANTIALIAS_EDEFAULT.equals(antialias);
+                return ANTIALIAS_EDEFAULT == null ? antialias != null : !ANTIALIAS_EDEFAULT.equals ( antialias );
             case VisualInterfacePackage.SHAPE__ALPHA:
-                return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals(alpha);
+                return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals ( alpha );
             case VisualInterfacePackage.SHAPE__FILL:
                 return fill != FILL_EDEFAULT;
             case VisualInterfacePackage.SHAPE__OUTLINE:
                 return outline != OUTLINE_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -378,23 +383,24 @@ public abstract class ShapeImpl extends FigureImpl implements Shape
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (lineWidth: "); //$NON-NLS-1$
-        result.append(lineWidth);
-        result.append(", antialias: "); //$NON-NLS-1$
-        result.append(antialias);
-        result.append(", alpha: "); //$NON-NLS-1$
-        result.append(alpha);
-        result.append(", fill: "); //$NON-NLS-1$
-        result.append(fill);
-        result.append(", outline: "); //$NON-NLS-1$
-        result.append(outline);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (lineWidth: " ); //$NON-NLS-1$
+        result.append ( lineWidth );
+        result.append ( ", antialias: " ); //$NON-NLS-1$
+        result.append ( antialias );
+        result.append ( ", alpha: " ); //$NON-NLS-1$
+        result.append ( alpha );
+        result.append ( ", fill: " ); //$NON-NLS-1$
+        result.append ( fill );
+        result.append ( ", outline: " ); //$NON-NLS-1$
+        result.append ( outline );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ShapeImpl

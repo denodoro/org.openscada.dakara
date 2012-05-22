@@ -8,7 +8,6 @@ package org.openscada.vi.model.VisualInterface;
 
 import org.eclipse.emf.common.util.EMap;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Symbol Reference</b></em>'.
@@ -44,7 +43,7 @@ public interface SymbolReference extends Primitive
      * @model required="true"
      * @generated
      */
-    String getUri();
+    String getUri ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getUri <em>Uri</em>}' attribute.
@@ -54,7 +53,7 @@ public interface SymbolReference extends Primitive
      * @see #getUri()
      * @generated
      */
-    void setUri(String value);
+    void setUri ( String value );
 
     /**
      * Returns the value of the '<em><b>Zoom</b></em>' attribute.
@@ -70,7 +69,7 @@ public interface SymbolReference extends Primitive
      * @model
      * @generated
      */
-    Double getZoom();
+    Double getZoom ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getZoom <em>Zoom</em>}' attribute.
@@ -80,7 +79,7 @@ public interface SymbolReference extends Primitive
      * @see #getZoom()
      * @generated
      */
-    void setZoom(Double value);
+    void setZoom ( Double value );
 
     /**
      * Returns the value of the '<em><b>Properties</b></em>' map.
@@ -97,7 +96,7 @@ public interface SymbolReference extends Primitive
      * @model mapType="org.openscada.vi.model.VisualInterface.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
      * @generated
      */
-    EMap<String, String> getProperties();
+    EMap<String, String> getProperties ();
 
     /**
      * Returns the value of the '<em><b>On Create Properties</b></em>' attribute.
@@ -113,7 +112,7 @@ public interface SymbolReference extends Primitive
      * @model
      * @generated
      */
-    String getOnCreateProperties();
+    String getOnCreateProperties ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.SymbolReference#getOnCreateProperties <em>On Create Properties</em>}' attribute.
@@ -123,6 +122,6 @@ public interface SymbolReference extends Primitive
      * @see #getOnCreateProperties()
      * @generated
      */
-    void setOnCreateProperties(String value);
+    void setOnCreateProperties ( String value );
 
 } // SymbolReference

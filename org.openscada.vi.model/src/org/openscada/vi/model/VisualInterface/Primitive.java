@@ -41,7 +41,7 @@ public interface Primitive extends EObject
      * @model id="true"
      * @generated
      */
-    String getName();
+    String getName ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Primitive#getName <em>Name</em>}' attribute.
@@ -51,5 +51,5 @@ public interface Primitive extends EObject
      * @see #getName()
      * @generated
      */
-    void setName(String value);
+    void setName ( String value );
 } // Primitive

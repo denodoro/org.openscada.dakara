@@ -31,7 +31,7 @@ public enum Orientation implements Enumerator
      * @generated
      * @ordered
      */
-    NORTH(0, "NORTH", "NORTH"),
+    NORTH ( 0, "NORTH", "NORTH" ),
 
     /**
      * The '<em><b>SOUTH</b></em>' literal object.
@@ -41,7 +41,7 @@ public enum Orientation implements Enumerator
      * @generated
      * @ordered
      */
-    SOUTH(1, "SOUTH", "SOUTH"),
+    SOUTH ( 1, "SOUTH", "SOUTH" ),
 
     /**
      * The '<em><b>EAST</b></em>' literal object.
@@ -51,7 +51,7 @@ public enum Orientation implements Enumerator
      * @generated
      * @ordered
      */
-    EAST(2, "EAST", "EAST"),
+    EAST ( 2, "EAST", "EAST" ),
 
     /**
      * The '<em><b>WEST</b></em>' literal object.
@@ -61,7 +61,7 @@ public enum Orientation implements Enumerator
      * @generated
      * @ordered
      */
-    WEST(3, "WEST", "WEST");
+    WEST ( 3, "WEST", "WEST" );
 
     /**
      * The '<em><b>NORTH</b></em>' literal value.
@@ -129,14 +129,7 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Orientation[] VALUES_ARRAY =
-        new Orientation[]
-        {
-            NORTH,
-            SOUTH,
-            EAST,
-            WEST,
-        };
+    private static final Orientation[] VALUES_ARRAY = new Orientation[] { NORTH, SOUTH, EAST, WEST, };
 
     /**
      * A public read-only list of all the '<em><b>Orientation</b></em>' enumerators.
@@ -144,7 +137,7 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<Orientation> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<Orientation> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
      * Returns the '<em><b>Orientation</b></em>' literal with the specified literal value.
@@ -152,12 +145,12 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Orientation get(String literal)
+    public static Orientation get ( String literal )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             Orientation result = VALUES_ARRAY[i];
-            if (result.toString().equals(literal))
+            if ( result.toString ().equals ( literal ) )
             {
                 return result;
             }
@@ -171,12 +164,12 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Orientation getByName(String name)
+    public static Orientation getByName ( String name )
     {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i)
+        for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
             Orientation result = VALUES_ARRAY[i];
-            if (result.getName().equals(name))
+            if ( result.getName ().equals ( name ) )
             {
                 return result;
             }
@@ -190,14 +183,18 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Orientation get(int value)
+    public static Orientation get ( int value )
     {
-        switch (value)
+        switch ( value )
         {
-            case NORTH_VALUE: return NORTH;
-            case SOUTH_VALUE: return SOUTH;
-            case EAST_VALUE: return EAST;
-            case WEST_VALUE: return WEST;
+            case NORTH_VALUE:
+                return NORTH;
+            case SOUTH_VALUE:
+                return SOUTH;
+            case EAST_VALUE:
+                return EAST;
+            case WEST_VALUE:
+                return WEST;
         }
         return null;
     }
@@ -229,7 +226,7 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private Orientation(int value, String name, String literal)
+    private Orientation ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -241,9 +238,9 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getValue()
+    public int getValue ()
     {
-      return value;
+        return value;
     }
 
     /**
@@ -251,9 +248,9 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
-      return name;
+        return name;
     }
 
     /**
@@ -261,9 +258,9 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLiteral()
+    public String getLiteral ()
     {
-      return literal;
+        return literal;
     }
 
     /**
@@ -273,9 +270,9 @@ public enum Orientation implements Enumerator
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return literal;
     }
-    
+
 } //Orientation

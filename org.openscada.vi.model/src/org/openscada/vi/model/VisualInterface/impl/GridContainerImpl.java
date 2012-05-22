@@ -116,9 +116,9 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GridContainerImpl()
+    protected GridContainerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -127,7 +127,7 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.GRID_CONTAINER;
     }
@@ -137,7 +137,7 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -147,12 +147,12 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__NAME, oldName, name ) );
     }
 
     /**
@@ -160,7 +160,7 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getColumns()
+    public int getColumns ()
     {
         return columns;
     }
@@ -170,12 +170,12 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setColumns(int newColumns)
+    public void setColumns ( int newColumns )
     {
         int oldColumns = columns;
         columns = newColumns;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__COLUMNS, oldColumns, columns));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__COLUMNS, oldColumns, columns ) );
     }
 
     /**
@@ -183,7 +183,7 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isEqualWidth()
+    public boolean isEqualWidth ()
     {
         return equalWidth;
     }
@@ -193,12 +193,12 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEqualWidth(boolean newEqualWidth)
+    public void setEqualWidth ( boolean newEqualWidth )
     {
         boolean oldEqualWidth = equalWidth;
         equalWidth = newEqualWidth;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH, oldEqualWidth, equalWidth));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH, oldEqualWidth, equalWidth ) );
     }
 
     /**
@@ -206,11 +206,11 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<GridChild> getChildren()
+    public EList<GridChild> getChildren ()
     {
-        if (children == null)
+        if ( children == null )
         {
-            children = new EObjectContainmentEList<GridChild>(GridChild.class, this, VisualInterfacePackage.GRID_CONTAINER__CHILDREN);
+            children = new EObjectContainmentEList<GridChild> ( GridChild.class, this, VisualInterfacePackage.GRID_CONTAINER__CHILDREN );
         }
         return children;
     }
@@ -221,14 +221,14 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
-                return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -237,20 +237,20 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CONTAINER__NAME:
-                return getName();
+                return getName ();
             case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
-                return getColumns();
+                return getColumns ();
             case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
-                return isEqualWidth();
+                return isEqualWidth ();
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
-                return getChildren();
+                return getChildren ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -258,53 +258,27 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CONTAINER__NAME:
-                setName((String)newValue);
-                return;
-            case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
-                setColumns((Integer)newValue);
-                return;
-            case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
-                setEqualWidth((Boolean)newValue);
-                return;
-            case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
-                getChildren().clear();
-                getChildren().addAll((Collection<? extends GridChild>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.GRID_CONTAINER__NAME:
-                setName(NAME_EDEFAULT);
+                setName ( (String)newValue );
                 return;
             case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
-                setColumns(COLUMNS_EDEFAULT);
+                setColumns ( (Integer)newValue );
                 return;
             case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
-                setEqualWidth(EQUAL_WIDTH_EDEFAULT);
+                setEqualWidth ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
-                getChildren().clear();
+                getChildren ().clear ();
+                getChildren ().addAll ( (Collection<? extends GridChild>)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -313,20 +287,46 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.GRID_CONTAINER__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
+                setColumns ( COLUMNS_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
+                setEqualWidth ( EQUAL_WIDTH_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
+                getChildren ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.GRID_CONTAINER__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
                 return columns != COLUMNS_EDEFAULT;
             case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
                 return equalWidth != EQUAL_WIDTH_EDEFAULT;
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
-                return children != null && !children.isEmpty();
+                return children != null && !children.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -335,19 +335,20 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: "); //$NON-NLS-1$
-        result.append(name);
-        result.append(", columns: "); //$NON-NLS-1$
-        result.append(columns);
-        result.append(", equalWidth: "); //$NON-NLS-1$
-        result.append(equalWidth);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", columns: " ); //$NON-NLS-1$
+        result.append ( columns );
+        result.append ( ", equalWidth: " ); //$NON-NLS-1$
+        result.append ( equalWidth );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GridContainerImpl

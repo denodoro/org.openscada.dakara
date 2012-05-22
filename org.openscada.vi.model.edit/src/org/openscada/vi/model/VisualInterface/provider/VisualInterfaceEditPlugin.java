@@ -24,7 +24,7 @@ public final class VisualInterfaceEditPlugin extends EMFPlugin
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final VisualInterfaceEditPlugin INSTANCE = new VisualInterfaceEditPlugin();
+    public static final VisualInterfaceEditPlugin INSTANCE = new VisualInterfaceEditPlugin ();
 
     /**
      * Keep track of the singleton.
@@ -40,12 +40,9 @@ public final class VisualInterfaceEditPlugin extends EMFPlugin
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceEditPlugin()
+    public VisualInterfaceEditPlugin ()
     {
-        super
-          (new ResourceLocator [] 
-           {
-           });
+        super ( new ResourceLocator[] {} );
     }
 
     /**
@@ -56,7 +53,7 @@ public final class VisualInterfaceEditPlugin extends EMFPlugin
      * @generated
      */
     @Override
-    public ResourceLocator getPluginResourceLocator()
+    public ResourceLocator getPluginResourceLocator ()
     {
         return plugin;
     }
@@ -68,7 +65,7 @@ public final class VisualInterfaceEditPlugin extends EMFPlugin
      * @return the singleton instance.
      * @generated
      */
-    public static Implementation getPlugin()
+    public static Implementation getPlugin ()
     {
         return plugin;
     }
@@ -87,9 +84,9 @@ public final class VisualInterfaceEditPlugin extends EMFPlugin
          * <!-- end-user-doc -->
          * @generated
          */
-        public Implementation()
+        public Implementation ()
         {
-            super();
+            super ();
 
             // Remember the static instance.
             //

@@ -8,7 +8,6 @@ package org.openscada.vi.model.VisualInterface;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Border Container</b></em>'.
@@ -44,7 +43,7 @@ public interface BorderContainer extends Container
      * @model containment="true"
      * @generated
      */
-    EList<BorderChild> getChildren();
+    EList<BorderChild> getChildren ();
 
     /**
      * Returns the value of the '<em><b>Vertical Spacing</b></em>' attribute.
@@ -61,7 +60,7 @@ public interface BorderContainer extends Container
      * @model default="0" required="true"
      * @generated
      */
-    int getVerticalSpacing();
+    int getVerticalSpacing ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getVerticalSpacing <em>Vertical Spacing</em>}' attribute.
@@ -71,7 +70,7 @@ public interface BorderContainer extends Container
      * @see #getVerticalSpacing()
      * @generated
      */
-    void setVerticalSpacing(int value);
+    void setVerticalSpacing ( int value );
 
     /**
      * Returns the value of the '<em><b>Horizontal Spacing</b></em>' attribute.
@@ -88,7 +87,7 @@ public interface BorderContainer extends Container
      * @model default="0" required="true"
      * @generated
      */
-    int getHorizontalSpacing();
+    int getHorizontalSpacing ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.BorderContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}' attribute.
@@ -98,5 +97,5 @@ public interface BorderContainer extends Container
      * @see #getHorizontalSpacing()
      * @generated
      */
-    void setHorizontalSpacing(int value);
+    void setHorizontalSpacing ( int value );
 } // BorderContainer

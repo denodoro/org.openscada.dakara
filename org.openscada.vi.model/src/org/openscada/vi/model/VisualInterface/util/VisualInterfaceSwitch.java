@@ -43,9 +43,9 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceSwitch()
+    public VisualInterfaceSwitch ()
     {
-        if (modelPackage == null)
+        if ( modelPackage == null )
         {
             modelPackage = VisualInterfacePackage.eINSTANCE;
         }
@@ -60,7 +60,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     @Override
-    protected boolean isSwitchFor(EPackage ePackage)
+    protected boolean isSwitchFor ( EPackage ePackage )
     {
         return ePackage == modelPackage;
     }
@@ -73,226 +73,287 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     @Override
-    protected T doSwitch(int classifierID, EObject theEObject)
+    protected T doSwitch ( int classifierID, EObject theEObject )
     {
-        switch (classifierID)
+        switch ( classifierID )
         {
             case VisualInterfacePackage.SYMBOL:
             {
                 Symbol symbol = (Symbol)theEObject;
-                T result = caseSymbol(symbol);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseSymbol ( symbol );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.PRIMITIVE:
             {
                 Primitive primitive = (Primitive)theEObject;
-                T result = casePrimitive(primitive);
-                if (result == null) result = defaultCase(theEObject);
+                T result = casePrimitive ( primitive );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.CONTAINER:
             {
                 Container container = (Container)theEObject;
-                T result = caseContainer(container);
-                if (result == null) result = casePrimitive(container);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseContainer ( container );
+                if ( result == null )
+                    result = casePrimitive ( container );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.SHAPE:
             {
                 Shape shape = (Shape)theEObject;
-                T result = caseShape(shape);
-                if (result == null) result = caseFigure(shape);
-                if (result == null) result = casePrimitive(shape);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseShape ( shape );
+                if ( result == null )
+                    result = caseFigure ( shape );
+                if ( result == null )
+                    result = casePrimitive ( shape );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.RECTANGLE:
             {
                 Rectangle rectangle = (Rectangle)theEObject;
-                T result = caseRectangle(rectangle);
-                if (result == null) result = caseShape(rectangle);
-                if (result == null) result = caseFigure(rectangle);
-                if (result == null) result = casePrimitive(rectangle);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseRectangle ( rectangle );
+                if ( result == null )
+                    result = caseShape ( rectangle );
+                if ( result == null )
+                    result = caseFigure ( rectangle );
+                if ( result == null )
+                    result = casePrimitive ( rectangle );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.TEXT:
             {
                 Text text = (Text)theEObject;
-                T result = caseText(text);
-                if (result == null) result = caseFigure(text);
-                if (result == null) result = casePrimitive(text);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseText ( text );
+                if ( result == null )
+                    result = caseFigure ( text );
+                if ( result == null )
+                    result = casePrimitive ( text );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.CHILD:
             {
                 Child child = (Child)theEObject;
-                T result = caseChild(child);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseChild ( child );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.XY_CHILD:
             {
                 XYChild xyChild = (XYChild)theEObject;
-                T result = caseXYChild(xyChild);
-                if (result == null) result = caseChild(xyChild);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseXYChild ( xyChild );
+                if ( result == null )
+                    result = caseChild ( xyChild );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.XY_CONTAINER:
             {
                 XYContainer xyContainer = (XYContainer)theEObject;
-                T result = caseXYContainer(xyContainer);
-                if (result == null) result = caseContainer(xyContainer);
-                if (result == null) result = casePrimitive(xyContainer);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseXYContainer ( xyContainer );
+                if ( result == null )
+                    result = caseContainer ( xyContainer );
+                if ( result == null )
+                    result = casePrimitive ( xyContainer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.POSITION:
             {
                 Position position = (Position)theEObject;
-                T result = casePosition(position);
-                if (result == null) result = defaultCase(theEObject);
+                T result = casePosition ( position );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.LINE:
             {
                 Line line = (Line)theEObject;
-                T result = caseLine(line);
-                if (result == null) result = caseShape(line);
-                if (result == null) result = caseFigure(line);
-                if (result == null) result = casePrimitive(line);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseLine ( line );
+                if ( result == null )
+                    result = caseShape ( line );
+                if ( result == null )
+                    result = caseFigure ( line );
+                if ( result == null )
+                    result = casePrimitive ( line );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.FIGURE:
             {
                 Figure figure = (Figure)theEObject;
-                T result = caseFigure(figure);
-                if (result == null) result = casePrimitive(figure);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseFigure ( figure );
+                if ( result == null )
+                    result = casePrimitive ( figure );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.SYMBOL_REFERENCE:
             {
                 SymbolReference symbolReference = (SymbolReference)theEObject;
-                T result = caseSymbolReference(symbolReference);
-                if (result == null) result = casePrimitive(symbolReference);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseSymbolReference ( symbolReference );
+                if ( result == null )
+                    result = casePrimitive ( symbolReference );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.STRING_TO_STRING_MAP:
             {
-                @SuppressWarnings("unchecked") Map.Entry<String, String> stringToStringMap = (Map.Entry<String, String>)theEObject;
-                T result = caseStringToStringMap(stringToStringMap);
-                if (result == null) result = defaultCase(theEObject);
+                @SuppressWarnings ( "unchecked" )
+                Map.Entry<String, String> stringToStringMap = (Map.Entry<String, String>)theEObject;
+                T result = caseStringToStringMap ( stringToStringMap );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.DIMENSION:
             {
                 Dimension dimension = (Dimension)theEObject;
-                T result = caseDimension(dimension);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseDimension ( dimension );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.CURSOR:
             {
                 Cursor cursor = (Cursor)theEObject;
-                T result = caseCursor(cursor);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseCursor ( cursor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.SYSTEM_CURSOR:
             {
                 SystemCursor systemCursor = (SystemCursor)theEObject;
-                T result = caseSystemCursor(systemCursor);
-                if (result == null) result = caseCursor(systemCursor);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseSystemCursor ( systemCursor );
+                if ( result == null )
+                    result = caseCursor ( systemCursor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.GRID_CONTAINER:
             {
                 GridContainer gridContainer = (GridContainer)theEObject;
-                T result = caseGridContainer(gridContainer);
-                if (result == null) result = caseContainer(gridContainer);
-                if (result == null) result = casePrimitive(gridContainer);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseGridContainer ( gridContainer );
+                if ( result == null )
+                    result = caseContainer ( gridContainer );
+                if ( result == null )
+                    result = casePrimitive ( gridContainer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.BORDER_CONTAINER:
             {
                 BorderContainer borderContainer = (BorderContainer)theEObject;
-                T result = caseBorderContainer(borderContainer);
-                if (result == null) result = caseContainer(borderContainer);
-                if (result == null) result = casePrimitive(borderContainer);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseBorderContainer ( borderContainer );
+                if ( result == null )
+                    result = caseContainer ( borderContainer );
+                if ( result == null )
+                    result = casePrimitive ( borderContainer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.BORDER_CHILD:
             {
                 BorderChild borderChild = (BorderChild)theEObject;
-                T result = caseBorderChild(borderChild);
-                if (result == null) result = caseChild(borderChild);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseBorderChild ( borderChild );
+                if ( result == null )
+                    result = caseChild ( borderChild );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.GRID_CHILD:
             {
                 GridChild gridChild = (GridChild)theEObject;
-                T result = caseGridChild(gridChild);
-                if (result == null) result = caseChild(gridChild);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseGridChild ( gridChild );
+                if ( result == null )
+                    result = caseChild ( gridChild );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.FIGURE_CONTAINER:
             {
                 FigureContainer figureContainer = (FigureContainer)theEObject;
-                T result = caseFigureContainer(figureContainer);
-                if (result == null) result = caseFigure(figureContainer);
-                if (result == null) result = casePrimitive(figureContainer);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseFigureContainer ( figureContainer );
+                if ( result == null )
+                    result = caseFigure ( figureContainer );
+                if ( result == null )
+                    result = casePrimitive ( figureContainer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.IMAGE:
             {
                 Image image = (Image)theEObject;
-                T result = caseImage(image);
-                if (result == null) result = caseFigure(image);
-                if (result == null) result = casePrimitive(image);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseImage ( image );
+                if ( result == null )
+                    result = caseFigure ( image );
+                if ( result == null )
+                    result = casePrimitive ( image );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.ELLIPSE:
             {
                 Ellipse ellipse = (Ellipse)theEObject;
-                T result = caseEllipse(ellipse);
-                if (result == null) result = caseShape(ellipse);
-                if (result == null) result = caseFigure(ellipse);
-                if (result == null) result = casePrimitive(ellipse);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseEllipse ( ellipse );
+                if ( result == null )
+                    result = caseShape ( ellipse );
+                if ( result == null )
+                    result = caseFigure ( ellipse );
+                if ( result == null )
+                    result = casePrimitive ( ellipse );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.ARC:
             {
                 Arc arc = (Arc)theEObject;
-                T result = caseArc(arc);
-                if (result == null) result = caseShape(arc);
-                if (result == null) result = caseFigure(arc);
-                if (result == null) result = casePrimitive(arc);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseArc ( arc );
+                if ( result == null )
+                    result = caseShape ( arc );
+                if ( result == null )
+                    result = caseFigure ( arc );
+                if ( result == null )
+                    result = casePrimitive ( arc );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
             case VisualInterfacePackage.CONNECTION:
             {
                 Connection connection = (Connection)theEObject;
-                T result = caseConnection(connection);
-                if (result == null) result = defaultCase(theEObject);
+                T result = caseConnection ( connection );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
                 return result;
             }
-            default: return defaultCase(theEObject);
+            default:
+                return defaultCase ( theEObject );
         }
     }
 
@@ -307,7 +368,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSymbol(Symbol object)
+    public T caseSymbol ( Symbol object )
     {
         return null;
     }
@@ -323,7 +384,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePrimitive(Primitive object)
+    public T casePrimitive ( Primitive object )
     {
         return null;
     }
@@ -339,7 +400,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseContainer(Container object)
+    public T caseContainer ( Container object )
     {
         return null;
     }
@@ -355,7 +416,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseShape(Shape object)
+    public T caseShape ( Shape object )
     {
         return null;
     }
@@ -371,7 +432,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRectangle(Rectangle object)
+    public T caseRectangle ( Rectangle object )
     {
         return null;
     }
@@ -387,7 +448,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseText(Text object)
+    public T caseText ( Text object )
     {
         return null;
     }
@@ -403,7 +464,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseChild(Child object)
+    public T caseChild ( Child object )
     {
         return null;
     }
@@ -419,7 +480,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseXYChild(XYChild object)
+    public T caseXYChild ( XYChild object )
     {
         return null;
     }
@@ -435,7 +496,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseXYContainer(XYContainer object)
+    public T caseXYContainer ( XYContainer object )
     {
         return null;
     }
@@ -451,7 +512,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePosition(Position object)
+    public T casePosition ( Position object )
     {
         return null;
     }
@@ -467,7 +528,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLine(Line object)
+    public T caseLine ( Line object )
     {
         return null;
     }
@@ -483,7 +544,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFigure(Figure object)
+    public T caseFigure ( Figure object )
     {
         return null;
     }
@@ -499,7 +560,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSymbolReference(SymbolReference object)
+    public T caseSymbolReference ( SymbolReference object )
     {
         return null;
     }
@@ -515,7 +576,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStringToStringMap(Map.Entry<String, String> object)
+    public T caseStringToStringMap ( Map.Entry<String, String> object )
     {
         return null;
     }
@@ -531,7 +592,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDimension(Dimension object)
+    public T caseDimension ( Dimension object )
     {
         return null;
     }
@@ -547,7 +608,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCursor(Cursor object)
+    public T caseCursor ( Cursor object )
     {
         return null;
     }
@@ -563,7 +624,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSystemCursor(SystemCursor object)
+    public T caseSystemCursor ( SystemCursor object )
     {
         return null;
     }
@@ -579,7 +640,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGridContainer(GridContainer object)
+    public T caseGridContainer ( GridContainer object )
     {
         return null;
     }
@@ -595,7 +656,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBorderContainer(BorderContainer object)
+    public T caseBorderContainer ( BorderContainer object )
     {
         return null;
     }
@@ -611,7 +672,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBorderChild(BorderChild object)
+    public T caseBorderChild ( BorderChild object )
     {
         return null;
     }
@@ -627,7 +688,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGridChild(GridChild object)
+    public T caseGridChild ( GridChild object )
     {
         return null;
     }
@@ -643,7 +704,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFigureContainer(FigureContainer object)
+    public T caseFigureContainer ( FigureContainer object )
     {
         return null;
     }
@@ -659,7 +720,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseImage(Image object)
+    public T caseImage ( Image object )
     {
         return null;
     }
@@ -675,7 +736,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEllipse(Ellipse object)
+    public T caseEllipse ( Ellipse object )
     {
         return null;
     }
@@ -691,7 +752,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseArc(Arc object)
+    public T caseArc ( Arc object )
     {
         return null;
     }
@@ -707,7 +768,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseConnection(Connection object)
+    public T caseConnection ( Connection object )
     {
         return null;
     }
@@ -724,7 +785,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     @Override
-    public T defaultCase(EObject object)
+    public T defaultCase ( EObject object )
     {
         return null;
     }

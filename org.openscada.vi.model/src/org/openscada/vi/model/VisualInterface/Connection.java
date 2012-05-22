@@ -41,7 +41,7 @@ public interface Connection extends EObject
      * @model required="true"
      * @generated
      */
-    Primitive getStart();
+    Primitive getStart ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Connection#getStart <em>Start</em>}' reference.
@@ -51,7 +51,7 @@ public interface Connection extends EObject
      * @see #getStart()
      * @generated
      */
-    void setStart(Primitive value);
+    void setStart ( Primitive value );
 
     /**
      * Returns the value of the '<em><b>End</b></em>' reference.
@@ -67,7 +67,7 @@ public interface Connection extends EObject
      * @model keys="name" required="true"
      * @generated
      */
-    Primitive getEnd();
+    Primitive getEnd ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Connection#getEnd <em>End</em>}' reference.
@@ -77,6 +77,6 @@ public interface Connection extends EObject
      * @see #getEnd()
      * @generated
      */
-    void setEnd(Primitive value);
+    void setEnd ( Primitive value );
 
 } // Connection

@@ -229,9 +229,9 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FigureImpl()
+    protected FigureImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -240,7 +240,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.FIGURE;
     }
@@ -250,7 +250,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -260,12 +260,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName(String newName)
+    public void setName ( String newName )
     {
         String oldName = name;
         name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__NAME, oldName, name));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__NAME, oldName, name ) );
     }
 
     /**
@@ -273,7 +273,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getForegroundColor()
+    public String getForegroundColor ()
     {
         return foregroundColor;
     }
@@ -283,12 +283,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setForegroundColor(String newForegroundColor)
+    public void setForegroundColor ( String newForegroundColor )
     {
         String oldForegroundColor = foregroundColor;
         foregroundColor = newForegroundColor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__FOREGROUND_COLOR, oldForegroundColor, foregroundColor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__FOREGROUND_COLOR, oldForegroundColor, foregroundColor ) );
     }
 
     /**
@@ -296,7 +296,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getBackgroundColor()
+    public String getBackgroundColor ()
     {
         return backgroundColor;
     }
@@ -306,12 +306,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBackgroundColor(String newBackgroundColor)
+    public void setBackgroundColor ( String newBackgroundColor )
     {
         String oldBackgroundColor = backgroundColor;
         backgroundColor = newBackgroundColor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__BACKGROUND_COLOR, oldBackgroundColor, backgroundColor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__BACKGROUND_COLOR, oldBackgroundColor, backgroundColor ) );
     }
 
     /**
@@ -319,7 +319,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public Dimension getSize()
+    public Dimension getSize ()
     {
         return size;
     }
@@ -329,14 +329,17 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSize(Dimension newSize, NotificationChain msgs)
+    public NotificationChain basicSetSize ( Dimension newSize, NotificationChain msgs )
     {
         Dimension oldSize = size;
         size = newSize;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, oldSize, newSize);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, oldSize, newSize );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -346,20 +349,21 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSize(Dimension newSize)
+    public void setSize ( Dimension newSize )
     {
-        if (newSize != size)
+        if ( newSize != size )
         {
             NotificationChain msgs = null;
-            if (size != null)
-                msgs = ((InternalEObject)size).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE__SIZE, null, msgs);
-            if (newSize != null)
-                msgs = ((InternalEObject)newSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE__SIZE, null, msgs);
-            msgs = basicSetSize(newSize, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( size != null )
+                msgs = ( (InternalEObject)size ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE__SIZE, null, msgs );
+            if ( newSize != null )
+                msgs = ( (InternalEObject)newSize ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - VisualInterfacePackage.FIGURE__SIZE, null, msgs );
+            msgs = basicSetSize ( newSize, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, newSize, newSize));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__SIZE, newSize, newSize ) );
     }
 
     /**
@@ -367,7 +371,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOnClick()
+    public String getOnClick ()
     {
         return onClick;
     }
@@ -377,12 +381,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOnClick(String newOnClick)
+    public void setOnClick ( String newOnClick )
     {
         String oldOnClick = onClick;
         onClick = newOnClick;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__ON_CLICK, oldOnClick, onClick));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__ON_CLICK, oldOnClick, onClick ) );
     }
 
     /**
@@ -390,7 +394,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getOnDoubleClick()
+    public String getOnDoubleClick ()
     {
         return onDoubleClick;
     }
@@ -400,12 +404,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOnDoubleClick(String newOnDoubleClick)
+    public void setOnDoubleClick ( String newOnDoubleClick )
     {
         String oldOnDoubleClick = onDoubleClick;
         onDoubleClick = newOnDoubleClick;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK, oldOnDoubleClick, onDoubleClick));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK, oldOnDoubleClick, onDoubleClick ) );
     }
 
     /**
@@ -413,16 +417,16 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public Cursor getCursor()
+    public Cursor getCursor ()
     {
-        if (cursor != null && cursor.eIsProxy())
+        if ( cursor != null && cursor.eIsProxy () )
         {
             InternalEObject oldCursor = (InternalEObject)cursor;
-            cursor = (Cursor)eResolveProxy(oldCursor);
-            if (cursor != oldCursor)
+            cursor = (Cursor)eResolveProxy ( oldCursor );
+            if ( cursor != oldCursor )
             {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, VisualInterfacePackage.FIGURE__CURSOR, oldCursor, cursor));
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, VisualInterfacePackage.FIGURE__CURSOR, oldCursor, cursor ) );
             }
         }
         return cursor;
@@ -433,7 +437,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public Cursor basicGetCursor()
+    public Cursor basicGetCursor ()
     {
         return cursor;
     }
@@ -443,12 +447,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCursor(Cursor newCursor)
+    public void setCursor ( Cursor newCursor )
     {
         Cursor oldCursor = cursor;
         cursor = newCursor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__CURSOR, oldCursor, cursor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__CURSOR, oldCursor, cursor ) );
     }
 
     /**
@@ -456,7 +460,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isVisible()
+    public boolean isVisible ()
     {
         return visible;
     }
@@ -466,12 +470,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setVisible(boolean newVisible)
+    public void setVisible ( boolean newVisible )
     {
         boolean oldVisible = visible;
         visible = newVisible;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__VISIBLE, oldVisible, visible));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__VISIBLE, oldVisible, visible ) );
     }
 
     /**
@@ -479,7 +483,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getBorder()
+    public String getBorder ()
     {
         return border;
     }
@@ -489,12 +493,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBorder(String newBorder)
+    public void setBorder ( String newBorder )
     {
         String oldBorder = border;
         border = newBorder;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__BORDER, oldBorder, border));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__BORDER, oldBorder, border ) );
     }
 
     /**
@@ -502,7 +506,7 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public Boolean getOpaque()
+    public Boolean getOpaque ()
     {
         return opaque;
     }
@@ -512,12 +516,12 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setOpaque(Boolean newOpaque)
+    public void setOpaque ( Boolean newOpaque )
     {
         Boolean oldOpaque = opaque;
         opaque = newOpaque;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.FIGURE__OPAQUE, oldOpaque, opaque));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__OPAQUE, oldOpaque, opaque ) );
     }
 
     /**
@@ -526,14 +530,14 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE__SIZE:
-                return basicSetSize(null, msgs);
+                return basicSetSize ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -542,33 +546,34 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE__NAME:
-                return getName();
+                return getName ();
             case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
-                return getForegroundColor();
+                return getForegroundColor ();
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
-                return getBackgroundColor();
+                return getBackgroundColor ();
             case VisualInterfacePackage.FIGURE__SIZE:
-                return getSize();
+                return getSize ();
             case VisualInterfacePackage.FIGURE__ON_CLICK:
-                return getOnClick();
+                return getOnClick ();
             case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
-                return getOnDoubleClick();
+                return getOnDoubleClick ();
             case VisualInterfacePackage.FIGURE__CURSOR:
-                if (resolve) return getCursor();
-                return basicGetCursor();
+                if ( resolve )
+                    return getCursor ();
+                return basicGetCursor ();
             case VisualInterfacePackage.FIGURE__VISIBLE:
-                return isVisible();
+                return isVisible ();
             case VisualInterfacePackage.FIGURE__BORDER:
-                return getBorder();
+                return getBorder ();
             case VisualInterfacePackage.FIGURE__OPAQUE:
-                return getOpaque();
+                return getOpaque ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -577,86 +582,42 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE__NAME:
-                setName((String)newValue);
+                setName ( (String)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
-                setForegroundColor((String)newValue);
+                setForegroundColor ( (String)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
-                setBackgroundColor((String)newValue);
+                setBackgroundColor ( (String)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__SIZE:
-                setSize((Dimension)newValue);
-                return;
-            case VisualInterfacePackage.FIGURE__ON_CLICK:
-                setOnClick((String)newValue);
-                return;
-            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
-                setOnDoubleClick((String)newValue);
-                return;
-            case VisualInterfacePackage.FIGURE__CURSOR:
-                setCursor((Cursor)newValue);
-                return;
-            case VisualInterfacePackage.FIGURE__VISIBLE:
-                setVisible((Boolean)newValue);
-                return;
-            case VisualInterfacePackage.FIGURE__BORDER:
-                setBorder((String)newValue);
-                return;
-            case VisualInterfacePackage.FIGURE__OPAQUE:
-                setOpaque((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case VisualInterfacePackage.FIGURE__NAME:
-                setName(NAME_EDEFAULT);
-                return;
-            case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
-                setForegroundColor(FOREGROUND_COLOR_EDEFAULT);
-                return;
-            case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
-                setBackgroundColor(BACKGROUND_COLOR_EDEFAULT);
-                return;
-            case VisualInterfacePackage.FIGURE__SIZE:
-                setSize((Dimension)null);
+                setSize ( (Dimension)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__ON_CLICK:
-                setOnClick(ON_CLICK_EDEFAULT);
+                setOnClick ( (String)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
-                setOnDoubleClick(ON_DOUBLE_CLICK_EDEFAULT);
+                setOnDoubleClick ( (String)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__CURSOR:
-                setCursor((Cursor)null);
+                setCursor ( (Cursor)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__VISIBLE:
-                setVisible(VISIBLE_EDEFAULT);
+                setVisible ( (Boolean)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__BORDER:
-                setBorder(BORDER_EDEFAULT);
+                setBorder ( (String)newValue );
                 return;
             case VisualInterfacePackage.FIGURE__OPAQUE:
-                setOpaque(OPAQUE_EDEFAULT);
+                setOpaque ( (Boolean)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -665,32 +626,76 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.FIGURE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+                setName ( NAME_EDEFAULT );
+                return;
             case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
-                return FOREGROUND_COLOR_EDEFAULT == null ? foregroundColor != null : !FOREGROUND_COLOR_EDEFAULT.equals(foregroundColor);
+                setForegroundColor ( FOREGROUND_COLOR_EDEFAULT );
+                return;
             case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
-                return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals(backgroundColor);
+                setBackgroundColor ( BACKGROUND_COLOR_EDEFAULT );
+                return;
+            case VisualInterfacePackage.FIGURE__SIZE:
+                setSize ( (Dimension)null );
+                return;
+            case VisualInterfacePackage.FIGURE__ON_CLICK:
+                setOnClick ( ON_CLICK_EDEFAULT );
+                return;
+            case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
+                setOnDoubleClick ( ON_DOUBLE_CLICK_EDEFAULT );
+                return;
+            case VisualInterfacePackage.FIGURE__CURSOR:
+                setCursor ( (Cursor)null );
+                return;
+            case VisualInterfacePackage.FIGURE__VISIBLE:
+                setVisible ( VISIBLE_EDEFAULT );
+                return;
+            case VisualInterfacePackage.FIGURE__BORDER:
+                setBorder ( BORDER_EDEFAULT );
+                return;
+            case VisualInterfacePackage.FIGURE__OPAQUE:
+                setOpaque ( OPAQUE_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case VisualInterfacePackage.FIGURE__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case VisualInterfacePackage.FIGURE__FOREGROUND_COLOR:
+                return FOREGROUND_COLOR_EDEFAULT == null ? foregroundColor != null : !FOREGROUND_COLOR_EDEFAULT.equals ( foregroundColor );
+            case VisualInterfacePackage.FIGURE__BACKGROUND_COLOR:
+                return BACKGROUND_COLOR_EDEFAULT == null ? backgroundColor != null : !BACKGROUND_COLOR_EDEFAULT.equals ( backgroundColor );
             case VisualInterfacePackage.FIGURE__SIZE:
                 return size != null;
             case VisualInterfacePackage.FIGURE__ON_CLICK:
-                return ON_CLICK_EDEFAULT == null ? onClick != null : !ON_CLICK_EDEFAULT.equals(onClick);
+                return ON_CLICK_EDEFAULT == null ? onClick != null : !ON_CLICK_EDEFAULT.equals ( onClick );
             case VisualInterfacePackage.FIGURE__ON_DOUBLE_CLICK:
-                return ON_DOUBLE_CLICK_EDEFAULT == null ? onDoubleClick != null : !ON_DOUBLE_CLICK_EDEFAULT.equals(onDoubleClick);
+                return ON_DOUBLE_CLICK_EDEFAULT == null ? onDoubleClick != null : !ON_DOUBLE_CLICK_EDEFAULT.equals ( onDoubleClick );
             case VisualInterfacePackage.FIGURE__CURSOR:
                 return cursor != null;
             case VisualInterfacePackage.FIGURE__VISIBLE:
                 return visible != VISIBLE_EDEFAULT;
             case VisualInterfacePackage.FIGURE__BORDER:
-                return BORDER_EDEFAULT == null ? border != null : !BORDER_EDEFAULT.equals(border);
+                return BORDER_EDEFAULT == null ? border != null : !BORDER_EDEFAULT.equals ( border );
             case VisualInterfacePackage.FIGURE__OPAQUE:
-                return OPAQUE_EDEFAULT == null ? opaque != null : !OPAQUE_EDEFAULT.equals(opaque);
+                return OPAQUE_EDEFAULT == null ? opaque != null : !OPAQUE_EDEFAULT.equals ( opaque );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -699,29 +704,30 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: "); //$NON-NLS-1$
-        result.append(name);
-        result.append(", foregroundColor: "); //$NON-NLS-1$
-        result.append(foregroundColor);
-        result.append(", backgroundColor: "); //$NON-NLS-1$
-        result.append(backgroundColor);
-        result.append(", onClick: "); //$NON-NLS-1$
-        result.append(onClick);
-        result.append(", onDoubleClick: "); //$NON-NLS-1$
-        result.append(onDoubleClick);
-        result.append(", visible: "); //$NON-NLS-1$
-        result.append(visible);
-        result.append(", border: "); //$NON-NLS-1$
-        result.append(border);
-        result.append(", opaque: "); //$NON-NLS-1$
-        result.append(opaque);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", foregroundColor: " ); //$NON-NLS-1$
+        result.append ( foregroundColor );
+        result.append ( ", backgroundColor: " ); //$NON-NLS-1$
+        result.append ( backgroundColor );
+        result.append ( ", onClick: " ); //$NON-NLS-1$
+        result.append ( onClick );
+        result.append ( ", onDoubleClick: " ); //$NON-NLS-1$
+        result.append ( onDoubleClick );
+        result.append ( ", visible: " ); //$NON-NLS-1$
+        result.append ( visible );
+        result.append ( ", border: " ); //$NON-NLS-1$
+        result.append ( border );
+        result.append ( ", opaque: " ); //$NON-NLS-1$
+        result.append ( opaque );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //FigureImpl

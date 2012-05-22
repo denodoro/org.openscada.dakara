@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -37,14 +36,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GridContainerItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class GridContainerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -52,9 +44,9 @@ public class GridContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridContainerItemProvider(AdapterFactory adapterFactory)
+    public GridContainerItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -64,15 +56,15 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addNamePropertyDescriptor(object);
-            addColumnsPropertyDescriptor(object);
-            addEqualWidthPropertyDescriptor(object);
+            addNamePropertyDescriptor ( object );
+            addColumnsPropertyDescriptor ( object );
+            addEqualWidthPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -83,21 +75,11 @@ public class GridContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor(Object object)
+    protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Primitive_name_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.PRIMITIVE__NAME,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -106,21 +88,11 @@ public class GridContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addColumnsPropertyDescriptor(Object object)
+    protected void addColumnsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_GridContainer_columns_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_columns_feature", "_UI_GridContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.GRID_CONTAINER__COLUMNS,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_columns_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_columns_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CONTAINER__COLUMNS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -129,21 +101,11 @@ public class GridContainerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addEqualWidthPropertyDescriptor(Object object)
+    protected void addEqualWidthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_GridContainer_equalWidth_feature"), //$NON-NLS-1$
-                 getString("_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                 VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_equalWidth_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -155,12 +117,12 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(VisualInterfacePackage.Literals.GRID_CONTAINER__CHILDREN);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.GRID_CONTAINER__CHILDREN );
         }
         return childrenFeatures;
     }
@@ -171,12 +133,12 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -186,9 +148,9 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/GridContainer")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/GridContainer" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -198,12 +160,11 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((GridContainer)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_GridContainer_type") : //$NON-NLS-1$
-            getString("_UI_GridContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (GridContainer)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_GridContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_GridContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -214,22 +175,22 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(GridContainer.class))
+        switch ( notification.getFeatureID ( GridContainer.class ) )
         {
             case VisualInterfacePackage.GRID_CONTAINER__NAME:
             case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
             case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -240,14 +201,11 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (VisualInterfacePackage.Literals.GRID_CONTAINER__CHILDREN,
-                 VisualInterfaceFactory.eINSTANCE.createGridChild()));
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.GRID_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createGridChild () ) );
     }
 
     /**
@@ -257,7 +215,7 @@ public class GridContainerItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return VisualInterfaceEditPlugin.INSTANCE;
     }

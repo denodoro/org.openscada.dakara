@@ -24,7 +24,7 @@ public interface VisualInterfaceFactory extends EFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    VisualInterfaceFactory eINSTANCE = org.openscada.vi.model.VisualInterface.impl.VisualInterfaceFactoryImpl.init();
+    VisualInterfaceFactory eINSTANCE = org.openscada.vi.model.VisualInterface.impl.VisualInterfaceFactoryImpl.init ();
 
     /**
      * Returns a new object of class '<em>Symbol</em>'.
@@ -33,7 +33,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Symbol</em>'.
      * @generated
      */
-    Symbol createSymbol();
+    Symbol createSymbol ();
 
     /**
      * Returns a new object of class '<em>Rectangle</em>'.
@@ -42,7 +42,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Rectangle</em>'.
      * @generated
      */
-    Rectangle createRectangle();
+    Rectangle createRectangle ();
 
     /**
      * Returns a new object of class '<em>Text</em>'.
@@ -51,7 +51,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Text</em>'.
      * @generated
      */
-    Text createText();
+    Text createText ();
 
     /**
      * Returns a new object of class '<em>Child</em>'.
@@ -60,7 +60,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Child</em>'.
      * @generated
      */
-    Child createChild();
+    Child createChild ();
 
     /**
      * Returns a new object of class '<em>XY Child</em>'.
@@ -69,7 +69,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>XY Child</em>'.
      * @generated
      */
-    XYChild createXYChild();
+    XYChild createXYChild ();
 
     /**
      * Returns a new object of class '<em>XY Container</em>'.
@@ -78,7 +78,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>XY Container</em>'.
      * @generated
      */
-    XYContainer createXYContainer();
+    XYContainer createXYContainer ();
 
     /**
      * Returns a new object of class '<em>Position</em>'.
@@ -87,7 +87,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Position</em>'.
      * @generated
      */
-    Position createPosition();
+    Position createPosition ();
 
     /**
      * Returns a new object of class '<em>Line</em>'.
@@ -96,7 +96,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Line</em>'.
      * @generated
      */
-    Line createLine();
+    Line createLine ();
 
     /**
      * Returns a new object of class '<em>Symbol Reference</em>'.
@@ -105,7 +105,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Symbol Reference</em>'.
      * @generated
      */
-    SymbolReference createSymbolReference();
+    SymbolReference createSymbolReference ();
 
     /**
      * Returns a new object of class '<em>Dimension</em>'.
@@ -114,7 +114,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Dimension</em>'.
      * @generated
      */
-    Dimension createDimension();
+    Dimension createDimension ();
 
     /**
      * Returns a new object of class '<em>System Cursor</em>'.
@@ -123,7 +123,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>System Cursor</em>'.
      * @generated
      */
-    SystemCursor createSystemCursor();
+    SystemCursor createSystemCursor ();
 
     /**
      * Returns a new object of class '<em>Grid Container</em>'.
@@ -132,7 +132,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Grid Container</em>'.
      * @generated
      */
-    GridContainer createGridContainer();
+    GridContainer createGridContainer ();
 
     /**
      * Returns a new object of class '<em>Border Container</em>'.
@@ -141,7 +141,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Border Container</em>'.
      * @generated
      */
-    BorderContainer createBorderContainer();
+    BorderContainer createBorderContainer ();
 
     /**
      * Returns a new object of class '<em>Border Child</em>'.
@@ -150,7 +150,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Border Child</em>'.
      * @generated
      */
-    BorderChild createBorderChild();
+    BorderChild createBorderChild ();
 
     /**
      * Returns a new object of class '<em>Grid Child</em>'.
@@ -159,7 +159,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Grid Child</em>'.
      * @generated
      */
-    GridChild createGridChild();
+    GridChild createGridChild ();
 
     /**
      * Returns a new object of class '<em>Figure Container</em>'.
@@ -168,7 +168,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Figure Container</em>'.
      * @generated
      */
-    FigureContainer createFigureContainer();
+    FigureContainer createFigureContainer ();
 
     /**
      * Returns a new object of class '<em>Image</em>'.
@@ -177,7 +177,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Image</em>'.
      * @generated
      */
-    Image createImage();
+    Image createImage ();
 
     /**
      * Returns a new object of class '<em>Ellipse</em>'.
@@ -186,7 +186,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Ellipse</em>'.
      * @generated
      */
-    Ellipse createEllipse();
+    Ellipse createEllipse ();
 
     /**
      * Returns a new object of class '<em>Arc</em>'.
@@ -195,7 +195,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Arc</em>'.
      * @generated
      */
-    Arc createArc();
+    Arc createArc ();
 
     /**
      * Returns a new object of class '<em>Connection</em>'.
@@ -204,7 +204,7 @@ public interface VisualInterfaceFactory extends EFactory
      * @return a new object of class '<em>Connection</em>'.
      * @generated
      */
-    Connection createConnection();
+    Connection createConnection ();
 
     /**
      * Returns the package supported by this factory.
@@ -213,6 +213,6 @@ public interface VisualInterfaceFactory extends EFactory
      * @return the package supported by this factory.
      * @generated
      */
-    VisualInterfacePackage getVisualInterfacePackage();
+    VisualInterfacePackage getVisualInterfacePackage ();
 
 } //VisualInterfaceFactory

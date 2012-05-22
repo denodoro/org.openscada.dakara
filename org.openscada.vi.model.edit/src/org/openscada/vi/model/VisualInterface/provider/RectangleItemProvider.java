@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.model.VisualInterface.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -28,14 +27,7 @@ import org.openscada.vi.model.VisualInterface.Rectangle;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RectangleItemProvider
-    extends ShapeItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class RectangleItemProvider extends ShapeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -43,9 +35,9 @@ public class RectangleItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public RectangleItemProvider(AdapterFactory adapterFactory)
+    public RectangleItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -55,11 +47,11 @@ public class RectangleItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -72,9 +64,9 @@ public class RectangleItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Rectangle")); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Rectangle" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -84,12 +76,11 @@ public class RectangleItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((Rectangle)object).getName();
-        return label == null || label.length() == 0 ?
-            getString("_UI_Rectangle_type") : //$NON-NLS-1$
-            getString("_UI_Rectangle_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (Rectangle)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_Rectangle_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Rectangle_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -100,10 +91,10 @@ public class RectangleItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
-        super.notifyChanged(notification);
+        updateChildren ( notification );
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -114,9 +105,9 @@ public class RectangleItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

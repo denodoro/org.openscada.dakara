@@ -40,6 +40,6 @@ public interface Line extends Shape
      * @model containment="true"
      * @generated
      */
-    EList<Position> getPoints();
+    EList<Position> getPoints ();
 
 } // Line

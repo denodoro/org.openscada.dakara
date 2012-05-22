@@ -56,9 +56,9 @@ public class LineImpl extends ShapeImpl implements Line
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LineImpl()
+    protected LineImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -67,7 +67,7 @@ public class LineImpl extends ShapeImpl implements Line
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.LINE;
     }
@@ -77,11 +77,11 @@ public class LineImpl extends ShapeImpl implements Line
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Position> getPoints()
+    public EList<Position> getPoints ()
     {
-        if (points == null)
+        if ( points == null )
         {
-            points = new EObjectContainmentEList<Position>(Position.class, this, VisualInterfacePackage.LINE__POINTS);
+            points = new EObjectContainmentEList<Position> ( Position.class, this, VisualInterfacePackage.LINE__POINTS );
         }
         return points;
     }
@@ -92,14 +92,14 @@ public class LineImpl extends ShapeImpl implements Line
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.LINE__POINTS:
-                return ((InternalEList<?>)getPoints()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getPoints () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -108,14 +108,14 @@ public class LineImpl extends ShapeImpl implements Line
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.LINE__POINTS:
-                return getPoints();
+                return getPoints ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -123,18 +123,18 @@ public class LineImpl extends ShapeImpl implements Line
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.LINE__POINTS:
-                getPoints().clear();
-                getPoints().addAll((Collection<? extends Position>)newValue);
+                getPoints ().clear ();
+                getPoints ().addAll ( (Collection<? extends Position>)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -143,15 +143,15 @@ public class LineImpl extends ShapeImpl implements Line
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.LINE__POINTS:
-                getPoints().clear();
+                getPoints ().clear ();
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -160,14 +160,14 @@ public class LineImpl extends ShapeImpl implements Line
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.LINE__POINTS:
-                return points != null && !points.isEmpty();
+                return points != null && !points.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //LineImpl

@@ -56,9 +56,9 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SystemCursorImpl()
+    protected SystemCursorImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -67,7 +67,7 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.SYSTEM_CURSOR;
     }
@@ -77,7 +77,7 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemCursorType getType()
+    public SystemCursorType getType ()
     {
         return type;
     }
@@ -87,12 +87,12 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setType(SystemCursorType newType)
+    public void setType ( SystemCursorType newType )
     {
         SystemCursorType oldType = type;
         type = newType == null ? TYPE_EDEFAULT : newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.SYSTEM_CURSOR__TYPE, oldType, type));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYSTEM_CURSOR__TYPE, oldType, type ) );
     }
 
     /**
@@ -101,14 +101,14 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYSTEM_CURSOR__TYPE:
-                return getType();
+                return getType ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -117,15 +117,15 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYSTEM_CURSOR__TYPE:
-                setType((SystemCursorType)newValue);
+                setType ( (SystemCursorType)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -134,15 +134,15 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYSTEM_CURSOR__TYPE:
-                setType(TYPE_EDEFAULT);
+                setType ( TYPE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -151,14 +151,14 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.SYSTEM_CURSOR__TYPE:
                 return type != TYPE_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -167,15 +167,16 @@ public class SystemCursorImpl extends CursorImpl implements SystemCursor
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (type: "); //$NON-NLS-1$
-        result.append(type);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (type: " ); //$NON-NLS-1$
+        result.append ( type );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //SystemCursorImpl

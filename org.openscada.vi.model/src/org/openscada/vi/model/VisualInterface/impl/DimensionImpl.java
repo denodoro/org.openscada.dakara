@@ -77,9 +77,9 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DimensionImpl()
+    protected DimensionImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -88,7 +88,7 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return VisualInterfacePackage.Literals.DIMENSION;
     }
@@ -98,7 +98,7 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * <!-- end-user-doc -->
      * @generated
      */
-    public double getWidth()
+    public double getWidth ()
     {
         return width;
     }
@@ -108,12 +108,12 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWidth(double newWidth)
+    public void setWidth ( double newWidth )
     {
         double oldWidth = width;
         width = newWidth;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.DIMENSION__WIDTH, oldWidth, width));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.DIMENSION__WIDTH, oldWidth, width ) );
     }
 
     /**
@@ -121,7 +121,7 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * <!-- end-user-doc -->
      * @generated
      */
-    public double getHeight()
+    public double getHeight ()
     {
         return height;
     }
@@ -131,12 +131,12 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHeight(double newHeight)
+    public void setHeight ( double newHeight )
     {
         double oldHeight = height;
         height = newHeight;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, VisualInterfacePackage.DIMENSION__HEIGHT, oldHeight, height));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.DIMENSION__HEIGHT, oldHeight, height ) );
     }
 
     /**
@@ -145,16 +145,16 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.DIMENSION__WIDTH:
-                return getWidth();
+                return getWidth ();
             case VisualInterfacePackage.DIMENSION__HEIGHT:
-                return getHeight();
+                return getHeight ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -163,18 +163,18 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.DIMENSION__WIDTH:
-                setWidth((Double)newValue);
+                setWidth ( (Double)newValue );
                 return;
             case VisualInterfacePackage.DIMENSION__HEIGHT:
-                setHeight((Double)newValue);
+                setHeight ( (Double)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -183,18 +183,18 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.DIMENSION__WIDTH:
-                setWidth(WIDTH_EDEFAULT);
+                setWidth ( WIDTH_EDEFAULT );
                 return;
             case VisualInterfacePackage.DIMENSION__HEIGHT:
-                setHeight(HEIGHT_EDEFAULT);
+                setHeight ( HEIGHT_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -203,16 +203,16 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case VisualInterfacePackage.DIMENSION__WIDTH:
                 return width != WIDTH_EDEFAULT;
             case VisualInterfacePackage.DIMENSION__HEIGHT:
                 return height != HEIGHT_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -221,17 +221,18 @@ public class DimensionImpl extends EObjectImpl implements Dimension
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (width: "); //$NON-NLS-1$
-        result.append(width);
-        result.append(", height: "); //$NON-NLS-1$
-        result.append(height);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (width: " ); //$NON-NLS-1$
+        result.append ( width );
+        result.append ( ", height: " ); //$NON-NLS-1$
+        result.append ( height );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //DimensionImpl
