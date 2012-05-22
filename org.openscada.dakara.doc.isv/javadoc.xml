@@ -16,7 +16,7 @@
         		access="public"
         		author="true"
         		classpathref="classpath"
-        		destdir="${buildDirectory}/plugins/org.openscada.vi.ui.draw2d/reference/api"
+        		destdir="${buildDirectory}/plugins/org.openscada.dakara.doc.isv/reference/api"
         		nodeprecated="false"
         		nodeprecatedlist="false"
         		noindex="false"
