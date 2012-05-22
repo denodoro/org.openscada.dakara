@@ -33,14 +33,18 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.core.Variant;
 import org.openscada.core.VariantEditor;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.openscada.vi.ui.draw2d.primitives.FigureContainerController;
+import org.openscada.vi.ui.draw2d.primitives.ImageController;
+import org.openscada.vi.ui.draw2d.primitives.RectangleController;
+import org.openscada.vi.ui.draw2d.primitives.ShapeController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * The context object that is exported to the script context
+ * 
  * @author Jens Reimann
  * @since 0.17.0
- *
  */
 public class SymbolContext
 {
@@ -59,6 +63,18 @@ public class SymbolContext
         return this.controller.getProperties ();
     }
 
+    /**
+     * Get an element from this symbol by name
+     * 
+     * @param name
+     *            the name of the symbol to fetch
+     * @return returns either a reference to the element controller of <code>null</code> if the element could not be found.
+     * @see org.openscada.vi.ui.draw2d.primitives
+     * @see FigureContainerController
+     * @see ImageController
+     * @see ShapeController
+     * @see RectangleController
+     */
     public Object getElement ( final String name )
     {
         return this.controller.getElement ( name );
@@ -84,6 +100,15 @@ public class SymbolContext
         this.controller.registerItem ( name, itemId, connectionId, ignoreSummary, nullInvalid );
     }
 
+    /**
+     * Unregister item for symbol
+     * <p>
+     * There is no need to unregister items when the symbol is disposed. This will be performed automatically.
+     * </p>
+     * 
+     * @param name
+     *            the name of the item (not the id) to unregister
+     */
     public void unregisterItem ( final String name )
     {
         this.controller.unregisterItem ( name );
@@ -122,6 +147,14 @@ public class SymbolContext
         this.controller.startWriteAttributes ( connectionId, itemId, attributes );
     }
 
+    /**
+     * Execute an Eclipse command
+     * 
+     * @param commandId
+     *            the command to execute
+     * @param eventData
+     *            the parameter event data (depends on the command)
+     */
     public void executeCommand ( final String commandId, final Map<String, String> eventData )
     {
 

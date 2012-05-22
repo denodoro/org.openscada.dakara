@@ -24,6 +24,20 @@ import java.util.Map;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
 
+/**
+ * Holds the data of the registered items for one symbol
+ * <p>
+ * All items that are registered for one symbol will provide the data to the symbols SymbolData instance. The information can be accessed by calling methods like {@link #getPrimaryValue(String)} or
+ * {@link #getValue(String)}.
+ * </p>
+ * <p>
+ * If the item was registered using {@link SymbolContext#registerItem(String, String, String, boolean, boolean)} with
+ * <q>ignoreSummary</q> set to <code>true</code> then the value of this dataitem will not be considered for the summary state.
+ * </p>
+ * 
+ * @author Jens Reimann
+ * @since 0.17.0
+ */
 public class SymbolData
 {
     private final SymbolController controller;
