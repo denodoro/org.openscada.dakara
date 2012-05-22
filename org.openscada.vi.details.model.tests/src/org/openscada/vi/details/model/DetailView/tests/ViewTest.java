@@ -35,9 +35,9 @@ public class ViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ViewTest.class);
+        TestRunner.run ( ViewTest.class );
     }
 
     /**
@@ -46,9 +46,9 @@ public class ViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ViewTest(String name)
+    public ViewTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +57,7 @@ public class ViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(View fixture)
+    protected void setFixture ( View fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +68,7 @@ public class ViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected View getFixture()
+    protected View getFixture ()
     {
         return fixture;
     }
@@ -80,9 +80,9 @@ public class ViewTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createView());
+        setFixture ( DetailViewFactory.eINSTANCE.createView () );
     }
 
     /**
@@ -92,9 +92,9 @@ public class ViewTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ViewTest

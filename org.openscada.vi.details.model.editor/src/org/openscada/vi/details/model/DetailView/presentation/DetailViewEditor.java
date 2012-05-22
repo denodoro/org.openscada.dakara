@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.presentation;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -161,16 +160,13 @@ import org.openscada.vi.details.model.DetailView.provider.DetailViewItemProvider
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-
 /**
  * This is an example of a DetailView model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DetailViewEditor
-    extends MultiPageEditorPart
-    implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
+public class DetailViewEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
 {
     /**
      * This keeps track of the editing domain that is used to track all changes to the model.
@@ -301,7 +297,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+    protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener> ();
 
     /**
      * This keeps track of the selection of the editor as a whole.
@@ -318,7 +314,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected MarkerHelper markerHelper = new EditUIMarkerHelper();
+    protected MarkerHelper markerHelper = new EditUIMarkerHelper ();
 
     /**
      * This listens for when the outline becomes active
@@ -326,50 +322,52 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IPartListener partListener =
-        new IPartListener()
+    protected IPartListener partListener = new IPartListener () {
+        public void partActivated ( IWorkbenchPart p )
         {
-            public void partActivated(IWorkbenchPart p)
+            if ( p instanceof ContentOutline )
             {
-                if (p instanceof ContentOutline)
+                if ( ( (ContentOutline)p ).getCurrentPage () == contentOutlinePage )
                 {
-                    if (((ContentOutline)p).getCurrentPage() == contentOutlinePage)
-                    {
-                        getActionBarContributor().setActiveEditor(DetailViewEditor.this);
+                    getActionBarContributor ().setActiveEditor ( DetailViewEditor.this );
 
-                        setCurrentViewer(contentOutlineViewer);
-                    }
+                    setCurrentViewer ( contentOutlineViewer );
                 }
-                else if (p instanceof PropertySheet)
+            }
+            else if ( p instanceof PropertySheet )
+            {
+                if ( ( (PropertySheet)p ).getCurrentPage () == propertySheetPage )
                 {
-                    if (((PropertySheet)p).getCurrentPage() == propertySheetPage)
-                    {
-                        getActionBarContributor().setActiveEditor(DetailViewEditor.this);
-                        handleActivate();
-                    }
-                }
-                else if (p == DetailViewEditor.this)
-                {
-                    handleActivate();
+                    getActionBarContributor ().setActiveEditor ( DetailViewEditor.this );
+                    handleActivate ();
                 }
             }
-            public void partBroughtToTop(IWorkbenchPart p)
+            else if ( p == DetailViewEditor.this )
             {
-                // Ignore.
+                handleActivate ();
             }
-            public void partClosed(IWorkbenchPart p)
-            {
-                // Ignore.
-            }
-            public void partDeactivated(IWorkbenchPart p)
-            {
-                // Ignore.
-            }
-            public void partOpened(IWorkbenchPart p)
-            {
-                // Ignore.
-            }
-        };
+        }
+
+        public void partBroughtToTop ( IWorkbenchPart p )
+        {
+            // Ignore.
+        }
+
+        public void partClosed ( IWorkbenchPart p )
+        {
+            // Ignore.
+        }
+
+        public void partDeactivated ( IWorkbenchPart p )
+        {
+            // Ignore.
+        }
+
+        public void partOpened ( IWorkbenchPart p )
+        {
+            // Ignore.
+        }
+    };
 
     /**
      * Resources that have been removed since last activation.
@@ -377,7 +375,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<Resource> removedResources = new ArrayList<Resource>();
+    protected Collection<Resource> removedResources = new ArrayList<Resource> ();
 
     /**
      * Resources that have been changed since last activation.
@@ -385,7 +383,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<Resource> changedResources = new ArrayList<Resource>();
+    protected Collection<Resource> changedResources = new ArrayList<Resource> ();
 
     /**
      * Resources that have been saved.
@@ -393,7 +391,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<Resource> savedResources = new ArrayList<Resource>();
+    protected Collection<Resource> savedResources = new ArrayList<Resource> ();
 
     /**
      * Map to store the diagnostic associated with a resource.
@@ -401,7 +399,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+    protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic> ();
 
     /**
      * Controls whether the problem indication should be updated.
@@ -417,64 +415,60 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected EContentAdapter problemIndicationAdapter = 
-        new EContentAdapter()
+    protected EContentAdapter problemIndicationAdapter = new EContentAdapter () {
+        @Override
+        public void notifyChanged ( Notification notification )
         {
-            @Override
-            public void notifyChanged(Notification notification)
+            if ( notification.getNotifier () instanceof Resource )
             {
-                if (notification.getNotifier() instanceof Resource)
+                switch ( notification.getFeatureID ( Resource.class ) )
                 {
-                    switch (notification.getFeatureID(Resource.class))
+                    case Resource.RESOURCE__IS_LOADED:
+                    case Resource.RESOURCE__ERRORS:
+                    case Resource.RESOURCE__WARNINGS:
                     {
-                        case Resource.RESOURCE__IS_LOADED:
-                        case Resource.RESOURCE__ERRORS:
-                        case Resource.RESOURCE__WARNINGS:
+                        Resource resource = (Resource)notification.getNotifier ();
+                        Diagnostic diagnostic = analyzeResourceProblems ( resource, null );
+                        if ( diagnostic.getSeverity () != Diagnostic.OK )
                         {
-                            Resource resource = (Resource)notification.getNotifier();
-                            Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-                            if (diagnostic.getSeverity() != Diagnostic.OK)
-                            {
-                                resourceToDiagnosticMap.put(resource, diagnostic);
-                            }
-                            else
-                            {
-                                resourceToDiagnosticMap.remove(resource);
-                            }
-
-                            if (updateProblemIndication)
-                            {
-                                getSite().getShell().getDisplay().asyncExec
-                                    (new Runnable()
-                                     {
-                                         public void run()
-                                         {
-                                             updateProblemIndication();
-                                         }
-                                     });
-                            }
-                            break;
+                            resourceToDiagnosticMap.put ( resource, diagnostic );
                         }
+                        else
+                        {
+                            resourceToDiagnosticMap.remove ( resource );
+                        }
+
+                        if ( updateProblemIndication )
+                        {
+                            getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                                public void run ()
+                                {
+                                    updateProblemIndication ();
+                                }
+                            } );
+                        }
+                        break;
                     }
                 }
-                else
-                {
-                    super.notifyChanged(notification);
-                }
             }
-
-            @Override
-            protected void setTarget(Resource target)
+            else
             {
-                basicSetTarget(target);
+                super.notifyChanged ( notification );
             }
+        }
 
-            @Override
-            protected void unsetTarget(Resource target)
-            {
-                basicUnsetTarget(target);
-            }
-        };
+        @Override
+        protected void setTarget ( Resource target )
+        {
+            basicSetTarget ( target );
+        }
+
+        @Override
+        protected void unsetTarget ( Resource target )
+        {
+            basicUnsetTarget ( target );
+        }
+    };
 
     /**
      * This listens for workspace changes.
@@ -482,97 +476,92 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IResourceChangeListener resourceChangeListener =
-        new IResourceChangeListener()
+    protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener () {
+        public void resourceChanged ( IResourceChangeEvent event )
         {
-            public void resourceChanged(IResourceChangeEvent event)
+            IResourceDelta delta = event.getDelta ();
+            try
             {
-                IResourceDelta delta = event.getDelta();
-                try
+                class ResourceDeltaVisitor implements IResourceDeltaVisitor
                 {
-                    class ResourceDeltaVisitor implements IResourceDeltaVisitor
-                    {
-                        protected ResourceSet resourceSet = editingDomain.getResourceSet();
-                        protected Collection<Resource> changedResources = new ArrayList<Resource>();
-                        protected Collection<Resource> removedResources = new ArrayList<Resource>();
+                    protected ResourceSet resourceSet = editingDomain.getResourceSet ();
 
-                        public boolean visit(IResourceDelta delta)
+                    protected Collection<Resource> changedResources = new ArrayList<Resource> ();
+
+                    protected Collection<Resource> removedResources = new ArrayList<Resource> ();
+
+                    public boolean visit ( IResourceDelta delta )
+                    {
+                        if ( delta.getResource ().getType () == IResource.FILE )
                         {
-                            if (delta.getResource().getType() == IResource.FILE)
+                            if ( delta.getKind () == IResourceDelta.REMOVED || delta.getKind () == IResourceDelta.CHANGED && delta.getFlags () != IResourceDelta.MARKERS )
                             {
-                                if (delta.getKind() == IResourceDelta.REMOVED ||
-                                    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS)
+                                Resource resource = resourceSet.getResource ( URI.createPlatformResourceURI ( delta.getFullPath ().toString (), true ), false );
+                                if ( resource != null )
                                 {
-                                    Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-                                    if (resource != null)
+                                    if ( delta.getKind () == IResourceDelta.REMOVED )
                                     {
-                                        if (delta.getKind() == IResourceDelta.REMOVED)
-                                        {
-                                            removedResources.add(resource);
-                                        }
-                                        else if (!savedResources.remove(resource))
-                                        {
-                                            changedResources.add(resource);
-                                        }
+                                        removedResources.add ( resource );
+                                    }
+                                    else if ( !savedResources.remove ( resource ) )
+                                    {
+                                        changedResources.add ( resource );
                                     }
                                 }
                             }
-
-                            return true;
                         }
 
-                        public Collection<Resource> getChangedResources()
-                        {
-                            return changedResources;
-                        }
-
-                        public Collection<Resource> getRemovedResources()
-                        {
-                            return removedResources;
-                        }
+                        return true;
                     }
 
-                    final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-                    delta.accept(visitor);
-
-                    if (!visitor.getRemovedResources().isEmpty())
+                    public Collection<Resource> getChangedResources ()
                     {
-                        getSite().getShell().getDisplay().asyncExec
-                            (new Runnable()
-                             {
-                                 public void run()
-                                 {
-                                     removedResources.addAll(visitor.getRemovedResources());
-                                     if (!isDirty())
-                                     {
-                                         getSite().getPage().closeEditor(DetailViewEditor.this, false);
-                                     }
-                                 }
-                             });
+                        return changedResources;
                     }
 
-                    if (!visitor.getChangedResources().isEmpty())
+                    public Collection<Resource> getRemovedResources ()
                     {
-                        getSite().getShell().getDisplay().asyncExec
-                            (new Runnable()
-                             {
-                                 public void run()
-                                 {
-                                     changedResources.addAll(visitor.getChangedResources());
-                                     if (getSite().getPage().getActiveEditor() == DetailViewEditor.this)
-                                     {
-                                         handleActivate();
-                                     }
-                                 }
-                             });
+                        return removedResources;
                     }
                 }
-                catch (CoreException exception)
+
+                final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor ();
+                delta.accept ( visitor );
+
+                if ( !visitor.getRemovedResources ().isEmpty () )
                 {
-                    DetailViewEditorPlugin.INSTANCE.log(exception);
+                    getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                        public void run ()
+                        {
+                            removedResources.addAll ( visitor.getRemovedResources () );
+                            if ( !isDirty () )
+                            {
+                                getSite ().getPage ().closeEditor ( DetailViewEditor.this, false );
+                            }
+                        }
+                    } );
+                }
+
+                if ( !visitor.getChangedResources ().isEmpty () )
+                {
+                    getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                        public void run ()
+                        {
+                            changedResources.addAll ( visitor.getChangedResources () );
+                            if ( getSite ().getPage ().getActiveEditor () == DetailViewEditor.this )
+                            {
+                                handleActivate ();
+                            }
+                        }
+                    } );
                 }
             }
-        };
+            catch ( CoreException exception )
+            {
+                DetailViewEditorPlugin.INSTANCE.log ( exception );
+            }
+        }
+    };
 
     /**
      * Handles activation of the editor or it's associated views.
@@ -580,38 +569,38 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void handleActivate()
+    protected void handleActivate ()
     {
         // Recompute the read only state.
         //
-        if (editingDomain.getResourceToReadOnlyMap() != null)
+        if ( editingDomain.getResourceToReadOnlyMap () != null )
         {
-          editingDomain.getResourceToReadOnlyMap().clear();
+            editingDomain.getResourceToReadOnlyMap ().clear ();
 
-          // Refresh any actions that may become enabled or disabled.
-          //
-          setSelection(getSelection());
+            // Refresh any actions that may become enabled or disabled.
+            //
+            setSelection ( getSelection () );
         }
 
-        if (!removedResources.isEmpty())
+        if ( !removedResources.isEmpty () )
         {
-            if (handleDirtyConflict())
+            if ( handleDirtyConflict () )
             {
-                getSite().getPage().closeEditor(DetailViewEditor.this, false);
+                getSite ().getPage ().closeEditor ( DetailViewEditor.this, false );
             }
             else
             {
-                removedResources.clear();
-                changedResources.clear();
-                savedResources.clear();
+                removedResources.clear ();
+                changedResources.clear ();
+                savedResources.clear ();
             }
         }
-        else if (!changedResources.isEmpty())
+        else if ( !changedResources.isEmpty () )
         {
-            changedResources.removeAll(savedResources);
-            handleChangedResources();
-            changedResources.clear();
-            savedResources.clear();
+            changedResources.removeAll ( savedResources );
+            handleChangedResources ();
+            changedResources.clear ();
+            savedResources.clear ();
         }
     }
 
@@ -621,110 +610,104 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void handleChangedResources()
+    protected void handleChangedResources ()
     {
-        if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict()))
+        if ( !changedResources.isEmpty () && ( !isDirty () || handleDirtyConflict () ) )
         {
-            if (isDirty())
+            if ( isDirty () )
             {
-                changedResources.addAll(editingDomain.getResourceSet().getResources());
+                changedResources.addAll ( editingDomain.getResourceSet ().getResources () );
             }
-            editingDomain.getCommandStack().flush();
+            editingDomain.getCommandStack ().flush ();
 
             updateProblemIndication = false;
-            for (Resource resource : changedResources)
+            for ( Resource resource : changedResources )
             {
-                if (resource.isLoaded())
+                if ( resource.isLoaded () )
                 {
-                    resource.unload();
+                    resource.unload ();
                     try
                     {
-                        resource.load(Collections.EMPTY_MAP);
+                        resource.load ( Collections.EMPTY_MAP );
                     }
-                    catch (IOException exception)
+                    catch ( IOException exception )
                     {
-                        if (!resourceToDiagnosticMap.containsKey(resource))
+                        if ( !resourceToDiagnosticMap.containsKey ( resource ) )
                         {
-                            resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+                            resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
                         }
                     }
                 }
             }
 
-            if (AdapterFactoryEditingDomain.isStale(editorSelection))
+            if ( AdapterFactoryEditingDomain.isStale ( editorSelection ) )
             {
-                setSelection(StructuredSelection.EMPTY);
+                setSelection ( StructuredSelection.EMPTY );
             }
 
             updateProblemIndication = true;
-            updateProblemIndication();
+            updateProblemIndication ();
         }
     }
-  
+
     /**
      * Updates the problems indication with the information described in the specified diagnostic.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void updateProblemIndication()
+    protected void updateProblemIndication ()
     {
-        if (updateProblemIndication)
+        if ( updateProblemIndication )
         {
-            BasicDiagnostic diagnostic =
-                new BasicDiagnostic
-                    (Diagnostic.OK,
-                     "org.openscada.vi.details.model.editor",
-                     0,
-                     null,
-                     new Object [] { editingDomain.getResourceSet() });
-            for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values())
+            BasicDiagnostic diagnostic = new BasicDiagnostic ( Diagnostic.OK, "org.openscada.vi.details.model.editor", 0, null, new Object[] { editingDomain.getResourceSet () } );
+            for ( Diagnostic childDiagnostic : resourceToDiagnosticMap.values () )
             {
-                if (childDiagnostic.getSeverity() != Diagnostic.OK)
+                if ( childDiagnostic.getSeverity () != Diagnostic.OK )
                 {
-                    diagnostic.add(childDiagnostic);
+                    diagnostic.add ( childDiagnostic );
                 }
             }
 
-            int lastEditorPage = getPageCount() - 1;
-            if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart)
+            int lastEditorPage = getPageCount () - 1;
+            if ( lastEditorPage >= 0 && getEditor ( lastEditorPage ) instanceof ProblemEditorPart )
             {
-                ((ProblemEditorPart)getEditor(lastEditorPage)).setDiagnostic(diagnostic);
-                if (diagnostic.getSeverity() != Diagnostic.OK)
+                ( (ProblemEditorPart)getEditor ( lastEditorPage ) ).setDiagnostic ( diagnostic );
+                if ( diagnostic.getSeverity () != Diagnostic.OK )
                 {
-                    setActivePage(lastEditorPage);
+                    setActivePage ( lastEditorPage );
                 }
             }
-            else if (diagnostic.getSeverity() != Diagnostic.OK)
+            else if ( diagnostic.getSeverity () != Diagnostic.OK )
             {
-                ProblemEditorPart problemEditorPart = new ProblemEditorPart();
-                problemEditorPart.setDiagnostic(diagnostic);
-                problemEditorPart.setMarkerHelper(markerHelper);
+                ProblemEditorPart problemEditorPart = new ProblemEditorPart ();
+                problemEditorPart.setDiagnostic ( diagnostic );
+                problemEditorPart.setMarkerHelper ( markerHelper );
                 try
                 {
-                    addPage(++lastEditorPage, problemEditorPart, getEditorInput());
-                    setPageText(lastEditorPage, problemEditorPart.getPartName());
-                    setActivePage(lastEditorPage);
-                    showTabs();
+                    addPage ( ++lastEditorPage, problemEditorPart, getEditorInput () );
+                    setPageText ( lastEditorPage, problemEditorPart.getPartName () );
+                    setActivePage ( lastEditorPage );
+                    showTabs ();
                 }
-                catch (PartInitException exception)
+                catch ( PartInitException exception )
                 {
-                    DetailViewEditorPlugin.INSTANCE.log(exception);
+                    DetailViewEditorPlugin.INSTANCE.log ( exception );
                 }
             }
 
-            if (markerHelper.hasMarkers(editingDomain.getResourceSet()))
+            if ( markerHelper.hasMarkers ( editingDomain.getResourceSet () ) )
             {
-                markerHelper.deleteMarkers(editingDomain.getResourceSet());
-                if (diagnostic.getSeverity() != Diagnostic.OK)
+                markerHelper.deleteMarkers ( editingDomain.getResourceSet () );
+                if ( diagnostic.getSeverity () != Diagnostic.OK )
                 {
                     try
                     {
-                        markerHelper.createMarkers(diagnostic);
+                        markerHelper.createMarkers ( diagnostic );
                     }
-                    catch (CoreException exception)
+                    catch ( CoreException exception )
                     {
-                        DetailViewEditorPlugin.INSTANCE.log(exception);
+                        DetailViewEditorPlugin.INSTANCE.log ( exception );
                     }
                 }
             }
@@ -737,13 +720,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected boolean handleDirtyConflict()
+    protected boolean handleDirtyConflict ()
     {
-        return
-            MessageDialog.openQuestion
-                (getSite().getShell(),
-                 getString("_UI_FileConflict_label"),
-                 getString("_WARN_FileConflict"));
+        return MessageDialog.openQuestion ( getSite ().getShell (), getString ( "_UI_FileConflict_label" ), getString ( "_WARN_FileConflict" ) );
     }
 
     /**
@@ -752,10 +731,10 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewEditor()
+    public DetailViewEditor ()
     {
-        super();
-        initializeEditingDomain();
+        super ();
+        initializeEditingDomain ();
     }
 
     /**
@@ -764,53 +743,49 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void initializeEditingDomain()
+    protected void initializeEditingDomain ()
     {
         // Create an adapter factory that yields item providers.
         //
-        adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+        adapterFactory = new ComposedAdapterFactory ( ComposedAdapterFactory.Descriptor.Registry.INSTANCE );
 
-        adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-        adapterFactory.addAdapterFactory(new DetailViewItemProviderAdapterFactory());
-        adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory ( new ResourceItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new DetailViewItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ReflectiveItemProviderAdapterFactory () );
 
         // Create the command stack that will notify this editor as commands are executed.
         //
-        BasicCommandStack commandStack = new BasicCommandStack();
+        BasicCommandStack commandStack = new BasicCommandStack ();
 
         // Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
         //
-        commandStack.addCommandStackListener
-            (new CommandStackListener()
-             {
-                 public void commandStackChanged(final EventObject event)
-                 {
-                     getContainer().getDisplay().asyncExec
-                         (new Runnable()
-                          {
-                              public void run()
-                              {
-                                  firePropertyChange(IEditorPart.PROP_DIRTY);
+        commandStack.addCommandStackListener ( new CommandStackListener () {
+            public void commandStackChanged ( final EventObject event )
+            {
+                getContainer ().getDisplay ().asyncExec ( new Runnable () {
+                    public void run ()
+                    {
+                        firePropertyChange ( IEditorPart.PROP_DIRTY );
 
-                                  // Try to select the affected objects.
-                                  //
-                                  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-                                  if (mostRecentCommand != null)
-                                  {
-                                      setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-                                  }
-                                  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed())
-                                  {
-                                      propertySheetPage.refresh();
-                                  }
-                              }
-                          });
-                 }
-             });
+                        // Try to select the affected objects.
+                        //
+                        Command mostRecentCommand = ( (CommandStack)event.getSource () ).getMostRecentCommand ();
+                        if ( mostRecentCommand != null )
+                        {
+                            setSelectionToViewer ( mostRecentCommand.getAffectedObjects () );
+                        }
+                        if ( propertySheetPage != null && !propertySheetPage.getControl ().isDisposed () )
+                        {
+                            propertySheetPage.refresh ();
+                        }
+                    }
+                } );
+            }
+        } );
 
         // Create the editing domain with a special command stack.
         //
-        editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+        editingDomain = new AdapterFactoryEditingDomain ( adapterFactory, commandStack, new HashMap<Resource, Boolean> () );
     }
 
     /**
@@ -819,10 +794,10 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-            @Override
-    protected void firePropertyChange(int action)
+    @Override
+    protected void firePropertyChange ( int action )
     {
-        super.firePropertyChange(action);
+        super.firePropertyChange ( action );
     }
 
     /**
@@ -831,27 +806,25 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSelectionToViewer(Collection<?> collection)
+    public void setSelectionToViewer ( Collection<?> collection )
     {
         final Collection<?> theSelection = collection;
         // Make sure it's okay.
         //
-        if (theSelection != null && !theSelection.isEmpty())
+        if ( theSelection != null && !theSelection.isEmpty () )
         {
-            Runnable runnable =
-                new Runnable()
+            Runnable runnable = new Runnable () {
+                public void run ()
                 {
-                    public void run()
+                    // Try to select the items in the current content viewer of the editor.
+                    //
+                    if ( currentViewer != null )
                     {
-                        // Try to select the items in the current content viewer of the editor.
-                        //
-                        if (currentViewer != null)
-                        {
-                            currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
-                        }
+                        currentViewer.setSelection ( new StructuredSelection ( theSelection.toArray () ), true );
                     }
-                };
-            getSite().getShell().getDisplay().asyncExec(runnable);
+                }
+            };
+            getSite ().getShell ().getDisplay ().asyncExec ( runnable );
         }
     }
 
@@ -863,7 +836,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public EditingDomain getEditingDomain()
+    public EditingDomain getEditingDomain ()
     {
         return editingDomain;
     }
@@ -880,9 +853,9 @@ public class DetailViewEditor
          * <!-- end-user-doc -->
          * @generated
          */
-        public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory)
+        public ReverseAdapterFactoryContentProvider ( AdapterFactory adapterFactory )
         {
-            super(adapterFactory);
+            super ( adapterFactory );
         }
 
         /**
@@ -891,10 +864,10 @@ public class DetailViewEditor
          * @generated
          */
         @Override
-        public Object [] getElements(Object object)
+        public Object[] getElements ( Object object )
         {
-            Object parent = super.getParent(object);
-            return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+            Object parent = super.getParent ( object );
+            return ( parent == null ? Collections.EMPTY_SET : Collections.singleton ( parent ) ).toArray ();
         }
 
         /**
@@ -903,10 +876,10 @@ public class DetailViewEditor
          * @generated
          */
         @Override
-        public Object [] getChildren(Object object)
+        public Object[] getChildren ( Object object )
         {
-            Object parent = super.getParent(object);
-            return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+            Object parent = super.getParent ( object );
+            return ( parent == null ? Collections.EMPTY_SET : Collections.singleton ( parent ) ).toArray ();
         }
 
         /**
@@ -915,9 +888,9 @@ public class DetailViewEditor
          * @generated
          */
         @Override
-        public boolean hasChildren(Object object)
+        public boolean hasChildren ( Object object )
         {
-            Object parent = super.getParent(object);
+            Object parent = super.getParent ( object );
             return parent != null;
         }
 
@@ -927,7 +900,7 @@ public class DetailViewEditor
          * @generated
          */
         @Override
-        public Object getParent(Object object)
+        public Object getParent ( Object object )
         {
             return null;
         }
@@ -938,17 +911,17 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCurrentViewerPane(ViewerPane viewerPane)
+    public void setCurrentViewerPane ( ViewerPane viewerPane )
     {
-        if (currentViewerPane != viewerPane)
+        if ( currentViewerPane != viewerPane )
         {
-            if (currentViewerPane != null)
+            if ( currentViewerPane != null )
             {
-                currentViewerPane.showFocus(false);
+                currentViewerPane.showFocus ( false );
             }
             currentViewerPane = viewerPane;
         }
-        setCurrentViewer(currentViewerPane.getViewer());
+        setCurrentViewer ( currentViewerPane.getViewer () );
     }
 
     /**
@@ -958,40 +931,38 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCurrentViewer(Viewer viewer)
+    public void setCurrentViewer ( Viewer viewer )
     {
         // If it is changing...
         //
-        if (currentViewer != viewer)
+        if ( currentViewer != viewer )
         {
-            if (selectionChangedListener == null)
+            if ( selectionChangedListener == null )
             {
                 // Create the listener on demand.
                 //
-                selectionChangedListener =
-                    new ISelectionChangedListener()
+                selectionChangedListener = new ISelectionChangedListener () {
+                    // This just notifies those things that are affected by the section.
+                    //
+                    public void selectionChanged ( SelectionChangedEvent selectionChangedEvent )
                     {
-                        // This just notifies those things that are affected by the section.
-                        //
-                        public void selectionChanged(SelectionChangedEvent selectionChangedEvent)
-                        {
-                            setSelection(selectionChangedEvent.getSelection());
-                        }
-                    };
+                        setSelection ( selectionChangedEvent.getSelection () );
+                    }
+                };
             }
 
             // Stop listening to the old one.
             //
-            if (currentViewer != null)
+            if ( currentViewer != null )
             {
-                currentViewer.removeSelectionChangedListener(selectionChangedListener);
+                currentViewer.removeSelectionChangedListener ( selectionChangedListener );
             }
 
             // Start listening to the new one.
             //
-            if (viewer != null)
+            if ( viewer != null )
             {
-                viewer.addSelectionChangedListener(selectionChangedListener);
+                viewer.addSelectionChangedListener ( selectionChangedListener );
             }
 
             // Remember it.
@@ -1000,7 +971,7 @@ public class DetailViewEditor
 
             // Set the editors selection based on the current viewer's selection.
             //
-            setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
+            setSelection ( currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection () );
         }
     }
 
@@ -1010,7 +981,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public Viewer getViewer()
+    public Viewer getViewer ()
     {
         return currentViewer;
     }
@@ -1021,20 +992,20 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void createContextMenuFor(StructuredViewer viewer)
+    protected void createContextMenuFor ( StructuredViewer viewer )
     {
-        MenuManager contextMenu = new MenuManager("#PopUp");
-        contextMenu.add(new Separator("additions"));
-        contextMenu.setRemoveAllWhenShown(true);
-        contextMenu.addMenuListener(this);
-        Menu menu= contextMenu.createContextMenu(viewer.getControl());
-        viewer.getControl().setMenu(menu);
-        getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
+        MenuManager contextMenu = new MenuManager ( "#PopUp" );
+        contextMenu.add ( new Separator ( "additions" ) );
+        contextMenu.setRemoveAllWhenShown ( true );
+        contextMenu.addMenuListener ( this );
+        Menu menu = contextMenu.createContextMenu ( viewer.getControl () );
+        viewer.getControl ().setMenu ( menu );
+        getSite ().registerContextMenu ( contextMenu, new UnwrappingSelectionProvider ( viewer ) );
 
         int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-        Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-        viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-        viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+        Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance () };
+        viewer.addDragSupport ( dndOperations, transfers, new ViewerDragAdapter ( viewer ) );
+        viewer.addDropSupport ( dndOperations, transfers, new EditingDomainViewerDropAdapter ( editingDomain, viewer ) );
     }
 
     /**
@@ -1043,29 +1014,29 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void createModel()
+    public void createModel ()
     {
-        URI resourceURI = EditUIUtil.getURI(getEditorInput());
+        URI resourceURI = EditUIUtil.getURI ( getEditorInput () );
         Exception exception = null;
         Resource resource = null;
         try
         {
             // Load the resource through the editing domain.
             //
-            resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+            resource = editingDomain.getResourceSet ().getResource ( resourceURI, true );
         }
-        catch (Exception e)
+        catch ( Exception e )
         {
             exception = e;
-            resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+            resource = editingDomain.getResourceSet ().getResource ( resourceURI, false );
         }
 
-        Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
-        if (diagnostic.getSeverity() != Diagnostic.OK)
+        Diagnostic diagnostic = analyzeResourceProblems ( resource, exception );
+        if ( diagnostic.getSeverity () != Diagnostic.OK )
         {
-            resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
+            resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
         }
-        editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+        editingDomain.getResourceSet ().eAdapters ().add ( problemIndicationAdapter );
     }
 
     /**
@@ -1075,29 +1046,17 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) 
+    public Diagnostic analyzeResourceProblems ( Resource resource, Exception exception )
     {
-        if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty())
+        if ( !resource.getErrors ().isEmpty () || !resource.getWarnings ().isEmpty () )
         {
-            BasicDiagnostic basicDiagnostic =
-                new BasicDiagnostic
-                    (Diagnostic.ERROR,
-                     "org.openscada.vi.details.model.editor",
-                     0,
-                     getString("_UI_CreateModelError_message", resource.getURI()),
-                     new Object [] { exception == null ? (Object)resource : exception });
-            basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
+            BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( Diagnostic.ERROR, "org.openscada.vi.details.model.editor", 0, getString ( "_UI_CreateModelError_message", resource.getURI () ), new Object[] { exception == null ? (Object)resource : exception } );
+            basicDiagnostic.merge ( EcoreUtil.computeDiagnostic ( resource, true ) );
             return basicDiagnostic;
         }
-        else if (exception != null)
+        else if ( exception != null )
         {
-            return
-                new BasicDiagnostic
-                    (Diagnostic.ERROR,
-                     "org.openscada.vi.details.model.editor",
-                     0,
-                     getString("_UI_CreateModelError_message", resource.getURI()),
-                     new Object[] { exception });
+            return new BasicDiagnostic ( Diagnostic.ERROR, "org.openscada.vi.details.model.editor", 0, getString ( "_UI_CreateModelError_message", resource.getURI () ), new Object[] { exception } );
         }
         else
         {
@@ -1112,272 +1071,261 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public void createPages()
+    public void createPages ()
     {
         // Creates the model from the editor input
         //
-        createModel();
+        createModel ();
 
         // Only creates the other pages if there is something that can be edited
         //
-        if (!getEditingDomain().getResourceSet().getResources().isEmpty())
+        if ( !getEditingDomain ().getResourceSet ().getResources ().isEmpty () )
         {
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane =
-                    new ViewerPane(getSite().getPage(), DetailViewEditor.this)
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), DetailViewEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
                     {
-                        @Override
-                        public Viewer createViewer(Composite composite)
-                        {
-                            Tree tree = new Tree(composite, SWT.MULTI);
-                            TreeViewer newTreeViewer = new TreeViewer(tree);
-                            return newTreeViewer;
-                        }
-                        @Override
-                        public void requestActivation()
-                        {
-                            super.requestActivation();
-                            setCurrentViewerPane(this);
-                        }
-                    };
-                viewerPane.createControl(getContainer());
+                        Tree tree = new Tree ( composite, SWT.MULTI );
+                        TreeViewer newTreeViewer = new TreeViewer ( tree );
+                        return newTreeViewer;
+                    }
 
-                selectionViewer = (TreeViewer)viewerPane.getViewer();
-                selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
+                viewerPane.createControl ( getContainer () );
 
-                selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-                selectionViewer.setInput(editingDomain.getResourceSet());
-                selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-                viewerPane.setTitle(editingDomain.getResourceSet());
+                selectionViewer = (TreeViewer)viewerPane.getViewer ();
+                selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
 
-                new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+                selectionViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                selectionViewer.setInput ( editingDomain.getResourceSet () );
+                selectionViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
+                viewerPane.setTitle ( editingDomain.getResourceSet () );
 
-                createContextMenuFor(selectionViewer);
-                int pageIndex = addPage(viewerPane.getControl());
-                setPageText(pageIndex, getString("_UI_SelectionPage_label"));
+                new AdapterFactoryTreeEditor ( selectionViewer.getTree (), adapterFactory );
+
+                createContextMenuFor ( selectionViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, getString ( "_UI_SelectionPage_label" ) );
             }
 
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane =
-                    new ViewerPane(getSite().getPage(), DetailViewEditor.this)
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), DetailViewEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
                     {
-                        @Override
-                        public Viewer createViewer(Composite composite)
-                        {
-                            Tree tree = new Tree(composite, SWT.MULTI);
-                            TreeViewer newTreeViewer = new TreeViewer(tree);
-                            return newTreeViewer;
-                        }
-                        @Override
-                        public void requestActivation()
-                        {
-                            super.requestActivation();
-                            setCurrentViewerPane(this);
-                        }
-                    };
-                viewerPane.createControl(getContainer());
+                        Tree tree = new Tree ( composite, SWT.MULTI );
+                        TreeViewer newTreeViewer = new TreeViewer ( tree );
+                        return newTreeViewer;
+                    }
 
-                parentViewer = (TreeViewer)viewerPane.getViewer();
-                parentViewer.setAutoExpandLevel(30);
-                parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(adapterFactory));
-                parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
+                viewerPane.createControl ( getContainer () );
 
-                createContextMenuFor(parentViewer);
-                int pageIndex = addPage(viewerPane.getControl());
-                setPageText(pageIndex, getString("_UI_ParentPage_label"));
+                parentViewer = (TreeViewer)viewerPane.getViewer ();
+                parentViewer.setAutoExpandLevel ( 30 );
+                parentViewer.setContentProvider ( new ReverseAdapterFactoryContentProvider ( adapterFactory ) );
+                parentViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+
+                createContextMenuFor ( parentViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, getString ( "_UI_ParentPage_label" ) );
             }
 
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane =
-                    new ViewerPane(getSite().getPage(), DetailViewEditor.this)
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), DetailViewEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
                     {
-                        @Override
-                        public Viewer createViewer(Composite composite)
-                        {
-                            return new ListViewer(composite);
-                        }
-                        @Override
-                        public void requestActivation()
-                        {
-                            super.requestActivation();
-                            setCurrentViewerPane(this);
-                        }
-                    };
-                viewerPane.createControl(getContainer());
-                listViewer = (ListViewer)viewerPane.getViewer();
-                listViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                        return new ListViewer ( composite );
+                    }
 
-                createContextMenuFor(listViewer);
-                int pageIndex = addPage(viewerPane.getControl());
-                setPageText(pageIndex, getString("_UI_ListPage_label"));
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
+                viewerPane.createControl ( getContainer () );
+                listViewer = (ListViewer)viewerPane.getViewer ();
+                listViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                listViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+
+                createContextMenuFor ( listViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, getString ( "_UI_ListPage_label" ) );
             }
 
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane =
-                    new ViewerPane(getSite().getPage(), DetailViewEditor.this)
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), DetailViewEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
                     {
-                        @Override
-                        public Viewer createViewer(Composite composite)
-                        {
-                            return new TreeViewer(composite);
-                        }
-                        @Override
-                        public void requestActivation()
-                        {
-                            super.requestActivation();
-                            setCurrentViewerPane(this);
-                        }
-                    };
-                viewerPane.createControl(getContainer());
-                treeViewer = (TreeViewer)viewerPane.getViewer();
-                treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                        return new TreeViewer ( composite );
+                    }
 
-                new AdapterFactoryTreeEditor(treeViewer.getTree(), adapterFactory);
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
+                viewerPane.createControl ( getContainer () );
+                treeViewer = (TreeViewer)viewerPane.getViewer ();
+                treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                treeViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
-                createContextMenuFor(treeViewer);
-                int pageIndex = addPage(viewerPane.getControl());
-                setPageText(pageIndex, getString("_UI_TreePage_label"));
+                new AdapterFactoryTreeEditor ( treeViewer.getTree (), adapterFactory );
+
+                createContextMenuFor ( treeViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, getString ( "_UI_TreePage_label" ) );
             }
 
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane =
-                    new ViewerPane(getSite().getPage(), DetailViewEditor.this)
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), DetailViewEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
                     {
-                        @Override
-                        public Viewer createViewer(Composite composite)
-                        {
-                            return new TableViewer(composite);
-                        }
-                        @Override
-                        public void requestActivation()
-                        {
-                            super.requestActivation();
-                            setCurrentViewerPane(this);
-                        }
-                    };
-                viewerPane.createControl(getContainer());
-                tableViewer = (TableViewer)viewerPane.getViewer();
+                        return new TableViewer ( composite );
+                    }
 
-                Table table = tableViewer.getTable();
-                TableLayout layout = new TableLayout();
-                table.setLayout(layout);
-                table.setHeaderVisible(true);
-                table.setLinesVisible(true);
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
+                viewerPane.createControl ( getContainer () );
+                tableViewer = (TableViewer)viewerPane.getViewer ();
 
-                TableColumn objectColumn = new TableColumn(table, SWT.NONE);
-                layout.addColumnData(new ColumnWeightData(3, 100, true));
-                objectColumn.setText(getString("_UI_ObjectColumn_label"));
-                objectColumn.setResizable(true);
+                Table table = tableViewer.getTable ();
+                TableLayout layout = new TableLayout ();
+                table.setLayout ( layout );
+                table.setHeaderVisible ( true );
+                table.setLinesVisible ( true );
 
-                TableColumn selfColumn = new TableColumn(table, SWT.NONE);
-                layout.addColumnData(new ColumnWeightData(2, 100, true));
-                selfColumn.setText(getString("_UI_SelfColumn_label"));
-                selfColumn.setResizable(true);
+                TableColumn objectColumn = new TableColumn ( table, SWT.NONE );
+                layout.addColumnData ( new ColumnWeightData ( 3, 100, true ) );
+                objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) );
+                objectColumn.setResizable ( true );
 
-                tableViewer.setColumnProperties(new String [] {"a", "b"});
-                tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                TableColumn selfColumn = new TableColumn ( table, SWT.NONE );
+                layout.addColumnData ( new ColumnWeightData ( 2, 100, true ) );
+                selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) );
+                selfColumn.setResizable ( true );
 
-                createContextMenuFor(tableViewer);
-                int pageIndex = addPage(viewerPane.getControl());
-                setPageText(pageIndex, getString("_UI_TablePage_label"));
+                tableViewer.setColumnProperties ( new String[] { "a", "b" } );
+                tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                tableViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+
+                createContextMenuFor ( tableViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, getString ( "_UI_TablePage_label" ) );
             }
 
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane =
-                    new ViewerPane(getSite().getPage(), DetailViewEditor.this)
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), DetailViewEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
                     {
-                        @Override
-                        public Viewer createViewer(Composite composite)
-                        {
-                            return new TreeViewer(composite);
-                        }
-                        @Override
-                        public void requestActivation()
-                        {
-                            super.requestActivation();
-                            setCurrentViewerPane(this);
-                        }
-                    };
-                viewerPane.createControl(getContainer());
+                        return new TreeViewer ( composite );
+                    }
 
-                treeViewerWithColumns = (TreeViewer)viewerPane.getViewer();
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
+                viewerPane.createControl ( getContainer () );
 
-                Tree tree = treeViewerWithColumns.getTree();
-                tree.setLayoutData(new FillLayout());
-                tree.setHeaderVisible(true);
-                tree.setLinesVisible(true);
+                treeViewerWithColumns = (TreeViewer)viewerPane.getViewer ();
 
-                TreeColumn objectColumn = new TreeColumn(tree, SWT.NONE);
-                objectColumn.setText(getString("_UI_ObjectColumn_label"));
-                objectColumn.setResizable(true);
-                objectColumn.setWidth(250);
+                Tree tree = treeViewerWithColumns.getTree ();
+                tree.setLayoutData ( new FillLayout () );
+                tree.setHeaderVisible ( true );
+                tree.setLinesVisible ( true );
 
-                TreeColumn selfColumn = new TreeColumn(tree, SWT.NONE);
-                selfColumn.setText(getString("_UI_SelfColumn_label"));
-                selfColumn.setResizable(true);
-                selfColumn.setWidth(200);
+                TreeColumn objectColumn = new TreeColumn ( tree, SWT.NONE );
+                objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) );
+                objectColumn.setResizable ( true );
+                objectColumn.setWidth ( 250 );
 
-                treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
-                treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                TreeColumn selfColumn = new TreeColumn ( tree, SWT.NONE );
+                selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) );
+                selfColumn.setResizable ( true );
+                selfColumn.setWidth ( 200 );
 
-                createContextMenuFor(treeViewerWithColumns);
-                int pageIndex = addPage(viewerPane.getControl());
-                setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
+                treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } );
+                treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                treeViewerWithColumns.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+
+                createContextMenuFor ( treeViewerWithColumns );
+                int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, getString ( "_UI_TreeWithColumnsPage_label" ) );
             }
 
-            getSite().getShell().getDisplay().asyncExec
-                (new Runnable()
-                 {
-                     public void run()
-                     {
-                         setActivePage(0);
-                     }
-                 });
+            getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                public void run ()
+                {
+                    setActivePage ( 0 );
+                }
+            } );
         }
 
         // Ensures that this editor will only display the page's tab
         // area if there are more than one page
         //
-        getContainer().addControlListener
-            (new ControlAdapter()
-             {
-                boolean guard = false;
-                @Override
-                public void controlResized(ControlEvent event)
-                {
-                    if (!guard)
-                    {
-                        guard = true;
-                        hideTabs();
-                        guard = false;
-                    }
-                }
-             });
+        getContainer ().addControlListener ( new ControlAdapter () {
+            boolean guard = false;
 
-        getSite().getShell().getDisplay().asyncExec
-            (new Runnable()
-             {
-                 public void run()
-                 {
-                     updateProblemIndication();
-                 }
-             });
+            @Override
+            public void controlResized ( ControlEvent event )
+            {
+                if ( !guard )
+                {
+                    guard = true;
+                    hideTabs ();
+                    guard = false;
+                }
+            }
+        } );
+
+        getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+            public void run ()
+            {
+                updateProblemIndication ();
+            }
+        } );
     }
 
     /**
@@ -1387,16 +1335,16 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void hideTabs()
+    protected void hideTabs ()
     {
-        if (getPageCount() <= 1)
+        if ( getPageCount () <= 1 )
         {
-            setPageText(0, "");
-            if (getContainer() instanceof CTabFolder)
+            setPageText ( 0, "" );
+            if ( getContainer () instanceof CTabFolder )
             {
-                ((CTabFolder)getContainer()).setTabHeight(1);
-                Point point = getContainer().getSize();
-                getContainer().setSize(point.x, point.y + 6);
+                ( (CTabFolder)getContainer () ).setTabHeight ( 1 );
+                Point point = getContainer ().getSize ();
+                getContainer ().setSize ( point.x, point.y + 6 );
             }
         }
     }
@@ -1408,16 +1356,16 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void showTabs()
+    protected void showTabs ()
     {
-        if (getPageCount() > 1)
+        if ( getPageCount () > 1 )
         {
-            setPageText(0, getString("_UI_SelectionPage_label"));
-            if (getContainer() instanceof CTabFolder)
+            setPageText ( 0, getString ( "_UI_SelectionPage_label" ) );
+            if ( getContainer () instanceof CTabFolder )
             {
-                ((CTabFolder)getContainer()).setTabHeight(SWT.DEFAULT);
-                Point point = getContainer().getSize();
-                getContainer().setSize(point.x, point.y - 6);
+                ( (CTabFolder)getContainer () ).setTabHeight ( SWT.DEFAULT );
+                Point point = getContainer ().getSize ();
+                getContainer ().setSize ( point.x, point.y - 6 );
             }
         }
     }
@@ -1429,13 +1377,13 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    protected void pageChange(int pageIndex)
+    protected void pageChange ( int pageIndex )
     {
-        super.pageChange(pageIndex);
+        super.pageChange ( pageIndex );
 
-        if (contentOutlinePage != null)
+        if ( contentOutlinePage != null )
         {
-            handleContentOutlineSelection(contentOutlinePage.getSelection());
+            handleContentOutlineSelection ( contentOutlinePage.getSelection () );
         }
     }
 
@@ -1445,25 +1393,25 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter(Class key)
+    public Object getAdapter ( Class key )
     {
-        if (key.equals(IContentOutlinePage.class))
+        if ( key.equals ( IContentOutlinePage.class ) )
         {
-            return showOutlineView() ? getContentOutlinePage() : null;
+            return showOutlineView () ? getContentOutlinePage () : null;
         }
-        else if (key.equals(IPropertySheetPage.class))
+        else if ( key.equals ( IPropertySheetPage.class ) )
         {
-            return getPropertySheetPage();
+            return getPropertySheetPage ();
         }
-        else if (key.equals(IGotoMarker.class))
+        else if ( key.equals ( IGotoMarker.class ) )
         {
             return this;
         }
         else
         {
-            return super.getAdapter(key);
+            return super.getAdapter ( key );
         }
     }
 
@@ -1473,68 +1421,66 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public IContentOutlinePage getContentOutlinePage()
+    public IContentOutlinePage getContentOutlinePage ()
     {
-        if (contentOutlinePage == null)
+        if ( contentOutlinePage == null )
         {
             // The content outline is just a tree.
             //
             class MyContentOutlinePage extends ContentOutlinePage
             {
                 @Override
-                public void createControl(Composite parent)
+                public void createControl ( Composite parent )
                 {
-                    super.createControl(parent);
-                    contentOutlineViewer = getTreeViewer();
-                    contentOutlineViewer.addSelectionChangedListener(this);
+                    super.createControl ( parent );
+                    contentOutlineViewer = getTreeViewer ();
+                    contentOutlineViewer.addSelectionChangedListener ( this );
 
                     // Set up the tree viewer.
                     //
-                    contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                    contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-                    contentOutlineViewer.setInput(editingDomain.getResourceSet());
+                    contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                    contentOutlineViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                    contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
 
                     // Make sure our popups work.
                     //
-                    createContextMenuFor(contentOutlineViewer);
+                    createContextMenuFor ( contentOutlineViewer );
 
-                    if (!editingDomain.getResourceSet().getResources().isEmpty())
+                    if ( !editingDomain.getResourceSet ().getResources ().isEmpty () )
                     {
-                      // Select the root object in the view.
-                      //
-                      contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+                        // Select the root object in the view.
+                        //
+                        contentOutlineViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                     }
                 }
 
                 @Override
-                public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager)
+                public void makeContributions ( IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager )
                 {
-                    super.makeContributions(menuManager, toolBarManager, statusLineManager);
+                    super.makeContributions ( menuManager, toolBarManager, statusLineManager );
                     contentOutlineStatusLineManager = statusLineManager;
                 }
 
                 @Override
-                public void setActionBars(IActionBars actionBars)
+                public void setActionBars ( IActionBars actionBars )
                 {
-                    super.setActionBars(actionBars);
-                    getActionBarContributor().shareGlobalActions(this, actionBars);
+                    super.setActionBars ( actionBars );
+                    getActionBarContributor ().shareGlobalActions ( this, actionBars );
                 }
             }
 
-            contentOutlinePage = new MyContentOutlinePage();
+            contentOutlinePage = new MyContentOutlinePage ();
 
             // Listen to selection so that we can handle it is a special way.
             //
-            contentOutlinePage.addSelectionChangedListener
-                (new ISelectionChangedListener()
-                 {
-                     // This ensures that we handle selections correctly.
-                     //
-                     public void selectionChanged(SelectionChangedEvent event)
-                     {
-                         handleContentOutlineSelection(event.getSelection());
-                     }
-                 });
+            contentOutlinePage.addSelectionChangedListener ( new ISelectionChangedListener () {
+                // This ensures that we handle selections correctly.
+                //
+                public void selectionChanged ( SelectionChangedEvent event )
+                {
+                    handleContentOutlineSelection ( event.getSelection () );
+                }
+            } );
         }
 
         return contentOutlinePage;
@@ -1546,28 +1492,26 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public IPropertySheetPage getPropertySheetPage()
+    public IPropertySheetPage getPropertySheetPage ()
     {
-        if (propertySheetPage == null)
+        if ( propertySheetPage == null )
         {
-            propertySheetPage =
-                new ExtendedPropertySheetPage(editingDomain)
+            propertySheetPage = new ExtendedPropertySheetPage ( editingDomain ) {
+                @Override
+                public void setSelectionToViewer ( List<?> selection )
                 {
-                    @Override
-                    public void setSelectionToViewer(List<?> selection)
-                    {
-                        DetailViewEditor.this.setSelectionToViewer(selection);
-                        DetailViewEditor.this.setFocus();
-                    }
+                    DetailViewEditor.this.setSelectionToViewer ( selection );
+                    DetailViewEditor.this.setFocus ();
+                }
 
-                    @Override
-                    public void setActionBars(IActionBars actionBars)
-                    {
-                        super.setActionBars(actionBars);
-                        getActionBarContributor().shareGlobalActions(this, actionBars);
-                    }
-                };
-            propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+                @Override
+                public void setActionBars ( IActionBars actionBars )
+                {
+                    super.setActionBars ( actionBars );
+                    getActionBarContributor ().shareGlobalActions ( this, actionBars );
+                }
+            };
+            propertySheetPage.setPropertySourceProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
         }
 
         return propertySheetPage;
@@ -1579,40 +1523,40 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void handleContentOutlineSelection(ISelection selection)
+    public void handleContentOutlineSelection ( ISelection selection )
     {
-        if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection)
+        if ( currentViewerPane != null && !selection.isEmpty () && selection instanceof IStructuredSelection )
         {
-            Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
-            if (selectedElements.hasNext())
+            Iterator<?> selectedElements = ( (IStructuredSelection)selection ).iterator ();
+            if ( selectedElements.hasNext () )
             {
                 // Get the first selected element.
                 //
-                Object selectedElement = selectedElements.next();
+                Object selectedElement = selectedElements.next ();
 
                 // If it's the selection viewer, then we want it to select the same selection as this selection.
                 //
-                if (currentViewerPane.getViewer() == selectionViewer)
+                if ( currentViewerPane.getViewer () == selectionViewer )
                 {
-                    ArrayList<Object> selectionList = new ArrayList<Object>();
-                    selectionList.add(selectedElement);
-                    while (selectedElements.hasNext())
+                    ArrayList<Object> selectionList = new ArrayList<Object> ();
+                    selectionList.add ( selectedElement );
+                    while ( selectedElements.hasNext () )
                     {
-                        selectionList.add(selectedElements.next());
+                        selectionList.add ( selectedElements.next () );
                     }
 
                     // Set the selection to the widget.
                     //
-                    selectionViewer.setSelection(new StructuredSelection(selectionList));
+                    selectionViewer.setSelection ( new StructuredSelection ( selectionList ) );
                 }
                 else
                 {
                     // Set the input to the widget.
                     //
-                    if (currentViewerPane.getViewer().getInput() != selectedElement)
+                    if ( currentViewerPane.getViewer ().getInput () != selectedElement )
                     {
-                        currentViewerPane.getViewer().setInput(selectedElement);
-                        currentViewerPane.setTitle(selectedElement);
+                        currentViewerPane.getViewer ().setInput ( selectedElement );
+                        currentViewerPane.setTitle ( selectedElement );
                     }
                 }
             }
@@ -1626,9 +1570,9 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public boolean isDirty()
+    public boolean isDirty ()
     {
-        return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+        return ( (BasicCommandStack)editingDomain.getCommandStack () ).isSaveNeeded ();
     }
 
     /**
@@ -1638,69 +1582,67 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public void doSave(IProgressMonitor progressMonitor)
+    public void doSave ( IProgressMonitor progressMonitor )
     {
         // Save only resources that have actually changed.
         //
-        final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
-        saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+        final Map<Object, Object> saveOptions = new HashMap<Object, Object> ();
+        saveOptions.put ( Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER );
 
         // Do the work within an operation because this is a long running activity that modifies the workbench.
         //
-        WorkspaceModifyOperation operation =
-            new WorkspaceModifyOperation()
+        WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
+            // This is the method that gets invoked when the operation runs.
+            //
+            @Override
+            public void execute ( IProgressMonitor monitor )
             {
-                // This is the method that gets invoked when the operation runs.
+                // Save the resources to the file system.
                 //
-                @Override
-                public void execute(IProgressMonitor monitor)
+                boolean first = true;
+                for ( Resource resource : editingDomain.getResourceSet ().getResources () )
                 {
-                    // Save the resources to the file system.
-                    //
-                    boolean first = true;
-                    for (Resource resource : editingDomain.getResourceSet().getResources())
+                    if ( ( first || !resource.getContents ().isEmpty () || isPersisted ( resource ) ) && !editingDomain.isReadOnly ( resource ) )
                     {
-                        if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource))
+                        try
                         {
-                            try
+                            long timeStamp = resource.getTimeStamp ();
+                            resource.save ( saveOptions );
+                            if ( resource.getTimeStamp () != timeStamp )
                             {
-                                long timeStamp = resource.getTimeStamp();
-                                resource.save(saveOptions);
-                                if (resource.getTimeStamp() != timeStamp)
-                                {
-                                    savedResources.add(resource);
-                                }
+                                savedResources.add ( resource );
                             }
-                            catch (Exception exception)
-                            {
-                                resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-                            }
-                            first = false;
                         }
+                        catch ( Exception exception )
+                        {
+                            resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
+                        }
+                        first = false;
                     }
                 }
-            };
+            }
+        };
 
         updateProblemIndication = false;
         try
         {
             // This runs the options, and shows progress.
             //
-            new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+            new ProgressMonitorDialog ( getSite ().getShell () ).run ( true, false, operation );
 
             // Refresh the necessary state.
             //
-            ((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
-            firePropertyChange(IEditorPart.PROP_DIRTY);
+            ( (BasicCommandStack)editingDomain.getCommandStack () ).saveIsDone ();
+            firePropertyChange ( IEditorPart.PROP_DIRTY );
         }
-        catch (Exception exception)
+        catch ( Exception exception )
         {
             // Something went wrong that shouldn't.
             //
-            DetailViewEditorPlugin.INSTANCE.log(exception);
+            DetailViewEditorPlugin.INSTANCE.log ( exception );
         }
         updateProblemIndication = true;
-        updateProblemIndication();
+        updateProblemIndication ();
     }
 
     /**
@@ -1710,19 +1652,19 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected boolean isPersisted(Resource resource)
+    protected boolean isPersisted ( Resource resource )
     {
         boolean result = false;
         try
         {
-            InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-            if (stream != null)
+            InputStream stream = editingDomain.getResourceSet ().getURIConverter ().createInputStream ( resource.getURI () );
+            if ( stream != null )
             {
                 result = true;
-                stream.close();
+                stream.close ();
             }
         }
-        catch (IOException e)
+        catch ( IOException e )
         {
             // Ignore
         }
@@ -1736,7 +1678,7 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public boolean isSaveAsAllowed()
+    public boolean isSaveAsAllowed ()
     {
         return true;
     }
@@ -1748,17 +1690,17 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public void doSaveAs()
+    public void doSaveAs ()
     {
-        SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
-        saveAsDialog.open();
-        IPath path = saveAsDialog.getResult();
-        if (path != null)
+        SaveAsDialog saveAsDialog = new SaveAsDialog ( getSite ().getShell () );
+        saveAsDialog.open ();
+        IPath path = saveAsDialog.getResult ();
+        if ( path != null )
         {
-            IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-            if (file != null)
+            IFile file = ResourcesPlugin.getWorkspace ().getRoot ().getFile ( path );
+            if ( file != null )
             {
-                doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
+                doSaveAs ( URI.createPlatformResourceURI ( file.getFullPath ().toString (), true ), new FileEditorInput ( file ) );
             }
         }
     }
@@ -1768,16 +1710,13 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void doSaveAs(URI uri, IEditorInput editorInput)
+    protected void doSaveAs ( URI uri, IEditorInput editorInput )
     {
-        (editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
-        setInputWithNotify(editorInput);
-        setPartName(editorInput.getName());
-        IProgressMonitor progressMonitor =
-            getActionBars().getStatusLineManager() != null ?
-                getActionBars().getStatusLineManager().getProgressMonitor() :
-                new NullProgressMonitor();
-        doSave(progressMonitor);
+        ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ).setURI ( uri );
+        setInputWithNotify ( editorInput );
+        setPartName ( editorInput.getName () );
+        IProgressMonitor progressMonitor = getActionBars ().getStatusLineManager () != null ? getActionBars ().getStatusLineManager ().getProgressMonitor () : new NullProgressMonitor ();
+        doSave ( progressMonitor );
     }
 
     /**
@@ -1785,27 +1724,27 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void gotoMarker(IMarker marker)
+    public void gotoMarker ( IMarker marker )
     {
         try
         {
-            if (marker.getType().equals(EValidator.MARKER))
+            if ( marker.getType ().equals ( EValidator.MARKER ) )
             {
-                String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
-                if (uriAttribute != null)
+                String uriAttribute = marker.getAttribute ( EValidator.URI_ATTRIBUTE, null );
+                if ( uriAttribute != null )
                 {
-                    URI uri = URI.createURI(uriAttribute);
-                    EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
-                    if (eObject != null)
+                    URI uri = URI.createURI ( uriAttribute );
+                    EObject eObject = editingDomain.getResourceSet ().getEObject ( uri, true );
+                    if ( eObject != null )
                     {
-                      setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
+                        setSelectionToViewer ( Collections.singleton ( editingDomain.getWrapper ( eObject ) ) );
                     }
                 }
             }
         }
-        catch (CoreException exception)
+        catch ( CoreException exception )
         {
-            DetailViewEditorPlugin.INSTANCE.log(exception);
+            DetailViewEditorPlugin.INSTANCE.log ( exception );
         }
     }
 
@@ -1816,14 +1755,14 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public void init(IEditorSite site, IEditorInput editorInput)
+    public void init ( IEditorSite site, IEditorInput editorInput )
     {
-        setSite(site);
-        setInputWithNotify(editorInput);
-        setPartName(editorInput.getName());
-        site.setSelectionProvider(this);
-        site.getPage().addPartListener(partListener);
-        ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+        setSite ( site );
+        setInputWithNotify ( editorInput );
+        setPartName ( editorInput.getName () );
+        site.setSelectionProvider ( this );
+        site.getPage ().addPartListener ( partListener );
+        ResourcesPlugin.getWorkspace ().addResourceChangeListener ( resourceChangeListener, IResourceChangeEvent.POST_CHANGE );
     }
 
     /**
@@ -1832,15 +1771,15 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public void setFocus()
+    public void setFocus ()
     {
-        if (currentViewerPane != null)
+        if ( currentViewerPane != null )
         {
-            currentViewerPane.setFocus();
+            currentViewerPane.setFocus ();
         }
         else
         {
-            getControl(getActivePage()).setFocus();
+            getControl ( getActivePage () ).setFocus ();
         }
     }
 
@@ -1850,9 +1789,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void addSelectionChangedListener(ISelectionChangedListener listener)
+    public void addSelectionChangedListener ( ISelectionChangedListener listener )
     {
-        selectionChangedListeners.add(listener);
+        selectionChangedListeners.add ( listener );
     }
 
     /**
@@ -1861,9 +1800,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void removeSelectionChangedListener(ISelectionChangedListener listener)
+    public void removeSelectionChangedListener ( ISelectionChangedListener listener )
     {
-        selectionChangedListeners.remove(listener);
+        selectionChangedListeners.remove ( listener );
     }
 
     /**
@@ -1872,7 +1811,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public ISelection getSelection()
+    public ISelection getSelection ()
     {
         return editorSelection;
     }
@@ -1884,15 +1823,15 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSelection(ISelection selection)
+    public void setSelection ( ISelection selection )
     {
         editorSelection = selection;
 
-        for (ISelectionChangedListener listener : selectionChangedListeners)
+        for ( ISelectionChangedListener listener : selectionChangedListeners )
         {
-            listener.selectionChanged(new SelectionChangedEvent(this, selection));
+            listener.selectionChanged ( new SelectionChangedEvent ( this, selection ) );
         }
-        setStatusLineManager(selection);
+        setStatusLineManager ( selection );
     }
 
     /**
@@ -1900,39 +1839,38 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setStatusLineManager(ISelection selection)
+    public void setStatusLineManager ( ISelection selection )
     {
-        IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-            contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
+        IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ? contentOutlineStatusLineManager : getActionBars ().getStatusLineManager ();
 
-        if (statusLineManager != null)
+        if ( statusLineManager != null )
         {
-            if (selection instanceof IStructuredSelection)
+            if ( selection instanceof IStructuredSelection )
             {
-                Collection<?> collection = ((IStructuredSelection)selection).toList();
-                switch (collection.size())
+                Collection<?> collection = ( (IStructuredSelection)selection ).toList ();
+                switch ( collection.size () )
                 {
                     case 0:
                     {
-                        statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
+                        statusLineManager.setMessage ( getString ( "_UI_NoObjectSelected" ) );
                         break;
                     }
                     case 1:
                     {
-                        String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
-                        statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
+                        String text = new AdapterFactoryItemDelegator ( adapterFactory ).getText ( collection.iterator ().next () );
+                        statusLineManager.setMessage ( getString ( "_UI_SingleObjectSelected", text ) );
                         break;
                     }
                     default:
                     {
-                        statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+                        statusLineManager.setMessage ( getString ( "_UI_MultiObjectSelected", Integer.toString ( collection.size () ) ) );
                         break;
                     }
                 }
             }
             else
             {
-                statusLineManager.setMessage("");
+                statusLineManager.setMessage ( "" );
             }
         }
     }
@@ -1943,9 +1881,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    private static String getString(String key)
+    private static String getString ( String key )
     {
-        return DetailViewEditorPlugin.INSTANCE.getString(key);
+        return DetailViewEditorPlugin.INSTANCE.getString ( key );
     }
 
     /**
@@ -1954,9 +1892,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    private static String getString(String key, Object s1)
+    private static String getString ( String key, Object s1 )
     {
-        return DetailViewEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+        return DetailViewEditorPlugin.INSTANCE.getString ( key, new Object[] { s1 } );
     }
 
     /**
@@ -1965,9 +1903,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public void menuAboutToShow(IMenuManager menuManager)
+    public void menuAboutToShow ( IMenuManager menuManager )
     {
-        ((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+        ( (IMenuListener)getEditorSite ().getActionBarContributor () ).menuAboutToShow ( menuManager );
     }
 
     /**
@@ -1975,9 +1913,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public EditingDomainActionBarContributor getActionBarContributor()
+    public EditingDomainActionBarContributor getActionBarContributor ()
     {
-        return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
+        return (EditingDomainActionBarContributor)getEditorSite ().getActionBarContributor ();
     }
 
     /**
@@ -1985,9 +1923,9 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public IActionBars getActionBars()
+    public IActionBars getActionBars ()
     {
-        return getActionBarContributor().getActionBars();
+        return getActionBarContributor ().getActionBars ();
     }
 
     /**
@@ -1995,7 +1933,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    public AdapterFactory getAdapterFactory()
+    public AdapterFactory getAdapterFactory ()
     {
         return adapterFactory;
     }
@@ -2006,32 +1944,32 @@ public class DetailViewEditor
      * @generated
      */
     @Override
-    public void dispose()
+    public void dispose ()
     {
         updateProblemIndication = false;
 
-        ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
+        ResourcesPlugin.getWorkspace ().removeResourceChangeListener ( resourceChangeListener );
 
-        getSite().getPage().removePartListener(partListener);
+        getSite ().getPage ().removePartListener ( partListener );
 
-        adapterFactory.dispose();
+        adapterFactory.dispose ();
 
-        if (getActionBarContributor().getActiveEditor() == this)
+        if ( getActionBarContributor ().getActiveEditor () == this )
         {
-            getActionBarContributor().setActiveEditor(null);
+            getActionBarContributor ().setActiveEditor ( null );
         }
 
-        if (propertySheetPage != null)
+        if ( propertySheetPage != null )
         {
-            propertySheetPage.dispose();
+            propertySheetPage.dispose ();
         }
 
-        if (contentOutlinePage != null)
+        if ( contentOutlinePage != null )
         {
-            contentOutlinePage.dispose();
+            contentOutlinePage.dispose ();
         }
 
-        super.dispose();
+        super.dispose ();
     }
 
     /**
@@ -2040,7 +1978,7 @@ public class DetailViewEditor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected boolean showOutlineView()
+    protected boolean showOutlineView ()
     {
         return true;
     }

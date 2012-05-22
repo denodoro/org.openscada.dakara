@@ -33,9 +33,9 @@ public abstract class ComponentTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComponentTest(String name)
+    public ComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -44,7 +44,7 @@ public abstract class ComponentTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Component fixture)
+    protected void setFixture ( Component fixture )
     {
         this.fixture = fixture;
     }
@@ -55,7 +55,7 @@ public abstract class ComponentTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Component getFixture()
+    protected Component getFixture ()
     {
         return fixture;
     }

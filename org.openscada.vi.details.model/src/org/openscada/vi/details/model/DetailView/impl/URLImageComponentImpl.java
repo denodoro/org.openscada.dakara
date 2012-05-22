@@ -139,9 +139,9 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    protected URLImageComponentImpl()
+    protected URLImageComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -150,7 +150,7 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.URL_IMAGE_COMPONENT;
     }
@@ -160,7 +160,7 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -170,12 +170,12 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -183,7 +183,7 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getImageUrl()
+    public String getImageUrl ()
     {
         return imageUrl;
     }
@@ -193,12 +193,12 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setImageUrl(String newImageUrl)
+    public void setImageUrl ( String newImageUrl )
     {
         String oldImageUrl = imageUrl;
         imageUrl = newImageUrl;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL, oldImageUrl, imageUrl));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL, oldImageUrl, imageUrl ) );
     }
 
     /**
@@ -206,7 +206,7 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFallbackImageUrl()
+    public String getFallbackImageUrl ()
     {
         return fallbackImageUrl;
     }
@@ -216,12 +216,12 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFallbackImageUrl(String newFallbackImageUrl)
+    public void setFallbackImageUrl ( String newFallbackImageUrl )
     {
         String oldFallbackImageUrl = fallbackImageUrl;
         fallbackImageUrl = newFallbackImageUrl;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL, oldFallbackImageUrl, fallbackImageUrl));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL, oldFallbackImageUrl, fallbackImageUrl ) );
     }
 
     /**
@@ -229,7 +229,7 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public Integer getWidth()
+    public Integer getWidth ()
     {
         return width;
     }
@@ -239,12 +239,12 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWidth(Integer newWidth)
+    public void setWidth ( Integer newWidth )
     {
         Integer oldWidth = width;
         width = newWidth;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH, oldWidth, width));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH, oldWidth, width ) );
     }
 
     /**
@@ -252,7 +252,7 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public Integer getHeight()
+    public Integer getHeight ()
     {
         return height;
     }
@@ -262,12 +262,12 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHeight(Integer newHeight)
+    public void setHeight ( Integer newHeight )
     {
         Integer oldHeight = height;
         height = newHeight;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT, oldHeight, height));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT, oldHeight, height ) );
     }
 
     /**
@@ -276,22 +276,22 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
             case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-                return getImageUrl();
+                return getImageUrl ();
             case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-                return getFallbackImageUrl();
+                return getFallbackImageUrl ();
             case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-                return getWidth();
+                return getWidth ();
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-                return getHeight();
+                return getHeight ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -300,27 +300,27 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
+                setDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-                setImageUrl((String)newValue);
+                setImageUrl ( (String)newValue );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-                setFallbackImageUrl((String)newValue);
+                setFallbackImageUrl ( (String)newValue );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-                setWidth((Integer)newValue);
+                setWidth ( (Integer)newValue );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-                setHeight((Integer)newValue);
+                setHeight ( (Integer)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -329,27 +329,27 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-                setImageUrl(IMAGE_URL_EDEFAULT);
+                setImageUrl ( IMAGE_URL_EDEFAULT );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-                setFallbackImageUrl(FALLBACK_IMAGE_URL_EDEFAULT);
+                setFallbackImageUrl ( FALLBACK_IMAGE_URL_EDEFAULT );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-                setWidth(WIDTH_EDEFAULT);
+                setWidth ( WIDTH_EDEFAULT );
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-                setHeight(HEIGHT_EDEFAULT);
+                setHeight ( HEIGHT_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -358,22 +358,22 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
             case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-                return IMAGE_URL_EDEFAULT == null ? imageUrl != null : !IMAGE_URL_EDEFAULT.equals(imageUrl);
+                return IMAGE_URL_EDEFAULT == null ? imageUrl != null : !IMAGE_URL_EDEFAULT.equals ( imageUrl );
             case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-                return FALLBACK_IMAGE_URL_EDEFAULT == null ? fallbackImageUrl != null : !FALLBACK_IMAGE_URL_EDEFAULT.equals(fallbackImageUrl);
+                return FALLBACK_IMAGE_URL_EDEFAULT == null ? fallbackImageUrl != null : !FALLBACK_IMAGE_URL_EDEFAULT.equals ( fallbackImageUrl );
             case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-                return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals(width);
+                return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals ( width );
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-                return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals(height);
+                return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals ( height );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -382,23 +382,24 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (descriptor: ");
-        result.append(descriptor);
-        result.append(", imageUrl: ");
-        result.append(imageUrl);
-        result.append(", fallbackImageUrl: ");
-        result.append(fallbackImageUrl);
-        result.append(", width: ");
-        result.append(width);
-        result.append(", height: ");
-        result.append(height);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (descriptor: " );
+        result.append ( descriptor );
+        result.append ( ", imageUrl: " );
+        result.append ( imageUrl );
+        result.append ( ", fallbackImageUrl: " );
+        result.append ( fallbackImageUrl );
+        result.append ( ", width: " );
+        result.append ( width );
+        result.append ( ", height: " );
+        result.append ( height );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //URLImageComponentImpl

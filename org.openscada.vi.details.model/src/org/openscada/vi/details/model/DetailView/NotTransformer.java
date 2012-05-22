@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Not Transformer</b></em>'.
@@ -39,7 +38,7 @@ public interface NotTransformer extends ValueSource
      * @model containment="true" required="true"
      * @generated
      */
-    ValueSource getValue();
+    ValueSource getValue ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.NotTransformer#getValue <em>Value</em>}' containment reference.
@@ -49,6 +48,6 @@ public interface NotTransformer extends ValueSource
      * @see #getValue()
      * @generated
      */
-    void setValue(ValueSource value);
+    void setValue ( ValueSource value );
 
 } // NotTransformer

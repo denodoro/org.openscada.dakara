@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.SimpleGridComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimpleGridComponentItemProvider
-    extends CompositeComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class SimpleGridComponentItemProvider extends CompositeComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class SimpleGridComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public SimpleGridComponentItemProvider(AdapterFactory adapterFactory)
+    public SimpleGridComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,14 +51,14 @@ public class SimpleGridComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addEquallyPropertyDescriptor(object);
-            addColsPropertyDescriptor(object);
+            addEquallyPropertyDescriptor ( object );
+            addColsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -77,21 +69,9 @@ public class SimpleGridComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addEquallyPropertyDescriptor(Object object)
+    protected void addEquallyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SimpleGridComponent_equally_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SimpleGridComponent_equally_feature", "_UI_SimpleGridComponent_type"),
-                 DetailViewPackage.Literals.SIMPLE_GRID_COMPONENT__EQUALLY,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SimpleGridComponent_equally_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleGridComponent_equally_feature", "_UI_SimpleGridComponent_type" ), DetailViewPackage.Literals.SIMPLE_GRID_COMPONENT__EQUALLY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -100,21 +80,9 @@ public class SimpleGridComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addColsPropertyDescriptor(Object object)
+    protected void addColsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SimpleGridComponent_cols_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SimpleGridComponent_cols_feature", "_UI_SimpleGridComponent_type"),
-                 DetailViewPackage.Literals.SIMPLE_GRID_COMPONENT__COLS,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SimpleGridComponent_cols_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleGridComponent_cols_feature", "_UI_SimpleGridComponent_type" ), DetailViewPackage.Literals.SIMPLE_GRID_COMPONENT__COLS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -124,9 +92,9 @@ public class SimpleGridComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SimpleGridComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SimpleGridComponent" ) );
     }
 
     /**
@@ -136,10 +104,10 @@ public class SimpleGridComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
         SimpleGridComponent simpleGridComponent = (SimpleGridComponent)object;
-        return getString("_UI_SimpleGridComponent_type") + " " + simpleGridComponent.isEqually();
+        return getString ( "_UI_SimpleGridComponent_type" ) + " " + simpleGridComponent.isEqually ();
     }
 
     /**
@@ -150,18 +118,18 @@ public class SimpleGridComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(SimpleGridComponent.class))
+        switch ( notification.getFeatureID ( SimpleGridComponent.class ) )
         {
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -172,9 +140,9 @@ public class SimpleGridComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

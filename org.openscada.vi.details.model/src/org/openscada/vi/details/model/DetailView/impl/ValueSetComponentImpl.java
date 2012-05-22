@@ -97,9 +97,9 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ValueSetComponentImpl()
+    protected ValueSetComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -108,7 +108,7 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.VALUE_SET_COMPONENT;
     }
@@ -118,7 +118,7 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValueDescriptor()
+    public String getValueDescriptor ()
     {
         return valueDescriptor;
     }
@@ -128,12 +128,12 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValueDescriptor(String newValueDescriptor)
+    public void setValueDescriptor ( String newValueDescriptor )
     {
         String oldValueDescriptor = valueDescriptor;
         valueDescriptor = newValueDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR, oldValueDescriptor, valueDescriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR, oldValueDescriptor, valueDescriptor ) );
     }
 
     /**
@@ -141,7 +141,7 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getSetDescriptor()
+    public String getSetDescriptor ()
     {
         return setDescriptor;
     }
@@ -151,12 +151,12 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSetDescriptor(String newSetDescriptor)
+    public void setSetDescriptor ( String newSetDescriptor )
     {
         String oldSetDescriptor = setDescriptor;
         setDescriptor = newSetDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR, oldSetDescriptor, setDescriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR, oldSetDescriptor, setDescriptor ) );
     }
 
     /**
@@ -164,7 +164,7 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getResetDescriptor()
+    public String getResetDescriptor ()
     {
         return resetDescriptor;
     }
@@ -174,12 +174,12 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setResetDescriptor(String newResetDescriptor)
+    public void setResetDescriptor ( String newResetDescriptor )
     {
         String oldResetDescriptor = resetDescriptor;
         resetDescriptor = newResetDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR, oldResetDescriptor, resetDescriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR, oldResetDescriptor, resetDescriptor ) );
     }
 
     /**
@@ -188,18 +188,18 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                return getValueDescriptor();
+                return getValueDescriptor ();
             case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                return getSetDescriptor();
+                return getSetDescriptor ();
             case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                return getResetDescriptor();
+                return getResetDescriptor ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -208,21 +208,21 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                setValueDescriptor((String)newValue);
+                setValueDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                setSetDescriptor((String)newValue);
+                setSetDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                setResetDescriptor((String)newValue);
+                setResetDescriptor ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -231,21 +231,21 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                setValueDescriptor(VALUE_DESCRIPTOR_EDEFAULT);
+                setValueDescriptor ( VALUE_DESCRIPTOR_EDEFAULT );
                 return;
             case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                setSetDescriptor(SET_DESCRIPTOR_EDEFAULT);
+                setSetDescriptor ( SET_DESCRIPTOR_EDEFAULT );
                 return;
             case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                setResetDescriptor(RESET_DESCRIPTOR_EDEFAULT);
+                setResetDescriptor ( RESET_DESCRIPTOR_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -254,18 +254,18 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                return VALUE_DESCRIPTOR_EDEFAULT == null ? valueDescriptor != null : !VALUE_DESCRIPTOR_EDEFAULT.equals(valueDescriptor);
+                return VALUE_DESCRIPTOR_EDEFAULT == null ? valueDescriptor != null : !VALUE_DESCRIPTOR_EDEFAULT.equals ( valueDescriptor );
             case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                return SET_DESCRIPTOR_EDEFAULT == null ? setDescriptor != null : !SET_DESCRIPTOR_EDEFAULT.equals(setDescriptor);
+                return SET_DESCRIPTOR_EDEFAULT == null ? setDescriptor != null : !SET_DESCRIPTOR_EDEFAULT.equals ( setDescriptor );
             case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                return RESET_DESCRIPTOR_EDEFAULT == null ? resetDescriptor != null : !RESET_DESCRIPTOR_EDEFAULT.equals(resetDescriptor);
+                return RESET_DESCRIPTOR_EDEFAULT == null ? resetDescriptor != null : !RESET_DESCRIPTOR_EDEFAULT.equals ( resetDescriptor );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -274,19 +274,20 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (valueDescriptor: ");
-        result.append(valueDescriptor);
-        result.append(", setDescriptor: ");
-        result.append(setDescriptor);
-        result.append(", resetDescriptor: ");
-        result.append(resetDescriptor);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (valueDescriptor: " );
+        result.append ( valueDescriptor );
+        result.append ( ", setDescriptor: " );
+        result.append ( setDescriptor );
+        result.append ( ", resetDescriptor: " );
+        result.append ( resetDescriptor );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ValueSetComponentImpl

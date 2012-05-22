@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Item Value Source</b></em>'.
@@ -39,7 +38,7 @@ public interface ItemValueSource extends ValueSource
      * @model required="true"
      * @generated
      */
-    String getValueKey();
+    String getValueKey ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ItemValueSource#getValueKey <em>Value Key</em>}' attribute.
@@ -49,6 +48,6 @@ public interface ItemValueSource extends ValueSource
      * @see #getValueKey()
      * @generated
      */
-    void setValueKey(String value);
+    void setValueKey ( String value );
 
 } // ItemValueSource

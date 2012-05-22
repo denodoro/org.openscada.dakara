@@ -42,7 +42,7 @@ public interface Registration extends EObject
      * @model required="true"
      * @generated
      */
-    String getKey();
+    String getKey ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.Registration#getKey <em>Key</em>}' attribute.
@@ -52,7 +52,7 @@ public interface Registration extends EObject
      * @see #getKey()
      * @generated
      */
-    void setKey(String value);
+    void setKey ( String value );
 
     /**
      * Returns the value of the '<em><b>Descriptor</b></em>' attribute.
@@ -68,7 +68,7 @@ public interface Registration extends EObject
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.Registration#getDescriptor <em>Descriptor</em>}' attribute.
@@ -78,7 +78,7 @@ public interface Registration extends EObject
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Aggregate State</b></em>' attribute.
@@ -95,7 +95,7 @@ public interface Registration extends EObject
      * @model default="true"
      * @generated
      */
-    boolean isAggregateState();
+    boolean isAggregateState ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.Registration#isAggregateState <em>Aggregate State</em>}' attribute.
@@ -105,6 +105,6 @@ public interface Registration extends EObject
      * @see #isAggregateState()
      * @generated
      */
-    void setAggregateState(boolean value);
+    void setAggregateState ( boolean value );
 
 } // Registration

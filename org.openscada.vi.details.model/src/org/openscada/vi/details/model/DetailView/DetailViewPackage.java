@@ -58,7 +58,7 @@ public interface DetailViewPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    DetailViewPackage eINSTANCE = org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl.init();
+    DetailViewPackage eINSTANCE = org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl.init ();
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl <em>View</em>}' class.
@@ -1674,7 +1674,6 @@ public interface DetailViewPackage extends EPackage
      */
     int PROGRESS_COMPONENT_FEATURE_COUNT = READABLE_COMPONENT_FEATURE_COUNT + 5;
 
-
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.View <em>View</em>}'.
      * <!-- begin-user-doc -->
@@ -1683,7 +1682,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.View
      * @generated
      */
-    EClass getView();
+    EClass getView ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.View#getHeaderComponent <em>Header Component</em>}'.
@@ -1694,7 +1693,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getView()
      * @generated
      */
-    EReference getView_HeaderComponent();
+    EReference getView_HeaderComponent ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.View#getGroups <em>Groups</em>}'.
@@ -1705,7 +1704,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getView()
      * @generated
      */
-    EReference getView_Groups();
+    EReference getView_Groups ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.Component <em>Component</em>}'.
@@ -1715,7 +1714,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.Component
      * @generated
      */
-    EClass getComponent();
+    EClass getComponent ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.GroupEntry <em>Group Entry</em>}'.
@@ -1725,7 +1724,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.GroupEntry
      * @generated
      */
-    EClass getGroupEntry();
+    EClass getGroupEntry ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getComponent <em>Component</em>}'.
@@ -1736,7 +1735,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupEntry()
      * @generated
      */
-    EReference getGroupEntry_Component();
+    EReference getGroupEntry_Component ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getLabel <em>Label</em>}'.
@@ -1747,7 +1746,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupEntry()
      * @generated
      */
-    EAttribute getGroupEntry_Label();
+    EAttribute getGroupEntry_Label ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getPermission <em>Permission</em>}'.
@@ -1758,7 +1757,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupEntry()
      * @generated
      */
-    EAttribute getGroupEntry_Permission();
+    EAttribute getGroupEntry_Permission ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.LabelComponent <em>Label Component</em>}'.
@@ -1768,7 +1767,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.LabelComponent
      * @generated
      */
-    EClass getLabelComponent();
+    EClass getLabelComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.LabelComponent#getFormat <em>Format</em>}'.
@@ -1779,7 +1778,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getLabelComponent()
      * @generated
      */
-    EAttribute getLabelComponent_Format();
+    EAttribute getLabelComponent_Format ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.LabelComponent#getDescriptor <em>Descriptor</em>}'.
@@ -1790,7 +1789,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getLabelComponent()
      * @generated
      */
-    EAttribute getLabelComponent_Descriptor();
+    EAttribute getLabelComponent_Descriptor ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.CompositeComponent <em>Composite Component</em>}'.
@@ -1800,7 +1799,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.CompositeComponent
      * @generated
      */
-    EClass getCompositeComponent();
+    EClass getCompositeComponent ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.CompositeComponent#getChildren <em>Children</em>}'.
@@ -1811,7 +1810,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getCompositeComponent()
      * @generated
      */
-    EReference getCompositeComponent_Children();
+    EReference getCompositeComponent_Children ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.FillLayoutComponent <em>Fill Layout Component</em>}'.
@@ -1821,7 +1820,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.FillLayoutComponent
      * @generated
      */
-    EClass getFillLayoutComponent();
+    EClass getFillLayoutComponent ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ButtonComponent <em>Button Component</em>}'.
@@ -1831,7 +1830,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ButtonComponent
      * @generated
      */
-    EClass getButtonComponent();
+    EClass getButtonComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getFormat <em>Format</em>}'.
@@ -1842,7 +1841,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EAttribute getButtonComponent_Format();
+    EAttribute getButtonComponent_Format ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getValue <em>Value</em>}'.
@@ -1853,7 +1852,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EAttribute getButtonComponent_Value();
+    EAttribute getButtonComponent_Value ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getReadDescriptor <em>Read Descriptor</em>}'.
@@ -1864,7 +1863,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EAttribute getButtonComponent_ReadDescriptor();
+    EAttribute getButtonComponent_ReadDescriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getWriteDescriptor <em>Write Descriptor</em>}'.
@@ -1875,7 +1874,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EAttribute getButtonComponent_WriteDescriptor();
+    EAttribute getButtonComponent_WriteDescriptor ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getActive <em>Active</em>}'.
@@ -1886,7 +1885,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EReference getButtonComponent_Active();
+    EReference getButtonComponent_Active ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getAttribute <em>Attribute</em>}'.
@@ -1897,7 +1896,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EAttribute getButtonComponent_Attribute();
+    EAttribute getButtonComponent_Attribute ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getTextHeight <em>Text Height</em>}'.
@@ -1908,7 +1907,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getButtonComponent()
      * @generated
      */
-    EAttribute getButtonComponent_TextHeight();
+    EAttribute getButtonComponent_TextHeight ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent <em>Bool LED Component</em>}'.
@@ -1918,7 +1917,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.BoolLEDComponent
      * @generated
      */
-    EClass getBoolLEDComponent();
+    EClass getBoolLEDComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#getFormat <em>Format</em>}'.
@@ -1929,7 +1928,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getBoolLEDComponent()
      * @generated
      */
-    EAttribute getBoolLEDComponent_Format();
+    EAttribute getBoolLEDComponent_Format ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#getDescriptor <em>Descriptor</em>}'.
@@ -1940,7 +1939,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getBoolLEDComponent()
      * @generated
      */
-    EAttribute getBoolLEDComponent_Descriptor();
+    EAttribute getBoolLEDComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#isAlarm <em>Alarm</em>}'.
@@ -1951,7 +1950,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getBoolLEDComponent()
      * @generated
      */
-    EAttribute getBoolLEDComponent_Alarm();
+    EAttribute getBoolLEDComponent_Alarm ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#getAttribute <em>Attribute</em>}'.
@@ -1962,7 +1961,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getBoolLEDComponent()
      * @generated
      */
-    EAttribute getBoolLEDComponent_Attribute();
+    EAttribute getBoolLEDComponent_Attribute ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ValueSource <em>Value Source</em>}'.
@@ -1972,7 +1971,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ValueSource
      * @generated
      */
-    EClass getValueSource();
+    EClass getValueSource ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ItemValueSource <em>Item Value Source</em>}'.
@@ -1982,7 +1981,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ItemValueSource
      * @generated
      */
-    EClass getItemValueSource();
+    EClass getItemValueSource ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ItemValueSource#getValueKey <em>Value Key</em>}'.
@@ -1993,7 +1992,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getItemValueSource()
      * @generated
      */
-    EAttribute getItemValueSource_ValueKey();
+    EAttribute getItemValueSource_ValueKey ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.NotTransformer <em>Not Transformer</em>}'.
@@ -2003,7 +2002,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.NotTransformer
      * @generated
      */
-    EClass getNotTransformer();
+    EClass getNotTransformer ();
 
     /**
      * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.NotTransformer#getValue <em>Value</em>}'.
@@ -2014,7 +2013,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getNotTransformer()
      * @generated
      */
-    EReference getNotTransformer_Value();
+    EReference getNotTransformer_Value ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.GenericComponent <em>Generic Component</em>}'.
@@ -2024,7 +2023,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.GenericComponent
      * @generated
      */
-    EClass getGenericComponent();
+    EClass getGenericComponent ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.GenericComponent#getRegistrations <em>Registrations</em>}'.
@@ -2035,7 +2034,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGenericComponent()
      * @generated
      */
-    EReference getGenericComponent_Registrations();
+    EReference getGenericComponent_Registrations ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.Registration <em>Registration</em>}'.
@@ -2045,7 +2044,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.Registration
      * @generated
      */
-    EClass getRegistration();
+    EClass getRegistration ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.Registration#getKey <em>Key</em>}'.
@@ -2056,7 +2055,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getRegistration()
      * @generated
      */
-    EAttribute getRegistration_Key();
+    EAttribute getRegistration_Key ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.Registration#getDescriptor <em>Descriptor</em>}'.
@@ -2067,7 +2066,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getRegistration()
      * @generated
      */
-    EAttribute getRegistration_Descriptor();
+    EAttribute getRegistration_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.Registration#isAggregateState <em>Aggregate State</em>}'.
@@ -2078,7 +2077,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getRegistration()
      * @generated
      */
-    EAttribute getRegistration_AggregateState();
+    EAttribute getRegistration_AggregateState ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.SimpleGridComponent <em>Simple Grid Component</em>}'.
@@ -2088,7 +2087,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.SimpleGridComponent
      * @generated
      */
-    EClass getSimpleGridComponent();
+    EClass getSimpleGridComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.SimpleGridComponent#isEqually <em>Equally</em>}'.
@@ -2099,7 +2098,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getSimpleGridComponent()
      * @generated
      */
-    EAttribute getSimpleGridComponent_Equally();
+    EAttribute getSimpleGridComponent_Equally ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.SimpleGridComponent#getCols <em>Cols</em>}'.
@@ -2110,7 +2109,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getSimpleGridComponent()
      * @generated
      */
-    EAttribute getSimpleGridComponent_Cols();
+    EAttribute getSimpleGridComponent_Cols ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.GroupGridComponent <em>Group Grid Component</em>}'.
@@ -2120,7 +2119,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.GroupGridComponent
      * @generated
      */
-    EClass getGroupGridComponent();
+    EClass getGroupGridComponent ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.GroupGridComponent#getGroups <em>Groups</em>}'.
@@ -2131,7 +2130,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupGridComponent()
      * @generated
      */
-    EReference getGroupGridComponent_Groups();
+    EReference getGroupGridComponent_Groups ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.GroupGridComponent#isEqually <em>Equally</em>}'.
@@ -2142,7 +2141,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupGridComponent()
      * @generated
      */
-    EAttribute getGroupGridComponent_Equally();
+    EAttribute getGroupGridComponent_Equally ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.GroupGridComponent#getCols <em>Cols</em>}'.
@@ -2153,7 +2152,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupGridComponent()
      * @generated
      */
-    EAttribute getGroupGridComponent_Cols();
+    EAttribute getGroupGridComponent_Cols ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry <em>Group Grid Entry</em>}'.
@@ -2163,7 +2162,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.GroupGridEntry
      * @generated
      */
-    EClass getGroupGridEntry();
+    EClass getGroupGridEntry ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry#getLabel <em>Label</em>}'.
@@ -2174,7 +2173,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupGridEntry()
      * @generated
      */
-    EAttribute getGroupGridEntry_Label();
+    EAttribute getGroupGridEntry_Label ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry#getComponents <em>Components</em>}'.
@@ -2185,7 +2184,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupGridEntry()
      * @generated
      */
-    EReference getGroupGridEntry_Components();
+    EReference getGroupGridEntry_Components ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry#getPermission <em>Permission</em>}'.
@@ -2196,7 +2195,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getGroupGridEntry()
      * @generated
      */
-    EAttribute getGroupGridEntry_Permission();
+    EAttribute getGroupGridEntry_Permission ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent <em>Value Set Component</em>}'.
@@ -2206,7 +2205,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ValueSetComponent
      * @generated
      */
-    EClass getValueSetComponent();
+    EClass getValueSetComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent#getValueDescriptor <em>Value Descriptor</em>}'.
@@ -2217,7 +2216,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getValueSetComponent()
      * @generated
      */
-    EAttribute getValueSetComponent_ValueDescriptor();
+    EAttribute getValueSetComponent_ValueDescriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent#getSetDescriptor <em>Set Descriptor</em>}'.
@@ -2228,7 +2227,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getValueSetComponent()
      * @generated
      */
-    EAttribute getValueSetComponent_SetDescriptor();
+    EAttribute getValueSetComponent_SetDescriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent#getResetDescriptor <em>Reset Descriptor</em>}'.
@@ -2239,7 +2238,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getValueSetComponent()
      * @generated
      */
-    EAttribute getValueSetComponent_ResetDescriptor();
+    EAttribute getValueSetComponent_ResetDescriptor ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ValueComponent <em>Value Component</em>}'.
@@ -2249,7 +2248,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ValueComponent
      * @generated
      */
-    EClass getValueComponent();
+    EClass getValueComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ValueComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2260,7 +2259,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getValueComponent()
      * @generated
      */
-    EAttribute getValueComponent_Descriptor();
+    EAttribute getValueComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ValueComponent#getDate <em>Date</em>}'.
@@ -2271,7 +2270,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getValueComponent()
      * @generated
      */
-    EAttribute getValueComponent_Date();
+    EAttribute getValueComponent_Date ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.CompositeTransformer <em>Composite Transformer</em>}'.
@@ -2281,7 +2280,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.CompositeTransformer
      * @generated
      */
-    EClass getCompositeTransformer();
+    EClass getCompositeTransformer ();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.CompositeTransformer#getValues <em>Values</em>}'.
@@ -2292,7 +2291,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getCompositeTransformer()
      * @generated
      */
-    EReference getCompositeTransformer_Values();
+    EReference getCompositeTransformer_Values ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.AndTransformer <em>And Transformer</em>}'.
@@ -2302,7 +2301,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.AndTransformer
      * @generated
      */
-    EClass getAndTransformer();
+    EClass getAndTransformer ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.OrTransformer <em>Or Transformer</em>}'.
@@ -2312,7 +2311,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.OrTransformer
      * @generated
      */
-    EClass getOrTransformer();
+    EClass getOrTransformer ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.TextInputComponent <em>Text Input Component</em>}'.
@@ -2322,7 +2321,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.TextInputComponent
      * @generated
      */
-    EClass getTextInputComponent();
+    EClass getTextInputComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2333,7 +2332,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextInputComponent()
      * @generated
      */
-    EAttribute getTextInputComponent_Descriptor();
+    EAttribute getTextInputComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getReadDescriptor <em>Read Descriptor</em>}'.
@@ -2344,7 +2343,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextInputComponent()
      * @generated
      */
-    EAttribute getTextInputComponent_ReadDescriptor();
+    EAttribute getTextInputComponent_ReadDescriptor ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.WriteableComponent <em>Writeable Component</em>}'.
@@ -2354,7 +2353,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.WriteableComponent
      * @generated
      */
-    EClass getWriteableComponent();
+    EClass getWriteableComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.WriteableComponent#getCeil <em>Ceil</em>}'.
@@ -2365,7 +2364,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getWriteableComponent()
      * @generated
      */
-    EAttribute getWriteableComponent_Ceil();
+    EAttribute getWriteableComponent_Ceil ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.WriteableComponent#getFloor <em>Floor</em>}'.
@@ -2376,7 +2375,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getWriteableComponent()
      * @generated
      */
-    EAttribute getWriteableComponent_Floor();
+    EAttribute getWriteableComponent_Floor ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ReadableComponent <em>Readable Component</em>}'.
@@ -2386,7 +2385,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ReadableComponent
      * @generated
      */
-    EClass getReadableComponent();
+    EClass getReadableComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getFormat <em>Format</em>}'.
@@ -2397,7 +2396,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getReadableComponent()
      * @generated
      */
-    EAttribute getReadableComponent_Format();
+    EAttribute getReadableComponent_Format ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getDecimal <em>Decimal</em>}'.
@@ -2408,7 +2407,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getReadableComponent()
      * @generated
      */
-    EAttribute getReadableComponent_Decimal();
+    EAttribute getReadableComponent_Decimal ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getAttribute <em>Attribute</em>}'.
@@ -2419,7 +2418,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getReadableComponent()
      * @generated
      */
-    EAttribute getReadableComponent_Attribute();
+    EAttribute getReadableComponent_Attribute ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionid <em>Hd Connectionid</em>}'.
@@ -2430,7 +2429,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getReadableComponent()
      * @generated
      */
-    EAttribute getReadableComponent_HdConnectionid();
+    EAttribute getReadableComponent_HdConnectionid ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdItemId <em>Hd Item Id</em>}'.
@@ -2441,7 +2440,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getReadableComponent()
      * @generated
      */
-    EAttribute getReadableComponent_HdItemId();
+    EAttribute getReadableComponent_HdItemId ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.TextComponent <em>Text Component</em>}'.
@@ -2451,7 +2450,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.TextComponent
      * @generated
      */
-    EClass getTextComponent();
+    EClass getTextComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2462,7 +2461,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextComponent()
      * @generated
      */
-    EAttribute getTextComponent_Descriptor();
+    EAttribute getTextComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextComponent#getWidth <em>Width</em>}'.
@@ -2473,7 +2472,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextComponent()
      * @generated
      */
-    EAttribute getTextComponent_Width();
+    EAttribute getTextComponent_Width ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextComponent#getHeight <em>Height</em>}'.
@@ -2484,7 +2483,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextComponent()
      * @generated
      */
-    EAttribute getTextComponent_Height();
+    EAttribute getTextComponent_Height ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextComponent#isDate <em>Date</em>}'.
@@ -2495,7 +2494,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextComponent()
      * @generated
      */
-    EAttribute getTextComponent_Date();
+    EAttribute getTextComponent_Date ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextComponent#getTextHeight <em>Text Height</em>}'.
@@ -2506,7 +2505,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextComponent()
      * @generated
      */
-    EAttribute getTextComponent_TextHeight();
+    EAttribute getTextComponent_TextHeight ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextComponent#getTextMap <em>Text Map</em>}'.
@@ -2517,7 +2516,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextComponent()
      * @generated
      */
-    EAttribute getTextComponent_TextMap();
+    EAttribute getTextComponent_TextMap ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.TextInputMultiComponent <em>Text Input Multi Component</em>}'.
@@ -2527,7 +2526,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.TextInputMultiComponent
      * @generated
      */
-    EClass getTextInputMultiComponent();
+    EClass getTextInputMultiComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextInputMultiComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2538,7 +2537,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getTextInputMultiComponent()
      * @generated
      */
-    EAttribute getTextInputMultiComponent_Descriptor();
+    EAttribute getTextInputMultiComponent_Descriptor ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.CheckComponent <em>Check Component</em>}'.
@@ -2548,7 +2547,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.CheckComponent
      * @generated
      */
-    EClass getCheckComponent();
+    EClass getCheckComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getFormat <em>Format</em>}'.
@@ -2559,7 +2558,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getCheckComponent()
      * @generated
      */
-    EAttribute getCheckComponent_Format();
+    EAttribute getCheckComponent_Format ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2570,7 +2569,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getCheckComponent()
      * @generated
      */
-    EAttribute getCheckComponent_Descriptor();
+    EAttribute getCheckComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getAttribute <em>Attribute</em>}'.
@@ -2581,7 +2580,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getCheckComponent()
      * @generated
      */
-    EAttribute getCheckComponent_Attribute();
+    EAttribute getCheckComponent_Attribute ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getReadDescriptor <em>Read Descriptor</em>}'.
@@ -2592,7 +2591,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getCheckComponent()
      * @generated
      */
-    EAttribute getCheckComponent_ReadDescriptor();
+    EAttribute getCheckComponent_ReadDescriptor ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.LinkComponent <em>Link Component</em>}'.
@@ -2602,7 +2601,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.LinkComponent
      * @generated
      */
-    EClass getLinkComponent();
+    EClass getLinkComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.LinkComponent#getFormat <em>Format</em>}'.
@@ -2613,7 +2612,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getLinkComponent()
      * @generated
      */
-    EAttribute getLinkComponent_Format();
+    EAttribute getLinkComponent_Format ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.URLImageComponent <em>URL Image Component</em>}'.
@@ -2623,7 +2622,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.URLImageComponent
      * @generated
      */
-    EClass getURLImageComponent();
+    EClass getURLImageComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2634,7 +2633,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getURLImageComponent()
      * @generated
      */
-    EAttribute getURLImageComponent_Descriptor();
+    EAttribute getURLImageComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getImageUrl <em>Image Url</em>}'.
@@ -2645,7 +2644,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getURLImageComponent()
      * @generated
      */
-    EAttribute getURLImageComponent_ImageUrl();
+    EAttribute getURLImageComponent_ImageUrl ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getFallbackImageUrl <em>Fallback Image Url</em>}'.
@@ -2656,7 +2655,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getURLImageComponent()
      * @generated
      */
-    EAttribute getURLImageComponent_FallbackImageUrl();
+    EAttribute getURLImageComponent_FallbackImageUrl ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getWidth <em>Width</em>}'.
@@ -2667,7 +2666,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getURLImageComponent()
      * @generated
      */
-    EAttribute getURLImageComponent_Width();
+    EAttribute getURLImageComponent_Width ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getHeight <em>Height</em>}'.
@@ -2678,7 +2677,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getURLImageComponent()
      * @generated
      */
-    EAttribute getURLImageComponent_Height();
+    EAttribute getURLImageComponent_Height ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ProgressComponent <em>Progress Component</em>}'.
@@ -2688,7 +2687,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.openscada.vi.details.model.DetailView.ProgressComponent
      * @generated
      */
-    EClass getProgressComponent();
+    EClass getProgressComponent ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getDescriptor <em>Descriptor</em>}'.
@@ -2699,7 +2698,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getProgressComponent()
      * @generated
      */
-    EAttribute getProgressComponent_Descriptor();
+    EAttribute getProgressComponent_Descriptor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getFactor <em>Factor</em>}'.
@@ -2710,7 +2709,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getProgressComponent()
      * @generated
      */
-    EAttribute getProgressComponent_Factor();
+    EAttribute getProgressComponent_Factor ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getMax <em>Max</em>}'.
@@ -2721,7 +2720,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getProgressComponent()
      * @generated
      */
-    EAttribute getProgressComponent_Max();
+    EAttribute getProgressComponent_Max ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getMin <em>Min</em>}'.
@@ -2732,7 +2731,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getProgressComponent()
      * @generated
      */
-    EAttribute getProgressComponent_Min();
+    EAttribute getProgressComponent_Min ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getWidth <em>Width</em>}'.
@@ -2743,7 +2742,7 @@ public interface DetailViewPackage extends EPackage
      * @see #getProgressComponent()
      * @generated
      */
-    EAttribute getProgressComponent_Width();
+    EAttribute getProgressComponent_Width ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -2752,7 +2751,7 @@ public interface DetailViewPackage extends EPackage
      * @return the factory that creates the instances of the model.
      * @generated
      */
-    DetailViewFactory getDetailViewFactory();
+    DetailViewFactory getDetailViewFactory ();
 
     /**
      * <!-- begin-user-doc -->
@@ -2776,7 +2775,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getView()
          * @generated
          */
-        EClass VIEW = eINSTANCE.getView();
+        EClass VIEW = eINSTANCE.getView ();
 
         /**
          * The meta object literal for the '<em><b>Header Component</b></em>' containment reference feature.
@@ -2784,7 +2783,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference VIEW__HEADER_COMPONENT = eINSTANCE.getView_HeaderComponent();
+        EReference VIEW__HEADER_COMPONENT = eINSTANCE.getView_HeaderComponent ();
 
         /**
          * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.
@@ -2792,7 +2791,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference VIEW__GROUPS = eINSTANCE.getView_Groups();
+        EReference VIEW__GROUPS = eINSTANCE.getView_Groups ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ComponentImpl <em>Component</em>}' class.
@@ -2802,7 +2801,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getComponent()
          * @generated
          */
-        EClass COMPONENT = eINSTANCE.getComponent();
+        EClass COMPONENT = eINSTANCE.getComponent ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl <em>Group Entry</em>}' class.
@@ -2812,7 +2811,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getGroupEntry()
          * @generated
          */
-        EClass GROUP_ENTRY = eINSTANCE.getGroupEntry();
+        EClass GROUP_ENTRY = eINSTANCE.getGroupEntry ();
 
         /**
          * The meta object literal for the '<em><b>Component</b></em>' containment reference feature.
@@ -2820,7 +2819,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference GROUP_ENTRY__COMPONENT = eINSTANCE.getGroupEntry_Component();
+        EReference GROUP_ENTRY__COMPONENT = eINSTANCE.getGroupEntry_Component ();
 
         /**
          * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -2828,7 +2827,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GROUP_ENTRY__LABEL = eINSTANCE.getGroupEntry_Label();
+        EAttribute GROUP_ENTRY__LABEL = eINSTANCE.getGroupEntry_Label ();
 
         /**
          * The meta object literal for the '<em><b>Permission</b></em>' attribute feature.
@@ -2836,7 +2835,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GROUP_ENTRY__PERMISSION = eINSTANCE.getGroupEntry_Permission();
+        EAttribute GROUP_ENTRY__PERMISSION = eINSTANCE.getGroupEntry_Permission ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.LabelComponentImpl <em>Label Component</em>}' class.
@@ -2846,7 +2845,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getLabelComponent()
          * @generated
          */
-        EClass LABEL_COMPONENT = eINSTANCE.getLabelComponent();
+        EClass LABEL_COMPONENT = eINSTANCE.getLabelComponent ();
 
         /**
          * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -2854,7 +2853,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LABEL_COMPONENT__FORMAT = eINSTANCE.getLabelComponent_Format();
+        EAttribute LABEL_COMPONENT__FORMAT = eINSTANCE.getLabelComponent_Format ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -2862,7 +2861,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LABEL_COMPONENT__DESCRIPTOR = eINSTANCE.getLabelComponent_Descriptor();
+        EAttribute LABEL_COMPONENT__DESCRIPTOR = eINSTANCE.getLabelComponent_Descriptor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.CompositeComponentImpl <em>Composite Component</em>}' class.
@@ -2872,7 +2871,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getCompositeComponent()
          * @generated
          */
-        EClass COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent();
+        EClass COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent ();
 
         /**
          * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
@@ -2880,7 +2879,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference COMPOSITE_COMPONENT__CHILDREN = eINSTANCE.getCompositeComponent_Children();
+        EReference COMPOSITE_COMPONENT__CHILDREN = eINSTANCE.getCompositeComponent_Children ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.FillLayoutComponentImpl <em>Fill Layout Component</em>}' class.
@@ -2890,7 +2889,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getFillLayoutComponent()
          * @generated
          */
-        EClass FILL_LAYOUT_COMPONENT = eINSTANCE.getFillLayoutComponent();
+        EClass FILL_LAYOUT_COMPONENT = eINSTANCE.getFillLayoutComponent ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ButtonComponentImpl <em>Button Component</em>}' class.
@@ -2900,7 +2899,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getButtonComponent()
          * @generated
          */
-        EClass BUTTON_COMPONENT = eINSTANCE.getButtonComponent();
+        EClass BUTTON_COMPONENT = eINSTANCE.getButtonComponent ();
 
         /**
          * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -2908,7 +2907,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUTTON_COMPONENT__FORMAT = eINSTANCE.getButtonComponent_Format();
+        EAttribute BUTTON_COMPONENT__FORMAT = eINSTANCE.getButtonComponent_Format ();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2916,7 +2915,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUTTON_COMPONENT__VALUE = eINSTANCE.getButtonComponent_Value();
+        EAttribute BUTTON_COMPONENT__VALUE = eINSTANCE.getButtonComponent_Value ();
 
         /**
          * The meta object literal for the '<em><b>Read Descriptor</b></em>' attribute feature.
@@ -2924,7 +2923,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUTTON_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getButtonComponent_ReadDescriptor();
+        EAttribute BUTTON_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getButtonComponent_ReadDescriptor ();
 
         /**
          * The meta object literal for the '<em><b>Write Descriptor</b></em>' attribute feature.
@@ -2932,7 +2931,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUTTON_COMPONENT__WRITE_DESCRIPTOR = eINSTANCE.getButtonComponent_WriteDescriptor();
+        EAttribute BUTTON_COMPONENT__WRITE_DESCRIPTOR = eINSTANCE.getButtonComponent_WriteDescriptor ();
 
         /**
          * The meta object literal for the '<em><b>Active</b></em>' containment reference feature.
@@ -2940,7 +2939,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference BUTTON_COMPONENT__ACTIVE = eINSTANCE.getButtonComponent_Active();
+        EReference BUTTON_COMPONENT__ACTIVE = eINSTANCE.getButtonComponent_Active ();
 
         /**
          * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
@@ -2948,7 +2947,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUTTON_COMPONENT__ATTRIBUTE = eINSTANCE.getButtonComponent_Attribute();
+        EAttribute BUTTON_COMPONENT__ATTRIBUTE = eINSTANCE.getButtonComponent_Attribute ();
 
         /**
          * The meta object literal for the '<em><b>Text Height</b></em>' attribute feature.
@@ -2956,7 +2955,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUTTON_COMPONENT__TEXT_HEIGHT = eINSTANCE.getButtonComponent_TextHeight();
+        EAttribute BUTTON_COMPONENT__TEXT_HEIGHT = eINSTANCE.getButtonComponent_TextHeight ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl <em>Bool LED Component</em>}' class.
@@ -2966,7 +2965,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getBoolLEDComponent()
          * @generated
          */
-        EClass BOOL_LED_COMPONENT = eINSTANCE.getBoolLEDComponent();
+        EClass BOOL_LED_COMPONENT = eINSTANCE.getBoolLEDComponent ();
 
         /**
          * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -2974,7 +2973,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BOOL_LED_COMPONENT__FORMAT = eINSTANCE.getBoolLEDComponent_Format();
+        EAttribute BOOL_LED_COMPONENT__FORMAT = eINSTANCE.getBoolLEDComponent_Format ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -2982,7 +2981,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BOOL_LED_COMPONENT__DESCRIPTOR = eINSTANCE.getBoolLEDComponent_Descriptor();
+        EAttribute BOOL_LED_COMPONENT__DESCRIPTOR = eINSTANCE.getBoolLEDComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Alarm</b></em>' attribute feature.
@@ -2990,7 +2989,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BOOL_LED_COMPONENT__ALARM = eINSTANCE.getBoolLEDComponent_Alarm();
+        EAttribute BOOL_LED_COMPONENT__ALARM = eINSTANCE.getBoolLEDComponent_Alarm ();
 
         /**
          * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
@@ -2998,7 +2997,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BOOL_LED_COMPONENT__ATTRIBUTE = eINSTANCE.getBoolLEDComponent_Attribute();
+        EAttribute BOOL_LED_COMPONENT__ATTRIBUTE = eINSTANCE.getBoolLEDComponent_Attribute ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ValueSourceImpl <em>Value Source</em>}' class.
@@ -3008,7 +3007,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getValueSource()
          * @generated
          */
-        EClass VALUE_SOURCE = eINSTANCE.getValueSource();
+        EClass VALUE_SOURCE = eINSTANCE.getValueSource ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ItemValueSourceImpl <em>Item Value Source</em>}' class.
@@ -3018,7 +3017,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getItemValueSource()
          * @generated
          */
-        EClass ITEM_VALUE_SOURCE = eINSTANCE.getItemValueSource();
+        EClass ITEM_VALUE_SOURCE = eINSTANCE.getItemValueSource ();
 
         /**
          * The meta object literal for the '<em><b>Value Key</b></em>' attribute feature.
@@ -3026,7 +3025,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute ITEM_VALUE_SOURCE__VALUE_KEY = eINSTANCE.getItemValueSource_ValueKey();
+        EAttribute ITEM_VALUE_SOURCE__VALUE_KEY = eINSTANCE.getItemValueSource_ValueKey ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.NotTransformerImpl <em>Not Transformer</em>}' class.
@@ -3036,7 +3035,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getNotTransformer()
          * @generated
          */
-        EClass NOT_TRANSFORMER = eINSTANCE.getNotTransformer();
+        EClass NOT_TRANSFORMER = eINSTANCE.getNotTransformer ();
 
         /**
          * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
@@ -3044,7 +3043,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference NOT_TRANSFORMER__VALUE = eINSTANCE.getNotTransformer_Value();
+        EReference NOT_TRANSFORMER__VALUE = eINSTANCE.getNotTransformer_Value ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.GenericComponentImpl <em>Generic Component</em>}' class.
@@ -3054,7 +3053,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getGenericComponent()
          * @generated
          */
-        EClass GENERIC_COMPONENT = eINSTANCE.getGenericComponent();
+        EClass GENERIC_COMPONENT = eINSTANCE.getGenericComponent ();
 
         /**
          * The meta object literal for the '<em><b>Registrations</b></em>' containment reference list feature.
@@ -3062,7 +3061,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference GENERIC_COMPONENT__REGISTRATIONS = eINSTANCE.getGenericComponent_Registrations();
+        EReference GENERIC_COMPONENT__REGISTRATIONS = eINSTANCE.getGenericComponent_Registrations ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.RegistrationImpl <em>Registration</em>}' class.
@@ -3072,7 +3071,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getRegistration()
          * @generated
          */
-        EClass REGISTRATION = eINSTANCE.getRegistration();
+        EClass REGISTRATION = eINSTANCE.getRegistration ();
 
         /**
          * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -3080,7 +3079,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REGISTRATION__KEY = eINSTANCE.getRegistration_Key();
+        EAttribute REGISTRATION__KEY = eINSTANCE.getRegistration_Key ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3088,7 +3087,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REGISTRATION__DESCRIPTOR = eINSTANCE.getRegistration_Descriptor();
+        EAttribute REGISTRATION__DESCRIPTOR = eINSTANCE.getRegistration_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Aggregate State</b></em>' attribute feature.
@@ -3096,7 +3095,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute REGISTRATION__AGGREGATE_STATE = eINSTANCE.getRegistration_AggregateState();
+        EAttribute REGISTRATION__AGGREGATE_STATE = eINSTANCE.getRegistration_AggregateState ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.SimpleGridComponentImpl <em>Simple Grid Component</em>}' class.
@@ -3106,7 +3105,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getSimpleGridComponent()
          * @generated
          */
-        EClass SIMPLE_GRID_COMPONENT = eINSTANCE.getSimpleGridComponent();
+        EClass SIMPLE_GRID_COMPONENT = eINSTANCE.getSimpleGridComponent ();
 
         /**
          * The meta object literal for the '<em><b>Equally</b></em>' attribute feature.
@@ -3114,7 +3113,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SIMPLE_GRID_COMPONENT__EQUALLY = eINSTANCE.getSimpleGridComponent_Equally();
+        EAttribute SIMPLE_GRID_COMPONENT__EQUALLY = eINSTANCE.getSimpleGridComponent_Equally ();
 
         /**
          * The meta object literal for the '<em><b>Cols</b></em>' attribute feature.
@@ -3122,7 +3121,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SIMPLE_GRID_COMPONENT__COLS = eINSTANCE.getSimpleGridComponent_Cols();
+        EAttribute SIMPLE_GRID_COMPONENT__COLS = eINSTANCE.getSimpleGridComponent_Cols ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.GroupGridComponentImpl <em>Group Grid Component</em>}' class.
@@ -3132,7 +3131,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getGroupGridComponent()
          * @generated
          */
-        EClass GROUP_GRID_COMPONENT = eINSTANCE.getGroupGridComponent();
+        EClass GROUP_GRID_COMPONENT = eINSTANCE.getGroupGridComponent ();
 
         /**
          * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.
@@ -3140,7 +3139,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference GROUP_GRID_COMPONENT__GROUPS = eINSTANCE.getGroupGridComponent_Groups();
+        EReference GROUP_GRID_COMPONENT__GROUPS = eINSTANCE.getGroupGridComponent_Groups ();
 
         /**
          * The meta object literal for the '<em><b>Equally</b></em>' attribute feature.
@@ -3148,7 +3147,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GROUP_GRID_COMPONENT__EQUALLY = eINSTANCE.getGroupGridComponent_Equally();
+        EAttribute GROUP_GRID_COMPONENT__EQUALLY = eINSTANCE.getGroupGridComponent_Equally ();
 
         /**
          * The meta object literal for the '<em><b>Cols</b></em>' attribute feature.
@@ -3156,7 +3155,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GROUP_GRID_COMPONENT__COLS = eINSTANCE.getGroupGridComponent_Cols();
+        EAttribute GROUP_GRID_COMPONENT__COLS = eINSTANCE.getGroupGridComponent_Cols ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.GroupGridEntryImpl <em>Group Grid Entry</em>}' class.
@@ -3166,7 +3165,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getGroupGridEntry()
          * @generated
          */
-        EClass GROUP_GRID_ENTRY = eINSTANCE.getGroupGridEntry();
+        EClass GROUP_GRID_ENTRY = eINSTANCE.getGroupGridEntry ();
 
         /**
          * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -3174,7 +3173,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GROUP_GRID_ENTRY__LABEL = eINSTANCE.getGroupGridEntry_Label();
+        EAttribute GROUP_GRID_ENTRY__LABEL = eINSTANCE.getGroupGridEntry_Label ();
 
         /**
          * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
@@ -3182,7 +3181,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference GROUP_GRID_ENTRY__COMPONENTS = eINSTANCE.getGroupGridEntry_Components();
+        EReference GROUP_GRID_ENTRY__COMPONENTS = eINSTANCE.getGroupGridEntry_Components ();
 
         /**
          * The meta object literal for the '<em><b>Permission</b></em>' attribute feature.
@@ -3190,7 +3189,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute GROUP_GRID_ENTRY__PERMISSION = eINSTANCE.getGroupGridEntry_Permission();
+        EAttribute GROUP_GRID_ENTRY__PERMISSION = eINSTANCE.getGroupGridEntry_Permission ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ValueSetComponentImpl <em>Value Set Component</em>}' class.
@@ -3200,7 +3199,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getValueSetComponent()
          * @generated
          */
-        EClass VALUE_SET_COMPONENT = eINSTANCE.getValueSetComponent();
+        EClass VALUE_SET_COMPONENT = eINSTANCE.getValueSetComponent ();
 
         /**
          * The meta object literal for the '<em><b>Value Descriptor</b></em>' attribute feature.
@@ -3208,7 +3207,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VALUE_SET_COMPONENT__VALUE_DESCRIPTOR = eINSTANCE.getValueSetComponent_ValueDescriptor();
+        EAttribute VALUE_SET_COMPONENT__VALUE_DESCRIPTOR = eINSTANCE.getValueSetComponent_ValueDescriptor ();
 
         /**
          * The meta object literal for the '<em><b>Set Descriptor</b></em>' attribute feature.
@@ -3216,7 +3215,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VALUE_SET_COMPONENT__SET_DESCRIPTOR = eINSTANCE.getValueSetComponent_SetDescriptor();
+        EAttribute VALUE_SET_COMPONENT__SET_DESCRIPTOR = eINSTANCE.getValueSetComponent_SetDescriptor ();
 
         /**
          * The meta object literal for the '<em><b>Reset Descriptor</b></em>' attribute feature.
@@ -3224,7 +3223,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VALUE_SET_COMPONENT__RESET_DESCRIPTOR = eINSTANCE.getValueSetComponent_ResetDescriptor();
+        EAttribute VALUE_SET_COMPONENT__RESET_DESCRIPTOR = eINSTANCE.getValueSetComponent_ResetDescriptor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ValueComponentImpl <em>Value Component</em>}' class.
@@ -3234,7 +3233,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getValueComponent()
          * @generated
          */
-        EClass VALUE_COMPONENT = eINSTANCE.getValueComponent();
+        EClass VALUE_COMPONENT = eINSTANCE.getValueComponent ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3242,7 +3241,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VALUE_COMPONENT__DESCRIPTOR = eINSTANCE.getValueComponent_Descriptor();
+        EAttribute VALUE_COMPONENT__DESCRIPTOR = eINSTANCE.getValueComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
@@ -3250,7 +3249,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute VALUE_COMPONENT__DATE = eINSTANCE.getValueComponent_Date();
+        EAttribute VALUE_COMPONENT__DATE = eINSTANCE.getValueComponent_Date ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.CompositeTransformerImpl <em>Composite Transformer</em>}' class.
@@ -3260,7 +3259,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getCompositeTransformer()
          * @generated
          */
-        EClass COMPOSITE_TRANSFORMER = eINSTANCE.getCompositeTransformer();
+        EClass COMPOSITE_TRANSFORMER = eINSTANCE.getCompositeTransformer ();
 
         /**
          * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
@@ -3268,7 +3267,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference COMPOSITE_TRANSFORMER__VALUES = eINSTANCE.getCompositeTransformer_Values();
+        EReference COMPOSITE_TRANSFORMER__VALUES = eINSTANCE.getCompositeTransformer_Values ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.AndTransformerImpl <em>And Transformer</em>}' class.
@@ -3278,7 +3277,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getAndTransformer()
          * @generated
          */
-        EClass AND_TRANSFORMER = eINSTANCE.getAndTransformer();
+        EClass AND_TRANSFORMER = eINSTANCE.getAndTransformer ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.OrTransformerImpl <em>Or Transformer</em>}' class.
@@ -3288,7 +3287,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getOrTransformer()
          * @generated
          */
-        EClass OR_TRANSFORMER = eINSTANCE.getOrTransformer();
+        EClass OR_TRANSFORMER = eINSTANCE.getOrTransformer ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.TextInputComponentImpl <em>Text Input Component</em>}' class.
@@ -3298,7 +3297,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getTextInputComponent()
          * @generated
          */
-        EClass TEXT_INPUT_COMPONENT = eINSTANCE.getTextInputComponent();
+        EClass TEXT_INPUT_COMPONENT = eINSTANCE.getTextInputComponent ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3306,7 +3305,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_INPUT_COMPONENT__DESCRIPTOR = eINSTANCE.getTextInputComponent_Descriptor();
+        EAttribute TEXT_INPUT_COMPONENT__DESCRIPTOR = eINSTANCE.getTextInputComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Read Descriptor</b></em>' attribute feature.
@@ -3314,7 +3313,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_INPUT_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getTextInputComponent_ReadDescriptor();
+        EAttribute TEXT_INPUT_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getTextInputComponent_ReadDescriptor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.WriteableComponentImpl <em>Writeable Component</em>}' class.
@@ -3324,7 +3323,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getWriteableComponent()
          * @generated
          */
-        EClass WRITEABLE_COMPONENT = eINSTANCE.getWriteableComponent();
+        EClass WRITEABLE_COMPONENT = eINSTANCE.getWriteableComponent ();
 
         /**
          * The meta object literal for the '<em><b>Ceil</b></em>' attribute feature.
@@ -3332,7 +3331,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WRITEABLE_COMPONENT__CEIL = eINSTANCE.getWriteableComponent_Ceil();
+        EAttribute WRITEABLE_COMPONENT__CEIL = eINSTANCE.getWriteableComponent_Ceil ();
 
         /**
          * The meta object literal for the '<em><b>Floor</b></em>' attribute feature.
@@ -3340,7 +3339,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute WRITEABLE_COMPONENT__FLOOR = eINSTANCE.getWriteableComponent_Floor();
+        EAttribute WRITEABLE_COMPONENT__FLOOR = eINSTANCE.getWriteableComponent_Floor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl <em>Readable Component</em>}' class.
@@ -3350,7 +3349,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getReadableComponent()
          * @generated
          */
-        EClass READABLE_COMPONENT = eINSTANCE.getReadableComponent();
+        EClass READABLE_COMPONENT = eINSTANCE.getReadableComponent ();
 
         /**
          * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -3358,7 +3357,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute READABLE_COMPONENT__FORMAT = eINSTANCE.getReadableComponent_Format();
+        EAttribute READABLE_COMPONENT__FORMAT = eINSTANCE.getReadableComponent_Format ();
 
         /**
          * The meta object literal for the '<em><b>Decimal</b></em>' attribute feature.
@@ -3366,7 +3365,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute READABLE_COMPONENT__DECIMAL = eINSTANCE.getReadableComponent_Decimal();
+        EAttribute READABLE_COMPONENT__DECIMAL = eINSTANCE.getReadableComponent_Decimal ();
 
         /**
          * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
@@ -3374,7 +3373,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute READABLE_COMPONENT__ATTRIBUTE = eINSTANCE.getReadableComponent_Attribute();
+        EAttribute READABLE_COMPONENT__ATTRIBUTE = eINSTANCE.getReadableComponent_Attribute ();
 
         /**
          * The meta object literal for the '<em><b>Hd Connectionid</b></em>' attribute feature.
@@ -3382,7 +3381,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute READABLE_COMPONENT__HD_CONNECTIONID = eINSTANCE.getReadableComponent_HdConnectionid();
+        EAttribute READABLE_COMPONENT__HD_CONNECTIONID = eINSTANCE.getReadableComponent_HdConnectionid ();
 
         /**
          * The meta object literal for the '<em><b>Hd Item Id</b></em>' attribute feature.
@@ -3390,7 +3389,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute READABLE_COMPONENT__HD_ITEM_ID = eINSTANCE.getReadableComponent_HdItemId();
+        EAttribute READABLE_COMPONENT__HD_ITEM_ID = eINSTANCE.getReadableComponent_HdItemId ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.TextComponentImpl <em>Text Component</em>}' class.
@@ -3400,7 +3399,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getTextComponent()
          * @generated
          */
-        EClass TEXT_COMPONENT = eINSTANCE.getTextComponent();
+        EClass TEXT_COMPONENT = eINSTANCE.getTextComponent ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3408,7 +3407,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_COMPONENT__DESCRIPTOR = eINSTANCE.getTextComponent_Descriptor();
+        EAttribute TEXT_COMPONENT__DESCRIPTOR = eINSTANCE.getTextComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
@@ -3416,7 +3415,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_COMPONENT__WIDTH = eINSTANCE.getTextComponent_Width();
+        EAttribute TEXT_COMPONENT__WIDTH = eINSTANCE.getTextComponent_Width ();
 
         /**
          * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
@@ -3424,7 +3423,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_COMPONENT__HEIGHT = eINSTANCE.getTextComponent_Height();
+        EAttribute TEXT_COMPONENT__HEIGHT = eINSTANCE.getTextComponent_Height ();
 
         /**
          * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
@@ -3432,7 +3431,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_COMPONENT__DATE = eINSTANCE.getTextComponent_Date();
+        EAttribute TEXT_COMPONENT__DATE = eINSTANCE.getTextComponent_Date ();
 
         /**
          * The meta object literal for the '<em><b>Text Height</b></em>' attribute feature.
@@ -3440,7 +3439,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_COMPONENT__TEXT_HEIGHT = eINSTANCE.getTextComponent_TextHeight();
+        EAttribute TEXT_COMPONENT__TEXT_HEIGHT = eINSTANCE.getTextComponent_TextHeight ();
 
         /**
          * The meta object literal for the '<em><b>Text Map</b></em>' attribute feature.
@@ -3448,7 +3447,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_COMPONENT__TEXT_MAP = eINSTANCE.getTextComponent_TextMap();
+        EAttribute TEXT_COMPONENT__TEXT_MAP = eINSTANCE.getTextComponent_TextMap ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.TextInputMultiComponentImpl <em>Text Input Multi Component</em>}' class.
@@ -3458,7 +3457,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getTextInputMultiComponent()
          * @generated
          */
-        EClass TEXT_INPUT_MULTI_COMPONENT = eINSTANCE.getTextInputMultiComponent();
+        EClass TEXT_INPUT_MULTI_COMPONENT = eINSTANCE.getTextInputMultiComponent ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3466,7 +3465,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR = eINSTANCE.getTextInputMultiComponent_Descriptor();
+        EAttribute TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR = eINSTANCE.getTextInputMultiComponent_Descriptor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.CheckComponentImpl <em>Check Component</em>}' class.
@@ -3476,7 +3475,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getCheckComponent()
          * @generated
          */
-        EClass CHECK_COMPONENT = eINSTANCE.getCheckComponent();
+        EClass CHECK_COMPONENT = eINSTANCE.getCheckComponent ();
 
         /**
          * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -3484,7 +3483,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CHECK_COMPONENT__FORMAT = eINSTANCE.getCheckComponent_Format();
+        EAttribute CHECK_COMPONENT__FORMAT = eINSTANCE.getCheckComponent_Format ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3492,7 +3491,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CHECK_COMPONENT__DESCRIPTOR = eINSTANCE.getCheckComponent_Descriptor();
+        EAttribute CHECK_COMPONENT__DESCRIPTOR = eINSTANCE.getCheckComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
@@ -3500,7 +3499,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CHECK_COMPONENT__ATTRIBUTE = eINSTANCE.getCheckComponent_Attribute();
+        EAttribute CHECK_COMPONENT__ATTRIBUTE = eINSTANCE.getCheckComponent_Attribute ();
 
         /**
          * The meta object literal for the '<em><b>Read Descriptor</b></em>' attribute feature.
@@ -3508,7 +3507,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute CHECK_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getCheckComponent_ReadDescriptor();
+        EAttribute CHECK_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getCheckComponent_ReadDescriptor ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.LinkComponentImpl <em>Link Component</em>}' class.
@@ -3518,7 +3517,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getLinkComponent()
          * @generated
          */
-        EClass LINK_COMPONENT = eINSTANCE.getLinkComponent();
+        EClass LINK_COMPONENT = eINSTANCE.getLinkComponent ();
 
         /**
          * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -3526,7 +3525,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute LINK_COMPONENT__FORMAT = eINSTANCE.getLinkComponent_Format();
+        EAttribute LINK_COMPONENT__FORMAT = eINSTANCE.getLinkComponent_Format ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.URLImageComponentImpl <em>URL Image Component</em>}' class.
@@ -3536,7 +3535,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getURLImageComponent()
          * @generated
          */
-        EClass URL_IMAGE_COMPONENT = eINSTANCE.getURLImageComponent();
+        EClass URL_IMAGE_COMPONENT = eINSTANCE.getURLImageComponent ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3544,7 +3543,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute URL_IMAGE_COMPONENT__DESCRIPTOR = eINSTANCE.getURLImageComponent_Descriptor();
+        EAttribute URL_IMAGE_COMPONENT__DESCRIPTOR = eINSTANCE.getURLImageComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Image Url</b></em>' attribute feature.
@@ -3552,7 +3551,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute URL_IMAGE_COMPONENT__IMAGE_URL = eINSTANCE.getURLImageComponent_ImageUrl();
+        EAttribute URL_IMAGE_COMPONENT__IMAGE_URL = eINSTANCE.getURLImageComponent_ImageUrl ();
 
         /**
          * The meta object literal for the '<em><b>Fallback Image Url</b></em>' attribute feature.
@@ -3560,7 +3559,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL = eINSTANCE.getURLImageComponent_FallbackImageUrl();
+        EAttribute URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL = eINSTANCE.getURLImageComponent_FallbackImageUrl ();
 
         /**
          * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
@@ -3568,7 +3567,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute URL_IMAGE_COMPONENT__WIDTH = eINSTANCE.getURLImageComponent_Width();
+        EAttribute URL_IMAGE_COMPONENT__WIDTH = eINSTANCE.getURLImageComponent_Width ();
 
         /**
          * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
@@ -3576,7 +3575,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute URL_IMAGE_COMPONENT__HEIGHT = eINSTANCE.getURLImageComponent_Height();
+        EAttribute URL_IMAGE_COMPONENT__HEIGHT = eINSTANCE.getURLImageComponent_Height ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ProgressComponentImpl <em>Progress Component</em>}' class.
@@ -3586,7 +3585,7 @@ public interface DetailViewPackage extends EPackage
          * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getProgressComponent()
          * @generated
          */
-        EClass PROGRESS_COMPONENT = eINSTANCE.getProgressComponent();
+        EClass PROGRESS_COMPONENT = eINSTANCE.getProgressComponent ();
 
         /**
          * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
@@ -3594,7 +3593,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROGRESS_COMPONENT__DESCRIPTOR = eINSTANCE.getProgressComponent_Descriptor();
+        EAttribute PROGRESS_COMPONENT__DESCRIPTOR = eINSTANCE.getProgressComponent_Descriptor ();
 
         /**
          * The meta object literal for the '<em><b>Factor</b></em>' attribute feature.
@@ -3602,7 +3601,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROGRESS_COMPONENT__FACTOR = eINSTANCE.getProgressComponent_Factor();
+        EAttribute PROGRESS_COMPONENT__FACTOR = eINSTANCE.getProgressComponent_Factor ();
 
         /**
          * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
@@ -3610,7 +3609,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROGRESS_COMPONENT__MAX = eINSTANCE.getProgressComponent_Max();
+        EAttribute PROGRESS_COMPONENT__MAX = eINSTANCE.getProgressComponent_Max ();
 
         /**
          * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
@@ -3618,7 +3617,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROGRESS_COMPONENT__MIN = eINSTANCE.getProgressComponent_Min();
+        EAttribute PROGRESS_COMPONENT__MIN = eINSTANCE.getProgressComponent_Min ();
 
         /**
          * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
@@ -3626,7 +3625,7 @@ public interface DetailViewPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROGRESS_COMPONENT__WIDTH = eINSTANCE.getProgressComponent_Width();
+        EAttribute PROGRESS_COMPONENT__WIDTH = eINSTANCE.getProgressComponent_Width ();
 
     }
 

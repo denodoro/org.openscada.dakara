@@ -25,9 +25,9 @@ public class LabelComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(LabelComponentTest.class);
+        TestRunner.run ( LabelComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class LabelComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public LabelComponentTest(String name)
+    public LabelComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class LabelComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected LabelComponent getFixture()
+    protected LabelComponent getFixture ()
     {
         return (LabelComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class LabelComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createLabelComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createLabelComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class LabelComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //LabelComponentTest

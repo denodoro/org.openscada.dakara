@@ -25,9 +25,9 @@ public class ButtonComponentTest extends GenericComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ButtonComponentTest.class);
+        TestRunner.run ( ButtonComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ButtonComponentTest extends GenericComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ButtonComponentTest(String name)
+    public ButtonComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ButtonComponentTest extends GenericComponentTest
      * @generated
      */
     @Override
-    protected ButtonComponent getFixture()
+    protected ButtonComponent getFixture ()
     {
         return (ButtonComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class ButtonComponentTest extends GenericComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createButtonComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createButtonComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ButtonComponentTest extends GenericComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ButtonComponentTest

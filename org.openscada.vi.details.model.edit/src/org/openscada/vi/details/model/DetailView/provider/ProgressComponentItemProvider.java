@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.ProgressComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProgressComponentItemProvider
-    extends ReadableComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ProgressComponentItemProvider extends ReadableComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class ProgressComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProgressComponentItemProvider(AdapterFactory adapterFactory)
+    public ProgressComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,17 +51,17 @@ public class ProgressComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addDescriptorPropertyDescriptor(object);
-            addFactorPropertyDescriptor(object);
-            addMaxPropertyDescriptor(object);
-            addMinPropertyDescriptor(object);
-            addWidthPropertyDescriptor(object);
+            addDescriptorPropertyDescriptor ( object );
+            addFactorPropertyDescriptor ( object );
+            addMaxPropertyDescriptor ( object );
+            addMinPropertyDescriptor ( object );
+            addWidthPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -80,21 +72,9 @@ public class ProgressComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDescriptorPropertyDescriptor(Object object)
+    protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProgressComponent_descriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProgressComponent_descriptor_feature", "_UI_ProgressComponent_type"),
-                 DetailViewPackage.Literals.PROGRESS_COMPONENT__DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProgressComponent_descriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProgressComponent_descriptor_feature", "_UI_ProgressComponent_type" ), DetailViewPackage.Literals.PROGRESS_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -103,21 +83,9 @@ public class ProgressComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFactorPropertyDescriptor(Object object)
+    protected void addFactorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProgressComponent_factor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProgressComponent_factor_feature", "_UI_ProgressComponent_type"),
-                 DetailViewPackage.Literals.PROGRESS_COMPONENT__FACTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProgressComponent_factor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProgressComponent_factor_feature", "_UI_ProgressComponent_type" ), DetailViewPackage.Literals.PROGRESS_COMPONENT__FACTOR, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -126,21 +94,9 @@ public class ProgressComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addMaxPropertyDescriptor(Object object)
+    protected void addMaxPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProgressComponent_max_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProgressComponent_max_feature", "_UI_ProgressComponent_type"),
-                 DetailViewPackage.Literals.PROGRESS_COMPONENT__MAX,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProgressComponent_max_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProgressComponent_max_feature", "_UI_ProgressComponent_type" ), DetailViewPackage.Literals.PROGRESS_COMPONENT__MAX, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -149,21 +105,9 @@ public class ProgressComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addMinPropertyDescriptor(Object object)
+    protected void addMinPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProgressComponent_min_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProgressComponent_min_feature", "_UI_ProgressComponent_type"),
-                 DetailViewPackage.Literals.PROGRESS_COMPONENT__MIN,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProgressComponent_min_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProgressComponent_min_feature", "_UI_ProgressComponent_type" ), DetailViewPackage.Literals.PROGRESS_COMPONENT__MIN, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -172,21 +116,9 @@ public class ProgressComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addWidthPropertyDescriptor(Object object)
+    protected void addWidthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ProgressComponent_width_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ProgressComponent_width_feature", "_UI_ProgressComponent_type"),
-                 DetailViewPackage.Literals.PROGRESS_COMPONENT__WIDTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProgressComponent_width_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProgressComponent_width_feature", "_UI_ProgressComponent_type" ), DetailViewPackage.Literals.PROGRESS_COMPONENT__WIDTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -196,9 +128,9 @@ public class ProgressComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProgressComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ProgressComponent" ) );
     }
 
     /**
@@ -208,12 +140,10 @@ public class ProgressComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((ProgressComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_ProgressComponent_type") :
-            getString("_UI_ProgressComponent_type") + " " + label;
+        String label = ( (ProgressComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ProgressComponent_type" ) : getString ( "_UI_ProgressComponent_type" ) + " " + label;
     }
 
     /**
@@ -224,21 +154,21 @@ public class ProgressComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(ProgressComponent.class))
+        switch ( notification.getFeatureID ( ProgressComponent.class ) )
         {
             case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
             case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
             case DetailViewPackage.PROGRESS_COMPONENT__MAX:
             case DetailViewPackage.PROGRESS_COMPONENT__MIN:
             case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -249,9 +179,9 @@ public class ProgressComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

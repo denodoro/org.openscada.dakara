@@ -29,9 +29,9 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ComponentImpl()
+    protected ComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.COMPONENT;
     }

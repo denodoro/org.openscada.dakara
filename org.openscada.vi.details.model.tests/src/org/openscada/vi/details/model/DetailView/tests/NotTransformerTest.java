@@ -25,9 +25,9 @@ public class NotTransformerTest extends ValueSourceTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(NotTransformerTest.class);
+        TestRunner.run ( NotTransformerTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class NotTransformerTest extends ValueSourceTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotTransformerTest(String name)
+    public NotTransformerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class NotTransformerTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected NotTransformer getFixture()
+    protected NotTransformer getFixture ()
     {
         return (NotTransformer)fixture;
     }
@@ -60,9 +60,9 @@ public class NotTransformerTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createNotTransformer());
+        setFixture ( DetailViewFactory.eINSTANCE.createNotTransformer () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class NotTransformerTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //NotTransformerTest

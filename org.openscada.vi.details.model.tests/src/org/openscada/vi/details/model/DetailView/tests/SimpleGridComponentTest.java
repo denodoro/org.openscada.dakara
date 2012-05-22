@@ -25,9 +25,9 @@ public class SimpleGridComponentTest extends CompositeComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(SimpleGridComponentTest.class);
+        TestRunner.run ( SimpleGridComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class SimpleGridComponentTest extends CompositeComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public SimpleGridComponentTest(String name)
+    public SimpleGridComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class SimpleGridComponentTest extends CompositeComponentTest
      * @generated
      */
     @Override
-    protected SimpleGridComponent getFixture()
+    protected SimpleGridComponent getFixture ()
     {
         return (SimpleGridComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class SimpleGridComponentTest extends CompositeComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createSimpleGridComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createSimpleGridComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class SimpleGridComponentTest extends CompositeComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //SimpleGridComponentTest

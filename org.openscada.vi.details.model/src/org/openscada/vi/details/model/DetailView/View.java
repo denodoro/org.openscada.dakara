@@ -43,7 +43,7 @@ public interface View extends EObject
      * @model containment="true"
      * @generated
      */
-    Component getHeaderComponent();
+    Component getHeaderComponent ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.View#getHeaderComponent <em>Header Component</em>}' containment reference.
@@ -53,7 +53,7 @@ public interface View extends EObject
      * @see #getHeaderComponent()
      * @generated
      */
-    void setHeaderComponent(Component value);
+    void setHeaderComponent ( Component value );
 
     /**
      * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
@@ -69,6 +69,6 @@ public interface View extends EObject
      * @model containment="true"
      * @generated
      */
-    EList<GroupEntry> getGroups();
+    EList<GroupEntry> getGroups ();
 
 } // View

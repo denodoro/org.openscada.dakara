@@ -97,9 +97,9 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GroupGridComponentImpl()
+    protected GroupGridComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -108,7 +108,7 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.GROUP_GRID_COMPONENT;
     }
@@ -118,11 +118,11 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<GroupGridEntry> getGroups()
+    public EList<GroupGridEntry> getGroups ()
     {
-        if (groups == null)
+        if ( groups == null )
         {
-            groups = new EObjectContainmentEList<GroupGridEntry>(GroupGridEntry.class, this, DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS);
+            groups = new EObjectContainmentEList<GroupGridEntry> ( GroupGridEntry.class, this, DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS );
         }
         return groups;
     }
@@ -132,7 +132,7 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isEqually()
+    public boolean isEqually ()
     {
         return equally;
     }
@@ -142,12 +142,12 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEqually(boolean newEqually)
+    public void setEqually ( boolean newEqually )
     {
         boolean oldEqually = equally;
         equally = newEqually;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY, oldEqually, equally));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY, oldEqually, equally ) );
     }
 
     /**
@@ -155,7 +155,7 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getCols()
+    public int getCols ()
     {
         return cols;
     }
@@ -165,12 +165,12 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCols(int newCols)
+    public void setCols ( int newCols )
     {
         int oldCols = cols;
         cols = newCols;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_GRID_COMPONENT__COLS, oldCols, cols));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_GRID_COMPONENT__COLS, oldCols, cols ) );
     }
 
     /**
@@ -179,14 +179,14 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-                return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -195,18 +195,18 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-                return getGroups();
+                return getGroups ();
             case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-                return isEqually();
+                return isEqually ();
             case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-                return getCols();
+                return getCols ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -214,47 +214,24 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-                getGroups().clear();
-                getGroups().addAll((Collection<? extends GroupGridEntry>)newValue);
-                return;
-            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-                setEqually((Boolean)newValue);
-                return;
-            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-                setCols((Integer)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-                getGroups().clear();
+                getGroups ().clear ();
+                getGroups ().addAll ( (Collection<? extends GroupGridEntry>)newValue );
                 return;
             case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-                setEqually(EQUALLY_EDEFAULT);
+                setEqually ( (Boolean)newValue );
                 return;
             case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-                setCols(COLS_EDEFAULT);
+                setCols ( (Integer)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -263,18 +240,41 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-                return groups != null && !groups.isEmpty();
+                getGroups ().clear ();
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
+                setEqually ( EQUALLY_EDEFAULT );
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
+                setCols ( COLS_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                return groups != null && !groups.isEmpty ();
             case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
                 return equally != EQUALLY_EDEFAULT;
             case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
                 return cols != COLS_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -283,17 +283,18 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (equally: ");
-        result.append(equally);
-        result.append(", cols: ");
-        result.append(cols);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (equally: " );
+        result.append ( equally );
+        result.append ( ", cols: " );
+        result.append ( cols );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GroupGridComponentImpl

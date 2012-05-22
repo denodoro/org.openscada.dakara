@@ -55,9 +55,9 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LinkComponentImpl()
+    protected LinkComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,7 +66,7 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.LINK_COMPONENT;
     }
@@ -76,7 +76,7 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFormat()
+    public String getFormat ()
     {
         return format;
     }
@@ -86,12 +86,12 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFormat(String newFormat)
+    public void setFormat ( String newFormat )
     {
         String oldFormat = format;
         format = newFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.LINK_COMPONENT__FORMAT, oldFormat, format));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.LINK_COMPONENT__FORMAT, oldFormat, format ) );
     }
 
     /**
@@ -100,14 +100,14 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                return getFormat();
+                return getFormat ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -116,15 +116,15 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                setFormat((String)newValue);
+                setFormat ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -133,15 +133,15 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                setFormat(FORMAT_EDEFAULT);
+                setFormat ( FORMAT_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -150,14 +150,14 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -166,15 +166,16 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (format: ");
-        result.append(format);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (format: " );
+        result.append ( format );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //LinkComponentImpl

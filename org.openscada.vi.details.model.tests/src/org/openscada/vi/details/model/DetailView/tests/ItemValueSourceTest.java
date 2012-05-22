@@ -25,9 +25,9 @@ public class ItemValueSourceTest extends ValueSourceTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ItemValueSourceTest.class);
+        TestRunner.run ( ItemValueSourceTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ItemValueSourceTest extends ValueSourceTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ItemValueSourceTest(String name)
+    public ItemValueSourceTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ItemValueSourceTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected ItemValueSource getFixture()
+    protected ItemValueSource getFixture ()
     {
         return (ItemValueSource)fixture;
     }
@@ -60,9 +60,9 @@ public class ItemValueSourceTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createItemValueSource());
+        setFixture ( DetailViewFactory.eINSTANCE.createItemValueSource () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ItemValueSourceTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ItemValueSourceTest

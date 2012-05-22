@@ -25,9 +25,9 @@ public class DetailViewAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(suite());
+        TestRunner.run ( suite () );
     }
 
     /**
@@ -35,9 +35,9 @@ public class DetailViewAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Test suite()
+    public static Test suite ()
     {
-        TestSuite suite = new DetailViewAllTests("DetailView Tests");
+        TestSuite suite = new DetailViewAllTests ( "DetailView Tests" );
         return suite;
     }
 
@@ -46,9 +46,9 @@ public class DetailViewAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewAllTests(String name)
+    public DetailViewAllTests ( String name )
     {
-        super(name);
+        super ( name );
     }
 
 } //DetailViewAllTests

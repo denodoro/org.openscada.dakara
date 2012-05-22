@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.WriteableComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WriteableComponentItemProvider
-    extends ReadableComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class WriteableComponentItemProvider extends ReadableComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class WriteableComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public WriteableComponentItemProvider(AdapterFactory adapterFactory)
+    public WriteableComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,14 +51,14 @@ public class WriteableComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addCeilPropertyDescriptor(object);
-            addFloorPropertyDescriptor(object);
+            addCeilPropertyDescriptor ( object );
+            addFloorPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -77,21 +69,9 @@ public class WriteableComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addCeilPropertyDescriptor(Object object)
+    protected void addCeilPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WriteableComponent_ceil_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WriteableComponent_ceil_feature", "_UI_WriteableComponent_type"),
-                 DetailViewPackage.Literals.WRITEABLE_COMPONENT__CEIL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WriteableComponent_ceil_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_WriteableComponent_ceil_feature", "_UI_WriteableComponent_type" ), DetailViewPackage.Literals.WRITEABLE_COMPONENT__CEIL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -100,21 +80,9 @@ public class WriteableComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFloorPropertyDescriptor(Object object)
+    protected void addFloorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_WriteableComponent_floor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_WriteableComponent_floor_feature", "_UI_WriteableComponent_type"),
-                 DetailViewPackage.Literals.WRITEABLE_COMPONENT__FLOOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WriteableComponent_floor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_WriteableComponent_floor_feature", "_UI_WriteableComponent_type" ), DetailViewPackage.Literals.WRITEABLE_COMPONENT__FLOOR, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -124,12 +92,10 @@ public class WriteableComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((WriteableComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_WriteableComponent_type") :
-            getString("_UI_WriteableComponent_type") + " " + label;
+        String label = ( (WriteableComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_WriteableComponent_type" ) : getString ( "_UI_WriteableComponent_type" ) + " " + label;
     }
 
     /**
@@ -140,18 +106,18 @@ public class WriteableComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(WriteableComponent.class))
+        switch ( notification.getFeatureID ( WriteableComponent.class ) )
         {
             case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
             case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -162,9 +128,9 @@ public class WriteableComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Button Component</b></em>'.
@@ -45,7 +44,7 @@ public interface ButtonComponent extends GenericComponent
      * @model required="true"
      * @generated
      */
-    String getFormat();
+    String getFormat ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getFormat <em>Format</em>}' attribute.
@@ -55,7 +54,7 @@ public interface ButtonComponent extends GenericComponent
      * @see #getFormat()
      * @generated
      */
-    void setFormat(String value);
+    void setFormat ( String value );
 
     /**
      * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -71,7 +70,7 @@ public interface ButtonComponent extends GenericComponent
      * @model required="true"
      * @generated
      */
-    String getValue();
+    String getValue ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getValue <em>Value</em>}' attribute.
@@ -81,7 +80,7 @@ public interface ButtonComponent extends GenericComponent
      * @see #getValue()
      * @generated
      */
-    void setValue(String value);
+    void setValue ( String value );
 
     /**
      * Returns the value of the '<em><b>Read Descriptor</b></em>' attribute.
@@ -97,7 +96,7 @@ public interface ButtonComponent extends GenericComponent
      * @model
      * @generated
      */
-    String getReadDescriptor();
+    String getReadDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getReadDescriptor <em>Read Descriptor</em>}' attribute.
@@ -107,7 +106,7 @@ public interface ButtonComponent extends GenericComponent
      * @see #getReadDescriptor()
      * @generated
      */
-    void setReadDescriptor(String value);
+    void setReadDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Write Descriptor</b></em>' attribute.
@@ -123,7 +122,7 @@ public interface ButtonComponent extends GenericComponent
      * @model required="true"
      * @generated
      */
-    String getWriteDescriptor();
+    String getWriteDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getWriteDescriptor <em>Write Descriptor</em>}' attribute.
@@ -133,7 +132,7 @@ public interface ButtonComponent extends GenericComponent
      * @see #getWriteDescriptor()
      * @generated
      */
-    void setWriteDescriptor(String value);
+    void setWriteDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Active</b></em>' containment reference.
@@ -149,7 +148,7 @@ public interface ButtonComponent extends GenericComponent
      * @model containment="true"
      * @generated
      */
-    ValueSource getActive();
+    ValueSource getActive ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getActive <em>Active</em>}' containment reference.
@@ -159,7 +158,7 @@ public interface ButtonComponent extends GenericComponent
      * @see #getActive()
      * @generated
      */
-    void setActive(ValueSource value);
+    void setActive ( ValueSource value );
 
     /**
      * Returns the value of the '<em><b>Attribute</b></em>' attribute.
@@ -175,7 +174,7 @@ public interface ButtonComponent extends GenericComponent
      * @model
      * @generated
      */
-    String getAttribute();
+    String getAttribute ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getAttribute <em>Attribute</em>}' attribute.
@@ -185,7 +184,7 @@ public interface ButtonComponent extends GenericComponent
      * @see #getAttribute()
      * @generated
      */
-    void setAttribute(String value);
+    void setAttribute ( String value );
 
     /**
      * Returns the value of the '<em><b>Text Height</b></em>' attribute.
@@ -201,7 +200,7 @@ public interface ButtonComponent extends GenericComponent
      * @model
      * @generated
      */
-    int getTextHeight();
+    int getTextHeight ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ButtonComponent#getTextHeight <em>Text Height</em>}' attribute.
@@ -211,6 +210,6 @@ public interface ButtonComponent extends GenericComponent
      * @see #getTextHeight()
      * @generated
      */
-    void setTextHeight(int value);
+    void setTextHeight ( int value );
 
 } // ButtonComponent

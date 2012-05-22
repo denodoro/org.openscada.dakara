@@ -98,9 +98,9 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GroupGridEntryImpl()
+    protected GroupGridEntryImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -109,7 +109,7 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.GROUP_GRID_ENTRY;
     }
@@ -119,7 +119,7 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLabel()
+    public String getLabel ()
     {
         return label;
     }
@@ -129,12 +129,12 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLabel(String newLabel)
+    public void setLabel ( String newLabel )
     {
         String oldLabel = label;
         label = newLabel;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_GRID_ENTRY__LABEL, oldLabel, label));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_GRID_ENTRY__LABEL, oldLabel, label ) );
     }
 
     /**
@@ -142,11 +142,11 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Component> getComponents()
+    public EList<Component> getComponents ()
     {
-        if (components == null)
+        if ( components == null )
         {
-            components = new EObjectContainmentEList<Component>(Component.class, this, DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS);
+            components = new EObjectContainmentEList<Component> ( Component.class, this, DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS );
         }
         return components;
     }
@@ -156,7 +156,7 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getPermission()
+    public String getPermission ()
     {
         return permission;
     }
@@ -166,12 +166,12 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPermission(String newPermission)
+    public void setPermission ( String newPermission )
     {
         String oldPermission = permission;
         permission = newPermission;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION, oldPermission, permission));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION, oldPermission, permission ) );
     }
 
     /**
@@ -180,14 +180,14 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-                return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getComponents () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -196,43 +196,18 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
-        {
-            case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
-                return getLabel();
-            case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-                return getComponents();
-            case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
-                return getPermission();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue)
-    {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
-                setLabel((String)newValue);
-                return;
+                return getLabel ();
             case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-                getComponents().clear();
-                getComponents().addAll((Collection<? extends Component>)newValue);
-                return;
+                return getComponents ();
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
-                setPermission((String)newValue);
-                return;
+                return getPermission ();
         }
-        super.eSet(featureID, newValue);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -240,22 +215,24 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eUnset(int featureID)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
-                setLabel(LABEL_EDEFAULT);
+                setLabel ( (String)newValue );
                 return;
             case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-                getComponents().clear();
+                getComponents ().clear ();
+                getComponents ().addAll ( (Collection<? extends Component>)newValue );
                 return;
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
-                setPermission(PERMISSION_EDEFAULT);
+                setPermission ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -264,18 +241,21 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
-                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+                setLabel ( LABEL_EDEFAULT );
+                return;
             case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-                return components != null && !components.isEmpty();
+                getComponents ().clear ();
+                return;
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
-                return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals(permission);
+                setPermission ( PERMISSION_EDEFAULT );
+                return;
         }
-        return super.eIsSet(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -284,17 +264,38 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * @generated
      */
     @Override
-    public String toString()
+    public boolean eIsSet ( int featureID )
     {
-        if (eIsProxy()) return super.toString();
+        switch ( featureID )
+        {
+            case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
+                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals ( label );
+            case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
+                return components != null && !components.isEmpty ();
+            case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
+                return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals ( permission );
+        }
+        return super.eIsSet ( featureID );
+    }
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (label: ");
-        result.append(label);
-        result.append(", permission: ");
-        result.append(permission);
-        result.append(')');
-        return result.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (label: " );
+        result.append ( label );
+        result.append ( ", permission: " );
+        result.append ( permission );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GroupGridEntryImpl

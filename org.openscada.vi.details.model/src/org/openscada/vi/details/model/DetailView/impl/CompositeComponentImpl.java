@@ -52,9 +52,9 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
-    protected CompositeComponentImpl()
+    protected CompositeComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -63,7 +63,7 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.COMPOSITE_COMPONENT;
     }
@@ -73,11 +73,11 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Component> getChildren()
+    public EList<Component> getChildren ()
     {
-        if (children == null)
+        if ( children == null )
         {
-            children = new EObjectContainmentEList<Component>(Component.class, this, DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN);
+            children = new EObjectContainmentEList<Component> ( Component.class, this, DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN );
         }
         return children;
     }
@@ -88,14 +88,14 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-                return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -104,14 +104,14 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-                return getChildren();
+                return getChildren ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -119,18 +119,18 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-                getChildren().clear();
-                getChildren().addAll((Collection<? extends Component>)newValue);
+                getChildren ().clear ();
+                getChildren ().addAll ( (Collection<? extends Component>)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -139,15 +139,15 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-                getChildren().clear();
+                getChildren ().clear ();
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -156,14 +156,14 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-                return children != null && !children.isEmpty();
+                return children != null && !children.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //CompositeComponentImpl

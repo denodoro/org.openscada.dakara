@@ -52,9 +52,9 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GenericComponentImpl()
+    protected GenericComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -63,7 +63,7 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.GENERIC_COMPONENT;
     }
@@ -73,11 +73,11 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Registration> getRegistrations()
+    public EList<Registration> getRegistrations ()
     {
-        if (registrations == null)
+        if ( registrations == null )
         {
-            registrations = new EObjectContainmentEList<Registration>(Registration.class, this, DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS);
+            registrations = new EObjectContainmentEList<Registration> ( Registration.class, this, DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS );
         }
         return registrations;
     }
@@ -88,14 +88,14 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-                return ((InternalEList<?>)getRegistrations()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getRegistrations () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -104,14 +104,14 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-                return getRegistrations();
+                return getRegistrations ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -119,18 +119,18 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-                getRegistrations().clear();
-                getRegistrations().addAll((Collection<? extends Registration>)newValue);
+                getRegistrations ().clear ();
+                getRegistrations ().addAll ( (Collection<? extends Registration>)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -139,15 +139,15 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-                getRegistrations().clear();
+                getRegistrations ().clear ();
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -156,14 +156,14 @@ public abstract class GenericComponentImpl extends ComponentImpl implements Gene
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-                return registrations != null && !registrations.isEmpty();
+                return registrations != null && !registrations.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //GenericComponentImpl

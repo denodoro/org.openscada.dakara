@@ -25,9 +25,9 @@ public class OrTransformerTest extends CompositeTransformerTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(OrTransformerTest.class);
+        TestRunner.run ( OrTransformerTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class OrTransformerTest extends CompositeTransformerTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public OrTransformerTest(String name)
+    public OrTransformerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class OrTransformerTest extends CompositeTransformerTest
      * @generated
      */
     @Override
-    protected OrTransformer getFixture()
+    protected OrTransformer getFixture ()
     {
         return (OrTransformer)fixture;
     }
@@ -60,9 +60,9 @@ public class OrTransformerTest extends CompositeTransformerTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createOrTransformer());
+        setFixture ( DetailViewFactory.eINSTANCE.createOrTransformer () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class OrTransformerTest extends CompositeTransformerTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //OrTransformerTest

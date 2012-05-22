@@ -29,9 +29,9 @@ public abstract class ValueSourceImpl extends EObjectImpl implements ValueSource
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ValueSourceImpl()
+    protected ValueSourceImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class ValueSourceImpl extends EObjectImpl implements ValueSource
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.VALUE_SOURCE;
     }

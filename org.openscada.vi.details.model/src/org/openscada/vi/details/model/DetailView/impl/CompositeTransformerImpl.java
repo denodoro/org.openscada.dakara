@@ -52,9 +52,9 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * <!-- end-user-doc -->
      * @generated
      */
-    protected CompositeTransformerImpl()
+    protected CompositeTransformerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -63,7 +63,7 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.COMPOSITE_TRANSFORMER;
     }
@@ -73,11 +73,11 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ValueSource> getValues()
+    public EList<ValueSource> getValues ()
     {
-        if (values == null)
+        if ( values == null )
         {
-            values = new EObjectContainmentEList<ValueSource>(ValueSource.class, this, DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES);
+            values = new EObjectContainmentEList<ValueSource> ( ValueSource.class, this, DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES );
         }
         return values;
     }
@@ -88,14 +88,14 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getValues () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -104,14 +104,14 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                return getValues();
+                return getValues ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -119,18 +119,18 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                getValues().clear();
-                getValues().addAll((Collection<? extends ValueSource>)newValue);
+                getValues ().clear ();
+                getValues ().addAll ( (Collection<? extends ValueSource>)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -139,15 +139,15 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                getValues().clear();
+                getValues ().clear ();
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -156,14 +156,14 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                return values != null && !values.isEmpty();
+                return values != null && !values.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //CompositeTransformerImpl

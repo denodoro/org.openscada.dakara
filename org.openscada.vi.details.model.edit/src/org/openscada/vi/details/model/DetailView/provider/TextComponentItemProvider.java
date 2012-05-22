@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.TextComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextComponentItemProvider
-    extends ReadableComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class TextComponentItemProvider extends ReadableComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextComponentItemProvider(AdapterFactory adapterFactory)
+    public TextComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,18 +51,18 @@ public class TextComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addDescriptorPropertyDescriptor(object);
-            addWidthPropertyDescriptor(object);
-            addHeightPropertyDescriptor(object);
-            addDatePropertyDescriptor(object);
-            addTextHeightPropertyDescriptor(object);
-            addTextMapPropertyDescriptor(object);
+            addDescriptorPropertyDescriptor ( object );
+            addWidthPropertyDescriptor ( object );
+            addHeightPropertyDescriptor ( object );
+            addDatePropertyDescriptor ( object );
+            addTextHeightPropertyDescriptor ( object );
+            addTextMapPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -81,21 +73,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDescriptorPropertyDescriptor(Object object)
+    protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_TextComponent_descriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_TextComponent_descriptor_feature", "_UI_TextComponent_type"),
-                 DetailViewPackage.Literals.TEXT_COMPONENT__DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextComponent_descriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextComponent_descriptor_feature", "_UI_TextComponent_type" ), DetailViewPackage.Literals.TEXT_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -104,21 +84,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addWidthPropertyDescriptor(Object object)
+    protected void addWidthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_TextComponent_width_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_TextComponent_width_feature", "_UI_TextComponent_type"),
-                 DetailViewPackage.Literals.TEXT_COMPONENT__WIDTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextComponent_width_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextComponent_width_feature", "_UI_TextComponent_type" ), DetailViewPackage.Literals.TEXT_COMPONENT__WIDTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -127,21 +95,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHeightPropertyDescriptor(Object object)
+    protected void addHeightPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_TextComponent_height_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_TextComponent_height_feature", "_UI_TextComponent_type"),
-                 DetailViewPackage.Literals.TEXT_COMPONENT__HEIGHT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextComponent_height_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextComponent_height_feature", "_UI_TextComponent_type" ), DetailViewPackage.Literals.TEXT_COMPONENT__HEIGHT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -150,21 +106,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDatePropertyDescriptor(Object object)
+    protected void addDatePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_TextComponent_date_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_TextComponent_date_feature", "_UI_TextComponent_type"),
-                 DetailViewPackage.Literals.TEXT_COMPONENT__DATE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextComponent_date_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextComponent_date_feature", "_UI_TextComponent_type" ), DetailViewPackage.Literals.TEXT_COMPONENT__DATE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -173,21 +117,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTextHeightPropertyDescriptor(Object object)
+    protected void addTextHeightPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_TextComponent_textHeight_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_TextComponent_textHeight_feature", "_UI_TextComponent_type"),
-                 DetailViewPackage.Literals.TEXT_COMPONENT__TEXT_HEIGHT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextComponent_textHeight_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextComponent_textHeight_feature", "_UI_TextComponent_type" ), DetailViewPackage.Literals.TEXT_COMPONENT__TEXT_HEIGHT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -196,21 +128,9 @@ public class TextComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTextMapPropertyDescriptor(Object object)
+    protected void addTextMapPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_TextComponent_textMap_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_TextComponent_textMap_feature", "_UI_TextComponent_type"),
-                 DetailViewPackage.Literals.TEXT_COMPONENT__TEXT_MAP,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextComponent_textMap_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextComponent_textMap_feature", "_UI_TextComponent_type" ), DetailViewPackage.Literals.TEXT_COMPONENT__TEXT_MAP, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -220,9 +140,9 @@ public class TextComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/TextComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/TextComponent" ) );
     }
 
     /**
@@ -232,12 +152,10 @@ public class TextComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((TextComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_TextComponent_type") :
-            getString("_UI_TextComponent_type") + " " + label;
+        String label = ( (TextComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_TextComponent_type" ) : getString ( "_UI_TextComponent_type" ) + " " + label;
     }
 
     /**
@@ -248,11 +166,11 @@ public class TextComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(TextComponent.class))
+        switch ( notification.getFeatureID ( TextComponent.class ) )
         {
             case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
             case DetailViewPackage.TEXT_COMPONENT__WIDTH:
@@ -260,10 +178,10 @@ public class TextComponentItemProvider
             case DetailViewPackage.TEXT_COMPONENT__DATE:
             case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
             case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -274,9 +192,9 @@ public class TextComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

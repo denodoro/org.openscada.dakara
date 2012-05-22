@@ -52,7 +52,7 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IChangeNotifier changeNotifier = new ChangeNotifier();
+    protected IChangeNotifier changeNotifier = new ChangeNotifier ();
 
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -60,7 +60,7 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<Object> supportedTypes = new ArrayList<Object>();
+    protected Collection<Object> supportedTypes = new ArrayList<Object> ();
 
     /**
      * This constructs an instance.
@@ -68,13 +68,13 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewItemProviderAdapterFactory()
+    public DetailViewItemProviderAdapterFactory ()
     {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        supportedTypes.add ( IEditingDomainItemProvider.class );
+        supportedTypes.add ( IStructuredItemContentProvider.class );
+        supportedTypes.add ( ITreeItemContentProvider.class );
+        supportedTypes.add ( IItemLabelProvider.class );
+        supportedTypes.add ( IItemPropertySource.class );
     }
 
     /**
@@ -92,11 +92,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createViewAdapter()
+    public Adapter createViewAdapter ()
     {
-        if (viewItemProvider == null)
+        if ( viewItemProvider == null )
         {
-            viewItemProvider = new ViewItemProvider(this);
+            viewItemProvider = new ViewItemProvider ( this );
         }
 
         return viewItemProvider;
@@ -117,11 +117,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createGroupEntryAdapter()
+    public Adapter createGroupEntryAdapter ()
     {
-        if (groupEntryItemProvider == null)
+        if ( groupEntryItemProvider == null )
         {
-            groupEntryItemProvider = new GroupEntryItemProvider(this);
+            groupEntryItemProvider = new GroupEntryItemProvider ( this );
         }
 
         return groupEntryItemProvider;
@@ -142,11 +142,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createLabelComponentAdapter()
+    public Adapter createLabelComponentAdapter ()
     {
-        if (labelComponentItemProvider == null)
+        if ( labelComponentItemProvider == null )
         {
-            labelComponentItemProvider = new LabelComponentItemProvider(this);
+            labelComponentItemProvider = new LabelComponentItemProvider ( this );
         }
 
         return labelComponentItemProvider;
@@ -167,11 +167,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createFillLayoutComponentAdapter()
+    public Adapter createFillLayoutComponentAdapter ()
     {
-        if (fillLayoutComponentItemProvider == null)
+        if ( fillLayoutComponentItemProvider == null )
         {
-            fillLayoutComponentItemProvider = new FillLayoutComponentItemProvider(this);
+            fillLayoutComponentItemProvider = new FillLayoutComponentItemProvider ( this );
         }
 
         return fillLayoutComponentItemProvider;
@@ -192,11 +192,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createButtonComponentAdapter()
+    public Adapter createButtonComponentAdapter ()
     {
-        if (buttonComponentItemProvider == null)
+        if ( buttonComponentItemProvider == null )
         {
-            buttonComponentItemProvider = new ButtonComponentItemProvider(this);
+            buttonComponentItemProvider = new ButtonComponentItemProvider ( this );
         }
 
         return buttonComponentItemProvider;
@@ -217,11 +217,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createBoolLEDComponentAdapter()
+    public Adapter createBoolLEDComponentAdapter ()
     {
-        if (boolLEDComponentItemProvider == null)
+        if ( boolLEDComponentItemProvider == null )
         {
-            boolLEDComponentItemProvider = new BoolLEDComponentItemProvider(this);
+            boolLEDComponentItemProvider = new BoolLEDComponentItemProvider ( this );
         }
 
         return boolLEDComponentItemProvider;
@@ -242,11 +242,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createItemValueSourceAdapter()
+    public Adapter createItemValueSourceAdapter ()
     {
-        if (itemValueSourceItemProvider == null)
+        if ( itemValueSourceItemProvider == null )
         {
-            itemValueSourceItemProvider = new ItemValueSourceItemProvider(this);
+            itemValueSourceItemProvider = new ItemValueSourceItemProvider ( this );
         }
 
         return itemValueSourceItemProvider;
@@ -267,11 +267,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createNotTransformerAdapter()
+    public Adapter createNotTransformerAdapter ()
     {
-        if (notTransformerItemProvider == null)
+        if ( notTransformerItemProvider == null )
         {
-            notTransformerItemProvider = new NotTransformerItemProvider(this);
+            notTransformerItemProvider = new NotTransformerItemProvider ( this );
         }
 
         return notTransformerItemProvider;
@@ -292,11 +292,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createRegistrationAdapter()
+    public Adapter createRegistrationAdapter ()
     {
-        if (registrationItemProvider == null)
+        if ( registrationItemProvider == null )
         {
-            registrationItemProvider = new RegistrationItemProvider(this);
+            registrationItemProvider = new RegistrationItemProvider ( this );
         }
 
         return registrationItemProvider;
@@ -317,11 +317,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createSimpleGridComponentAdapter()
+    public Adapter createSimpleGridComponentAdapter ()
     {
-        if (simpleGridComponentItemProvider == null)
+        if ( simpleGridComponentItemProvider == null )
         {
-            simpleGridComponentItemProvider = new SimpleGridComponentItemProvider(this);
+            simpleGridComponentItemProvider = new SimpleGridComponentItemProvider ( this );
         }
 
         return simpleGridComponentItemProvider;
@@ -342,11 +342,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createGroupGridComponentAdapter()
+    public Adapter createGroupGridComponentAdapter ()
     {
-        if (groupGridComponentItemProvider == null)
+        if ( groupGridComponentItemProvider == null )
         {
-            groupGridComponentItemProvider = new GroupGridComponentItemProvider(this);
+            groupGridComponentItemProvider = new GroupGridComponentItemProvider ( this );
         }
 
         return groupGridComponentItemProvider;
@@ -367,11 +367,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createGroupGridEntryAdapter()
+    public Adapter createGroupGridEntryAdapter ()
     {
-        if (groupGridEntryItemProvider == null)
+        if ( groupGridEntryItemProvider == null )
         {
-            groupGridEntryItemProvider = new GroupGridEntryItemProvider(this);
+            groupGridEntryItemProvider = new GroupGridEntryItemProvider ( this );
         }
 
         return groupGridEntryItemProvider;
@@ -392,11 +392,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createValueSetComponentAdapter()
+    public Adapter createValueSetComponentAdapter ()
     {
-        if (valueSetComponentItemProvider == null)
+        if ( valueSetComponentItemProvider == null )
         {
-            valueSetComponentItemProvider = new ValueSetComponentItemProvider(this);
+            valueSetComponentItemProvider = new ValueSetComponentItemProvider ( this );
         }
 
         return valueSetComponentItemProvider;
@@ -417,11 +417,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createValueComponentAdapter()
+    public Adapter createValueComponentAdapter ()
     {
-        if (valueComponentItemProvider == null)
+        if ( valueComponentItemProvider == null )
         {
-            valueComponentItemProvider = new ValueComponentItemProvider(this);
+            valueComponentItemProvider = new ValueComponentItemProvider ( this );
         }
 
         return valueComponentItemProvider;
@@ -442,11 +442,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createAndTransformerAdapter()
+    public Adapter createAndTransformerAdapter ()
     {
-        if (andTransformerItemProvider == null)
+        if ( andTransformerItemProvider == null )
         {
-            andTransformerItemProvider = new AndTransformerItemProvider(this);
+            andTransformerItemProvider = new AndTransformerItemProvider ( this );
         }
 
         return andTransformerItemProvider;
@@ -467,11 +467,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createOrTransformerAdapter()
+    public Adapter createOrTransformerAdapter ()
     {
-        if (orTransformerItemProvider == null)
+        if ( orTransformerItemProvider == null )
         {
-            orTransformerItemProvider = new OrTransformerItemProvider(this);
+            orTransformerItemProvider = new OrTransformerItemProvider ( this );
         }
 
         return orTransformerItemProvider;
@@ -492,11 +492,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createTextInputComponentAdapter()
+    public Adapter createTextInputComponentAdapter ()
     {
-        if (textInputComponentItemProvider == null)
+        if ( textInputComponentItemProvider == null )
         {
-            textInputComponentItemProvider = new TextInputComponentItemProvider(this);
+            textInputComponentItemProvider = new TextInputComponentItemProvider ( this );
         }
 
         return textInputComponentItemProvider;
@@ -517,11 +517,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createTextComponentAdapter()
+    public Adapter createTextComponentAdapter ()
     {
-        if (textComponentItemProvider == null)
+        if ( textComponentItemProvider == null )
         {
-            textComponentItemProvider = new TextComponentItemProvider(this);
+            textComponentItemProvider = new TextComponentItemProvider ( this );
         }
 
         return textComponentItemProvider;
@@ -542,11 +542,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createTextInputMultiComponentAdapter()
+    public Adapter createTextInputMultiComponentAdapter ()
     {
-        if (textInputMultiComponentItemProvider == null)
+        if ( textInputMultiComponentItemProvider == null )
         {
-            textInputMultiComponentItemProvider = new TextInputMultiComponentItemProvider(this);
+            textInputMultiComponentItemProvider = new TextInputMultiComponentItemProvider ( this );
         }
 
         return textInputMultiComponentItemProvider;
@@ -567,11 +567,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createCheckComponentAdapter()
+    public Adapter createCheckComponentAdapter ()
     {
-        if (checkComponentItemProvider == null)
+        if ( checkComponentItemProvider == null )
         {
-            checkComponentItemProvider = new CheckComponentItemProvider(this);
+            checkComponentItemProvider = new CheckComponentItemProvider ( this );
         }
 
         return checkComponentItemProvider;
@@ -592,11 +592,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createLinkComponentAdapter()
+    public Adapter createLinkComponentAdapter ()
     {
-        if (linkComponentItemProvider == null)
+        if ( linkComponentItemProvider == null )
         {
-            linkComponentItemProvider = new LinkComponentItemProvider(this);
+            linkComponentItemProvider = new LinkComponentItemProvider ( this );
         }
 
         return linkComponentItemProvider;
@@ -617,11 +617,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createURLImageComponentAdapter()
+    public Adapter createURLImageComponentAdapter ()
     {
-        if (urlImageComponentItemProvider == null)
+        if ( urlImageComponentItemProvider == null )
         {
-            urlImageComponentItemProvider = new URLImageComponentItemProvider(this);
+            urlImageComponentItemProvider = new URLImageComponentItemProvider ( this );
         }
 
         return urlImageComponentItemProvider;
@@ -642,11 +642,11 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter createProgressComponentAdapter()
+    public Adapter createProgressComponentAdapter ()
     {
-        if (progressComponentItemProvider == null)
+        if ( progressComponentItemProvider == null )
         {
-            progressComponentItemProvider = new ProgressComponentItemProvider(this);
+            progressComponentItemProvider = new ProgressComponentItemProvider ( this );
         }
 
         return progressComponentItemProvider;
@@ -658,9 +658,9 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComposeableAdapterFactory getRootAdapterFactory()
+    public ComposeableAdapterFactory getRootAdapterFactory ()
     {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory ();
     }
 
     /**
@@ -669,7 +669,7 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory)
+    public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
     {
         this.parentAdapterFactory = parentAdapterFactory;
     }
@@ -680,9 +680,9 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type)
+    public boolean isFactoryForType ( Object type )
     {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+        return supportedTypes.contains ( type ) || super.isFactoryForType ( type );
     }
 
     /**
@@ -692,9 +692,9 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type)
+    public Adapter adapt ( Notifier notifier, Object type )
     {
-        return super.adapt(notifier, this);
+        return super.adapt ( notifier, this );
     }
 
     /**
@@ -703,12 +703,12 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type)
+    public Object adapt ( Object object, Object type )
     {
-        if (isFactoryForType(type))
+        if ( isFactoryForType ( type ) )
         {
-            Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter)))
+            Object adapter = super.adapt ( object, type );
+            if ( ! ( type instanceof Class<?> ) || ( ( (Class<?>)type ).isInstance ( adapter ) ) )
             {
                 return adapter;
             }
@@ -723,9 +723,9 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener)
+    public void addListener ( INotifyChangedListener notifyChangedListener )
     {
-        changeNotifier.addListener(notifyChangedListener);
+        changeNotifier.addListener ( notifyChangedListener );
     }
 
     /**
@@ -734,9 +734,9 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener)
+    public void removeListener ( INotifyChangedListener notifyChangedListener )
     {
-        changeNotifier.removeListener(notifyChangedListener);
+        changeNotifier.removeListener ( notifyChangedListener );
     }
 
     /**
@@ -745,13 +745,13 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public void fireNotifyChanged(Notification notification)
+    public void fireNotifyChanged ( Notification notification )
     {
-        changeNotifier.fireNotifyChanged(notification);
+        changeNotifier.fireNotifyChanged ( notification );
 
-        if (parentAdapterFactory != null)
+        if ( parentAdapterFactory != null )
         {
-            parentAdapterFactory.fireNotifyChanged(notification);
+            parentAdapterFactory.fireNotifyChanged ( notification );
         }
     }
 
@@ -761,31 +761,54 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public void dispose()
+    public void dispose ()
     {
-        if (viewItemProvider != null) viewItemProvider.dispose();
-        if (groupEntryItemProvider != null) groupEntryItemProvider.dispose();
-        if (labelComponentItemProvider != null) labelComponentItemProvider.dispose();
-        if (fillLayoutComponentItemProvider != null) fillLayoutComponentItemProvider.dispose();
-        if (buttonComponentItemProvider != null) buttonComponentItemProvider.dispose();
-        if (boolLEDComponentItemProvider != null) boolLEDComponentItemProvider.dispose();
-        if (itemValueSourceItemProvider != null) itemValueSourceItemProvider.dispose();
-        if (notTransformerItemProvider != null) notTransformerItemProvider.dispose();
-        if (registrationItemProvider != null) registrationItemProvider.dispose();
-        if (simpleGridComponentItemProvider != null) simpleGridComponentItemProvider.dispose();
-        if (groupGridComponentItemProvider != null) groupGridComponentItemProvider.dispose();
-        if (groupGridEntryItemProvider != null) groupGridEntryItemProvider.dispose();
-        if (valueSetComponentItemProvider != null) valueSetComponentItemProvider.dispose();
-        if (valueComponentItemProvider != null) valueComponentItemProvider.dispose();
-        if (andTransformerItemProvider != null) andTransformerItemProvider.dispose();
-        if (orTransformerItemProvider != null) orTransformerItemProvider.dispose();
-        if (textInputComponentItemProvider != null) textInputComponentItemProvider.dispose();
-        if (textComponentItemProvider != null) textComponentItemProvider.dispose();
-        if (textInputMultiComponentItemProvider != null) textInputMultiComponentItemProvider.dispose();
-        if (checkComponentItemProvider != null) checkComponentItemProvider.dispose();
-        if (linkComponentItemProvider != null) linkComponentItemProvider.dispose();
-        if (urlImageComponentItemProvider != null) urlImageComponentItemProvider.dispose();
-        if (progressComponentItemProvider != null) progressComponentItemProvider.dispose();
+        if ( viewItemProvider != null )
+            viewItemProvider.dispose ();
+        if ( groupEntryItemProvider != null )
+            groupEntryItemProvider.dispose ();
+        if ( labelComponentItemProvider != null )
+            labelComponentItemProvider.dispose ();
+        if ( fillLayoutComponentItemProvider != null )
+            fillLayoutComponentItemProvider.dispose ();
+        if ( buttonComponentItemProvider != null )
+            buttonComponentItemProvider.dispose ();
+        if ( boolLEDComponentItemProvider != null )
+            boolLEDComponentItemProvider.dispose ();
+        if ( itemValueSourceItemProvider != null )
+            itemValueSourceItemProvider.dispose ();
+        if ( notTransformerItemProvider != null )
+            notTransformerItemProvider.dispose ();
+        if ( registrationItemProvider != null )
+            registrationItemProvider.dispose ();
+        if ( simpleGridComponentItemProvider != null )
+            simpleGridComponentItemProvider.dispose ();
+        if ( groupGridComponentItemProvider != null )
+            groupGridComponentItemProvider.dispose ();
+        if ( groupGridEntryItemProvider != null )
+            groupGridEntryItemProvider.dispose ();
+        if ( valueSetComponentItemProvider != null )
+            valueSetComponentItemProvider.dispose ();
+        if ( valueComponentItemProvider != null )
+            valueComponentItemProvider.dispose ();
+        if ( andTransformerItemProvider != null )
+            andTransformerItemProvider.dispose ();
+        if ( orTransformerItemProvider != null )
+            orTransformerItemProvider.dispose ();
+        if ( textInputComponentItemProvider != null )
+            textInputComponentItemProvider.dispose ();
+        if ( textComponentItemProvider != null )
+            textComponentItemProvider.dispose ();
+        if ( textInputMultiComponentItemProvider != null )
+            textInputMultiComponentItemProvider.dispose ();
+        if ( checkComponentItemProvider != null )
+            checkComponentItemProvider.dispose ();
+        if ( linkComponentItemProvider != null )
+            linkComponentItemProvider.dispose ();
+        if ( urlImageComponentItemProvider != null )
+            urlImageComponentItemProvider.dispose ();
+        if ( progressComponentItemProvider != null )
+            progressComponentItemProvider.dispose ();
     }
 
 }

@@ -27,9 +27,9 @@ public class OrTransformerImpl extends CompositeTransformerImpl implements OrTra
      * <!-- end-user-doc -->
      * @generated
      */
-    protected OrTransformerImpl()
+    protected OrTransformerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -38,7 +38,7 @@ public class OrTransformerImpl extends CompositeTransformerImpl implements OrTra
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.OR_TRANSFORMER;
     }

@@ -23,9 +23,9 @@ public abstract class GenericComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public GenericComponentTest(String name)
+    public GenericComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -35,7 +35,7 @@ public abstract class GenericComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected GenericComponent getFixture()
+    protected GenericComponent getFixture ()
     {
         return (GenericComponent)fixture;
     }

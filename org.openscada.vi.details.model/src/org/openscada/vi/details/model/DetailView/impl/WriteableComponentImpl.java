@@ -76,9 +76,9 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    protected WriteableComponentImpl()
+    protected WriteableComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -87,7 +87,7 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.WRITEABLE_COMPONENT;
     }
@@ -97,7 +97,7 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public Double getCeil()
+    public Double getCeil ()
     {
         return ceil;
     }
@@ -107,12 +107,12 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCeil(Double newCeil)
+    public void setCeil ( Double newCeil )
     {
         Double oldCeil = ceil;
         ceil = newCeil;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.WRITEABLE_COMPONENT__CEIL, oldCeil, ceil));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.WRITEABLE_COMPONENT__CEIL, oldCeil, ceil ) );
     }
 
     /**
@@ -120,7 +120,7 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public double getFloor()
+    public double getFloor ()
     {
         return floor;
     }
@@ -130,12 +130,12 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFloor(double newFloor)
+    public void setFloor ( double newFloor )
     {
         double oldFloor = floor;
         floor = newFloor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.WRITEABLE_COMPONENT__FLOOR, oldFloor, floor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.WRITEABLE_COMPONENT__FLOOR, oldFloor, floor ) );
     }
 
     /**
@@ -144,16 +144,16 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                return getCeil();
+                return getCeil ();
             case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                return getFloor();
+                return getFloor ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -162,38 +162,18 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                setCeil((Double)newValue);
-                return;
-            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                setFloor((Double)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                setCeil(CEIL_EDEFAULT);
+                setCeil ( (Double)newValue );
                 return;
             case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                setFloor(FLOOR_EDEFAULT);
+                setFloor ( (Double)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -202,16 +182,36 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                return CEIL_EDEFAULT == null ? ceil != null : !CEIL_EDEFAULT.equals(ceil);
+                setCeil ( CEIL_EDEFAULT );
+                return;
+            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
+                setFloor ( FLOOR_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
+                return CEIL_EDEFAULT == null ? ceil != null : !CEIL_EDEFAULT.equals ( ceil );
             case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
                 return floor != FLOOR_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -220,17 +220,18 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (ceil: ");
-        result.append(ceil);
-        result.append(", floor: ");
-        result.append(floor);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (ceil: " );
+        result.append ( ceil );
+        result.append ( ", floor: " );
+        result.append ( floor );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //WriteableComponentImpl

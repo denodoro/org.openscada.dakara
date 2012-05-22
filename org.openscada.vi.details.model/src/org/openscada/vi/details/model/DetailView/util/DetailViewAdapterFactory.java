@@ -39,9 +39,9 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewAdapterFactory()
+    public DetailViewAdapterFactory ()
     {
-        if (modelPackage == null)
+        if ( modelPackage == null )
         {
             modelPackage = DetailViewPackage.eINSTANCE;
         }
@@ -56,15 +56,15 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object)
+    public boolean isFactoryForType ( Object object )
     {
-        if (object == modelPackage)
+        if ( object == modelPackage )
         {
             return true;
         }
-        if (object instanceof EObject)
+        if ( object instanceof EObject )
         {
-            return ((EObject)object).eClass().getEPackage() == modelPackage;
+            return ( (EObject)object ).eClass ().getEPackage () == modelPackage;
         }
         return false;
     }
@@ -75,165 +75,193 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DetailViewSwitch<Adapter> modelSwitch =
-        new DetailViewSwitch<Adapter>()
+    protected DetailViewSwitch<Adapter> modelSwitch = new DetailViewSwitch<Adapter> () {
+        @Override
+        public Adapter caseView ( View object )
         {
-            @Override
-            public Adapter caseView(View object)
-            {
-                return createViewAdapter();
-            }
-            @Override
-            public Adapter caseComponent(Component object)
-            {
-                return createComponentAdapter();
-            }
-            @Override
-            public Adapter caseGroupEntry(GroupEntry object)
-            {
-                return createGroupEntryAdapter();
-            }
-            @Override
-            public Adapter caseLabelComponent(LabelComponent object)
-            {
-                return createLabelComponentAdapter();
-            }
-            @Override
-            public Adapter caseCompositeComponent(CompositeComponent object)
-            {
-                return createCompositeComponentAdapter();
-            }
-            @Override
-            public Adapter caseFillLayoutComponent(FillLayoutComponent object)
-            {
-                return createFillLayoutComponentAdapter();
-            }
-            @Override
-            public Adapter caseButtonComponent(ButtonComponent object)
-            {
-                return createButtonComponentAdapter();
-            }
-            @Override
-            public Adapter caseBoolLEDComponent(BoolLEDComponent object)
-            {
-                return createBoolLEDComponentAdapter();
-            }
-            @Override
-            public Adapter caseValueSource(ValueSource object)
-            {
-                return createValueSourceAdapter();
-            }
-            @Override
-            public Adapter caseItemValueSource(ItemValueSource object)
-            {
-                return createItemValueSourceAdapter();
-            }
-            @Override
-            public Adapter caseNotTransformer(NotTransformer object)
-            {
-                return createNotTransformerAdapter();
-            }
-            @Override
-            public Adapter caseGenericComponent(GenericComponent object)
-            {
-                return createGenericComponentAdapter();
-            }
-            @Override
-            public Adapter caseRegistration(Registration object)
-            {
-                return createRegistrationAdapter();
-            }
-            @Override
-            public Adapter caseSimpleGridComponent(SimpleGridComponent object)
-            {
-                return createSimpleGridComponentAdapter();
-            }
-            @Override
-            public Adapter caseGroupGridComponent(GroupGridComponent object)
-            {
-                return createGroupGridComponentAdapter();
-            }
-            @Override
-            public Adapter caseGroupGridEntry(GroupGridEntry object)
-            {
-                return createGroupGridEntryAdapter();
-            }
-            @Override
-            public Adapter caseValueSetComponent(ValueSetComponent object)
-            {
-                return createValueSetComponentAdapter();
-            }
-            @Override
-            public Adapter caseValueComponent(ValueComponent object)
-            {
-                return createValueComponentAdapter();
-            }
-            @Override
-            public Adapter caseCompositeTransformer(CompositeTransformer object)
-            {
-                return createCompositeTransformerAdapter();
-            }
-            @Override
-            public Adapter caseAndTransformer(AndTransformer object)
-            {
-                return createAndTransformerAdapter();
-            }
-            @Override
-            public Adapter caseOrTransformer(OrTransformer object)
-            {
-                return createOrTransformerAdapter();
-            }
-            @Override
-            public Adapter caseTextInputComponent(TextInputComponent object)
-            {
-                return createTextInputComponentAdapter();
-            }
-            @Override
-            public Adapter caseWriteableComponent(WriteableComponent object)
-            {
-                return createWriteableComponentAdapter();
-            }
-            @Override
-            public Adapter caseReadableComponent(ReadableComponent object)
-            {
-                return createReadableComponentAdapter();
-            }
-            @Override
-            public Adapter caseTextComponent(TextComponent object)
-            {
-                return createTextComponentAdapter();
-            }
-            @Override
-            public Adapter caseTextInputMultiComponent(TextInputMultiComponent object)
-            {
-                return createTextInputMultiComponentAdapter();
-            }
-            @Override
-            public Adapter caseCheckComponent(CheckComponent object)
-            {
-                return createCheckComponentAdapter();
-            }
-            @Override
-            public Adapter caseLinkComponent(LinkComponent object)
-            {
-                return createLinkComponentAdapter();
-            }
-            @Override
-            public Adapter caseURLImageComponent(URLImageComponent object)
-            {
-                return createURLImageComponentAdapter();
-            }
-            @Override
-            public Adapter caseProgressComponent(ProgressComponent object)
-            {
-                return createProgressComponentAdapter();
-            }
-            @Override
-            public Adapter defaultCase(EObject object)
-            {
-                return createEObjectAdapter();
-            }
-        };
+            return createViewAdapter ();
+        }
+
+        @Override
+        public Adapter caseComponent ( Component object )
+        {
+            return createComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseGroupEntry ( GroupEntry object )
+        {
+            return createGroupEntryAdapter ();
+        }
+
+        @Override
+        public Adapter caseLabelComponent ( LabelComponent object )
+        {
+            return createLabelComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseCompositeComponent ( CompositeComponent object )
+        {
+            return createCompositeComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseFillLayoutComponent ( FillLayoutComponent object )
+        {
+            return createFillLayoutComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseButtonComponent ( ButtonComponent object )
+        {
+            return createButtonComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseBoolLEDComponent ( BoolLEDComponent object )
+        {
+            return createBoolLEDComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseValueSource ( ValueSource object )
+        {
+            return createValueSourceAdapter ();
+        }
+
+        @Override
+        public Adapter caseItemValueSource ( ItemValueSource object )
+        {
+            return createItemValueSourceAdapter ();
+        }
+
+        @Override
+        public Adapter caseNotTransformer ( NotTransformer object )
+        {
+            return createNotTransformerAdapter ();
+        }
+
+        @Override
+        public Adapter caseGenericComponent ( GenericComponent object )
+        {
+            return createGenericComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseRegistration ( Registration object )
+        {
+            return createRegistrationAdapter ();
+        }
+
+        @Override
+        public Adapter caseSimpleGridComponent ( SimpleGridComponent object )
+        {
+            return createSimpleGridComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseGroupGridComponent ( GroupGridComponent object )
+        {
+            return createGroupGridComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseGroupGridEntry ( GroupGridEntry object )
+        {
+            return createGroupGridEntryAdapter ();
+        }
+
+        @Override
+        public Adapter caseValueSetComponent ( ValueSetComponent object )
+        {
+            return createValueSetComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseValueComponent ( ValueComponent object )
+        {
+            return createValueComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseCompositeTransformer ( CompositeTransformer object )
+        {
+            return createCompositeTransformerAdapter ();
+        }
+
+        @Override
+        public Adapter caseAndTransformer ( AndTransformer object )
+        {
+            return createAndTransformerAdapter ();
+        }
+
+        @Override
+        public Adapter caseOrTransformer ( OrTransformer object )
+        {
+            return createOrTransformerAdapter ();
+        }
+
+        @Override
+        public Adapter caseTextInputComponent ( TextInputComponent object )
+        {
+            return createTextInputComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseWriteableComponent ( WriteableComponent object )
+        {
+            return createWriteableComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseReadableComponent ( ReadableComponent object )
+        {
+            return createReadableComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseTextComponent ( TextComponent object )
+        {
+            return createTextComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseTextInputMultiComponent ( TextInputMultiComponent object )
+        {
+            return createTextInputMultiComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseCheckComponent ( CheckComponent object )
+        {
+            return createCheckComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseLinkComponent ( LinkComponent object )
+        {
+            return createLinkComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseURLImageComponent ( URLImageComponent object )
+        {
+            return createURLImageComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseProgressComponent ( ProgressComponent object )
+        {
+            return createProgressComponentAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.
@@ -244,11 +272,10 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target)
+    public Adapter createAdapter ( Notifier target )
     {
-        return modelSwitch.doSwitch((EObject)target);
+        return modelSwitch.doSwitch ( (EObject)target );
     }
-
 
     /**
      * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.View <em>View</em>}'.
@@ -260,7 +287,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.View
      * @generated
      */
-    public Adapter createViewAdapter()
+    public Adapter createViewAdapter ()
     {
         return null;
     }
@@ -275,7 +302,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.Component
      * @generated
      */
-    public Adapter createComponentAdapter()
+    public Adapter createComponentAdapter ()
     {
         return null;
     }
@@ -290,7 +317,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.GroupEntry
      * @generated
      */
-    public Adapter createGroupEntryAdapter()
+    public Adapter createGroupEntryAdapter ()
     {
         return null;
     }
@@ -305,7 +332,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.LabelComponent
      * @generated
      */
-    public Adapter createLabelComponentAdapter()
+    public Adapter createLabelComponentAdapter ()
     {
         return null;
     }
@@ -320,7 +347,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.CompositeComponent
      * @generated
      */
-    public Adapter createCompositeComponentAdapter()
+    public Adapter createCompositeComponentAdapter ()
     {
         return null;
     }
@@ -335,7 +362,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.FillLayoutComponent
      * @generated
      */
-    public Adapter createFillLayoutComponentAdapter()
+    public Adapter createFillLayoutComponentAdapter ()
     {
         return null;
     }
@@ -350,7 +377,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ButtonComponent
      * @generated
      */
-    public Adapter createButtonComponentAdapter()
+    public Adapter createButtonComponentAdapter ()
     {
         return null;
     }
@@ -365,7 +392,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.BoolLEDComponent
      * @generated
      */
-    public Adapter createBoolLEDComponentAdapter()
+    public Adapter createBoolLEDComponentAdapter ()
     {
         return null;
     }
@@ -380,7 +407,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ValueSource
      * @generated
      */
-    public Adapter createValueSourceAdapter()
+    public Adapter createValueSourceAdapter ()
     {
         return null;
     }
@@ -395,7 +422,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ItemValueSource
      * @generated
      */
-    public Adapter createItemValueSourceAdapter()
+    public Adapter createItemValueSourceAdapter ()
     {
         return null;
     }
@@ -410,7 +437,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.NotTransformer
      * @generated
      */
-    public Adapter createNotTransformerAdapter()
+    public Adapter createNotTransformerAdapter ()
     {
         return null;
     }
@@ -425,7 +452,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.GenericComponent
      * @generated
      */
-    public Adapter createGenericComponentAdapter()
+    public Adapter createGenericComponentAdapter ()
     {
         return null;
     }
@@ -440,7 +467,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.Registration
      * @generated
      */
-    public Adapter createRegistrationAdapter()
+    public Adapter createRegistrationAdapter ()
     {
         return null;
     }
@@ -455,7 +482,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.SimpleGridComponent
      * @generated
      */
-    public Adapter createSimpleGridComponentAdapter()
+    public Adapter createSimpleGridComponentAdapter ()
     {
         return null;
     }
@@ -470,7 +497,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.GroupGridComponent
      * @generated
      */
-    public Adapter createGroupGridComponentAdapter()
+    public Adapter createGroupGridComponentAdapter ()
     {
         return null;
     }
@@ -485,7 +512,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.GroupGridEntry
      * @generated
      */
-    public Adapter createGroupGridEntryAdapter()
+    public Adapter createGroupGridEntryAdapter ()
     {
         return null;
     }
@@ -500,7 +527,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ValueSetComponent
      * @generated
      */
-    public Adapter createValueSetComponentAdapter()
+    public Adapter createValueSetComponentAdapter ()
     {
         return null;
     }
@@ -515,7 +542,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ValueComponent
      * @generated
      */
-    public Adapter createValueComponentAdapter()
+    public Adapter createValueComponentAdapter ()
     {
         return null;
     }
@@ -530,7 +557,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.CompositeTransformer
      * @generated
      */
-    public Adapter createCompositeTransformerAdapter()
+    public Adapter createCompositeTransformerAdapter ()
     {
         return null;
     }
@@ -545,7 +572,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.AndTransformer
      * @generated
      */
-    public Adapter createAndTransformerAdapter()
+    public Adapter createAndTransformerAdapter ()
     {
         return null;
     }
@@ -560,7 +587,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.OrTransformer
      * @generated
      */
-    public Adapter createOrTransformerAdapter()
+    public Adapter createOrTransformerAdapter ()
     {
         return null;
     }
@@ -575,7 +602,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.TextInputComponent
      * @generated
      */
-    public Adapter createTextInputComponentAdapter()
+    public Adapter createTextInputComponentAdapter ()
     {
         return null;
     }
@@ -590,7 +617,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.WriteableComponent
      * @generated
      */
-    public Adapter createWriteableComponentAdapter()
+    public Adapter createWriteableComponentAdapter ()
     {
         return null;
     }
@@ -605,7 +632,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ReadableComponent
      * @generated
      */
-    public Adapter createReadableComponentAdapter()
+    public Adapter createReadableComponentAdapter ()
     {
         return null;
     }
@@ -620,7 +647,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.TextComponent
      * @generated
      */
-    public Adapter createTextComponentAdapter()
+    public Adapter createTextComponentAdapter ()
     {
         return null;
     }
@@ -635,7 +662,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.TextInputMultiComponent
      * @generated
      */
-    public Adapter createTextInputMultiComponentAdapter()
+    public Adapter createTextInputMultiComponentAdapter ()
     {
         return null;
     }
@@ -650,7 +677,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.CheckComponent
      * @generated
      */
-    public Adapter createCheckComponentAdapter()
+    public Adapter createCheckComponentAdapter ()
     {
         return null;
     }
@@ -665,7 +692,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.LinkComponent
      * @generated
      */
-    public Adapter createLinkComponentAdapter()
+    public Adapter createLinkComponentAdapter ()
     {
         return null;
     }
@@ -680,7 +707,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.URLImageComponent
      * @generated
      */
-    public Adapter createURLImageComponentAdapter()
+    public Adapter createURLImageComponentAdapter ()
     {
         return null;
     }
@@ -695,7 +722,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @see org.openscada.vi.details.model.DetailView.ProgressComponent
      * @generated
      */
-    public Adapter createProgressComponentAdapter()
+    public Adapter createProgressComponentAdapter ()
     {
         return null;
     }
@@ -708,7 +735,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @return the new adapter.
      * @generated
      */
-    public Adapter createEObjectAdapter()
+    public Adapter createEObjectAdapter ()
     {
         return null;
     }

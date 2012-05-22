@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Check Component</b></em>'.
@@ -42,7 +41,7 @@ public interface CheckComponent extends Component
      * @model
      * @generated
      */
-    String getFormat();
+    String getFormat ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getFormat <em>Format</em>}' attribute.
@@ -52,7 +51,7 @@ public interface CheckComponent extends Component
      * @see #getFormat()
      * @generated
      */
-    void setFormat(String value);
+    void setFormat ( String value );
 
     /**
      * Returns the value of the '<em><b>Descriptor</b></em>' attribute.
@@ -68,7 +67,7 @@ public interface CheckComponent extends Component
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -78,7 +77,7 @@ public interface CheckComponent extends Component
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Attribute</b></em>' attribute.
@@ -94,7 +93,7 @@ public interface CheckComponent extends Component
      * @model
      * @generated
      */
-    String getAttribute();
+    String getAttribute ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getAttribute <em>Attribute</em>}' attribute.
@@ -104,7 +103,7 @@ public interface CheckComponent extends Component
      * @see #getAttribute()
      * @generated
      */
-    void setAttribute(String value);
+    void setAttribute ( String value );
 
     /**
      * Returns the value of the '<em><b>Read Descriptor</b></em>' attribute.
@@ -120,7 +119,7 @@ public interface CheckComponent extends Component
      * @model
      * @generated
      */
-    String getReadDescriptor();
+    String getReadDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.CheckComponent#getReadDescriptor <em>Read Descriptor</em>}' attribute.
@@ -130,6 +129,6 @@ public interface CheckComponent extends Component
      * @see #getReadDescriptor()
      * @generated
      */
-    void setReadDescriptor(String value);
+    void setReadDescriptor ( String value );
 
 } // CheckComponent

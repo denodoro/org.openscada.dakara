@@ -76,9 +76,9 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TextInputComponentImpl()
+    protected TextInputComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -87,7 +87,7 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.TEXT_INPUT_COMPONENT;
     }
@@ -97,7 +97,7 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -107,12 +107,12 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -120,7 +120,7 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getReadDescriptor()
+    public String getReadDescriptor ()
     {
         return readDescriptor;
     }
@@ -130,12 +130,12 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setReadDescriptor(String newReadDescriptor)
+    public void setReadDescriptor ( String newReadDescriptor )
     {
         String oldReadDescriptor = readDescriptor;
         readDescriptor = newReadDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR, oldReadDescriptor, readDescriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR, oldReadDescriptor, readDescriptor ) );
     }
 
     /**
@@ -144,16 +144,16 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
             case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                return getReadDescriptor();
+                return getReadDescriptor ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -162,18 +162,18 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
+                setDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                setReadDescriptor((String)newValue);
+                setReadDescriptor ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -182,18 +182,18 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
                 return;
             case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                setReadDescriptor(READ_DESCRIPTOR_EDEFAULT);
+                setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -202,16 +202,16 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
             case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals(readDescriptor);
+                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -220,17 +220,18 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (descriptor: ");
-        result.append(descriptor);
-        result.append(", readDescriptor: ");
-        result.append(readDescriptor);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (descriptor: " );
+        result.append ( descriptor );
+        result.append ( ", readDescriptor: " );
+        result.append ( readDescriptor );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //TextInputComponentImpl

@@ -160,9 +160,9 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TextComponentImpl()
+    protected TextComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -171,7 +171,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.TEXT_COMPONENT;
     }
@@ -181,7 +181,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -191,12 +191,12 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -204,7 +204,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getWidth()
+    public int getWidth ()
     {
         return width;
     }
@@ -214,12 +214,12 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWidth(int newWidth)
+    public void setWidth ( int newWidth )
     {
         int oldWidth = width;
         width = newWidth;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__WIDTH, oldWidth, width));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__WIDTH, oldWidth, width ) );
     }
 
     /**
@@ -227,7 +227,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getHeight()
+    public int getHeight ()
     {
         return height;
     }
@@ -237,12 +237,12 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHeight(int newHeight)
+    public void setHeight ( int newHeight )
     {
         int oldHeight = height;
         height = newHeight;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__HEIGHT, oldHeight, height));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__HEIGHT, oldHeight, height ) );
     }
 
     /**
@@ -250,7 +250,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isDate()
+    public boolean isDate ()
     {
         return date;
     }
@@ -260,12 +260,12 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDate(boolean newDate)
+    public void setDate ( boolean newDate )
     {
         boolean oldDate = date;
         date = newDate;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__DATE, oldDate, date));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__DATE, oldDate, date ) );
     }
 
     /**
@@ -273,7 +273,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getTextHeight()
+    public int getTextHeight ()
     {
         return textHeight;
     }
@@ -283,12 +283,12 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTextHeight(int newTextHeight)
+    public void setTextHeight ( int newTextHeight )
     {
         int oldTextHeight = textHeight;
         textHeight = newTextHeight;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT, oldTextHeight, textHeight));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT, oldTextHeight, textHeight ) );
     }
 
     /**
@@ -296,7 +296,7 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getTextMap()
+    public String getTextMap ()
     {
         return textMap;
     }
@@ -306,12 +306,12 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTextMap(String newTextMap)
+    public void setTextMap ( String newTextMap )
     {
         String oldTextMap = textMap;
         textMap = newTextMap;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__TEXT_MAP, oldTextMap, textMap));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_COMPONENT__TEXT_MAP, oldTextMap, textMap ) );
     }
 
     /**
@@ -320,24 +320,24 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
             case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-                return getWidth();
+                return getWidth ();
             case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-                return getHeight();
+                return getHeight ();
             case DetailViewPackage.TEXT_COMPONENT__DATE:
-                return isDate();
+                return isDate ();
             case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-                return getTextHeight();
+                return getTextHeight ();
             case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-                return getTextMap();
+                return getTextMap ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -346,62 +346,30 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
-                return;
-            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-                setWidth((Integer)newValue);
-                return;
-            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-                setHeight((Integer)newValue);
-                return;
-            case DetailViewPackage.TEXT_COMPONENT__DATE:
-                setDate((Boolean)newValue);
-                return;
-            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-                setTextHeight((Integer)newValue);
-                return;
-            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-                setTextMap((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-                setWidth(WIDTH_EDEFAULT);
+                setWidth ( (Integer)newValue );
                 return;
             case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-                setHeight(HEIGHT_EDEFAULT);
+                setHeight ( (Integer)newValue );
                 return;
             case DetailViewPackage.TEXT_COMPONENT__DATE:
-                setDate(DATE_EDEFAULT);
+                setDate ( (Boolean)newValue );
                 return;
             case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-                setTextHeight(TEXT_HEIGHT_EDEFAULT);
+                setTextHeight ( (Integer)newValue );
                 return;
             case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-                setTextMap(TEXT_MAP_EDEFAULT);
+                setTextMap ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -410,12 +378,44 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
+                setWidth ( WIDTH_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
+                setHeight ( HEIGHT_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__DATE:
+                setDate ( DATE_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
+                setTextHeight ( TEXT_HEIGHT_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
+                setTextMap ( TEXT_MAP_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
             case DetailViewPackage.TEXT_COMPONENT__WIDTH:
                 return width != WIDTH_EDEFAULT;
             case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
@@ -425,9 +425,9 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
             case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
                 return textHeight != TEXT_HEIGHT_EDEFAULT;
             case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-                return TEXT_MAP_EDEFAULT == null ? textMap != null : !TEXT_MAP_EDEFAULT.equals(textMap);
+                return TEXT_MAP_EDEFAULT == null ? textMap != null : !TEXT_MAP_EDEFAULT.equals ( textMap );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -436,25 +436,26 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (descriptor: ");
-        result.append(descriptor);
-        result.append(", width: ");
-        result.append(width);
-        result.append(", height: ");
-        result.append(height);
-        result.append(", date: ");
-        result.append(date);
-        result.append(", textHeight: ");
-        result.append(textHeight);
-        result.append(", textMap: ");
-        result.append(textMap);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (descriptor: " );
+        result.append ( descriptor );
+        result.append ( ", width: " );
+        result.append ( width );
+        result.append ( ", height: " );
+        result.append ( height );
+        result.append ( ", date: " );
+        result.append ( date );
+        result.append ( ", textHeight: " );
+        result.append ( textHeight );
+        result.append ( ", textMap: " );
+        result.append ( textMap );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //TextComponentImpl

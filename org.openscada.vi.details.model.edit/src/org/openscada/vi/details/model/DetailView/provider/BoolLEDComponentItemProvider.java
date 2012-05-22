@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.DetailViewPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoolLEDComponentItemProvider
-    extends ComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class BoolLEDComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class BoolLEDComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public BoolLEDComponentItemProvider(AdapterFactory adapterFactory)
+    public BoolLEDComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,16 +51,16 @@ public class BoolLEDComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addFormatPropertyDescriptor(object);
-            addDescriptorPropertyDescriptor(object);
-            addAlarmPropertyDescriptor(object);
-            addAttributePropertyDescriptor(object);
+            addFormatPropertyDescriptor ( object );
+            addDescriptorPropertyDescriptor ( object );
+            addAlarmPropertyDescriptor ( object );
+            addAttributePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -79,21 +71,9 @@ public class BoolLEDComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFormatPropertyDescriptor(Object object)
+    protected void addFormatPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_BoolLEDComponent_format_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_format_feature", "_UI_BoolLEDComponent_type"),
-                 DetailViewPackage.Literals.BOOL_LED_COMPONENT__FORMAT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_format_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_format_feature", "_UI_BoolLEDComponent_type" ), DetailViewPackage.Literals.BOOL_LED_COMPONENT__FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -102,21 +82,9 @@ public class BoolLEDComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDescriptorPropertyDescriptor(Object object)
+    protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_BoolLEDComponent_descriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_descriptor_feature", "_UI_BoolLEDComponent_type"),
-                 DetailViewPackage.Literals.BOOL_LED_COMPONENT__DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_descriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_descriptor_feature", "_UI_BoolLEDComponent_type" ), DetailViewPackage.Literals.BOOL_LED_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -125,21 +93,9 @@ public class BoolLEDComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAlarmPropertyDescriptor(Object object)
+    protected void addAlarmPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_BoolLEDComponent_alarm_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_alarm_feature", "_UI_BoolLEDComponent_type"),
-                 DetailViewPackage.Literals.BOOL_LED_COMPONENT__ALARM,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_alarm_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_alarm_feature", "_UI_BoolLEDComponent_type" ), DetailViewPackage.Literals.BOOL_LED_COMPONENT__ALARM, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -148,21 +104,9 @@ public class BoolLEDComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAttributePropertyDescriptor(Object object)
+    protected void addAttributePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_BoolLEDComponent_attribute_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_attribute_feature", "_UI_BoolLEDComponent_type"),
-                 DetailViewPackage.Literals.BOOL_LED_COMPONENT__ATTRIBUTE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_attribute_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_attribute_feature", "_UI_BoolLEDComponent_type" ), DetailViewPackage.Literals.BOOL_LED_COMPONENT__ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -172,9 +116,9 @@ public class BoolLEDComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/BoolLEDComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/BoolLEDComponent" ) );
     }
 
     /**
@@ -184,12 +128,10 @@ public class BoolLEDComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((BoolLEDComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_BoolLEDComponent_type") :
-            getString("_UI_BoolLEDComponent_type") + " " + label;
+        String label = ( (BoolLEDComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_BoolLEDComponent_type" ) : getString ( "_UI_BoolLEDComponent_type" ) + " " + label;
     }
 
     /**
@@ -200,20 +142,20 @@ public class BoolLEDComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(BoolLEDComponent.class))
+        switch ( notification.getFeatureID ( BoolLEDComponent.class ) )
         {
             case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
             case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
             case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
             case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -224,9 +166,9 @@ public class BoolLEDComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

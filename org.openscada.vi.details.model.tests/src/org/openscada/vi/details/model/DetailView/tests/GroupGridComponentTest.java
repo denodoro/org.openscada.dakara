@@ -25,9 +25,9 @@ public class GroupGridComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(GroupGridComponentTest.class);
+        TestRunner.run ( GroupGridComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class GroupGridComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupGridComponentTest(String name)
+    public GroupGridComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class GroupGridComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected GroupGridComponent getFixture()
+    protected GroupGridComponent getFixture ()
     {
         return (GroupGridComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class GroupGridComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createGroupGridComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createGroupGridComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class GroupGridComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //GroupGridComponentTest

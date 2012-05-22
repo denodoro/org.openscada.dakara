@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>URL Image Component</b></em>'.
@@ -43,7 +42,7 @@ public interface URLImageComponent extends Component
      * @model
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -53,7 +52,7 @@ public interface URLImageComponent extends Component
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Image Url</b></em>' attribute.
@@ -69,7 +68,7 @@ public interface URLImageComponent extends Component
      * @model
      * @generated
      */
-    String getImageUrl();
+    String getImageUrl ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getImageUrl <em>Image Url</em>}' attribute.
@@ -79,7 +78,7 @@ public interface URLImageComponent extends Component
      * @see #getImageUrl()
      * @generated
      */
-    void setImageUrl(String value);
+    void setImageUrl ( String value );
 
     /**
      * Returns the value of the '<em><b>Fallback Image Url</b></em>' attribute.
@@ -95,7 +94,7 @@ public interface URLImageComponent extends Component
      * @model
      * @generated
      */
-    String getFallbackImageUrl();
+    String getFallbackImageUrl ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getFallbackImageUrl <em>Fallback Image Url</em>}' attribute.
@@ -105,7 +104,7 @@ public interface URLImageComponent extends Component
      * @see #getFallbackImageUrl()
      * @generated
      */
-    void setFallbackImageUrl(String value);
+    void setFallbackImageUrl ( String value );
 
     /**
      * Returns the value of the '<em><b>Width</b></em>' attribute.
@@ -121,7 +120,7 @@ public interface URLImageComponent extends Component
      * @model
      * @generated
      */
-    Integer getWidth();
+    Integer getWidth ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getWidth <em>Width</em>}' attribute.
@@ -131,7 +130,7 @@ public interface URLImageComponent extends Component
      * @see #getWidth()
      * @generated
      */
-    void setWidth(Integer value);
+    void setWidth ( Integer value );
 
     /**
      * Returns the value of the '<em><b>Height</b></em>' attribute.
@@ -147,7 +146,7 @@ public interface URLImageComponent extends Component
      * @model
      * @generated
      */
-    Integer getHeight();
+    Integer getHeight ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.URLImageComponent#getHeight <em>Height</em>}' attribute.
@@ -157,6 +156,6 @@ public interface URLImageComponent extends Component
      * @see #getHeight()
      * @generated
      */
-    void setHeight(Integer value);
+    void setHeight ( Integer value );
 
 } // URLImageComponent

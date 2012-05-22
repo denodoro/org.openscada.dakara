@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.presentation;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -77,7 +76,6 @@ import org.openscada.vi.details.model.DetailView.DetailViewFactory;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.provider.DetailViewEditPlugin;
 
-
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -87,7 +85,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-
 
 /**
  * This is a simple wizard for creating a new model file.
@@ -103,8 +100,7 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<String> FILE_EXTENSIONS =
-        Collections.unmodifiableList(Arrays.asList(DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewEditorFilenameExtensions").split("\\s*,\\s*")));
+    public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList ( Arrays.asList ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewEditorFilenameExtensions" ).split ( "\\s*,\\s*" ) ) );
 
     /**
      * A formatted list of supported file extensions, suitable for display.
@@ -112,8 +108,7 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final String FORMATTED_FILE_EXTENSIONS =
-        DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    public static final String FORMATTED_FILE_EXTENSIONS = DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewEditorFilenameExtensions" ).replaceAll ( "\\s*,\\s*", ", " );
 
     /**
      * This caches an instance of the model package.
@@ -129,7 +124,7 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DetailViewFactory detailViewFactory = detailViewPackage.getDetailViewFactory();
+    protected DetailViewFactory detailViewFactory = detailViewPackage.getDetailViewFactory ();
 
     /**
      * This is the file creation page.
@@ -177,12 +172,12 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    public void init(IWorkbench workbench, IStructuredSelection selection)
+    public void init ( IWorkbench workbench, IStructuredSelection selection )
     {
         this.workbench = workbench;
         this.selection = selection;
-        setWindowTitle(DetailViewEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-        setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(DetailViewEditorPlugin.INSTANCE.getImage("full/wizban/NewDetailView")));
+        setWindowTitle ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_Wizard_label" ) );
+        setDefaultPageImageDescriptor ( ExtendedImageRegistry.INSTANCE.getImageDescriptor ( DetailViewEditorPlugin.INSTANCE.getImage ( "full/wizban/NewDetailView" ) ) );
     }
 
     /**
@@ -191,23 +186,23 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<String> getInitialObjectNames()
+    protected Collection<String> getInitialObjectNames ()
     {
-        if (initialObjectNames == null)
+        if ( initialObjectNames == null )
         {
-            initialObjectNames = new ArrayList<String>();
-            for (EClassifier eClassifier : detailViewPackage.getEClassifiers())
+            initialObjectNames = new ArrayList<String> ();
+            for ( EClassifier eClassifier : detailViewPackage.getEClassifiers () )
             {
-                if (eClassifier instanceof EClass)
+                if ( eClassifier instanceof EClass )
                 {
                     EClass eClass = (EClass)eClassifier;
-                    if (!eClass.isAbstract())
+                    if ( !eClass.isAbstract () )
                     {
-                        initialObjectNames.add(eClass.getName());
+                        initialObjectNames.add ( eClass.getName () );
                     }
                 }
             }
-            Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+            Collections.sort ( initialObjectNames, CommonPlugin.INSTANCE.getComparator () );
         }
         return initialObjectNames;
     }
@@ -218,10 +213,10 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    protected EObject createInitialModel()
+    protected EObject createInitialModel ()
     {
-        EClass eClass = (EClass)detailViewPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-        EObject rootObject = detailViewFactory.create(eClass);
+        EClass eClass = (EClass)detailViewPackage.getEClassifier ( initialObjectCreationPage.getInitialObjectName () );
+        EObject rootObject = detailViewFactory.create ( eClass );
         return rootObject;
     }
 
@@ -232,100 +227,94 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * @generated
      */
     @Override
-    public boolean performFinish()
+    public boolean performFinish ()
     {
         try
         {
             // Remember the file.
             //
-            final IFile modelFile = getModelFile();
+            final IFile modelFile = getModelFile ();
 
             // Do the work within an operation.
             //
-            WorkspaceModifyOperation operation =
-                new WorkspaceModifyOperation()
+            WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
+                @Override
+                protected void execute ( IProgressMonitor progressMonitor )
                 {
-                    @Override
-                    protected void execute(IProgressMonitor progressMonitor)
+                    try
                     {
-                        try
+                        // Create a resource set
+                        //
+                        ResourceSet resourceSet = new ResourceSetImpl ();
+
+                        // Get the URI of the model file.
+                        //
+                        URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
+
+                        // Create a resource for this file.
+                        //
+                        Resource resource = resourceSet.createResource ( fileURI );
+
+                        // Add the initial model object to the contents.
+                        //
+                        EObject rootObject = createInitialModel ();
+                        if ( rootObject != null )
                         {
-                            // Create a resource set
-                            //
-                            ResourceSet resourceSet = new ResourceSetImpl();
-
-                            // Get the URI of the model file.
-                            //
-                            URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
-
-                            // Create a resource for this file.
-                            //
-                            Resource resource = resourceSet.createResource(fileURI);
-
-                            // Add the initial model object to the contents.
-                            //
-                            EObject rootObject = createInitialModel();
-                            if (rootObject != null)
-                            {
-                                resource.getContents().add(rootObject);
-                            }
-
-                            // Save the contents of the resource to the file system.
-                            //
-                            Map<Object, Object> options = new HashMap<Object, Object>();
-                            options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
-                            resource.save(options);
+                            resource.getContents ().add ( rootObject );
                         }
-                        catch (Exception exception)
-                        {
-                            DetailViewEditorPlugin.INSTANCE.log(exception);
-                        }
-                        finally
-                        {
-                            progressMonitor.done();
-                        }
+
+                        // Save the contents of the resource to the file system.
+                        //
+                        Map<Object, Object> options = new HashMap<Object, Object> ();
+                        options.put ( XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding () );
+                        resource.save ( options );
                     }
-                };
+                    catch ( Exception exception )
+                    {
+                        DetailViewEditorPlugin.INSTANCE.log ( exception );
+                    }
+                    finally
+                    {
+                        progressMonitor.done ();
+                    }
+                }
+            };
 
-            getContainer().run(false, false, operation);
+            getContainer ().run ( false, false, operation );
 
             // Select the new file resource in the current view.
             //
-            IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
-            IWorkbenchPage page = workbenchWindow.getActivePage();
-            final IWorkbenchPart activePart = page.getActivePart();
-            if (activePart instanceof ISetSelectionTarget)
+            IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow ();
+            IWorkbenchPage page = workbenchWindow.getActivePage ();
+            final IWorkbenchPart activePart = page.getActivePart ();
+            if ( activePart instanceof ISetSelectionTarget )
             {
-                final ISelection targetSelection = new StructuredSelection(modelFile);
-                getShell().getDisplay().asyncExec
-                    (new Runnable()
-                     {
-                         public void run()
-                         {
-                             ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
-                         }
-                     });
+                final ISelection targetSelection = new StructuredSelection ( modelFile );
+                getShell ().getDisplay ().asyncExec ( new Runnable () {
+                    public void run ()
+                    {
+                        ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
+                    }
+                } );
             }
 
             // Open an editor on the new file.
             //
             try
             {
-                page.openEditor
-                    (new FileEditorInput(modelFile),
-                     workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
+                page.openEditor ( new FileEditorInput ( modelFile ), workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
             }
-            catch (PartInitException exception)
+            catch ( PartInitException exception )
             {
-                MessageDialog.openError(workbenchWindow.getShell(), DetailViewEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+                MessageDialog.openError ( workbenchWindow.getShell (), DetailViewEditorPlugin.INSTANCE.getString ( "_UI_OpenEditorError_label" ), exception.getMessage () );
                 return false;
             }
 
             return true;
         }
-        catch (Exception exception)
+        catch ( Exception exception )
         {
-            DetailViewEditorPlugin.INSTANCE.log(exception);
+            DetailViewEditorPlugin.INSTANCE.log ( exception );
             return false;
         }
     }
@@ -344,9 +333,9 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        public DetailViewModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection)
+        public DetailViewModelWizardNewFileCreationPage ( String pageId, IStructuredSelection selection )
         {
-            super(pageId, selection);
+            super ( pageId, selection );
         }
 
         /**
@@ -356,15 +345,15 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * @generated
          */
         @Override
-        protected boolean validatePage()
+        protected boolean validatePage ()
         {
-            if (super.validatePage())
+            if ( super.validatePage () )
             {
-                String extension = new Path(getFileName()).getFileExtension();
-                if (extension == null || !FILE_EXTENSIONS.contains(extension))
+                String extension = new Path ( getFileName () ).getFileExtension ();
+                if ( extension == null || !FILE_EXTENSIONS.contains ( extension ) )
                 {
-                    String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-                    setErrorMessage(DetailViewEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+                    String key = FILE_EXTENSIONS.size () > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+                    setErrorMessage ( DetailViewEditorPlugin.INSTANCE.getString ( key, new Object[] { FORMATTED_FILE_EXTENSIONS } ) );
                     return false;
                 }
                 return true;
@@ -377,9 +366,9 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        public IFile getModelFile()
+        public IFile getModelFile ()
         {
-            return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
+            return ResourcesPlugin.getWorkspace ().getRoot ().getFile ( getContainerFullPath ().append ( getFileName () ) );
         }
     }
 
@@ -418,9 +407,9 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        public DetailViewModelWizardInitialObjectCreationPage(String pageId)
+        public DetailViewModelWizardInitialObjectCreationPage ( String pageId )
         {
-            super(pageId);
+            super ( pageId );
         }
 
         /**
@@ -428,76 +417,76 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        public void createControl(Composite parent)
+        public void createControl ( Composite parent )
         {
-            Composite composite = new Composite(parent, SWT.NONE);
+            Composite composite = new Composite ( parent, SWT.NONE );
             {
-                GridLayout layout = new GridLayout();
+                GridLayout layout = new GridLayout ();
                 layout.numColumns = 1;
                 layout.verticalSpacing = 12;
-                composite.setLayout(layout);
+                composite.setLayout ( layout );
 
-                GridData data = new GridData();
+                GridData data = new GridData ();
                 data.verticalAlignment = GridData.FILL;
                 data.grabExcessVerticalSpace = true;
                 data.horizontalAlignment = GridData.FILL;
-                composite.setLayoutData(data);
+                composite.setLayoutData ( data );
             }
 
-            Label containerLabel = new Label(composite, SWT.LEFT);
+            Label containerLabel = new Label ( composite, SWT.LEFT );
             {
-                containerLabel.setText(DetailViewEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+                containerLabel.setText ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_ModelObject" ) );
 
-                GridData data = new GridData();
+                GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
-                containerLabel.setLayoutData(data);
+                containerLabel.setLayoutData ( data );
             }
 
-            initialObjectField = new Combo(composite, SWT.BORDER);
+            initialObjectField = new Combo ( composite, SWT.BORDER );
             {
-                GridData data = new GridData();
-                data.horizontalAlignment = GridData.FILL;
-                data.grabExcessHorizontalSpace = true;
-                initialObjectField.setLayoutData(data);
-            }
-
-            for (String objectName : getInitialObjectNames())
-            {
-                initialObjectField.add(getLabel(objectName));
-            }
-
-            if (initialObjectField.getItemCount() == 1)
-            {
-                initialObjectField.select(0);
-            }
-            initialObjectField.addModifyListener(validator);
-
-            Label encodingLabel = new Label(composite, SWT.LEFT);
-            {
-                encodingLabel.setText(DetailViewEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
-
-                GridData data = new GridData();
-                data.horizontalAlignment = GridData.FILL;
-                encodingLabel.setLayoutData(data);
-            }
-            encodingField = new Combo(composite, SWT.BORDER);
-            {
-                GridData data = new GridData();
+                GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                encodingField.setLayoutData(data);
+                initialObjectField.setLayoutData ( data );
             }
 
-            for (String encoding : getEncodings())
+            for ( String objectName : getInitialObjectNames () )
             {
-                encodingField.add(encoding);
+                initialObjectField.add ( getLabel ( objectName ) );
             }
 
-            encodingField.select(0);
-            encodingField.addModifyListener(validator);
+            if ( initialObjectField.getItemCount () == 1 )
+            {
+                initialObjectField.select ( 0 );
+            }
+            initialObjectField.addModifyListener ( validator );
 
-            setPageComplete(validatePage());
-            setControl(composite);
+            Label encodingLabel = new Label ( composite, SWT.LEFT );
+            {
+                encodingLabel.setText ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_XMLEncoding" ) );
+
+                GridData data = new GridData ();
+                data.horizontalAlignment = GridData.FILL;
+                encodingLabel.setLayoutData ( data );
+            }
+            encodingField = new Combo ( composite, SWT.BORDER );
+            {
+                GridData data = new GridData ();
+                data.horizontalAlignment = GridData.FILL;
+                data.grabExcessHorizontalSpace = true;
+                encodingField.setLayoutData ( data );
+            }
+
+            for ( String encoding : getEncodings () )
+            {
+                encodingField.add ( encoding );
+            }
+
+            encodingField.select ( 0 );
+            encodingField.addModifyListener ( validator );
+
+            setPageComplete ( validatePage () );
+            setControl ( composite );
         }
 
         /**
@@ -505,23 +494,21 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        protected ModifyListener validator =
-            new ModifyListener()
+        protected ModifyListener validator = new ModifyListener () {
+            public void modifyText ( ModifyEvent e )
             {
-                public void modifyText(ModifyEvent e)
-                {
-                    setPageComplete(validatePage());
-                }
-            };
+                setPageComplete ( validatePage () );
+            }
+        };
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected boolean validatePage()
+        protected boolean validatePage ()
         {
-            return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
+            return getInitialObjectName () != null && getEncodings ().contains ( encodingField.getText () );
         }
 
         /**
@@ -530,20 +517,20 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * @generated
          */
         @Override
-        public void setVisible(boolean visible)
+        public void setVisible ( boolean visible )
         {
-            super.setVisible(visible);
-            if (visible)
+            super.setVisible ( visible );
+            if ( visible )
             {
-                if (initialObjectField.getItemCount() == 1)
+                if ( initialObjectField.getItemCount () == 1 )
                 {
-                    initialObjectField.clearSelection();
-                    encodingField.setFocus();
+                    initialObjectField.clearSelection ();
+                    encodingField.setFocus ();
                 }
                 else
                 {
-                    encodingField.clearSelection();
-                    initialObjectField.setFocus();
+                    encodingField.clearSelection ();
+                    initialObjectField.setFocus ();
                 }
             }
         }
@@ -553,13 +540,13 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        public String getInitialObjectName()
+        public String getInitialObjectName ()
         {
-            String label = initialObjectField.getText();
+            String label = initialObjectField.getText ();
 
-            for (String name : getInitialObjectNames())
+            for ( String name : getInitialObjectNames () )
             {
-                if (getLabel(name).equals(label))
+                if ( getLabel ( name ).equals ( label ) )
                 {
                     return name;
                 }
@@ -572,9 +559,9 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        public String getEncoding()
+        public String getEncoding ()
         {
-            return encodingField.getText();
+            return encodingField.getText ();
         }
 
         /**
@@ -583,15 +570,15 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        protected String getLabel(String typeName)
+        protected String getLabel ( String typeName )
         {
             try
             {
-                return DetailViewEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+                return DetailViewEditPlugin.INSTANCE.getString ( "_UI_" + typeName + "_type" );
             }
-            catch(MissingResourceException mre)
+            catch ( MissingResourceException mre )
             {
-                DetailViewEditorPlugin.INSTANCE.log(mre);
+                DetailViewEditorPlugin.INSTANCE.log ( mre );
             }
             return typeName;
         }
@@ -601,14 +588,14 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        protected Collection<String> getEncodings()
+        protected Collection<String> getEncodings ()
         {
-            if (encodings == null)
+            if ( encodings == null )
             {
-                encodings = new ArrayList<String>();
-                for (StringTokenizer stringTokenizer = new StringTokenizer(DetailViewEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); )
+                encodings = new ArrayList<String> ();
+                for ( StringTokenizer stringTokenizer = new StringTokenizer ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_XMLEncodingChoices" ) ); stringTokenizer.hasMoreTokens (); )
                 {
-                    encodings.add(stringTokenizer.nextToken());
+                    encodings.add ( stringTokenizer.nextToken () );
                 }
             }
             return encodings;
@@ -621,59 +608,59 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-        @Override
-    public void addPages()
+    @Override
+    public void addPages ()
     {
         // Create a page, set the title, and the initial model file name.
         //
-        newFileCreationPage = new DetailViewModelWizardNewFileCreationPage("Whatever", selection);
-        newFileCreationPage.setTitle(DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewModelWizard_label"));
-        newFileCreationPage.setDescription(DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewModelWizard_description"));
-        newFileCreationPage.setFileName(DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-        addPage(newFileCreationPage);
+        newFileCreationPage = new DetailViewModelWizardNewFileCreationPage ( "Whatever", selection );
+        newFileCreationPage.setTitle ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewModelWizard_label" ) );
+        newFileCreationPage.setDescription ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewModelWizard_description" ) );
+        newFileCreationPage.setFileName ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewEditorFilenameDefaultBase" ) + "." + FILE_EXTENSIONS.get ( 0 ) );
+        addPage ( newFileCreationPage );
 
         // Try and get the resource selection to determine a current directory for the file dialog.
         //
-        if (selection != null && !selection.isEmpty())
+        if ( selection != null && !selection.isEmpty () )
         {
             // Get the resource...
             //
-            Object selectedElement = selection.iterator().next();
-            if (selectedElement instanceof IResource)
+            Object selectedElement = selection.iterator ().next ();
+            if ( selectedElement instanceof IResource )
             {
                 // Get the resource parent, if its a file.
                 //
                 IResource selectedResource = (IResource)selectedElement;
-                if (selectedResource.getType() == IResource.FILE)
+                if ( selectedResource.getType () == IResource.FILE )
                 {
-                    selectedResource = selectedResource.getParent();
+                    selectedResource = selectedResource.getParent ();
                 }
 
                 // This gives us a directory...
                 //
-                if (selectedResource instanceof IFolder || selectedResource instanceof IProject)
+                if ( selectedResource instanceof IFolder || selectedResource instanceof IProject )
                 {
                     // Set this for the container.
                     //
-                    newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+                    newFileCreationPage.setContainerFullPath ( selectedResource.getFullPath () );
 
                     // Make up a unique new name here.
                     //
-                    String defaultModelBaseFilename = DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewEditorFilenameDefaultBase");
-                    String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+                    String defaultModelBaseFilename = DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewEditorFilenameDefaultBase" );
+                    String defaultModelFilenameExtension = FILE_EXTENSIONS.get ( 0 );
                     String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-                    for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
+                    for ( int i = 1; ( (IContainer)selectedResource ).findMember ( modelFilename ) != null; ++i )
                     {
                         modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
                     }
-                    newFileCreationPage.setFileName(modelFilename);
+                    newFileCreationPage.setFileName ( modelFilename );
                 }
             }
         }
-        initialObjectCreationPage = new DetailViewModelWizardInitialObjectCreationPage("Whatever2");
-        initialObjectCreationPage.setTitle(DetailViewEditorPlugin.INSTANCE.getString("_UI_DetailViewModelWizard_label"));
-        initialObjectCreationPage.setDescription(DetailViewEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-        addPage(initialObjectCreationPage);
+        initialObjectCreationPage = new DetailViewModelWizardInitialObjectCreationPage ( "Whatever2" );
+        initialObjectCreationPage.setTitle ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_DetailViewModelWizard_label" ) );
+        initialObjectCreationPage.setDescription ( DetailViewEditorPlugin.INSTANCE.getString ( "_UI_Wizard_initial_object_description" ) );
+        addPage ( initialObjectCreationPage );
     }
 
     /**
@@ -682,9 +669,9 @@ public class DetailViewModelWizard extends Wizard implements INewWizard
      * <!-- end-user-doc -->
      * @generated
      */
-    public IFile getModelFile()
+    public IFile getModelFile ()
     {
-        return newFileCreationPage.getModelFile();
+        return newFileCreationPage.getModelFile ();
     }
 
 }

@@ -30,21 +30,21 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public static DetailViewFactory init()
+    public static DetailViewFactory init ()
     {
         try
         {
-            DetailViewFactory theDetailViewFactory = (DetailViewFactory)EPackage.Registry.INSTANCE.getEFactory("http://th4-systems.com/VIMS/DetailView/1.0"); 
-            if (theDetailViewFactory != null)
+            DetailViewFactory theDetailViewFactory = (DetailViewFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://th4-systems.com/VIMS/DetailView/1.0" );
+            if ( theDetailViewFactory != null )
             {
                 return theDetailViewFactory;
             }
         }
-        catch (Exception exception)
+        catch ( Exception exception )
         {
-            EcorePlugin.INSTANCE.log(exception);
+            EcorePlugin.INSTANCE.log ( exception );
         }
-        return new DetailViewFactoryImpl();
+        return new DetailViewFactoryImpl ();
     }
 
     /**
@@ -53,9 +53,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewFactoryImpl()
+    public DetailViewFactoryImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -64,35 +64,58 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * @generated
      */
     @Override
-    public EObject create(EClass eClass)
+    public EObject create ( EClass eClass )
     {
-        switch (eClass.getClassifierID())
+        switch ( eClass.getClassifierID () )
         {
-            case DetailViewPackage.VIEW: return createView();
-            case DetailViewPackage.GROUP_ENTRY: return createGroupEntry();
-            case DetailViewPackage.LABEL_COMPONENT: return createLabelComponent();
-            case DetailViewPackage.FILL_LAYOUT_COMPONENT: return createFillLayoutComponent();
-            case DetailViewPackage.BUTTON_COMPONENT: return createButtonComponent();
-            case DetailViewPackage.BOOL_LED_COMPONENT: return createBoolLEDComponent();
-            case DetailViewPackage.ITEM_VALUE_SOURCE: return createItemValueSource();
-            case DetailViewPackage.NOT_TRANSFORMER: return createNotTransformer();
-            case DetailViewPackage.REGISTRATION: return createRegistration();
-            case DetailViewPackage.SIMPLE_GRID_COMPONENT: return createSimpleGridComponent();
-            case DetailViewPackage.GROUP_GRID_COMPONENT: return createGroupGridComponent();
-            case DetailViewPackage.GROUP_GRID_ENTRY: return createGroupGridEntry();
-            case DetailViewPackage.VALUE_SET_COMPONENT: return createValueSetComponent();
-            case DetailViewPackage.VALUE_COMPONENT: return createValueComponent();
-            case DetailViewPackage.AND_TRANSFORMER: return createAndTransformer();
-            case DetailViewPackage.OR_TRANSFORMER: return createOrTransformer();
-            case DetailViewPackage.TEXT_INPUT_COMPONENT: return createTextInputComponent();
-            case DetailViewPackage.TEXT_COMPONENT: return createTextComponent();
-            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT: return createTextInputMultiComponent();
-            case DetailViewPackage.CHECK_COMPONENT: return createCheckComponent();
-            case DetailViewPackage.LINK_COMPONENT: return createLinkComponent();
-            case DetailViewPackage.URL_IMAGE_COMPONENT: return createURLImageComponent();
-            case DetailViewPackage.PROGRESS_COMPONENT: return createProgressComponent();
+            case DetailViewPackage.VIEW:
+                return createView ();
+            case DetailViewPackage.GROUP_ENTRY:
+                return createGroupEntry ();
+            case DetailViewPackage.LABEL_COMPONENT:
+                return createLabelComponent ();
+            case DetailViewPackage.FILL_LAYOUT_COMPONENT:
+                return createFillLayoutComponent ();
+            case DetailViewPackage.BUTTON_COMPONENT:
+                return createButtonComponent ();
+            case DetailViewPackage.BOOL_LED_COMPONENT:
+                return createBoolLEDComponent ();
+            case DetailViewPackage.ITEM_VALUE_SOURCE:
+                return createItemValueSource ();
+            case DetailViewPackage.NOT_TRANSFORMER:
+                return createNotTransformer ();
+            case DetailViewPackage.REGISTRATION:
+                return createRegistration ();
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT:
+                return createSimpleGridComponent ();
+            case DetailViewPackage.GROUP_GRID_COMPONENT:
+                return createGroupGridComponent ();
+            case DetailViewPackage.GROUP_GRID_ENTRY:
+                return createGroupGridEntry ();
+            case DetailViewPackage.VALUE_SET_COMPONENT:
+                return createValueSetComponent ();
+            case DetailViewPackage.VALUE_COMPONENT:
+                return createValueComponent ();
+            case DetailViewPackage.AND_TRANSFORMER:
+                return createAndTransformer ();
+            case DetailViewPackage.OR_TRANSFORMER:
+                return createOrTransformer ();
+            case DetailViewPackage.TEXT_INPUT_COMPONENT:
+                return createTextInputComponent ();
+            case DetailViewPackage.TEXT_COMPONENT:
+                return createTextComponent ();
+            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT:
+                return createTextInputMultiComponent ();
+            case DetailViewPackage.CHECK_COMPONENT:
+                return createCheckComponent ();
+            case DetailViewPackage.LINK_COMPONENT:
+                return createLinkComponent ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT:
+                return createURLImageComponent ();
+            case DetailViewPackage.PROGRESS_COMPONENT:
+                return createProgressComponent ();
             default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -101,9 +124,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public View createView()
+    public View createView ()
     {
-        ViewImpl view = new ViewImpl();
+        ViewImpl view = new ViewImpl ();
         return view;
     }
 
@@ -112,9 +135,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupEntry createGroupEntry()
+    public GroupEntry createGroupEntry ()
     {
-        GroupEntryImpl groupEntry = new GroupEntryImpl();
+        GroupEntryImpl groupEntry = new GroupEntryImpl ();
         return groupEntry;
     }
 
@@ -123,9 +146,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public LabelComponent createLabelComponent()
+    public LabelComponent createLabelComponent ()
     {
-        LabelComponentImpl labelComponent = new LabelComponentImpl();
+        LabelComponentImpl labelComponent = new LabelComponentImpl ();
         return labelComponent;
     }
 
@@ -134,9 +157,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public FillLayoutComponent createFillLayoutComponent()
+    public FillLayoutComponent createFillLayoutComponent ()
     {
-        FillLayoutComponentImpl fillLayoutComponent = new FillLayoutComponentImpl();
+        FillLayoutComponentImpl fillLayoutComponent = new FillLayoutComponentImpl ();
         return fillLayoutComponent;
     }
 
@@ -145,9 +168,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public ButtonComponent createButtonComponent()
+    public ButtonComponent createButtonComponent ()
     {
-        ButtonComponentImpl buttonComponent = new ButtonComponentImpl();
+        ButtonComponentImpl buttonComponent = new ButtonComponentImpl ();
         return buttonComponent;
     }
 
@@ -156,9 +179,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public BoolLEDComponent createBoolLEDComponent()
+    public BoolLEDComponent createBoolLEDComponent ()
     {
-        BoolLEDComponentImpl boolLEDComponent = new BoolLEDComponentImpl();
+        BoolLEDComponentImpl boolLEDComponent = new BoolLEDComponentImpl ();
         return boolLEDComponent;
     }
 
@@ -167,9 +190,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public ItemValueSource createItemValueSource()
+    public ItemValueSource createItemValueSource ()
     {
-        ItemValueSourceImpl itemValueSource = new ItemValueSourceImpl();
+        ItemValueSourceImpl itemValueSource = new ItemValueSourceImpl ();
         return itemValueSource;
     }
 
@@ -178,9 +201,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotTransformer createNotTransformer()
+    public NotTransformer createNotTransformer ()
     {
-        NotTransformerImpl notTransformer = new NotTransformerImpl();
+        NotTransformerImpl notTransformer = new NotTransformerImpl ();
         return notTransformer;
     }
 
@@ -189,9 +212,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public Registration createRegistration()
+    public Registration createRegistration ()
     {
-        RegistrationImpl registration = new RegistrationImpl();
+        RegistrationImpl registration = new RegistrationImpl ();
         return registration;
     }
 
@@ -200,9 +223,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public SimpleGridComponent createSimpleGridComponent()
+    public SimpleGridComponent createSimpleGridComponent ()
     {
-        SimpleGridComponentImpl simpleGridComponent = new SimpleGridComponentImpl();
+        SimpleGridComponentImpl simpleGridComponent = new SimpleGridComponentImpl ();
         return simpleGridComponent;
     }
 
@@ -211,9 +234,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupGridComponent createGroupGridComponent()
+    public GroupGridComponent createGroupGridComponent ()
     {
-        GroupGridComponentImpl groupGridComponent = new GroupGridComponentImpl();
+        GroupGridComponentImpl groupGridComponent = new GroupGridComponentImpl ();
         return groupGridComponent;
     }
 
@@ -222,9 +245,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupGridEntry createGroupGridEntry()
+    public GroupGridEntry createGroupGridEntry ()
     {
-        GroupGridEntryImpl groupGridEntry = new GroupGridEntryImpl();
+        GroupGridEntryImpl groupGridEntry = new GroupGridEntryImpl ();
         return groupGridEntry;
     }
 
@@ -233,9 +256,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueSetComponent createValueSetComponent()
+    public ValueSetComponent createValueSetComponent ()
     {
-        ValueSetComponentImpl valueSetComponent = new ValueSetComponentImpl();
+        ValueSetComponentImpl valueSetComponent = new ValueSetComponentImpl ();
         return valueSetComponent;
     }
 
@@ -244,9 +267,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueComponent createValueComponent()
+    public ValueComponent createValueComponent ()
     {
-        ValueComponentImpl valueComponent = new ValueComponentImpl();
+        ValueComponentImpl valueComponent = new ValueComponentImpl ();
         return valueComponent;
     }
 
@@ -255,9 +278,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public AndTransformer createAndTransformer()
+    public AndTransformer createAndTransformer ()
     {
-        AndTransformerImpl andTransformer = new AndTransformerImpl();
+        AndTransformerImpl andTransformer = new AndTransformerImpl ();
         return andTransformer;
     }
 
@@ -266,9 +289,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public OrTransformer createOrTransformer()
+    public OrTransformer createOrTransformer ()
     {
-        OrTransformerImpl orTransformer = new OrTransformerImpl();
+        OrTransformerImpl orTransformer = new OrTransformerImpl ();
         return orTransformer;
     }
 
@@ -277,9 +300,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextInputComponent createTextInputComponent()
+    public TextInputComponent createTextInputComponent ()
     {
-        TextInputComponentImpl textInputComponent = new TextInputComponentImpl();
+        TextInputComponentImpl textInputComponent = new TextInputComponentImpl ();
         return textInputComponent;
     }
 
@@ -288,9 +311,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextComponent createTextComponent()
+    public TextComponent createTextComponent ()
     {
-        TextComponentImpl textComponent = new TextComponentImpl();
+        TextComponentImpl textComponent = new TextComponentImpl ();
         return textComponent;
     }
 
@@ -299,9 +322,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextInputMultiComponent createTextInputMultiComponent()
+    public TextInputMultiComponent createTextInputMultiComponent ()
     {
-        TextInputMultiComponentImpl textInputMultiComponent = new TextInputMultiComponentImpl();
+        TextInputMultiComponentImpl textInputMultiComponent = new TextInputMultiComponentImpl ();
         return textInputMultiComponent;
     }
 
@@ -310,9 +333,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public CheckComponent createCheckComponent()
+    public CheckComponent createCheckComponent ()
     {
-        CheckComponentImpl checkComponent = new CheckComponentImpl();
+        CheckComponentImpl checkComponent = new CheckComponentImpl ();
         return checkComponent;
     }
 
@@ -321,9 +344,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public LinkComponent createLinkComponent()
+    public LinkComponent createLinkComponent ()
     {
-        LinkComponentImpl linkComponent = new LinkComponentImpl();
+        LinkComponentImpl linkComponent = new LinkComponentImpl ();
         return linkComponent;
     }
 
@@ -332,9 +355,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public URLImageComponent createURLImageComponent()
+    public URLImageComponent createURLImageComponent ()
     {
-        URLImageComponentImpl urlImageComponent = new URLImageComponentImpl();
+        URLImageComponentImpl urlImageComponent = new URLImageComponentImpl ();
         return urlImageComponent;
     }
 
@@ -343,9 +366,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProgressComponent createProgressComponent()
+    public ProgressComponent createProgressComponent ()
     {
-        ProgressComponentImpl progressComponent = new ProgressComponentImpl();
+        ProgressComponentImpl progressComponent = new ProgressComponentImpl ();
         return progressComponent;
     }
 
@@ -354,9 +377,9 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewPackage getDetailViewPackage()
+    public DetailViewPackage getDetailViewPackage ()
     {
-        return (DetailViewPackage)getEPackage();
+        return (DetailViewPackage)getEPackage ();
     }
 
     /**
@@ -366,7 +389,7 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
      * @generated
      */
     @Deprecated
-    public static DetailViewPackage getPackage()
+    public static DetailViewPackage getPackage ()
     {
         return DetailViewPackage.eINSTANCE;
     }

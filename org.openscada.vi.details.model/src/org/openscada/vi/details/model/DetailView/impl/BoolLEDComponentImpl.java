@@ -118,9 +118,9 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BoolLEDComponentImpl()
+    protected BoolLEDComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -129,7 +129,7 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.BOOL_LED_COMPONENT;
     }
@@ -139,7 +139,7 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFormat()
+    public String getFormat ()
     {
         return format;
     }
@@ -149,12 +149,12 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFormat(String newFormat)
+    public void setFormat ( String newFormat )
     {
         String oldFormat = format;
         format = newFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__FORMAT, oldFormat, format));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__FORMAT, oldFormat, format ) );
     }
 
     /**
@@ -162,7 +162,7 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -172,12 +172,12 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -185,7 +185,7 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isAlarm()
+    public boolean isAlarm ()
     {
         return alarm;
     }
@@ -195,12 +195,12 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAlarm(boolean newAlarm)
+    public void setAlarm ( boolean newAlarm )
     {
         boolean oldAlarm = alarm;
         alarm = newAlarm;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__ALARM, oldAlarm, alarm));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__ALARM, oldAlarm, alarm ) );
     }
 
     /**
@@ -208,7 +208,7 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getAttribute()
+    public String getAttribute ()
     {
         return attribute;
     }
@@ -218,12 +218,12 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAttribute(String newAttribute)
+    public void setAttribute ( String newAttribute )
     {
         String oldAttribute = attribute;
         attribute = newAttribute;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE, oldAttribute, attribute));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE, oldAttribute, attribute ) );
     }
 
     /**
@@ -232,20 +232,20 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                return getFormat();
+                return getFormat ();
             case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
             case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                return isAlarm();
+                return isAlarm ();
             case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                return getAttribute();
+                return getAttribute ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -254,50 +254,24 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                setFormat((String)newValue);
+                setFormat ( (String)newValue );
                 return;
             case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                setAlarm((Boolean)newValue);
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                setAttribute((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                setFormat(FORMAT_EDEFAULT);
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                setAlarm(ALARM_EDEFAULT);
+                setAlarm ( (Boolean)newValue );
                 return;
             case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                setAttribute(ATTRIBUTE_EDEFAULT);
+                setAttribute ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -306,20 +280,46 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+                setFormat ( FORMAT_EDEFAULT );
+                return;
             case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+                setAlarm ( ALARM_EDEFAULT );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+                setAttribute ( ATTRIBUTE_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
             case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
                 return alarm != ALARM_EDEFAULT;
             case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -328,21 +328,22 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (format: ");
-        result.append(format);
-        result.append(", descriptor: ");
-        result.append(descriptor);
-        result.append(", alarm: ");
-        result.append(alarm);
-        result.append(", attribute: ");
-        result.append(attribute);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (format: " );
+        result.append ( format );
+        result.append ( ", descriptor: " );
+        result.append ( descriptor );
+        result.append ( ", alarm: " );
+        result.append ( alarm );
+        result.append ( ", attribute: " );
+        result.append ( attribute );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //BoolLEDComponentImpl

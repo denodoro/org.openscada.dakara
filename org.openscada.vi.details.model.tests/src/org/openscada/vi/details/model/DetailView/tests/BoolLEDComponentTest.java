@@ -25,9 +25,9 @@ public class BoolLEDComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(BoolLEDComponentTest.class);
+        TestRunner.run ( BoolLEDComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class BoolLEDComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public BoolLEDComponentTest(String name)
+    public BoolLEDComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class BoolLEDComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected BoolLEDComponent getFixture()
+    protected BoolLEDComponent getFixture ()
     {
         return (BoolLEDComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class BoolLEDComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createBoolLEDComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createBoolLEDComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class BoolLEDComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //BoolLEDComponentTest

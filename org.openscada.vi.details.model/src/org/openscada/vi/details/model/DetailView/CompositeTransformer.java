@@ -40,6 +40,6 @@ public interface CompositeTransformer extends ValueSource
      * @model containment="true"
      * @generated
      */
-    EList<ValueSource> getValues();
+    EList<ValueSource> getValues ();
 
 } // CompositeTransformer

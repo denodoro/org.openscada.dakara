@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -35,14 +34,7 @@ import org.openscada.vi.details.model.DetailView.DetailViewPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ButtonComponentItemProvider
-    extends GenericComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ButtonComponentItemProvider extends GenericComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -50,9 +42,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ButtonComponentItemProvider(AdapterFactory adapterFactory)
+    public ButtonComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -62,18 +54,18 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addFormatPropertyDescriptor(object);
-            addValuePropertyDescriptor(object);
-            addReadDescriptorPropertyDescriptor(object);
-            addWriteDescriptorPropertyDescriptor(object);
-            addAttributePropertyDescriptor(object);
-            addTextHeightPropertyDescriptor(object);
+            addFormatPropertyDescriptor ( object );
+            addValuePropertyDescriptor ( object );
+            addReadDescriptorPropertyDescriptor ( object );
+            addWriteDescriptorPropertyDescriptor ( object );
+            addAttributePropertyDescriptor ( object );
+            addTextHeightPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -84,21 +76,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFormatPropertyDescriptor(Object object)
+    protected void addFormatPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ButtonComponent_format_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ButtonComponent_format_feature", "_UI_ButtonComponent_type"),
-                 DetailViewPackage.Literals.BUTTON_COMPONENT__FORMAT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ButtonComponent_format_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ButtonComponent_format_feature", "_UI_ButtonComponent_type" ), DetailViewPackage.Literals.BUTTON_COMPONENT__FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -107,21 +87,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addValuePropertyDescriptor(Object object)
+    protected void addValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ButtonComponent_value_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ButtonComponent_value_feature", "_UI_ButtonComponent_type"),
-                 DetailViewPackage.Literals.BUTTON_COMPONENT__VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ButtonComponent_value_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ButtonComponent_value_feature", "_UI_ButtonComponent_type" ), DetailViewPackage.Literals.BUTTON_COMPONENT__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -130,21 +98,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReadDescriptorPropertyDescriptor(Object object)
+    protected void addReadDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ButtonComponent_readDescriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ButtonComponent_readDescriptor_feature", "_UI_ButtonComponent_type"),
-                 DetailViewPackage.Literals.BUTTON_COMPONENT__READ_DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ButtonComponent_readDescriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ButtonComponent_readDescriptor_feature", "_UI_ButtonComponent_type" ), DetailViewPackage.Literals.BUTTON_COMPONENT__READ_DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -153,21 +109,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addWriteDescriptorPropertyDescriptor(Object object)
+    protected void addWriteDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ButtonComponent_writeDescriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ButtonComponent_writeDescriptor_feature", "_UI_ButtonComponent_type"),
-                 DetailViewPackage.Literals.BUTTON_COMPONENT__WRITE_DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ButtonComponent_writeDescriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ButtonComponent_writeDescriptor_feature", "_UI_ButtonComponent_type" ), DetailViewPackage.Literals.BUTTON_COMPONENT__WRITE_DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -176,21 +120,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAttributePropertyDescriptor(Object object)
+    protected void addAttributePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ButtonComponent_attribute_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ButtonComponent_attribute_feature", "_UI_ButtonComponent_type"),
-                 DetailViewPackage.Literals.BUTTON_COMPONENT__ATTRIBUTE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ButtonComponent_attribute_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ButtonComponent_attribute_feature", "_UI_ButtonComponent_type" ), DetailViewPackage.Literals.BUTTON_COMPONENT__ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -199,21 +131,9 @@ public class ButtonComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTextHeightPropertyDescriptor(Object object)
+    protected void addTextHeightPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ButtonComponent_textHeight_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ButtonComponent_textHeight_feature", "_UI_ButtonComponent_type"),
-                 DetailViewPackage.Literals.BUTTON_COMPONENT__TEXT_HEIGHT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ButtonComponent_textHeight_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ButtonComponent_textHeight_feature", "_UI_ButtonComponent_type" ), DetailViewPackage.Literals.BUTTON_COMPONENT__TEXT_HEIGHT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -225,12 +145,12 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE );
         }
         return childrenFeatures;
     }
@@ -241,12 +161,12 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -256,9 +176,9 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ButtonComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ButtonComponent" ) );
     }
 
     /**
@@ -268,12 +188,10 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((ButtonComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_ButtonComponent_type") :
-            getString("_UI_ButtonComponent_type") + " " + label;
+        String label = ( (ButtonComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ButtonComponent_type" ) : getString ( "_UI_ButtonComponent_type" ) + " " + label;
     }
 
     /**
@@ -284,11 +202,11 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(ButtonComponent.class))
+        switch ( notification.getFeatureID ( ButtonComponent.class ) )
         {
             case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
             case DetailViewPackage.BUTTON_COMPONENT__VALUE:
@@ -296,13 +214,13 @@ public class ButtonComponentItemProvider
             case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
             case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
             case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -313,29 +231,17 @@ public class ButtonComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE,
-                 DetailViewFactory.eINSTANCE.createItemValueSource()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE, DetailViewFactory.eINSTANCE.createItemValueSource () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE,
-                 DetailViewFactory.eINSTANCE.createNotTransformer()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE, DetailViewFactory.eINSTANCE.createNotTransformer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE,
-                 DetailViewFactory.eINSTANCE.createAndTransformer()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE, DetailViewFactory.eINSTANCE.createAndTransformer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE,
-                 DetailViewFactory.eINSTANCE.createOrTransformer()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.BUTTON_COMPONENT__ACTIVE, DetailViewFactory.eINSTANCE.createOrTransformer () ) );
     }
 
 }

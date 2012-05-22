@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Text Component</b></em>'.
@@ -44,7 +43,7 @@ public interface TextComponent extends ReadableComponent
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -54,7 +53,7 @@ public interface TextComponent extends ReadableComponent
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Width</b></em>' attribute.
@@ -70,7 +69,7 @@ public interface TextComponent extends ReadableComponent
      * @model
      * @generated
      */
-    int getWidth();
+    int getWidth ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextComponent#getWidth <em>Width</em>}' attribute.
@@ -80,7 +79,7 @@ public interface TextComponent extends ReadableComponent
      * @see #getWidth()
      * @generated
      */
-    void setWidth(int value);
+    void setWidth ( int value );
 
     /**
      * Returns the value of the '<em><b>Height</b></em>' attribute.
@@ -96,7 +95,7 @@ public interface TextComponent extends ReadableComponent
      * @model
      * @generated
      */
-    int getHeight();
+    int getHeight ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextComponent#getHeight <em>Height</em>}' attribute.
@@ -106,7 +105,7 @@ public interface TextComponent extends ReadableComponent
      * @see #getHeight()
      * @generated
      */
-    void setHeight(int value);
+    void setHeight ( int value );
 
     /**
      * Returns the value of the '<em><b>Date</b></em>' attribute.
@@ -122,7 +121,7 @@ public interface TextComponent extends ReadableComponent
      * @model
      * @generated
      */
-    boolean isDate();
+    boolean isDate ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextComponent#isDate <em>Date</em>}' attribute.
@@ -132,7 +131,7 @@ public interface TextComponent extends ReadableComponent
      * @see #isDate()
      * @generated
      */
-    void setDate(boolean value);
+    void setDate ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Text Height</b></em>' attribute.
@@ -148,7 +147,7 @@ public interface TextComponent extends ReadableComponent
      * @model
      * @generated
      */
-    int getTextHeight();
+    int getTextHeight ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextComponent#getTextHeight <em>Text Height</em>}' attribute.
@@ -158,7 +157,7 @@ public interface TextComponent extends ReadableComponent
      * @see #getTextHeight()
      * @generated
      */
-    void setTextHeight(int value);
+    void setTextHeight ( int value );
 
     /**
      * Returns the value of the '<em><b>Text Map</b></em>' attribute.
@@ -174,7 +173,7 @@ public interface TextComponent extends ReadableComponent
      * @model
      * @generated
      */
-    String getTextMap();
+    String getTextMap ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextComponent#getTextMap <em>Text Map</em>}' attribute.
@@ -184,6 +183,6 @@ public interface TextComponent extends ReadableComponent
      * @see #getTextMap()
      * @generated
      */
-    void setTextMap(String value);
+    void setTextMap ( String value );
 
 } // TextComponent

@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -38,14 +37,7 @@ import org.openscada.vi.details.model.DetailView.GroupGridEntry;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GroupGridEntryItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class GroupGridEntryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -53,9 +45,9 @@ public class GroupGridEntryItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupGridEntryItemProvider(AdapterFactory adapterFactory)
+    public GroupGridEntryItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -65,14 +57,14 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addLabelPropertyDescriptor(object);
-            addPermissionPropertyDescriptor(object);
+            addLabelPropertyDescriptor ( object );
+            addPermissionPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -83,21 +75,9 @@ public class GroupGridEntryItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addLabelPropertyDescriptor(Object object)
+    protected void addLabelPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_GroupGridEntry_label_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_label_feature", "_UI_GroupGridEntry_type"),
-                 DetailViewPackage.Literals.GROUP_GRID_ENTRY__LABEL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GroupGridEntry_label_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_label_feature", "_UI_GroupGridEntry_type" ), DetailViewPackage.Literals.GROUP_GRID_ENTRY__LABEL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -106,21 +86,9 @@ public class GroupGridEntryItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addPermissionPropertyDescriptor(Object object)
+    protected void addPermissionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_GroupGridEntry_permission_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_permission_feature", "_UI_GroupGridEntry_type"),
-                 DetailViewPackage.Literals.GROUP_GRID_ENTRY__PERMISSION,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GroupGridEntry_permission_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_permission_feature", "_UI_GroupGridEntry_type" ), DetailViewPackage.Literals.GROUP_GRID_ENTRY__PERMISSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -132,12 +100,12 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS );
         }
         return childrenFeatures;
     }
@@ -148,12 +116,12 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -163,9 +131,9 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/GroupGridEntry"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/GroupGridEntry" ) );
     }
 
     /**
@@ -175,12 +143,10 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((GroupGridEntry)object).getLabel();
-        return label == null || label.length() == 0 ?
-            getString("_UI_GroupGridEntry_type") :
-            getString("_UI_GroupGridEntry_type") + " " + label;
+        String label = ( (GroupGridEntry)object ).getLabel ();
+        return label == null || label.length () == 0 ? getString ( "_UI_GroupGridEntry_type" ) : getString ( "_UI_GroupGridEntry_type" ) + " " + label;
     }
 
     /**
@@ -191,21 +157,21 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(GroupGridEntry.class))
+        switch ( notification.getFeatureID ( GroupGridEntry.class ) )
         {
             case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -216,84 +182,39 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createLabelComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createLabelComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createFillLayoutComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createButtonComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createButtonComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createBoolLEDComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createSimpleGridComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createGroupGridComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createValueSetComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createValueComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createValueComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createTextInputComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createTextComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createTextComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createTextInputMultiComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createCheckComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createCheckComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createLinkComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createLinkComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createURLImageComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                 DetailViewFactory.eINSTANCE.createProgressComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
     }
 
     /**
@@ -303,7 +224,7 @@ public class GroupGridEntryItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return DetailViewEditPlugin.INSTANCE;
     }

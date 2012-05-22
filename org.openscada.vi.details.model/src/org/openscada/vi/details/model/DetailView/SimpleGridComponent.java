@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Simple Grid Component</b></em>'.
@@ -41,7 +40,7 @@ public interface SimpleGridComponent extends CompositeComponent
      * @model default="true"
      * @generated
      */
-    boolean isEqually();
+    boolean isEqually ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.SimpleGridComponent#isEqually <em>Equally</em>}' attribute.
@@ -51,7 +50,7 @@ public interface SimpleGridComponent extends CompositeComponent
      * @see #isEqually()
      * @generated
      */
-    void setEqually(boolean value);
+    void setEqually ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Cols</b></em>' attribute.
@@ -68,7 +67,7 @@ public interface SimpleGridComponent extends CompositeComponent
      * @model default="2"
      * @generated
      */
-    int getCols();
+    int getCols ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.SimpleGridComponent#getCols <em>Cols</em>}' attribute.
@@ -78,6 +77,6 @@ public interface SimpleGridComponent extends CompositeComponent
      * @see #getCols()
      * @generated
      */
-    void setCols(int value);
+    void setCols ( int value );
 
 } // SimpleGridComponent

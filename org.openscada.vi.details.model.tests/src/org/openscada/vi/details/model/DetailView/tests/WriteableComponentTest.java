@@ -23,9 +23,9 @@ public abstract class WriteableComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public WriteableComponentTest(String name)
+    public WriteableComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -35,7 +35,7 @@ public abstract class WriteableComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected WriteableComponent getFixture()
+    protected WriteableComponent getFixture ()
     {
         return (WriteableComponent)fixture;
     }

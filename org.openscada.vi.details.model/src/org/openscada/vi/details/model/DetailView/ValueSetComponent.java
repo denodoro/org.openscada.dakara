@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Value Set Component</b></em>'.
@@ -41,7 +40,7 @@ public interface ValueSetComponent extends WriteableComponent
      * @model required="true"
      * @generated
      */
-    String getValueDescriptor();
+    String getValueDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent#getValueDescriptor <em>Value Descriptor</em>}' attribute.
@@ -51,7 +50,7 @@ public interface ValueSetComponent extends WriteableComponent
      * @see #getValueDescriptor()
      * @generated
      */
-    void setValueDescriptor(String value);
+    void setValueDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Set Descriptor</b></em>' attribute.
@@ -67,7 +66,7 @@ public interface ValueSetComponent extends WriteableComponent
      * @model
      * @generated
      */
-    String getSetDescriptor();
+    String getSetDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent#getSetDescriptor <em>Set Descriptor</em>}' attribute.
@@ -77,7 +76,7 @@ public interface ValueSetComponent extends WriteableComponent
      * @see #getSetDescriptor()
      * @generated
      */
-    void setSetDescriptor(String value);
+    void setSetDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Reset Descriptor</b></em>' attribute.
@@ -93,7 +92,7 @@ public interface ValueSetComponent extends WriteableComponent
      * @model
      * @generated
      */
-    String getResetDescriptor();
+    String getResetDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent#getResetDescriptor <em>Reset Descriptor</em>}' attribute.
@@ -103,6 +102,6 @@ public interface ValueSetComponent extends WriteableComponent
      * @see #getResetDescriptor()
      * @generated
      */
-    void setResetDescriptor(String value);
+    void setResetDescriptor ( String value );
 
 } // ValueSetComponent

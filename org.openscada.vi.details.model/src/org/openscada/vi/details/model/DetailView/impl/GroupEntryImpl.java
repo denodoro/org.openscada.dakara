@@ -91,9 +91,9 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GroupEntryImpl()
+    protected GroupEntryImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -102,7 +102,7 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.GROUP_ENTRY;
     }
@@ -112,7 +112,7 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public Component getComponent()
+    public Component getComponent ()
     {
         return component;
     }
@@ -122,14 +122,17 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetComponent(Component newComponent, NotificationChain msgs)
+    public NotificationChain basicSetComponent ( Component newComponent, NotificationChain msgs )
     {
         Component oldComponent = component;
         component = newComponent;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_ENTRY__COMPONENT, oldComponent, newComponent);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_ENTRY__COMPONENT, oldComponent, newComponent );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -139,20 +142,21 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setComponent(Component newComponent)
+    public void setComponent ( Component newComponent )
     {
-        if (newComponent != component)
+        if ( newComponent != component )
         {
             NotificationChain msgs = null;
-            if (component != null)
-                msgs = ((InternalEObject)component).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_ENTRY__COMPONENT, null, msgs);
-            if (newComponent != null)
-                msgs = ((InternalEObject)newComponent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_ENTRY__COMPONENT, null, msgs);
-            msgs = basicSetComponent(newComponent, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( component != null )
+                msgs = ( (InternalEObject)component ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_ENTRY__COMPONENT, null, msgs );
+            if ( newComponent != null )
+                msgs = ( (InternalEObject)newComponent ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_ENTRY__COMPONENT, null, msgs );
+            msgs = basicSetComponent ( newComponent, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_ENTRY__COMPONENT, newComponent, newComponent));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_ENTRY__COMPONENT, newComponent, newComponent ) );
     }
 
     /**
@@ -160,7 +164,7 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getLabel()
+    public String getLabel ()
     {
         return label;
     }
@@ -170,12 +174,12 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLabel(String newLabel)
+    public void setLabel ( String newLabel )
     {
         String oldLabel = label;
         label = newLabel;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_ENTRY__LABEL, oldLabel, label));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_ENTRY__LABEL, oldLabel, label ) );
     }
 
     /**
@@ -183,7 +187,7 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getPermission()
+    public String getPermission ()
     {
         return permission;
     }
@@ -193,12 +197,12 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPermission(String newPermission)
+    public void setPermission ( String newPermission )
     {
         String oldPermission = permission;
         permission = newPermission;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.GROUP_ENTRY__PERMISSION, oldPermission, permission));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_ENTRY__PERMISSION, oldPermission, permission ) );
     }
 
     /**
@@ -207,14 +211,14 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-                return basicSetComponent(null, msgs);
+                return basicSetComponent ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -223,18 +227,18 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-                return getComponent();
+                return getComponent ();
             case DetailViewPackage.GROUP_ENTRY__LABEL:
-                return getLabel();
+                return getLabel ();
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-                return getPermission();
+                return getPermission ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -243,44 +247,21 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-                setComponent((Component)newValue);
-                return;
-            case DetailViewPackage.GROUP_ENTRY__LABEL:
-                setLabel((String)newValue);
-                return;
-            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-                setPermission((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-                setComponent((Component)null);
+                setComponent ( (Component)newValue );
                 return;
             case DetailViewPackage.GROUP_ENTRY__LABEL:
-                setLabel(LABEL_EDEFAULT);
+                setLabel ( (String)newValue );
                 return;
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-                setPermission(PERMISSION_EDEFAULT);
+                setPermission ( (String)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -289,18 +270,41 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
+        {
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+                setComponent ( (Component)null );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__LABEL:
+                setLabel ( LABEL_EDEFAULT );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
+                setPermission ( PERMISSION_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
         {
             case DetailViewPackage.GROUP_ENTRY__COMPONENT:
                 return component != null;
             case DetailViewPackage.GROUP_ENTRY__LABEL:
-                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals ( label );
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-                return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals(permission);
+                return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals ( permission );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -309,17 +313,18 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (label: ");
-        result.append(label);
-        result.append(", permission: ");
-        result.append(permission);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (label: " );
+        result.append ( label );
+        result.append ( ", permission: " );
+        result.append ( permission );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GroupEntryImpl

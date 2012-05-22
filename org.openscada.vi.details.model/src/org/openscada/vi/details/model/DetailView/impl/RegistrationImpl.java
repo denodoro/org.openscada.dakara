@@ -98,9 +98,9 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    protected RegistrationImpl()
+    protected RegistrationImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -109,7 +109,7 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.REGISTRATION;
     }
@@ -119,7 +119,7 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getKey()
+    public String getKey ()
     {
         return key;
     }
@@ -129,12 +129,12 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setKey(String newKey)
+    public void setKey ( String newKey )
     {
         String oldKey = key;
         key = newKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.REGISTRATION__KEY, oldKey, key));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.REGISTRATION__KEY, oldKey, key ) );
     }
 
     /**
@@ -142,7 +142,7 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -152,12 +152,12 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.REGISTRATION__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.REGISTRATION__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -165,7 +165,7 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isAggregateState()
+    public boolean isAggregateState ()
     {
         return aggregateState;
     }
@@ -175,12 +175,12 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAggregateState(boolean newAggregateState)
+    public void setAggregateState ( boolean newAggregateState )
     {
         boolean oldAggregateState = aggregateState;
         aggregateState = newAggregateState;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.REGISTRATION__AGGREGATE_STATE, oldAggregateState, aggregateState));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.REGISTRATION__AGGREGATE_STATE, oldAggregateState, aggregateState ) );
     }
 
     /**
@@ -189,18 +189,18 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.REGISTRATION__KEY:
-                return getKey();
+                return getKey ();
             case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
             case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                return isAggregateState();
+                return isAggregateState ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -209,44 +209,21 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.REGISTRATION__KEY:
-                setKey((String)newValue);
+                setKey ( (String)newValue );
                 return;
             case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                setDescriptor((String)newValue);
-                return;
-            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                setAggregateState((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.REGISTRATION__KEY:
-                setKey(KEY_EDEFAULT);
-                return;
-            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                setAggregateState(AGGREGATE_STATE_EDEFAULT);
+                setAggregateState ( (Boolean)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -255,18 +232,41 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.REGISTRATION__KEY:
-                return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+                setKey ( KEY_EDEFAULT );
+                return;
             case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
+                setAggregateState ( AGGREGATE_STATE_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DetailViewPackage.REGISTRATION__KEY:
+                return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals ( key );
+            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
             case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
                 return aggregateState != AGGREGATE_STATE_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -275,19 +275,20 @@ public class RegistrationImpl extends EObjectImpl implements Registration
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (key: ");
-        result.append(key);
-        result.append(", descriptor: ");
-        result.append(descriptor);
-        result.append(", aggregateState: ");
-        result.append(aggregateState);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (key: " );
+        result.append ( key );
+        result.append ( ", descriptor: " );
+        result.append ( descriptor );
+        result.append ( ", aggregateState: " );
+        result.append ( aggregateState );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //RegistrationImpl

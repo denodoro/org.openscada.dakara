@@ -23,9 +23,9 @@ public abstract class CompositeComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public CompositeComponentTest(String name)
+    public CompositeComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -35,7 +35,7 @@ public abstract class CompositeComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected CompositeComponent getFixture()
+    protected CompositeComponent getFixture ()
     {
         return (CompositeComponent)fixture;
     }

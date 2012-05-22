@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -33,14 +32,7 @@ import org.openscada.vi.details.model.DetailView.NotTransformer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotTransformerItemProvider
-    extends ValueSourceItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class NotTransformerItemProvider extends ValueSourceItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,9 +40,9 @@ public class NotTransformerItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotTransformerItemProvider(AdapterFactory adapterFactory)
+    public NotTransformerItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -60,11 +52,11 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -79,12 +71,12 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE );
         }
         return childrenFeatures;
     }
@@ -95,12 +87,12 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -110,9 +102,9 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/NotTransformer"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/NotTransformer" ) );
     }
 
     /**
@@ -122,9 +114,9 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        return getString("_UI_NotTransformer_type");
+        return getString ( "_UI_NotTransformer_type" );
     }
 
     /**
@@ -135,17 +127,17 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(NotTransformer.class))
+        switch ( notification.getFeatureID ( NotTransformer.class ) )
         {
             case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -156,29 +148,17 @@ public class NotTransformerItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                 DetailViewFactory.eINSTANCE.createItemValueSource()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createItemValueSource () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                 DetailViewFactory.eINSTANCE.createNotTransformer()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createNotTransformer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                 DetailViewFactory.eINSTANCE.createAndTransformer()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createAndTransformer () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                 DetailViewFactory.eINSTANCE.createOrTransformer()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createOrTransformer () ) );
     }
 
 }

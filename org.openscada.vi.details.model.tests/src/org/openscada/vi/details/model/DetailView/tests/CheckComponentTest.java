@@ -25,9 +25,9 @@ public class CheckComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(CheckComponentTest.class);
+        TestRunner.run ( CheckComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class CheckComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public CheckComponentTest(String name)
+    public CheckComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class CheckComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected CheckComponent getFixture()
+    protected CheckComponent getFixture ()
     {
         return (CheckComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class CheckComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createCheckComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createCheckComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class CheckComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //CheckComponentTest

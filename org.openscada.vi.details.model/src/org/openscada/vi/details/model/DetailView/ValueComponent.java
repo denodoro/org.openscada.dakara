@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Value Component</b></em>'.
@@ -40,7 +39,7 @@ public interface ValueComponent extends ReadableComponent
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ValueComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -50,7 +49,7 @@ public interface ValueComponent extends ReadableComponent
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Date</b></em>' attribute.
@@ -66,7 +65,7 @@ public interface ValueComponent extends ReadableComponent
      * @model
      * @generated
      */
-    Boolean getDate();
+    Boolean getDate ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ValueComponent#getDate <em>Date</em>}' attribute.
@@ -76,6 +75,6 @@ public interface ValueComponent extends ReadableComponent
      * @see #getDate()
      * @generated
      */
-    void setDate(Boolean value);
+    void setDate ( Boolean value );
 
 } // ValueComponent

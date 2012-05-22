@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -36,14 +35,7 @@ import org.openscada.vi.details.model.DetailView.View;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewItemProvider
-    extends ItemProviderAdapter
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ViewItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -51,9 +43,9 @@ public class ViewItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ViewItemProvider(AdapterFactory adapterFactory)
+    public ViewItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -63,11 +55,11 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -82,13 +74,13 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(DetailViewPackage.Literals.VIEW__HEADER_COMPONENT);
-            childrenFeatures.add(DetailViewPackage.Literals.VIEW__GROUPS);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT );
+            childrenFeatures.add ( DetailViewPackage.Literals.VIEW__GROUPS );
         }
         return childrenFeatures;
     }
@@ -99,12 +91,12 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -114,9 +106,9 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/View"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/View" ) );
     }
 
     /**
@@ -126,9 +118,9 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        return getString("_UI_View_type");
+        return getString ( "_UI_View_type" );
     }
 
     /**
@@ -139,18 +131,18 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(View.class))
+        switch ( notification.getFeatureID ( View.class ) )
         {
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
             case DetailViewPackage.VIEW__GROUPS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -161,89 +153,41 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createLabelComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createLabelComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createFillLayoutComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createButtonComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createButtonComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createBoolLEDComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createSimpleGridComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createGroupGridComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createValueSetComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createValueComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createValueComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createTextInputComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createTextComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createTextComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createTextInputMultiComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createCheckComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createCheckComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createLinkComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createLinkComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createURLImageComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                 DetailViewFactory.eINSTANCE.createProgressComponent()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.VIEW__GROUPS,
-                 DetailViewFactory.eINSTANCE.createGroupEntry()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__GROUPS, DetailViewFactory.eINSTANCE.createGroupEntry () ) );
     }
 
     /**
@@ -253,7 +197,7 @@ public class ViewItemProvider
      * @generated
      */
     @Override
-    public ResourceLocator getResourceLocator()
+    public ResourceLocator getResourceLocator ()
     {
         return DetailViewEditPlugin.INSTANCE;
     }

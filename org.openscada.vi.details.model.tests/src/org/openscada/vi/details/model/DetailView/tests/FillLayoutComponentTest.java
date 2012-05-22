@@ -25,9 +25,9 @@ public class FillLayoutComponentTest extends CompositeComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(FillLayoutComponentTest.class);
+        TestRunner.run ( FillLayoutComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class FillLayoutComponentTest extends CompositeComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public FillLayoutComponentTest(String name)
+    public FillLayoutComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class FillLayoutComponentTest extends CompositeComponentTest
      * @generated
      */
     @Override
-    protected FillLayoutComponent getFixture()
+    protected FillLayoutComponent getFixture ()
     {
         return (FillLayoutComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class FillLayoutComponentTest extends CompositeComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createFillLayoutComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createFillLayoutComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class FillLayoutComponentTest extends CompositeComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //FillLayoutComponentTest

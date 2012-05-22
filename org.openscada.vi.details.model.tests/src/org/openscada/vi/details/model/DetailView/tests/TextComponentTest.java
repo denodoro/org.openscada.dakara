@@ -25,9 +25,9 @@ public class TextComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(TextComponentTest.class);
+        TestRunner.run ( TextComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class TextComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextComponentTest(String name)
+    public TextComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class TextComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected TextComponent getFixture()
+    protected TextComponent getFixture ()
     {
         return (TextComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class TextComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createTextComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createTextComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class TextComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //TextComponentTest

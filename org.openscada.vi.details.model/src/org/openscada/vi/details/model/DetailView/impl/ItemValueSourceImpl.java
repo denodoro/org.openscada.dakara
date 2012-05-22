@@ -55,9 +55,9 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ItemValueSourceImpl()
+    protected ItemValueSourceImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,7 +66,7 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.ITEM_VALUE_SOURCE;
     }
@@ -76,7 +76,7 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValueKey()
+    public String getValueKey ()
     {
         return valueKey;
     }
@@ -86,12 +86,12 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValueKey(String newValueKey)
+    public void setValueKey ( String newValueKey )
     {
         String oldValueKey = valueKey;
         valueKey = newValueKey;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY, oldValueKey, valueKey));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY, oldValueKey, valueKey ) );
     }
 
     /**
@@ -100,14 +100,14 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                return getValueKey();
+                return getValueKey ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -116,15 +116,15 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                setValueKey((String)newValue);
+                setValueKey ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -133,15 +133,15 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                setValueKey(VALUE_KEY_EDEFAULT);
+                setValueKey ( VALUE_KEY_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -150,14 +150,14 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                return VALUE_KEY_EDEFAULT == null ? valueKey != null : !VALUE_KEY_EDEFAULT.equals(valueKey);
+                return VALUE_KEY_EDEFAULT == null ? valueKey != null : !VALUE_KEY_EDEFAULT.equals ( valueKey );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -166,15 +166,16 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (valueKey: ");
-        result.append(valueKey);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (valueKey: " );
+        result.append ( valueKey );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ItemValueSourceImpl

@@ -25,9 +25,9 @@ public class ValueComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ValueComponentTest.class);
+        TestRunner.run ( ValueComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ValueComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueComponentTest(String name)
+    public ValueComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ValueComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected ValueComponent getFixture()
+    protected ValueComponent getFixture ()
     {
         return (ValueComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class ValueComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createValueComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createValueComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ValueComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ValueComponentTest

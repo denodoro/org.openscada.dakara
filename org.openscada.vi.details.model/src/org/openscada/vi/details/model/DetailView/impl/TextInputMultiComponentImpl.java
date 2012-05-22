@@ -55,9 +55,9 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * <!-- end-user-doc -->
      * @generated
      */
-    protected TextInputMultiComponentImpl()
+    protected TextInputMultiComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -66,7 +66,7 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.TEXT_INPUT_MULTI_COMPONENT;
     }
@@ -76,7 +76,7 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -86,12 +86,12 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -100,14 +100,14 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -116,15 +116,15 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
+                setDescriptor ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -133,15 +133,15 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -150,14 +150,14 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -166,15 +166,16 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (descriptor: ");
-        result.append(descriptor);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (descriptor: " );
+        result.append ( descriptor );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //TextInputMultiComponentImpl

@@ -27,9 +27,9 @@ public class AndTransformerImpl extends CompositeTransformerImpl implements AndT
      * <!-- end-user-doc -->
      * @generated
      */
-    protected AndTransformerImpl()
+    protected AndTransformerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -38,7 +38,7 @@ public class AndTransformerImpl extends CompositeTransformerImpl implements AndT
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.AND_TRANSFORMER;
     }

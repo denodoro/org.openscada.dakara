@@ -76,9 +76,9 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ValueComponentImpl()
+    protected ValueComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -87,7 +87,7 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.VALUE_COMPONENT;
     }
@@ -97,7 +97,7 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -107,12 +107,12 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -120,7 +120,7 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public Boolean getDate()
+    public Boolean getDate ()
     {
         return date;
     }
@@ -130,12 +130,12 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDate(Boolean newDate)
+    public void setDate ( Boolean newDate )
     {
         Boolean oldDate = date;
         date = newDate;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.VALUE_COMPONENT__DATE, oldDate, date));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VALUE_COMPONENT__DATE, oldDate, date ) );
     }
 
     /**
@@ -144,16 +144,16 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
             case DetailViewPackage.VALUE_COMPONENT__DATE:
-                return getDate();
+                return getDate ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -162,18 +162,18 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
+                setDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.VALUE_COMPONENT__DATE:
-                setDate((Boolean)newValue);
+                setDate ( (Boolean)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -182,18 +182,18 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
                 return;
             case DetailViewPackage.VALUE_COMPONENT__DATE:
-                setDate(DATE_EDEFAULT);
+                setDate ( DATE_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -202,16 +202,16 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
             case DetailViewPackage.VALUE_COMPONENT__DATE:
-                return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
+                return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals ( date );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -220,17 +220,18 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (descriptor: ");
-        result.append(descriptor);
-        result.append(", date: ");
-        result.append(date);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (descriptor: " );
+        result.append ( descriptor );
+        result.append ( ", date: " );
+        result.append ( date );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ValueComponentImpl

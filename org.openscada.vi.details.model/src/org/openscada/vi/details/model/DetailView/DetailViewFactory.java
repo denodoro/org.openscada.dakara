@@ -24,7 +24,7 @@ public interface DetailViewFactory extends EFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    DetailViewFactory eINSTANCE = org.openscada.vi.details.model.DetailView.impl.DetailViewFactoryImpl.init();
+    DetailViewFactory eINSTANCE = org.openscada.vi.details.model.DetailView.impl.DetailViewFactoryImpl.init ();
 
     /**
      * Returns a new object of class '<em>View</em>'.
@@ -33,7 +33,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>View</em>'.
      * @generated
      */
-    View createView();
+    View createView ();
 
     /**
      * Returns a new object of class '<em>Group Entry</em>'.
@@ -42,7 +42,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Group Entry</em>'.
      * @generated
      */
-    GroupEntry createGroupEntry();
+    GroupEntry createGroupEntry ();
 
     /**
      * Returns a new object of class '<em>Label Component</em>'.
@@ -51,7 +51,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Label Component</em>'.
      * @generated
      */
-    LabelComponent createLabelComponent();
+    LabelComponent createLabelComponent ();
 
     /**
      * Returns a new object of class '<em>Fill Layout Component</em>'.
@@ -60,7 +60,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Fill Layout Component</em>'.
      * @generated
      */
-    FillLayoutComponent createFillLayoutComponent();
+    FillLayoutComponent createFillLayoutComponent ();
 
     /**
      * Returns a new object of class '<em>Button Component</em>'.
@@ -69,7 +69,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Button Component</em>'.
      * @generated
      */
-    ButtonComponent createButtonComponent();
+    ButtonComponent createButtonComponent ();
 
     /**
      * Returns a new object of class '<em>Bool LED Component</em>'.
@@ -78,7 +78,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Bool LED Component</em>'.
      * @generated
      */
-    BoolLEDComponent createBoolLEDComponent();
+    BoolLEDComponent createBoolLEDComponent ();
 
     /**
      * Returns a new object of class '<em>Item Value Source</em>'.
@@ -87,7 +87,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Item Value Source</em>'.
      * @generated
      */
-    ItemValueSource createItemValueSource();
+    ItemValueSource createItemValueSource ();
 
     /**
      * Returns a new object of class '<em>Not Transformer</em>'.
@@ -96,7 +96,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Not Transformer</em>'.
      * @generated
      */
-    NotTransformer createNotTransformer();
+    NotTransformer createNotTransformer ();
 
     /**
      * Returns a new object of class '<em>Registration</em>'.
@@ -105,7 +105,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Registration</em>'.
      * @generated
      */
-    Registration createRegistration();
+    Registration createRegistration ();
 
     /**
      * Returns a new object of class '<em>Simple Grid Component</em>'.
@@ -114,7 +114,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Simple Grid Component</em>'.
      * @generated
      */
-    SimpleGridComponent createSimpleGridComponent();
+    SimpleGridComponent createSimpleGridComponent ();
 
     /**
      * Returns a new object of class '<em>Group Grid Component</em>'.
@@ -123,7 +123,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Group Grid Component</em>'.
      * @generated
      */
-    GroupGridComponent createGroupGridComponent();
+    GroupGridComponent createGroupGridComponent ();
 
     /**
      * Returns a new object of class '<em>Group Grid Entry</em>'.
@@ -132,7 +132,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Group Grid Entry</em>'.
      * @generated
      */
-    GroupGridEntry createGroupGridEntry();
+    GroupGridEntry createGroupGridEntry ();
 
     /**
      * Returns a new object of class '<em>Value Set Component</em>'.
@@ -141,7 +141,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Value Set Component</em>'.
      * @generated
      */
-    ValueSetComponent createValueSetComponent();
+    ValueSetComponent createValueSetComponent ();
 
     /**
      * Returns a new object of class '<em>Value Component</em>'.
@@ -150,7 +150,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Value Component</em>'.
      * @generated
      */
-    ValueComponent createValueComponent();
+    ValueComponent createValueComponent ();
 
     /**
      * Returns a new object of class '<em>And Transformer</em>'.
@@ -159,7 +159,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>And Transformer</em>'.
      * @generated
      */
-    AndTransformer createAndTransformer();
+    AndTransformer createAndTransformer ();
 
     /**
      * Returns a new object of class '<em>Or Transformer</em>'.
@@ -168,7 +168,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Or Transformer</em>'.
      * @generated
      */
-    OrTransformer createOrTransformer();
+    OrTransformer createOrTransformer ();
 
     /**
      * Returns a new object of class '<em>Text Input Component</em>'.
@@ -177,7 +177,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Text Input Component</em>'.
      * @generated
      */
-    TextInputComponent createTextInputComponent();
+    TextInputComponent createTextInputComponent ();
 
     /**
      * Returns a new object of class '<em>Text Component</em>'.
@@ -186,7 +186,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Text Component</em>'.
      * @generated
      */
-    TextComponent createTextComponent();
+    TextComponent createTextComponent ();
 
     /**
      * Returns a new object of class '<em>Text Input Multi Component</em>'.
@@ -195,7 +195,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Text Input Multi Component</em>'.
      * @generated
      */
-    TextInputMultiComponent createTextInputMultiComponent();
+    TextInputMultiComponent createTextInputMultiComponent ();
 
     /**
      * Returns a new object of class '<em>Check Component</em>'.
@@ -204,7 +204,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Check Component</em>'.
      * @generated
      */
-    CheckComponent createCheckComponent();
+    CheckComponent createCheckComponent ();
 
     /**
      * Returns a new object of class '<em>Link Component</em>'.
@@ -213,7 +213,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Link Component</em>'.
      * @generated
      */
-    LinkComponent createLinkComponent();
+    LinkComponent createLinkComponent ();
 
     /**
      * Returns a new object of class '<em>URL Image Component</em>'.
@@ -222,7 +222,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>URL Image Component</em>'.
      * @generated
      */
-    URLImageComponent createURLImageComponent();
+    URLImageComponent createURLImageComponent ();
 
     /**
      * Returns a new object of class '<em>Progress Component</em>'.
@@ -231,7 +231,7 @@ public interface DetailViewFactory extends EFactory
      * @return a new object of class '<em>Progress Component</em>'.
      * @generated
      */
-    ProgressComponent createProgressComponent();
+    ProgressComponent createProgressComponent ();
 
     /**
      * Returns the package supported by this factory.
@@ -240,6 +240,6 @@ public interface DetailViewFactory extends EFactory
      * @return the package supported by this factory.
      * @generated
      */
-    DetailViewPackage getDetailViewPackage();
+    DetailViewPackage getDetailViewPackage ();
 
 } //DetailViewFactory

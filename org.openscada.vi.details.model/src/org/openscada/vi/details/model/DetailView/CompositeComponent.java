@@ -40,6 +40,6 @@ public interface CompositeComponent extends Component
      * @model containment="true"
      * @generated
      */
-    EList<Component> getChildren();
+    EList<Component> getChildren ();
 
 } // CompositeComponent

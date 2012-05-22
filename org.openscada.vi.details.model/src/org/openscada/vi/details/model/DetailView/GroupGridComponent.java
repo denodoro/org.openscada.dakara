@@ -42,7 +42,7 @@ public interface GroupGridComponent extends Component
      * @model containment="true"
      * @generated
      */
-    EList<GroupGridEntry> getGroups();
+    EList<GroupGridEntry> getGroups ();
 
     /**
      * Returns the value of the '<em><b>Equally</b></em>' attribute.
@@ -59,7 +59,7 @@ public interface GroupGridComponent extends Component
      * @model default="false" required="true"
      * @generated
      */
-    boolean isEqually();
+    boolean isEqually ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupGridComponent#isEqually <em>Equally</em>}' attribute.
@@ -69,7 +69,7 @@ public interface GroupGridComponent extends Component
      * @see #isEqually()
      * @generated
      */
-    void setEqually(boolean value);
+    void setEqually ( boolean value );
 
     /**
      * Returns the value of the '<em><b>Cols</b></em>' attribute.
@@ -86,7 +86,7 @@ public interface GroupGridComponent extends Component
      * @model default="2" required="true"
      * @generated
      */
-    int getCols();
+    int getCols ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupGridComponent#getCols <em>Cols</em>}' attribute.
@@ -96,6 +96,6 @@ public interface GroupGridComponent extends Component
      * @see #getCols()
      * @generated
      */
-    void setCols(int value);
+    void setCols ( int value );
 
 } // GroupGridComponent

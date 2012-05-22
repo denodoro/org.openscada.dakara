@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Progress Component</b></em>'.
@@ -43,7 +42,7 @@ public interface ProgressComponent extends ReadableComponent
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -53,7 +52,7 @@ public interface ProgressComponent extends ReadableComponent
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Factor</b></em>' attribute.
@@ -69,7 +68,7 @@ public interface ProgressComponent extends ReadableComponent
      * @model
      * @generated
      */
-    double getFactor();
+    double getFactor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getFactor <em>Factor</em>}' attribute.
@@ -79,7 +78,7 @@ public interface ProgressComponent extends ReadableComponent
      * @see #getFactor()
      * @generated
      */
-    void setFactor(double value);
+    void setFactor ( double value );
 
     /**
      * Returns the value of the '<em><b>Max</b></em>' attribute.
@@ -95,7 +94,7 @@ public interface ProgressComponent extends ReadableComponent
      * @model
      * @generated
      */
-    double getMax();
+    double getMax ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getMax <em>Max</em>}' attribute.
@@ -105,7 +104,7 @@ public interface ProgressComponent extends ReadableComponent
      * @see #getMax()
      * @generated
      */
-    void setMax(double value);
+    void setMax ( double value );
 
     /**
      * Returns the value of the '<em><b>Min</b></em>' attribute.
@@ -121,7 +120,7 @@ public interface ProgressComponent extends ReadableComponent
      * @model
      * @generated
      */
-    double getMin();
+    double getMin ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getMin <em>Min</em>}' attribute.
@@ -131,7 +130,7 @@ public interface ProgressComponent extends ReadableComponent
      * @see #getMin()
      * @generated
      */
-    void setMin(double value);
+    void setMin ( double value );
 
     /**
      * Returns the value of the '<em><b>Width</b></em>' attribute.
@@ -147,7 +146,7 @@ public interface ProgressComponent extends ReadableComponent
      * @model
      * @generated
      */
-    int getWidth();
+    int getWidth ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ProgressComponent#getWidth <em>Width</em>}' attribute.
@@ -157,6 +156,6 @@ public interface ProgressComponent extends ReadableComponent
      * @see #getWidth()
      * @generated
      */
-    void setWidth(int value);
+    void setWidth ( int value );
 
 } // ProgressComponent

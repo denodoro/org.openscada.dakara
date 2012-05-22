@@ -48,9 +48,9 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * <!-- end-user-doc -->
      * @generated
      */
-    protected NotTransformerImpl()
+    protected NotTransformerImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -59,7 +59,7 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.NOT_TRANSFORMER;
     }
@@ -69,7 +69,7 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueSource getValue()
+    public ValueSource getValue ()
     {
         return value;
     }
@@ -79,14 +79,17 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetValue(ValueSource newValue, NotificationChain msgs)
+    public NotificationChain basicSetValue ( ValueSource newValue, NotificationChain msgs )
     {
         ValueSource oldValue = value;
         value = newValue;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DetailViewPackage.NOT_TRANSFORMER__VALUE, oldValue, newValue);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DetailViewPackage.NOT_TRANSFORMER__VALUE, oldValue, newValue );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -96,20 +99,21 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValue(ValueSource newValue)
+    public void setValue ( ValueSource newValue )
     {
-        if (newValue != value)
+        if ( newValue != value )
         {
             NotificationChain msgs = null;
-            if (value != null)
-                msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.NOT_TRANSFORMER__VALUE, null, msgs);
-            if (newValue != null)
-                msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.NOT_TRANSFORMER__VALUE, null, msgs);
-            msgs = basicSetValue(newValue, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( value != null )
+                msgs = ( (InternalEObject)value ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.NOT_TRANSFORMER__VALUE, null, msgs );
+            if ( newValue != null )
+                msgs = ( (InternalEObject)newValue ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.NOT_TRANSFORMER__VALUE, null, msgs );
+            msgs = basicSetValue ( newValue, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.NOT_TRANSFORMER__VALUE, newValue, newValue));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.NOT_TRANSFORMER__VALUE, newValue, newValue ) );
     }
 
     /**
@@ -118,14 +122,14 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                return basicSetValue(null, msgs);
+                return basicSetValue ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -134,14 +138,14 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                return getValue();
+                return getValue ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -150,15 +154,15 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                setValue((ValueSource)newValue);
+                setValue ( (ValueSource)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -167,15 +171,15 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                setValue((ValueSource)null);
+                setValue ( (ValueSource)null );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -184,14 +188,14 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.NOT_TRANSFORMER__VALUE:
                 return value != null;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //NotTransformerImpl

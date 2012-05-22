@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Writeable Component</b></em>'.
@@ -40,7 +39,7 @@ public interface WriteableComponent extends ReadableComponent
      * @model
      * @generated
      */
-    Double getCeil();
+    Double getCeil ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.WriteableComponent#getCeil <em>Ceil</em>}' attribute.
@@ -50,7 +49,7 @@ public interface WriteableComponent extends ReadableComponent
      * @see #getCeil()
      * @generated
      */
-    void setCeil(Double value);
+    void setCeil ( Double value );
 
     /**
      * Returns the value of the '<em><b>Floor</b></em>' attribute.
@@ -66,7 +65,7 @@ public interface WriteableComponent extends ReadableComponent
      * @model
      * @generated
      */
-    double getFloor();
+    double getFloor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.WriteableComponent#getFloor <em>Floor</em>}' attribute.
@@ -76,6 +75,6 @@ public interface WriteableComponent extends ReadableComponent
      * @see #getFloor()
      * @generated
      */
-    void setFloor(double value);
+    void setFloor ( double value );
 
 } // WriteableComponent

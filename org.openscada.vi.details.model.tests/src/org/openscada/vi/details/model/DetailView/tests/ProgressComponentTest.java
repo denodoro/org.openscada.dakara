@@ -25,9 +25,9 @@ public class ProgressComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ProgressComponentTest.class);
+        TestRunner.run ( ProgressComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ProgressComponentTest extends ReadableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ProgressComponentTest(String name)
+    public ProgressComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ProgressComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected ProgressComponent getFixture()
+    protected ProgressComponent getFixture ()
     {
         return (ProgressComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class ProgressComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createProgressComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createProgressComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ProgressComponentTest extends ReadableComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ProgressComponentTest

@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Link Component</b></em>'.
@@ -39,7 +38,7 @@ public interface LinkComponent extends Component
      * @model
      * @generated
      */
-    String getFormat();
+    String getFormat ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.LinkComponent#getFormat <em>Format</em>}' attribute.
@@ -49,6 +48,6 @@ public interface LinkComponent extends Component
      * @see #getFormat()
      * @generated
      */
-    void setFormat(String value);
+    void setFormat ( String value );
 
 } // LinkComponent

@@ -35,9 +35,9 @@ public class RegistrationTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(RegistrationTest.class);
+        TestRunner.run ( RegistrationTest.class );
     }
 
     /**
@@ -46,9 +46,9 @@ public class RegistrationTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public RegistrationTest(String name)
+    public RegistrationTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +57,7 @@ public class RegistrationTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Registration fixture)
+    protected void setFixture ( Registration fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +68,7 @@ public class RegistrationTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Registration getFixture()
+    protected Registration getFixture ()
     {
         return fixture;
     }
@@ -80,9 +80,9 @@ public class RegistrationTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createRegistration());
+        setFixture ( DetailViewFactory.eINSTANCE.createRegistration () );
     }
 
     /**
@@ -92,9 +92,9 @@ public class RegistrationTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //RegistrationTest

@@ -23,9 +23,9 @@ public abstract class CompositeTransformerTest extends ValueSourceTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public CompositeTransformerTest(String name)
+    public CompositeTransformerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -35,7 +35,7 @@ public abstract class CompositeTransformerTest extends ValueSourceTest
      * @generated
      */
     @Override
-    protected CompositeTransformer getFixture()
+    protected CompositeTransformer getFixture ()
     {
         return (CompositeTransformer)fixture;
     }

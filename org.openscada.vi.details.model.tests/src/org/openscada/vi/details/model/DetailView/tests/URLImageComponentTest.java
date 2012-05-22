@@ -25,9 +25,9 @@ public class URLImageComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(URLImageComponentTest.class);
+        TestRunner.run ( URLImageComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class URLImageComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public URLImageComponentTest(String name)
+    public URLImageComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class URLImageComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected URLImageComponent getFixture()
+    protected URLImageComponent getFixture ()
     {
         return (URLImageComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class URLImageComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createURLImageComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createURLImageComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class URLImageComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //URLImageComponentTest

@@ -26,8 +26,8 @@ public final class DetailViewEditorPlugin extends EMFPlugin
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final DetailViewEditorPlugin INSTANCE = new DetailViewEditorPlugin();
-    
+    public static final DetailViewEditorPlugin INSTANCE = new DetailViewEditorPlugin ();
+
     /**
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
@@ -42,12 +42,9 @@ public final class DetailViewEditorPlugin extends EMFPlugin
      * <!-- end-user-doc -->
      * @generated
      */
-    public DetailViewEditorPlugin()
+    public DetailViewEditorPlugin ()
     {
-        super
-            (new ResourceLocator [] 
-            {
-            });
+        super ( new ResourceLocator[] {} );
     }
 
     /**
@@ -58,11 +55,11 @@ public final class DetailViewEditorPlugin extends EMFPlugin
      * @generated
      */
     @Override
-    public ResourceLocator getPluginResourceLocator()
+    public ResourceLocator getPluginResourceLocator ()
     {
         return plugin;
     }
-    
+
     /**
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
@@ -70,11 +67,11 @@ public final class DetailViewEditorPlugin extends EMFPlugin
      * @return the singleton instance.
      * @generated
      */
-    public static Implementation getPlugin()
+    public static Implementation getPlugin ()
     {
         return plugin;
     }
-    
+
     /**
      * The actual implementation of the Eclipse <b>Plugin</b>.
      * <!-- begin-user-doc -->
@@ -89,10 +86,10 @@ public final class DetailViewEditorPlugin extends EMFPlugin
          * <!-- end-user-doc -->
          * @generated
          */
-        public Implementation()
+        public Implementation ()
         {
-            super();
-    
+            super ();
+
             // Remember the static instance.
             //
             plugin = this;

@@ -35,9 +35,9 @@ public class GroupEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(GroupEntryTest.class);
+        TestRunner.run ( GroupEntryTest.class );
     }
 
     /**
@@ -46,9 +46,9 @@ public class GroupEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupEntryTest(String name)
+    public GroupEntryTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +57,7 @@ public class GroupEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(GroupEntry fixture)
+    protected void setFixture ( GroupEntry fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +68,7 @@ public class GroupEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GroupEntry getFixture()
+    protected GroupEntry getFixture ()
     {
         return fixture;
     }
@@ -80,9 +80,9 @@ public class GroupEntryTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createGroupEntry());
+        setFixture ( DetailViewFactory.eINSTANCE.createGroupEntry () );
     }
 
     /**
@@ -92,9 +92,9 @@ public class GroupEntryTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //GroupEntryTest

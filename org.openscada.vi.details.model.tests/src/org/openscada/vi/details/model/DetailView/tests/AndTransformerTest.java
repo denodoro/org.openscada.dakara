@@ -25,9 +25,9 @@ public class AndTransformerTest extends CompositeTransformerTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(AndTransformerTest.class);
+        TestRunner.run ( AndTransformerTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class AndTransformerTest extends CompositeTransformerTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public AndTransformerTest(String name)
+    public AndTransformerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class AndTransformerTest extends CompositeTransformerTest
      * @generated
      */
     @Override
-    protected AndTransformer getFixture()
+    protected AndTransformer getFixture ()
     {
         return (AndTransformer)fixture;
     }
@@ -60,9 +60,9 @@ public class AndTransformerTest extends CompositeTransformerTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createAndTransformer());
+        setFixture ( DetailViewFactory.eINSTANCE.createAndTransformer () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class AndTransformerTest extends CompositeTransformerTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //AndTransformerTest

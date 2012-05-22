@@ -25,9 +25,9 @@ public class LinkComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(LinkComponentTest.class);
+        TestRunner.run ( LinkComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class LinkComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public LinkComponentTest(String name)
+    public LinkComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class LinkComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected LinkComponent getFixture()
+    protected LinkComponent getFixture ()
     {
         return (LinkComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class LinkComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createLinkComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createLinkComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class LinkComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //LinkComponentTest

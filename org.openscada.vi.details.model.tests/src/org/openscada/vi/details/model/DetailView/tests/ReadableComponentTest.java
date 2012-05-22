@@ -23,9 +23,9 @@ public abstract class ReadableComponentTest extends ComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ReadableComponentTest(String name)
+    public ReadableComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -35,7 +35,7 @@ public abstract class ReadableComponentTest extends ComponentTest
      * @generated
      */
     @Override
-    protected ReadableComponent getFixture()
+    protected ReadableComponent getFixture ()
     {
         return (ReadableComponent)fixture;
     }

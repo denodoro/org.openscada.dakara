@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -33,14 +32,7 @@ import org.openscada.vi.details.model.DetailView.GenericComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GenericComponentItemProvider
-    extends ComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class GenericComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -48,9 +40,9 @@ public class GenericComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public GenericComponentItemProvider(AdapterFactory adapterFactory)
+    public GenericComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -60,11 +52,11 @@ public class GenericComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
         }
         return itemPropertyDescriptors;
@@ -79,12 +71,12 @@ public class GenericComponentItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if (childrenFeatures == null)
+        if ( childrenFeatures == null )
         {
-            super.getChildrenFeatures(object);
-            childrenFeatures.add(DetailViewPackage.Literals.GENERIC_COMPONENT__REGISTRATIONS);
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DetailViewPackage.Literals.GENERIC_COMPONENT__REGISTRATIONS );
         }
         return childrenFeatures;
     }
@@ -95,12 +87,12 @@ public class GenericComponentItemProvider
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child)
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
-        return super.getChildFeature(object, child);
+        return super.getChildFeature ( object, child );
     }
 
     /**
@@ -110,9 +102,9 @@ public class GenericComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        return getString("_UI_GenericComponent_type");
+        return getString ( "_UI_GenericComponent_type" );
     }
 
     /**
@@ -123,17 +115,17 @@ public class GenericComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(GenericComponent.class))
+        switch ( notification.getFeatureID ( GenericComponent.class ) )
         {
             case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -144,14 +136,11 @@ public class GenericComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-            (createChildParameter
-                (DetailViewPackage.Literals.GENERIC_COMPONENT__REGISTRATIONS,
-                 DetailViewFactory.eINSTANCE.createRegistration()));
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GENERIC_COMPONENT__REGISTRATIONS, DetailViewFactory.eINSTANCE.createRegistration () ) );
     }
 
 }

@@ -40,6 +40,6 @@ public interface GenericComponent extends Component
      * @model containment="true"
      * @generated
      */
-    EList<Registration> getRegistrations();
+    EList<Registration> getRegistrations ();
 
 } // GenericComponent

@@ -42,7 +42,7 @@ public interface GroupEntry extends EObject
      * @model containment="true" required="true"
      * @generated
      */
-    Component getComponent();
+    Component getComponent ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getComponent <em>Component</em>}' containment reference.
@@ -52,7 +52,7 @@ public interface GroupEntry extends EObject
      * @see #getComponent()
      * @generated
      */
-    void setComponent(Component value);
+    void setComponent ( Component value );
 
     /**
      * Returns the value of the '<em><b>Label</b></em>' attribute.
@@ -68,7 +68,7 @@ public interface GroupEntry extends EObject
      * @model
      * @generated
      */
-    String getLabel();
+    String getLabel ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getLabel <em>Label</em>}' attribute.
@@ -78,7 +78,7 @@ public interface GroupEntry extends EObject
      * @see #getLabel()
      * @generated
      */
-    void setLabel(String value);
+    void setLabel ( String value );
 
     /**
      * Returns the value of the '<em><b>Permission</b></em>' attribute.
@@ -94,7 +94,7 @@ public interface GroupEntry extends EObject
      * @model
      * @generated
      */
-    String getPermission();
+    String getPermission ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getPermission <em>Permission</em>}' attribute.
@@ -104,6 +104,6 @@ public interface GroupEntry extends EObject
      * @see #getPermission()
      * @generated
      */
-    void setPermission(String value);
+    void setPermission ( String value );
 
 } // GroupEntry

@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.ValueComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueComponentItemProvider
-    extends ReadableComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ValueComponentItemProvider extends ReadableComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class ValueComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueComponentItemProvider(AdapterFactory adapterFactory)
+    public ValueComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,14 +51,14 @@ public class ValueComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addDescriptorPropertyDescriptor(object);
-            addDatePropertyDescriptor(object);
+            addDescriptorPropertyDescriptor ( object );
+            addDatePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -77,21 +69,9 @@ public class ValueComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDescriptorPropertyDescriptor(Object object)
+    protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ValueComponent_descriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ValueComponent_descriptor_feature", "_UI_ValueComponent_type"),
-                 DetailViewPackage.Literals.VALUE_COMPONENT__DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueComponent_descriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ValueComponent_descriptor_feature", "_UI_ValueComponent_type" ), DetailViewPackage.Literals.VALUE_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -100,21 +80,9 @@ public class ValueComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDatePropertyDescriptor(Object object)
+    protected void addDatePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ValueComponent_date_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ValueComponent_date_feature", "_UI_ValueComponent_type"),
-                 DetailViewPackage.Literals.VALUE_COMPONENT__DATE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueComponent_date_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ValueComponent_date_feature", "_UI_ValueComponent_type" ), DetailViewPackage.Literals.VALUE_COMPONENT__DATE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -124,9 +92,9 @@ public class ValueComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ValueComponent" ) );
     }
 
     /**
@@ -136,12 +104,10 @@ public class ValueComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((ValueComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_ValueComponent_type") :
-            getString("_UI_ValueComponent_type") + " " + label;
+        String label = ( (ValueComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ValueComponent_type" ) : getString ( "_UI_ValueComponent_type" ) + " " + label;
     }
 
     /**
@@ -152,18 +118,18 @@ public class ValueComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(ValueComponent.class))
+        switch ( notification.getFeatureID ( ValueComponent.class ) )
         {
             case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
             case DetailViewPackage.VALUE_COMPONENT__DATE:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -174,9 +140,9 @@ public class ValueComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

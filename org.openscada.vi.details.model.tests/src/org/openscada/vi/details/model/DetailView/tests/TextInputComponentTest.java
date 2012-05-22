@@ -25,9 +25,9 @@ public class TextInputComponentTest extends WriteableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(TextInputComponentTest.class);
+        TestRunner.run ( TextInputComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class TextInputComponentTest extends WriteableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextInputComponentTest(String name)
+    public TextInputComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class TextInputComponentTest extends WriteableComponentTest
      * @generated
      */
     @Override
-    protected TextInputComponent getFixture()
+    protected TextInputComponent getFixture ()
     {
         return (TextInputComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class TextInputComponentTest extends WriteableComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createTextInputComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createTextInputComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class TextInputComponentTest extends WriteableComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //TextInputComponentTest

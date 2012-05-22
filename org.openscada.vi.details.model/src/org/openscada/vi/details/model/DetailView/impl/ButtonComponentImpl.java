@@ -174,9 +174,9 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ButtonComponentImpl()
+    protected ButtonComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -185,7 +185,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.BUTTON_COMPONENT;
     }
@@ -195,7 +195,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFormat()
+    public String getFormat ()
     {
         return format;
     }
@@ -205,12 +205,12 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFormat(String newFormat)
+    public void setFormat ( String newFormat )
     {
         String oldFormat = format;
         format = newFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__FORMAT, oldFormat, format));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__FORMAT, oldFormat, format ) );
     }
 
     /**
@@ -218,7 +218,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getValue()
+    public String getValue ()
     {
         return value;
     }
@@ -228,12 +228,12 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setValue(String newValue)
+    public void setValue ( String newValue )
     {
         String oldValue = value;
         value = newValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__VALUE, oldValue, value));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__VALUE, oldValue, value ) );
     }
 
     /**
@@ -241,7 +241,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getReadDescriptor()
+    public String getReadDescriptor ()
     {
         return readDescriptor;
     }
@@ -251,12 +251,12 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setReadDescriptor(String newReadDescriptor)
+    public void setReadDescriptor ( String newReadDescriptor )
     {
         String oldReadDescriptor = readDescriptor;
         readDescriptor = newReadDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR, oldReadDescriptor, readDescriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR, oldReadDescriptor, readDescriptor ) );
     }
 
     /**
@@ -264,7 +264,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getWriteDescriptor()
+    public String getWriteDescriptor ()
     {
         return writeDescriptor;
     }
@@ -274,12 +274,12 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setWriteDescriptor(String newWriteDescriptor)
+    public void setWriteDescriptor ( String newWriteDescriptor )
     {
         String oldWriteDescriptor = writeDescriptor;
         writeDescriptor = newWriteDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR, oldWriteDescriptor, writeDescriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR, oldWriteDescriptor, writeDescriptor ) );
     }
 
     /**
@@ -287,7 +287,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueSource getActive()
+    public ValueSource getActive ()
     {
         return active;
     }
@@ -297,14 +297,17 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetActive(ValueSource newActive, NotificationChain msgs)
+    public NotificationChain basicSetActive ( ValueSource newActive, NotificationChain msgs )
     {
         ValueSource oldActive = active;
         active = newActive;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__ACTIVE, oldActive, newActive);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__ACTIVE, oldActive, newActive );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -314,20 +317,21 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setActive(ValueSource newActive)
+    public void setActive ( ValueSource newActive )
     {
-        if (newActive != active)
+        if ( newActive != active )
         {
             NotificationChain msgs = null;
-            if (active != null)
-                msgs = ((InternalEObject)active).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.BUTTON_COMPONENT__ACTIVE, null, msgs);
-            if (newActive != null)
-                msgs = ((InternalEObject)newActive).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.BUTTON_COMPONENT__ACTIVE, null, msgs);
-            msgs = basicSetActive(newActive, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( active != null )
+                msgs = ( (InternalEObject)active ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.BUTTON_COMPONENT__ACTIVE, null, msgs );
+            if ( newActive != null )
+                msgs = ( (InternalEObject)newActive ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.BUTTON_COMPONENT__ACTIVE, null, msgs );
+            msgs = basicSetActive ( newActive, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__ACTIVE, newActive, newActive));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__ACTIVE, newActive, newActive ) );
     }
 
     /**
@@ -335,7 +339,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getAttribute()
+    public String getAttribute ()
     {
         return attribute;
     }
@@ -345,12 +349,12 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAttribute(String newAttribute)
+    public void setAttribute ( String newAttribute )
     {
         String oldAttribute = attribute;
         attribute = newAttribute;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE, oldAttribute, attribute));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE, oldAttribute, attribute ) );
     }
 
     /**
@@ -358,7 +362,7 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getTextHeight()
+    public int getTextHeight ()
     {
         return textHeight;
     }
@@ -368,12 +372,12 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setTextHeight(int newTextHeight)
+    public void setTextHeight ( int newTextHeight )
     {
         int oldTextHeight = textHeight;
         textHeight = newTextHeight;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT, oldTextHeight, textHeight));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT, oldTextHeight, textHeight ) );
     }
 
     /**
@@ -382,14 +386,14 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-                return basicSetActive(null, msgs);
+                return basicSetActive ( null, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -398,26 +402,26 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-                return getFormat();
+                return getFormat ();
             case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-                return getValue();
+                return getValue ();
             case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-                return getReadDescriptor();
+                return getReadDescriptor ();
             case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-                return getWriteDescriptor();
+                return getWriteDescriptor ();
             case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-                return getActive();
+                return getActive ();
             case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-                return getAttribute();
+                return getAttribute ();
             case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-                return getTextHeight();
+                return getTextHeight ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -426,68 +430,33 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-                setFormat((String)newValue);
+                setFormat ( (String)newValue );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-                setValue((String)newValue);
+                setValue ( (String)newValue );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-                setReadDescriptor((String)newValue);
+                setReadDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-                setWriteDescriptor((String)newValue);
+                setWriteDescriptor ( (String)newValue );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-                setActive((ValueSource)newValue);
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-                setAttribute((String)newValue);
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-                setTextHeight((Integer)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-                setFormat(FORMAT_EDEFAULT);
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-                setValue(VALUE_EDEFAULT);
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-                setReadDescriptor(READ_DESCRIPTOR_EDEFAULT);
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-                setWriteDescriptor(WRITE_DESCRIPTOR_EDEFAULT);
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-                setActive((ValueSource)null);
+                setActive ( (ValueSource)newValue );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-                setAttribute(ATTRIBUTE_EDEFAULT);
+                setAttribute ( (String)newValue );
                 return;
             case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-                setTextHeight(TEXT_HEIGHT_EDEFAULT);
+                setTextHeight ( (Integer)newValue );
                 return;
         }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -496,26 +465,61 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+                setFormat ( FORMAT_EDEFAULT );
+                return;
             case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+                setValue ( VALUE_EDEFAULT );
+                return;
             case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals(readDescriptor);
+                setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
+                return;
             case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-                return WRITE_DESCRIPTOR_EDEFAULT == null ? writeDescriptor != null : !WRITE_DESCRIPTOR_EDEFAULT.equals(writeDescriptor);
+                setWriteDescriptor ( WRITE_DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+                setActive ( (ValueSource)null );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
+                setAttribute ( ATTRIBUTE_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
+                setTextHeight ( TEXT_HEIGHT_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
+                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
+            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
+                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
+            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
+                return WRITE_DESCRIPTOR_EDEFAULT == null ? writeDescriptor != null : !WRITE_DESCRIPTOR_EDEFAULT.equals ( writeDescriptor );
             case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
                 return active != null;
             case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
             case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
                 return textHeight != TEXT_HEIGHT_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -524,25 +528,26 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (format: ");
-        result.append(format);
-        result.append(", value: ");
-        result.append(value);
-        result.append(", readDescriptor: ");
-        result.append(readDescriptor);
-        result.append(", writeDescriptor: ");
-        result.append(writeDescriptor);
-        result.append(", attribute: ");
-        result.append(attribute);
-        result.append(", textHeight: ");
-        result.append(textHeight);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (format: " );
+        result.append ( format );
+        result.append ( ", value: " );
+        result.append ( value );
+        result.append ( ", readDescriptor: " );
+        result.append ( readDescriptor );
+        result.append ( ", writeDescriptor: " );
+        result.append ( writeDescriptor );
+        result.append ( ", attribute: " );
+        result.append ( attribute );
+        result.append ( ", textHeight: " );
+        result.append ( textHeight );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ButtonComponentImpl

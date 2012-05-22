@@ -44,7 +44,7 @@ public interface GroupGridEntry extends EObject
      * @model required="true"
      * @generated
      */
-    String getLabel();
+    String getLabel ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry#getLabel <em>Label</em>}' attribute.
@@ -54,7 +54,7 @@ public interface GroupGridEntry extends EObject
      * @see #getLabel()
      * @generated
      */
-    void setLabel(String value);
+    void setLabel ( String value );
 
     /**
      * Returns the value of the '<em><b>Components</b></em>' containment reference list.
@@ -70,7 +70,7 @@ public interface GroupGridEntry extends EObject
      * @model containment="true"
      * @generated
      */
-    EList<Component> getComponents();
+    EList<Component> getComponents ();
 
     /**
      * Returns the value of the '<em><b>Permission</b></em>' attribute.
@@ -86,7 +86,7 @@ public interface GroupGridEntry extends EObject
      * @model
      * @generated
      */
-    String getPermission();
+    String getPermission ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry#getPermission <em>Permission</em>}' attribute.
@@ -96,6 +96,6 @@ public interface GroupGridEntry extends EObject
      * @see #getPermission()
      * @generated
      */
-    void setPermission(String value);
+    void setPermission ( String value );
 
 } // GroupGridEntry

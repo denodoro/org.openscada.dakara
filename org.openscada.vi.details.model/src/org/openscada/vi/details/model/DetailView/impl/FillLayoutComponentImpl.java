@@ -27,9 +27,9 @@ public class FillLayoutComponentImpl extends CompositeComponentImpl implements F
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FillLayoutComponentImpl()
+    protected FillLayoutComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -38,7 +38,7 @@ public class FillLayoutComponentImpl extends CompositeComponentImpl implements F
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.FILL_LAYOUT_COMPONENT;
     }

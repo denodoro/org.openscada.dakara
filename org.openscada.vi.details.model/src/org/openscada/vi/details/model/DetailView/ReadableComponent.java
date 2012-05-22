@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Readable Component</b></em>'.
@@ -43,7 +42,7 @@ public interface ReadableComponent extends Component
      * @model
      * @generated
      */
-    String getFormat();
+    String getFormat ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getFormat <em>Format</em>}' attribute.
@@ -53,7 +52,7 @@ public interface ReadableComponent extends Component
      * @see #getFormat()
      * @generated
      */
-    void setFormat(String value);
+    void setFormat ( String value );
 
     /**
      * Returns the value of the '<em><b>Decimal</b></em>' attribute.
@@ -69,7 +68,7 @@ public interface ReadableComponent extends Component
      * @model
      * @generated
      */
-    String getDecimal();
+    String getDecimal ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getDecimal <em>Decimal</em>}' attribute.
@@ -79,7 +78,7 @@ public interface ReadableComponent extends Component
      * @see #getDecimal()
      * @generated
      */
-    void setDecimal(String value);
+    void setDecimal ( String value );
 
     /**
      * Returns the value of the '<em><b>Attribute</b></em>' attribute.
@@ -95,7 +94,7 @@ public interface ReadableComponent extends Component
      * @model
      * @generated
      */
-    String getAttribute();
+    String getAttribute ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getAttribute <em>Attribute</em>}' attribute.
@@ -105,7 +104,7 @@ public interface ReadableComponent extends Component
      * @see #getAttribute()
      * @generated
      */
-    void setAttribute(String value);
+    void setAttribute ( String value );
 
     /**
      * Returns the value of the '<em><b>Hd Connectionid</b></em>' attribute.
@@ -121,7 +120,7 @@ public interface ReadableComponent extends Component
      * @model
      * @generated
      */
-    String getHdConnectionid();
+    String getHdConnectionid ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionid <em>Hd Connectionid</em>}' attribute.
@@ -131,7 +130,7 @@ public interface ReadableComponent extends Component
      * @see #getHdConnectionid()
      * @generated
      */
-    void setHdConnectionid(String value);
+    void setHdConnectionid ( String value );
 
     /**
      * Returns the value of the '<em><b>Hd Item Id</b></em>' attribute.
@@ -147,7 +146,7 @@ public interface ReadableComponent extends Component
      * @model
      * @generated
      */
-    String getHdItemId();
+    String getHdItemId ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdItemId <em>Hd Item Id</em>}' attribute.
@@ -157,6 +156,6 @@ public interface ReadableComponent extends Component
      * @see #getHdItemId()
      * @generated
      */
-    void setHdItemId(String value);
+    void setHdItemId ( String value );
 
 } // ReadableComponent

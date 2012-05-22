@@ -2,12 +2,12 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.vi.details.model/src"
-    modelPluginID="org.openscada.vi.details.model" modelName="DetailView"
-    modelPluginClass="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    modelPluginID="org.openscada.vi.details.model" modelName="DetailView" modelPluginClass=""
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
     copyrightFields="false">
   <foreignModel>DetailView.ecore</foreignModel>
-  <genPackages prefix="DetailView" basePackage="org.openscada.vi.details.model"
-      disposableProviderFactory="true" ecorePackage="DetailView.ecore#/">
+  <genPackages prefix="DetailView" basePackage="org.openscada.vi.details.model" disposableProviderFactory="true"
+      ecorePackage="DetailView.ecore#/">
     <genClasses ecoreClass="DetailView.ecore#//View">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/headerComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/groups"/>
@@ -96,11 +96,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/format"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/decimal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/attribute"/>
-    </genClasses>
-    <genClasses ecoreClass="DetailView.ecore#//VegaComponent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//VegaComponent/resultDescriptor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//VegaComponent/startDescriptor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//VegaComponent/stateDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdConnectionid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdItemId"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//TextComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/descriptor"/>
@@ -121,6 +118,20 @@
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//LinkComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//LinkComponent/format"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//URLImageComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/imageUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/fallbackImageUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/height"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//ProgressComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/descriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/factor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/width"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

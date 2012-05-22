@@ -33,9 +33,9 @@ public abstract class ValueSourceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueSourceTest(String name)
+    public ValueSourceTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -44,7 +44,7 @@ public abstract class ValueSourceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(ValueSource fixture)
+    protected void setFixture ( ValueSource fixture )
     {
         this.fixture = fixture;
     }
@@ -55,7 +55,7 @@ public abstract class ValueSourceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ValueSource getFixture()
+    protected ValueSource getFixture ()
     {
         return fixture;
     }

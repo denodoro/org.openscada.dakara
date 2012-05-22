@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Label Component</b></em>'.
@@ -41,7 +40,7 @@ public interface LabelComponent extends Component
      * @model default="%s"
      * @generated
      */
-    String getFormat();
+    String getFormat ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.LabelComponent#getFormat <em>Format</em>}' attribute.
@@ -51,7 +50,7 @@ public interface LabelComponent extends Component
      * @see #getFormat()
      * @generated
      */
-    void setFormat(String value);
+    void setFormat ( String value );
 
     /**
      * Returns the value of the '<em><b>Descriptor</b></em>' attribute.
@@ -67,7 +66,7 @@ public interface LabelComponent extends Component
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.LabelComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -77,6 +76,6 @@ public interface LabelComponent extends Component
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
 } // LabelComponent

@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.ValueSetComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueSetComponentItemProvider
-    extends WriteableComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ValueSetComponentItemProvider extends WriteableComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class ValueSetComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueSetComponentItemProvider(AdapterFactory adapterFactory)
+    public ValueSetComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,15 +51,15 @@ public class ValueSetComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addValueDescriptorPropertyDescriptor(object);
-            addSetDescriptorPropertyDescriptor(object);
-            addResetDescriptorPropertyDescriptor(object);
+            addValueDescriptorPropertyDescriptor ( object );
+            addSetDescriptorPropertyDescriptor ( object );
+            addResetDescriptorPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -78,21 +70,9 @@ public class ValueSetComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addValueDescriptorPropertyDescriptor(Object object)
+    protected void addValueDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ValueSetComponent_valueDescriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ValueSetComponent_valueDescriptor_feature", "_UI_ValueSetComponent_type"),
-                 DetailViewPackage.Literals.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueSetComponent_valueDescriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ValueSetComponent_valueDescriptor_feature", "_UI_ValueSetComponent_type" ), DetailViewPackage.Literals.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -101,21 +81,9 @@ public class ValueSetComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addSetDescriptorPropertyDescriptor(Object object)
+    protected void addSetDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ValueSetComponent_setDescriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ValueSetComponent_setDescriptor_feature", "_UI_ValueSetComponent_type"),
-                 DetailViewPackage.Literals.VALUE_SET_COMPONENT__SET_DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueSetComponent_setDescriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ValueSetComponent_setDescriptor_feature", "_UI_ValueSetComponent_type" ), DetailViewPackage.Literals.VALUE_SET_COMPONENT__SET_DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -124,21 +92,9 @@ public class ValueSetComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addResetDescriptorPropertyDescriptor(Object object)
+    protected void addResetDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ValueSetComponent_resetDescriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ValueSetComponent_resetDescriptor_feature", "_UI_ValueSetComponent_type"),
-                 DetailViewPackage.Literals.VALUE_SET_COMPONENT__RESET_DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueSetComponent_resetDescriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ValueSetComponent_resetDescriptor_feature", "_UI_ValueSetComponent_type" ), DetailViewPackage.Literals.VALUE_SET_COMPONENT__RESET_DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -148,9 +104,9 @@ public class ValueSetComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ValueSetComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ValueSetComponent" ) );
     }
 
     /**
@@ -160,12 +116,10 @@ public class ValueSetComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((ValueSetComponent)object).getFormat();
-        return label == null || label.length() == 0 ?
-            getString("_UI_ValueSetComponent_type") :
-            getString("_UI_ValueSetComponent_type") + " " + label;
+        String label = ( (ValueSetComponent)object ).getFormat ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ValueSetComponent_type" ) : getString ( "_UI_ValueSetComponent_type" ) + " " + label;
     }
 
     /**
@@ -176,19 +130,19 @@ public class ValueSetComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(ValueSetComponent.class))
+        switch ( notification.getFeatureID ( ValueSetComponent.class ) )
         {
             case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
             case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
             case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -199,9 +153,9 @@ public class ValueSetComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

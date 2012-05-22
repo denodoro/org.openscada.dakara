@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -32,14 +31,7 @@ import org.openscada.vi.details.model.DetailView.URLImageComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class URLImageComponentItemProvider
-    extends ComponentItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class URLImageComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -47,9 +39,9 @@ public class URLImageComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public URLImageComponentItemProvider(AdapterFactory adapterFactory)
+    public URLImageComponentItemProvider ( AdapterFactory adapterFactory )
     {
-        super(adapterFactory);
+        super ( adapterFactory );
     }
 
     /**
@@ -59,17 +51,17 @@ public class URLImageComponentItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if (itemPropertyDescriptors == null)
+        if ( itemPropertyDescriptors == null )
         {
-            super.getPropertyDescriptors(object);
+            super.getPropertyDescriptors ( object );
 
-            addDescriptorPropertyDescriptor(object);
-            addImageUrlPropertyDescriptor(object);
-            addFallbackImageUrlPropertyDescriptor(object);
-            addWidthPropertyDescriptor(object);
-            addHeightPropertyDescriptor(object);
+            addDescriptorPropertyDescriptor ( object );
+            addImageUrlPropertyDescriptor ( object );
+            addFallbackImageUrlPropertyDescriptor ( object );
+            addWidthPropertyDescriptor ( object );
+            addHeightPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -80,21 +72,9 @@ public class URLImageComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDescriptorPropertyDescriptor(Object object)
+    protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLImageComponent_descriptor_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLImageComponent_descriptor_feature", "_UI_URLImageComponent_type"),
-                 DetailViewPackage.Literals.URL_IMAGE_COMPONENT__DESCRIPTOR,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_descriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_descriptor_feature", "_UI_URLImageComponent_type" ), DetailViewPackage.Literals.URL_IMAGE_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -103,21 +83,9 @@ public class URLImageComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addImageUrlPropertyDescriptor(Object object)
+    protected void addImageUrlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLImageComponent_imageUrl_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLImageComponent_imageUrl_feature", "_UI_URLImageComponent_type"),
-                 DetailViewPackage.Literals.URL_IMAGE_COMPONENT__IMAGE_URL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_imageUrl_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_imageUrl_feature", "_UI_URLImageComponent_type" ), DetailViewPackage.Literals.URL_IMAGE_COMPONENT__IMAGE_URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -126,21 +94,9 @@ public class URLImageComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFallbackImageUrlPropertyDescriptor(Object object)
+    protected void addFallbackImageUrlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLImageComponent_fallbackImageUrl_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLImageComponent_fallbackImageUrl_feature", "_UI_URLImageComponent_type"),
-                 DetailViewPackage.Literals.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_fallbackImageUrl_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_fallbackImageUrl_feature", "_UI_URLImageComponent_type" ), DetailViewPackage.Literals.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -149,21 +105,9 @@ public class URLImageComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addWidthPropertyDescriptor(Object object)
+    protected void addWidthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLImageComponent_width_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLImageComponent_width_feature", "_UI_URLImageComponent_type"),
-                 DetailViewPackage.Literals.URL_IMAGE_COMPONENT__WIDTH,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_width_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_width_feature", "_UI_URLImageComponent_type" ), DetailViewPackage.Literals.URL_IMAGE_COMPONENT__WIDTH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -172,21 +116,9 @@ public class URLImageComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHeightPropertyDescriptor(Object object)
+    protected void addHeightPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_URLImageComponent_height_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_URLImageComponent_height_feature", "_UI_URLImageComponent_type"),
-                 DetailViewPackage.Literals.URL_IMAGE_COMPONENT__HEIGHT,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_height_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_height_feature", "_UI_URLImageComponent_type" ), DetailViewPackage.Literals.URL_IMAGE_COMPONENT__HEIGHT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -196,9 +128,9 @@ public class URLImageComponentItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object)
+    public Object getImage ( Object object )
     {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/URLImageComponent"));
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/URLImageComponent" ) );
     }
 
     /**
@@ -208,12 +140,10 @@ public class URLImageComponentItemProvider
      * @generated
      */
     @Override
-    public String getText(Object object)
+    public String getText ( Object object )
     {
-        String label = ((URLImageComponent)object).getDescriptor();
-        return label == null || label.length() == 0 ?
-            getString("_UI_URLImageComponent_type") :
-            getString("_UI_URLImageComponent_type") + " " + label;
+        String label = ( (URLImageComponent)object ).getDescriptor ();
+        return label == null || label.length () == 0 ? getString ( "_UI_URLImageComponent_type" ) : getString ( "_UI_URLImageComponent_type" ) + " " + label;
     }
 
     /**
@@ -224,21 +154,21 @@ public class URLImageComponentItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification)
+    public void notifyChanged ( Notification notification )
     {
-        updateChildren(notification);
+        updateChildren ( notification );
 
-        switch (notification.getFeatureID(URLImageComponent.class))
+        switch ( notification.getFeatureID ( URLImageComponent.class ) )
         {
             case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
             case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
             case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
             case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
-        super.notifyChanged(notification);
+        super.notifyChanged ( notification );
     }
 
     /**
@@ -249,9 +179,9 @@ public class URLImageComponentItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
-        super.collectNewChildDescriptors(newChildDescriptors, object);
+        super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
 }

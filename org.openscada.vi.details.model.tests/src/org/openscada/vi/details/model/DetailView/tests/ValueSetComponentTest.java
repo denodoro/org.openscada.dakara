@@ -25,9 +25,9 @@ public class ValueSetComponentTest extends WriteableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ValueSetComponentTest.class);
+        TestRunner.run ( ValueSetComponentTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ValueSetComponentTest extends WriteableComponentTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ValueSetComponentTest(String name)
+    public ValueSetComponentTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ValueSetComponentTest extends WriteableComponentTest
      * @generated
      */
     @Override
-    protected ValueSetComponent getFixture()
+    protected ValueSetComponent getFixture ()
     {
         return (ValueSetComponent)fixture;
     }
@@ -60,9 +60,9 @@ public class ValueSetComponentTest extends WriteableComponentTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createValueSetComponent());
+        setFixture ( DetailViewFactory.eINSTANCE.createValueSetComponent () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ValueSetComponentTest extends WriteableComponentTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ValueSetComponentTest

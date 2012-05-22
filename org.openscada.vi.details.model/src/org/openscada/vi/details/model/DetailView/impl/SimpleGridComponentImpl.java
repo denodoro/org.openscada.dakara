@@ -76,9 +76,9 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SimpleGridComponentImpl()
+    protected SimpleGridComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -87,7 +87,7 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.SIMPLE_GRID_COMPONENT;
     }
@@ -97,7 +97,7 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isEqually()
+    public boolean isEqually ()
     {
         return equally;
     }
@@ -107,12 +107,12 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setEqually(boolean newEqually)
+    public void setEqually ( boolean newEqually )
     {
         boolean oldEqually = equally;
         equally = newEqually;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY, oldEqually, equally));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY, oldEqually, equally ) );
     }
 
     /**
@@ -120,7 +120,7 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getCols()
+    public int getCols ()
     {
         return cols;
     }
@@ -130,12 +130,12 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setCols(int newCols)
+    public void setCols ( int newCols )
     {
         int oldCols = cols;
         cols = newCols;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS, oldCols, cols));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS, oldCols, cols ) );
     }
 
     /**
@@ -144,16 +144,16 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-                return isEqually();
+                return isEqually ();
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-                return getCols();
+                return getCols ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -162,18 +162,18 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-                setEqually((Boolean)newValue);
+                setEqually ( (Boolean)newValue );
                 return;
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-                setCols((Integer)newValue);
+                setCols ( (Integer)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -182,18 +182,18 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-                setEqually(EQUALLY_EDEFAULT);
+                setEqually ( EQUALLY_EDEFAULT );
                 return;
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-                setCols(COLS_EDEFAULT);
+                setCols ( COLS_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -202,16 +202,16 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
                 return equally != EQUALLY_EDEFAULT;
             case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
                 return cols != COLS_EDEFAULT;
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -220,17 +220,18 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (equally: ");
-        result.append(equally);
-        result.append(", cols: ");
-        result.append(cols);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (equally: " );
+        result.append ( equally );
+        result.append ( ", cols: " );
+        result.append ( cols );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //SimpleGridComponentImpl

@@ -139,9 +139,9 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ReadableComponentImpl()
+    protected ReadableComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.READABLE_COMPONENT;
     }
@@ -160,7 +160,7 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFormat()
+    public String getFormat ()
     {
         return format;
     }
@@ -170,12 +170,12 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFormat(String newFormat)
+    public void setFormat ( String newFormat )
     {
         String oldFormat = format;
         format = newFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__FORMAT, oldFormat, format));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__FORMAT, oldFormat, format ) );
     }
 
     /**
@@ -183,7 +183,7 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDecimal()
+    public String getDecimal ()
     {
         return decimal;
     }
@@ -193,12 +193,12 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDecimal(String newDecimal)
+    public void setDecimal ( String newDecimal )
     {
         String oldDecimal = decimal;
         decimal = newDecimal;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__DECIMAL, oldDecimal, decimal));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__DECIMAL, oldDecimal, decimal ) );
     }
 
     /**
@@ -206,7 +206,7 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getAttribute()
+    public String getAttribute ()
     {
         return attribute;
     }
@@ -216,12 +216,12 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setAttribute(String newAttribute)
+    public void setAttribute ( String newAttribute )
     {
         String oldAttribute = attribute;
         attribute = newAttribute;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE, oldAttribute, attribute));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE, oldAttribute, attribute ) );
     }
 
     /**
@@ -229,7 +229,7 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getHdConnectionid()
+    public String getHdConnectionid ()
     {
         return hdConnectionid;
     }
@@ -239,12 +239,12 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHdConnectionid(String newHdConnectionid)
+    public void setHdConnectionid ( String newHdConnectionid )
     {
         String oldHdConnectionid = hdConnectionid;
         hdConnectionid = newHdConnectionid;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID, oldHdConnectionid, hdConnectionid));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID, oldHdConnectionid, hdConnectionid ) );
     }
 
     /**
@@ -252,7 +252,7 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getHdItemId()
+    public String getHdItemId ()
     {
         return hdItemId;
     }
@@ -262,12 +262,12 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHdItemId(String newHdItemId)
+    public void setHdItemId ( String newHdItemId )
     {
         String oldHdItemId = hdItemId;
         hdItemId = newHdItemId;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID, oldHdItemId, hdItemId));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID, oldHdItemId, hdItemId ) );
     }
 
     /**
@@ -276,22 +276,22 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                return getFormat();
+                return getFormat ();
             case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                return getDecimal();
+                return getDecimal ();
             case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                return getAttribute();
+                return getAttribute ();
             case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                return getHdConnectionid();
+                return getHdConnectionid ();
             case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                return getHdItemId();
+                return getHdItemId ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -300,27 +300,27 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                setFormat((String)newValue);
+                setFormat ( (String)newValue );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                setDecimal((String)newValue);
+                setDecimal ( (String)newValue );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                setAttribute((String)newValue);
+                setAttribute ( (String)newValue );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                setHdConnectionid((String)newValue);
+                setHdConnectionid ( (String)newValue );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                setHdItemId((String)newValue);
+                setHdItemId ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -329,27 +329,27 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                setFormat(FORMAT_EDEFAULT);
+                setFormat ( FORMAT_EDEFAULT );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                setDecimal(DECIMAL_EDEFAULT);
+                setDecimal ( DECIMAL_EDEFAULT );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                setAttribute(ATTRIBUTE_EDEFAULT);
+                setAttribute ( ATTRIBUTE_EDEFAULT );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                setHdConnectionid(HD_CONNECTIONID_EDEFAULT);
+                setHdConnectionid ( HD_CONNECTIONID_EDEFAULT );
                 return;
             case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                setHdItemId(HD_ITEM_ID_EDEFAULT);
+                setHdItemId ( HD_ITEM_ID_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -358,22 +358,22 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
             case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals(decimal);
+                return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals ( decimal );
             case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
             case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                return HD_CONNECTIONID_EDEFAULT == null ? hdConnectionid != null : !HD_CONNECTIONID_EDEFAULT.equals(hdConnectionid);
+                return HD_CONNECTIONID_EDEFAULT == null ? hdConnectionid != null : !HD_CONNECTIONID_EDEFAULT.equals ( hdConnectionid );
             case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals(hdItemId);
+                return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals ( hdItemId );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -382,23 +382,24 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (format: ");
-        result.append(format);
-        result.append(", decimal: ");
-        result.append(decimal);
-        result.append(", attribute: ");
-        result.append(attribute);
-        result.append(", hdConnectionid: ");
-        result.append(hdConnectionid);
-        result.append(", hdItemId: ");
-        result.append(hdItemId);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (format: " );
+        result.append ( format );
+        result.append ( ", decimal: " );
+        result.append ( decimal );
+        result.append ( ", attribute: " );
+        result.append ( attribute );
+        result.append ( ", hdConnectionid: " );
+        result.append ( hdConnectionid );
+        result.append ( ", hdItemId: " );
+        result.append ( hdItemId );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ReadableComponentImpl

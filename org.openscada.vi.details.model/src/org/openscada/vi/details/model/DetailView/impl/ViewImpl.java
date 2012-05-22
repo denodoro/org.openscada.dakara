@@ -68,9 +68,9 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ViewImpl()
+    protected ViewImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -79,7 +79,7 @@ public class ViewImpl extends EObjectImpl implements View
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.VIEW;
     }
@@ -89,7 +89,7 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
-    public Component getHeaderComponent()
+    public Component getHeaderComponent ()
     {
         return headerComponent;
     }
@@ -99,14 +99,17 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetHeaderComponent(Component newHeaderComponent, NotificationChain msgs)
+    public NotificationChain basicSetHeaderComponent ( Component newHeaderComponent, NotificationChain msgs )
     {
         Component oldHeaderComponent = headerComponent;
         headerComponent = newHeaderComponent;
-        if (eNotificationRequired())
+        if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DetailViewPackage.VIEW__HEADER_COMPONENT, oldHeaderComponent, newHeaderComponent);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VIEW__HEADER_COMPONENT, oldHeaderComponent, newHeaderComponent );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
         }
         return msgs;
     }
@@ -116,20 +119,21 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHeaderComponent(Component newHeaderComponent)
+    public void setHeaderComponent ( Component newHeaderComponent )
     {
-        if (newHeaderComponent != headerComponent)
+        if ( newHeaderComponent != headerComponent )
         {
             NotificationChain msgs = null;
-            if (headerComponent != null)
-                msgs = ((InternalEObject)headerComponent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.VIEW__HEADER_COMPONENT, null, msgs);
-            if (newHeaderComponent != null)
-                msgs = ((InternalEObject)newHeaderComponent).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.VIEW__HEADER_COMPONENT, null, msgs);
-            msgs = basicSetHeaderComponent(newHeaderComponent, msgs);
-            if (msgs != null) msgs.dispatch();
+            if ( headerComponent != null )
+                msgs = ( (InternalEObject)headerComponent ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.VIEW__HEADER_COMPONENT, null, msgs );
+            if ( newHeaderComponent != null )
+                msgs = ( (InternalEObject)newHeaderComponent ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.VIEW__HEADER_COMPONENT, null, msgs );
+            msgs = basicSetHeaderComponent ( newHeaderComponent, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.VIEW__HEADER_COMPONENT, newHeaderComponent, newHeaderComponent));
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VIEW__HEADER_COMPONENT, newHeaderComponent, newHeaderComponent ) );
     }
 
     /**
@@ -137,11 +141,11 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<GroupEntry> getGroups()
+    public EList<GroupEntry> getGroups ()
     {
-        if (groups == null)
+        if ( groups == null )
         {
-            groups = new EObjectContainmentEList<GroupEntry>(GroupEntry.class, this, DetailViewPackage.VIEW__GROUPS);
+            groups = new EObjectContainmentEList<GroupEntry> ( GroupEntry.class, this, DetailViewPackage.VIEW__GROUPS );
         }
         return groups;
     }
@@ -152,16 +156,16 @@ public class ViewImpl extends EObjectImpl implements View
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
-                return basicSetHeaderComponent(null, msgs);
+                return basicSetHeaderComponent ( null, msgs );
             case DetailViewPackage.VIEW__GROUPS:
-                return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
+                return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
         }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -170,16 +174,16 @@ public class ViewImpl extends EObjectImpl implements View
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
-                return getHeaderComponent();
+                return getHeaderComponent ();
             case DetailViewPackage.VIEW__GROUPS:
-                return getGroups();
+                return getGroups ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -187,41 +191,21 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
-                setHeaderComponent((Component)newValue);
+                setHeaderComponent ( (Component)newValue );
                 return;
             case DetailViewPackage.VIEW__GROUPS:
-                getGroups().clear();
-                getGroups().addAll((Collection<? extends GroupEntry>)newValue);
+                getGroups ().clear ();
+                getGroups ().addAll ( (Collection<? extends GroupEntry>)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset(int featureID)
-    {
-        switch (featureID)
-        {
-            case DetailViewPackage.VIEW__HEADER_COMPONENT:
-                setHeaderComponent((Component)null);
-                return;
-            case DetailViewPackage.VIEW__GROUPS:
-                getGroups().clear();
-                return;
-        }
-        super.eUnset(featureID);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -230,16 +214,36 @@ public class ViewImpl extends EObjectImpl implements View
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
+        {
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+                setHeaderComponent ( (Component)null );
+                return;
+            case DetailViewPackage.VIEW__GROUPS:
+                getGroups ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
         {
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
                 return headerComponent != null;
             case DetailViewPackage.VIEW__GROUPS:
-                return groups != null && !groups.isEmpty();
+                return groups != null && !groups.isEmpty ();
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
 } //ViewImpl

@@ -76,9 +76,9 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    protected LabelComponentImpl()
+    protected LabelComponentImpl ()
     {
-        super();
+        super ();
     }
 
     /**
@@ -87,7 +87,7 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * @generated
      */
     @Override
-    protected EClass eStaticClass()
+    protected EClass eStaticClass ()
     {
         return DetailViewPackage.Literals.LABEL_COMPONENT;
     }
@@ -97,7 +97,7 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getFormat()
+    public String getFormat ()
     {
         return format;
     }
@@ -107,12 +107,12 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFormat(String newFormat)
+    public void setFormat ( String newFormat )
     {
         String oldFormat = format;
         format = newFormat;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.LABEL_COMPONENT__FORMAT, oldFormat, format));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.LABEL_COMPONENT__FORMAT, oldFormat, format ) );
     }
 
     /**
@@ -120,7 +120,7 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getDescriptor()
+    public String getDescriptor ()
     {
         return descriptor;
     }
@@ -130,12 +130,12 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDescriptor(String newDescriptor)
+    public void setDescriptor ( String newDescriptor )
     {
         String oldDescriptor = descriptor;
         descriptor = newDescriptor;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor));
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR, oldDescriptor, descriptor ) );
     }
 
     /**
@@ -144,16 +144,16 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType)
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-                return getFormat();
+                return getFormat ();
             case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-                return getDescriptor();
+                return getDescriptor ();
         }
-        return super.eGet(featureID, resolve, coreType);
+        return super.eGet ( featureID, resolve, coreType );
     }
 
     /**
@@ -162,18 +162,18 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue)
+    public void eSet ( int featureID, Object newValue )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-                setFormat((String)newValue);
+                setFormat ( (String)newValue );
                 return;
             case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-                setDescriptor((String)newValue);
+                setDescriptor ( (String)newValue );
                 return;
         }
-        super.eSet(featureID, newValue);
+        super.eSet ( featureID, newValue );
     }
 
     /**
@@ -182,18 +182,18 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * @generated
      */
     @Override
-    public void eUnset(int featureID)
+    public void eUnset ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-                setFormat(FORMAT_EDEFAULT);
+                setFormat ( FORMAT_EDEFAULT );
                 return;
             case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-                setDescriptor(DESCRIPTOR_EDEFAULT);
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
                 return;
         }
-        super.eUnset(featureID);
+        super.eUnset ( featureID );
     }
 
     /**
@@ -202,16 +202,16 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID)
+    public boolean eIsSet ( int featureID )
     {
-        switch (featureID)
+        switch ( featureID )
         {
             case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
             case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals(descriptor);
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
         }
-        return super.eIsSet(featureID);
+        return super.eIsSet ( featureID );
     }
 
     /**
@@ -220,17 +220,18 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
      * @generated
      */
     @Override
-    public String toString()
+    public String toString ()
     {
-        if (eIsProxy()) return super.toString();
+        if ( eIsProxy () )
+            return super.toString ();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (format: ");
-        result.append(format);
-        result.append(", descriptor: ");
-        result.append(descriptor);
-        result.append(')');
-        return result.toString();
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (format: " );
+        result.append ( format );
+        result.append ( ", descriptor: " );
+        result.append ( descriptor );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //LabelComponentImpl

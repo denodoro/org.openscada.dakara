@@ -6,7 +6,6 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Text Input Component</b></em>'.
@@ -40,7 +39,7 @@ public interface TextInputComponent extends WriteableComponent
      * @model required="true"
      * @generated
      */
-    String getDescriptor();
+    String getDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getDescriptor <em>Descriptor</em>}' attribute.
@@ -50,7 +49,7 @@ public interface TextInputComponent extends WriteableComponent
      * @see #getDescriptor()
      * @generated
      */
-    void setDescriptor(String value);
+    void setDescriptor ( String value );
 
     /**
      * Returns the value of the '<em><b>Read Descriptor</b></em>' attribute.
@@ -66,7 +65,7 @@ public interface TextInputComponent extends WriteableComponent
      * @model
      * @generated
      */
-    String getReadDescriptor();
+    String getReadDescriptor ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getReadDescriptor <em>Read Descriptor</em>}' attribute.
@@ -76,6 +75,6 @@ public interface TextInputComponent extends WriteableComponent
      * @see #getReadDescriptor()
      * @generated
      */
-    void setReadDescriptor(String value);
+    void setReadDescriptor ( String value );
 
 } // TextInputComponent

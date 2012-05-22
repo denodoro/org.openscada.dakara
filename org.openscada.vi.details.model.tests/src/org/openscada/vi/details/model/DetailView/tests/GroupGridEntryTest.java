@@ -35,9 +35,9 @@ public class GroupGridEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(GroupGridEntryTest.class);
+        TestRunner.run ( GroupGridEntryTest.class );
     }
 
     /**
@@ -46,9 +46,9 @@ public class GroupGridEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public GroupGridEntryTest(String name)
+    public GroupGridEntryTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +57,7 @@ public class GroupGridEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(GroupGridEntry fixture)
+    protected void setFixture ( GroupGridEntry fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +68,7 @@ public class GroupGridEntryTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GroupGridEntry getFixture()
+    protected GroupGridEntry getFixture ()
     {
         return fixture;
     }
@@ -80,9 +80,9 @@ public class GroupGridEntryTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(DetailViewFactory.eINSTANCE.createGroupGridEntry());
+        setFixture ( DetailViewFactory.eINSTANCE.createGroupGridEntry () );
     }
 
     /**
@@ -92,9 +92,9 @@ public class GroupGridEntryTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //GroupGridEntryTest
