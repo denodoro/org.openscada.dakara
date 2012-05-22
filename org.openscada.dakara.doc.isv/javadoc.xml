@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="javadoc">
 	
-	<property name="transformedRepoLocation" location="../builder_dakara/builder/build/transformedRepo"/>
+	<property name="buildDirectory" location="../builder_dakara/builder/build"/>
+	<property name="transformedRepoLocation" location="${buildDirectory}/transformedRepo"/>
 	
     <target name="javadoc">
     	
@@ -25,7 +26,7 @@
         		splitindex="true"
         		use="true"
         		version="true">
-        	<sourcepath location="../org.openscada.vi.ui.draw2d/src"/>
+        	<sourcepath location="${buildDirectory}/plugins/org.openscada.vi.ui.draw2d/src"/>
     	</javadoc>
     </target>
 </project>
