@@ -3,5 +3,7 @@
 
 <toc label="Reference" link_to="toc.xml#reference"> 
 	<topic href="reference/api/overview-summary.html" label="API Reference">
-	</topic> 
+	</topic>
+ <topic href="html/reference/scriptContext.html" label="Script Context">
+ </topic> 
 </toc>
