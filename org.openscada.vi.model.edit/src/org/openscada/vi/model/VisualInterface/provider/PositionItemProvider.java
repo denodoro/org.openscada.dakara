@@ -96,15 +96,13 @@ public class PositionItemProvider extends ItemProviderAdapter implements IEditin
     }
 
     /**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
+     * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        Position position = (Position)object;
-        return getString ( "_UI_Position_type" ) + " " + position.getX (); //$NON-NLS-1$ //$NON-NLS-2$
+        final Position position = (Position)object;
+        return getString ( "_UI_Position_type" ) + " " + position.getX () + "x" + position.getY (); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
     }
 
     /**
