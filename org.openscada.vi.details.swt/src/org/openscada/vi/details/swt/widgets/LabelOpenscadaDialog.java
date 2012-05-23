@@ -23,8 +23,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.util.User;
 
 //this class has to be in package org.eclipse.swt.widgets. Otherwise it will throw a subclassing is not allowed exception.
 public class LabelOpenscadaDialog extends Composite
@@ -48,12 +48,10 @@ public class LabelOpenscadaDialog extends Composite
         }
         this.label.setText ( this.format );
 
-        if ( User.isPermitted ( User.PRIV_ADMIN ) )
+        // TODO: make properties
+        if ( SessionManager.getDefault ().hasRole ( "developer" ) )
         {
-            if ( Boolean.getBoolean ( "com.thfour.developer" ) ) //$NON-NLS-1$
-            {
-                this.label.setToolTipText ( Messages.LabelOpenscadaDialog_descriptor + descriptor );
-            }
+            this.label.setToolTipText ( Messages.LabelOpenscadaDialog_descriptor + descriptor );
         }
 
     }

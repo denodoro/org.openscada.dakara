@@ -45,6 +45,7 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.core.Variant;
+import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.da.client.dataitem.details.dialog.DataItemDetailsDialog;
 import org.openscada.da.ui.connection.data.Item;
@@ -56,13 +57,14 @@ import org.openscada.vi.details.swt.Activator;
 import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
-import org.openscada.vi.details.swt.util.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AttributeImage extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( AttributeImage.class );
+
+    private static final String detailsDialogRole = System.getProperty ( " org.openscada.vi.details.swt.widgets.roles.detailsDialog", "admin" );
 
     private Label attributeLabel;
 
@@ -196,7 +198,7 @@ public class AttributeImage extends GenericComposite
             @Override
             public void mouseDoubleClick ( final org.eclipse.swt.events.MouseEvent e )
             {
-                if ( User.isPermitted ( User.PRIV_ADMIN ) )
+                if ( SessionManager.getDefault ().hasRole ( detailsDialogRole ) )
                 {
                     final DataItemDetailsDialog dlg = new DataItemDetailsDialog ( getShell (), new Item ( AttributeImage.this.descriptor.getConnectionInformation ().toString (), AttributeImage.this.descriptor.getItemId (), Type.ID ) );
                     dlg.open ();
@@ -290,30 +292,30 @@ public class AttributeImage extends GenericComposite
 
         switch ( state )
         {
-        case ALARM_0:
-            setNewAttributeImage ( this.imageWhite );
-            break;
-        case ALARM_1:
-            setNewAttributeImage ( this.imageACK );
-            break;
-        case ALARM:
-            setNewAttributeImage ( this.imageAlarm );
-            break;
-        case ERROR:
-            setNewAttributeImage ( this.imageError );
-            break;
-        case MANUAL:
-            setNewAttributeImage ( this.imageManual );
-            break;
-        case DISCONNECTED:
-            setNewAttributeImage ( this.imageDisconnected );
-            break;
-        case BLOCKED:
-            setNewAttributeImage ( this.imageBlock );
-            break;
-        case OK:
-            setNewAttributeImage ( this.imageOk );
-            break;
+            case ALARM_0:
+                setNewAttributeImage ( this.imageWhite );
+                break;
+            case ALARM_1:
+                setNewAttributeImage ( this.imageACK );
+                break;
+            case ALARM:
+                setNewAttributeImage ( this.imageAlarm );
+                break;
+            case ERROR:
+                setNewAttributeImage ( this.imageError );
+                break;
+            case MANUAL:
+                setNewAttributeImage ( this.imageManual );
+                break;
+            case DISCONNECTED:
+                setNewAttributeImage ( this.imageDisconnected );
+                break;
+            case BLOCKED:
+                setNewAttributeImage ( this.imageBlock );
+                break;
+            case OK:
+                setNewAttributeImage ( this.imageOk );
+                break;
         }
     }
 

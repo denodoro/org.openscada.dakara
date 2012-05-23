@@ -33,21 +33,25 @@ import org.eclipse.swt.events.MouseTrackAdapter;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.da.ui.connection.dnd.ItemTransfer;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.util.User;
 
-public class DragHelper
+public final class DragHelper
 {
+    private DragHelper ()
+    {
+    }
 
     public static void style ( final Composite parent, final Control control, final DataItemDescriptor descriptor )
     {
         final Color backgroundDefault = control.getBackground ();
 
-        if ( User.isPermitted ( User.PRIV_ADMIN ) )
+        // TODO: make properties
+        if ( SessionManager.getDefault ().hasRole ( "admin" ) )
         {
-            if ( Boolean.getBoolean ( "com.thfour.developer" ) ) //$NON-NLS-1$
+            if ( SessionManager.getDefault ().hasRole ( "developer" ) ) //$NON-NLS-1$
             {
                 control.setToolTipText ( Messages.LabelOpenscadaDialog_descriptor + descriptor );
             }

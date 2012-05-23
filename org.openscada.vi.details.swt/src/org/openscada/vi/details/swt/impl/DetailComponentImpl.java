@@ -34,6 +34,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
+import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.vi.details.model.DetailView.AndTransformer;
 import org.openscada.vi.details.model.DetailView.BoolLEDComponent;
 import org.openscada.vi.details.model.DetailView.ButtonComponent;
@@ -62,7 +63,6 @@ import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.source.ItemValueSourceController;
 import org.openscada.vi.details.swt.source.NotEvaluatorController;
 import org.openscada.vi.details.swt.source.ValueSourceController;
-import org.openscada.vi.details.swt.util.User;
 import org.openscada.vi.details.swt.widgets.BoolLEDComposite;
 import org.openscada.vi.details.swt.widgets.ButtonComposite;
 import org.openscada.vi.details.swt.widgets.CheckComposite;
@@ -302,7 +302,7 @@ public class DetailComponentImpl implements DetailComponent
                 //there are no special user rights available, so just show the TAB
                 createGroupGridEntry ( properties, childParent, groupEntry );
             }
-            else if ( User.isPermitted ( groupEntry.getPermission () ) )
+            else if ( SessionManager.getDefault ().hasRole ( groupEntry.getPermission () ) )
             {
                 createGroupGridEntry ( properties, childParent, groupEntry );
             }

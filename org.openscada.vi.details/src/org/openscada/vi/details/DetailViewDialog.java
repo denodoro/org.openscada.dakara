@@ -44,6 +44,10 @@ public class DetailViewDialog implements SessionListener
 
     private static final Logger logger = LoggerFactory.getLogger ( DetailViewDialog.class );
 
+    private static final String detailRole = System.getProperty ( "org.openscada.vi.details.roles.detailView", "operator" );
+
+    private static final String debugInformationRole = System.getProperty ( "org.openscada.vi.details.roles.debugInformation", "developer" );
+
     private Shell shell;
 
     private final Shell parentShell;
@@ -68,13 +72,10 @@ public class DetailViewDialog implements SessionListener
     {
         try
         {
-            if ( !Boolean.getBoolean ( "org.openscada.developer" ) && !Boolean.getBoolean ( "org.openscada.operator" ) ) //$NON-NLS-1$ //$NON-NLS-2$
+            if ( this.session == null || !this.session.hasRole ( detailRole ) )
             {
-                if ( this.session == null )
-                {
-                    ErrorDialog.openError ( this.parentShell, Messages.DetailViewDialog_ErrorDialog_Title, Messages.DetailViewDialog_ErrorDialog_NoSession, new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( Messages.DetailViewDialog_ErrorMessage_NoSession, this.id ) ) );
-                    return;
-                }
+                ErrorDialog.openError ( this.parentShell, Messages.DetailViewDialog_ErrorDialog_Title, Messages.DetailViewDialog_ErrorDialog_NoSession, new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( Messages.DetailViewDialog_ErrorMessage_NoSession, this.id ) ) );
+                return;
             }
 
             this.detailView = DetailViewManager.openView ( this.id, this.properties );
@@ -96,7 +97,8 @@ public class DetailViewDialog implements SessionListener
         this.shell.setMinimumSize ( 400, 100 );
         this.shell.setText ( this.properties.get ( "linkName" ) + " | " + this.properties.get ( "linkDetailView" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         this.shell.setToolTipText ( "" ); //$NON-NLS-1$
-        if ( Boolean.getBoolean ( "org.openscada.developer" ) ) //$NON-NLS-1$
+
+        if ( this.session.hasRole ( debugInformationRole ) )
         {
             for ( final String key : this.properties.keySet () )
             {
@@ -130,7 +132,6 @@ public class DetailViewDialog implements SessionListener
             }
         } );
         SessionManager.getDefault ().addListener ( this );
-
     }
 
     public void dispose ()
@@ -151,7 +152,7 @@ public class DetailViewDialog implements SessionListener
     {
         this.session = session;
 
-        if ( Boolean.getBoolean ( "org.openscada.developer" ) || Boolean.getBoolean ( "org.openscada.operator" ) ) //$NON-NLS-1$ //$NON-NLS-2$
+        if ( session != null && session.hasRole ( detailRole ) )
         {
             return;
         }

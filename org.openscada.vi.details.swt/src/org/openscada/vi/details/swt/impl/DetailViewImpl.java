@@ -40,12 +40,12 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
+import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.vi.details.model.DetailView.Component;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
 import org.openscada.vi.details.model.DetailView.View;
 import org.openscada.vi.details.swt.DetailComponent;
-import org.openscada.vi.details.swt.util.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,6 +53,8 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 {
 
     private static final Logger logger = LoggerFactory.getLogger ( DetailViewImpl.class );
+
+    private static final String realtimeListRole = System.getProperty ( "org.openscada.vi.details.swt.impl.roles.realtimeList", "admin" );
 
     private String uri;
 
@@ -163,13 +165,13 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                     //there are no special user rights available, so just show the TAB
                     this.groups.add ( groupTab );
                 }
-                else if ( User.isPermitted ( group.getPermission () ) )
+                else if ( SessionManager.getDefault ().hasRole ( group.getPermission () ) )
                 {
                     this.groups.add ( groupTab );
                 }
             }
         }
-        if ( User.isPermitted ( User.PRIV_ADMIN ) )
+        if ( SessionManager.getDefault ().hasRole ( realtimeListRole ) )
         {
             this.groups.add ( this.realTimeTab );
         }

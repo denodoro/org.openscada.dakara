@@ -21,21 +21,19 @@ package org.openscada.vi.details.swt.widgets;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.openscada.vi.details.swt.util.User;
+import org.openscada.core.ui.connection.login.SessionManager;
 
-public class WriteConfirmDialog
+public final class WriteConfirmDialog
 {
-    static public boolean create ( final Shell shell )
+    private static final String suppressConfirmDialogRole = System.getProperty ( "org.openscada.vi.details.swt.widgets.roles.suppressConfirm", "developer" );
+
+    private WriteConfirmDialog ()
     {
-        final String value = System.getProperty ( "org.openscada.developer" ); //$NON-NLS-1$
-        if ( value != null )
-        {
-            if ( value.toLowerCase ().equals ( "true" ) ) //$NON-NLS-1$
-            {
-                return true;
-            }
-        }
-        if ( User.isAdmin () )
+    }
+
+    public static boolean create ( final Shell shell )
+    {
+        if ( SessionManager.getDefault ().hasRole ( suppressConfirmDialogRole ) )
         {
             return true;
         }
