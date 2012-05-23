@@ -53,6 +53,11 @@ import org.openscada.ui.databinding.DataItemObservableValue;
 import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
+/**
+ * A view part which holds a set of views and navigation controls
+ * 
+ * @author Jens Reimann
+ */
 public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManager
 {
 
@@ -74,7 +79,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private DataBindingContext dbc;
 
-    private Image image;
+    private Image logoImage;
 
     public SingleVisualInterfaceViewPart ()
     {
@@ -152,8 +157,8 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         }
 
         final Label label = new Label ( parent, SWT.NONE );
-        this.image = this.manager.createImageWithDefault ( descriptor );
-        label.setImage ( this.image );
+        this.logoImage = this.manager.createImageWithDefault ( descriptor );
+        label.setImage ( this.logoImage );
         label.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
 
         label.addMouseListener ( new MouseAdapter () {
