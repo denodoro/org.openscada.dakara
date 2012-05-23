@@ -82,11 +82,17 @@ public class VisualInterfaceViewer extends Composite
 
     /**
      * Create a new viewer
-     * @param parent the parent composite
-     * @param style the composite style
-     * @param uri the URI from which the root symbol should be loaded
-     * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>.
-     * @param properties additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
+     * 
+     * @param parent
+     *            the parent composite
+     * @param style
+     *            the composite style
+     * @param uri
+     *            the URI from which the root symbol should be loaded
+     * @param scriptObjects
+     *            optionally some script objects that get injected into the script context. May be <code>null</code>.
+     * @param properties
+     *            additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
      */
     public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
@@ -95,11 +101,17 @@ public class VisualInterfaceViewer extends Composite
 
     /**
      * Create a new viewer
-     * @param parent the parent composite
-     * @param style the composite style
-     * @param uri the URI from which the root symbol should be loaded
-     * @param scriptObjects optionally some script objects that get injected into the script context. May be <code>null</code>
-     * @param properties additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
+     * 
+     * @param parent
+     *            the parent composite
+     * @param style
+     *            the composite style
+     * @param uri
+     *            the URI from which the root symbol should be loaded
+     * @param scriptObjects
+     *            optionally some script objects that get injected into the script context. May be <code>null</code>
+     * @param properties
+     *            additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
      */
     public VisualInterfaceViewer ( final Composite parent, final int style, final String uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
