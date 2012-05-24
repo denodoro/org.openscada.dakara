@@ -128,7 +128,7 @@ public class DetailViewDialog implements SessionListener
             @Override
             public void widgetDisposed ( final DisposeEvent arg0 )
             {
-                SessionManager.getDefault ().removeListener ( DetailViewDialog.this );
+                dispose ();
             }
         } );
         SessionManager.getDefault ().addListener ( this );
@@ -136,6 +136,8 @@ public class DetailViewDialog implements SessionListener
 
     public void dispose ()
     {
+        SessionManager.getDefault ().removeListener ( DetailViewDialog.this );
+
         this.detailView.dispose ();
 
         if ( this.shell != null )

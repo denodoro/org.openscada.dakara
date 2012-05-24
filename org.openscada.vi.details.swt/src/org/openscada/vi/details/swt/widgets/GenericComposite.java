@@ -22,6 +22,8 @@ package org.openscada.vi.details.swt.widgets;
 import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.details.model.DetailView.Registration;
 import org.openscada.vi.details.swt.data.ControllerListener;
@@ -47,5 +49,14 @@ public abstract class GenericComposite extends Composite implements ControllerLi
                 this.controller.registerItem ( reg.getKey (), descriptor, reg.isAggregateState () );
             }
         }
+
+        addDisposeListener ( new DisposeListener () {
+
+            @Override
+            public void widgetDisposed ( final DisposeEvent e )
+            {
+                GenericComposite.this.controller.dispose ();
+            }
+        } );
     }
 }

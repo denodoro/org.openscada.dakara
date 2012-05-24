@@ -32,6 +32,8 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -129,6 +131,15 @@ public class AttributeImage extends GenericComposite
         initBlinker ();
         initLabels ();
         initRowLayout ();
+
+        addDisposeListener ( new DisposeListener () {
+
+            @Override
+            public void widgetDisposed ( final DisposeEvent e )
+            {
+                AttributeImage.this.dataController.dispose ();
+            }
+        } );
     }
 
     protected void createTrendButton ( final Composite parent )
