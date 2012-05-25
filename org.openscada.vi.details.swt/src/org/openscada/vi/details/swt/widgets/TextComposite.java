@@ -87,7 +87,14 @@ public class TextComposite extends ReadableComposite implements ControllerListen
 
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
-        layout.center = true;
+        if ( height > 19 )
+        {
+            layout.center = false;
+        }
+        else
+        {
+            layout.center = true;
+        }
         layout.spacing = 7;
         layout.pack = true;
         setLayout ( layout );
