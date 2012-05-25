@@ -32,5 +32,12 @@
             contributorClass="org.openscada.vi.model.VisualInterface.presentation.VisualInterfaceActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="vi">
+      </file-association>
+   </extension>
 
 </plugin>

@@ -32,5 +32,12 @@
             contributorClass="org.openscada.vi.details.model.DetailView.presentation.DetailViewActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="detailview">
+      </file-association>
+   </extension>
 
 </plugin>
