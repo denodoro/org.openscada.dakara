@@ -34,6 +34,7 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
 
@@ -46,9 +47,9 @@
 
    <features>
       <feature id="org.openscada.ui.singleViewer.app" version="1.0.0.qualifier"/>
-      <feature id="org.eclipse.rcp" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
-      <feature id="org.eclipse.equinox.p2.rcp.feature" version="1.0.1.R37x_v20110906-782EpBqNKGUkZQpuT8hAlWlFbUeo"/>
-      <feature id="org.eclipse.platform" version="3.7.1.r37x_v20110729-9gF7UHOxFtniV7mI3T556iZN9AU8bEZ1lHMcVK"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.platform"/>
    </features>
 
 
