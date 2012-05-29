@@ -103,7 +103,7 @@ public class BoolLEDComposite extends Composite implements ControllerListener
             this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
         }
 
-        if ( Boolean.getBoolean ( "com.thfour.developer" ) == true )
+        if ( Boolean.getBoolean ( "org.openscada.developer" ) )
         {
 
             if ( this.isAlarm == true )
