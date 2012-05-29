@@ -17,7 +17,9 @@
    
    <extension point="org.eclipse.pde.core.javadoc">
       <javadoc path="reference/api">
-            <plugin id="org.openscada.utils" /> 
+            <plugin id="org.openscada.vi.ui.draw2d" />
+            <plugin id="org.openscada.vi.details.swt" />
+            <plugin id="org.openscada.vi.details.swt" />
       </javadoc>
    </extension>
 
