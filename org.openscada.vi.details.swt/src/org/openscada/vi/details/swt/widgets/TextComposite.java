@@ -27,8 +27,8 @@ import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 import org.openscada.core.NullValueException;
@@ -85,6 +85,9 @@ public class TextComposite extends ReadableComposite implements ControllerListen
             height = SWT.DEFAULT;
         }
 
+        final GridLayout layout = new GridLayout ( 3, false );
+
+        /*
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
         if ( height > 19 )
@@ -97,24 +100,29 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         }
         layout.spacing = 7;
         layout.pack = true;
+        */
         setLayout ( layout );
 
         this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
-        this.dataText = new Text ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT );
-        //        final RowData rowData = new RowData ( 60, SWT.DEFAULT );
+        this.dataText = new Text ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT | SWT.V_SCROLL );
         if ( textHeight != 0 )
         {
             this.font = new Font ( getDisplay (), new FontData ( "Arial", textHeight, 0 ) ); //$NON-NLS-1$
             this.dataText.setFont ( this.font );
         }
-        final RowData rowData = new RowData ( width, height );
-        //        this.dataText.setAlignment ( SWT.RIGHT );
-        this.dataText.setLayoutData ( rowData );
+        final GridData data = new GridData ( SWT.FILL, SWT.FILL, false, false );
+        data.widthHint = data.minimumWidth = width;
+        data.heightHint = data.minimumHeight = height;
+
+        this.dataText.setLayoutData ( data );
         this.dataText.setEnabled ( true );
         this.dataText.setEditable ( false );
 
         this.dataText.setText ( "" ); //$NON-NLS-1$
-        new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
+        final LabelOpenscadaDialog label = new LabelOpenscadaDialog ( this, SWT.WRAP, format, descriptor );
+        final GridData labelData = new GridData ( SWT.FILL, SWT.FILL, true, false );
+        labelData.minimumWidth = 100;
+        label.setLayoutData ( labelData );
 
         if ( descriptor != null )
         {

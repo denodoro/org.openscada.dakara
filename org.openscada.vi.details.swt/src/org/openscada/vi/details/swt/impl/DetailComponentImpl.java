@@ -313,7 +313,7 @@ public class DetailComponentImpl implements DetailComponent
     {
         final Group groupWidget = new Group ( childParent, SWT.NONE );
         addControl ( groupWidget );
-        groupWidget.setLayout ( new GridLayout ( 1, true ) );
+        groupWidget.setLayout ( new GridLayout ( 1, false ) );
         groupWidget.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
 
         final String label = groupEntry.getLabel ();
@@ -327,7 +327,11 @@ public class DetailComponentImpl implements DetailComponent
             final DetailComponentImpl comp = new DetailComponentImpl ( child );
             this.components.add ( comp );
 
-            comp.init ( groupWidget, properties );
+            final Composite wrapper = new Composite ( groupWidget, SWT.NONE );
+            wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
+            wrapper.setLayout ( new FillLayout () );
+
+            comp.init ( wrapper, properties );
         }
     }
 
