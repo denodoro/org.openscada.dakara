@@ -87,20 +87,6 @@ public class TextComposite extends ReadableComposite implements ControllerListen
 
         final GridLayout layout = new GridLayout ( 3, false );
 
-        /*
-        final RowLayout layout = new RowLayout ();
-        layout.wrap = false;
-        if ( height > 19 )
-        {
-            layout.center = false;
-        }
-        else
-        {
-            layout.center = true;
-        }
-        layout.spacing = 7;
-        layout.pack = true;
-        */
         setLayout ( layout );
 
         this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
@@ -110,7 +96,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
             this.font = new Font ( getDisplay (), new FontData ( "Arial", textHeight, 0 ) ); //$NON-NLS-1$
             this.dataText.setFont ( this.font );
         }
-        final GridData data = new GridData ( SWT.FILL, SWT.FILL, false, false );
+        final GridData data = new GridData ( SWT.FILL, SWT.CENTER, false, false );
         data.widthHint = data.minimumWidth = width;
         data.heightHint = data.minimumHeight = height;
 
@@ -120,7 +106,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
 
         this.dataText.setText ( "" ); //$NON-NLS-1$
         final LabelOpenscadaDialog label = new LabelOpenscadaDialog ( this, SWT.WRAP, format, descriptor );
-        final GridData labelData = new GridData ( SWT.FILL, SWT.FILL, true, false );
+        final GridData labelData = new GridData ( SWT.FILL, SWT.CENTER, true, false );
         labelData.minimumWidth = 100;
         label.setLayoutData ( labelData );
 
