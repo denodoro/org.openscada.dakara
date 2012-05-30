@@ -104,7 +104,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         setLayout ( layout );
 
         this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
-        this.dataText = new Text ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT | SWT.V_SCROLL );
+        this.dataText = new Text ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT );
         if ( textHeight != 0 )
         {
             this.font = new Font ( getDisplay (), new FontData ( "Arial", textHeight, 0 ) ); //$NON-NLS-1$
