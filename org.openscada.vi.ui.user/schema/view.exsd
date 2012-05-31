@@ -110,7 +110,7 @@ Behaviour is unspecified if more than one instance are marked as default.
          <attribute name="uri" type="string">
             <annotation>
                <documentation>
-                  A URI to a view to load. May be &quot;platform:/...&quot;
+                  A URI to a view to load. Can also be &quot;platform:/...&quot;
                </documentation>
             </annotation>
          </attribute>
