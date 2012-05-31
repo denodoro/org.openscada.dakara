@@ -63,7 +63,7 @@ public class ViewInstance implements SummaryListener
 
     private final Image imageBlocked;
 
-    private Blinker blinker;
+    private final Blinker blinker;
 
     private final Image imageAlarm0;
 
@@ -217,11 +217,7 @@ public class ViewInstance implements SummaryListener
 
     protected void internalDispose ()
     {
-        if ( this.blinker != null )
-        {
-            this.blinker.dispose ();
-            this.blinker = null;
-        }
+        this.blinker.dispose ();
     }
 
     public void dispose ()
