@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -43,4 +43,6 @@ public class PreferenceConstants
     public static final String P_TIME_DATA_ITEM = "time.itemId";
 
     public static final String P_TIME_CONNECTION_ID = "time.connectionId";
+
+    public static final String P_DEFAULT_LAZY_ACTIVATTION = "lazyActivation.default";
 }

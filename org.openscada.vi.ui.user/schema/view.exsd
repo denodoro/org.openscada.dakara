@@ -121,6 +121,13 @@ Behaviour is unspecified if more than one instance are marked as default.
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="lazyActivation" type="boolean">
+            <annotation>
+               <documentation>
+                  Defines if the view is only activated and item subscriptions are activated when the view is actually shown.
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

@@ -69,6 +69,8 @@ public class ViewInstance implements SummaryListener
 
     private final Image imageAlarm1;
 
+    private final Image imageInactive;
+
     private final Composite parent;
 
     private final ViewInstanceDescriptor descriptor;
@@ -91,6 +93,7 @@ public class ViewInstance implements SummaryListener
         this.imageBlocked = createImage ( PreferenceConstants.P_IMG_BLOCKED );
         this.imageAlarm0 = createImage ( PreferenceConstants.P_IMG_ALARM_0 );
         this.imageAlarm1 = createImage ( PreferenceConstants.P_IMG_ALARM_1 );
+        this.imageInactive = null;
 
         this.disposeListener = new DisposeListener () {
 
@@ -106,7 +109,7 @@ public class ViewInstance implements SummaryListener
         {
             this.button = new ToolItem ( toolbar, SWT.RADIO );
             this.button.setText ( descriptor.getName () );
-            this.button.setImage ( this.imageOk );
+            this.button.setImage ( descriptor.isLazyActivation () ? this.imageInactive : this.imageOk );
             this.button.addSelectionListener ( new SelectionAdapter () {
                 @Override
                 public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
@@ -136,26 +139,28 @@ public class ViewInstance implements SummaryListener
         this.scriptObjects = new LinkedHashMap<String, Object> ();
         this.scriptObjects.put ( "viewManager", viewManager );
 
-        reload ();
+        if ( !this.descriptor.isLazyActivation () )
+        {
+            activateView ( false );
+        }
     }
 
     public void reload ()
     {
         // dispose first
-        if ( this.viewer != null )
-        {
-            if ( this.button != null )
-            {
-                this.viewer.removeSummaryListener ( this );
-            }
-
-            // no need to dispose when changing the viewer
-            this.viewer.removeDisposeListener ( this.disposeListener );
-            this.viewer.dispose ();
-            this.viewer = null;
-        }
+        deactivateView ();
 
         // now create
+        activateView ( true );
+    }
+
+    private void activateView ( final boolean forceSet )
+    {
+        if ( this.viewer != null )
+        {
+            return;
+        }
+
         this.viewer = new VisualInterfaceViewer ( this.parent, SWT.NONE, this.descriptor.getUri (), this.scriptObjects, this.descriptor.getProperties () );
         this.viewer.setZooming ( this.descriptor.getZooming () );
         this.viewer.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
@@ -168,7 +173,28 @@ public class ViewInstance implements SummaryListener
         // re-add listener
         this.viewer.addDisposeListener ( this.disposeListener );
 
-        this.viewManager.showView ( this.descriptor.getId (), true );
+        // we need to force set ourself when reloading
+        if ( forceSet )
+        {
+            this.viewManager.showView ( this.descriptor.getId (), true );
+        }
+    }
+
+    private void deactivateView ()
+    {
+        if ( this.viewer != null )
+        {
+            if ( this.button != null )
+            {
+                this.viewer.removeSummaryListener ( this );
+                this.button.setImage ( this.imageInactive );
+            }
+
+            // no need to dispose when changing the viewer
+            this.viewer.removeDisposeListener ( this.disposeListener );
+            this.viewer.dispose ();
+            this.viewer = null;
+        }
     }
 
     private Image createImage ( final String key )
@@ -219,6 +245,11 @@ public class ViewInstance implements SummaryListener
         {
             this.button.setSelection ( false );
         }
+
+        if ( this.descriptor.isLazyActivation () )
+        {
+            deactivateView ();
+        }
     }
 
     public void activate ()
@@ -226,6 +257,11 @@ public class ViewInstance implements SummaryListener
         if ( this.button != null )
         {
             this.button.setSelection ( true );
+        }
+
+        if ( this.descriptor.isLazyActivation () )
+        {
+            activateView ( false );
         }
     }
 
@@ -248,28 +284,28 @@ public class ViewInstance implements SummaryListener
 
         switch ( state )
         {
-        case ALARM_0:
-            this.button.setImage ( this.imageAlarm0 );
-            break;
-        case ALARM_1:
-            this.button.setImage ( this.imageAlarm1 );
-            break;
-        case DISCONNECTED:
-        case ERROR:
-            this.button.setImage ( this.imageInvalid );
-            break;
-        case MANUAL:
-            this.button.setImage ( this.imageManual );
-            break;
-        case BLOCKED:
-            this.button.setImage ( this.imageBlocked );
-            break;
-        case ALARM:
-            this.button.setImage ( this.imageAlarm );
-            break;
-        case OK:
-            this.button.setImage ( this.imageOk );
-            break;
+            case ALARM_0:
+                this.button.setImage ( this.imageAlarm0 );
+                break;
+            case ALARM_1:
+                this.button.setImage ( this.imageAlarm1 );
+                break;
+            case DISCONNECTED:
+            case ERROR:
+                this.button.setImage ( this.imageInvalid );
+                break;
+            case MANUAL:
+                this.button.setImage ( this.imageManual );
+                break;
+            case BLOCKED:
+                this.button.setImage ( this.imageBlocked );
+                break;
+            case ALARM:
+                this.button.setImage ( this.imageAlarm );
+                break;
+            case OK:
+                this.button.setImage ( this.imageOk );
+                break;
         }
     }
 

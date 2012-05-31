@@ -38,7 +38,9 @@ public class ViewInstanceDescriptor
 
     private final Boolean zooming;
 
-    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final boolean defaultInstance, final Boolean zooming, final Map<String, String> properties )
+    private final boolean lazyActivation;
+
+    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final boolean defaultInstance, final Boolean zooming, final boolean lazyActivation, final Map<String, String> properties )
     {
         super ();
         this.id = id;
@@ -48,6 +50,12 @@ public class ViewInstanceDescriptor
         this.properties = properties;
         this.defaultInstance = defaultInstance;
         this.zooming = zooming;
+        this.lazyActivation = lazyActivation;
+    }
+
+    public boolean isLazyActivation ()
+    {
+        return this.lazyActivation;
     }
 
     public Boolean getZooming ()

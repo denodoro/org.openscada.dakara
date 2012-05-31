@@ -34,6 +34,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
@@ -90,7 +91,7 @@ public class Activator extends AbstractUIPlugin
 
     /**
      * Returns the shared instance
-     *
+     * 
      * @return the shared instance
      */
     public static Activator getDefault ()
@@ -165,8 +166,9 @@ public class Activator extends AbstractUIPlugin
             final boolean defaultInstance = element.getAttribute ( "defaultInstance" ) == null ? false : Boolean.parseBoolean ( element.getAttribute ( "defaultInstance" ) );
 
             final Boolean zooming = element.getAttribute ( "zooming" ) == null ? null : Boolean.parseBoolean ( element.getAttribute ( "zooming" ) );
+            final boolean lazy = element.getAttribute ( "lazyActivation" ) == null ? Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_LAZY_ACTIVATTION ) : Boolean.parseBoolean ( element.getAttribute ( "lazyActivation" ) );
 
-            return new ViewInstanceDescriptor ( id, parentId, uri, name, defaultInstance, zooming, properties );
+            return new ViewInstanceDescriptor ( id, parentId, uri, name, defaultInstance, zooming, lazy, properties );
         }
         catch ( final Throwable e )
         {
