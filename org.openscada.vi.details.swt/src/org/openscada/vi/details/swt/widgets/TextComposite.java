@@ -30,10 +30,10 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Text;
 import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.eclipse.swt.CLabel;
 import org.openscada.vi.details.swt.data.ControllerListener;
 import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
@@ -45,7 +45,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
 {
     private static final Logger logger = LoggerFactory.getLogger ( TextComposite.class );
 
-    private final Text dataText;
+    private final CLabel dataText;
 
     private final DataController controller;
 
@@ -90,7 +90,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         setLayout ( layout );
 
         this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
-        this.dataText = new Text ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT );
+        this.dataText = new CLabel ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT );
         if ( textHeight != 0 )
         {
             this.font = new Font ( getDisplay (), new FontData ( "Arial", textHeight, 0 ) ); //$NON-NLS-1$
@@ -102,7 +102,8 @@ public class TextComposite extends ReadableComposite implements ControllerListen
 
         this.dataText.setLayoutData ( data );
         this.dataText.setEnabled ( true );
-        this.dataText.setEditable ( false );
+        this.dataText.setEllipsis ( "…" );
+        this.dataText.setEllipsisAlignment ( SWT.END );
 
         this.dataText.setText ( "" ); //$NON-NLS-1$
         final LabelOpenscadaDialog label = new LabelOpenscadaDialog ( this, SWT.WRAP, format, descriptor );

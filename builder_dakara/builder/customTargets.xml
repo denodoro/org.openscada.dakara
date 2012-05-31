@@ -100,6 +100,8 @@
   	<openscada.builder.copyFeature id="org.openscada.dakara.sdk" />
   	<openscada.builder.copyFeature id="org.openscada.dakara.editor" />
   	
+  	<openscada.builder.copyPlugin id="org.openscada.eclipse.swt" />
+  	
   	<openscada.builder.copyPlugin id="org.openscada.dakara.ui" />
   	
   	<openscada.builder.copyPlugin id="org.openscada.vi.model"/>
