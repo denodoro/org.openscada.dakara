@@ -38,6 +38,8 @@ public class PreferenceConstants
 
     public static final String P_IMG_ALARM_1 = "image.alarm1";
 
+    public static final String P_IMG_INACTIVE = "image.inactive";
+
     public static final String P_IMG_LOGO = "image.logo";
 
     public static final String P_TIME_DATA_ITEM = "time.itemId";

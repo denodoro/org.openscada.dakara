@@ -93,7 +93,7 @@ public class ViewInstance implements SummaryListener
         this.imageBlocked = createImage ( PreferenceConstants.P_IMG_BLOCKED );
         this.imageAlarm0 = createImage ( PreferenceConstants.P_IMG_ALARM_0 );
         this.imageAlarm1 = createImage ( PreferenceConstants.P_IMG_ALARM_1 );
-        this.imageInactive = null;
+        this.imageInactive = createImage ( PreferenceConstants.P_IMG_INACTIVE );
 
         this.disposeListener = new DisposeListener () {
 
