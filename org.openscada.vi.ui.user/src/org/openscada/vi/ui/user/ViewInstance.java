@@ -83,6 +83,8 @@ public class ViewInstance implements SummaryListener
 
     private IEvaluationReference lazyRef;
 
+    private IEvaluationReference defaultInstanceRef;
+
     private final IEvaluationService evaluationService;
 
     private final ToolBar toolbar;
@@ -96,6 +98,8 @@ public class ViewInstance implements SummaryListener
     private boolean lazy = true;
 
     private boolean active;
+
+    private boolean defaultInstance;
 
     public ViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
     {
@@ -134,6 +138,7 @@ public class ViewInstance implements SummaryListener
 
         attachVisibleExpression ( descriptor, evaluationService );
         attachLazyExpression ( descriptor, evaluationService );
+        attachDefaultInstanceExpression ( descriptor, evaluationService );
     }
 
     private void attachVisibleExpression ( final ViewInstanceDescriptor descriptor, final IEvaluationService evaluationService )
@@ -178,6 +183,39 @@ public class ViewInstance implements SummaryListener
         {
             setLazy ( false );
         }
+    }
+
+    private void attachDefaultInstanceExpression ( final ViewInstanceDescriptor descriptor, final IEvaluationService evaluationService )
+    {
+        if ( descriptor.getDefaultInstanceExpression () != null )
+        {
+            this.defaultInstanceRef = evaluationService.addEvaluationListener ( descriptor.getDefaultInstanceExpression (), new IPropertyChangeListener () {
+
+                @Override
+                public void propertyChange ( final PropertyChangeEvent event )
+                {
+                    if ( "defaultInstance".equals ( event.getProperty () ) && event.getNewValue () instanceof Boolean )
+                    {
+                        setDefaultInstance ( (Boolean)event.getNewValue () );
+                    }
+                }
+            }, "defaultInstance" );
+        }
+        else
+        {
+            setDefaultInstance ( descriptor.isDefaultInstance () );
+        }
+    }
+
+    protected void setDefaultInstance ( final boolean defaultInstance )
+    {
+        this.defaultInstance = defaultInstance;
+        fireDefaultStateChanged ( defaultInstance );
+    }
+
+    public boolean isDefaultInstance ()
+    {
+        return this.defaultInstance;
     }
 
     protected void setLazy ( final boolean lazy )
@@ -272,6 +310,14 @@ public class ViewInstance implements SummaryListener
         }
     }
 
+    private void fireDefaultStateChanged ( final boolean state )
+    {
+        if ( this.viewManagerContext != null )
+        {
+            this.viewManagerContext.viewDefaultChanged ( this, state );
+        }
+    }
+
     public void reload ()
     {
         // dispose first
@@ -341,6 +387,12 @@ public class ViewInstance implements SummaryListener
         {
             this.evaluationService.removeEvaluationListener ( this.lazyRef );
             this.lazyRef = null;
+        }
+
+        if ( this.defaultInstanceRef != null )
+        {
+            this.evaluationService.removeEvaluationListener ( this.defaultInstanceRef );
+            this.defaultInstanceRef = null;
         }
 
         this.blinker.dispose ();

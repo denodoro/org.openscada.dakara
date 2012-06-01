@@ -59,6 +59,7 @@
       <complexType>
          <sequence>
             <element ref="visibility" minOccurs="0" maxOccurs="1"/>
+            <element ref="defaultInstance" minOccurs="0" maxOccurs="1"/>
             <element ref="laziness" minOccurs="0" maxOccurs="1"/>
             <element ref="property" minOccurs="0" maxOccurs="unbounded"/>
          </sequence>
@@ -102,19 +103,10 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="defaultInstance" type="boolean">
-            <annotation>
-               <documentation>
-                  Select if this instance should be the default instance.
-
-Behaviour is unspecified if more than one instance are marked as default.
-               </documentation>
-            </annotation>
-         </attribute>
          <attribute name="uri" type="string">
             <annotation>
                <documentation>
-                  A URI to a view to load. Can also be &quot;platform:/...&quot;
+                  A URI to a view to load. May also be &lt;q&gt;platform:/...&lt;/q&gt;
                </documentation>
             </annotation>
          </attribute>
@@ -131,6 +123,17 @@ Behaviour is unspecified if more than one instance are marked as default.
                   Sort order of the views in the toolbar. Starting with lower, ending with higher.
 
 If the view is never visible the sort order is not relevant.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="defaultInstance" type="boolean">
+            <annotation>
+               <documentation>
+                  Simple marker if this is a default instance.
+
+It is also possible to use a more complex expression using the child element &lt;q&gt;defaultElement&lt;/q&gt;.
+
+If both are specified this field is used.
                </documentation>
             </annotation>
          </attribute>
@@ -175,6 +178,11 @@ If the view is never visible the sort order is not relevant.
    </element>
 
    <element name="visibility">
+      <annotation>
+         <documentation>
+            Define if a view is visible or not.
+         </documentation>
+      </annotation>
       <complexType>
          <choice>
             <element ref="not"/>
@@ -195,6 +203,11 @@ If the view is never visible the sort order is not relevant.
    </element>
 
    <element name="laziness">
+      <annotation>
+         <documentation>
+            Define is a view is lazy, and will drop its subscriptions when not active, or not.
+         </documentation>
+      </annotation>
       <complexType>
          <choice>
             <element ref="not"/>
@@ -213,7 +226,27 @@ If the view is never visible the sort order is not relevant.
          </choice>
       </complexType>
    </element>
-   
+
+   <element name="defaultInstance">
+      <complexType>
+         <choice>
+            <element ref="not"/>
+            <element ref="and"/>
+            <element ref="or"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="reference"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+         </choice>
+      </complexType>
+   </element>
+
    <annotation>
       <appinfo>
          <meta.section type="since"/>

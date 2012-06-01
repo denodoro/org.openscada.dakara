@@ -302,6 +302,15 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
+    public int calculateToolbarIndex ( final ViewInstanceDescriptor descriptor )
+    {
+        final List<ViewInstanceDescriptor> data = new ArrayList<ViewInstanceDescriptor> ( this.visibleDescriptors );
+        data.add ( descriptor );
+        Collections.sort ( data, DESCRIPTOR_ORDER_COMPARATOR );
+        return data.indexOf ( descriptor );
+    }
+
+    @Override
     public void viewVisibilityChanged ( final ViewInstance viewInstance, final boolean visible )
     {
         if ( visible )
@@ -343,7 +352,12 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
         for ( final ViewInstanceDescriptor desc : this.visibleDescriptors )
         {
-            if ( desc.isDefaultInstance () )
+            final ViewInstance instance = this.instances.get ( desc.getId () );
+            if ( instance == null )
+            {
+                continue;
+            }
+            if ( instance.isDefaultInstance () )
             {
                 result.add ( desc );
             }
@@ -354,11 +368,11 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public int calculateToolbarIndex ( final ViewInstanceDescriptor descriptor )
+    public void viewDefaultChanged ( final ViewInstance viewInstance, final boolean state )
     {
-        final List<ViewInstanceDescriptor> data = new ArrayList<ViewInstanceDescriptor> ( this.visibleDescriptors );
-        data.add ( descriptor );
-        Collections.sort ( data, DESCRIPTOR_ORDER_COMPARATOR );
-        return data.indexOf ( descriptor );
+        if ( this.currentInstance == null )
+        {
+            activateNextMain ();
+        }
     }
 }

@@ -163,7 +163,7 @@ public class Activator extends AbstractUIPlugin
             {
                 properties.put ( child.getAttribute ( "key" ), child.getAttribute ( "value" ) );
             }
-            
+
             int order = 0;
             try
             {
@@ -172,15 +172,22 @@ public class Activator extends AbstractUIPlugin
             catch ( final Exception e )
             {
             }
-            
+
             final boolean defaultInstance = element.getAttribute ( "defaultInstance" ) == null ? false : Boolean.parseBoolean ( element.getAttribute ( "defaultInstance" ) );
 
             final Boolean zooming = element.getAttribute ( "zooming" ) == null ? null : Boolean.parseBoolean ( element.getAttribute ( "zooming" ) );
 
             Expression lazyExpression = null;
             Expression visibleExpression = null;
+            Expression defaultInstanceExpression = null;
             for ( final IConfigurationElement child : element.getChildren () )
             {
+                final IConfigurationElement[] childs = child.getChildren ();
+                if ( childs == null || childs.length <= 0 )
+                {
+                    continue;
+                }
+
                 if ( "laziness".equals ( child.getName () ) )
                 {
                     lazyExpression = ExpressionConverter.getDefault ().perform ( child.getChildren ()[0] );
@@ -189,9 +196,13 @@ public class Activator extends AbstractUIPlugin
                 {
                     visibleExpression = ExpressionConverter.getDefault ().perform ( child.getChildren ()[0] );
                 }
+                else if ( "defaultInstance".equals ( child.getName () ) )
+                {
+                    defaultInstanceExpression = ExpressionConverter.getDefault ().perform ( child.getChildren ()[0] );
+                }
             }
 
-            return new ViewInstanceDescriptor ( id, parentId, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, properties );
+            return new ViewInstanceDescriptor ( id, parentId, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, properties );
         }
         catch ( final Throwable e )
         {

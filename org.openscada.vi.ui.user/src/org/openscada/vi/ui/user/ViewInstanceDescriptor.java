@@ -46,7 +46,9 @@ public class ViewInstanceDescriptor
 
     private final boolean defaultInstance;
 
-    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Map<String, String> properties )
+    private final Expression defaultInstanceExpression;
+
+    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Expression defaultInstanceExpression, final Map<String, String> properties )
     {
         super ();
         this.id = id;
@@ -59,11 +61,17 @@ public class ViewInstanceDescriptor
         this.zooming = zooming;
         this.lazyExpression = lazyExpression;
         this.visibleExpression = visibleExpression;
+        this.defaultInstanceExpression = defaultInstanceExpression;
     }
 
     public boolean isDefaultInstance ()
     {
         return this.defaultInstance;
+    }
+
+    public Expression getDefaultInstanceExpression ()
+    {
+        return this.defaultInstanceExpression;
     }
 
     public Expression getLazyExpression ()
