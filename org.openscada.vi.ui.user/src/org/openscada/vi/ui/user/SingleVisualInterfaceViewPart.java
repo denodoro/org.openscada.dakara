@@ -57,8 +57,8 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.core.Variant;
-import org.openscada.ui.databinding.DataItemObservableValue;
 import org.openscada.ui.databinding.VariantToStringConverter;
+import org.openscada.ui.databinding.item.DataItemObservableValue;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
 /**
