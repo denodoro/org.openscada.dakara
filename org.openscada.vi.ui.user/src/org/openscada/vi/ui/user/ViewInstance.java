@@ -343,6 +343,7 @@ public class ViewInstance implements SummaryListener
         try
         {
             this.suppressActiveEvent = true;
+
             // dispose first
             deactivateView ();
 
