@@ -222,15 +222,18 @@ public class ViewInstance implements SummaryListener
     {
         if ( this.lazy == lazy )
         {
+            // if nothing changes, we pass
             return;
         }
 
         if ( this.lazy )
         {
+            // if we were lazy, but are non-lazy now, we need to activate
             activateView ();
         }
         else if ( !this.active )
         {
+            // if we were not lazy, are lazy now and are not active, we deactivate
             deactivateView ();
         }
 
@@ -255,7 +258,6 @@ public class ViewInstance implements SummaryListener
 
             this.button = new ToolItem ( this.toolbar, SWT.RADIO, index );
             this.button.setText ( this.descriptor.getName () );
-            this.button.setImage ( this.lazy ? this.imageInactive : this.imageOk );
             this.button.addSelectionListener ( new SelectionAdapter () {
                 @Override
                 public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
@@ -346,6 +348,7 @@ public class ViewInstance implements SummaryListener
     {
         if ( this.viewer != null )
         {
+            this.currentButtonState = null;
             this.viewer.removeSummaryListener ( this );
             if ( this.button != null )
             {
