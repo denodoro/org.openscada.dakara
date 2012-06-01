@@ -348,8 +348,8 @@ public class ViewInstance implements SummaryListener
     {
         if ( this.viewer != null )
         {
-            this.currentButtonState = null;
             this.viewer.removeSummaryListener ( this );
+            this.currentButtonState = null;
             if ( this.button != null )
             {
                 this.button.setImage ( this.imageInactive );
