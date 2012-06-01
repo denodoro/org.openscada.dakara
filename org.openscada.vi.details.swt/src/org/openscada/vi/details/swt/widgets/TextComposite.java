@@ -104,6 +104,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         this.dataText.setEnabled ( true );
         this.dataText.setEllipsis ( "…" );
         this.dataText.setEllipsisAlignment ( SWT.END );
+        this.dataText.setBackground ( this.dataText.getDisplay ().getSystemColor ( SWT.COLOR_LIST_BACKGROUND ) );
 
         this.dataText.setText ( "" ); //$NON-NLS-1$
         final LabelOpenscadaDialog label = new LabelOpenscadaDialog ( this, SWT.WRAP, format, descriptor );
