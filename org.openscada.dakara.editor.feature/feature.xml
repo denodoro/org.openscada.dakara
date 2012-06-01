@@ -27,7 +27,9 @@
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.openscada.vi.details.model"/>
       <import plugin="org.eclipse.ui"/>
-      <import feature="org.openscada.orilla" version="1.0.0.qualifier"/>
+      <import plugin="org.openscada.dakara.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.openscada.ca.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.pde.core"/>
    </requires>
 
    <plugin
