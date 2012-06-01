@@ -464,12 +464,12 @@ public class SymbolController
         try
         {
             this.onUpdate.execute ( this.scriptContext );
-            notifySummaryListeners ();
         }
         catch ( final Exception e )
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
+        notifySummaryListeners ();
     }
 
     protected void notifySummaryListeners ()
