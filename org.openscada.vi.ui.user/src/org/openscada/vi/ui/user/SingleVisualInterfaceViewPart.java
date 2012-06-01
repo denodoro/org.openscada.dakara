@@ -21,8 +21,15 @@ package org.openscada.vi.ui.user;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
@@ -48,6 +55,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.core.Variant;
 import org.openscada.ui.databinding.DataItemObservableValue;
 import org.openscada.ui.databinding.VariantToStringConverter;
@@ -58,8 +66,16 @@ import org.openscada.vi.ui.user.preferences.PreferenceConstants;
  * 
  * @author Jens Reimann
  */
-public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManager
+public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManager, ViewManagerContext
 {
+
+    private static final Comparator<? super ViewInstanceDescriptor> DESCRIPTOR_ORDER_COMPARATOR = new Comparator<ViewInstanceDescriptor> () {
+        @Override
+        public int compare ( final ViewInstanceDescriptor o1, final ViewInstanceDescriptor o2 )
+        {
+            return Integer.valueOf ( o1.getOrder () ).compareTo ( o2.getOrder () );
+        }
+    };
 
     private Composite viewHolder;
 
@@ -81,8 +97,14 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private Image logoImage;
 
+    private final List<ViewInstanceDescriptor> descriptors;
+
+    private final Set<ViewInstanceDescriptor> visibleDescriptors = new HashSet<ViewInstanceDescriptor> ();
+
     public SingleVisualInterfaceViewPart ()
     {
+        this.descriptors = new ArrayList<ViewInstanceDescriptor> ( Activator.getDescriptors () );
+        Collections.sort ( this.descriptors, DESCRIPTOR_ORDER_COMPARATOR );
     }
 
     @Override
@@ -113,14 +135,12 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.viewHolder = new Composite ( wrapper, SWT.NONE );
         this.viewHolder.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         this.viewHolder.setLayout ( this.stackLayout = new StackLayout () );
-        for ( final ViewInstanceDescriptor descriptor : Activator.getDescriptors () )
+
+        for ( final ViewInstanceDescriptor descriptor : this.descriptors )
         {
-            addView ( descriptor );
-            if ( descriptor.isDefaultInstance () )
-            {
-                showView ( descriptor.getId () );
-            }
+            createAndAddView ( descriptor );
         }
+        activateNextMain ();
     }
 
     protected ImageDescriptor getLogoDescriptor ()
@@ -229,10 +249,11 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.manager.dispose ();
     }
 
-    private void addView ( final ViewInstanceDescriptor descriptor )
+    private ViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
     {
-        final ViewInstance instance = new ViewInstance ( this, this.viewHolder, this.toolBar, descriptor, this.manager );
+        final ViewInstance instance = new ViewInstance ( this, this, this.viewHolder, this.toolBar, descriptor, this.manager, (IEvaluationService)getSite ().getService ( IEvaluationService.class ) );
         this.instances.put ( descriptor.getId (), instance );
+        return instance;
     }
 
     @Override
@@ -249,6 +270,11 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         {
             return;
         }
+        showView ( instance, force );
+    }
+
+    protected void showView ( final ViewInstance instance, final boolean force )
+    {
         if ( this.currentInstance == instance && !force )
         {
             return;
@@ -275,4 +301,64 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         }
     }
 
+    @Override
+    public void viewVisibilityChanged ( final ViewInstance viewInstance, final boolean visible )
+    {
+        if ( visible )
+        {
+            this.visibleDescriptors.add ( viewInstance.getDescriptor () );
+        }
+        else
+        {
+            this.visibleDescriptors.remove ( viewInstance.getDescriptor () );
+        }
+
+        if ( this.currentInstance == viewInstance && !visible )
+        {
+            // hide current view
+            this.currentInstance.deactivate ();
+            this.currentInstance = null;
+            this.stackLayout.topControl = null;
+            this.viewHolder.layout ();
+        }
+        if ( this.currentInstance == null )
+        {
+            // find new visible main
+            activateNextMain ();
+        }
+    }
+
+    protected void activateNextMain ()
+    {
+        final List<ViewInstanceDescriptor> descriptors = findVisibleMains ();
+        if ( !descriptors.isEmpty () )
+        {
+            showView ( descriptors.get ( 0 ).getId (), true );
+        }
+    }
+
+    protected List<ViewInstanceDescriptor> findVisibleMains ()
+    {
+        final List<ViewInstanceDescriptor> result = new LinkedList<ViewInstanceDescriptor> ();
+
+        for ( final ViewInstanceDescriptor desc : this.visibleDescriptors )
+        {
+            if ( desc.isDefaultInstance () )
+            {
+                result.add ( desc );
+            }
+        }
+        Collections.sort ( result, DESCRIPTOR_ORDER_COMPARATOR );
+
+        return result;
+    }
+
+    @Override
+    public int calculateToolbarIndex ( final ViewInstanceDescriptor descriptor )
+    {
+        final List<ViewInstanceDescriptor> data = new ArrayList<ViewInstanceDescriptor> ( this.visibleDescriptors );
+        data.add ( descriptor );
+        Collections.sort ( data, DESCRIPTOR_ORDER_COMPARATOR );
+        return data.indexOf ( descriptor );
+    }
 }

@@ -10,6 +10,8 @@
       </documentation>
    </annotation>
 
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
    <element name="extension">
       <annotation>
          <appinfo>
@@ -55,9 +57,11 @@
          </documentation>
       </annotation>
       <complexType>
-         <choice minOccurs="0" maxOccurs="unbounded">
-            <element ref="property"/>
-         </choice>
+         <sequence>
+            <element ref="visibility" minOccurs="0" maxOccurs="1"/>
+            <element ref="laziness" minOccurs="0" maxOccurs="1"/>
+            <element ref="property" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
          <attribute name="id" type="string" use="required">
             <annotation>
                <documentation>
@@ -121,10 +125,12 @@ Behaviour is unspecified if more than one instance are marked as default.
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="lazyActivation" type="boolean">
+         <attribute name="order" type="string">
             <annotation>
                <documentation>
-                  Defines if the view is only activated and item subscriptions are activated when the view is actually shown.
+                  Sort order of the views in the toolbar. Starting with lower, ending with higher.
+
+If the view is never visible the sort order is not relevant.
                </documentation>
             </annotation>
          </attribute>
@@ -168,6 +174,46 @@ Behaviour is unspecified if more than one instance are marked as default.
       </complexType>
    </element>
 
+   <element name="visibility">
+      <complexType>
+         <choice>
+            <element ref="not"/>
+            <element ref="and"/>
+            <element ref="or"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="reference"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+         </choice>
+      </complexType>
+   </element>
+
+   <element name="laziness">
+      <complexType>
+         <choice>
+            <element ref="not"/>
+            <element ref="and"/>
+            <element ref="or"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="reference"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+         </choice>
+      </complexType>
+   </element>
+   
    <annotation>
       <appinfo>
          <meta.section type="since"/>

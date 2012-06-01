@@ -22,6 +22,8 @@ package org.openscada.vi.ui.user;
 import java.net.URI;
 import java.util.Map;
 
+import org.eclipse.core.expressions.Expression;
+
 public class ViewInstanceDescriptor
 {
     private final String id;
@@ -34,13 +36,17 @@ public class ViewInstanceDescriptor
 
     private final Map<String, String> properties;
 
-    private final boolean defaultInstance;
-
     private final Boolean zooming;
 
-    private final boolean lazyActivation;
+    private final Expression visibleExpression;
 
-    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final boolean defaultInstance, final Boolean zooming, final boolean lazyActivation, final Map<String, String> properties )
+    private final Expression lazyExpression;
+
+    private final int order;
+
+    private final boolean defaultInstance;
+
+    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Map<String, String> properties )
     {
         super ();
         this.id = id;
@@ -48,14 +54,26 @@ public class ViewInstanceDescriptor
         this.uri = uri;
         this.name = name;
         this.properties = properties;
+        this.order = order;
         this.defaultInstance = defaultInstance;
         this.zooming = zooming;
-        this.lazyActivation = lazyActivation;
+        this.lazyExpression = lazyExpression;
+        this.visibleExpression = visibleExpression;
     }
 
-    public boolean isLazyActivation ()
+    public boolean isDefaultInstance ()
     {
-        return this.lazyActivation;
+        return this.defaultInstance;
+    }
+
+    public Expression getLazyExpression ()
+    {
+        return this.lazyExpression;
+    }
+
+    public Expression getVisibleExpression ()
+    {
+        return this.visibleExpression;
     }
 
     public Boolean getZooming ()
@@ -88,8 +106,47 @@ public class ViewInstanceDescriptor
         return this.properties;
     }
 
-    public boolean isDefaultInstance ()
+    public int getOrder ()
     {
-        return this.defaultInstance;
+        return this.order;
+    }
+
+    @Override
+    public int hashCode ()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ( this.id == null ? 0 : this.id.hashCode () );
+        return result;
+    }
+
+    @Override
+    public boolean equals ( final Object obj )
+    {
+        if ( this == obj )
+        {
+            return true;
+        }
+        if ( obj == null )
+        {
+            return false;
+        }
+        if ( getClass () != obj.getClass () )
+        {
+            return false;
+        }
+        final ViewInstanceDescriptor other = (ViewInstanceDescriptor)obj;
+        if ( this.id == null )
+        {
+            if ( other.id != null )
+            {
+                return false;
+            }
+        }
+        else if ( !this.id.equals ( other.id ) )
+        {
+            return false;
+        }
+        return true;
     }
 }

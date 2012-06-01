@@ -226,6 +226,9 @@ public class VisualInterfaceViewer extends Composite
     {
         if ( !isZooming () )
         {
+            final org.eclipse.draw2d.geometry.Rectangle r = new org.eclipse.draw2d.geometry.Rectangle ( bounds.x, bounds.y, bounds.width, bounds.height );
+            this.connectionLayer.setPreferredSize ( r.getSize () );
+
             setZoom ( 1.0 );
             return;
         }

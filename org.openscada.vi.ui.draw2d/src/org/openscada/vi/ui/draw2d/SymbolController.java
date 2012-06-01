@@ -467,7 +467,7 @@ public class SymbolController
         }
         catch ( final Exception e )
         {
-            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
+            // StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
         notifySummaryListeners ();
     }

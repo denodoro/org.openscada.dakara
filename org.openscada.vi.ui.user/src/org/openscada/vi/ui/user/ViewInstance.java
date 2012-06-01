@@ -25,9 +25,9 @@ import java.util.LinkedHashMap;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
@@ -35,6 +35,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.ui.services.IEvaluationReference;
+import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.ui.utils.blink.Blinker;
 import org.openscada.ui.utils.blink.Blinker.Handler;
 import org.openscada.ui.utils.blink.Blinker.State;
@@ -77,14 +79,33 @@ public class ViewInstance implements SummaryListener
 
     private final LinkedHashMap<String, Object> scriptObjects;
 
-    private final DisposeListener disposeListener;
+    private IEvaluationReference visibileRef;
 
-    public ViewInstance ( final ViewManager viewManager, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager )
+    private IEvaluationReference lazyRef;
+
+    private final IEvaluationService evaluationService;
+
+    private final ToolBar toolbar;
+
+    private boolean visible;
+
+    private State currentButtonState;
+
+    private final ViewManagerContext viewManagerContext;
+
+    private boolean lazy = true;
+
+    private boolean active;
+
+    public ViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
     {
         this.parent = parent;
         this.viewManager = viewManager;
         this.descriptor = descriptor;
         this.manager = manager;
+        this.evaluationService = evaluationService;
+        this.toolbar = toolbar;
+        this.viewManagerContext = viewManagerContext;
 
         this.imageOk = createImage ( PreferenceConstants.P_IMG_OK );
         this.imageInvalid = createImage ( PreferenceConstants.P_IMG_INVALID );
@@ -94,34 +115,6 @@ public class ViewInstance implements SummaryListener
         this.imageAlarm0 = createImage ( PreferenceConstants.P_IMG_ALARM_0 );
         this.imageAlarm1 = createImage ( PreferenceConstants.P_IMG_ALARM_1 );
         this.imageInactive = createImage ( PreferenceConstants.P_IMG_INACTIVE );
-
-        this.disposeListener = new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                internalDispose ();
-            }
-        };
-
-        // create the main button
-        if ( descriptor.getParentId () == null || descriptor.getParentId ().isEmpty () )
-        {
-            this.button = new ToolItem ( toolbar, SWT.RADIO );
-            this.button.setText ( descriptor.getName () );
-            this.button.setImage ( descriptor.isLazyActivation () ? this.imageInactive : this.imageOk );
-            this.button.addSelectionListener ( new SelectionAdapter () {
-                @Override
-                public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
-                {
-                    showView ( descriptor.getId () );
-                };
-            } );
-        }
-        else
-        {
-            this.button = null;
-        }
 
         // create the blinker
 
@@ -139,9 +132,143 @@ public class ViewInstance implements SummaryListener
         this.scriptObjects = new LinkedHashMap<String, Object> ();
         this.scriptObjects.put ( "viewManager", viewManager );
 
-        if ( !this.descriptor.isLazyActivation () )
+        attachVisibleExpression ( descriptor, evaluationService );
+        attachLazyExpression ( descriptor, evaluationService );
+    }
+
+    private void attachVisibleExpression ( final ViewInstanceDescriptor descriptor, final IEvaluationService evaluationService )
+    {
+        if ( descriptor.getVisibleExpression () != null )
         {
-            activateView ( false );
+            this.visibileRef = evaluationService.addEvaluationListener ( descriptor.getVisibleExpression (), new IPropertyChangeListener () {
+
+                @Override
+                public void propertyChange ( final PropertyChangeEvent event )
+                {
+                    if ( "visible".equals ( event.getProperty () ) && event.getNewValue () instanceof Boolean )
+                    {
+                        setVisibleState ( (Boolean)event.getNewValue () );
+                    }
+                }
+            }, "visible" );
+        }
+        else
+        {
+            setVisibleState ( true );
+        }
+    }
+
+    private void attachLazyExpression ( final ViewInstanceDescriptor descriptor, final IEvaluationService evaluationService )
+    {
+        if ( descriptor.getLazyExpression () != null )
+        {
+            this.lazyRef = evaluationService.addEvaluationListener ( descriptor.getLazyExpression (), new IPropertyChangeListener () {
+
+                @Override
+                public void propertyChange ( final PropertyChangeEvent event )
+                {
+                    if ( "lazy".equals ( event.getProperty () ) && event.getNewValue () instanceof Boolean )
+                    {
+                        setLazy ( (Boolean)event.getNewValue () );
+                    }
+                }
+            }, "lazy" );
+        }
+        else
+        {
+            setLazy ( false );
+        }
+    }
+
+    protected void setLazy ( final boolean lazy )
+    {
+        if ( this.lazy == lazy )
+        {
+            return;
+        }
+
+        if ( this.lazy )
+        {
+            activateView ();
+        }
+        else if ( !this.active )
+        {
+            deactivateView ();
+        }
+
+        this.lazy = lazy;
+    }
+
+    public ViewInstanceDescriptor getDescriptor ()
+    {
+        return this.descriptor;
+    }
+
+    private void createToolbarButton ()
+    {
+        if ( this.button == null )
+        {
+            final int index = this.viewManagerContext.calculateToolbarIndex ( this.descriptor );
+
+            if ( index < 0 )
+            {
+                return;
+            }
+
+            this.button = new ToolItem ( this.toolbar, SWT.RADIO, index );
+            this.button.setText ( this.descriptor.getName () );
+            this.button.setImage ( this.lazy ? this.imageInactive : this.imageOk );
+            this.button.addSelectionListener ( new SelectionAdapter () {
+                @Override
+                public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
+                {
+                    showView ( ViewInstance.this.descriptor.getId () );
+                };
+            } );
+            setToolbarButtonState ( this.currentButtonState );
+        }
+    }
+
+    private void disposeToolbarButton ()
+    {
+        if ( this.button != null )
+        {
+            this.button.dispose ();
+            this.button = null;
+        }
+    }
+
+    public boolean isVisible ()
+    {
+        return this.visible;
+    }
+
+    protected void setVisibleState ( final boolean state )
+    {
+        if ( this.visible == state )
+        {
+            return;
+        }
+
+        this.visible = state;
+
+        if ( state )
+        {
+            createToolbarButton ();
+        }
+        else
+        {
+            disposeToolbarButton ();
+        }
+
+        fireVisibleStateChanged ( state );
+    }
+
+    private void fireVisibleStateChanged ( final boolean state )
+    {
+        if ( this.viewManagerContext != null )
+        {
+            this.viewManagerContext.viewVisibilityChanged ( this, state );
         }
     }
 
@@ -151,10 +278,10 @@ public class ViewInstance implements SummaryListener
         deactivateView ();
 
         // now create
-        activateView ( true );
+        activateView ();
     }
 
-    private void activateView ( final boolean forceSet )
+    private void activateView ()
     {
         if ( this.viewer != null )
         {
@@ -165,33 +292,20 @@ public class ViewInstance implements SummaryListener
         this.viewer.setZooming ( this.descriptor.getZooming () );
         this.viewer.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
 
-        if ( this.button != null )
-        {
-            this.viewer.addSummaryListener ( this );
-        }
-
-        // re-add listener
-        this.viewer.addDisposeListener ( this.disposeListener );
-
-        // we need to force set ourself when reloading
-        if ( forceSet )
-        {
-            this.viewManager.showView ( this.descriptor.getId (), true );
-        }
+        // always add summary listener if we are active
+        this.viewer.addSummaryListener ( this );
     }
 
     private void deactivateView ()
     {
         if ( this.viewer != null )
         {
+            this.viewer.removeSummaryListener ( this );
             if ( this.button != null )
             {
-                this.viewer.removeSummaryListener ( this );
                 this.button.setImage ( this.imageInactive );
             }
 
-            // no need to dispose when changing the viewer
-            this.viewer.removeDisposeListener ( this.disposeListener );
             this.viewer.dispose ();
             this.viewer = null;
         }
@@ -215,13 +329,22 @@ public class ViewInstance implements SummaryListener
         this.viewManager.showView ( id );
     }
 
-    protected void internalDispose ()
-    {
-        this.blinker.dispose ();
-    }
-
     public void dispose ()
     {
+        if ( this.visibileRef != null )
+        {
+            this.evaluationService.removeEvaluationListener ( this.visibileRef );
+            this.visibileRef = null;
+        }
+
+        if ( this.lazyRef != null )
+        {
+            this.evaluationService.removeEvaluationListener ( this.lazyRef );
+            this.lazyRef = null;
+        }
+
+        this.blinker.dispose ();
+
         if ( this.button != null )
         {
             this.viewer.removeSummaryListener ( this );
@@ -237,12 +360,14 @@ public class ViewInstance implements SummaryListener
 
     public void deactivate ()
     {
+        this.active = false;
+
         if ( this.button != null )
         {
             this.button.setSelection ( false );
         }
 
-        if ( this.descriptor.isLazyActivation () )
+        if ( this.lazy )
         {
             deactivateView ();
         }
@@ -250,14 +375,16 @@ public class ViewInstance implements SummaryListener
 
     public void activate ()
     {
+        this.active = true;
+
         if ( this.button != null )
         {
             this.button.setSelection ( true );
         }
 
-        if ( this.descriptor.isLazyActivation () )
+        if ( this.lazy )
         {
-            activateView ( false );
+            activateView ();
         }
     }
 
@@ -273,8 +400,20 @@ public class ViewInstance implements SummaryListener
 
     protected void handleBlink ( final State state )
     {
+        this.currentButtonState = state;
+        setToolbarButtonState ( state );
+    }
+
+    private void setToolbarButtonState ( final State state )
+    {
         if ( this.button == null )
         {
+            return;
+        }
+
+        if ( state == null )
+        {
+            this.button.setImage ( this.lazy ? this.imageInactive : this.imageOk );
             return;
         }
 

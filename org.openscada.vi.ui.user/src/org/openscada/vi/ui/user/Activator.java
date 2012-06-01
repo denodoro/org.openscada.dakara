@@ -27,6 +27,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.expressions.Expression;
+import org.eclipse.core.expressions.ExpressionConverter;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Path;
@@ -34,7 +36,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.ui.utils.status.StatusHelper;
-import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
@@ -162,13 +163,35 @@ public class Activator extends AbstractUIPlugin
             {
                 properties.put ( child.getAttribute ( "key" ), child.getAttribute ( "value" ) );
             }
-
+            
+            int order = 0;
+            try
+            {
+                order = Integer.parseInt ( element.getAttribute ( "order" ) );
+            }
+            catch ( final Exception e )
+            {
+            }
+            
             final boolean defaultInstance = element.getAttribute ( "defaultInstance" ) == null ? false : Boolean.parseBoolean ( element.getAttribute ( "defaultInstance" ) );
 
             final Boolean zooming = element.getAttribute ( "zooming" ) == null ? null : Boolean.parseBoolean ( element.getAttribute ( "zooming" ) );
-            final boolean lazy = element.getAttribute ( "lazyActivation" ) == null ? Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_LAZY_ACTIVATTION ) : Boolean.parseBoolean ( element.getAttribute ( "lazyActivation" ) );
 
-            return new ViewInstanceDescriptor ( id, parentId, uri, name, defaultInstance, zooming, lazy, properties );
+            Expression lazyExpression = null;
+            Expression visibleExpression = null;
+            for ( final IConfigurationElement child : element.getChildren () )
+            {
+                if ( "laziness".equals ( child.getName () ) )
+                {
+                    lazyExpression = ExpressionConverter.getDefault ().perform ( child.getChildren ()[0] );
+                }
+                else if ( "visibility".equals ( child.getName () ) )
+                {
+                    visibleExpression = ExpressionConverter.getDefault ().perform ( child.getChildren ()[0] );
+                }
+            }
+
+            return new ViewInstanceDescriptor ( id, parentId, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, properties );
         }
         catch ( final Throwable e )
         {

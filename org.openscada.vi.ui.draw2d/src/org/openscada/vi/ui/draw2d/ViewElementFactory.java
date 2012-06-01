@@ -94,7 +94,7 @@ public class ViewElementFactory
                 @Override
                 public IFigure getFigure ()
                 {
-                    return new Label ( "Empty figure" );
+                    return new Label ( "" );
                 }
             };
         }
