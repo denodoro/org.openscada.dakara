@@ -288,6 +288,11 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.currentInstance = instance;
         this.currentInstance.activate ();
 
+        updateTopControl ();
+    }
+
+    private void updateTopControl ()
+    {
         this.stackLayout.topControl = this.currentInstance.getControl ();
         this.viewHolder.layout ();
     }
@@ -373,6 +378,28 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         if ( this.currentInstance == null )
         {
             activateNextMain ();
+        }
+    }
+
+    @Override
+    public void viewActiveChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+        if ( !state )
+        {
+            if ( this.currentInstance == viewInstance )
+            {
+                this.currentInstance = null;
+                activateNextMain ();
+            }
+        }
+    }
+
+    @Override
+    public void viewControlChanged ( final ViewInstance viewInstance )
+    {
+        if ( this.currentInstance == viewInstance )
+        {
+            updateTopControl ();
         }
     }
 }

@@ -101,6 +101,8 @@ public class ViewInstance implements SummaryListener
 
     private boolean defaultInstance;
 
+    private boolean suppressActiveEvent = false;
+
     public ViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
     {
         this.parent = parent;
@@ -320,13 +322,40 @@ public class ViewInstance implements SummaryListener
         }
     }
 
+    private void fireActiveStateChanged ( final boolean state )
+    {
+        if ( this.viewManagerContext != null && !this.suppressActiveEvent )
+        {
+            this.viewManagerContext.viewActiveChanged ( this, state );
+        }
+    }
+
+    private void fireControlChanged ()
+    {
+        if ( this.viewManagerContext != null )
+        {
+            this.viewManagerContext.viewControlChanged ( this );
+        }
+    }
+
     public void reload ()
     {
-        // dispose first
-        deactivateView ();
+        try
+        {
+            this.suppressActiveEvent = true;
+            // dispose first
+            deactivateView ();
 
-        // now create
-        activateView ();
+            // now create
+            activateView ();
+
+            // notify that our control changed
+            fireControlChanged ();
+        }
+        finally
+        {
+            this.suppressActiveEvent = false;
+        }
     }
 
     private void activateView ()
@@ -342,6 +371,8 @@ public class ViewInstance implements SummaryListener
 
         // always add summary listener if we are active
         this.viewer.addSummaryListener ( this );
+
+        fireActiveStateChanged ( true );
     }
 
     private void deactivateView ()
@@ -357,6 +388,8 @@ public class ViewInstance implements SummaryListener
 
             this.viewer.dispose ();
             this.viewer = null;
+
+            fireActiveStateChanged ( false );
         }
     }
 
