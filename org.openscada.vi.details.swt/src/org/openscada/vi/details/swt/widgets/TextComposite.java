@@ -90,7 +90,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         setLayout ( layout );
 
         this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
-        this.dataText = new CLabel ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT );
+        this.dataText = new CLabel ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT | SWT.SHADOW_IN );
         if ( textHeight != 0 )
         {
             this.font = new Font ( getDisplay (), new FontData ( "Arial", textHeight, 0 ) ); //$NON-NLS-1$
@@ -104,7 +104,6 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         this.dataText.setEnabled ( true );
         this.dataText.setEllipsis ( "…" );
         this.dataText.setEllipsisAlignment ( SWT.END );
-        this.dataText.setBackground ( this.dataText.getDisplay ().getSystemColor ( SWT.COLOR_LIST_BACKGROUND ) );
 
         this.dataText.setText ( "" ); //$NON-NLS-1$
         final LabelOpenscadaDialog label = new LabelOpenscadaDialog ( this, SWT.WRAP, format, descriptor );
