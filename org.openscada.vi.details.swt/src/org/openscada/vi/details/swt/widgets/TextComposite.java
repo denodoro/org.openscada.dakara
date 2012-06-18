@@ -219,7 +219,6 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         {
             final String[] entry = parts[i].split ( "=" ); //$NON-NLS-1$
             map.put ( entry[0], entry[1] );
-            //            System.out.println ( "Text map: " + entry[0] + " " + entry[1] ); //for easily printing out list, only
             logger.debug ( "Text map: {} {}", entry[0], entry[1] ); //$NON-NLS-1$
         }
         return map;
