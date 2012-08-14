@@ -34,7 +34,7 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
     {
         try
         {
-            DetailViewFactory theDetailViewFactory = (DetailViewFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://th4-systems.com/VIMS/DetailView/1.0" );
+            DetailViewFactory theDetailViewFactory = (DetailViewFactory)EPackage.Registry.INSTANCE.getEFactory ( "http://openscada.org/openSCADA/DetailView/1.0" );
             if ( theDetailViewFactory != null )
             {
                 return theDetailViewFactory;

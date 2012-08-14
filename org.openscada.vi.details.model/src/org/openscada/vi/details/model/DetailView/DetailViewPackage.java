@@ -42,7 +42,7 @@ public interface DetailViewPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    String eNS_URI = "http://th4-systems.com/VIMS/DetailView/1.0";
+    String eNS_URI = "http://openscada.org/openSCADA/DetailView/1.0";
 
     /**
      * The package namespace name.

@@ -19,6 +19,7 @@
 
 package org.openscada.vi.details.swt.impl;
 
+import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,7 @@ import java.util.Map;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -44,8 +46,10 @@ import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.vi.details.model.DetailView.Component;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
+import org.openscada.vi.details.model.DetailView.HiddenComponent;
 import org.openscada.vi.details.model.DetailView.View;
 import org.openscada.vi.details.swt.DetailComponent;
+import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,6 +67,8 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
     private final List<GroupTab> groups = new LinkedList<GroupTab> ();
 
     private RealTimeGroupTab realTimeTab;
+
+    private EList<HiddenComponent> hiddenItems;
 
     public DetailViewImpl ()
     {
@@ -93,6 +99,13 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
             logger.info ( "composite <box> disabled while init" ); //$NON-NLS-1$
 
             box.setLayout ( new GridLayout ( 1, false ) );
+
+            // add hidden
+            for ( final HiddenComponent hidden : this.hiddenItems )
+            {
+                final String item = DetailComponentImpl.resolve ( hidden.getDescriptor (), properties );
+                this.realTimeTab.addItems ( Arrays.asList ( DataItemDescriptor.create ( item ) ) );
+            }
 
             // init
             if ( this.header != null )
@@ -149,6 +162,8 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 
     private void createView ( final View view )
     {
+        this.hiddenItems = view.getHiddenComponent ();
+
         this.header = createComponent ( view.getHeaderComponent () );
 
         this.realTimeTab = new RealTimeGroupTab ();
@@ -184,8 +199,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
             return null;
         }
 
-        final DetailComponentImpl result = new DetailComponentImpl ( component );
-        return result;
+        return new DetailComponentImpl ( component );
     }
 
     @Override
