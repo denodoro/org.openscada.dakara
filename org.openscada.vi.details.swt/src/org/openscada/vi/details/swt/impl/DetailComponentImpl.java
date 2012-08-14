@@ -44,6 +44,7 @@ import org.openscada.vi.details.model.DetailView.CompositeTransformer;
 import org.openscada.vi.details.model.DetailView.FillLayoutComponent;
 import org.openscada.vi.details.model.DetailView.GroupGridComponent;
 import org.openscada.vi.details.model.DetailView.GroupGridEntry;
+import org.openscada.vi.details.model.DetailView.HiddenComponent;
 import org.openscada.vi.details.model.DetailView.ItemValueSource;
 import org.openscada.vi.details.model.DetailView.LabelComponent;
 import org.openscada.vi.details.model.DetailView.LinkComponent;
@@ -191,6 +192,17 @@ public class DetailComponentImpl implements DetailComponent
         {
             createURLImage ( parent, (URLImageComponent)this.component, properties );
         }
+        else if ( this.component instanceof HiddenComponent )
+        {
+            createHidden ( (HiddenComponent)this.component, properties );
+        }
+    }
+
+    private void createHidden ( final HiddenComponent component, final Map<String, String> properties )
+    {
+        final DataItemDescriptor descriptor = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
+
+        addDescriptor ( descriptor );
     }
 
     private void createURLImage ( final Composite parent, final URLImageComponent component, final Map<String, String> properties )
@@ -218,8 +230,6 @@ public class DetailComponentImpl implements DetailComponent
         final LinkComposite link = new LinkComposite ( parent, SWT.NONE, resolve ( component.getFormat (), properties ) );
 
         addControl ( link );
-
-        //        addDescriptor ( descriptor );
     }
 
     private void createCheck ( final Composite parent, final CheckComponent component, final Map<String, String> properties )
@@ -299,7 +309,7 @@ public class DetailComponentImpl implements DetailComponent
         {
             if ( groupEntry.getPermission () == null )
             {
-                //there are no special user rights available, so just show the TAB
+                // there are no special user rights available, so just show the TAB
                 createGroupGridEntry ( properties, childParent, groupEntry );
             }
             else if ( SessionManager.getDefault ().hasRole ( groupEntry.getPermission () ) )
