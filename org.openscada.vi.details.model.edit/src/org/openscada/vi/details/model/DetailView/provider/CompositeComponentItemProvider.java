@@ -169,6 +169,8 @@ public class CompositeComponentItemProvider extends ComponentItemProvider implem
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
     }
 
 }

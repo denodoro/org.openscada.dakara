@@ -27,6 +27,7 @@ import org.openscada.vi.details.model.DetailView.GenericComponent;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
 import org.openscada.vi.details.model.DetailView.GroupGridComponent;
 import org.openscada.vi.details.model.DetailView.GroupGridEntry;
+import org.openscada.vi.details.model.DetailView.HiddenComponent;
 import org.openscada.vi.details.model.DetailView.ItemValueSource;
 import org.openscada.vi.details.model.DetailView.LabelComponent;
 import org.openscada.vi.details.model.DetailView.LinkComponent;
@@ -263,6 +264,13 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * @generated
      */
     private EClass progressComponentEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass hiddenComponentEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -1332,6 +1340,26 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getHiddenComponent ()
+    {
+        return hiddenComponentEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getHiddenComponent_Descriptor ()
+    {
+        return (EAttribute)hiddenComponentEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DetailViewFactory getDetailViewFactory ()
     {
         return (DetailViewFactory)getEFactoryInstance ();
@@ -1487,6 +1515,9 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( progressComponentEClass, PROGRESS_COMPONENT__MAX );
         createEAttribute ( progressComponentEClass, PROGRESS_COMPONENT__MIN );
         createEAttribute ( progressComponentEClass, PROGRESS_COMPONENT__WIDTH );
+
+        hiddenComponentEClass = createEClass ( HIDDEN_COMPONENT );
+        createEAttribute ( hiddenComponentEClass, HIDDEN_COMPONENT__DESCRIPTOR );
     }
 
     /**
@@ -1543,6 +1574,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         linkComponentEClass.getESuperTypes ().add ( this.getComponent () );
         urlImageComponentEClass.getESuperTypes ().add ( this.getComponent () );
         progressComponentEClass.getESuperTypes ().add ( this.getReadableComponent () );
+        hiddenComponentEClass.getESuperTypes ().add ( this.getComponent () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -1674,6 +1706,9 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getProgressComponent_Max (), ecorePackage.getEDouble (), "max", null, 0, 1, ProgressComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getProgressComponent_Min (), ecorePackage.getEDouble (), "min", null, 0, 1, ProgressComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getProgressComponent_Width (), ecorePackage.getEInt (), "width", null, 0, 1, ProgressComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( hiddenComponentEClass, HiddenComponent.class, "HiddenComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getHiddenComponent_Descriptor (), ecorePackage.getEString (), "descriptor", null, 1, 1, HiddenComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Create resource
         createResource ( eNS_URI );

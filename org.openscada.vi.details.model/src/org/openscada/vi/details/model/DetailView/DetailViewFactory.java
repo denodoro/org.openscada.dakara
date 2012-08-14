@@ -234,6 +234,15 @@ public interface DetailViewFactory extends EFactory
     ProgressComponent createProgressComponent ();
 
     /**
+     * Returns a new object of class '<em>Hidden Component</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Hidden Component</em>'.
+     * @generated
+     */
+    HiddenComponent createHiddenComponent ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

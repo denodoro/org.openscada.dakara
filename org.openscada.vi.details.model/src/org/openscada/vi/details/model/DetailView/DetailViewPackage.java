@@ -1675,6 +1675,34 @@ public interface DetailViewPackage extends EPackage
     int PROGRESS_COMPONENT_FEATURE_COUNT = READABLE_COMPONENT_FEATURE_COUNT + 5;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.HiddenComponentImpl <em>Hidden Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.HiddenComponentImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getHiddenComponent()
+     * @generated
+     */
+    int HIDDEN_COMPONENT = 30;
+
+    /**
+     * The feature id for the '<em><b>Descriptor</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIDDEN_COMPONENT__DESCRIPTOR = COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Hidden Component</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HIDDEN_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 1;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.View <em>View</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2745,6 +2773,27 @@ public interface DetailViewPackage extends EPackage
     EAttribute getProgressComponent_Width ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.HiddenComponent <em>Hidden Component</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Hidden Component</em>'.
+     * @see org.openscada.vi.details.model.DetailView.HiddenComponent
+     * @generated
+     */
+    EClass getHiddenComponent ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.HiddenComponent#getDescriptor <em>Descriptor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Descriptor</em>'.
+     * @see org.openscada.vi.details.model.DetailView.HiddenComponent#getDescriptor()
+     * @see #getHiddenComponent()
+     * @generated
+     */
+    EAttribute getHiddenComponent_Descriptor ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3626,6 +3675,24 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute PROGRESS_COMPONENT__WIDTH = eINSTANCE.getProgressComponent_Width ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.HiddenComponentImpl <em>Hidden Component</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.HiddenComponentImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getHiddenComponent()
+         * @generated
+         */
+        EClass HIDDEN_COMPONENT = eINSTANCE.getHiddenComponent ();
+
+        /**
+         * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute HIDDEN_COMPONENT__DESCRIPTOR = eINSTANCE.getHiddenComponent_Descriptor ();
 
     }
 

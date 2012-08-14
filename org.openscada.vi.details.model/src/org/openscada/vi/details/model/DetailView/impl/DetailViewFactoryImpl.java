@@ -114,6 +114,8 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
                 return createURLImageComponent ();
             case DetailViewPackage.PROGRESS_COMPONENT:
                 return createProgressComponent ();
+            case DetailViewPackage.HIDDEN_COMPONENT:
+                return createHiddenComponent ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -370,6 +372,17 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
     {
         ProgressComponentImpl progressComponent = new ProgressComponentImpl ();
         return progressComponent;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public HiddenComponent createHiddenComponent ()
+    {
+        HiddenComponentImpl hiddenComponent = new HiddenComponentImpl ();
+        return hiddenComponent;
     }
 
     /**

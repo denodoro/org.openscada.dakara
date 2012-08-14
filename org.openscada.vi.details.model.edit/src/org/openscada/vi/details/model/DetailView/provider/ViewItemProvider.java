@@ -187,6 +187,8 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
 
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
 
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
+
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__GROUPS, DetailViewFactory.eINSTANCE.createGroupEntry () ) );
     }
 

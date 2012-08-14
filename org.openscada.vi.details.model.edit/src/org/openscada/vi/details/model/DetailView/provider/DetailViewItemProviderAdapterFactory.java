@@ -653,6 +653,31 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.details.model.DetailView.HiddenComponent} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HiddenComponentItemProvider hiddenComponentItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.details.model.DetailView.HiddenComponent}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createHiddenComponentAdapter ()
+    {
+        if ( hiddenComponentItemProvider == null )
+        {
+            hiddenComponentItemProvider = new HiddenComponentItemProvider ( this );
+        }
+
+        return hiddenComponentItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -809,6 +834,8 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
             urlImageComponentItemProvider.dispose ();
         if ( progressComponentItemProvider != null )
             progressComponentItemProvider.dispose ();
+        if ( hiddenComponentItemProvider != null )
+            hiddenComponentItemProvider.dispose ();
     }
 
 }
