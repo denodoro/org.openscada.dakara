@@ -399,8 +399,6 @@ public class DetailViewSwitch<T> extends Switch<T>
                 HiddenComponent hiddenComponent = (HiddenComponent)theEObject;
                 T result = caseHiddenComponent ( hiddenComponent );
                 if ( result == null )
-                    result = caseComponent ( hiddenComponent );
-                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }

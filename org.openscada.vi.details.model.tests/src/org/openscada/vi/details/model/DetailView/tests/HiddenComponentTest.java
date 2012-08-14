@@ -6,6 +6,8 @@
  */
 package org.openscada.vi.details.model.DetailView.tests;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 import org.openscada.vi.details.model.DetailView.DetailViewFactory;
@@ -17,8 +19,16 @@ import org.openscada.vi.details.model.DetailView.HiddenComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HiddenComponentTest extends ComponentTest
+public class HiddenComponentTest extends TestCase
 {
+
+    /**
+     * The fixture for this Hidden Component test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HiddenComponent fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -42,15 +52,25 @@ public class HiddenComponentTest extends ComponentTest
     }
 
     /**
+     * Sets the fixture for this Hidden Component test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( HiddenComponent fixture )
+    {
+        this.fixture = fixture;
+    }
+
+    /**
      * Returns the fixture for this Hidden Component test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     protected HiddenComponent getFixture ()
     {
-        return (HiddenComponent)fixture;
+        return fixture;
     }
 
     /**

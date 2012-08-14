@@ -81,6 +81,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT );
             childrenFeatures.add ( DetailViewPackage.Literals.VIEW__GROUPS );
+            childrenFeatures.add ( DetailViewPackage.Literals.VIEW__HIDDEN_COMPONENT );
         }
         return childrenFeatures;
     }
@@ -139,6 +140,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
         {
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
             case DetailViewPackage.VIEW__GROUPS:
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -187,9 +189,9 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
 
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
 
-        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
-
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__GROUPS, DetailViewFactory.eINSTANCE.createGroupEntry () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HIDDEN_COMPONENT, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
     }
 
     /**

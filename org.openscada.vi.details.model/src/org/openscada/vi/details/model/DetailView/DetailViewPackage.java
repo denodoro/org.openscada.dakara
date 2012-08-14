@@ -89,13 +89,22 @@ public interface DetailViewPackage extends EPackage
     int VIEW__GROUPS = 1;
 
     /**
+     * The feature id for the '<em><b>Hidden Component</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VIEW__HIDDEN_COMPONENT = 2;
+
+    /**
      * The number of structural features of the '<em>View</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VIEW_FEATURE_COUNT = 2;
+    int VIEW_FEATURE_COUNT = 3;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ComponentImpl <em>Component</em>}' class.
@@ -1691,7 +1700,7 @@ public interface DetailViewPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HIDDEN_COMPONENT__DESCRIPTOR = COMPONENT_FEATURE_COUNT + 0;
+    int HIDDEN_COMPONENT__DESCRIPTOR = 0;
 
     /**
      * The number of structural features of the '<em>Hidden Component</em>' class.
@@ -1700,7 +1709,7 @@ public interface DetailViewPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HIDDEN_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 1;
+    int HIDDEN_COMPONENT_FEATURE_COUNT = 1;
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.View <em>View</em>}'.
@@ -1733,6 +1742,17 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     EReference getView_Groups ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.View#getHiddenComponent <em>Hidden Component</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Hidden Component</em>'.
+     * @see org.openscada.vi.details.model.DetailView.View#getHiddenComponent()
+     * @see #getView()
+     * @generated
+     */
+    EReference getView_HiddenComponent ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.Component <em>Component</em>}'.
@@ -2841,6 +2861,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EReference VIEW__GROUPS = eINSTANCE.getView_Groups ();
+
+        /**
+         * The meta object literal for the '<em><b>Hidden Component</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VIEW__HIDDEN_COMPONENT = eINSTANCE.getView_HiddenComponent ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ComponentImpl <em>Component</em>}' class.

@@ -370,6 +370,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getView_HiddenComponent ()
+    {
+        return (EReference)viewEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getComponent ()
     {
         return componentEClass;
@@ -1389,6 +1399,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         viewEClass = createEClass ( VIEW );
         createEReference ( viewEClass, VIEW__HEADER_COMPONENT );
         createEReference ( viewEClass, VIEW__GROUPS );
+        createEReference ( viewEClass, VIEW__HIDDEN_COMPONENT );
 
         componentEClass = createEClass ( COMPONENT );
 
@@ -1574,12 +1585,12 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         linkComponentEClass.getESuperTypes ().add ( this.getComponent () );
         urlImageComponentEClass.getESuperTypes ().add ( this.getComponent () );
         progressComponentEClass.getESuperTypes ().add ( this.getReadableComponent () );
-        hiddenComponentEClass.getESuperTypes ().add ( this.getComponent () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getView_HeaderComponent (), this.getComponent (), null, "headerComponent", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getView_Groups (), this.getGroupEntry (), null, "groups", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getView_HiddenComponent (), this.getHiddenComponent (), null, "hiddenComponent", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 

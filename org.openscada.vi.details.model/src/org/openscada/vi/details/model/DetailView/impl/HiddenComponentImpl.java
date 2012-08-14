@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.HiddenComponent;
 
@@ -28,7 +29,7 @@ import org.openscada.vi.details.model.DetailView.HiddenComponent;
  *
  * @generated
  */
-public class HiddenComponentImpl extends ComponentImpl implements HiddenComponent
+public class HiddenComponentImpl extends EObjectImpl implements HiddenComponent
 {
     /**
      * The default value of the '{@link #getDescriptor() <em>Descriptor</em>}' attribute.

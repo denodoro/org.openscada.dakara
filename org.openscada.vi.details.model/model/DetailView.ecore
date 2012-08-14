@@ -8,6 +8,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
         eType="#//GroupEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hiddenComponent" upperBound="-1"
+        eType="#//HiddenComponent" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="GroupEntry">
@@ -160,7 +162,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HiddenComponent" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="HiddenComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

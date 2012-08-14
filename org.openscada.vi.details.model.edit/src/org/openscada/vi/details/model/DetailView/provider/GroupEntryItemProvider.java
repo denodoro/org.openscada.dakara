@@ -215,8 +215,6 @@ public class GroupEntryItemProvider extends ItemProviderAdapter implements IEdit
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__COMPONENT, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__COMPONENT, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
-
-        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__COMPONENT, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
     }
 
     /**

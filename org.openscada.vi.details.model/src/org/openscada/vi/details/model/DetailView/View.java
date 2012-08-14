@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.openscada.vi.details.model.DetailView.View#getHeaderComponent <em>Header Component</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.View#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.View#getHiddenComponent <em>Hidden Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,5 +71,21 @@ public interface View extends EObject
      * @generated
      */
     EList<GroupEntry> getGroups ();
+
+    /**
+     * Returns the value of the '<em><b>Hidden Component</b></em>' containment reference list.
+     * The list contents are of type {@link org.openscada.vi.details.model.DetailView.HiddenComponent}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hidden Component</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hidden Component</em>' containment reference list.
+     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getView_HiddenComponent()
+     * @model containment="true"
+     * @generated
+     */
+    EList<HiddenComponent> getHiddenComponent ();
 
 } // View

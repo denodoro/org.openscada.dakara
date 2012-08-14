@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.openscada.vi.details.model.DetailView.Component;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
+import org.openscada.vi.details.model.DetailView.HiddenComponent;
 import org.openscada.vi.details.model.DetailView.View;
 
 /**
@@ -36,6 +37,7 @@ import org.openscada.vi.details.model.DetailView.View;
  * <ul>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getHeaderComponent <em>Header Component</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getHiddenComponent <em>Hidden Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +64,16 @@ public class ViewImpl extends EObjectImpl implements View
      * @ordered
      */
     protected EList<GroupEntry> groups;
+
+    /**
+     * The cached value of the '{@link #getHiddenComponent() <em>Hidden Component</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHiddenComponent()
+     * @generated
+     * @ordered
+     */
+    protected EList<HiddenComponent> hiddenComponent;
 
     /**
      * <!-- begin-user-doc -->
@@ -155,6 +167,20 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<HiddenComponent> getHiddenComponent ()
+    {
+        if ( hiddenComponent == null )
+        {
+            hiddenComponent = new EObjectContainmentEList<HiddenComponent> ( HiddenComponent.class, this, DetailViewPackage.VIEW__HIDDEN_COMPONENT );
+        }
+        return hiddenComponent;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -164,6 +190,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return basicSetHeaderComponent ( null, msgs );
             case DetailViewPackage.VIEW__GROUPS:
                 return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                return ( (InternalEList<?>)getHiddenComponent () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -182,6 +210,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return getHeaderComponent ();
             case DetailViewPackage.VIEW__GROUPS:
                 return getGroups ();
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                return getHiddenComponent ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -204,6 +234,10 @@ public class ViewImpl extends EObjectImpl implements View
                 getGroups ().clear ();
                 getGroups ().addAll ( (Collection<? extends GroupEntry>)newValue );
                 return;
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                getHiddenComponent ().clear ();
+                getHiddenComponent ().addAll ( (Collection<? extends HiddenComponent>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -224,6 +258,9 @@ public class ViewImpl extends EObjectImpl implements View
             case DetailViewPackage.VIEW__GROUPS:
                 getGroups ().clear ();
                 return;
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                getHiddenComponent ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -242,6 +279,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return headerComponent != null;
             case DetailViewPackage.VIEW__GROUPS:
                 return groups != null && !groups.isEmpty ();
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                return hiddenComponent != null && !hiddenComponent.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

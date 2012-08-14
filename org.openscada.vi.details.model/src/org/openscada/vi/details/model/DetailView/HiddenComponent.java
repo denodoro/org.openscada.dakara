@@ -6,6 +6,8 @@
  */
 package org.openscada.vi.details.model.DetailView;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Hidden Component</b></em>'.
@@ -22,7 +24,7 @@ package org.openscada.vi.details.model.DetailView;
  * @model
  * @generated
  */
-public interface HiddenComponent extends Component
+public interface HiddenComponent extends EObject
 {
     /**
      * Returns the value of the '<em><b>Descriptor</b></em>' attribute.
