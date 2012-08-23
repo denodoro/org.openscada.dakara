@@ -7,7 +7,6 @@
 package org.openscada.vi.details.model.DetailView.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.FillLayoutComponent;
 

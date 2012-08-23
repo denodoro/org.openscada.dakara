@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.openscada.vi.details.model.DetailView.GroupEntry#getComponent <em>Component</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.GroupEntry#getLabel <em>Label</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.GroupEntry#getPermission <em>Permission</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.GroupEntry#getVisibility <em>Visibility</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +106,31 @@ public interface GroupEntry extends EObject
      * @generated
      */
     void setPermission ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Visibility</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Visibility</em>' containment reference.
+     * @see #setVisibility(Visibility)
+     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getGroupEntry_Visibility()
+     * @model containment="true"
+     * @generated
+     */
+    Visibility getVisibility ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getVisibility <em>Visibility</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Visibility</em>' containment reference.
+     * @see #getVisibility()
+     * @generated
+     */
+    void setVisibility ( Visibility value );
 
 } // GroupEntry

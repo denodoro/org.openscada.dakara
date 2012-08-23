@@ -8,16 +8,14 @@ package org.openscada.vi.details.model.DetailView.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.openscada.vi.details.model.DetailView.Component;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
+import org.openscada.vi.details.model.DetailView.Visibility;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +27,7 @@ import org.openscada.vi.details.model.DetailView.GroupEntry;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl#getComponent <em>Component</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl#getPermission <em>Permission</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl#getVisibility <em>Visibility</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +84,16 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * @ordered
      */
     protected String permission = PERMISSION_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVisibility()
+     * @generated
+     * @ordered
+     */
+    protected Visibility visibility;
 
     /**
      * <!-- begin-user-doc -->
@@ -210,6 +219,58 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
      * <!-- end-user-doc -->
      * @generated
      */
+    public Visibility getVisibility ()
+    {
+        return visibility;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetVisibility ( Visibility newVisibility, NotificationChain msgs )
+    {
+        Visibility oldVisibility = visibility;
+        visibility = newVisibility;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_ENTRY__VISIBILITY, oldVisibility, newVisibility );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setVisibility ( Visibility newVisibility )
+    {
+        if ( newVisibility != visibility )
+        {
+            NotificationChain msgs = null;
+            if ( visibility != null )
+                msgs = ( (InternalEObject)visibility ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_ENTRY__VISIBILITY, null, msgs );
+            if ( newVisibility != null )
+                msgs = ( (InternalEObject)newVisibility ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_ENTRY__VISIBILITY, null, msgs );
+            msgs = basicSetVisibility ( newVisibility, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_ENTRY__VISIBILITY, newVisibility, newVisibility ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -217,6 +278,8 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
         {
             case DetailViewPackage.GROUP_ENTRY__COMPONENT:
                 return basicSetComponent ( null, msgs );
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                return basicSetVisibility ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -237,6 +300,8 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
                 return getLabel ();
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
                 return getPermission ();
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                return getVisibility ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -259,6 +324,9 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
                 return;
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
                 setPermission ( (String)newValue );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                setVisibility ( (Visibility)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -283,6 +351,9 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
                 setPermission ( PERMISSION_EDEFAULT );
                 return;
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                setVisibility ( (Visibility)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -303,6 +374,8 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
                 return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals ( label );
             case DetailViewPackage.GROUP_ENTRY__PERMISSION:
                 return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals ( permission );
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                return visibility != null;
         }
         return super.eIsSet ( featureID );
     }

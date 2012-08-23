@@ -23,7 +23,9 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.swt.widgets.Composite;
+import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 
 interface GroupTab
 {
@@ -31,7 +33,9 @@ interface GroupTab
 
     public String getLabel ();
 
-    public void init ( final Composite parent, final Map<String, String> properties );
+    public void init ( final VisibilityProviderFactory factory, final Composite parent, final Map<String, String> properties );
 
     public Collection<DataItemDescriptor> getDescriptors ();
+
+    public Visibility getVisibility ();
 }

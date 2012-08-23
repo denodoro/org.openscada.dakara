@@ -9,12 +9,38 @@ package org.openscada.vi.details.model.DetailView.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.openscada.vi.details.model.DetailView.*;
+import org.openscada.vi.details.model.DetailView.AndTransformer;
+import org.openscada.vi.details.model.DetailView.BoolLEDComponent;
+import org.openscada.vi.details.model.DetailView.ButtonComponent;
+import org.openscada.vi.details.model.DetailView.CheckComponent;
+import org.openscada.vi.details.model.DetailView.DetailViewFactory;
+import org.openscada.vi.details.model.DetailView.DetailViewPackage;
+import org.openscada.vi.details.model.DetailView.FillLayoutComponent;
+import org.openscada.vi.details.model.DetailView.GroupEntry;
+import org.openscada.vi.details.model.DetailView.GroupGridComponent;
+import org.openscada.vi.details.model.DetailView.GroupGridEntry;
+import org.openscada.vi.details.model.DetailView.HiddenComponent;
+import org.openscada.vi.details.model.DetailView.Invisible;
+import org.openscada.vi.details.model.DetailView.ItemValueSource;
+import org.openscada.vi.details.model.DetailView.LabelComponent;
+import org.openscada.vi.details.model.DetailView.LinkComponent;
+import org.openscada.vi.details.model.DetailView.NotTransformer;
+import org.openscada.vi.details.model.DetailView.OrTransformer;
+import org.openscada.vi.details.model.DetailView.PermissionVisibility;
+import org.openscada.vi.details.model.DetailView.ProgressComponent;
+import org.openscada.vi.details.model.DetailView.Registration;
+import org.openscada.vi.details.model.DetailView.ScriptVisibility;
+import org.openscada.vi.details.model.DetailView.SimpleGridComponent;
+import org.openscada.vi.details.model.DetailView.TextComponent;
+import org.openscada.vi.details.model.DetailView.TextInputComponent;
+import org.openscada.vi.details.model.DetailView.TextInputMultiComponent;
+import org.openscada.vi.details.model.DetailView.URLImageComponent;
+import org.openscada.vi.details.model.DetailView.ValueComponent;
+import org.openscada.vi.details.model.DetailView.ValueSetComponent;
+import org.openscada.vi.details.model.DetailView.View;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,6 +142,16 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
                 return createProgressComponent ();
             case DetailViewPackage.HIDDEN_COMPONENT:
                 return createHiddenComponent ();
+            case DetailViewPackage.SCRIPT_VISIBILITY:
+                return createScriptVisibility ();
+            case DetailViewPackage.PERMISSION_VISIBILITY:
+                return createPermissionVisibility ();
+            case DetailViewPackage.INVISIBLE:
+                return createInvisible ();
+            case DetailViewPackage.TEST_VISIBILITY:
+                return createTestVisibility ();
+            case DetailViewPackage.SCRIPT_MODULE:
+                return createScriptModule ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -383,6 +419,61 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
     {
         HiddenComponentImpl hiddenComponent = new HiddenComponentImpl ();
         return hiddenComponent;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScriptVisibility createScriptVisibility ()
+    {
+        ScriptVisibilityImpl scriptVisibility = new ScriptVisibilityImpl ();
+        return scriptVisibility;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PermissionVisibility createPermissionVisibility ()
+    {
+        PermissionVisibilityImpl permissionVisibility = new PermissionVisibilityImpl ();
+        return permissionVisibility;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Invisible createInvisible ()
+    {
+        InvisibleImpl invisible = new InvisibleImpl ();
+        return invisible;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TestVisibility createTestVisibility ()
+    {
+        TestVisibilityImpl testVisibility = new TestVisibilityImpl ();
+        return testVisibility;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScriptModule createScriptModule ()
+    {
+        ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
+        return scriptModule;
     }
 
     /**

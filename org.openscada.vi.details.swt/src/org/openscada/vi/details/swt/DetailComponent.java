@@ -24,10 +24,11 @@ import java.util.Map;
 
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 
 public interface DetailComponent
 {
-    public void init ( Composite parent, Map<String, String> properties );
+    public void init ( final VisibilityProviderFactory visibleFactory, final Composite parent, final Map<String, String> properties );
 
     public void dispose ();
 

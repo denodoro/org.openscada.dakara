@@ -26,6 +26,8 @@ import java.util.concurrent.Executors;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.utils.concurrent.NamedThreadFactory;
+import org.openscada.vi.details.model.DetailView.DetailViewPackage;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityTester;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -50,6 +52,8 @@ public class Activator extends AbstractUIPlugin
 
     private ExecutorService executor;
 
+    private VisibilityTester visibilityTester;
+
     /**
      * The constructor
      */
@@ -65,6 +69,11 @@ public class Activator extends AbstractUIPlugin
     public void start ( final BundleContext context ) throws Exception
     {
         super.start ( context );
+
+        DetailViewPackage.eINSTANCE.eClass ();
+
+        this.visibilityTester = new VisibilityTester ();
+
         plugin = this;
         this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "Image Loader" ) );
     }
@@ -77,6 +86,8 @@ public class Activator extends AbstractUIPlugin
     public void stop ( final BundleContext context ) throws Exception
     {
         this.executor.shutdownNow ();
+
+        this.visibilityTester.dispose ();
 
         plugin = null;
         super.stop ( context );
@@ -105,6 +116,11 @@ public class Activator extends AbstractUIPlugin
         reg.put ( IMG_CONTROLLER_UNBLOCKED, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/unblocked.gif" ) );
         reg.put ( IMG_WARN_BIG, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/warn.gif" ) );
         reg.put ( IMG_TREND, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/trend_10.png" ) );
+    }
+
+    public static VisibilityTester getVisibilityTester ()
+    {
+        return plugin.visibilityTester;
     }
 
 }

@@ -11,11 +11,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,7 +23,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.openscada.vi.details.model.DetailView.DetailViewFactory;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
@@ -106,6 +102,7 @@ public class GroupEntryItemProvider extends ItemProviderAdapter implements IEdit
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( DetailViewPackage.Literals.GROUP_ENTRY__COMPONENT );
+            childrenFeatures.add ( DetailViewPackage.Literals.GROUP_ENTRY__VISIBILITY );
         }
         return childrenFeatures;
     }
@@ -168,6 +165,7 @@ public class GroupEntryItemProvider extends ItemProviderAdapter implements IEdit
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -215,6 +213,14 @@ public class GroupEntryItemProvider extends ItemProviderAdapter implements IEdit
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__COMPONENT, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__COMPONENT, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createScriptVisibility () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createPermissionVisibility () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createInvisible () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createTestVisibility () ) );
     }
 
     /**

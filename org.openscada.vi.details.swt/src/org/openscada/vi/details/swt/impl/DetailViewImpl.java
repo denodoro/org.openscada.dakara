@@ -19,11 +19,18 @@
 
 package org.openscada.vi.details.swt.impl;
 
+import java.net.URL;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Dictionary;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import javax.script.ScriptContext;
+import javax.script.ScriptEngineManager;
+import javax.script.SimpleBindings;
+import javax.script.SimpleScriptContext;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -41,15 +48,20 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TabFolder;
-import org.eclipse.swt.widgets.TabItem;
 import org.openscada.core.ui.connection.login.SessionManager;
+import org.openscada.utils.script.ScriptExecutor;
 import org.openscada.vi.details.model.DetailView.Component;
-import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
 import org.openscada.vi.details.model.DetailView.HiddenComponent;
+import org.openscada.vi.details.model.DetailView.ScriptModule;
 import org.openscada.vi.details.model.DetailView.View;
+import org.openscada.vi.details.swt.Activator;
 import org.openscada.vi.details.swt.DetailComponent;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.details.swt.impl.visibility.ComponentVisibility;
+import org.openscada.vi.details.swt.impl.visibility.TabVisibleComponent;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProvider;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,6 +82,12 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 
     private EList<HiddenComponent> hiddenItems;
 
+    private VisibilityProviderFactory visibleFactory;
+
+    private final Collection<ComponentVisibility> visibilities = new LinkedList<ComponentVisibility> ();
+
+    private EList<ScriptModule> scriptModuels;
+
     public DetailViewImpl ()
     {
     }
@@ -85,6 +103,10 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
         {
             group.dispose ();
         }
+        for ( final ComponentVisibility visibility : this.visibilities )
+        {
+            visibility.dispose ();
+        }
     }
 
     @Override
@@ -92,11 +114,24 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
     {
         try
         {
+            final ScriptEngineManager engineManager = new ScriptEngineManager ( Activator.class.getClassLoader () );
+            final ScriptContext scriptContext = new SimpleScriptContext ();
+            scriptContext.setBindings ( new SimpleBindings (), ScriptContext.GLOBAL_SCOPE );
+            scriptContext.setAttribute ( "properties", properties, ScriptContext.GLOBAL_SCOPE );
+
+            this.visibleFactory = new VisibilityProviderFactory ( engineManager, scriptContext );
+
             load ();
 
             final Composite box = new Composite ( parent, SWT.NONE );
             box.setEnabled ( false );
             logger.info ( "composite <box> disabled while init" ); //$NON-NLS-1$
+
+            // load script modules
+            for ( final ScriptModule module : this.scriptModuels )
+            {
+                loadScriptModule ( engineManager, scriptContext, module );
+            }
 
             box.setLayout ( new GridLayout ( 1, false ) );
 
@@ -113,21 +148,26 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 final Composite wrapper = new Composite ( box, SWT.NONE );
                 wrapper.setLayout ( new FillLayout () );
                 wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
-                this.header.init ( wrapper, properties );
+                this.header.init ( this.visibleFactory, wrapper, properties );
                 this.realTimeTab.addItems ( this.header.listDescriptors () );
             }
 
             final TabFolder folder = new TabFolder ( box, SWT.NONE );
             folder.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
+            int i = 0;
             for ( final GroupTab group : this.groups )
             {
-                final TabItem item = new TabItem ( folder, SWT.NONE );
-                item.setText ( group.getLabel () );
                 final Composite wrapper = new Composite ( folder, SWT.NONE );
                 wrapper.setLayout ( new FillLayout () );
-                group.init ( wrapper, properties );
-                item.setControl ( wrapper );
+                group.init ( this.visibleFactory, wrapper, properties );
+
+                final VisibilityProvider provider = this.visibleFactory.createProvider ( group.getVisibility () );
+                final TabVisibleComponent component = new TabVisibleComponent ( folder, i, group.getLabel (), wrapper );
+                final ComponentVisibility visibility = new ComponentVisibility ( provider, component );
+                addVisibility ( visibility );
+
                 this.realTimeTab.addItems ( group.getDescriptors () );
+                i++;
             }
             box.setEnabled ( true );
         }
@@ -138,11 +178,33 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
         }
     }
 
+    private void loadScriptModule ( final ScriptEngineManager engineManager, final ScriptContext scriptContext, final ScriptModule module ) throws Exception
+    {
+        String engineName = module.getScriptLanguage ();
+
+        if ( engineName == null || engineName.isEmpty () )
+        {
+            engineName = "JavaScript";
+        }
+
+        if ( module.getCode () != null && !module.getCode ().isEmpty () )
+        {
+            new ScriptExecutor ( engineManager, engineName, module.getCode (), Activator.class.getClassLoader () ).execute ( scriptContext );
+        }
+        if ( module.getCodeUri () != null && !module.getCodeUri ().isEmpty () )
+        {
+            new ScriptExecutor ( engineManager, engineName, new URL ( module.getCodeUri () ), Activator.class.getClassLoader () ).execute ( scriptContext );
+        }
+    }
+
+    private void addVisibility ( final ComponentVisibility visibility )
+    {
+        this.visibilities.add ( visibility );
+    }
+
     private void load ()
     {
         logger.info ( "Loading: {}", this.uri ); //$NON-NLS-1$
-
-        DetailViewPackage.eINSTANCE.eClass ();
 
         final ResourceSet resourceSet = new ResourceSetImpl ();
 
@@ -162,6 +224,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 
     private void createView ( final View view )
     {
+        this.scriptModuels = view.getScriptModule ();
         this.hiddenItems = view.getHiddenComponent ();
 
         this.header = createComponent ( view.getHeaderComponent () );
@@ -174,7 +237,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 
             if ( component != null )
             {
-                final GroupTab groupTab = new GroupTabImpl ( group.getLabel (), component );
+                final GroupTab groupTab = new GroupTabImpl ( group.getLabel (), component, group.getVisibility () );
                 if ( group.getPermission () == null )
                 {
                     //there are no special user rights available, so just show the TAB

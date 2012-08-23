@@ -7,7 +7,6 @@
 package org.openscada.vi.details.model.DetailView.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**

@@ -10,9 +10,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.openscada.vi.details.model.DetailView.AndTransformer;
 import org.openscada.vi.details.model.DetailView.BoolLEDComponent;
 import org.openscada.vi.details.model.DetailView.ButtonComponent;
@@ -28,15 +26,20 @@ import org.openscada.vi.details.model.DetailView.GroupEntry;
 import org.openscada.vi.details.model.DetailView.GroupGridComponent;
 import org.openscada.vi.details.model.DetailView.GroupGridEntry;
 import org.openscada.vi.details.model.DetailView.HiddenComponent;
+import org.openscada.vi.details.model.DetailView.Invisible;
 import org.openscada.vi.details.model.DetailView.ItemValueSource;
 import org.openscada.vi.details.model.DetailView.LabelComponent;
 import org.openscada.vi.details.model.DetailView.LinkComponent;
 import org.openscada.vi.details.model.DetailView.NotTransformer;
 import org.openscada.vi.details.model.DetailView.OrTransformer;
+import org.openscada.vi.details.model.DetailView.PermissionVisibility;
 import org.openscada.vi.details.model.DetailView.ProgressComponent;
 import org.openscada.vi.details.model.DetailView.ReadableComponent;
 import org.openscada.vi.details.model.DetailView.Registration;
+import org.openscada.vi.details.model.DetailView.ScriptModule;
+import org.openscada.vi.details.model.DetailView.ScriptVisibility;
 import org.openscada.vi.details.model.DetailView.SimpleGridComponent;
+import org.openscada.vi.details.model.DetailView.TestVisibility;
 import org.openscada.vi.details.model.DetailView.TextComponent;
 import org.openscada.vi.details.model.DetailView.TextInputComponent;
 import org.openscada.vi.details.model.DetailView.TextInputMultiComponent;
@@ -45,6 +48,7 @@ import org.openscada.vi.details.model.DetailView.ValueComponent;
 import org.openscada.vi.details.model.DetailView.ValueSetComponent;
 import org.openscada.vi.details.model.DetailView.ValueSource;
 import org.openscada.vi.details.model.DetailView.View;
+import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.model.DetailView.WriteableComponent;
 
 /**
@@ -273,6 +277,48 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
     private EClass hiddenComponentEClass = null;
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass visibilityEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass scriptVisibilityEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass permissionVisibilityEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass invisibleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass testVisibilityEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass scriptModuleEClass = null;
+
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -380,9 +426,29 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getView_ScriptModule ()
+    {
+        return (EReference)viewEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getComponent ()
     {
         return componentEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getComponent_Visibility ()
+    {
+        return (EReference)componentEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -423,6 +489,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
     public EAttribute getGroupEntry_Permission ()
     {
         return (EAttribute)groupEntryEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGroupEntry_Visibility ()
+    {
+        return (EReference)groupEntryEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -833,6 +909,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
     public EAttribute getGroupGridEntry_Permission ()
     {
         return (EAttribute)groupGridEntryEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGroupGridEntry_Visibility ()
+    {
+        return (EReference)groupGridEntryEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -1370,6 +1456,136 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getVisibility ()
+    {
+        return visibilityEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getScriptVisibility ()
+    {
+        return scriptVisibilityEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptVisibility_Script ()
+    {
+        return (EAttribute)scriptVisibilityEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptVisibility_ScriptLanguage ()
+    {
+        return (EAttribute)scriptVisibilityEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPermissionVisibility ()
+    {
+        return permissionVisibilityEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPermissionVisibility_RequiredPermission ()
+    {
+        return (EAttribute)permissionVisibilityEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getInvisible ()
+    {
+        return invisibleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getTestVisibility ()
+    {
+        return testVisibilityEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTestVisibility_Id ()
+    {
+        return (EAttribute)testVisibilityEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getScriptModule ()
+    {
+        return scriptModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptModule_ScriptLanguage ()
+    {
+        return (EAttribute)scriptModuleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptModule_Code ()
+    {
+        return (EAttribute)scriptModuleEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScriptModule_CodeUri ()
+    {
+        return (EAttribute)scriptModuleEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DetailViewFactory getDetailViewFactory ()
     {
         return (DetailViewFactory)getEFactoryInstance ();
@@ -1400,13 +1616,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEReference ( viewEClass, VIEW__HEADER_COMPONENT );
         createEReference ( viewEClass, VIEW__GROUPS );
         createEReference ( viewEClass, VIEW__HIDDEN_COMPONENT );
+        createEReference ( viewEClass, VIEW__SCRIPT_MODULE );
 
         componentEClass = createEClass ( COMPONENT );
+        createEReference ( componentEClass, COMPONENT__VISIBILITY );
 
         groupEntryEClass = createEClass ( GROUP_ENTRY );
         createEReference ( groupEntryEClass, GROUP_ENTRY__COMPONENT );
         createEAttribute ( groupEntryEClass, GROUP_ENTRY__LABEL );
         createEAttribute ( groupEntryEClass, GROUP_ENTRY__PERMISSION );
+        createEReference ( groupEntryEClass, GROUP_ENTRY__VISIBILITY );
 
         labelComponentEClass = createEClass ( LABEL_COMPONENT );
         createEAttribute ( labelComponentEClass, LABEL_COMPONENT__FORMAT );
@@ -1461,6 +1680,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( groupGridEntryEClass, GROUP_GRID_ENTRY__LABEL );
         createEReference ( groupGridEntryEClass, GROUP_GRID_ENTRY__COMPONENTS );
         createEAttribute ( groupGridEntryEClass, GROUP_GRID_ENTRY__PERMISSION );
+        createEReference ( groupGridEntryEClass, GROUP_GRID_ENTRY__VISIBILITY );
 
         valueSetComponentEClass = createEClass ( VALUE_SET_COMPONENT );
         createEAttribute ( valueSetComponentEClass, VALUE_SET_COMPONENT__VALUE_DESCRIPTOR );
@@ -1529,6 +1749,25 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
 
         hiddenComponentEClass = createEClass ( HIDDEN_COMPONENT );
         createEAttribute ( hiddenComponentEClass, HIDDEN_COMPONENT__DESCRIPTOR );
+
+        visibilityEClass = createEClass ( VISIBILITY );
+
+        scriptVisibilityEClass = createEClass ( SCRIPT_VISIBILITY );
+        createEAttribute ( scriptVisibilityEClass, SCRIPT_VISIBILITY__SCRIPT );
+        createEAttribute ( scriptVisibilityEClass, SCRIPT_VISIBILITY__SCRIPT_LANGUAGE );
+
+        permissionVisibilityEClass = createEClass ( PERMISSION_VISIBILITY );
+        createEAttribute ( permissionVisibilityEClass, PERMISSION_VISIBILITY__REQUIRED_PERMISSION );
+
+        invisibleEClass = createEClass ( INVISIBLE );
+
+        testVisibilityEClass = createEClass ( TEST_VISIBILITY );
+        createEAttribute ( testVisibilityEClass, TEST_VISIBILITY__ID );
+
+        scriptModuleEClass = createEClass ( SCRIPT_MODULE );
+        createEAttribute ( scriptModuleEClass, SCRIPT_MODULE__SCRIPT_LANGUAGE );
+        createEAttribute ( scriptModuleEClass, SCRIPT_MODULE__CODE );
+        createEAttribute ( scriptModuleEClass, SCRIPT_MODULE__CODE_URI );
     }
 
     /**
@@ -1585,19 +1824,26 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         linkComponentEClass.getESuperTypes ().add ( this.getComponent () );
         urlImageComponentEClass.getESuperTypes ().add ( this.getComponent () );
         progressComponentEClass.getESuperTypes ().add ( this.getReadableComponent () );
+        scriptVisibilityEClass.getESuperTypes ().add ( this.getVisibility () );
+        permissionVisibilityEClass.getESuperTypes ().add ( this.getVisibility () );
+        invisibleEClass.getESuperTypes ().add ( this.getVisibility () );
+        testVisibilityEClass.getESuperTypes ().add ( this.getVisibility () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( viewEClass, View.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getView_HeaderComponent (), this.getComponent (), null, "headerComponent", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getView_Groups (), this.getGroupEntry (), null, "groups", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getView_HiddenComponent (), this.getHiddenComponent (), null, "hiddenComponent", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getView_ScriptModule (), this.getScriptModule (), null, "scriptModule", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getComponent_Visibility (), this.getVisibility (), null, "visibility", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( groupEntryEClass, GroupEntry.class, "GroupEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEReference ( getGroupEntry_Component (), this.getComponent (), null, "component", null, 1, 1, GroupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getGroupEntry_Label (), ecorePackage.getEString (), "label", null, 0, 1, GroupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getGroupEntry_Permission (), ecorePackage.getEString (), "permission", null, 0, 1, GroupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getGroupEntry_Visibility (), this.getVisibility (), null, "visibility", null, 0, 1, GroupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( labelComponentEClass, LabelComponent.class, "LabelComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getLabelComponent_Format (), ecorePackage.getEString (), "format", "%s", 0, 1, LabelComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1652,6 +1898,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getGroupGridEntry_Label (), ecorePackage.getEString (), "label", null, 1, 1, GroupGridEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEReference ( getGroupGridEntry_Components (), this.getComponent (), null, "components", null, 0, -1, GroupGridEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getGroupGridEntry_Permission (), ecorePackage.getEString (), "permission", null, 0, 1, GroupGridEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getGroupGridEntry_Visibility (), this.getVisibility (), null, "visibility", null, 0, 1, GroupGridEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( valueSetComponentEClass, ValueSetComponent.class, "ValueSetComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getValueSetComponent_ValueDescriptor (), ecorePackage.getEString (), "valueDescriptor", null, 1, 1, ValueSetComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
@@ -1720,6 +1967,25 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
 
         initEClass ( hiddenComponentEClass, HiddenComponent.class, "HiddenComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getHiddenComponent_Descriptor (), ecorePackage.getEString (), "descriptor", null, 1, 1, HiddenComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( visibilityEClass, Visibility.class, "Visibility", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( scriptVisibilityEClass, ScriptVisibility.class, "ScriptVisibility", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getScriptVisibility_Script (), ecorePackage.getEString (), "script", null, 1, 1, ScriptVisibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getScriptVisibility_ScriptLanguage (), ecorePackage.getEString (), "scriptLanguage", null, 0, 1, ScriptVisibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( permissionVisibilityEClass, PermissionVisibility.class, "PermissionVisibility", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getPermissionVisibility_RequiredPermission (), ecorePackage.getEString (), "requiredPermission", null, 1, 1, PermissionVisibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( invisibleEClass, Invisible.class, "Invisible", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( testVisibilityEClass, TestVisibility.class, "TestVisibility", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getTestVisibility_Id (), ecorePackage.getEString (), "id", null, 1, 1, TestVisibility.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( scriptModuleEClass, ScriptModule.class, "ScriptModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getScriptModule_ScriptLanguage (), ecorePackage.getEString (), "scriptLanguage", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getScriptModule_Code (), ecorePackage.getEString (), "code", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getScriptModule_CodeUri (), ecorePackage.getEString (), "codeUri", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Create resource
         createResource ( eNS_URI );

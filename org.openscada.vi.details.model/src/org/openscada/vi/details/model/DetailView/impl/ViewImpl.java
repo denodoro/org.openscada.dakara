@@ -10,22 +10,18 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.openscada.vi.details.model.DetailView.Component;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupEntry;
 import org.openscada.vi.details.model.DetailView.HiddenComponent;
+import org.openscada.vi.details.model.DetailView.ScriptModule;
 import org.openscada.vi.details.model.DetailView.View;
 
 /**
@@ -38,6 +34,7 @@ import org.openscada.vi.details.model.DetailView.View;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getHeaderComponent <em>Header Component</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getGroups <em>Groups</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getHiddenComponent <em>Hidden Component</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ViewImpl#getScriptModule <em>Script Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +71,16 @@ public class ViewImpl extends EObjectImpl implements View
      * @ordered
      */
     protected EList<HiddenComponent> hiddenComponent;
+
+    /**
+     * The cached value of the '{@link #getScriptModule() <em>Script Module</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getScriptModule()
+     * @generated
+     * @ordered
+     */
+    protected EList<ScriptModule> scriptModule;
 
     /**
      * <!-- begin-user-doc -->
@@ -181,6 +188,20 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<ScriptModule> getScriptModule ()
+    {
+        if ( scriptModule == null )
+        {
+            scriptModule = new EObjectContainmentEList<ScriptModule> ( ScriptModule.class, this, DetailViewPackage.VIEW__SCRIPT_MODULE );
+        }
+        return scriptModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -192,6 +213,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
             case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
                 return ( (InternalEList<?>)getHiddenComponent () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                return ( (InternalEList<?>)getScriptModule () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -212,6 +235,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return getGroups ();
             case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
                 return getHiddenComponent ();
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                return getScriptModule ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -238,6 +263,10 @@ public class ViewImpl extends EObjectImpl implements View
                 getHiddenComponent ().clear ();
                 getHiddenComponent ().addAll ( (Collection<? extends HiddenComponent>)newValue );
                 return;
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                getScriptModule ().clear ();
+                getScriptModule ().addAll ( (Collection<? extends ScriptModule>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -261,6 +290,9 @@ public class ViewImpl extends EObjectImpl implements View
             case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
                 getHiddenComponent ().clear ();
                 return;
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                getScriptModule ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -281,6 +313,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return groups != null && !groups.isEmpty ();
             case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
                 return hiddenComponent != null && !hiddenComponent.isEmpty ();
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                return scriptModule != null && !scriptModule.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

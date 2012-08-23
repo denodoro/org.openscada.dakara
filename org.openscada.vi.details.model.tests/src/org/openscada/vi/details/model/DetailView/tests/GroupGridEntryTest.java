@@ -7,7 +7,6 @@
 package org.openscada.vi.details.model.DetailView.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.details.model.DetailView.DetailViewFactory;

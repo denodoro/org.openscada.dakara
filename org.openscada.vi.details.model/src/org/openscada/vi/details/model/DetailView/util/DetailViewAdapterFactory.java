@@ -263,6 +263,42 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseVisibility ( Visibility object )
+        {
+            return createVisibilityAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptVisibility ( ScriptVisibility object )
+        {
+            return createScriptVisibilityAdapter ();
+        }
+
+        @Override
+        public Adapter casePermissionVisibility ( PermissionVisibility object )
+        {
+            return createPermissionVisibilityAdapter ();
+        }
+
+        @Override
+        public Adapter caseInvisible ( Invisible object )
+        {
+            return createInvisibleAdapter ();
+        }
+
+        @Override
+        public Adapter caseTestVisibility ( TestVisibility object )
+        {
+            return createTestVisibilityAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptModule ( ScriptModule object )
+        {
+            return createScriptModuleAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -744,6 +780,96 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createHiddenComponentAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.Visibility <em>Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.details.model.DetailView.Visibility
+     * @generated
+     */
+    public Adapter createVisibilityAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.ScriptVisibility <em>Script Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.details.model.DetailView.ScriptVisibility
+     * @generated
+     */
+    public Adapter createScriptVisibilityAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.PermissionVisibility <em>Permission Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.details.model.DetailView.PermissionVisibility
+     * @generated
+     */
+    public Adapter createPermissionVisibilityAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.Invisible <em>Invisible</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.details.model.DetailView.Invisible
+     * @generated
+     */
+    public Adapter createInvisibleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.TestVisibility <em>Test Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.details.model.DetailView.TestVisibility
+     * @generated
+     */
+    public Adapter createTestVisibilityAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.details.model.DetailView.ScriptModule <em>Script Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.details.model.DetailView.ScriptModule
+     * @generated
+     */
+    public Adapter createScriptModuleAdapter ()
     {
         return null;
     }

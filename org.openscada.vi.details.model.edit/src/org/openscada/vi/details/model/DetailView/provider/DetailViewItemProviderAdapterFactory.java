@@ -12,7 +12,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -24,7 +23,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.openscada.vi.details.model.DetailView.util.DetailViewAdapterFactory;
 
 /**
@@ -678,6 +676,131 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.details.model.DetailView.ScriptVisibility} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptVisibilityItemProvider scriptVisibilityItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.details.model.DetailView.ScriptVisibility}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptVisibilityAdapter ()
+    {
+        if ( scriptVisibilityItemProvider == null )
+        {
+            scriptVisibilityItemProvider = new ScriptVisibilityItemProvider ( this );
+        }
+
+        return scriptVisibilityItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.details.model.DetailView.PermissionVisibility} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PermissionVisibilityItemProvider permissionVisibilityItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.details.model.DetailView.PermissionVisibility}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPermissionVisibilityAdapter ()
+    {
+        if ( permissionVisibilityItemProvider == null )
+        {
+            permissionVisibilityItemProvider = new PermissionVisibilityItemProvider ( this );
+        }
+
+        return permissionVisibilityItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.details.model.DetailView.Invisible} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected InvisibleItemProvider invisibleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.details.model.DetailView.Invisible}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createInvisibleAdapter ()
+    {
+        if ( invisibleItemProvider == null )
+        {
+            invisibleItemProvider = new InvisibleItemProvider ( this );
+        }
+
+        return invisibleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.details.model.DetailView.TestVisibility} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TestVisibilityItemProvider testVisibilityItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.details.model.DetailView.TestVisibility}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTestVisibilityAdapter ()
+    {
+        if ( testVisibilityItemProvider == null )
+        {
+            testVisibilityItemProvider = new TestVisibilityItemProvider ( this );
+        }
+
+        return testVisibilityItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.details.model.DetailView.ScriptModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptModuleItemProvider scriptModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.details.model.DetailView.ScriptModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptModuleAdapter ()
+    {
+        if ( scriptModuleItemProvider == null )
+        {
+            scriptModuleItemProvider = new ScriptModuleItemProvider ( this );
+        }
+
+        return scriptModuleItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -836,6 +959,16 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
             progressComponentItemProvider.dispose ();
         if ( hiddenComponentItemProvider != null )
             hiddenComponentItemProvider.dispose ();
+        if ( scriptVisibilityItemProvider != null )
+            scriptVisibilityItemProvider.dispose ();
+        if ( permissionVisibilityItemProvider != null )
+            permissionVisibilityItemProvider.dispose ();
+        if ( invisibleItemProvider != null )
+            invisibleItemProvider.dispose ();
+        if ( testVisibilityItemProvider != null )
+            testVisibilityItemProvider.dispose ();
+        if ( scriptModuleItemProvider != null )
+            scriptModuleItemProvider.dispose ();
     }
 
 }

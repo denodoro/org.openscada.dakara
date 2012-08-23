@@ -11,12 +11,17 @@
     <genClasses ecoreClass="DetailView.ecore#//View">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/headerComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/groups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/hiddenComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/scriptModule"/>
     </genClasses>
-    <genClasses ecoreClass="DetailView.ecore#//Component"/>
+    <genClasses ecoreClass="DetailView.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//Component/visibility"/>
+    </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//GroupEntry">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupEntry/component"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupEntry/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupEntry/permission"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupEntry/visibility"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//LabelComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//LabelComponent/format"/>
@@ -69,6 +74,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupGridEntry/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupGridEntry/components"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//GroupGridEntry/permission"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//GroupGridEntry/visibility"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//ValueSetComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ValueSetComponent/valueDescriptor"/>
@@ -132,6 +138,26 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/min"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/width"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//HiddenComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//HiddenComponent/descriptor"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="DetailView.ecore#//Visibility"/>
+    <genClasses ecoreClass="DetailView.ecore#//ScriptVisibility">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptVisibility/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptVisibility/scriptLanguage"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//PermissionVisibility">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//PermissionVisibility/requiredPermission"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//Invisible"/>
+    <genClasses ecoreClass="DetailView.ecore#//TestVisibility">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TestVisibility/id"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//ScriptModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptModule/scriptLanguage"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptModule/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptModule/codeUri"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

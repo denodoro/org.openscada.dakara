@@ -11,11 +11,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -24,7 +21,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.openscada.vi.details.model.DetailView.DetailViewFactory;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.View;
@@ -82,6 +78,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
             childrenFeatures.add ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT );
             childrenFeatures.add ( DetailViewPackage.Literals.VIEW__GROUPS );
             childrenFeatures.add ( DetailViewPackage.Literals.VIEW__HIDDEN_COMPONENT );
+            childrenFeatures.add ( DetailViewPackage.Literals.VIEW__SCRIPT_MODULE );
         }
         return childrenFeatures;
     }
@@ -141,6 +138,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
             case DetailViewPackage.VIEW__GROUPS:
             case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -192,6 +190,8 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__GROUPS, DetailViewFactory.eINSTANCE.createGroupEntry () ) );
 
         newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HIDDEN_COMPONENT, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__SCRIPT_MODULE, DetailViewFactory.eINSTANCE.createScriptModule () ) );
     }
 
     /**

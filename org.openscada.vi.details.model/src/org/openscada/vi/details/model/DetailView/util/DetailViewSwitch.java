@@ -402,6 +402,62 @@ public class DetailViewSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case DetailViewPackage.VISIBILITY:
+            {
+                Visibility visibility = (Visibility)theEObject;
+                T result = caseVisibility ( visibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.SCRIPT_VISIBILITY:
+            {
+                ScriptVisibility scriptVisibility = (ScriptVisibility)theEObject;
+                T result = caseScriptVisibility ( scriptVisibility );
+                if ( result == null )
+                    result = caseVisibility ( scriptVisibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.PERMISSION_VISIBILITY:
+            {
+                PermissionVisibility permissionVisibility = (PermissionVisibility)theEObject;
+                T result = casePermissionVisibility ( permissionVisibility );
+                if ( result == null )
+                    result = caseVisibility ( permissionVisibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.INVISIBLE:
+            {
+                Invisible invisible = (Invisible)theEObject;
+                T result = caseInvisible ( invisible );
+                if ( result == null )
+                    result = caseVisibility ( invisible );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.TEST_VISIBILITY:
+            {
+                TestVisibility testVisibility = (TestVisibility)theEObject;
+                T result = caseTestVisibility ( testVisibility );
+                if ( result == null )
+                    result = caseVisibility ( testVisibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.SCRIPT_MODULE:
+            {
+                ScriptModule scriptModule = (ScriptModule)theEObject;
+                T result = caseScriptModule ( scriptModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -899,6 +955,102 @@ public class DetailViewSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseHiddenComponent ( HiddenComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Visibility</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseVisibility ( Visibility object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Script Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Script Visibility</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseScriptVisibility ( ScriptVisibility object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Permission Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Permission Visibility</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePermissionVisibility ( PermissionVisibility object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Invisible</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Invisible</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseInvisible ( Invisible object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Test Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Test Visibility</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTestVisibility ( TestVisibility object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Script Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Script Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseScriptModule ( ScriptModule object )
     {
         return null;
     }

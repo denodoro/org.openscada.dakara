@@ -61,6 +61,11 @@ import org.openscada.vi.details.model.DetailView.ValueSetComponent;
 import org.openscada.vi.details.model.DetailView.ValueSource;
 import org.openscada.vi.details.swt.DetailComponent;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.details.swt.impl.visibility.ComponentVisibility;
+import org.openscada.vi.details.swt.impl.visibility.SubTrackingVisibleComponent;
+import org.openscada.vi.details.swt.impl.visibility.TrackingVisibleComponent;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProvider;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 import org.openscada.vi.details.swt.source.ItemValueSourceController;
 import org.openscada.vi.details.swt.source.NotEvaluatorController;
 import org.openscada.vi.details.swt.source.ValueSourceController;
@@ -81,11 +86,15 @@ public class DetailComponentImpl implements DetailComponent
 {
     private final Component component;
 
+    private final List<ComponentVisibility> visibilites = new LinkedList<ComponentVisibility> ();
+
     private final List<Control> controls = new LinkedList<Control> ();
 
     private final List<DetailComponent> components = new LinkedList<DetailComponent> ();
 
     private final List<DataItemDescriptor> descriptors = new LinkedList<DataItemDescriptor> ();
+
+    private VisibilityProviderFactory visibleFactory;
 
     public DetailComponentImpl ( final Component component )
     {
@@ -98,6 +107,10 @@ public class DetailComponentImpl implements DetailComponent
         for ( final Control control : this.controls )
         {
             control.dispose ();
+        }
+        for ( final ComponentVisibility visibility : this.visibilites )
+        {
+            visibility.dispose ();
         }
     }
 
@@ -129,8 +142,10 @@ public class DetailComponentImpl implements DetailComponent
     }
 
     @Override
-    public void init ( final Composite parent, final Map<String, String> properties )
+    public void init ( final VisibilityProviderFactory visibleFactory, final Composite parent, final Map<String, String> properties )
     {
+        this.visibleFactory = visibleFactory;
+
         // create widgets
         if ( this.component instanceof LabelComponent )
         {
@@ -209,9 +224,22 @@ public class DetailComponentImpl implements DetailComponent
     {
         final DataItemDescriptor descriptor = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
 
-        final Composite image = new URLImageLabel ( parent, SWT.NONE, descriptor, component );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( image );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final Composite image = new URLImageLabel ( parent, SWT.NONE, descriptor, component );
+
+                trackControl ( image );
+            }
+
+        } );
+
+        addComponent ( visibility );
+
         addDescriptor ( descriptor );
     }
 
@@ -219,17 +247,41 @@ public class DetailComponentImpl implements DetailComponent
     {
         final DataItemDescriptor progressItem = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
 
-        final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( progress );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+
+                trackControl ( progress );
+            }
+
+        } );
+
+        addComponent ( visibility );
+
         addDescriptor ( progressItem );
     }
 
     private void createLink ( final Composite parent, final LinkComponent component, final Map<String, String> properties )
     {
-        final LinkComposite link = new LinkComposite ( parent, SWT.NONE, resolve ( component.getFormat (), properties ) );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( link );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final LinkComposite link = new LinkComposite ( parent, SWT.NONE, resolve ( component.getFormat (), properties ) );
+                trackControl ( link );
+            }
+
+        } );
+
+        addComponent ( visibility );
     }
 
     private void createCheck ( final Composite parent, final CheckComponent component, final Map<String, String> properties )
@@ -237,10 +289,20 @@ public class DetailComponentImpl implements DetailComponent
         final DataItemDescriptor descriptor = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
         final DataItemDescriptor readDescriptor = DataItemDescriptor.create ( resolve ( component.getReadDescriptor (), properties ) );
 
-        final CheckComposite check = new CheckComposite ( parent, SWT.NONE, descriptor, resolve ( component.getFormat (), properties ), component.getAttribute (), readDescriptor );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( check );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
 
+            @Override
+            public void create ()
+            {
+                final CheckComposite check = new CheckComposite ( parent, SWT.NONE, descriptor, resolve ( component.getFormat (), properties ), component.getAttribute (), readDescriptor );
+
+                trackControl ( check );
+            }
+        } );
+
+        addComponent ( visibility );
         addDescriptor ( descriptor );
     }
 
@@ -248,9 +310,20 @@ public class DetailComponentImpl implements DetailComponent
     {
         final DataItemDescriptor textItem = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
 
-        final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), component.getHdConnectionid (), component.getHdItemId () );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( text );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), component.getHdConnectionid (), component.getHdItemId () );
+
+                trackControl ( text );
+            }
+        } );
+
+        addComponent ( visibility );
         addDescriptor ( textItem );
     }
 
@@ -259,9 +332,20 @@ public class DetailComponentImpl implements DetailComponent
         final DataItemDescriptor textInputItem = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
         final DataItemDescriptor readItem = DataItemDescriptor.create ( resolve ( component.getReadDescriptor (), properties ) );
 
-        final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( valueSet );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+
+                trackControl ( valueSet );
+            }
+        } );
+
+        addComponent ( visibility );
         addDescriptor ( textInputItem );
     }
 
@@ -269,18 +353,41 @@ public class DetailComponentImpl implements DetailComponent
     {
         final DataItemDescriptor textInputItem = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
 
-        final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( text );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+
+                trackControl ( text );
+            }
+        } );
+
+        addComponent ( visibility );
         addDescriptor ( textInputItem );
     }
 
     private void createValue ( final Composite parent, final ValueComponent component, final Map<String, String> properties )
     {
         final DataItemDescriptor item = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
-        final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getDate (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
 
-        addControl ( value );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
+
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getDate (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+
+                trackControl ( value );
+            }
+        } );
+
+        addComponent ( visibility );
         addDescriptor ( item );
     }
 
@@ -290,9 +397,20 @@ public class DetailComponentImpl implements DetailComponent
         final DataItemDescriptor setItem = DataItemDescriptor.create ( resolve ( component.getSetDescriptor (), properties ) );
         final DataItemDescriptor resetItem = DataItemDescriptor.create ( resolve ( component.getResetDescriptor (), properties ) );
 
-        final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        addControl ( valueSet );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+
+                trackControl ( valueSet );
+            }
+        } );
+
+        addComponent ( visibility );
 
         addDescriptor ( valueItem );
         addDescriptor ( setItem );
@@ -301,75 +419,125 @@ public class DetailComponentImpl implements DetailComponent
 
     private void createGroupGrid ( final Composite parent, final GroupGridComponent component, final Map<String, String> properties )
     {
-        final Composite childParent = new Composite ( parent, SWT.NONE );
-        childParent.setLayout ( new GridLayout ( component.getCols (), component.isEqually () ) );
-        addControl ( childParent );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        for ( final GroupGridEntry groupEntry : component.getGroups () )
-        {
-            if ( groupEntry.getPermission () == null )
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
             {
-                // there are no special user rights available, so just show the TAB
-                createGroupGridEntry ( properties, childParent, groupEntry );
+
+                final Composite childParent = new Composite ( parent, SWT.NONE );
+                childParent.setLayout ( new GridLayout ( component.getCols (), component.isEqually () ) );
+
+                for ( final GroupGridEntry groupEntry : component.getGroups () )
+                {
+                    if ( groupEntry.getPermission () == null )
+                    {
+                        // there are no special user rights available, so just show the TAB
+                        createGroupGridEntry ( properties, childParent, groupEntry );
+                    }
+                    else if ( SessionManager.getDefault ().hasRole ( groupEntry.getPermission () ) )
+                    {
+                        createGroupGridEntry ( properties, childParent, groupEntry );
+                    }
+                }
+                trackControl ( childParent );
             }
-            else if ( SessionManager.getDefault ().hasRole ( groupEntry.getPermission () ) )
-            {
-                createGroupGridEntry ( properties, childParent, groupEntry );
-            }
-        }
+        } );
+
+        addComponent ( visibility );
     }
 
     private void createGroupGridEntry ( final Map<String, String> properties, final Composite childParent, final GroupGridEntry groupEntry )
     {
-        final Group groupWidget = new Group ( childParent, SWT.NONE );
-        addControl ( groupWidget );
-        groupWidget.setLayout ( new GridLayout ( 1, false ) );
-        groupWidget.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( groupEntry.getVisibility () );
 
-        final String label = groupEntry.getLabel ();
-        if ( label != null )
-        {
-            groupWidget.setText ( label );
-        }
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent ( this.components ) {
 
-        for ( final Component child : groupEntry.getComponents () )
-        {
-            final DetailComponentImpl comp = new DetailComponentImpl ( child );
-            this.components.add ( comp );
+            @Override
+            public void create ()
+            {
+                final Group groupWidget = new Group ( childParent, SWT.NONE );
 
-            final Composite wrapper = new Composite ( groupWidget, SWT.NONE );
-            wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
-            wrapper.setLayout ( new FillLayout () );
+                groupWidget.setLayout ( new GridLayout ( 1, false ) );
+                groupWidget.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
 
-            comp.init ( wrapper, properties );
-        }
+                final String label = groupEntry.getLabel ();
+                if ( label != null )
+                {
+                    groupWidget.setText ( label );
+                }
+
+                for ( final Component child : groupEntry.getComponents () )
+                {
+                    final DetailComponentImpl comp = new DetailComponentImpl ( child );
+                    trackSub ( comp );
+
+                    final Composite wrapper = new Composite ( groupWidget, SWT.NONE );
+                    wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
+                    wrapper.setLayout ( new FillLayout () );
+
+                    comp.init ( DetailComponentImpl.this.visibleFactory, wrapper, properties );
+                }
+
+                trackControl ( groupWidget );
+            }
+        } );
+
+        addComponent ( visibility );
     }
 
     private void createSimpleGrid ( final Composite parent, final SimpleGridComponent component, final Map<String, String> properties )
     {
-        final Composite childParent = new Composite ( parent, SWT.NONE );
-        childParent.setLayout ( new GridLayout ( component.getCols (), component.isEqually () ) );
-        addControl ( childParent );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        for ( final Component child : component.getChildren () )
-        {
-            final DetailComponentImpl comp = new DetailComponentImpl ( child );
-            this.components.add ( comp );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent ( this.components ) {
 
-            final Composite wrapper = new Composite ( childParent, SWT.NONE );
-            wrapper.setLayout ( new FillLayout () );
-            wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
-            addControl ( wrapper );
-            comp.init ( wrapper, properties );
-        }
+            @Override
+            public void create ()
+            {
+                final Composite childParent = new Composite ( parent, SWT.NONE );
+                childParent.setLayout ( new GridLayout ( component.getCols (), component.isEqually () ) );
+                addControl ( childParent );
+
+                for ( final Component child : component.getChildren () )
+                {
+                    final DetailComponentImpl comp = new DetailComponentImpl ( child );
+                    DetailComponentImpl.this.components.add ( comp );
+                    trackSub ( comp );
+
+                    final Composite wrapper = new Composite ( childParent, SWT.NONE );
+                    wrapper.setLayout ( new FillLayout () );
+                    wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
+                    comp.init ( DetailComponentImpl.this.visibleFactory, wrapper, properties );
+                }
+
+                trackControl ( childParent );
+            }
+        } );
+
+        addComponent ( visibility );
     }
 
     private void createBoolLED ( final Composite parent, final BoolLEDComponent component, final Map<String, String> properties )
     {
         final DataItemDescriptor item = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
-        final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isAlarm (), component.getAttribute () );
 
-        addControl ( led );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
+
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isAlarm (), component.getAttribute () );
+
+                trackControl ( led );
+            }
+        } );
+
+        addComponent ( visibility );
 
         addDescriptor ( item );
     }
@@ -377,15 +545,32 @@ public class DetailComponentImpl implements DetailComponent
     private void createButton ( final Composite parent, final ButtonComponent component, final Map<String, String> properties )
     {
         final String readDescriptor = component.getReadDescriptor ();
-        DataItemDescriptor readItem = null;
+        final DataItemDescriptor readItem;
         if ( readDescriptor != null && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
         {
             readItem = DataItemDescriptor.create ( resolve ( component.getReadDescriptor (), properties ) );
         }
-        final DataItemDescriptor writeItem = DataItemDescriptor.create ( resolve ( component.getWriteDescriptor (), properties ) );
-        final ButtonComposite button = new ButtonComposite ( parent, SWT.NONE, readItem, writeItem, resolve ( component.getFormat (), properties ), resolve ( component.getValue (), properties ), createValueSource ( component.getActive (), properties ), component.getRegistrations (), properties, component.getAttribute (), component.getTextHeight () );
+        else
+        {
+            readItem = null;
+        }
 
-        addControl ( button );
+        final DataItemDescriptor writeItem = DataItemDescriptor.create ( resolve ( component.getWriteDescriptor (), properties ) );
+
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
+
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final ButtonComposite button = new ButtonComposite ( parent, SWT.NONE, readItem, writeItem, resolve ( component.getFormat (), properties ), resolve ( component.getValue (), properties ), createValueSource ( component.getActive (), properties ), component.getRegistrations (), properties, component.getAttribute (), component.getTextHeight () );
+
+                trackControl ( button );
+            }
+        } );
+
+        addComponent ( visibility );
         addDescriptor ( writeItem );
         addDescriptor ( readItem );
     }
@@ -438,16 +623,28 @@ public class DetailComponentImpl implements DetailComponent
             final DetailComponentImpl comp = new DetailComponentImpl ( child );
             this.components.add ( comp );
 
-            comp.init ( childParent, properties );
+            comp.init ( this.visibleFactory, childParent, properties );
         }
     }
 
     private void createLabel ( final Composite parent, final LabelComponent component, final Map<String, String> properties )
     {
         final DataItemDescriptor item = DataItemDescriptor.create ( resolve ( component.getDescriptor (), properties ) );
-        final LabelComposite label = new LabelComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ) );
 
-        addControl ( label );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
+
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final LabelComposite label = new LabelComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ) );
+                trackControl ( label );
+            }
+
+        } );
+
+        addComponent ( visibility );
 
         addDescriptor ( item );
     }
@@ -457,6 +654,11 @@ public class DetailComponentImpl implements DetailComponent
         final StringTemplate template = new StringTemplate ( input );
         template.setAttributes ( properties );
         return template.toString ();
+    }
+
+    private void addComponent ( final ComponentVisibility visibility )
+    {
+        this.visibilites.add ( visibility );
     }
 
     private void addControl ( final Control control )

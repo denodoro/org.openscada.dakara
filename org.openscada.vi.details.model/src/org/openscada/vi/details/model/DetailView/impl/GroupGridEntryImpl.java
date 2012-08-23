@@ -10,21 +10,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.openscada.vi.details.model.DetailView.Component;
 import org.openscada.vi.details.model.DetailView.DetailViewPackage;
 import org.openscada.vi.details.model.DetailView.GroupGridEntry;
+import org.openscada.vi.details.model.DetailView.Visibility;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +32,7 @@ import org.openscada.vi.details.model.DetailView.GroupGridEntry;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupGridEntryImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupGridEntryImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupGridEntryImpl#getPermission <em>Permission</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.GroupGridEntryImpl#getVisibility <em>Visibility</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +89,16 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * @ordered
      */
     protected String permission = PERMISSION_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVisibility()
+     * @generated
+     * @ordered
+     */
+    protected Visibility visibility;
 
     /**
      * <!-- begin-user-doc -->
@@ -179,6 +186,58 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
      * <!-- end-user-doc -->
      * @generated
      */
+    public Visibility getVisibility ()
+    {
+        return visibility;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetVisibility ( Visibility newVisibility, NotificationChain msgs )
+    {
+        Visibility oldVisibility = visibility;
+        visibility = newVisibility;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY, oldVisibility, newVisibility );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setVisibility ( Visibility newVisibility )
+    {
+        if ( newVisibility != visibility )
+        {
+            NotificationChain msgs = null;
+            if ( visibility != null )
+                msgs = ( (InternalEObject)visibility ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY, null, msgs );
+            if ( newVisibility != null )
+                msgs = ( (InternalEObject)newVisibility ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY, null, msgs );
+            msgs = basicSetVisibility ( newVisibility, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY, newVisibility, newVisibility ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -186,6 +245,8 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
         {
             case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
                 return ( (InternalEList<?>)getComponents () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
+                return basicSetVisibility ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -206,6 +267,8 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
                 return getComponents ();
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
                 return getPermission ();
+            case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
+                return getVisibility ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -231,6 +294,9 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
                 setPermission ( (String)newValue );
                 return;
+            case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
+                setVisibility ( (Visibility)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -254,6 +320,9 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
                 setPermission ( PERMISSION_EDEFAULT );
                 return;
+            case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
+                setVisibility ( (Visibility)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -274,6 +343,8 @@ public class GroupGridEntryImpl extends EObjectImpl implements GroupGridEntry
                 return components != null && !components.isEmpty ();
             case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
                 return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals ( permission );
+            case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
+                return visibility != null;
         }
         return super.eIsSet ( featureID );
     }

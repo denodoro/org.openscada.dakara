@@ -98,13 +98,22 @@ public interface DetailViewPackage extends EPackage
     int VIEW__HIDDEN_COMPONENT = 2;
 
     /**
+     * The feature id for the '<em><b>Script Module</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VIEW__SCRIPT_MODULE = 3;
+
+    /**
      * The number of structural features of the '<em>View</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VIEW_FEATURE_COUNT = 3;
+    int VIEW_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ComponentImpl <em>Component</em>}' class.
@@ -117,13 +126,22 @@ public interface DetailViewPackage extends EPackage
     int COMPONENT = 1;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT__VISIBILITY = 0;
+
+    /**
      * The number of structural features of the '<em>Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMPONENT_FEATURE_COUNT = 0;
+    int COMPONENT_FEATURE_COUNT = 1;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl <em>Group Entry</em>}' class.
@@ -163,13 +181,22 @@ public interface DetailViewPackage extends EPackage
     int GROUP_ENTRY__PERMISSION = 2;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GROUP_ENTRY__VISIBILITY = 3;
+
+    /**
      * The number of structural features of the '<em>Group Entry</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GROUP_ENTRY_FEATURE_COUNT = 3;
+    int GROUP_ENTRY_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.LabelComponentImpl <em>Label Component</em>}' class.
@@ -180,6 +207,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int LABEL_COMPONENT = 3;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LABEL_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -219,6 +255,15 @@ public interface DetailViewPackage extends EPackage
     int COMPOSITE_COMPONENT = 4;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPOSITE_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -245,6 +290,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int FILL_LAYOUT_COMPONENT = 5;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FILL_LAYOUT_COMPONENT__VISIBILITY = COMPOSITE_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -275,6 +329,15 @@ public interface DetailViewPackage extends EPackage
     int GENERIC_COMPONENT = 11;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Registrations</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -301,6 +364,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int BUTTON_COMPONENT = 6;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUTTON_COMPONENT__VISIBILITY = GENERIC_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Registrations</b></em>' containment reference list.
@@ -392,6 +464,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int BOOL_LED_COMPONENT = 7;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOL_LED_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -570,6 +651,15 @@ public interface DetailViewPackage extends EPackage
     int SIMPLE_GRID_COMPONENT = 13;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_GRID_COMPONENT__VISIBILITY = COMPOSITE_COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -614,6 +704,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int GROUP_GRID_COMPONENT = 14;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GROUP_GRID_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Groups</b></em>' containment reference list.
@@ -689,13 +788,22 @@ public interface DetailViewPackage extends EPackage
     int GROUP_GRID_ENTRY__PERMISSION = 2;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GROUP_GRID_ENTRY__VISIBILITY = 3;
+
+    /**
      * The number of structural features of the '<em>Group Grid Entry</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GROUP_GRID_ENTRY_FEATURE_COUNT = 3;
+    int GROUP_GRID_ENTRY_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl <em>Readable Component</em>}' class.
@@ -706,6 +814,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int READABLE_COMPONENT = 23;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READABLE_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -770,6 +887,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int WRITEABLE_COMPONENT = 22;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WRITEABLE_COMPONENT__VISIBILITY = READABLE_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -852,6 +978,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int VALUE_SET_COMPONENT = 16;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_SET_COMPONENT__VISIBILITY = WRITEABLE_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -961,6 +1096,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int VALUE_COMPONENT = 17;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_COMPONENT__VISIBILITY = READABLE_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -1129,6 +1273,15 @@ public interface DetailViewPackage extends EPackage
     int TEXT_INPUT_COMPONENT = 21;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_INPUT_COMPONENT__VISIBILITY = WRITEABLE_COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1227,6 +1380,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int TEXT_COMPONENT = 24;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_COMPONENT__VISIBILITY = READABLE_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -1347,6 +1509,15 @@ public interface DetailViewPackage extends EPackage
     int TEXT_INPUT_MULTI_COMPONENT = 25;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_INPUT_MULTI_COMPONENT__VISIBILITY = WRITEABLE_COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1438,6 +1609,15 @@ public interface DetailViewPackage extends EPackage
     int CHECK_COMPONENT = 26;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHECK_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1493,6 +1673,15 @@ public interface DetailViewPackage extends EPackage
     int LINK_COMPONENT = 27;
 
     /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINK_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
+
+    /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1519,6 +1708,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int URL_IMAGE_COMPONENT = 28;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_IMAGE_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Descriptor</b></em>' attribute.
@@ -1583,6 +1781,15 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     int PROGRESS_COMPONENT = 29;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROGRESS_COMPONENT__VISIBILITY = READABLE_COMPONENT__VISIBILITY;
 
     /**
      * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -1712,6 +1919,183 @@ public interface DetailViewPackage extends EPackage
     int HIDDEN_COMPONENT_FEATURE_COUNT = 1;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.VisibilityImpl <em>Visibility</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.VisibilityImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getVisibility()
+     * @generated
+     */
+    int VISIBILITY = 31;
+
+    /**
+     * The number of structural features of the '<em>Visibility</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VISIBILITY_FEATURE_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ScriptVisibilityImpl <em>Script Visibility</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.ScriptVisibilityImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getScriptVisibility()
+     * @generated
+     */
+    int SCRIPT_VISIBILITY = 32;
+
+    /**
+     * The feature id for the '<em><b>Script</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_VISIBILITY__SCRIPT = VISIBILITY_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Script Language</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_VISIBILITY__SCRIPT_LANGUAGE = VISIBILITY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Script Visibility</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_VISIBILITY_FEATURE_COUNT = VISIBILITY_FEATURE_COUNT + 2;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.PermissionVisibilityImpl <em>Permission Visibility</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.PermissionVisibilityImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getPermissionVisibility()
+     * @generated
+     */
+    int PERMISSION_VISIBILITY = 33;
+
+    /**
+     * The feature id for the '<em><b>Required Permission</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERMISSION_VISIBILITY__REQUIRED_PERMISSION = VISIBILITY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Permission Visibility</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERMISSION_VISIBILITY_FEATURE_COUNT = VISIBILITY_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.InvisibleImpl <em>Invisible</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.InvisibleImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getInvisible()
+     * @generated
+     */
+    int INVISIBLE = 34;
+
+    /**
+     * The number of structural features of the '<em>Invisible</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INVISIBLE_FEATURE_COUNT = VISIBILITY_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.TestVisibilityImpl <em>Test Visibility</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.TestVisibilityImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getTestVisibility()
+     * @generated
+     */
+    int TEST_VISIBILITY = 35;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEST_VISIBILITY__ID = VISIBILITY_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Test Visibility</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEST_VISIBILITY_FEATURE_COUNT = VISIBILITY_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ScriptModuleImpl <em>Script Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.details.model.DetailView.impl.ScriptModuleImpl
+     * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getScriptModule()
+     * @generated
+     */
+    int SCRIPT_MODULE = 36;
+
+    /**
+     * The feature id for the '<em><b>Script Language</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__SCRIPT_LANGUAGE = 0;
+
+    /**
+     * The feature id for the '<em><b>Code</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__CODE = 1;
+
+    /**
+     * The feature id for the '<em><b>Code Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__CODE_URI = 2;
+
+    /**
+     * The number of structural features of the '<em>Script Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE_FEATURE_COUNT = 3;
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.View <em>View</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1755,6 +2139,17 @@ public interface DetailViewPackage extends EPackage
     EReference getView_HiddenComponent ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.details.model.DetailView.View#getScriptModule <em>Script Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Script Module</em>'.
+     * @see org.openscada.vi.details.model.DetailView.View#getScriptModule()
+     * @see #getView()
+     * @generated
+     */
+    EReference getView_ScriptModule ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.Component <em>Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1763,6 +2158,17 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     EClass getComponent ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.Component#getVisibility <em>Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.Component#getVisibility()
+     * @see #getComponent()
+     * @generated
+     */
+    EReference getComponent_Visibility ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.GroupEntry <em>Group Entry</em>}'.
@@ -1806,6 +2212,17 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     EAttribute getGroupEntry_Permission ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.GroupEntry#getVisibility <em>Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.GroupEntry#getVisibility()
+     * @see #getGroupEntry()
+     * @generated
+     */
+    EReference getGroupEntry_Visibility ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.LabelComponent <em>Label Component</em>}'.
@@ -2244,6 +2661,17 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     EAttribute getGroupGridEntry_Permission ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.openscada.vi.details.model.DetailView.GroupGridEntry#getVisibility <em>Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.GroupGridEntry#getVisibility()
+     * @see #getGroupGridEntry()
+     * @generated
+     */
+    EReference getGroupGridEntry_Visibility ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ValueSetComponent <em>Value Set Component</em>}'.
@@ -2814,6 +3242,143 @@ public interface DetailViewPackage extends EPackage
     EAttribute getHiddenComponent_Descriptor ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.Visibility <em>Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.Visibility
+     * @generated
+     */
+    EClass getVisibility ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ScriptVisibility <em>Script Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Script Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptVisibility
+     * @generated
+     */
+    EClass getScriptVisibility ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ScriptVisibility#getScript <em>Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Script</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptVisibility#getScript()
+     * @see #getScriptVisibility()
+     * @generated
+     */
+    EAttribute getScriptVisibility_Script ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ScriptVisibility#getScriptLanguage <em>Script Language</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Script Language</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptVisibility#getScriptLanguage()
+     * @see #getScriptVisibility()
+     * @generated
+     */
+    EAttribute getScriptVisibility_ScriptLanguage ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.PermissionVisibility <em>Permission Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Permission Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.PermissionVisibility
+     * @generated
+     */
+    EClass getPermissionVisibility ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.PermissionVisibility#getRequiredPermission <em>Required Permission</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Required Permission</em>'.
+     * @see org.openscada.vi.details.model.DetailView.PermissionVisibility#getRequiredPermission()
+     * @see #getPermissionVisibility()
+     * @generated
+     */
+    EAttribute getPermissionVisibility_RequiredPermission ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.Invisible <em>Invisible</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Invisible</em>'.
+     * @see org.openscada.vi.details.model.DetailView.Invisible
+     * @generated
+     */
+    EClass getInvisible ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.TestVisibility <em>Test Visibility</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Test Visibility</em>'.
+     * @see org.openscada.vi.details.model.DetailView.TestVisibility
+     * @generated
+     */
+    EClass getTestVisibility ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TestVisibility#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.openscada.vi.details.model.DetailView.TestVisibility#getId()
+     * @see #getTestVisibility()
+     * @generated
+     */
+    EAttribute getTestVisibility_Id ();
+
+    /**
+     * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ScriptModule <em>Script Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Script Module</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptModule
+     * @generated
+     */
+    EClass getScriptModule ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ScriptModule#getScriptLanguage <em>Script Language</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Script Language</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptModule#getScriptLanguage()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EAttribute getScriptModule_ScriptLanguage ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ScriptModule#getCode <em>Code</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Code</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptModule#getCode()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EAttribute getScriptModule_Code ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ScriptModule#getCodeUri <em>Code Uri</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Code Uri</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ScriptModule#getCodeUri()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EAttribute getScriptModule_CodeUri ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2871,6 +3436,14 @@ public interface DetailViewPackage extends EPackage
         EReference VIEW__HIDDEN_COMPONENT = eINSTANCE.getView_HiddenComponent ();
 
         /**
+         * The meta object literal for the '<em><b>Script Module</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VIEW__SCRIPT_MODULE = eINSTANCE.getView_ScriptModule ();
+
+        /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ComponentImpl <em>Component</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2879,6 +3452,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EClass COMPONENT = eINSTANCE.getComponent ();
+
+        /**
+         * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference COMPONENT__VISIBILITY = eINSTANCE.getComponent_Visibility ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.GroupEntryImpl <em>Group Entry</em>}' class.
@@ -2913,6 +3494,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute GROUP_ENTRY__PERMISSION = eINSTANCE.getGroupEntry_Permission ();
+
+        /**
+         * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GROUP_ENTRY__VISIBILITY = eINSTANCE.getGroupEntry_Visibility ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.LabelComponentImpl <em>Label Component</em>}' class.
@@ -3267,6 +3856,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute GROUP_GRID_ENTRY__PERMISSION = eINSTANCE.getGroupGridEntry_Permission ();
+
+        /**
+         * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GROUP_GRID_ENTRY__VISIBILITY = eINSTANCE.getGroupGridEntry_Visibility ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ValueSetComponentImpl <em>Value Set Component</em>}' class.
@@ -3721,6 +4318,122 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute HIDDEN_COMPONENT__DESCRIPTOR = eINSTANCE.getHiddenComponent_Descriptor ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.VisibilityImpl <em>Visibility</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.VisibilityImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getVisibility()
+         * @generated
+         */
+        EClass VISIBILITY = eINSTANCE.getVisibility ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ScriptVisibilityImpl <em>Script Visibility</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.ScriptVisibilityImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getScriptVisibility()
+         * @generated
+         */
+        EClass SCRIPT_VISIBILITY = eINSTANCE.getScriptVisibility ();
+
+        /**
+         * The meta object literal for the '<em><b>Script</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_VISIBILITY__SCRIPT = eINSTANCE.getScriptVisibility_Script ();
+
+        /**
+         * The meta object literal for the '<em><b>Script Language</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_VISIBILITY__SCRIPT_LANGUAGE = eINSTANCE.getScriptVisibility_ScriptLanguage ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.PermissionVisibilityImpl <em>Permission Visibility</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.PermissionVisibilityImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getPermissionVisibility()
+         * @generated
+         */
+        EClass PERMISSION_VISIBILITY = eINSTANCE.getPermissionVisibility ();
+
+        /**
+         * The meta object literal for the '<em><b>Required Permission</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PERMISSION_VISIBILITY__REQUIRED_PERMISSION = eINSTANCE.getPermissionVisibility_RequiredPermission ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.InvisibleImpl <em>Invisible</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.InvisibleImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getInvisible()
+         * @generated
+         */
+        EClass INVISIBLE = eINSTANCE.getInvisible ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.TestVisibilityImpl <em>Test Visibility</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.TestVisibilityImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getTestVisibility()
+         * @generated
+         */
+        EClass TEST_VISIBILITY = eINSTANCE.getTestVisibility ();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEST_VISIBILITY__ID = eINSTANCE.getTestVisibility_Id ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ScriptModuleImpl <em>Script Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.details.model.DetailView.impl.ScriptModuleImpl
+         * @see org.openscada.vi.details.model.DetailView.impl.DetailViewPackageImpl#getScriptModule()
+         * @generated
+         */
+        EClass SCRIPT_MODULE = eINSTANCE.getScriptModule ();
+
+        /**
+         * The meta object literal for the '<em><b>Script Language</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_MODULE__SCRIPT_LANGUAGE = eINSTANCE.getScriptModule_ScriptLanguage ();
+
+        /**
+         * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_MODULE__CODE = eINSTANCE.getScriptModule_Code ();
+
+        /**
+         * The meta object literal for the '<em><b>Code Uri</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCRIPT_MODULE__CODE_URI = eINSTANCE.getScriptModule_CodeUri ();
 
     }
 

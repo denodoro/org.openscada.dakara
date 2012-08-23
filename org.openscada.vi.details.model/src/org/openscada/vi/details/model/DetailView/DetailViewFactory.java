@@ -243,6 +243,51 @@ public interface DetailViewFactory extends EFactory
     HiddenComponent createHiddenComponent ();
 
     /**
+     * Returns a new object of class '<em>Script Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Script Visibility</em>'.
+     * @generated
+     */
+    ScriptVisibility createScriptVisibility ();
+
+    /**
+     * Returns a new object of class '<em>Permission Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Permission Visibility</em>'.
+     * @generated
+     */
+    PermissionVisibility createPermissionVisibility ();
+
+    /**
+     * Returns a new object of class '<em>Invisible</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Invisible</em>'.
+     * @generated
+     */
+    Invisible createInvisible ();
+
+    /**
+     * Returns a new object of class '<em>Test Visibility</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Test Visibility</em>'.
+     * @generated
+     */
+    TestVisibility createTestVisibility ();
+
+    /**
+     * Returns a new object of class '<em>Script Module</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Script Module</em>'.
+     * @generated
+     */
+    ScriptModule createScriptModule ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

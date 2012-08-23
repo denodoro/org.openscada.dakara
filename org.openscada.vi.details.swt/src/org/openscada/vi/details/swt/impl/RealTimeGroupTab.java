@@ -35,7 +35,9 @@ import org.openscada.da.ui.connection.data.Item;
 import org.openscada.da.ui.connection.data.Item.Type;
 import org.openscada.da.ui.widgets.realtime.ListEntry;
 import org.openscada.da.ui.widgets.realtime.RealTimeListViewer;
+import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 
 class RealTimeGroupTab implements GroupTab
 {
@@ -58,7 +60,7 @@ class RealTimeGroupTab implements GroupTab
     }
 
     @Override
-    public void init ( final Composite parent, final Map<String, String> properties )
+    public void init ( final VisibilityProviderFactory factory, final Composite parent, final Map<String, String> properties )
     {
         this.shell = parent.getShell ();
 
@@ -125,4 +127,11 @@ class RealTimeGroupTab implements GroupTab
     {
         return Collections.emptyList ();
     }
+
+    @Override
+    public Visibility getVisibility ()
+    {
+        return null;
+    }
+
 }
