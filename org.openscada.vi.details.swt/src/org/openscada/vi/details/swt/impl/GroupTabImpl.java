@@ -19,13 +19,12 @@
 
 package org.openscada.vi.details.swt.impl;
 
-import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.swt.DetailComponent;
-import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 
 class GroupTabImpl implements GroupTab
@@ -62,9 +61,9 @@ class GroupTabImpl implements GroupTab
     }
 
     @Override
-    public Collection<DataItemDescriptor> getDescriptors ()
+    public IObservableSet getDescriptors ()
     {
-        return this.component.listDescriptors ();
+        return this.component.getDescriptors ();
     }
 
     @Override

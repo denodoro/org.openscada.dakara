@@ -19,47 +19,87 @@
 
 package org.openscada.vi.details.swt.impl.visibility;
 
-import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
+import org.eclipse.core.databinding.observable.Observables;
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.ISetChangeListener;
+import org.eclipse.core.databinding.observable.set.SetChangeEvent;
+import org.eclipse.core.databinding.observable.set.UnionSet;
+import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.openscada.vi.details.swt.DetailComponent;
 
 public abstract class SubTrackingVisibleComponent extends TrackingVisibleComponent
 {
     private final Set<DetailComponent> subs = new HashSet<DetailComponent> ();
 
-    private final Collection<DetailComponent> parentCollection;
+    private final WritableSet descriptors = new WritableSet ();
 
-    public SubTrackingVisibleComponent ( final Collection<DetailComponent> parentCollection )
-    {
-        this.parentCollection = parentCollection;
-    }
+    private IObservableSet unionSet = Observables.emptyObservableSet ();
+
+    private final ISetChangeListener setListener = new ISetChangeListener () {
+
+        @Override
+        public void handleSetChange ( final SetChangeEvent event )
+        {
+            event.diff.applyTo ( SubTrackingVisibleComponent.this.descriptors );
+        }
+    };
 
     protected void trackSub ( final DetailComponent subComponent )
     {
-        if ( this.subs.add ( subComponent ) )
-        {
-            this.parentCollection.add ( subComponent );
-        }
+        this.subs.add ( subComponent );
+        update ();
     }
 
     protected void untrackSub ( final DetailComponent subComponent )
     {
-        if ( this.subs.remove ( subComponent ) )
+        this.subs.remove ( subComponent );
+        update ();
+    }
+
+    private void update ()
+    {
+        this.unionSet.removeSetChangeListener ( this.setListener );
+        this.unionSet.dispose ();
+        this.descriptors.clear ();
+
+        final List<IObservableSet> childSets = new LinkedList<IObservableSet> ();
+
+        for ( final DetailComponent component : this.subs )
         {
-            this.parentCollection.remove ( subComponent );
+            childSets.add ( component.getDescriptors () );
         }
+
+        if ( childSets.isEmpty () )
+        {
+            this.unionSet = Observables.emptyObservableSet ();
+        }
+        else
+        {
+            this.unionSet = new UnionSet ( childSets.toArray ( new IObservableSet[childSets.size ()] ) );
+        }
+
+        this.unionSet.addSetChangeListener ( this.setListener );
+        this.descriptors.addAll ( this.unionSet );
     }
 
     @Override
     public void dispose ()
     {
-        this.parentCollection.removeAll ( this.subs );
         for ( final DetailComponent sub : this.subs )
         {
             sub.dispose ();
         }
         super.dispose ();
+    }
+
+    @Override
+    public IObservableSet getDescriptors ()
+    {
+        return new UnionSet ( new IObservableSet[] { super.getDescriptors (), this.descriptors } );
     }
 }

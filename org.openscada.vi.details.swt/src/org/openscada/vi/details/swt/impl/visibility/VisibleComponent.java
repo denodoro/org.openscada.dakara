@@ -19,6 +19,8 @@
 
 package org.openscada.vi.details.swt.impl.visibility;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+
 public interface VisibleComponent
 {
     public void show ();
@@ -28,4 +30,6 @@ public interface VisibleComponent
     public void create ();
 
     public void dispose ();
+
+    public IObservableSet getDescriptors ();
 }

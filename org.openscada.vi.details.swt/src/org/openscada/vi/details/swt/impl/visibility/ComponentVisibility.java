@@ -19,6 +19,11 @@
 
 package org.openscada.vi.details.swt.impl.visibility;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.ISetChangeListener;
+import org.eclipse.core.databinding.observable.set.SetChangeEvent;
+import org.eclipse.core.databinding.observable.set.SetDiff;
+import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.openscada.vi.details.swt.impl.visibility.VisibilityProvider.Listener;
 
 public class ComponentVisibility
@@ -31,12 +36,27 @@ public class ComponentVisibility
 
     private final VisibleComponent component;
 
+    private final WritableSet descriptors = new WritableSet ();
+
+    private final IObservableSet componentDescriptors;
+
+    private final ISetChangeListener setListener = new ISetChangeListener () {
+
+        @Override
+        public void handleSetChange ( final SetChangeEvent event )
+        {
+            ComponentVisibility.this.handleSetChange ( event.diff );
+        }
+    };
+
     public ComponentVisibility ( final VisibilityProvider provider, final VisibleComponent component )
     {
         this.provider = provider;
         this.component = component;
+        this.componentDescriptors = component.getDescriptors ();
 
         component.create ();
+        attachDescriptors ();
 
         this.listener = new Listener () {
 
@@ -46,7 +66,13 @@ public class ComponentVisibility
                 handleVisibilityChanged ( state );
             }
         };
+
         this.provider.addListener ( this.listener );
+    }
+
+    protected void handleSetChange ( final SetDiff diff )
+    {
+        diff.applyTo ( this.descriptors );
     }
 
     protected void handleVisibilityChanged ( final boolean state )
@@ -71,16 +97,35 @@ public class ComponentVisibility
     protected void hide ()
     {
         this.component.hide ();
+        detachDescriptors ();
     }
 
     protected void show ()
     {
         this.component.show ();
+        attachDescriptors ();
+    }
+
+    private void attachDescriptors ()
+    {
+        this.componentDescriptors.addSetChangeListener ( this.setListener );
+        this.descriptors.addAll ( this.componentDescriptors );
+    }
+
+    private void detachDescriptors ()
+    {
+        this.componentDescriptors.removeSetChangeListener ( this.setListener );
+        this.descriptors.clear ();
     }
 
     public void dispose ()
     {
         this.provider.dispose ();
         this.component.dispose ();
+    }
+
+    public IObservableSet getDescriptors ()
+    {
+        return this.descriptors;
     }
 }

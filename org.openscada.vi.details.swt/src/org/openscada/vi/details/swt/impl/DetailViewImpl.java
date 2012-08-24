@@ -20,7 +20,6 @@
 package org.openscada.vi.details.swt.impl;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Dictionary;
 import java.util.LinkedList;
@@ -32,6 +31,9 @@ import javax.script.ScriptEngineManager;
 import javax.script.SimpleBindings;
 import javax.script.SimpleScriptContext;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.UnionSet;
+import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -135,11 +137,16 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 
             box.setLayout ( new GridLayout ( 1, false ) );
 
+            final List<IObservableSet> lists = new LinkedList<IObservableSet> ();
+
+            final WritableSet hiddenItems = new WritableSet ();
+            lists.add ( hiddenItems );
+
             // add hidden
             for ( final HiddenComponent hidden : this.hiddenItems )
             {
                 final String item = DetailComponentImpl.resolve ( hidden.getDescriptor (), properties );
-                this.realTimeTab.addItems ( Arrays.asList ( DataItemDescriptor.create ( item ) ) );
+                hiddenItems.add ( DataItemDescriptor.create ( item ) );
             }
 
             // init
@@ -149,7 +156,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 wrapper.setLayout ( new FillLayout () );
                 wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
                 this.header.init ( this.visibleFactory, wrapper, properties );
-                this.realTimeTab.addItems ( this.header.listDescriptors () );
+                lists.add ( this.header.getDescriptors () );
             }
 
             final TabFolder folder = new TabFolder ( box, SWT.NONE );
@@ -162,14 +169,17 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 group.init ( this.visibleFactory, wrapper, properties );
 
                 final VisibilityProvider provider = this.visibleFactory.createProvider ( group.getVisibility () );
-                final TabVisibleComponent component = new TabVisibleComponent ( folder, i, group.getLabel (), wrapper );
+                final TabVisibleComponent component = new TabVisibleComponent ( folder, i, group.getLabel (), wrapper, group.getDescriptors () );
                 final ComponentVisibility visibility = new ComponentVisibility ( provider, component );
                 addVisibility ( visibility );
 
-                this.realTimeTab.addItems ( group.getDescriptors () );
+                lists.add ( visibility.getDescriptors () );
                 i++;
             }
             box.setEnabled ( true );
+
+            // hook up realtime list to observable list
+            this.realTimeTab.setInput ( new UnionSet ( lists.toArray ( new IObservableSet[lists.size ()] ) ) );
         }
         catch ( final Exception e )
         {

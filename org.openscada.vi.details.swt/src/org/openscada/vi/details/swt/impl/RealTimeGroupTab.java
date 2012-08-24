@@ -19,12 +19,13 @@
 
 package org.openscada.vi.details.swt.impl;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
+import org.eclipse.core.databinding.observable.Observables;
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.ISetChangeListener;
+import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -43,14 +44,48 @@ class RealTimeGroupTab implements GroupTab
 {
     private RealTimeListViewer viewer;
 
-    private final Set<Item> initItems = new HashSet<Item> ();
-
     private Shell shell;
+
+    private IObservableSet input;
+
+    private final Map<Item, ListEntry> entryMap = new HashMap<Item, ListEntry> ();
+
+    private final ISetChangeListener setListener;
+
+    public RealTimeGroupTab ()
+    {
+        this.setListener = new ISetChangeListener () {
+
+            @Override
+            public void handleSetChange ( final SetChangeEvent event )
+            {
+                for ( final Object object : event.diff.getAdditions () )
+                {
+                    final DataItemDescriptor item = (DataItemDescriptor)object;
+                    addItem ( item );
+                }
+
+                for ( final Object object : event.diff.getRemovals () )
+                {
+                    final DataItemDescriptor item = (DataItemDescriptor)object;
+                    removeItem ( item );
+                }
+            }
+        };
+    }
 
     @Override
     public void dispose ()
     {
-        this.viewer.dispose ();
+        if ( this.viewer != null )
+        {
+            this.viewer.dispose ();
+        }
+        if ( this.input != null )
+        {
+            this.input.dispose ();
+            this.input = null;
+        }
     }
 
     @Override
@@ -75,13 +110,69 @@ class RealTimeGroupTab implements GroupTab
             }
         } );
 
-        for ( final Item item : this.initItems )
+        if ( this.input != null )
         {
-            final ListEntry entry = new ListEntry ();
-            entry.setDataItem ( item );
-            this.viewer.add ( entry );
+            attachInput ();
         }
-        this.initItems.clear ();
+    }
+
+    private void attachInput ()
+    {
+        this.input.addSetChangeListener ( this.setListener );
+
+        // load initial items
+        for ( final Object object : this.input )
+        {
+            final DataItemDescriptor item = (DataItemDescriptor)object;
+            addItem ( item );
+        }
+    }
+
+    protected void addItem ( final DataItemDescriptor descriptor )
+    {
+        if ( this.viewer == null )
+        {
+            return;
+        }
+
+        final Item item = convertItem ( descriptor );
+
+        if ( this.entryMap.containsKey ( item ) )
+        {
+            return;
+        }
+
+        final ListEntry entry = new ListEntry ();
+        entry.setDataItem ( item );
+        this.viewer.add ( entry );
+        this.entryMap.put ( item, entry );
+    }
+
+    protected void removeItem ( final DataItemDescriptor descriptor )
+    {
+        if ( this.viewer == null )
+        {
+            return;
+        }
+
+        final Item item = convertItem ( descriptor );
+
+        final ListEntry entry = this.entryMap.remove ( item );
+        if ( entry == null )
+        {
+            return;
+        }
+
+        this.viewer.remove ( entry );
+    }
+
+    private void detachInput ()
+    {
+        if ( this.input != null )
+        {
+            this.input.removeSetChangeListener ( this.setListener );
+        }
+        this.viewer.clear ();
     }
 
     protected void handleDoubleClick ( final DoubleClickEvent event )
@@ -97,24 +188,32 @@ class RealTimeGroupTab implements GroupTab
         }
     }
 
-    public void addItems ( final Collection<DataItemDescriptor> items )
+    /**
+     * Set the new input set
+     * <p>
+     * The old input set will be returned but not disposed
+     * </p>
+     * 
+     * @param input
+     *            the new input set or <code>null</code> to set none
+     * @return the old input set or <code>null</code> if none was present
+     */
+    public IObservableSet setInput ( final IObservableSet input )
     {
-        if ( this.viewer == null )
+        final IObservableSet oldInput = this.input;
+
+        if ( this.input != null )
         {
-            for ( final DataItemDescriptor item : items )
-            {
-                this.initItems.add ( convertItem ( item ) );
-            }
+            detachInput ();
         }
-        else
+
+        if ( this.viewer != null && input != null )
         {
-            for ( final DataItemDescriptor item : items )
-            {
-                final ListEntry entry = new ListEntry ();
-                entry.setDataItem ( convertItem ( item ) );
-                this.viewer.add ( entry );
-            }
+            this.input = input;
+            attachInput ();
         }
+
+        return oldInput;
     }
 
     private static Item convertItem ( final DataItemDescriptor item )
@@ -123,9 +222,10 @@ class RealTimeGroupTab implements GroupTab
     }
 
     @Override
-    public Collection<DataItemDescriptor> getDescriptors ()
+    public IObservableSet getDescriptors ()
     {
-        return Collections.emptyList ();
+        // we only consume the other items, not provide them again
+        return Observables.emptyObservableSet ();
     }
 
     @Override
@@ -133,5 +233,4 @@ class RealTimeGroupTab implements GroupTab
     {
         return null;
     }
-
 }

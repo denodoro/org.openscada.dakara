@@ -22,12 +22,17 @@ package org.openscada.vi.details.swt.impl.visibility;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.swt.widgets.Control;
+import org.openscada.vi.details.swt.data.DataItemDescriptor;
 
 public abstract class TrackingVisibleComponent implements VisibleComponent
 {
 
     private final List<Control> controls = new LinkedList<Control> ();
+
+    private final WritableSet items = new WritableSet ();
 
     protected void trackControl ( final Control control )
     {
@@ -64,6 +69,22 @@ public abstract class TrackingVisibleComponent implements VisibleComponent
         {
             control.dispose ();
         }
+    }
+
+    protected void trackItem ( final DataItemDescriptor item )
+    {
+        this.items.add ( item );
+    }
+
+    protected void untrackItem ( final DataItemDescriptor item )
+    {
+        this.items.remove ( item );
+    }
+
+    @Override
+    public IObservableSet getDescriptors ()
+    {
+        return this.items;
     }
 
 }

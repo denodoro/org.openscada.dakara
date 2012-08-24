@@ -19,6 +19,7 @@
 
 package org.openscada.vi.details.swt.impl.visibility;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.TabFolder;
@@ -44,12 +45,15 @@ public class TabVisibleComponent implements VisibleComponent
 
     private final int index;
 
-    public TabVisibleComponent ( final TabFolder folder, final int index, final String label, final Control control )
+    private final IObservableSet items;
+
+    public TabVisibleComponent ( final TabFolder folder, final int index, final String label, final Control control, final IObservableSet items )
     {
         this.folder = folder;
         this.index = index;
         this.control = control;
         this.label = label;
+        this.items = items;
     }
 
     @Override
@@ -103,6 +107,12 @@ public class TabVisibleComponent implements VisibleComponent
     {
         hide ();
         this.control.dispose ();
+    }
+
+    @Override
+    public IObservableSet getDescriptors ()
+    {
+        return this.items;
     }
 
 }

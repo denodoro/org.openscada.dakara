@@ -19,9 +19,9 @@
 
 package org.openscada.vi.details.swt.impl;
 
-import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
@@ -35,7 +35,12 @@ interface GroupTab
 
     public void init ( final VisibilityProviderFactory factory, final Composite parent, final Map<String, String> properties );
 
-    public Collection<DataItemDescriptor> getDescriptors ();
+    /**
+     * get descriptors
+     * 
+     * @return an obversable set of {@link DataItemDescriptor}s
+     */
+    public IObservableSet getDescriptors ();
 
     public Visibility getVisibility ();
 }

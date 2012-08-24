@@ -19,9 +19,9 @@
 
 package org.openscada.vi.details.swt;
 
-import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
@@ -32,5 +32,8 @@ public interface DetailComponent
 
     public void dispose ();
 
-    public Collection<DataItemDescriptor> listDescriptors ();
+    /**
+     * @return an observable set of {@link DataItemDescriptor}s
+     */
+    public IObservableSet getDescriptors ();
 }

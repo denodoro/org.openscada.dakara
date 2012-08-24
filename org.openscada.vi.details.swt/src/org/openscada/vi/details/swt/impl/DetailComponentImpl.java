@@ -19,20 +19,19 @@
 
 package org.openscada.vi.details.swt.impl;
 
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.antlr.stringtemplate.StringTemplate;
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.UnionSet;
+import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.vi.details.model.DetailView.AndTransformer;
@@ -88,13 +87,9 @@ public class DetailComponentImpl implements DetailComponent
 
     private final List<ComponentVisibility> visibilites = new LinkedList<ComponentVisibility> ();
 
-    private final List<Control> controls = new LinkedList<Control> ();
-
-    private final List<DetailComponent> components = new LinkedList<DetailComponent> ();
-
-    private final List<DataItemDescriptor> descriptors = new LinkedList<DataItemDescriptor> ();
-
     private VisibilityProviderFactory visibleFactory;
+
+    private final WritableSet descriptors = new WritableSet ();
 
     public DetailComponentImpl ( final Component component )
     {
@@ -104,10 +99,6 @@ public class DetailComponentImpl implements DetailComponent
     @Override
     public void dispose ()
     {
-        for ( final Control control : this.controls )
-        {
-            control.dispose ();
-        }
         for ( final ComponentVisibility visibility : this.visibilites )
         {
             visibility.dispose ();
@@ -120,20 +111,21 @@ public class DetailComponentImpl implements DetailComponent
      * @return the list of descriptors. It never returns <code>null</code>.
      */
     @Override
-    public Collection<DataItemDescriptor> listDescriptors ()
+    public IObservableSet getDescriptors ()
     {
-        final Set<DataItemDescriptor> descriptors = new HashSet<DataItemDescriptor> ();
-        descriptors.addAll ( this.descriptors );
+        final List<IObservableSet> lists = new LinkedList<IObservableSet> ();
 
-        for ( final DetailComponent comp : this.components )
+        lists.add ( this.descriptors );
+
+        for ( final ComponentVisibility visibility : this.visibilites )
         {
-            descriptors.addAll ( comp.listDescriptors () );
+            lists.add ( visibility.getDescriptors () );
         }
 
-        return descriptors;
+        return new UnionSet ( lists.toArray ( new IObservableSet[lists.size ()] ) );
     }
 
-    protected void addDescriptor ( final DataItemDescriptor descriptor )
+    private void addDescriptor ( final DataItemDescriptor descriptor )
     {
         if ( descriptor != null )
         {
@@ -234,13 +226,12 @@ public class DetailComponentImpl implements DetailComponent
                 final Composite image = new URLImageLabel ( parent, SWT.NONE, descriptor, component );
 
                 trackControl ( image );
+                trackItem ( descriptor );
             }
 
         } );
 
         addComponent ( visibility );
-
-        addDescriptor ( descriptor );
     }
 
     private void createProgress ( final Composite parent, final ProgressComponent component, final Map<String, String> properties )
@@ -257,13 +248,12 @@ public class DetailComponentImpl implements DetailComponent
                 final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( progress );
+                trackItem ( progressItem );
             }
 
         } );
 
         addComponent ( visibility );
-
-        addDescriptor ( progressItem );
     }
 
     private void createLink ( final Composite parent, final LinkComponent component, final Map<String, String> properties )
@@ -299,11 +289,11 @@ public class DetailComponentImpl implements DetailComponent
                 final CheckComposite check = new CheckComposite ( parent, SWT.NONE, descriptor, resolve ( component.getFormat (), properties ), component.getAttribute (), readDescriptor );
 
                 trackControl ( check );
+                trackItem ( descriptor );
             }
         } );
 
         addComponent ( visibility );
-        addDescriptor ( descriptor );
     }
 
     private void createText ( final Composite parent, final TextComponent component, final Map<String, String> properties )
@@ -320,11 +310,11 @@ public class DetailComponentImpl implements DetailComponent
                 final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), component.getHdConnectionid (), component.getHdItemId () );
 
                 trackControl ( text );
+                trackItem ( textItem );
             }
         } );
 
         addComponent ( visibility );
-        addDescriptor ( textItem );
     }
 
     private void createTextInput ( final Composite parent, final TextInputComponent component, final Map<String, String> properties )
@@ -342,11 +332,11 @@ public class DetailComponentImpl implements DetailComponent
                 final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( valueSet );
+                trackItem ( textInputItem );
             }
         } );
 
         addComponent ( visibility );
-        addDescriptor ( textInputItem );
     }
 
     private void createTextInputMulti ( final Composite parent, final TextInputMultiComponent component, final Map<String, String> properties )
@@ -363,11 +353,11 @@ public class DetailComponentImpl implements DetailComponent
                 final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( text );
+                trackItem ( textInputItem );
             }
         } );
 
         addComponent ( visibility );
-        addDescriptor ( textInputItem );
     }
 
     private void createValue ( final Composite parent, final ValueComponent component, final Map<String, String> properties )
@@ -384,11 +374,11 @@ public class DetailComponentImpl implements DetailComponent
                 final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getDate (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( value );
+                trackItem ( item );
             }
         } );
 
         addComponent ( visibility );
-        addDescriptor ( item );
     }
 
     private void createValueSet ( final Composite parent, final ValueSetComponent component, final Map<String, String> properties )
@@ -407,14 +397,13 @@ public class DetailComponentImpl implements DetailComponent
                 final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( valueSet );
+                trackItem ( valueItem );
+                trackItem ( setItem );
+                trackItem ( resetItem );
             }
         } );
 
         addComponent ( visibility );
-
-        addDescriptor ( valueItem );
-        addDescriptor ( setItem );
-        addDescriptor ( resetItem );
     }
 
     private void createGroupGrid ( final Composite parent, final GroupGridComponent component, final Map<String, String> properties )
@@ -453,7 +442,7 @@ public class DetailComponentImpl implements DetailComponent
     {
         final VisibilityProvider provider = this.visibleFactory.createProvider ( groupEntry.getVisibility () );
 
-        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent ( this.components ) {
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent () {
 
             @Override
             public void create ()
@@ -492,19 +481,17 @@ public class DetailComponentImpl implements DetailComponent
     {
         final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent ( this.components ) {
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent () {
 
             @Override
             public void create ()
             {
                 final Composite childParent = new Composite ( parent, SWT.NONE );
                 childParent.setLayout ( new GridLayout ( component.getCols (), component.isEqually () ) );
-                addControl ( childParent );
 
                 for ( final Component child : component.getChildren () )
                 {
                     final DetailComponentImpl comp = new DetailComponentImpl ( child );
-                    DetailComponentImpl.this.components.add ( comp );
                     trackSub ( comp );
 
                     final Composite wrapper = new Composite ( childParent, SWT.NONE );
@@ -534,12 +521,11 @@ public class DetailComponentImpl implements DetailComponent
                 final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isAlarm (), component.getAttribute () );
 
                 trackControl ( led );
+                trackItem ( item );
             }
         } );
 
         addComponent ( visibility );
-
-        addDescriptor ( item );
     }
 
     private void createButton ( final Composite parent, final ButtonComponent component, final Map<String, String> properties )
@@ -567,12 +553,12 @@ public class DetailComponentImpl implements DetailComponent
                 final ButtonComposite button = new ButtonComposite ( parent, SWT.NONE, readItem, writeItem, resolve ( component.getFormat (), properties ), resolve ( component.getValue (), properties ), createValueSource ( component.getActive (), properties ), component.getRegistrations (), properties, component.getAttribute (), component.getTextHeight () );
 
                 trackControl ( button );
+                trackItem ( writeItem );
+                trackItem ( readItem );
             }
         } );
 
         addComponent ( visibility );
-        addDescriptor ( writeItem );
-        addDescriptor ( readItem );
     }
 
     private static ValueSourceController createValueSource ( final ValueSource valueSource, final Map<String, String> properties )
@@ -614,17 +600,29 @@ public class DetailComponentImpl implements DetailComponent
 
     private void createFillLayout ( final Composite parent, final FillLayoutComponent component, final Map<String, String> properties )
     {
-        final Composite childParent = new Composite ( parent, SWT.NONE );
-        childParent.setLayout ( new FillLayout ( SWT.VERTICAL ) );
-        addControl ( childParent );
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
 
-        for ( final Component child : component.getChildren () )
-        {
-            final DetailComponentImpl comp = new DetailComponentImpl ( child );
-            this.components.add ( comp );
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new SubTrackingVisibleComponent () {
 
-            comp.init ( this.visibleFactory, childParent, properties );
-        }
+            @Override
+            public void create ()
+            {
+
+                final Composite childParent = new Composite ( parent, SWT.NONE );
+                childParent.setLayout ( new FillLayout ( SWT.VERTICAL ) );
+
+                for ( final Component child : component.getChildren () )
+                {
+                    final DetailComponentImpl comp = new DetailComponentImpl ( child );
+                    comp.init ( DetailComponentImpl.this.visibleFactory, childParent, properties );
+                    trackSub ( comp );
+                }
+                trackControl ( childParent );
+            }
+
+        } );
+
+        addComponent ( visibility );
     }
 
     private void createLabel ( final Composite parent, final LabelComponent component, final Map<String, String> properties )
@@ -640,13 +638,12 @@ public class DetailComponentImpl implements DetailComponent
             {
                 final LabelComposite label = new LabelComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ) );
                 trackControl ( label );
+                trackItem ( item );
             }
 
         } );
 
         addComponent ( visibility );
-
-        addDescriptor ( item );
     }
 
     public static String resolve ( final String input, final Map<String, String> properties )
@@ -659,11 +656,6 @@ public class DetailComponentImpl implements DetailComponent
     private void addComponent ( final ComponentVisibility visibility )
     {
         this.visibilites.add ( visibility );
-    }
-
-    private void addControl ( final Control control )
-    {
-        this.controls.add ( control );
     }
 
 }
