@@ -233,4 +233,16 @@ class RealTimeGroupTab implements GroupTab
     {
         return null;
     }
+
+    @Override
+    public void start ()
+    {
+        // no-op
+    }
+
+    @Override
+    public void stop ()
+    {
+        // no-op
+    }
 }

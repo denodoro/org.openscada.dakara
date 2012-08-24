@@ -169,7 +169,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 group.init ( this.visibleFactory, wrapper, properties );
 
                 final VisibilityProvider provider = this.visibleFactory.createProvider ( group.getVisibility () );
-                final TabVisibleComponent component = new TabVisibleComponent ( folder, i, group.getLabel (), wrapper, group.getDescriptors () );
+                final TabVisibleComponent component = new TabVisibleComponent ( folder, i, group, wrapper );
                 final ComponentVisibility visibility = new ComponentVisibility ( provider, component );
                 addVisibility ( visibility );
 
@@ -180,6 +180,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
 
             // hook up realtime list to observable list
             this.realTimeTab.setInput ( new UnionSet ( lists.toArray ( new IObservableSet[lists.size ()] ) ) );
+
         }
         catch ( final Exception e )
         {
@@ -210,6 +211,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
     private void addVisibility ( final ComponentVisibility visibility )
     {
         this.visibilities.add ( visibility );
+        visibility.start ();
     }
 
     private void load ()

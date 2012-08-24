@@ -28,10 +28,11 @@ import org.openscada.core.NotConvertableException;
 import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.details.swt.data.ControllerListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class ReadableComposite extends Composite
+public abstract class ReadableComposite extends GenericComposite implements ControllerListener
 {
     private static final Logger logger = LoggerFactory.getLogger ( ReadableComposite.class );
 
@@ -41,7 +42,7 @@ public abstract class ReadableComposite extends Composite
 
     public ReadableComposite ( final Composite parent, final int style, final String format, final String decimal, final String attribute, final String hdConnectionId, final String hdItemId )
     {
-        super ( parent, style );
+        super ( parent, style, null, null );
 
         this.attribute = attribute;
         if ( decimal == null )
@@ -52,6 +53,7 @@ public abstract class ReadableComposite extends Composite
         {
             this.decimalFormat = new DecimalFormat ( decimal );
         }
+
     }
 
     protected String getText ( final Map<Object, DataItemValue> values, final String attribute )

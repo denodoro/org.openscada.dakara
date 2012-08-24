@@ -23,8 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.RowLayout;
@@ -39,7 +37,7 @@ import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CheckComposite extends Composite implements ControllerListener
+public class CheckComposite extends GenericComposite implements ControllerListener
 {
     private static final Logger logger = LoggerFactory.getLogger ( CheckComposite.class );
 
@@ -57,19 +55,11 @@ public class CheckComposite extends Composite implements ControllerListener
 
     public CheckComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final DataItemDescriptor readDescriptor )
     {
-        super ( parent, style );
+        super ( parent, style, null, null );
 
         this.attribute = attribute;
         this.descriptor = descriptor;
         this.readDescriptor = readDescriptor;
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                CheckComposite.this.handleDispose ();
-            }
-        } );
 
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
@@ -123,11 +113,6 @@ public class CheckComposite extends Composite implements ControllerListener
             this.controller.writeOperation ( map, this.descriptor );
         }
         getShell ().setFocus ();
-    }
-
-    protected void handleDispose ()
-    {
-        this.controller.dispose ();
     }
 
     @Override

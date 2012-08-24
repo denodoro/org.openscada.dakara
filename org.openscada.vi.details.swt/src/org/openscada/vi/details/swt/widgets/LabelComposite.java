@@ -22,40 +22,33 @@ package org.openscada.vi.details.swt.widgets;
 import java.util.Map;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LabelComposite extends Composite implements ControllerListener
+public class LabelComposite extends GenericComposite implements ControllerListener
 {
     private static final Logger logger = LoggerFactory.getLogger ( LabelComposite.class );
 
     private final Label label;
 
-    private final DataController controller;
-
     private final String format;
 
     public LabelComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format )
     {
-        super ( parent, style );
+        super ( parent, style, null, null );
 
         setLayout ( new FillLayout () );
         this.label = new Label ( this, SWT.NONE );
 
         this.format = format;
-        this.controller = new DataController ( this );
-
         if ( descriptor != null )
         {
             this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
@@ -65,19 +58,6 @@ public class LabelComposite extends Composite implements ControllerListener
             this.label.setText ( format );
         }
 
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                LabelComposite.this.handleDispose ();
-            }
-        } );
-    }
-
-    protected void handleDispose ()
-    {
-        this.controller.dispose ();
     }
 
     @Override

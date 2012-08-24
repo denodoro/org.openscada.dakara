@@ -29,8 +29,6 @@ import org.antlr.stringtemplate.StringTemplate;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
@@ -43,13 +41,12 @@ import org.openscada.da.client.DataItemValue;
 import org.openscada.vi.details.model.DetailView.URLImageComponent;
 import org.openscada.vi.details.swt.Activator;
 import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class URLImageLabel extends Composite implements ControllerListener
+public class URLImageLabel extends GenericComposite implements ControllerListener
 {
 
     private static final Logger logger = LoggerFactory.getLogger ( URLImageLabel.class );
@@ -57,8 +54,6 @@ public class URLImageLabel extends Composite implements ControllerListener
     private final URLImageComponent component;
 
     private final Label label;
-
-    private final DataController controller;
 
     private final AttributeImage attributeLabel;
 
@@ -70,7 +65,7 @@ public class URLImageLabel extends Composite implements ControllerListener
 
     public URLImageLabel ( final Composite parent, final int style, final DataItemDescriptor descriptor, final URLImageComponent component )
     {
-        super ( parent, style );
+        super ( parent, style, null, null );
         this.component = component;
 
         final GridLayout layout = new GridLayout ( 2, false );
@@ -95,21 +90,10 @@ public class URLImageLabel extends Composite implements ControllerListener
         }
         this.label.setLayoutData ( gd );
 
-        this.controller = new DataController ( this );
-
         if ( descriptor != null )
         {
             this.controller.registerItem ( "value", descriptor, true );
         }
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                URLImageLabel.this.handleDispose ();
-            }
-        } );
 
         showUrl ( component.getFallbackImageUrl () );
     }
@@ -122,7 +106,6 @@ public class URLImageLabel extends Composite implements ControllerListener
             this.currentImage = null;
         }
 
-        this.controller.dispose ();
         this.resourceManager.dispose ();
     }
 

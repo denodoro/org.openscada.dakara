@@ -71,4 +71,16 @@ class GroupTabImpl implements GroupTab
     {
         return this.visibility;
     }
+
+    @Override
+    public void start ()
+    {
+        this.component.start ();
+    }
+
+    @Override
+    public void stop ()
+    {
+        this.component.stop ();
+    }
 }

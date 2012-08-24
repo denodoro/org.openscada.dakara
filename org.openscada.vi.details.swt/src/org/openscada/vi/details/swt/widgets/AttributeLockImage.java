@@ -68,12 +68,6 @@ public class AttributeLockImage extends AttributeImage
     }
 
     @Override
-    protected void performDispose ()
-    {
-        super.performDispose ();
-    }
-
-    @Override
     protected void initLabels ()
     {
         super.initLabels ();
@@ -88,7 +82,6 @@ public class AttributeLockImage extends AttributeImage
             }
 
         } );
-
     }
 
     public Styler createBoldStyler ()

@@ -105,6 +105,24 @@ public class DetailComponentImpl implements DetailComponent
         }
     }
 
+    @Override
+    public void start ()
+    {
+        for ( final ComponentVisibility visibility : this.visibilites )
+        {
+            visibility.start ();
+        }
+    }
+
+    @Override
+    public void stop ()
+    {
+        for ( final ComponentVisibility visibility : this.visibilites )
+        {
+            visibility.stop ();
+        }
+    }
+
     /**
      * Returns a list of descriptors used by this and all sub components
      * 

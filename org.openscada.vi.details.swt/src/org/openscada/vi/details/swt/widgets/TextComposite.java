@@ -23,8 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.GridData;
@@ -35,7 +33,6 @@ import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.eclipse.swt.CLabel;
 import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
@@ -46,8 +43,6 @@ public class TextComposite extends ReadableComposite implements ControllerListen
     private static final Logger logger = LoggerFactory.getLogger ( TextComposite.class );
 
     private final CLabel dataText;
-
-    private final DataController controller;
 
     private final AttributeImage attributeLabel;
 
@@ -64,17 +59,6 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         this.date = date;
 
         this.map = stringToMap ( textMap );
-
-        this.controller = new DataController ( this );
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                TextComposite.this.handleDispose ();
-            }
-        } );
 
         if ( width == 0 )
         {
@@ -117,13 +101,14 @@ public class TextComposite extends ReadableComposite implements ControllerListen
         }
     }
 
+    @Override
     protected void handleDispose ()
     {
-        this.controller.dispose ();
         if ( this.font != null )
         {
             this.font.dispose ();
         }
+        super.handleDispose ();
     }
 
     @Override

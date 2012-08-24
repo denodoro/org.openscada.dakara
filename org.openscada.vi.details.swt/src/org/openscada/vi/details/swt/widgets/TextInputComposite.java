@@ -25,8 +25,6 @@ import java.util.Map;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
@@ -34,7 +32,6 @@ import org.openscada.core.Variant;
 import org.openscada.core.VariantType;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
@@ -46,8 +43,6 @@ public class TextInputComposite extends WriteableComposite implements Controller
 
     private final Text data;
 
-    private final DataController controller;
-
     private final AttributeLockImage attributeLabel;
 
     private final DataItemDescriptor descriptor;
@@ -56,17 +51,7 @@ public class TextInputComposite extends WriteableComposite implements Controller
     {
         super ( parent, style, format, decimal, ceil, floor, attribute, hdConnectionId, hdItemId );
 
-        this.controller = new DataController ( this );
         this.descriptor = descriptor;
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                TextInputComposite.this.handleDispose ();
-            }
-        } );
 
         GridLayoutFactory.fillDefaults ().numColumns ( 3 ).margins ( 5, 5 ).spacing ( 0, 0 ).equalWidth ( false ).applyTo ( this );
         GridDataFactory.fillDefaults ().grab ( true, false ).applyTo ( this );
@@ -110,11 +95,6 @@ public class TextInputComposite extends WriteableComposite implements Controller
             this.controller.writeOperation ( null, attributes, this.descriptor );
         }
         getShell ().setFocus ();
-    }
-
-    protected void handleDispose ()
-    {
-        this.controller.dispose ();
     }
 
     @Override

@@ -24,8 +24,6 @@ import java.util.Map;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
@@ -34,22 +32,18 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ValueSetComposite extends WriteableComposite implements ControllerListener
+public class ValueSetComposite extends WriteableComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( ValueSetComposite.class );
 
     private final Composite label;
 
     private final Text data;
-
-    private final DataController controller;
 
     private final Button setButton;
 
@@ -67,20 +61,9 @@ public class ValueSetComposite extends WriteableComposite implements ControllerL
     {
         super ( parent, style, format, decimal, ceil, floor, attribute, hdConnectionId, hdItemId );
 
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                ValueSetComposite.this.handleDispose ();
-            }
-        } );
-
         this.diDescriptorButtonReset = resetDescriptor;
         this.diDescriptorButtonSet = setDescriptor;
         this.diDescriptorText = valueDescriptor;
-
-        this.controller = new DataController ( this );
 
         GridLayoutFactory.fillDefaults ().numColumns ( 4 ).margins ( 5, 5 ).spacing ( 0, 0 ).equalWidth ( false ).applyTo ( this );
         GridDataFactory.fillDefaults ().grab ( true, false ).applyTo ( this );
@@ -175,11 +158,6 @@ public class ValueSetComposite extends WriteableComposite implements ControllerL
         {
             logger.warn ( "Missing click item for write operation" ); //$NON-NLS-1$
         }
-    }
-
-    protected void handleDispose ()
-    {
-        this.controller.dispose ();
     }
 
     @Override

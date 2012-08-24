@@ -26,8 +26,6 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -35,13 +33,12 @@ import org.eclipse.swt.widgets.Label;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BoolLEDComposite extends Composite implements ControllerListener
+public class BoolLEDComposite extends GenericComposite implements ControllerListener
 {
     private static final Logger logger = LoggerFactory.getLogger ( BoolLEDComposite.class );
 
@@ -50,8 +47,6 @@ public class BoolLEDComposite extends Composite implements ControllerListener
     private final Label signalLabel;
 
     private final AttributeImage attributeLabel;
-
-    private final DataController controller;
 
     private final boolean isAlarm;
 
@@ -65,16 +60,7 @@ public class BoolLEDComposite extends Composite implements ControllerListener
 
     public BoolLEDComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final boolean isAlarm, final String attribute )
     {
-        super ( parent, style );
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                BoolLEDComposite.this.handleDispose ();
-            }
-        } );
+        super ( parent, style, null, null );
 
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
         this.imageGreen = this.resourceManager.createImageWithDefault ( ImageDescriptor.createFromFile ( BoolLEDComposite.class, "icons/ledGreen.png" ) ); //$NON-NLS-1$
@@ -96,8 +82,6 @@ public class BoolLEDComposite extends Composite implements ControllerListener
         this.signalLabel.setImage ( this.imageGray );
         new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
 
-        this.controller = new DataController ( this );
-
         if ( descriptor != null )
         {
             this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
@@ -117,10 +101,11 @@ public class BoolLEDComposite extends Composite implements ControllerListener
         }
     }
 
+    @Override
     protected void handleDispose ()
     {
-        this.controller.dispose ();
         this.resourceManager.dispose ();
+        super.handleDispose ();
     }
 
     @Override

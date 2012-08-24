@@ -32,4 +32,8 @@ public interface VisibleComponent
     public void dispose ();
 
     public IObservableSet getDescriptors ();
+
+    public void start ();
+
+    public void stop ();
 }

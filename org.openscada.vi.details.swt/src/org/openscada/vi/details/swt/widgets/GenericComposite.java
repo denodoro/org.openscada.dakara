@@ -25,6 +25,7 @@ import java.util.Map;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.openscada.vi.details.model.DetailView.Registration;
 import org.openscada.vi.details.swt.data.ControllerListener;
 import org.openscada.vi.details.swt.data.DataController;
@@ -55,8 +56,44 @@ public abstract class GenericComposite extends Composite implements ControllerLi
             @Override
             public void widgetDisposed ( final DisposeEvent e )
             {
-                GenericComposite.this.controller.dispose ();
+                handleDispose ();
             }
         } );
+    }
+
+    public void start ()
+    {
+        this.controller.start ();
+        for ( final Control control : getChildren () )
+        {
+            if ( control instanceof GenericComposite )
+            {
+                ( (GenericComposite)control ).start ();
+            }
+        }
+    }
+
+    public void stop ()
+    {
+        for ( final Control control : getChildren () )
+        {
+            if ( control instanceof GenericComposite )
+            {
+                ( (GenericComposite)control ).stop ();
+            }
+        }
+        this.controller.stop ();
+    }
+
+    protected void handleDispose ()
+    {
+        this.controller.dispose ();
+    }
+
+    @Override
+    public void dispose ()
+    {
+        handleDispose ();
+        super.dispose ();
     }
 }

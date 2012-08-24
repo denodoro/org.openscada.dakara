@@ -24,6 +24,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
+import org.openscada.vi.details.swt.impl.GroupTab;
 
 /**
  * A visibility component for TabFolders
@@ -39,21 +40,18 @@ public class TabVisibleComponent implements VisibleComponent
 
     private final Control control;
 
-    private final String label;
-
     private TabItem item;
 
     private final int index;
 
-    private final IObservableSet items;
+    private final GroupTab groupTab;
 
-    public TabVisibleComponent ( final TabFolder folder, final int index, final String label, final Control control, final IObservableSet items )
+    public TabVisibleComponent ( final TabFolder folder, final int index, final GroupTab groupTab, final Control control )
     {
         this.folder = folder;
         this.index = index;
         this.control = control;
-        this.label = label;
-        this.items = items;
+        this.groupTab = groupTab;
     }
 
     @Override
@@ -71,7 +69,7 @@ public class TabVisibleComponent implements VisibleComponent
             this.item = new TabItem ( this.folder, SWT.NONE, tabIndex );
             this.item.setData ( "order", this.index );
         }
-        this.item.setText ( this.label );
+        this.item.setText ( this.groupTab.getLabel () );
         this.item.setControl ( this.control );
     }
 
@@ -112,7 +110,19 @@ public class TabVisibleComponent implements VisibleComponent
     @Override
     public IObservableSet getDescriptors ()
     {
-        return this.items;
+        return this.groupTab.getDescriptors ();
+    }
+
+    @Override
+    public void start ()
+    {
+        this.groupTab.start ();
+    }
+
+    @Override
+    public void stop ()
+    {
+        this.groupTab.stop ();
     }
 
 }

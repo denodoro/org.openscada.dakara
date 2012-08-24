@@ -105,8 +105,6 @@ public class DetailViewDialog implements SessionListener
                 this.shell.setToolTipText ( this.shell.getToolTipText () + this.properties.get ( key ) + "\n" ); //$NON-NLS-1$
             }
         }
-        //        this.shell.setToolTipText ( "Properties: " + this.properties );
-
         this.shell.addShellListener ( new ShellAdapter () {
             @Override
             public void shellClosed ( final ShellEvent e )
@@ -118,8 +116,6 @@ public class DetailViewDialog implements SessionListener
         this.shell.setLayout ( new FillLayout () );
 
         this.detailView.init ( this.shell, this.properties );
-        //        final Label label = new Label ( this.shell, 0 );
-        //        label.setText ( "target: " + this.properties.get ( "linkTarget" ) ); //for testing only
 
         this.shell.pack ();
         this.shell.open ();

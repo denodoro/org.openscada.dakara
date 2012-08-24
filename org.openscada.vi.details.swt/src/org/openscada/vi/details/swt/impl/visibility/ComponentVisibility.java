@@ -97,11 +97,13 @@ public class ComponentVisibility
     protected void hide ()
     {
         this.component.hide ();
+        this.component.stop ();
         detachDescriptors ();
     }
 
     protected void show ()
     {
+        this.component.start ();
         this.component.show ();
         attachDescriptors ();
     }
@@ -127,5 +129,18 @@ public class ComponentVisibility
     public IObservableSet getDescriptors ()
     {
         return this.descriptors;
+    }
+
+    public void start ()
+    {
+        if ( this.state )
+        {
+            this.component.start ();
+        }
+    }
+
+    public void stop ()
+    {
+        this.component.stop ();
     }
 }

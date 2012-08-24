@@ -63,7 +63,16 @@ public class ItemRegistration
                 ItemRegistration.this.handleSetConnection ( (ConnectionService)connectionService );
             }
         } );
+    }
+
+    public void open ()
+    {
         this.tracker.open ();
+    }
+
+    public void close ()
+    {
+        this.tracker.close ();
     }
 
     protected void handleSetConnection ( final ConnectionService connectionService )
@@ -126,11 +135,6 @@ public class ItemRegistration
                 logger.warn ( "Failed to fire update", e ); //$NON-NLS-1$
             }
         }
-    }
-
-    public void dispose ()
-    {
-        this.tracker.close ();
     }
 
     public DataItemValue getCurrentValue ()

@@ -26,6 +26,7 @@ import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.swt.widgets.Control;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.details.swt.widgets.GenericComposite;
 
 public abstract class TrackingVisibleComponent implements VisibleComponent
 {
@@ -42,6 +43,30 @@ public abstract class TrackingVisibleComponent implements VisibleComponent
     protected void untrackControl ( final Control control )
     {
         this.controls.remove ( control );
+    }
+
+    @Override
+    public void start ()
+    {
+        for ( final Control control : this.controls )
+        {
+            if ( control instanceof GenericComposite )
+            {
+                ( (GenericComposite)control ).start ();
+            }
+        }
+    }
+
+    @Override
+    public void stop ()
+    {
+        for ( final Control control : this.controls )
+        {
+            if ( control instanceof GenericComposite )
+            {
+                ( (GenericComposite)control ).stop ();
+            }
+        }
     }
 
     @Override

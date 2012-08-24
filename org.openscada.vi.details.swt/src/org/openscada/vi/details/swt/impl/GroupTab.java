@@ -27,7 +27,7 @@ import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
 
-interface GroupTab
+public interface GroupTab
 {
     public void dispose ();
 
@@ -43,4 +43,8 @@ interface GroupTab
     public IObservableSet getDescriptors ();
 
     public Visibility getVisibility ();
+
+    public void start ();
+
+    public void stop ();
 }

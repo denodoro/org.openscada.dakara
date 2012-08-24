@@ -34,7 +34,6 @@ import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
@@ -47,8 +46,6 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
     private final ProgressBar progressBar;
 
     private final Text text;
-
-    private final DataController controller;
 
     private final AttributeImage attributeLabel;
 
@@ -92,8 +89,6 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
         {
             this.width = width;
         }
-
-        this.controller = new DataController ( this );
 
         addDisposeListener ( new DisposeListener () {
 
@@ -145,15 +140,6 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
         {
             this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
         }
-    }
-
-    protected void handleDispose ()
-    {
-        this.controller.dispose ();
-        //        if ( this.font != null )
-        //        {
-        //            this.font.dispose ();
-        //        }
     }
 
     @Override

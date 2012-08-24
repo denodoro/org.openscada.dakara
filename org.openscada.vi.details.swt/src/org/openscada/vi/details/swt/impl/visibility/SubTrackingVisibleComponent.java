@@ -49,6 +49,26 @@ public abstract class SubTrackingVisibleComponent extends TrackingVisibleCompone
         }
     };
 
+    @Override
+    public void start ()
+    {
+        super.start ();
+        for ( final DetailComponent component : this.subs )
+        {
+            component.start ();
+        }
+    };
+
+    @Override
+    public void stop ()
+    {
+        for ( final DetailComponent component : this.subs )
+        {
+            component.stop ();
+        }
+        super.stop ();
+    };
+
     protected void trackSub ( final DetailComponent subComponent )
     {
         this.subs.add ( subComponent );

@@ -36,4 +36,8 @@ public interface DetailComponent
      * @return an observable set of {@link DataItemDescriptor}s
      */
     public IObservableSet getDescriptors ();
+
+    public void start ();
+
+    public void stop ();
 }

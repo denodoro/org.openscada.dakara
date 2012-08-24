@@ -32,8 +32,6 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -56,7 +54,6 @@ import org.openscada.ui.utils.blink.Blinker;
 import org.openscada.ui.utils.blink.Blinker.Handler;
 import org.openscada.ui.utils.blink.Blinker.State;
 import org.openscada.vi.details.swt.Activator;
-import org.openscada.vi.details.swt.data.DataController;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
@@ -90,8 +87,6 @@ public class AttributeImage extends GenericComposite
 
     private Image imageBlock;
 
-    private final DataController dataController;
-
     private final DataItemDescriptor descriptor;
 
     private Blinker blinker;
@@ -103,7 +98,6 @@ public class AttributeImage extends GenericComposite
     public AttributeImage ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String hdConnectionId, final String hdItemId )
     {
         super ( parent, style, null, null );
-        this.dataController = new DataController ( this );
         this.descriptor = descriptor;
 
         // set the hd connection information .. either using combined descriptor in item id
@@ -131,15 +125,6 @@ public class AttributeImage extends GenericComposite
         initBlinker ();
         initLabels ();
         initRowLayout ();
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                AttributeImage.this.dataController.dispose ();
-            }
-        } );
     }
 
     protected void createTrendButton ( final Composite parent )
@@ -260,38 +245,26 @@ public class AttributeImage extends GenericComposite
         return this.imageEmpty;
     }
 
-    protected DataController getDataController ()
-    {
-        return this.dataController;
-    }
-
     private void ack ()
     {
         final Map<String, Variant> map = new HashMap<String, Variant> ( 1 );
-        final Variant variant = Variant.TRUE;
 
-        map.put ( "remote.ackRequired", variant ); //$NON-NLS-1$
+        map.put ( "remote.ackRequired", Variant.TRUE ); //$NON-NLS-1$
 
-        this.dataController.writeOperation ( map, this.descriptor );
+        this.controller.writeOperation ( map, this.descriptor );
         logger.info ( "remote.ackRequired written" ); //$NON-NLS-1$
     }
 
-    protected void performDispose ()
+    @Override
+    protected void handleDispose ()
     {
         logger.debug ( "Disposing" ); //$NON-NLS-1$
 
         this.blinker.dispose ();
 
-        this.dataController.dispose ();
-
         this.resourceManager.dispose ();
-    }
 
-    @Override
-    public void dispose ()
-    {
-        performDispose ();
-        super.dispose ();
+        super.handleDispose ();
     }
 
     protected void handleBlink ( final State state )

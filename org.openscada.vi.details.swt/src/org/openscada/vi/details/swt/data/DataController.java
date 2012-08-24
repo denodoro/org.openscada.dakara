@@ -47,6 +47,8 @@ public class DataController
 
     private final ControllerListener listener;
 
+    private boolean started = false;
+
     public DataController ( final ControllerListener listener )
     {
         this.listener = listener;
@@ -56,18 +58,55 @@ public class DataController
     {
         logger.info ( "Registering: {} -> {}", new Object[] { key, item } ); //$NON-NLS-1$
 
-        final ItemRegistration oldItem = this.items.put ( key, new ItemRegistration ( key, item, new ItemListener () {
+        final ItemRegistration newItem = new ItemRegistration ( key, item, new ItemListener () {
 
             @Override
             public void dataItemUpdate ( final Object key, final DataItemValue value )
             {
                 DataController.this.handleDataItemUpdate ( key, value, aggregateState );
             }
-        } ) );
+        } );
+
+        final ItemRegistration oldItem = this.items.put ( key, newItem );
         if ( oldItem != null )
         {
             logger.warn ( "Duplicate registration of {}. Disposing old entry", new Object[] { key } ); //$NON-NLS-1$
-            oldItem.dispose ();
+            oldItem.close ();
+        }
+
+        if ( this.started )
+        {
+            newItem.open ();
+        }
+    }
+
+    public void start ()
+    {
+        if ( this.started )
+        {
+            return;
+        }
+
+        this.started = true;
+
+        for ( final ItemRegistration item : this.items.values () )
+        {
+            item.open ();
+        }
+    }
+
+    public void stop ()
+    {
+        if ( !this.started )
+        {
+            return;
+        }
+
+        this.started = false;
+
+        for ( final ItemRegistration item : this.items.values () )
+        {
+            item.close ();
         }
     }
 
@@ -148,7 +187,7 @@ public class DataController
     {
         for ( final ItemRegistration item : this.items.values () )
         {
-            item.dispose ();
+            item.close ();
         }
         this.items.clear ();
     }

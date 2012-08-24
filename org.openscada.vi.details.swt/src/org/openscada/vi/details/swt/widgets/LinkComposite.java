@@ -20,8 +20,6 @@
 package org.openscada.vi.details.swt.widgets;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.DisposeEvent;
-import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.RowLayout;
@@ -40,15 +38,6 @@ public class LinkComposite extends Composite
     public LinkComposite ( final Composite parent, final int style, final String format )
     {
         super ( parent, style );
-
-        addDisposeListener ( new DisposeListener () {
-
-            @Override
-            public void widgetDisposed ( final DisposeEvent e )
-            {
-                LinkComposite.this.handleDispose ();
-            }
-        } );
 
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
@@ -77,7 +66,4 @@ public class LinkComposite extends Composite
         } );
     }
 
-    protected void handleDispose ()
-    {
-    }
 }
