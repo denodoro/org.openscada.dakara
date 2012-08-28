@@ -479,13 +479,14 @@ public class DetailComponentImpl implements DetailComponent
                 for ( final Component child : groupEntry.getComponents () )
                 {
                     final DetailComponentImpl comp = new DetailComponentImpl ( child );
-                    trackSub ( comp );
 
                     final Composite wrapper = new Composite ( groupWidget, SWT.NONE );
                     wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
                     wrapper.setLayout ( new FillLayout () );
 
                     comp.init ( DetailComponentImpl.this.visibleFactory, wrapper, properties );
+
+                    trackSub ( comp );
                 }
 
                 trackControl ( groupWidget );
