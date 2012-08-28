@@ -69,6 +69,15 @@ public abstract class SubTrackingVisibleComponent extends TrackingVisibleCompone
         super.stop ();
     };
 
+    /**
+     * Start tracking the sub component
+     * <p>
+     * Note that the sub component must be created and initialized. This method will call {@link DetailComponent#getDescriptors()} only once and needs the fill list then.
+     * </p>
+     * 
+     * @param subComponent
+     *            the sub component to add
+     */
     protected void trackSub ( final DetailComponent subComponent )
     {
         this.subs.add ( subComponent );
