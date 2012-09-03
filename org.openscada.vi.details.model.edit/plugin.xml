@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://th4-systems.com/VIMS/DetailView/1.0"
+            uri="http://openscada.org/openSCADA/DetailView/1.0"
             class="org.openscada.vi.details.model.DetailView.provider.DetailViewItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
