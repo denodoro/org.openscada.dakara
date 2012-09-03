@@ -94,6 +94,9 @@ public interface ScriptModule extends EObject
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The URL which points to a resource that will be executed as script.
+     * <!-- end-model-doc -->
      * @return the value of the '<em>Code Uri</em>' attribute.
      * @see #setCodeUri(String)
      * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getScriptModule_CodeUri()

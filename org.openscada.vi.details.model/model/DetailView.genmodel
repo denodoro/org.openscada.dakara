@@ -7,7 +7,7 @@
     copyrightFields="false">
   <foreignModel>DetailView.ecore</foreignModel>
   <genPackages prefix="DetailView" basePackage="org.openscada.vi.details.model" disposableProviderFactory="true"
-      ecorePackage="DetailView.ecore#/">
+      extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="DetailView.ecore#/">
     <genClasses ecoreClass="DetailView.ecore#//View">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/headerComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/groups"/>

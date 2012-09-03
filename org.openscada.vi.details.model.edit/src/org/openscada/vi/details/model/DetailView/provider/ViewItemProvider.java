@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -203,7 +204,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return DetailViewEditPlugin.INSTANCE;
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }
