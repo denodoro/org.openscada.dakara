@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.Symbol;
@@ -35,9 +34,9 @@ public class SymbolTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(SymbolTest.class);
+        TestRunner.run ( SymbolTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class SymbolTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public SymbolTest(String name)
+    public SymbolTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class SymbolTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Symbol fixture)
+    protected void setFixture ( Symbol fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class SymbolTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Symbol getFixture()
+    protected Symbol getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class SymbolTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createSymbol());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createSymbol () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class SymbolTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //SymbolTest

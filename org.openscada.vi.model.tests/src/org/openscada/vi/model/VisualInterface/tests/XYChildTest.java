@@ -25,9 +25,9 @@ public class XYChildTest extends ChildTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(XYChildTest.class);
+        TestRunner.run ( XYChildTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class XYChildTest extends ChildTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public XYChildTest(String name)
+    public XYChildTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class XYChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected XYChild getFixture()
+    protected XYChild getFixture ()
     {
         return (XYChild)fixture;
     }
@@ -60,9 +60,9 @@ public class XYChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createXYChild());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createXYChild () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class XYChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //XYChildTest

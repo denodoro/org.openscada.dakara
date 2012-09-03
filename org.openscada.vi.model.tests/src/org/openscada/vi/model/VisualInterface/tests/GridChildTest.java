@@ -25,9 +25,9 @@ public class GridChildTest extends ChildTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(GridChildTest.class);
+        TestRunner.run ( GridChildTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class GridChildTest extends ChildTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridChildTest(String name)
+    public GridChildTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class GridChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected GridChild getFixture()
+    protected GridChild getFixture ()
     {
         return (GridChild)fixture;
     }
@@ -60,9 +60,9 @@ public class GridChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createGridChild());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createGridChild () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class GridChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //GridChildTest

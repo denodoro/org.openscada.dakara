@@ -25,9 +25,9 @@ public class EllipseTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(EllipseTest.class);
+        TestRunner.run ( EllipseTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class EllipseTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public EllipseTest(String name)
+    public EllipseTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class EllipseTest extends ShapeTest
      * @generated
      */
     @Override
-    protected Ellipse getFixture()
+    protected Ellipse getFixture ()
     {
         return (Ellipse)fixture;
     }
@@ -60,9 +60,9 @@ public class EllipseTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createEllipse());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createEllipse () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class EllipseTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //EllipseTest

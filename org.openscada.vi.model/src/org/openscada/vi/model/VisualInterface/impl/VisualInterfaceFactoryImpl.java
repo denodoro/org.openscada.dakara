@@ -7,16 +7,39 @@
 package org.openscada.vi.model.VisualInterface.impl;
 
 import java.util.Map;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.openscada.vi.model.VisualInterface.*;
+import org.openscada.vi.model.VisualInterface.Alignment;
+import org.openscada.vi.model.VisualInterface.Arc;
+import org.openscada.vi.model.VisualInterface.BorderChild;
+import org.openscada.vi.model.VisualInterface.BorderContainer;
+import org.openscada.vi.model.VisualInterface.Child;
+import org.openscada.vi.model.VisualInterface.Connection;
+import org.openscada.vi.model.VisualInterface.Dimension;
+import org.openscada.vi.model.VisualInterface.Ellipse;
+import org.openscada.vi.model.VisualInterface.FigureContainer;
+import org.openscada.vi.model.VisualInterface.GridAlignment;
+import org.openscada.vi.model.VisualInterface.GridChild;
+import org.openscada.vi.model.VisualInterface.GridContainer;
+import org.openscada.vi.model.VisualInterface.Image;
+import org.openscada.vi.model.VisualInterface.Line;
+import org.openscada.vi.model.VisualInterface.Orientation;
+import org.openscada.vi.model.VisualInterface.Position;
+import org.openscada.vi.model.VisualInterface.Rectangle;
+import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.model.VisualInterface.SymbolReference;
+import org.openscada.vi.model.VisualInterface.SystemCursor;
+import org.openscada.vi.model.VisualInterface.SystemCursorType;
+import org.openscada.vi.model.VisualInterface.Text;
+import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
+import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
+import org.openscada.vi.model.VisualInterface.XYChild;
+import org.openscada.vi.model.VisualInterface.XYContainer;
 
 /**
  * <!-- begin-user-doc -->

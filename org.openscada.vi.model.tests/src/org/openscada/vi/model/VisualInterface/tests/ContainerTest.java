@@ -33,9 +33,9 @@ public abstract class ContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ContainerTest(String name)
+    public ContainerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -44,7 +44,7 @@ public abstract class ContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Container fixture)
+    protected void setFixture ( Container fixture )
     {
         this.fixture = fixture;
     }
@@ -55,7 +55,7 @@ public abstract class ContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Container getFixture()
+    protected Container getFixture ()
     {
         return fixture;
     }

@@ -25,9 +25,9 @@ public class FigureContainerTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(FigureContainerTest.class);
+        TestRunner.run ( FigureContainerTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class FigureContainerTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public FigureContainerTest(String name)
+    public FigureContainerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class FigureContainerTest extends FigureTest
      * @generated
      */
     @Override
-    protected FigureContainer getFixture()
+    protected FigureContainer getFixture ()
     {
         return (FigureContainer)fixture;
     }
@@ -60,9 +60,9 @@ public class FigureContainerTest extends FigureTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createFigureContainer());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createFigureContainer () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class FigureContainerTest extends FigureTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //FigureContainerTest

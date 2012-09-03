@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.SymbolReference;
@@ -35,9 +34,9 @@ public class SymbolReferenceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(SymbolReferenceTest.class);
+        TestRunner.run ( SymbolReferenceTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class SymbolReferenceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public SymbolReferenceTest(String name)
+    public SymbolReferenceTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class SymbolReferenceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(SymbolReference fixture)
+    protected void setFixture ( SymbolReference fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class SymbolReferenceTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SymbolReference getFixture()
+    protected SymbolReference getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class SymbolReferenceTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createSymbolReference());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createSymbolReference () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class SymbolReferenceTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //SymbolReferenceTest

@@ -25,9 +25,9 @@ public class TextTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(TextTest.class);
+        TestRunner.run ( TextTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class TextTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public TextTest(String name)
+    public TextTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class TextTest extends FigureTest
      * @generated
      */
     @Override
-    protected Text getFixture()
+    protected Text getFixture ()
     {
         return (Text)fixture;
     }
@@ -60,9 +60,9 @@ public class TextTest extends FigureTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createText());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createText () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class TextTest extends FigureTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //TextTest

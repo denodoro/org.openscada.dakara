@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.openscada.vi.model.VisualInterface.Ellipse;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 

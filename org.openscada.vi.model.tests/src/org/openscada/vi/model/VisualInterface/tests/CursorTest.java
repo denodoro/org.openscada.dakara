@@ -33,9 +33,9 @@ public abstract class CursorTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public CursorTest(String name)
+    public CursorTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -44,7 +44,7 @@ public abstract class CursorTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Cursor fixture)
+    protected void setFixture ( Cursor fixture )
     {
         this.fixture = fixture;
     }
@@ -55,7 +55,7 @@ public abstract class CursorTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Cursor getFixture()
+    protected Cursor getFixture ()
     {
         return fixture;
     }

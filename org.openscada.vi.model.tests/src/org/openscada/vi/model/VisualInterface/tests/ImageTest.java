@@ -25,9 +25,9 @@ public class ImageTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ImageTest.class);
+        TestRunner.run ( ImageTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ImageTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ImageTest(String name)
+    public ImageTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ImageTest extends FigureTest
      * @generated
      */
     @Override
-    protected Image getFixture()
+    protected Image getFixture ()
     {
         return (Image)fixture;
     }
@@ -60,9 +60,9 @@ public class ImageTest extends FigureTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createImage());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createImage () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ImageTest extends FigureTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ImageTest

@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.BorderContainer;
@@ -35,9 +34,9 @@ public class BorderContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(BorderContainerTest.class);
+        TestRunner.run ( BorderContainerTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class BorderContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public BorderContainerTest(String name)
+    public BorderContainerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class BorderContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(BorderContainer fixture)
+    protected void setFixture ( BorderContainer fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class BorderContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected BorderContainer getFixture()
+    protected BorderContainer getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class BorderContainerTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createBorderContainer());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createBorderContainer () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class BorderContainerTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //BorderContainerTest

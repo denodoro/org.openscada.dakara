@@ -25,9 +25,9 @@ public class ArcTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ArcTest.class);
+        TestRunner.run ( ArcTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class ArcTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ArcTest(String name)
+    public ArcTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class ArcTest extends ShapeTest
      * @generated
      */
     @Override
-    protected Arc getFixture()
+    protected Arc getFixture ()
     {
         return (Arc)fixture;
     }
@@ -60,9 +60,9 @@ public class ArcTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createArc());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createArc () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class ArcTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ArcTest

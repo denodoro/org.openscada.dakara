@@ -25,9 +25,9 @@ public class RectangleTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(RectangleTest.class);
+        TestRunner.run ( RectangleTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class RectangleTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public RectangleTest(String name)
+    public RectangleTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class RectangleTest extends ShapeTest
      * @generated
      */
     @Override
-    protected Rectangle getFixture()
+    protected Rectangle getFixture ()
     {
         return (Rectangle)fixture;
     }
@@ -60,9 +60,9 @@ public class RectangleTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createRectangle());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createRectangle () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class RectangleTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //RectangleTest

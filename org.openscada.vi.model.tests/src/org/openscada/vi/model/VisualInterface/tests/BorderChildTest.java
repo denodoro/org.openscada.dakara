@@ -25,9 +25,9 @@ public class BorderChildTest extends ChildTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(BorderChildTest.class);
+        TestRunner.run ( BorderChildTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class BorderChildTest extends ChildTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public BorderChildTest(String name)
+    public BorderChildTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class BorderChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected BorderChild getFixture()
+    protected BorderChild getFixture ()
     {
         return (BorderChild)fixture;
     }
@@ -60,9 +60,9 @@ public class BorderChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createBorderChild());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createBorderChild () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class BorderChildTest extends ChildTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //BorderChildTest

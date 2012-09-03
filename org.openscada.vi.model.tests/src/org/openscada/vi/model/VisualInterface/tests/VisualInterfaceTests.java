@@ -8,7 +8,6 @@ package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
@@ -25,9 +24,9 @@ public class VisualInterfaceTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(suite());
+        TestRunner.run ( suite () );
     }
 
     /**
@@ -35,9 +34,9 @@ public class VisualInterfaceTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Test suite()
+    public static Test suite ()
     {
-        TestSuite suite = new VisualInterfaceTests("VisualInterface Tests"); //$NON-NLS-1$
+        TestSuite suite = new VisualInterfaceTests ( "VisualInterface Tests" ); //$NON-NLS-1$
         return suite;
     }
 
@@ -46,9 +45,9 @@ public class VisualInterfaceTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public VisualInterfaceTests(String name)
+    public VisualInterfaceTests ( String name )
     {
-        super(name);
+        super ( name );
     }
 
 } //VisualInterfaceTests

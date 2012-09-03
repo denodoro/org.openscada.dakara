@@ -9,7 +9,6 @@ package org.openscada.vi.model.VisualInterface.tests;
 import java.util.Map;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
@@ -37,9 +36,9 @@ public class StringToStringMapTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(StringToStringMapTest.class);
+        TestRunner.run ( StringToStringMapTest.class );
     }
 
     /**
@@ -48,9 +47,9 @@ public class StringToStringMapTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public StringToStringMapTest(String name)
+    public StringToStringMapTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -59,7 +58,7 @@ public class StringToStringMapTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Map.Entry<String, String> fixture)
+    protected void setFixture ( Map.Entry<String, String> fixture )
     {
         this.fixture = fixture;
     }
@@ -70,7 +69,7 @@ public class StringToStringMapTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Map.Entry<String, String> getFixture()
+    protected Map.Entry<String, String> getFixture ()
     {
         return fixture;
     }
@@ -82,10 +81,10 @@ public class StringToStringMapTest extends TestCase
      * @generated
      */
     @Override
-    @SuppressWarnings("unchecked")
-    protected void setUp() throws Exception
+    @SuppressWarnings ( "unchecked" )
+    protected void setUp () throws Exception
     {
-        setFixture((Map.Entry<String, String>)VisualInterfaceFactory.eINSTANCE.create(VisualInterfacePackage.Literals.STRING_TO_STRING_MAP));
+        setFixture ( (Map.Entry<String, String>)VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) );
     }
 
     /**
@@ -95,9 +94,9 @@ public class StringToStringMapTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //StringToStringMapTest

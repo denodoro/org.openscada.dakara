@@ -25,9 +25,9 @@ public class SystemCursorTest extends CursorTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(SystemCursorTest.class);
+        TestRunner.run ( SystemCursorTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class SystemCursorTest extends CursorTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemCursorTest(String name)
+    public SystemCursorTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class SystemCursorTest extends CursorTest
      * @generated
      */
     @Override
-    protected SystemCursor getFixture()
+    protected SystemCursor getFixture ()
     {
         return (SystemCursor)fixture;
     }
@@ -60,9 +60,9 @@ public class SystemCursorTest extends CursorTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createSystemCursor());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createSystemCursor () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class SystemCursorTest extends CursorTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //SystemCursorTest

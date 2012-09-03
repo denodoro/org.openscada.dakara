@@ -33,9 +33,9 @@ public abstract class PrimitiveTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public PrimitiveTest(String name)
+    public PrimitiveTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -44,7 +44,7 @@ public abstract class PrimitiveTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Primitive fixture)
+    protected void setFixture ( Primitive fixture )
     {
         this.fixture = fixture;
     }
@@ -55,7 +55,7 @@ public abstract class PrimitiveTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Primitive getFixture()
+    protected Primitive getFixture ()
     {
         return fixture;
     }

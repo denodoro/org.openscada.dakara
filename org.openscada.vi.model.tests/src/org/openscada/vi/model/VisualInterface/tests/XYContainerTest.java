@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
@@ -35,9 +34,9 @@ public class XYContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(XYContainerTest.class);
+        TestRunner.run ( XYContainerTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class XYContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public XYContainerTest(String name)
+    public XYContainerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class XYContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(XYContainer fixture)
+    protected void setFixture ( XYContainer fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class XYContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected XYContainer getFixture()
+    protected XYContainer getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class XYContainerTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createXYContainer());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createXYContainer () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class XYContainerTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //XYContainerTest

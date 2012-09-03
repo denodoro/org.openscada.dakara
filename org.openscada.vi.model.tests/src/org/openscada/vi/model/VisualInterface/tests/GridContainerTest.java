@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.GridContainer;
@@ -35,9 +34,9 @@ public class GridContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(GridContainerTest.class);
+        TestRunner.run ( GridContainerTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class GridContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public GridContainerTest(String name)
+    public GridContainerTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class GridContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(GridContainer fixture)
+    protected void setFixture ( GridContainer fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class GridContainerTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected GridContainer getFixture()
+    protected GridContainer getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class GridContainerTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createGridContainer());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createGridContainer () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class GridContainerTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //GridContainerTest

@@ -8,7 +8,8 @@
     classNamePattern="">
   <foreignModel>VisualInterface.ecore</foreignModel>
   <genPackages prefix="VisualInterface" basePackage="org.openscada.vi.model" disposableProviderFactory="true"
-      fileExtensions="vi" ecorePackage="VisualInterface.ecore#/">
+      extensibleProviderFactory="true" childCreationExtenders="true" fileExtensions="vi"
+      ecorePackage="VisualInterface.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//Alignment">
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/LEFT"/>
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/CENTER"/>

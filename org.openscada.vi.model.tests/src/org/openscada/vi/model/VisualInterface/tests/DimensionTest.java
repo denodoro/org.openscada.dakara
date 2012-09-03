@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.Dimension;
@@ -35,9 +34,9 @@ public class DimensionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(DimensionTest.class);
+        TestRunner.run ( DimensionTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class DimensionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public DimensionTest(String name)
+    public DimensionTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class DimensionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Dimension fixture)
+    protected void setFixture ( Dimension fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class DimensionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Dimension getFixture()
+    protected Dimension getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class DimensionTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createDimension());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createDimension () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class DimensionTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //DimensionTest

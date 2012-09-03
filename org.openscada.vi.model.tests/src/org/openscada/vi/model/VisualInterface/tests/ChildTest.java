@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.Child;
@@ -35,9 +34,9 @@ public class ChildTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ChildTest.class);
+        TestRunner.run ( ChildTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class ChildTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ChildTest(String name)
+    public ChildTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class ChildTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Child fixture)
+    protected void setFixture ( Child fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class ChildTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Child getFixture()
+    protected Child getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class ChildTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createChild());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createChild () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class ChildTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ChildTest

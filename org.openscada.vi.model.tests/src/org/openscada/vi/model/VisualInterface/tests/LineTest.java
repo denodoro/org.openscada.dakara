@@ -25,9 +25,9 @@ public class LineTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(LineTest.class);
+        TestRunner.run ( LineTest.class );
     }
 
     /**
@@ -36,9 +36,9 @@ public class LineTest extends ShapeTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public LineTest(String name)
+    public LineTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -48,7 +48,7 @@ public class LineTest extends ShapeTest
      * @generated
      */
     @Override
-    protected Line getFixture()
+    protected Line getFixture ()
     {
         return (Line)fixture;
     }
@@ -60,9 +60,9 @@ public class LineTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createLine());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createLine () );
     }
 
     /**
@@ -72,9 +72,9 @@ public class LineTest extends ShapeTest
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //LineTest

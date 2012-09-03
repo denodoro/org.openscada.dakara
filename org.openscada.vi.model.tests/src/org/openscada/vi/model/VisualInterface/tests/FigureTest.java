@@ -8,10 +8,7 @@ package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
 
-import junit.textui.TestRunner;
-
 import org.openscada.vi.model.VisualInterface.Figure;
-import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,9 +33,9 @@ public abstract class FigureTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public FigureTest(String name)
+    public FigureTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -47,7 +44,7 @@ public abstract class FigureTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Figure fixture)
+    protected void setFixture ( Figure fixture )
     {
         this.fixture = fixture;
     }
@@ -58,7 +55,7 @@ public abstract class FigureTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Figure getFixture()
+    protected Figure getFixture ()
     {
         return fixture;
     }

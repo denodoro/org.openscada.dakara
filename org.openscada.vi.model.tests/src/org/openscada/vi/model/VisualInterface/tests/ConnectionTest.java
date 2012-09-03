@@ -7,7 +7,6 @@
 package org.openscada.vi.model.VisualInterface.tests;
 
 import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.openscada.vi.model.VisualInterface.Connection;
@@ -35,9 +34,9 @@ public class ConnectionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ConnectionTest.class);
+        TestRunner.run ( ConnectionTest.class );
     }
 
     /**
@@ -46,9 +45,9 @@ public class ConnectionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ConnectionTest(String name)
+    public ConnectionTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +56,7 @@ public class ConnectionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(Connection fixture)
+    protected void setFixture ( Connection fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +67,7 @@ public class ConnectionTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Connection getFixture()
+    protected Connection getFixture ()
     {
         return fixture;
     }
@@ -80,9 +79,9 @@ public class ConnectionTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(VisualInterfaceFactory.eINSTANCE.createConnection());
+        setFixture ( VisualInterfaceFactory.eINSTANCE.createConnection () );
     }
 
     /**
@@ -92,9 +91,9 @@ public class ConnectionTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ConnectionTest

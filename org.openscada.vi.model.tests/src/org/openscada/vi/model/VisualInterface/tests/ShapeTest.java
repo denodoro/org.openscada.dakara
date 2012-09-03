@@ -23,9 +23,9 @@ public abstract class ShapeTest extends FigureTest
      * <!-- end-user-doc -->
      * @generated
      */
-    public ShapeTest(String name)
+    public ShapeTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -35,7 +35,7 @@ public abstract class ShapeTest extends FigureTest
      * @generated
      */
     @Override
-    protected Shape getFixture()
+    protected Shape getFixture ()
     {
         return (Shape)fixture;
     }
