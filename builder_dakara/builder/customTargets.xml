@@ -114,10 +114,14 @@
   	<openscada.builder.copyPlugin id="org.openscada.vi.details.model.editor"/>
 	<openscada.builder.copyPlugin id="org.openscada.vi.details.swt"/>
   	
+  	<openscada.builder.copyPlugin id="org.openscada.vi.chart.model"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.chart.edit"/>
+  	
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.draw2d"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.viewer"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.ui.user"/>
+  	<openscada.builder.copyPlugin id="org.openscada.vi.ui.chart.draw2d"/>
   	
   	<openscada.builder.copyPlugin id="org.openscada.dakara.doc.isv"/>
   </target>

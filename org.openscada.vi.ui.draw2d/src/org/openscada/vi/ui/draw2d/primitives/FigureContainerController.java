@@ -24,14 +24,14 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.model.VisualInterface.FigureContainer;
+import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.ViewElementFactory;
 
 public class FigureContainerController extends FigureController
 {
     private final Figure figure;
 
-    public FigureContainerController ( final SymbolController controller, final FigureContainer element, final ResourceManager manager, final ViewElementFactory viewElementFactory )
+    public FigureContainerController ( final SymbolController controller, final FigureContainer element, final ResourceManager manager, final BasicViewElementFactory viewElementFactory ) throws Exception
     {
         super ( controller, manager );
 

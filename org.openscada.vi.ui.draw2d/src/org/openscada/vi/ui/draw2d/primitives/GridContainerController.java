@@ -26,14 +26,15 @@ import org.eclipse.draw2d.IFigure;
 import org.openscada.vi.model.VisualInterface.GridAlignment;
 import org.openscada.vi.model.VisualInterface.GridChild;
 import org.openscada.vi.model.VisualInterface.GridContainer;
+import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
+import org.openscada.vi.ui.draw2d.Controller;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.ViewElementFactory;
 
 public class GridContainerController implements Controller
 {
     private final Figure figure;
 
-    public GridContainerController ( final SymbolController controller, final GridContainer element, final ViewElementFactory factory )
+    public GridContainerController ( final SymbolController controller, final GridContainer element, final BasicViewElementFactory factory ) throws Exception
     {
         this.figure = new Figure ();
 
@@ -67,16 +68,16 @@ public class GridContainerController implements Controller
     {
         switch ( alignment )
         {
-        case BEGINNING:
-            return GridData.BEGINNING;
-        case END:
-            return GridData.END;
-        case CENTER:
-            return GridData.CENTER;
-        case FILL:
-            return GridData.FILL;
-        default:
-            return GridData.BEGINNING;
+            case BEGINNING:
+                return GridData.BEGINNING;
+            case END:
+                return GridData.END;
+            case CENTER:
+                return GridData.CENTER;
+            case FILL:
+                return GridData.FILL;
+            default:
+                return GridData.BEGINNING;
         }
     }
 

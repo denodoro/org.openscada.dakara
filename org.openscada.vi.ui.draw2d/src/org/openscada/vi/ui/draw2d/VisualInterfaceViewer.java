@@ -52,11 +52,10 @@ import org.openscada.vi.ui.draw2d.loader.StaticSymbolLoader;
 import org.openscada.vi.ui.draw2d.loader.SymbolLoader;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
-import org.openscada.vi.ui.draw2d.primitives.Controller;
 
 public class VisualInterfaceViewer extends Composite
 {
-    private final ViewElementFactory factory;
+    private final BasicViewElementFactory factory;
 
     private final FigureCanvas canvas;
 
@@ -145,7 +144,7 @@ public class VisualInterfaceViewer extends Composite
         this.canvas = createCanvas ();
         setZooming ( null );
 
-        this.factory = new ViewElementFactory ( this.canvas, this.manager );
+        this.factory = new BasicViewElementFactory ( this.canvas, this.manager );
 
         try
         {
@@ -308,7 +307,7 @@ public class VisualInterfaceViewer extends Composite
         this.canvas.setContents ( this.pane );
     }
 
-    protected Controller create ( final Primitive element )
+    protected Controller create ( final Primitive element ) throws Exception
     {
         return this.factory.create ( this.controller, element );
     }

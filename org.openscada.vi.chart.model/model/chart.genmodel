@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openscada.vi.chart.model/src"
+    modelPluginID="org.openscada.vi.chart.model" modelName="Chart" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/org.openscada.vi.model/model/VisualInterface.genmodel#//VisualInterface">
+  <foreignModel>chart.ecore</foreignModel>
+  <genPackages prefix="Chart" basePackage="org.openscada.vi.chart.model" resource="XML"
+      disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="chart.ecore#/">
+    <genClasses ecoreClass="chart.ecore#//ChartView"/>
+  </genPackages>
+</genmodel:GenModel>

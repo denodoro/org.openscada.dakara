@@ -25,8 +25,9 @@ import org.eclipse.draw2d.IFigure;
 import org.openscada.vi.model.VisualInterface.Alignment;
 import org.openscada.vi.model.VisualInterface.BorderChild;
 import org.openscada.vi.model.VisualInterface.BorderContainer;
+import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
+import org.openscada.vi.ui.draw2d.Controller;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.ViewElementFactory;
 
 public class BorderContainerController implements Controller
 {
@@ -34,7 +35,7 @@ public class BorderContainerController implements Controller
 
     private BorderLayout layout;
 
-    public BorderContainerController ( final SymbolController controller, final BorderContainer element, final ViewElementFactory factory )
+    public BorderContainerController ( final SymbolController controller, final BorderContainer element, final BasicViewElementFactory factory ) throws Exception
     {
         this.figure = new Figure ();
 
@@ -60,18 +61,18 @@ public class BorderContainerController implements Controller
     {
         switch ( alignment )
         {
-        case BOTTOM:
-            return BorderLayout.BOTTOM;
-        case TOP:
-            return BorderLayout.TOP;
-        case CENTER:
-            return BorderLayout.CENTER;
-        case LEFT:
-            return BorderLayout.LEFT;
-        case RIGHT:
-            return BorderLayout.RIGHT;
-        default:
-            return null;
+            case BOTTOM:
+                return BorderLayout.BOTTOM;
+            case TOP:
+                return BorderLayout.TOP;
+            case CENTER:
+                return BorderLayout.CENTER;
+            case LEFT:
+                return BorderLayout.LEFT;
+            case RIGHT:
+                return BorderLayout.RIGHT;
+            default:
+                return null;
         }
     }
 

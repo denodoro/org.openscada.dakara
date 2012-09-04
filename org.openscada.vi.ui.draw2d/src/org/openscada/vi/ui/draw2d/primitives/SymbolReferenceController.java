@@ -34,9 +34,10 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.ui.draw2d.Activator;
+import org.openscada.vi.ui.draw2d.Controller;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.ViewElementFactory;
+import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
 import org.openscada.vi.ui.draw2d.impl.ScalableLayeredPane;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
@@ -50,7 +51,7 @@ public class SymbolReferenceController implements Controller
 
     private final LayeredPane figure;
 
-    public SymbolReferenceController ( final SymbolController controller, final SymbolReference symbolReference, final ViewElementFactory factory, final ResourceManager manager )
+    public SymbolReferenceController ( final SymbolController controller, final SymbolReference symbolReference, final BasicViewElementFactory factory, final ResourceManager manager )
     {
         if ( symbolReference.getZoom () != null )
         {

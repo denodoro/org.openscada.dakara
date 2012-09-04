@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.draw2d.primitives;
+package org.openscada.vi.ui.draw2d;
 
 import org.eclipse.draw2d.IFigure;
 

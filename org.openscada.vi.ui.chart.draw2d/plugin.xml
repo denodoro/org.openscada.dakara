@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.openscada.vi.ui.draw2d.viewElementFactory">
+      <factory
+            class="org.openscada.vi.ui.chart.draw2d.ViewElementFactory">
+         <supports
+               modelClass="org.openscada.vi.chart.model.chart.ChartView">
+         </supports>
+      </factory>
+   </extension>
+
+</plugin>

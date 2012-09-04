@@ -19,6 +19,10 @@
 
 package org.openscada.vi.ui.draw2d;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -30,6 +34,8 @@ public class Activator extends AbstractUIPlugin
 
     // The plug-in ID
     public static final String PLUGIN_ID = "org.openscada.vi.ui.draw2d"; //$NON-NLS-1$
+
+    private static final String EXTP_VIEW_ELEMENT_FACTORY = "org.openscada.vi.ui.draw2d.viewElementFactory";
 
     // The shared instance
     private static Activator plugin;
@@ -65,7 +71,7 @@ public class Activator extends AbstractUIPlugin
 
     /**
      * Returns the shared instance
-     *
+     * 
      * @return the shared instance
      */
     public static Activator getDefault ()
@@ -73,4 +79,37 @@ public class Activator extends AbstractUIPlugin
         return plugin;
     }
 
+    public static ViewElementFactory createFactory ( final EObject modelObject ) throws CoreException
+    {
+        if ( modelObject == null )
+        {
+            return null;
+        }
+
+        final String requestedClass = modelObject.eClass ().getInstanceClassName ();
+
+        for ( final IConfigurationElement ele : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_VIEW_ELEMENT_FACTORY ) )
+        {
+            if ( !"factory".equals ( ele.getName () ) )
+            {
+                continue;
+            }
+
+            for ( final IConfigurationElement child : ele.getChildren ( "supports" ) )
+            {
+                final String modelClass = child.getAttribute ( "modelClass" );
+                if ( modelClass == null || modelClass.isEmpty () )
+                {
+                    continue;
+                }
+
+                if ( modelClass.equals ( requestedClass ) )
+                {
+                    return (ViewElementFactory)ele.createExecutableExtension ( "class" );
+                }
+            }
+
+        }
+        return null;
+    }
 }

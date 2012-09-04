@@ -24,14 +24,15 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.XYLayout;
 import org.openscada.vi.model.VisualInterface.XYChild;
 import org.openscada.vi.model.VisualInterface.XYContainer;
+import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
+import org.openscada.vi.ui.draw2d.Controller;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.ViewElementFactory;
 
 public class XYContainerController implements Controller
 {
     private final Figure figure;
 
-    public XYContainerController ( final SymbolController controller, final XYContainer element, final ViewElementFactory factory )
+    public XYContainerController ( final SymbolController controller, final XYContainer element, final BasicViewElementFactory factory ) throws Exception
     {
         this.figure = new Figure ();
 

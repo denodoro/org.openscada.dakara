@@ -54,6 +54,7 @@ import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.SystemCursor;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.ui.draw2d.Activator;
+import org.openscada.vi.ui.draw2d.Controller;
 import org.openscada.vi.ui.draw2d.SymbolController;
 
 /**
