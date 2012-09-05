@@ -6,6 +6,7 @@
  */
 package org.openscada.vi.chart.model.chart.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -113,6 +114,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getChartView_ConfigurationUri ()
+    {
+        return (EAttribute)chartViewEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ChartFactory getChartFactory ()
     {
         return (ChartFactory)getEFactoryInstance ();
@@ -140,6 +151,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
 
         // Create classes and their features
         chartViewEClass = createEClass ( CHART_VIEW );
+        createEAttribute ( chartViewEClass, CHART_VIEW__CONFIGURATION_URI );
     }
 
     /**
@@ -179,6 +191,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
 
         // Initialize classes and features; add operations and parameters
         initEClass ( chartViewEClass, ChartView.class, "ChartView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getChartView_ConfigurationUri (), ecorePackage.getEString (), "configurationUri", null, 1, 1, ChartView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Create resource
         createResource ( eNS_URI );

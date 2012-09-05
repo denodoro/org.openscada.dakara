@@ -3,6 +3,10 @@
   <children xmi:type="notation:Node" xmi:id="_ccndEPXGEeGBWcuRoiHTUw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_ccpSQPXGEeGBWcuRoiHTUw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_ccp5UPXGEeGBWcuRoiHTUw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_af0T8PacEeGBWcuRoiHTUw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="chart.ecore#//ChartView/configurationUri"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_af0T8facEeGBWcuRoiHTUw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ccp5UfXGEeGBWcuRoiHTUw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ccp5UvXGEeGBWcuRoiHTUw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ccp5U_XGEeGBWcuRoiHTUw"/>

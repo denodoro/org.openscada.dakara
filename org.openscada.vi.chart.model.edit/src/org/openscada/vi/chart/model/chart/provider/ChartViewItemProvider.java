@@ -64,6 +64,7 @@ public class ChartViewItemProvider extends ItemProviderAdapter implements IEditi
             super.getPropertyDescriptors ( object );
 
             addNamePropertyDescriptor ( object );
+            addConfigurationUriPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -77,6 +78,17 @@ public class ChartViewItemProvider extends ItemProviderAdapter implements IEditi
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Configuration Uri feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addConfigurationUriPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChartView_configurationUri_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ChartView_configurationUri_feature", "_UI_ChartView_type" ), ChartPackage.Literals.CHART_VIEW__CONFIGURATION_URI, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -119,6 +131,7 @@ public class ChartViewItemProvider extends ItemProviderAdapter implements IEditi
         switch ( notification.getFeatureID ( ChartView.class ) )
         {
             case ChartPackage.CHART_VIEW__NAME:
+            case ChartPackage.CHART_VIEW__CONFIGURATION_URI:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

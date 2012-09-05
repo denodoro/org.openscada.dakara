@@ -35,9 +35,9 @@ public class ChartViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(ChartViewTest.class);
+        TestRunner.run ( ChartViewTest.class );
     }
 
     /**
@@ -46,9 +46,9 @@ public class ChartViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    public ChartViewTest(String name)
+    public ChartViewTest ( String name )
     {
-        super(name);
+        super ( name );
     }
 
     /**
@@ -57,7 +57,7 @@ public class ChartViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void setFixture(ChartView fixture)
+    protected void setFixture ( ChartView fixture )
     {
         this.fixture = fixture;
     }
@@ -68,7 +68,7 @@ public class ChartViewTest extends TestCase
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ChartView getFixture()
+    protected ChartView getFixture ()
     {
         return fixture;
     }
@@ -80,9 +80,9 @@ public class ChartViewTest extends TestCase
      * @generated
      */
     @Override
-    protected void setUp() throws Exception
+    protected void setUp () throws Exception
     {
-        setFixture(ChartFactory.eINSTANCE.createChartView());
+        setFixture ( ChartFactory.eINSTANCE.createChartView () );
     }
 
     /**
@@ -92,9 +92,9 @@ public class ChartViewTest extends TestCase
      * @generated
      */
     @Override
-    protected void tearDown() throws Exception
+    protected void tearDown () throws Exception
     {
-        setFixture(null);
+        setFixture ( null );
     }
 
 } //ChartViewTest

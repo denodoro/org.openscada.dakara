@@ -25,9 +25,9 @@ public class ChartAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public static void main(String[] args)
+    public static void main ( String[] args )
     {
-        TestRunner.run(suite());
+        TestRunner.run ( suite () );
     }
 
     /**
@@ -35,9 +35,9 @@ public class ChartAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public static Test suite()
+    public static Test suite ()
     {
-        TestSuite suite = new ChartAllTests("Chart Tests");
+        TestSuite suite = new ChartAllTests ( "Chart Tests" );
         return suite;
     }
 
@@ -46,9 +46,9 @@ public class ChartAllTests extends TestSuite
      * <!-- end-user-doc -->
      * @generated
      */
-    public ChartAllTests(String name)
+    public ChartAllTests ( String name )
     {
-        super(name);
+        super ( name );
     }
 
 } //ChartAllTests

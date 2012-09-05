@@ -6,6 +6,7 @@
  */
 package org.openscada.vi.chart.model.chart;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -80,13 +81,22 @@ public interface ChartPackage extends EPackage
     int CHART_VIEW__NAME = VisualInterfacePackage.PRIMITIVE__NAME;
 
     /**
+     * The feature id for the '<em><b>Configuration Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART_VIEW__CONFIGURATION_URI = VisualInterfacePackage.PRIMITIVE_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>View</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHART_VIEW_FEATURE_COUNT = VisualInterfacePackage.PRIMITIVE_FEATURE_COUNT + 0;
+    int CHART_VIEW_FEATURE_COUNT = VisualInterfacePackage.PRIMITIVE_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.chart.model.chart.ChartView <em>View</em>}'.
@@ -97,6 +107,17 @@ public interface ChartPackage extends EPackage
      * @generated
      */
     EClass getChartView ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.chart.model.chart.ChartView#getConfigurationUri <em>Configuration Uri</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Configuration Uri</em>'.
+     * @see org.openscada.vi.chart.model.chart.ChartView#getConfigurationUri()
+     * @see #getChartView()
+     * @generated
+     */
+    EAttribute getChartView_ConfigurationUri ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -130,6 +151,14 @@ public interface ChartPackage extends EPackage
          * @generated
          */
         EClass CHART_VIEW = eINSTANCE.getChartView ();
+
+        /**
+         * The meta object literal for the '<em><b>Configuration Uri</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHART_VIEW__CONFIGURATION_URI = eINSTANCE.getChartView_ConfigurationUri ();
 
     }
 

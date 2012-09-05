@@ -17,6 +17,13 @@ public class ChartFigure extends Figure
 
     private ChartViewer viewer;
 
+    private final Chart configuration;
+
+    public ChartFigure ( final Chart configuration )
+    {
+        this.configuration = configuration;
+    }
+
     @Override
     public void addNotify ()
     {
@@ -71,7 +78,7 @@ public class ChartFigure extends Figure
     {
         disposeRenderer ();
         this.renderer = new FigureRenderer ( this );
-        this.viewer = new ChartViewer ( this.renderer, makeDefaultConfiguration () );
+        this.viewer = new ChartViewer ( this.renderer, this.configuration != null ? this.configuration : makeDefaultConfiguration () );
     }
 
     @Override
