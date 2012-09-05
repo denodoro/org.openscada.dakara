@@ -37,8 +37,7 @@ import org.eclipse.swt.graphics.TextStyle;
 import org.eclipse.swt.widgets.Display;
 
 /**
- * A Graphics object able to scale all operations based on the current scale
- * factor.
+ * A Graphics object able to scale all operations based on the current scale factor.
  */
 public class ScaledGraphics extends Graphics
 {
@@ -108,8 +107,7 @@ public class ScaledGraphics extends Graphics
         }
 
         /**
-         * Constructs a new State object and initializes the properties based on
-         * the given values.
+         * Constructs a new State object and initializes the properties based on the given values.
          * 
          * @param zoom
          *            the zoom factor
@@ -128,8 +126,7 @@ public class ScaledGraphics extends Graphics
         }
 
         /**
-         * Constructs a new State object and initializes the properties based on
-         * the given values.
+         * Constructs a new State object and initializes the properties based on the given values.
          * 
          * @param zoom
          *            the zoom factor
@@ -141,7 +138,6 @@ public class ScaledGraphics extends Graphics
          *            the font
          * @param lineWidth
          *            the line width
-         * 
          * @since 3.5
          */
         protected State ( final double zoom, final double x, final double y, final Font font, final float lineWidth )
@@ -185,7 +181,6 @@ public class ScaledGraphics extends Graphics
          *            the font
          * @param lineWidth
          *            the line width
-         * 
          * @since 3.5
          */
         protected void setValues ( final double zoom, final double x, final double y, final Font font, final float lineWidth )
@@ -213,8 +208,10 @@ public class ScaledGraphics extends Graphics
     private boolean allowText = true;
 
     // private static final Point PT = new Point();
+    @SuppressWarnings ( "rawtypes" )
     private final Map fontCache = new HashMap ();
 
+    @SuppressWarnings ( "rawtypes" )
     private final Map fontDataCache = new HashMap ();
 
     private final FontKey fontKey = new FontKey ();
@@ -231,6 +228,7 @@ public class ScaledGraphics extends Graphics
 
     private float localLineWidth;
 
+    @SuppressWarnings ( "rawtypes" )
     private final List stack = new ArrayList ();
 
     private int stackPointer = 0;
@@ -286,25 +284,25 @@ public class ScaledGraphics extends Graphics
             final byte type = p.types[i];
             switch ( type )
             {
-            case SWT.PATH_MOVE_TO:
-                scaledPath.moveTo ( p.points[index], p.points[index + 1] );
-                index += 2;
-                break;
-            case SWT.PATH_LINE_TO:
-                scaledPath.lineTo ( p.points[index], p.points[index + 1] );
-                index += 2;
-                break;
-            case SWT.PATH_CUBIC_TO:
-                scaledPath.cubicTo ( p.points[index], p.points[index + 1], p.points[index + 2], p.points[index + 3], p.points[index + 4], p.points[index + 5] );
-                index += 6;
-                break;
-            case SWT.PATH_QUAD_TO:
-                scaledPath.quadTo ( p.points[index], p.points[index + 1], p.points[index + 2], p.points[index + 3] );
-                index += 4;
-                break;
-            case SWT.PATH_CLOSE:
-                scaledPath.close ();
-                break;
+                case SWT.PATH_MOVE_TO:
+                    scaledPath.moveTo ( p.points[index], p.points[index + 1] );
+                    index += 2;
+                    break;
+                case SWT.PATH_LINE_TO:
+                    scaledPath.lineTo ( p.points[index], p.points[index + 1] );
+                    index += 2;
+                    break;
+                case SWT.PATH_CUBIC_TO:
+                    scaledPath.cubicTo ( p.points[index], p.points[index + 1], p.points[index + 2], p.points[index + 3], p.points[index + 4], p.points[index + 5] );
+                    index += 6;
+                    break;
+                case SWT.PATH_QUAD_TO:
+                    scaledPath.quadTo ( p.points[index], p.points[index + 1], p.points[index + 2], p.points[index + 3] );
+                    index += 4;
+                    break;
+                case SWT.PATH_CLOSE:
+                    scaledPath.close ();
+                    break;
             }
         }
         return scaledPath;
@@ -321,6 +319,7 @@ public class ScaledGraphics extends Graphics
         }
 
         // Dispose fonts
+        @SuppressWarnings ( "rawtypes" )
         final Iterator iter = this.fontCache.values ().iterator ();
         while ( iter.hasNext () )
         {
@@ -485,8 +484,7 @@ public class ScaledGraphics extends Graphics
     }
 
     /**
-     * @see Graphics#drawTextLayout(TextLayout, int, int, int, int, Color,
-     *      Color)
+     * @see Graphics#drawTextLayout(TextLayout, int, int, int, int, Color, Color)
      */
     @Override
     public void drawTextLayout ( final TextLayout layout, final int x, final int y, final int selectionStart, final int selectionEnd, final Color selectionForeground, final Color selectionBackground )
@@ -631,6 +629,7 @@ public class ScaledGraphics extends Graphics
         return this.graphics.getBackgroundColor ();
     }
 
+    @SuppressWarnings ( "unchecked" )
     Font getCachedFont ( FontKey key )
     {
         final Font font = (Font)this.fontCache.get ( key );
@@ -646,6 +645,7 @@ public class ScaledGraphics extends Graphics
         return zoomedFont;
     }
 
+    @SuppressWarnings ( "unchecked" )
     FontData getCachedFontData ( final Font f )
     {
         FontData data = (FontData)this.fontDataCache.get ( f );
@@ -817,6 +817,7 @@ public class ScaledGraphics extends Graphics
     }
 
     /** @see Graphics#pushState() */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void pushState ()
     {
