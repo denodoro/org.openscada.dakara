@@ -33,15 +33,20 @@ public class RegistrationManager
 {
     private static final long SERVICE_TIMEOUT = Long.getLong ( "org.openscada.vi.ui.draw2d.serviceTimeout", 1000 );
 
-    private final SymbolController controller;
+    public interface Listener
+    {
+        public void triggerDataUpdate ();
+    }
+
+    private final Listener listener;
 
     private final Map<String, DataItemRegistration> registrations = new LinkedHashMap<String, DataItemRegistration> ();
 
     private final AtomicReference<Map<String, DataValue>> currentValues = new AtomicReference<Map<String, DataValue>> ( Collections.<String, DataValue> emptyMap () );
 
-    public RegistrationManager ( final SymbolController symbolController )
+    public RegistrationManager ( final Listener listener )
     {
-        this.controller = symbolController;
+        this.listener = listener;
     }
 
     public void dispose ()
@@ -88,7 +93,7 @@ public class RegistrationManager
             newMap.put ( name, new DataValue ( value, ignoreSummary, nullInvalid ) );
         } while ( !this.currentValues.compareAndSet ( currentMap, newMap ) );
 
-        this.controller.triggerDataUpdate ();
+        this.listener.triggerDataUpdate ();
     }
 
     public Map<String, DataValue> getData ()

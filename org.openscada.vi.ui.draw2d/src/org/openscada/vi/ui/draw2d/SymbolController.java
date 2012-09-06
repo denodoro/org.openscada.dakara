@@ -55,6 +55,7 @@ import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
+import org.openscada.vi.ui.draw2d.RegistrationManager.Listener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +63,7 @@ import com.google.common.io.Resources;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class SymbolController
+public class SymbolController implements Listener
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( SymbolController.class );
@@ -381,6 +382,7 @@ public class SymbolController
      * This method can be called from any thread and must synchronized to the UI
      * </p>
      */
+    @Override
     public void triggerDataUpdate ()
     {
         try
