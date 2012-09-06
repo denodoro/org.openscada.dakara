@@ -157,6 +157,7 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
                 this.header.init ( this.visibleFactory, wrapper, properties );
                 lists.add ( this.header.getDescriptors () );
+                this.header.start ();
             }
 
             final TabFolder folder = new TabFolder ( box, SWT.NONE );
