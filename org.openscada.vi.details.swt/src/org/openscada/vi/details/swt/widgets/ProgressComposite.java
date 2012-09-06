@@ -112,7 +112,7 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
             this.progressWidth = 1;
         }
 
-        this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
+        this.attributeLabel = new AttributeLockImage ( this, 0, descriptor, hdConnectionId, hdItemId );
 
         this.progressBar = new ProgressBar ( this, SWT.NONE );
         //        this.progressBar.setSize ( this.progressWidth, this.textHeight );

@@ -59,7 +59,7 @@ import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AttributeImage extends GenericComposite
+public abstract class AttributeImage extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( AttributeImage.class );
 

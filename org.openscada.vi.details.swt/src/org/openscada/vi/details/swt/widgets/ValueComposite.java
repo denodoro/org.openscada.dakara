@@ -59,7 +59,7 @@ public class ValueComposite extends ReadableComposite implements ControllerListe
         layout.pack = true;
         setLayout ( layout );
 
-        this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
+        this.attributeLabel = new AttributeLockImage ( this, 0, descriptor, hdConnectionId, hdItemId );
 
         this.dataLabel = new Label ( this, SWT.NONE );
         final RowData rowData = new RowData ( 80, SWT.DEFAULT );

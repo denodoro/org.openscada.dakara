@@ -73,7 +73,7 @@ public class TextComposite extends ReadableComposite implements ControllerListen
 
         setLayout ( layout );
 
-        this.attributeLabel = new AttributeImage ( this, 0, descriptor, hdConnectionId, hdItemId );
+        this.attributeLabel = new AttributeLockImage ( this, 0, descriptor, hdConnectionId, hdItemId );
         this.dataText = new CLabel ( this, SWT.MULTI | SWT.WRAP | SWT.RIGHT | SWT.SHADOW_IN );
         if ( textHeight != 0 )
         {

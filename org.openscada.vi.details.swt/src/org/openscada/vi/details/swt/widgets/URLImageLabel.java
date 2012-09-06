@@ -76,7 +76,7 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
 
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
 
-        this.attributeLabel = new AttributeImage ( this, SWT.NONE, descriptor, null, null );
+        this.attributeLabel = new AttributeLockImage ( this, SWT.NONE, descriptor, null, null );
 
         this.label = new Label ( this, SWT.NONE );
 
@@ -98,6 +98,7 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
         showUrl ( component.getFallbackImageUrl () );
     }
 
+    @Override
     protected void handleDispose ()
     {
         if ( this.currentImage != null )

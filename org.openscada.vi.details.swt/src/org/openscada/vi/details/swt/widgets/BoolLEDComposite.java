@@ -77,7 +77,7 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
         this.isAlarm = isAlarm;
         this.attribute = attribute;
 
-        this.attributeLabel = new AttributeImage ( this, SWT.NONE, descriptor, null, null );
+        this.attributeLabel = new AttributeLockImage ( this, SWT.NONE, descriptor, null, null );
         this.signalLabel = new Label ( this, SWT.NONE );
         this.signalLabel.setImage ( this.imageGray );
         new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );

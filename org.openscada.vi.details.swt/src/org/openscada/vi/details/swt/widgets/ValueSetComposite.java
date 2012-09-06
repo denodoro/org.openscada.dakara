@@ -75,7 +75,7 @@ public class ValueSetComposite extends WriteableComposite
         final int width = this.label.getBounds ().width;
         GridDataFactory.fillDefaults ().grab ( true, false ).span ( 4, 1 ).hint ( width, 20 ).applyTo ( this.label );
 
-        this.attributeLabel = new AttributeImage ( this, 0, this.diDescriptorText, hdConnectionId, hdItemId );
+        this.attributeLabel = new AttributeLockImage ( this, 0, this.diDescriptorText, hdConnectionId, hdItemId );
 
         this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.CENTER );
         GridDataFactory.fillDefaults ().grab ( false, false ).hint ( 60, 10 ).applyTo ( this.data );

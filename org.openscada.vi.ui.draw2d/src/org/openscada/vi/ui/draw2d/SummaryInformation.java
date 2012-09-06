@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
+import org.openscada.core.ui.styles.StateInformation;
 import org.openscada.da.client.DataItemValue;
 
 public class SummaryInformation
@@ -150,6 +151,11 @@ public class SummaryInformation
             }
         }
         return false;
+    }
+
+    public StateInformation getStateInformation ()
+    {
+        return new SummaryStateInformation ( this );
     }
 
     @Override

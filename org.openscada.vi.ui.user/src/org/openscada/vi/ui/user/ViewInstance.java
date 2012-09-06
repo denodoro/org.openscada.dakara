@@ -29,6 +29,8 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -37,9 +39,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.services.IEvaluationReference;
 import org.eclipse.ui.services.IEvaluationService;
-import org.openscada.ui.utils.blink.Blinker;
-import org.openscada.ui.utils.blink.Blinker.Handler;
-import org.openscada.ui.utils.blink.Blinker.State;
+import org.openscada.core.ui.styles.StyleBlinker;
 import org.openscada.vi.ui.draw2d.SummaryInformation;
 import org.openscada.vi.ui.draw2d.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
@@ -57,21 +57,9 @@ public class ViewInstance implements SummaryListener
 
     private final Image imageOk;
 
-    private final Image imageInvalid;
-
-    private final Image imageAlarm;
-
-    private final Image imageManual;
-
-    private final Image imageBlocked;
-
-    private final Blinker blinker;
-
-    private final Image imageAlarm0;
-
-    private final Image imageAlarm1;
-
     private final Image imageInactive;
+
+    private final StyleBlinker blinker;
 
     private final Composite parent;
 
@@ -91,8 +79,6 @@ public class ViewInstance implements SummaryListener
 
     private boolean visible;
 
-    private State currentButtonState;
-
     private final ViewManagerContext viewManagerContext;
 
     private boolean lazy = true;
@@ -102,6 +88,8 @@ public class ViewInstance implements SummaryListener
     private boolean defaultInstance;
 
     private boolean suppressActiveEvent = false;
+
+    private Image currentButtonImage;
 
     public ViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
     {
@@ -114,24 +102,18 @@ public class ViewInstance implements SummaryListener
         this.viewManagerContext = viewManagerContext;
 
         this.imageOk = createImage ( PreferenceConstants.P_IMG_OK );
-        this.imageInvalid = createImage ( PreferenceConstants.P_IMG_INVALID );
-        this.imageAlarm = createImage ( PreferenceConstants.P_IMG_ALARM );
-        this.imageManual = createImage ( PreferenceConstants.P_IMG_MANUAL );
-        this.imageBlocked = createImage ( PreferenceConstants.P_IMG_BLOCKED );
-        this.imageAlarm0 = createImage ( PreferenceConstants.P_IMG_ALARM_0 );
-        this.imageAlarm1 = createImage ( PreferenceConstants.P_IMG_ALARM_1 );
         this.imageInactive = createImage ( PreferenceConstants.P_IMG_INACTIVE );
 
         // create the blinker
 
-        this.blinker = new Blinker ( new Handler () {
-
+        this.blinker = new StyleBlinker () {
             @Override
-            public void setState ( final State state )
+            public void update ( final Image image, final Color foreground, final Color background, final Font font )
             {
-                handleBlink ( state );
+                handleUpdateStyle ( image, foreground, background, font );
             }
-        } );
+        };
+        this.blinker.setStyle ( null );
 
         // create the visual interface view
 
@@ -267,7 +249,8 @@ public class ViewInstance implements SummaryListener
                     showView ( ViewInstance.this.descriptor.getId () );
                 };
             } );
-            setToolbarButtonState ( this.currentButtonState );
+            // set current state
+            this.button.setImage ( this.currentButtonImage );
         }
     }
 
@@ -381,11 +364,7 @@ public class ViewInstance implements SummaryListener
         if ( this.viewer != null )
         {
             this.viewer.removeSummaryListener ( this );
-            this.currentButtonState = null;
-            if ( this.button != null )
-            {
-                this.button.setImage ( this.imageInactive );
-            }
+            this.blinker.setStyle ( null );
 
             this.viewer.dispose ();
             this.viewer = null;
@@ -487,55 +466,28 @@ public class ViewInstance implements SummaryListener
         return this.viewer;
     }
 
-    protected void handleBlink ( final State state )
+    protected void handleUpdateStyle ( final Image image, final Color foreground, final Color background, final Font font )
     {
-        this.currentButtonState = state;
-        setToolbarButtonState ( state );
-    }
+        if ( image == null )
+        {
+            this.currentButtonImage = this.lazy ? this.imageInactive : this.imageOk;
+        }
+        else
+        {
+            this.currentButtonImage = image;
+        }
 
-    private void setToolbarButtonState ( final State state )
-    {
         if ( this.button == null )
         {
             return;
         }
 
-        if ( state == null )
-        {
-            this.button.setImage ( this.lazy ? this.imageInactive : this.imageOk );
-            return;
-        }
-
-        switch ( state )
-        {
-            case ALARM_0:
-                this.button.setImage ( this.imageAlarm0 );
-                break;
-            case ALARM_1:
-                this.button.setImage ( this.imageAlarm1 );
-                break;
-            case DISCONNECTED:
-            case ERROR:
-                this.button.setImage ( this.imageInvalid );
-                break;
-            case MANUAL:
-                this.button.setImage ( this.imageManual );
-                break;
-            case BLOCKED:
-                this.button.setImage ( this.imageBlocked );
-                break;
-            case ALARM:
-                this.button.setImage ( this.imageAlarm );
-                break;
-            case OK:
-                this.button.setImage ( this.imageOk );
-                break;
-        }
+        this.button.setImage ( this.currentButtonImage );
     }
 
     @Override
     public void summaryChanged ( final SummaryInformation summary )
     {
-        this.blinker.setState ( summary.isAlarm (), summary.isAckRequired (), summary.isManual (), !summary.isConnected (), summary.isError (), summary.isBlocked () );
+        this.blinker.setStyle ( org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator ().generateStyle ( summary.getStateInformation () ) );
     }
 }
