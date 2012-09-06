@@ -109,7 +109,7 @@ public class Draw2DGraphics implements Graphics
             this.g.rotate ( rotate );
         }
 
-        this.g.drawText ( string, x, y, SWT.DRAW_DELIMITER | SWT.DRAW_TAB | SWT.DRAW_TRANSPARENT );
+        this.g.drawText ( string, x, y );
 
         if ( rotate != null )
         {
