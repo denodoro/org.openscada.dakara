@@ -60,14 +60,9 @@ import org.openscada.vi.ui.draw2d.SymbolController;
 /**
  * A figure controller
  * <p>
- * This figure controller needs to know when the figure it controls was added
- * or removed. Since draw2d does not provide a "addRemovedListener" for IFigure
- * but a {@link IFigure#removeNotify()} that can be overridden it is the
- * responsibility of the implementing controller to call {@link #start()} and
- * {@link #stop()} when the implementing {@link IFigure#addNotify()} and
- * {@link IFigure#removeNotify()} get called.
- * So create your figure like the following snippet shows:
- * <code><pre>
+ * This figure controller needs to know when the figure it controls was added or removed. Since draw2d does not provide a "addRemovedListener" for IFigure but a {@link IFigure#removeNotify()} that can
+ * be overridden it is the responsibility of the implementing controller to call {@link #start()} and {@link #stop()} when the implementing {@link IFigure#addNotify()} and
+ * {@link IFigure#removeNotify()} get called. So create your figure like the following snippet shows: <code><pre>
 IFigure figure = new PolylineShape () {
     public void addNotify () {
         super.addNotify ();
@@ -81,8 +76,8 @@ IFigure figure = new PolylineShape () {
 };
  * </pre></code>
  * </p>
+ * 
  * @author Jens Reimann
- *
  */
 public abstract class FigureController implements Controller
 {
@@ -481,12 +476,17 @@ public abstract class FigureController implements Controller
     /**
      * Create a new border
      * <p>
+     * 
+     * <pre>
      * 3
      * GROUP:x
      * COMPOUND:[GROUP:2|GROUP:3]
-     * </P>
+     * </pre>
+     * 
+     * </p>
+     * 
      * @param border
-     * @return
+     * @return a new border
      */
     protected Border makeBorder ( final String border )
     {
