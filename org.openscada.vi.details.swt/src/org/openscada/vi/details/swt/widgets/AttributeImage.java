@@ -63,7 +63,7 @@ public class AttributeImage extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( AttributeImage.class );
 
-    private static final String detailsDialogRole = System.getProperty ( " org.openscada.vi.details.swt.widgets.roles.detailsDialog", "admin" );
+    private static final String detailsDialogRole = System.getProperty ( "org.openscada.vi.details.swt.widgets.roles.detailsDialog", "admin" );
 
     private Label attributeLabel;
 
