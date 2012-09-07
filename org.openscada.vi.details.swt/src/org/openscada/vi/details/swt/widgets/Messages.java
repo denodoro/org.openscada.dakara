@@ -25,23 +25,23 @@ public class Messages extends NLS
 {
     private static final String BUNDLE_NAME = "org.openscada.vi.details.swt.widgets.messages"; //$NON-NLS-1$
 
-    public static String AttributeImage_TrendError;
+    public static String TrendControlImage_TrendError;
 
-    public static String AttributeLockImage_ConfirmDialog_Message_Format;
+    public static String BlockControllerImage_ConfirmDialog_Message_Format;
 
-    public static String AttributeLockImage_ConfirmDialog_Title;
+    public static String BlockControllerImage_ConfirmDialog_Title;
 
-    public static String AttributeLockImage_String_Timestamp;
+    public static String BlockControllerImage_String_Timestamp;
 
-    public static String AttributeLockImage_String_BlockedBy;
+    public static String BlockControllerImage_String_BlockedBy;
 
-    public static String AttributeLockImage_String_BlockNote_None;
+    public static String BlockControllerImage_String_BlockNote_None;
 
-    public static String AttributeLockImage_String_None;
+    public static String BlockControllerImage_String_None;
 
-    public static String AttributeLockImage_String_Reason;
+    public static String BlockControllerImage_String_Reason;
 
-    public static String AttributeLockImage_String_Unknown;
+    public static String BlockControllerImage_String_Unknown;
 
     public static String LabelOpenscadaDialog_descriptor;
 

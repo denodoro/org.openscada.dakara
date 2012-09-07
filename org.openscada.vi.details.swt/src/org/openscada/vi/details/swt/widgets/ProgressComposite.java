@@ -32,22 +32,19 @@ import org.eclipse.swt.widgets.Text;
 import org.openscada.core.NotConvertableException;
 import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
-import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ProgressComposite extends ReadableComposite implements ControllerListener
+public class ProgressComposite extends ReadableComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( ProgressComposite.class );
 
     private final ProgressBar progressBar;
 
     private final Text text;
-
-    private final AttributeImage attributeLabel;
 
     //    private final Font font;
 
@@ -66,9 +63,11 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
 
     private int progressWidth;
 
+    private final ControlImage controlImage;
+
     public ProgressComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, final double max, final double min, final double factor, final int width, final String hdConnectionId, final String hdItemId )
     {
-        super ( parent, style, format, decimal, attribute, hdConnectionId, hdItemId );
+        super ( parent, style, format, decimal, attribute );
 
         if ( max != 0 )
         {
@@ -112,7 +111,8 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
             this.progressWidth = 1;
         }
 
-        this.attributeLabel = new AttributeLockImage ( this, 0, descriptor, hdConnectionId, hdItemId );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
 
         this.progressBar = new ProgressBar ( this, SWT.NONE );
         //        this.progressBar.setSize ( this.progressWidth, this.textHeight );
@@ -138,12 +138,13 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
 
         if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( descriptor.asItem () );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         if ( isDisposed () )
         {
@@ -156,7 +157,7 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
         {
             try
             {
-                value = values.get ( "value" ).getValue (); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getValue (); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -168,7 +169,7 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
         {
             try
             {
-                value = values.get ( "value" ).getAttributes ().get ( getAttribute () ); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getAttributes ().get ( getAttribute () ); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -177,15 +178,13 @@ public class ProgressComposite extends ReadableComposite implements ControllerLi
             }
         }
 
-        this.attributeLabel.updateStatusView ( state );
-
         if ( value == null )
         {
             this.text.setText ( "" ); //$NON-NLS-1$
         }
         else if ( value.isDouble () )
         {
-            this.text.setText ( getTextDecimal ( values.get ( "value" ), getAttribute (), this.factor ) );
+            this.text.setText ( getTextDecimal ( values.get ( "value" ).getValue (), getAttribute (), this.factor ) );
 
             int progress = 0;
             try

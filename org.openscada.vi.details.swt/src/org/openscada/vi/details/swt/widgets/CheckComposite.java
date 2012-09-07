@@ -29,21 +29,15 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.openscada.core.Variant;
-import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CheckComposite extends GenericComposite implements ControllerListener
+public class CheckComposite extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( CheckComposite.class );
-
-    private final AttributeLockImage attributeLabel;
-
-    private final DataController controller;
 
     private final Button button;
 
@@ -52,6 +46,8 @@ public class CheckComposite extends GenericComposite implements ControllerListen
     private final DataItemDescriptor descriptor;
 
     private final DataItemDescriptor readDescriptor;
+
+    private final ControlImage controlImage;
 
     public CheckComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final DataItemDescriptor readDescriptor )
     {
@@ -68,7 +64,8 @@ public class CheckComposite extends GenericComposite implements ControllerListen
         layout.pack = true;
         setLayout ( layout );
 
-        this.attributeLabel = new AttributeLockImage ( this, SWT.NONE, descriptor, null, null );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
+
         this.button = new Button ( this, SWT.CHECK );
         this.button.addSelectionListener ( new SelectionAdapter () {
 
@@ -82,15 +79,15 @@ public class CheckComposite extends GenericComposite implements ControllerListen
 
         this.button.setText ( format );
 
-        this.controller = new DataController ( this );
-
         if ( this.readDescriptor != null )
         {
-            this.controller.registerItem ( "value", this.readDescriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( readDescriptor.asItem () );
+            this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false );
         }
         else if ( this.descriptor != null )
         {
-            this.controller.registerItem ( "value", this.descriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( descriptor.asItem () );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false );
         }
     }
 
@@ -101,22 +98,29 @@ public class CheckComposite extends GenericComposite implements ControllerListen
             return;
         }
 
-        this.button.setEnabled ( false );
-        if ( this.attribute == null || this.attribute.equals ( "" ) ) //$NON-NLS-1$
+        try
         {
-            this.controller.writeOperation ( Variant.valueOf ( this.button.getSelection () ), this.descriptor );
+            this.button.setEnabled ( false );
+            if ( this.attribute == null || this.attribute.equals ( "" ) ) //$NON-NLS-1$
+            {
+                this.registrationManager.startWrite ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), Variant.valueOf ( this.button.getSelection () ) );
+            }
+            else
+            {
+                final Map<String, Variant> map = new HashMap<String, Variant> ();
+                map.put ( this.attribute, Variant.valueOf ( this.button.getSelection () ) );
+                this.registrationManager.startWriteAttributes ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), map );
+            }
+            getShell ().setFocus ();
         }
-        else
+        catch ( final Exception e )
         {
-            final Map<String, Variant> map = new HashMap<String, Variant> ();
-            map.put ( this.attribute, Variant.valueOf ( this.button.getSelection () ) );
-            this.controller.writeOperation ( map, this.descriptor );
+            // FIXME: log error 
         }
-        getShell ().setFocus ();
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         if ( isDisposed () )
         {
@@ -129,7 +133,7 @@ public class CheckComposite extends GenericComposite implements ControllerListen
         {
             try
             {
-                value = values.get ( "value" ).getValue (); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getValue (); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -141,7 +145,7 @@ public class CheckComposite extends GenericComposite implements ControllerListen
         {
             try
             {
-                value = values.get ( "value" ).getAttributes ().get ( this.attribute ); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getAttributes ().get ( this.attribute ); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -149,8 +153,6 @@ public class CheckComposite extends GenericComposite implements ControllerListen
                 value = Variant.NULL;
             }
         }
-
-        this.attributeLabel.updateStatusView ( state );
 
         if ( value == null )
         {
@@ -160,4 +162,5 @@ public class CheckComposite extends GenericComposite implements ControllerListen
         this.button.setSelection ( value.asBoolean () );
         this.button.setEnabled ( !state.isBlocked () );
     }
+
 }

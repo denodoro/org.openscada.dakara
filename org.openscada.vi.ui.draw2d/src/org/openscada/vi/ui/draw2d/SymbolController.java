@@ -53,9 +53,13 @@ import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.RegistrationManager;
+import org.openscada.vi.data.RegistrationManager.Listener;
+import org.openscada.vi.data.SummaryInformation;
+import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
-import org.openscada.vi.ui.draw2d.RegistrationManager.Listener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -119,7 +123,9 @@ public class SymbolController implements Listener
         this.classLoader = classLoader;
 
         this.symbolData = new SymbolData ( this );
-        this.registrationManager = new RegistrationManager ( this );
+        this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext () );
+        this.registrationManager.addListener ( this );
+        this.registrationManager.open ();
         this.engineManager = new ScriptEngineManager ( classLoader );
 
         if ( parentController != null )

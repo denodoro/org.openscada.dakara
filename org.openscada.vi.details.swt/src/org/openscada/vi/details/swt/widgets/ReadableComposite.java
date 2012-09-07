@@ -28,11 +28,11 @@ import org.openscada.core.NotConvertableException;
 import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
+import org.openscada.vi.data.DataValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class ReadableComposite extends GenericComposite implements ControllerListener
+public abstract class ReadableComposite extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( ReadableComposite.class );
 
@@ -40,7 +40,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
 
     private final String attribute;
 
-    public ReadableComposite ( final Composite parent, final int style, final String format, final String decimal, final String attribute, final String hdConnectionId, final String hdItemId )
+    public ReadableComposite ( final Composite parent, final int style, final String format, final String decimal, final String attribute )
     {
         super ( parent, style, null, null );
 
@@ -56,7 +56,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
 
     }
 
-    protected String getText ( final Map<Object, DataItemValue> values, final String attribute )
+    protected String getText ( final Map<String, DataValue> values, final String attribute )
     {
         Variant value;
 
@@ -64,7 +64,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
         {
             try
             {
-                value = values.get ( "value" ).getValue (); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getValue (); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -76,7 +76,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
         {
             try
             {
-                value = values.get ( "value" ).getAttributes ().get ( attribute ); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getAttributes ().get ( attribute ); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -101,7 +101,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
         return ret;
     }
 
-    protected String getDateAsString ( final Map<Object, DataItemValue> values, final String attribute )
+    protected String getDateAsString ( final Map<String, DataValue> values, final String attribute )
     {
         Variant value;
 
@@ -109,7 +109,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
         {
             try
             {
-                value = values.get ( "value" ).getValue (); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getValue (); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -123,7 +123,7 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
             try
             {
 
-                value = values.get ( "value" ).getAttributes ().get ( attribute ); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getAttributes ().get ( attribute ); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -151,9 +151,9 @@ public abstract class ReadableComposite extends GenericComposite implements Cont
         return date.toString ();
     }
 
-    protected String getTextDecimal ( final Map<Object, DataItemValue> values, final String attribute )
+    protected String getTextDecimal ( final Map<String, DataValue> values, final String attribute )
     {
-        return getTextDecimal ( values.get ( "value" ), attribute );
+        return getTextDecimal ( values.get ( "value" ).getValue (), attribute );
     }
 
     protected String getTextDecimal ( final DataItemValue value, final String attribute )

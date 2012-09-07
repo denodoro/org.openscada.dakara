@@ -19,24 +19,18 @@
 
 package org.openscada.vi.details.swt.widgets;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.Collection;
 
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DragSourceAdapter;
 import org.eclipse.swt.dnd.DragSourceEvent;
+import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseTrackAdapter;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.da.ui.connection.dnd.ItemTransfer;
-import org.openscada.vi.details.swt.data.DataItemDescriptor;
+import org.openscada.vi.data.RegistrationManager;
 
 public final class DragHelper
 {
@@ -44,71 +38,56 @@ public final class DragHelper
     {
     }
 
-    public static void style ( final Composite parent, final Control control, final DataItemDescriptor descriptor )
+    protected static void setItemUriData ( final DragSourceEvent event, final Collection<Item> items )
     {
-        final Color backgroundDefault = control.getBackground ();
-
-        // TODO: make properties
-        if ( SessionManager.getDefault ().hasRole ( "admin" ) )
+        final StringBuilder sb = new StringBuilder ();
+        int cnt = 0;
+        for ( final Item item : items )
         {
-            if ( SessionManager.getDefault ().hasRole ( "developer" ) ) //$NON-NLS-1$
+            if ( cnt > 0 )
             {
-                control.setToolTipText ( Messages.LabelOpenscadaDialog_descriptor + descriptor );
+                sb.append ( "\n" ); //$NON-NLS-1$
             }
 
-            control.addMouseTrackListener ( new MouseTrackAdapter () {
+            sb.append ( item.getConnectionString () );
+            sb.append ( "#" ); //$NON-NLS-1$
+            sb.append ( item.getId () );
 
-                @Override
-                public void mouseExit ( final MouseEvent event )
-                {
-                    // control.setForeground ( control.getDisplay ().getSystemColor ( SWT.COLOR_BLACK ) );
-                    control.setBackground ( backgroundDefault );
-                }
-
-                @Override
-                public void mouseEnter ( final MouseEvent event )
-                {
-                    // control.setForeground ( control.getDisplay ().getSystemColor ( SWT.COLOR_WHITE ) );
-                    control.setBackground ( control.getDisplay ().getSystemColor ( SWT.COLOR_DARK_GRAY ) );
-                }
-
-            } );
+            cnt++;
         }
-
-        DragHelper.addDragSupport ( control, descriptor );
+        event.data = sb.toString ();
     }
 
-    public static void addDragSupport ( final Control control, final DataItemDescriptor descriptor )
+    public static void addDragSupport ( final Control control, final RegistrationManager registrationManager )
     {
-        final Transfer[] types = new Transfer[] { ItemTransfer.getInstance () };
+        final Transfer[] types = new Transfer[] { ItemTransfer.getInstance (), TextTransfer.getInstance () };
 
         final DragSource source = new DragSource ( control, DND.DROP_LINK | DND.DROP_MOVE | DND.DROP_COPY );
         source.setTransfer ( types );
         source.addDragListener ( new DragSourceAdapter () {
+
+            @Override
+            public void dragStart ( final DragSourceEvent event )
+            {
+                if ( registrationManager.getItems ().isEmpty () )
+                {
+                    event.doit = false;
+                }
+            };
+
             @Override
             public void dragSetData ( final DragSourceEvent event )
             {
-                final Item item = new Item ( descriptor.getConnectionInformation (), descriptor.getItemId (), isUri ( descriptor.getConnectionInformation () ) ? Item.Type.URI : Item.Type.ID );
-                event.data = new Item[] { item };
-            }
-
-            private boolean isUri ( final String connectionInformation )
-            {
-                try
+                final Collection<Item> items = registrationManager.getItems ();
+                if ( ItemTransfer.getInstance ().isSupportedType ( event.dataType ) )
                 {
-                    final URI uri = new URI ( connectionInformation );
-                    if ( uri.getScheme () == null )
-                    {
-                        return false;
-                    }
-                    return true;
+                    event.data = items.toArray ( new Item[items.size ()] );
                 }
-                catch ( final URISyntaxException e )
+                else if ( TextTransfer.getInstance ().isSupportedType ( event.dataType ) )
                 {
-                    return false;
+                    setItemUriData ( event, items );
                 }
             }
-
         } );
     }
 }

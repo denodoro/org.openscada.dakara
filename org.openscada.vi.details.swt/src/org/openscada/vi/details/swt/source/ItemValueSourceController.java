@@ -22,13 +22,14 @@ package org.openscada.vi.details.swt.source;
 import java.util.Map;
 
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 
 public class ItemValueSourceController implements ValueSourceController
 {
     private final String valueKey;
 
-    private Map<Object, DataItemValue> values;
+    private Map<String, DataValue> values;
 
     public ItemValueSourceController ( final String valueKey )
     {
@@ -38,7 +39,7 @@ public class ItemValueSourceController implements ValueSourceController
     @Override
     public DataItemValue value ()
     {
-        final DataItemValue value = this.values.get ( this.valueKey );
+        final DataItemValue value = this.values.get ( this.valueKey ).getValue ();
 
         if ( value == null )
         {
@@ -51,7 +52,7 @@ public class ItemValueSourceController implements ValueSourceController
     }
 
     @Override
-    public void updateData ( final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    public void updateData ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         this.values = values;
     }

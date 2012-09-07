@@ -34,20 +34,17 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 import org.openscada.core.Variant;
-import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TextInputMultiComposite extends WriteableComposite implements ControllerListener
+public class TextInputMultiComposite extends WriteableComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( TextInputMultiComposite.class );
 
     private final Text data;
-
-    private final AttributeLockImage attributeLabel;
 
     private final DataItemDescriptor descriptor;
 
@@ -56,6 +53,8 @@ public class TextInputMultiComposite extends WriteableComposite implements Contr
     private final Button button;
 
     private final Button buttonClear;
+
+    private final ControlImage controlImage;
 
     public TextInputMultiComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final String hdConnectionId, final String hdItemId )
     {
@@ -67,7 +66,7 @@ public class TextInputMultiComposite extends WriteableComposite implements Contr
         GridLayoutFactory.fillDefaults ().numColumns ( 5 ).margins ( 5, 5 ).spacing ( 0, 0 ).equalWidth ( false ).applyTo ( this );
         GridDataFactory.fillDefaults ().grab ( true, false ).applyTo ( this );
 
-        this.attributeLabel = new AttributeLockImage ( this, 0, descriptor, hdConnectionId, hdItemId );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
 
         new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
 
@@ -126,7 +125,8 @@ public class TextInputMultiComposite extends WriteableComposite implements Contr
 
         if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( descriptor.asItem () );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
     }
 
@@ -137,44 +137,49 @@ public class TextInputMultiComposite extends WriteableComposite implements Contr
             return;
         }
 
-        this.data.setForeground ( Display.getCurrent ().getSystemColor ( SWT.COLOR_DARK_YELLOW ) );
-        if ( this.attribute == null || this.attribute.equals ( "" ) ) //$NON-NLS-1$
+        try
         {
-            if ( string == null )
+            this.data.setForeground ( Display.getCurrent ().getSystemColor ( SWT.COLOR_DARK_YELLOW ) );
+            if ( this.attribute == null || this.attribute.equals ( "" ) ) //$NON-NLS-1$
             {
-                this.controller.writeOperation ( Variant.NULL, this.descriptor );
+                if ( string == null )
+                {
+                    this.registrationManager.startWrite ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), Variant.NULL );
+                }
+                else
+                {
+                    this.registrationManager.startWrite ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), Variant.valueOf ( string ) );
+                }
             }
             else
             {
-                this.controller.writeOperation ( Variant.valueOf ( string ), this.descriptor );
+                final Map<String, Variant> map = new HashMap<String, Variant> ();
+                if ( string == null )
+                {
+                    map.put ( this.attribute, Variant.NULL );
+                }
+                else
+                {
+                    map.put ( this.attribute, Variant.valueOf ( string ) );
+                }
+                this.registrationManager.startWriteAttributes ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), map );
             }
+            getShell ().setFocus ();
         }
-        else
+        catch ( final Exception e )
         {
-            final Map<String, Variant> map = new HashMap<String, Variant> ();
-            if ( string == null )
-            {
-                map.put ( this.attribute, Variant.NULL );
-            }
-            else
-            {
-                map.put ( this.attribute, Variant.valueOf ( string ) );
-            }
-            this.controller.writeOperation ( map, this.descriptor );
+            // FIXME: log error
         }
-        getShell ().setFocus ();
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         if ( isDisposed () )
         {
             logger.info ( "No updateView cause widget is disposed" ); //$NON-NLS-1$
             return;
         }
-
-        this.attributeLabel.updateStatusView ( state );
 
         setText ( this.data, values, this.attribute );
         this.data.setForeground ( Display.getCurrent ().getSystemColor ( SWT.COLOR_BLACK ) );

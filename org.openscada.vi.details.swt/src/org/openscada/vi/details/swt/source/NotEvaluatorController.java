@@ -23,7 +23,8 @@ import java.util.Map;
 
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 
 public class NotEvaluatorController implements ValueSourceController
 {
@@ -46,7 +47,7 @@ public class NotEvaluatorController implements ValueSourceController
     }
 
     @Override
-    public void updateData ( final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    public void updateData ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         this.eval.updateData ( values, state );
     }

@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -17,17 +17,9 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.details.swt.source;
+package org.openscada.vi.data;
 
-import java.util.Map;
-
-import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.data.DataValue;
-import org.openscada.vi.data.SummaryInformation;
-
-public interface ValueSourceController
+public interface SummaryListener
 {
-    public DataItemValue value ();
-
-    public void updateData ( final Map<String, DataValue> values, final SummaryInformation state );
+    public void summaryChanged ( SummaryInformation summaryInformation );
 }

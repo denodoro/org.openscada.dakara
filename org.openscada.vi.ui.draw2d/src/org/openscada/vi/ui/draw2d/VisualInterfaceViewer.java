@@ -45,6 +45,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.ui.draw2d.impl.ScalableLayeredPane;

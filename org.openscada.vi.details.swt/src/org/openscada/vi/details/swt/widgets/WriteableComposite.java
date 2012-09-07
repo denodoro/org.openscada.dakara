@@ -34,6 +34,7 @@ import org.openscada.core.NotConvertableException;
 import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.data.DataValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,7 +50,7 @@ public abstract class WriteableComposite extends ReadableComposite
 
     public WriteableComposite ( final Composite parent, final int style, final String format, final String decimal, final Double ceil, final Double floor, final String attribute, final String hdConnectionId, final String hdItemId )
     {
-        super ( parent, style, format, decimal, attribute, hdConnectionId, hdItemId );
+        super ( parent, style, format, decimal, attribute );
         this.ceil = ceil;
         this.floor = floor;
 
@@ -189,7 +190,7 @@ public abstract class WriteableComposite extends ReadableComposite
         }
     }
 
-    protected void setText ( final Text text, final Map<Object, DataItemValue> values, final String attribute )
+    protected void setText ( final Text text, final Map<String, DataValue> values, final String attribute )
     {
         Variant value;
 
@@ -197,7 +198,7 @@ public abstract class WriteableComposite extends ReadableComposite
         {
             try
             {
-                value = values.get ( "value" ).getValue (); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getValue (); //$NON-NLS-1$
 
             }
             catch ( final NullPointerException e )
@@ -210,7 +211,7 @@ public abstract class WriteableComposite extends ReadableComposite
         {
             try
             {
-                value = values.get ( "value" ).getAttributes ().get ( attribute ); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getAttributes ().get ( attribute ); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {

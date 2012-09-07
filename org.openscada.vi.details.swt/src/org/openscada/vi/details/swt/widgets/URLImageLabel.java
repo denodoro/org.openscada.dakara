@@ -38,15 +38,15 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.model.DetailView.URLImageComponent;
 import org.openscada.vi.details.swt.Activator;
-import org.openscada.vi.details.swt.data.ControllerListener;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class URLImageLabel extends GenericComposite implements ControllerListener
+public class URLImageLabel extends GenericComposite
 {
 
     private static final Logger logger = LoggerFactory.getLogger ( URLImageLabel.class );
@@ -55,13 +55,13 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
 
     private final Label label;
 
-    private final AttributeImage attributeLabel;
-
     private final LocalResourceManager resourceManager;
 
     private String currentUrl;
 
     private Image currentImage;
+
+    private final ControlImage controlImage;
 
     public URLImageLabel ( final Composite parent, final int style, final DataItemDescriptor descriptor, final URLImageComponent component )
     {
@@ -76,7 +76,7 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
 
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
 
-        this.attributeLabel = new AttributeLockImage ( this, SWT.NONE, descriptor, null, null );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
 
         this.label = new Label ( this, SWT.NONE );
 
@@ -92,7 +92,8 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
 
         if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", descriptor, true );
+            this.controlImage.setDetailItem ( descriptor.asItem () );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false );
         }
 
         showUrl ( component.getFallbackImageUrl () );
@@ -111,7 +112,7 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes aggregatedState )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation aggregatedState )
     {
         if ( isDisposed () )
         {
@@ -119,9 +120,7 @@ public class URLImageLabel extends GenericComposite implements ControllerListene
             return;
         }
 
-        this.attributeLabel.updateStatusView ( aggregatedState );
-
-        final DataItemValue value = values.get ( "value" );
+        final DataItemValue value = values.get ( "value" ).getValue ();
         if ( value == null || !value.isConnected () || value.getValue () == null || value.getValue ().isNull () )
         {
             showUrl ( this.component.getFallbackImageUrl () );

@@ -20,4 +20,5 @@ Import-Package: org.openscada.core;version="0.17.0",
  org.openscada.core.ui.styles;version="1.0.0",
  org.openscada.ui.databinding;version="0.17.0",
  org.openscada.ui.utils.blink;version="0.17.0",
- org.openscada.ui.utils.status;version="0.17.0"
+ org.openscada.ui.utils.status;version="0.17.0",
+ org.openscada.vi.data;version="1.0.0"

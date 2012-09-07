@@ -26,28 +26,33 @@ import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.RegistrationManager;
+import org.openscada.vi.data.RegistrationManager.Listener;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.model.DetailView.Registration;
-import org.openscada.vi.details.swt.data.ControllerListener;
-import org.openscada.vi.details.swt.data.DataController;
+import org.openscada.vi.details.swt.Activator;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.impl.DetailComponentImpl;
 
-public abstract class GenericComposite extends Composite implements ControllerListener
+public abstract class GenericComposite extends Composite implements Listener
 {
-    protected final DataController controller;
+    protected final RegistrationManager registrationManager;
 
     public GenericComposite ( final Composite parent, final int style, final Collection<Registration> registrations, final Map<String, String> properties )
     {
         super ( parent, style );
 
-        this.controller = new DataController ( this );
+        this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext () );
+        this.registrationManager.addListener ( this );
 
         if ( registrations != null )
         {
             for ( final Registration reg : registrations )
             {
                 final DataItemDescriptor descriptor = DataItemDescriptor.create ( DetailComponentImpl.resolve ( reg.getDescriptor (), properties ) );
-                this.controller.registerItem ( reg.getKey (), descriptor, reg.isAggregateState () );
+                this.registrationManager.registerItem ( reg.getKey (), descriptor.getItemId (), descriptor.getConnectionInformation (), reg.isAggregateState (), true );
             }
         }
 
@@ -63,7 +68,7 @@ public abstract class GenericComposite extends Composite implements ControllerLi
 
     public void start ()
     {
-        this.controller.start ();
+        this.registrationManager.open ();
         for ( final Control control : getChildren () )
         {
             if ( control instanceof GenericComposite )
@@ -82,12 +87,13 @@ public abstract class GenericComposite extends Composite implements ControllerLi
                 ( (GenericComposite)control ).stop ();
             }
         }
-        this.controller.stop ();
+
+        this.registrationManager.close ();
     }
 
     protected void handleDispose ()
     {
-        this.controller.dispose ();
+        this.registrationManager.dispose ();
     }
 
     @Override
@@ -96,4 +102,31 @@ public abstract class GenericComposite extends Composite implements ControllerLi
         handleDispose ();
         super.dispose ();
     }
+
+    @Override
+    public void triggerDataUpdate ()
+    {
+        Display.getDefault ().asyncExec ( new Runnable () {
+
+            @Override
+            public void run ()
+            {
+                if ( Display.getCurrent ().isDisposed () )
+                {
+                    return;
+                }
+                processUpdate ();
+            }
+        } );
+    }
+
+    private void processUpdate ()
+    {
+        final Map<String, DataValue> data = this.registrationManager.getData ();
+
+        final SummaryInformation summaryInformation = new SummaryInformation ( data );
+        updateState ( data, summaryInformation );
+    }
+
+    protected abstract void updateState ( Map<String, DataValue> data, SummaryInformation summaryInformation );
 }

@@ -40,8 +40,8 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.services.IEvaluationReference;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.core.ui.styles.StyleBlinker;
-import org.openscada.vi.ui.draw2d.SummaryInformation;
-import org.openscada.vi.ui.draw2d.SummaryListener;
+import org.openscada.vi.data.SummaryInformation;
+import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
@@ -482,7 +482,10 @@ public class ViewInstance implements SummaryListener
             return;
         }
 
-        this.button.setImage ( this.currentButtonImage );
+        if ( !this.button.isDisposed () )
+        {
+            this.button.setImage ( this.currentButtonImage );
+        }
     }
 
     @Override

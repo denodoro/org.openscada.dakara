@@ -31,22 +31,19 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.openscada.core.Variant;
-import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BoolLEDComposite extends GenericComposite implements ControllerListener
+public class BoolLEDComposite extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( BoolLEDComposite.class );
 
     private final ResourceManager resourceManager;
 
     private final Label signalLabel;
-
-    private final AttributeImage attributeLabel;
 
     private final boolean isAlarm;
 
@@ -57,6 +54,8 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
     private final Image imageGray;
 
     private final String attribute;
+
+    private final ControlImage controlImage;
 
     public BoolLEDComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final boolean isAlarm, final String attribute )
     {
@@ -77,14 +76,16 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
         this.isAlarm = isAlarm;
         this.attribute = attribute;
 
-        this.attributeLabel = new AttributeLockImage ( this, SWT.NONE, descriptor, null, null );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
+        this.controlImage.setDetailItem ( descriptor.asItem () );
+
         this.signalLabel = new Label ( this, SWT.NONE );
         this.signalLabel.setImage ( this.imageGray );
         new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
 
         if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
 
         if ( Boolean.getBoolean ( "org.openscada.developer" ) )
@@ -109,7 +110,7 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation summaryInformation )
     {
         if ( isDisposed () )
         {
@@ -122,7 +123,7 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
         {
             try
             {
-                value = values.get ( "value" ).getValue (); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getValue (); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -134,7 +135,7 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
         {
             try
             {
-                value = values.get ( "value" ).getAttributes ().get ( this.attribute ); //$NON-NLS-1$
+                value = values.get ( "value" ).getValue ().getAttributes ().get ( this.attribute ); //$NON-NLS-1$
             }
             catch ( final NullPointerException e )
             {
@@ -142,8 +143,6 @@ public class BoolLEDComposite extends GenericComposite implements ControllerList
                 value = Variant.NULL;
             }
         }
-
-        this.attributeLabel.updateStatusView ( state );
 
         if ( value == null )
         {

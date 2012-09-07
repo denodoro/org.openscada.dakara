@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.draw2d;
+package org.openscada.vi.data;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -26,6 +26,9 @@ import org.openscada.core.connection.provider.ConnectionIdTracker;
 import org.openscada.core.connection.provider.ConnectionService;
 import org.openscada.da.client.DataItem;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.da.ui.connection.data.Item;
+import org.openscada.da.ui.connection.data.Item.Type;
+import org.osgi.framework.BundleContext;
 
 public class DataItemRegistration implements Observer
 {
@@ -37,23 +40,23 @@ public class DataItemRegistration implements Observer
 
     private org.openscada.da.connection.provider.ConnectionService connectionService;
 
-    private final String itemId;
-
     private DataItem dataItem;
 
     private final boolean ignoreSummary;
 
     private final boolean nullInvalid;
 
-    public DataItemRegistration ( final RegistrationManager registrationManager, final String name, final String itemId, final String connectionId, final boolean ignoreSummary, final boolean nullInvalid )
+    private final Item item;
+
+    public DataItemRegistration ( final RegistrationManager registrationManager, final BundleContext context, final String name, final String itemId, final String connectionId, final boolean ignoreSummary, final boolean nullInvalid )
     {
         this.registrationManager = registrationManager;
         this.name = name;
-        this.itemId = itemId;
+        this.item = new Item ( connectionId, itemId, Type.ID );
         this.ignoreSummary = ignoreSummary;
         this.nullInvalid = nullInvalid;
 
-        this.connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, new ConnectionIdTracker.Listener () {
+        this.connectionTracker = new ConnectionIdTracker ( context, connectionId, new ConnectionIdTracker.Listener () {
 
             @Override
             public void setConnection ( final ConnectionService connectionService )
@@ -61,7 +64,18 @@ public class DataItemRegistration implements Observer
                 DataItemRegistration.this.setConnection ( connectionService );
             }
         } );
+    }
+
+    public void open ()
+    {
         this.connectionTracker.open ();
+    }
+
+    public void close ()
+    {
+        this.connectionTracker.close ();
+        disconnect ();
+        notifyChange ( DataItemValue.DISCONNECTED );
     }
 
     public boolean isIgnoreSummary ()
@@ -74,6 +88,11 @@ public class DataItemRegistration implements Observer
         return this.nullInvalid;
     }
 
+    public Item getItem ()
+    {
+        return this.item;
+    }
+
     protected synchronized void setConnection ( final ConnectionService connectionService )
     {
         disconnect ();
@@ -81,7 +100,7 @@ public class DataItemRegistration implements Observer
         if ( connectionService instanceof org.openscada.da.connection.provider.ConnectionService )
         {
             this.connectionService = (org.openscada.da.connection.provider.ConnectionService)connectionService;
-            this.dataItem = new DataItem ( this.itemId );
+            this.dataItem = new DataItem ( this.item.getId () );
             this.dataItem.addObserver ( this );
             this.dataItem.register ( this.connectionService.getItemManager () );
         }
@@ -107,16 +126,9 @@ public class DataItemRegistration implements Observer
         }
     }
 
-    public void dispose ()
-    {
-        this.connectionTracker.close ();
-        disconnect ();
-        notifyChange ( DataItemValue.DISCONNECTED );
-    }
-
     public void notifyChange ( final DataItemValue value )
     {
-        this.registrationManager.notifyChange ( this.name, value, this.ignoreSummary, this.nullInvalid );
+        this.registrationManager.notifyChange ( this.name, this.item, value, this.ignoreSummary, this.nullInvalid );
     }
 
     @Override

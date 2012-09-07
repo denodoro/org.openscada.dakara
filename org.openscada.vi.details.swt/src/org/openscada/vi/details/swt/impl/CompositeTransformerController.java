@@ -26,7 +26,8 @@ import java.util.Map;
 import org.openscada.core.Variant;
 import org.openscada.core.subscription.SubscriptionState;
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.source.ValueSourceController;
 
 public abstract class CompositeTransformerController implements ValueSourceController
@@ -34,7 +35,7 @@ public abstract class CompositeTransformerController implements ValueSourceContr
 
     protected final List<ValueSourceController> values;
 
-    protected SCADAAttributes state;
+    protected SummaryInformation state;
 
     public CompositeTransformerController ( final List<ValueSourceController> values )
     {
@@ -45,7 +46,7 @@ public abstract class CompositeTransformerController implements ValueSourceContr
     public abstract DataItemValue value ();
 
     @Override
-    public void updateData ( final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    public void updateData ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         for ( final ValueSourceController controller : this.values )
         {
@@ -56,7 +57,7 @@ public abstract class CompositeTransformerController implements ValueSourceContr
 
     protected SubscriptionState createState ()
     {
-        final SubscriptionState state = this.state.isDisconnected () ? SubscriptionState.DISCONNECTED : SubscriptionState.CONNECTED;
+        final SubscriptionState state = !this.state.isConnected () ? SubscriptionState.DISCONNECTED : SubscriptionState.CONNECTED;
         return state;
     }
 
@@ -64,7 +65,7 @@ public abstract class CompositeTransformerController implements ValueSourceContr
     {
         final Map<String, Variant> attributes = new HashMap<String, Variant> ();
         attributes.put ( "error", Variant.valueOf ( this.state.isError () ) ); //$NON-NLS-1$
-        attributes.put ( "manual", Variant.valueOf ( this.state.isManualActive () ) ); //$NON-NLS-1$
+        attributes.put ( "manual", Variant.valueOf ( this.state.isManual () ) ); //$NON-NLS-1$
         attributes.put ( "alarm", Variant.valueOf ( this.state.isAlarm () ) ); //$NON-NLS-1$
         attributes.put ( "ackRequired", Variant.valueOf ( this.state.isAckRequired () ) ); //$NON-NLS-1$
         return attributes;

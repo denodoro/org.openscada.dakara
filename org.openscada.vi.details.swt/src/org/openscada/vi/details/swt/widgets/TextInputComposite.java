@@ -31,21 +31,21 @@ import org.eclipse.swt.widgets.Text;
 import org.openscada.core.Variant;
 import org.openscada.core.VariantType;
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TextInputComposite extends WriteableComposite implements ControllerListener
+public class TextInputComposite extends WriteableComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( TextInputComposite.class );
 
     private final Text data;
 
-    private final AttributeLockImage attributeLabel;
-
     private final DataItemDescriptor descriptor;
+
+    private final ControlImage controlImage;
 
     public TextInputComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId )
     {
@@ -56,7 +56,8 @@ public class TextInputComposite extends WriteableComposite implements Controller
         GridLayoutFactory.fillDefaults ().numColumns ( 3 ).margins ( 5, 5 ).spacing ( 0, 0 ).equalWidth ( false ).applyTo ( this );
         GridDataFactory.fillDefaults ().grab ( true, false ).applyTo ( this );
 
-        this.attributeLabel = new AttributeLockImage ( this, 0, descriptor, hdConnectionId, hdItemId );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
 
         this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.CENTER );
         GridDataFactory.fillDefaults ().grab ( false, false ).hint ( 80, 10 ).applyTo ( this.data );
@@ -66,11 +67,13 @@ public class TextInputComposite extends WriteableComposite implements Controller
 
         if ( readDescriptor != null )
         {
-            this.controller.registerItem ( "value", readDescriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( readDescriptor.asItem () );
+            this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
         else if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( descriptor.asItem () );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
     }
 
@@ -82,23 +85,30 @@ public class TextInputComposite extends WriteableComposite implements Controller
             return;
         }
 
-        this.data.setForeground ( Display.getCurrent ().getSystemColor ( SWT.COLOR_DARK_YELLOW ) );
-        if ( getAttribute () == null )
+        try
         {
-            this.controller.writeOperation ( Variant.valueOf ( Double.parseDouble ( this.data.getText ().replace ( ",", "." ) ) ), this.descriptor ); //$NON-NLS-1$ //$NON-NLS-2$
+            this.data.setForeground ( Display.getCurrent ().getSystemColor ( SWT.COLOR_DARK_YELLOW ) );
+            if ( getAttribute () == null )
+            {
+                this.registrationManager.startWrite ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), Variant.valueOf ( Double.parseDouble ( this.data.getText ().replace ( ",", "." ) ) ) );
+            }
+            else
+            {
+                final Map<String, Variant> attributes = new HashMap<String, Variant> ();
+                final Variant variant = Variant.valueOf ( Double.parseDouble ( this.data.getText ().replace ( ",", "." ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                attributes.put ( getAttribute (), variant );
+                this.registrationManager.startWriteAttributes ( this.descriptor.getConnectionInformation (), this.descriptor.getItemId (), attributes );
+            }
+            getShell ().setFocus ();
         }
-        else
+        catch ( final Exception e )
         {
-            final Map<String, Variant> attributes = new HashMap<String, Variant> ();
-            final Variant variant = Variant.valueOf ( Double.parseDouble ( this.data.getText ().replace ( ",", "." ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
-            attributes.put ( getAttribute (), variant );
-            this.controller.writeOperation ( null, attributes, this.descriptor );
+            // FIXME: log error
         }
-        getShell ().setFocus ();
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         if ( isDisposed () )
         {
@@ -106,9 +116,7 @@ public class TextInputComposite extends WriteableComposite implements Controller
             return;
         }
 
-        final DataItemValue value = values.get ( "value" ); //$NON-NLS-1$
-
-        this.attributeLabel.updateStatusView ( state );
+        final DataItemValue value = values.get ( "value" ).getValue (); //$NON-NLS-1$
 
         setCeil ( value );
         setFloor ( value );

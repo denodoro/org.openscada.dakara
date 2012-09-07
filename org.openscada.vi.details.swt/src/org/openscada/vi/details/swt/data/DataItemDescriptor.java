@@ -19,6 +19,9 @@
 
 package org.openscada.vi.details.swt.data;
 
+import org.openscada.da.ui.connection.data.Item;
+import org.openscada.da.ui.connection.data.Item.Type;
+
 public class DataItemDescriptor
 {
 
@@ -71,5 +74,10 @@ public class DataItemDescriptor
     public String toString ()
     {
         return this.connectionInformation + "#" + this.itemId; //$NON-NLS-1$
+    }
+
+    public Item asItem ()
+    {
+        return new Item ( this.connectionInformation, this.itemId, Type.ID );
     }
 }

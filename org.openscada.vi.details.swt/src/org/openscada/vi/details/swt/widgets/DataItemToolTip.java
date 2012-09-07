@@ -34,12 +34,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.openscada.da.ui.connection.data.Item;
 import org.openscada.vi.details.swt.Activator;
-import org.openscada.vi.details.swt.data.DataItemDescriptor;
 
 public class DataItemToolTip extends ToolTip
 {
-    private final DataItemDescriptor descriptor;
+    private final Item item;
 
     private Label headerLabel;
 
@@ -49,22 +49,22 @@ public class DataItemToolTip extends ToolTip
 
     private final LocalResourceManager resourceManager;
 
-    public DataItemToolTip ( final Control control, final int style, final boolean manualActivation, final DataItemDescriptor descriptor )
+    public DataItemToolTip ( final Control control, final int style, final boolean manualActivation, final Item item )
     {
         super ( control, style, manualActivation );
 
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
 
-        this.descriptor = descriptor;
+        this.item = item;
     }
 
-    public DataItemToolTip ( final Control control, final DataItemDescriptor descriptor )
+    public DataItemToolTip ( final Control control, final Item item )
     {
         super ( control );
 
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
 
-        this.descriptor = descriptor;
+        this.item = item;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class DataItemToolTip extends ToolTip
         wrapper.setBackgroundMode ( SWT.INHERIT_DEFAULT );
 
         this.headerLabel = new Label ( wrapper, SWT.NONE );
-        this.headerLabel.setText ( this.descriptor.getItemId () );
+        this.headerLabel.setText ( this.item.getId () );
         this.headerLabel.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false, 2, 1 ) );
         this.headerLabel.setFont ( JFaceResources.getHeaderFont () );
 
@@ -117,18 +117,6 @@ public class DataItemToolTip extends ToolTip
     {
         this.currentText = new StyledString ();
         this.currentText.append ( text );
-
-        //don't set the text. this may lead to a widget disposed exception, if the Tooltip is currently not shown.
-        /*        if ( this.text != null )
-                {
-                    this.text.setText ( text.getString () );
-                    this.text.setStyleRanges ( text.getStyleRanges () );
-                }
-          */
     }
 
-    public StyledString getCurrentText ()
-    {
-        return this.currentText;
-    }
 }

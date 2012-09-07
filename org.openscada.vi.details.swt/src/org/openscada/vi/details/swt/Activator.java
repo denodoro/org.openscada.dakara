@@ -47,6 +47,10 @@ public class Activator extends AbstractUIPlugin
 
     public static final String IMG_TREND = "trend";
 
+    public static final String IMG_ATTR_OK = "attr.ok";
+
+    public static final String IMG_EMPTY = "empty";
+
     // The shared instance
     private static Activator plugin;
 
@@ -116,6 +120,8 @@ public class Activator extends AbstractUIPlugin
         reg.put ( IMG_CONTROLLER_UNBLOCKED, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/unblocked.gif" ) );
         reg.put ( IMG_WARN_BIG, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/warn.gif" ) );
         reg.put ( IMG_TREND, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/trend_10.png" ) );
+        reg.put ( IMG_ATTR_OK, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/ok.png" ) );
+        reg.put ( IMG_EMPTY, imageDescriptorFromPlugin ( PLUGIN_ID, "icons/empty.png" ) );
     }
 
     public static VisibilityTester getVisibilityTester ()

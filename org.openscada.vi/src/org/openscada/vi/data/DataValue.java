@@ -17,9 +17,10 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.draw2d;
+package org.openscada.vi.data;
 
 import org.openscada.da.client.DataItemValue;
+import org.openscada.da.ui.connection.data.Item;
 import org.openscada.utils.lang.Immutable;
 
 @Immutable
@@ -31,12 +32,20 @@ public class DataValue
 
     private final boolean nullInvalid;
 
-    public DataValue ( final DataItemValue value, final boolean ignoreSummary, final boolean nullInvalid )
+    private final Item item;
+
+    public DataValue ( final DataItemValue value, final Item item, final boolean ignoreSummary, final boolean nullInvalid )
     {
         super ();
         this.value = value;
+        this.item = new Item ( item );
         this.ignoreSummary = ignoreSummary;
         this.nullInvalid = nullInvalid;
+    }
+
+    public Item getItem ()
+    {
+        return new Item ( this.item );
     }
 
     public DataItemValue getValue ()

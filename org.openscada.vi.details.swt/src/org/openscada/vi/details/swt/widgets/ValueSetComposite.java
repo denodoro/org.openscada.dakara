@@ -32,8 +32,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,27 +56,27 @@ public class ValueSetComposite extends WriteableComposite
 
     private final DataItemDescriptor diDescriptorButtonReset;
 
-    private final AttributeImage attributeLabel;
+    private final ControlImage controlImage;
 
-    public ValueSetComposite ( final Composite parent, final int style, final DataItemDescriptor valueDescriptor, final DataItemDescriptor setDescriptor, final DataItemDescriptor resetDescriptor, final String format, final Double ceil, final Double floor, final String decimal, final String attribute, final String hdConnectionId, final String hdItemId )
+    public ValueSetComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final DataItemDescriptor setDescriptor, final DataItemDescriptor resetDescriptor, final String format, final Double ceil, final Double floor, final String decimal, final String attribute, final String hdConnectionId, final String hdItemId )
     {
         super ( parent, style, format, decimal, ceil, floor, attribute, hdConnectionId, hdItemId );
 
         this.diDescriptorButtonReset = resetDescriptor;
         this.diDescriptorButtonSet = setDescriptor;
-        this.diDescriptorText = valueDescriptor;
+        this.diDescriptorText = descriptor;
 
         GridLayoutFactory.fillDefaults ().numColumns ( 4 ).margins ( 5, 5 ).spacing ( 0, 0 ).equalWidth ( false ).applyTo ( this );
         GridDataFactory.fillDefaults ().grab ( true, false ).applyTo ( this );
 
-        this.label = new LabelOpenscadaDialog ( this, SWT.NONE, format, valueDescriptor );
-        this.label.setToolTipText ( Messages.ValueSetComposite_valueDescriptor + valueDescriptor + Messages.ValueSetComposite_setDescriptor + setDescriptor + Messages.ValueSetComposite_resetDescriptor + resetDescriptor );
+        this.label = new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
+        this.label.setToolTipText ( Messages.ValueSetComposite_valueDescriptor + descriptor + Messages.ValueSetComposite_setDescriptor + setDescriptor + Messages.ValueSetComposite_resetDescriptor + resetDescriptor );
 
         this.layout ();
         final int width = this.label.getBounds ().width;
         GridDataFactory.fillDefaults ().grab ( true, false ).span ( 4, 1 ).hint ( width, 20 ).applyTo ( this.label );
 
-        this.attributeLabel = new AttributeLockImage ( this, 0, this.diDescriptorText, hdConnectionId, hdItemId );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
 
         this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.CENTER );
         GridDataFactory.fillDefaults ().grab ( false, false ).hint ( 60, 10 ).applyTo ( this.data );
@@ -107,9 +108,10 @@ public class ValueSetComposite extends WriteableComposite
 
         this.pack ();
 
-        if ( valueDescriptor != null )
+        if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", valueDescriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( descriptor.asItem () );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
 
     }
@@ -133,35 +135,48 @@ public class ValueSetComposite extends WriteableComposite
         this.data.setForeground ( Display.getCurrent ().getSystemColor ( SWT.COLOR_DARK_YELLOW ) );
         this.setButton.setEnabled ( true );
         this.resetButton.setEnabled ( true );
-        this.controller.writeOperation ( Variant.valueOf ( Double.parseDouble ( this.data.getText ().replace ( ",", "." ) ) ), this.diDescriptorText ); //$NON-NLS-1$ //$NON-NLS-2$
+        try
+        {
+            this.registrationManager.startWrite ( this.diDescriptorText.getConnectionInformation (), this.diDescriptorText.getItemId (), Variant.valueOf ( Double.parseDouble ( this.data.getText ().replace ( ",", "." ) ) ) );
+        }
+        catch ( final Exception e )
+        {
+            // FIXME: log error
+        }
         getShell ().setFocus ();
     }
 
-    private void triggerCommand ( final SelectionEvent e )
+    // FIXME: implement using anonymous classes to prevent "if"
+    private void triggerCommand ( final SelectionEvent evt )
     {
         if ( !WriteConfirmDialog.create ( getShell () ) )
         {
             return;
         }
 
-        if ( e.getSource ().equals ( this.setButton ) )
+        try
         {
-            this.controller.writeOperation ( Variant.TRUE, this.diDescriptorButtonSet );
-            //            Activator.getDefault ().writeConfirmed ( this.diDescriptorButtonSet.getConnectionInformation (), this.diDescriptorButtonSet.getItemId (), new Variant ( true ) );
+            if ( evt.getSource ().equals ( this.setButton ) )
+            {
+                this.registrationManager.startWrite ( this.diDescriptorButtonSet.getConnectionInformation (), this.diDescriptorButtonSet.getItemId (), Variant.TRUE );
+            }
+            else if ( evt.getSource ().equals ( this.resetButton ) )
+            {
+                this.registrationManager.startWrite ( this.diDescriptorButtonReset.getConnectionInformation (), this.diDescriptorButtonReset.getItemId (), Variant.TRUE );
+            }
+            else
+            {
+                logger.warn ( "Missing click item for write operation" ); //$NON-NLS-1$
+            }
         }
-        else if ( e.getSource ().equals ( this.resetButton ) )
+        catch ( final Exception e )
         {
-            this.controller.writeOperation ( Variant.TRUE, this.diDescriptorButtonReset );
-            //            Activator.getDefault ().writeConfirmed ( this.diDescriptorButtonReset.getConnectionInformation (), this.diDescriptorButtonReset.getItemId (), new Variant ( true ) );
-        }
-        else
-        {
-            logger.warn ( "Missing click item for write operation" ); //$NON-NLS-1$
+            // FIXME: log error 
         }
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         if ( isDisposed () )
         {
@@ -169,8 +184,7 @@ public class ValueSetComposite extends WriteableComposite
             return;
         }
 
-        final DataItemValue value = values.get ( "value" ); //$NON-NLS-1$
-        this.attributeLabel.updateStatusView ( state );
+        final DataItemValue value = values.get ( "value" ).getValue (); //$NON-NLS-1$
 
         setCeil ( value );
         setFloor ( value );

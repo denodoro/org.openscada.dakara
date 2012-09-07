@@ -36,15 +36,15 @@ import org.eclipse.swt.widgets.Composite;
 import org.openscada.core.Variant;
 import org.openscada.core.VariantEditor;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.model.DetailView.Registration;
-import org.openscada.vi.details.swt.data.ControllerListener;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.openscada.vi.details.swt.source.ValueSourceController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ButtonComposite extends GenericComposite implements ControllerListener
+public class ButtonComposite extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( ButtonComposite.class );
 
@@ -54,8 +54,6 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
 
     private final Variant value;
 
-    private final AttributeLockImage attributeLabel;
-
     private final DataItemDescriptor writeDescriptor;
 
     private final ValueSourceController active;
@@ -63,6 +61,8 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
     private final String attribute;
 
     private Font myFont;
+
+    private final ControlImage controlImage;
 
     public ButtonComposite ( final Composite parent, final int style, final DataItemDescriptor readDescriptor, final DataItemDescriptor writeDescriptor, final String format, final String value, final ValueSourceController active, final Collection<Registration> registrations, final Map<String, String> properties, final String attribute, final int textHeight )
     {
@@ -77,7 +77,7 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
         layout.pack = true;
         setLayout ( layout );
 
-        this.attributeLabel = new AttributeLockImage ( this, SWT.NONE, writeDescriptor, null, null );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
 
         if ( textHeight != 0 )
         {
@@ -109,11 +109,13 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
 
         if ( readDescriptor != null )
         {
-            this.controller.registerItem ( "value", readDescriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( readDescriptor.asItem () );
+            this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false );
         }
-        else
+        else if ( writeDescriptor != null )
         {
-            this.controller.registerItem ( "value", writeDescriptor, true ); //$NON-NLS-1$
+            this.controlImage.setDetailItem ( writeDescriptor.asItem () );
+            this.registrationManager.registerItem ( "value", writeDescriptor.getItemId (), writeDescriptor.getConnectionInformation (), false, false );
             this.button.setText ( format );
         }
         this.writeDescriptor = writeDescriptor;
@@ -144,25 +146,27 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
             return;
         }
 
-        if ( this.attribute == null )
+        try
         {
-            this.controller.writeOperation ( this.value, this.writeDescriptor );
+            if ( this.attribute == null )
+            {
+                this.registrationManager.startWrite ( this.writeDescriptor.getConnectionInformation (), this.writeDescriptor.getItemId (), this.value );
+            }
+            else
+            {
+                final Map<String, Variant> attributes = new HashMap<String, Variant> ();
+                attributes.put ( this.attribute, this.value );
+                this.registrationManager.startWriteAttributes ( this.writeDescriptor.getConnectionInformation (), this.writeDescriptor.getItemId (), attributes );
+            }
         }
-        else
+        catch ( final Exception e )
         {
-            final Map<String, Variant> attributes = new HashMap<String, Variant> ();
-            attributes.put ( this.attribute, this.value );
-            this.controller.writeOperation ( null, attributes, this.writeDescriptor );
+            // FIXME: log error
         }
-    }
-
-    protected void handleDispose ()
-    {
-        this.controller.dispose ();
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation summaryInformation )
     {
         if ( this.button.isDisposed () )
         {
@@ -171,32 +175,15 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
 
         if ( this.active != null )
         {
-            this.active.updateData ( values, state );
-            this.button.setEnabled ( this.active.value ().getValue ().asBoolean () && !state.isBlockedNative () );
+            this.active.updateData ( values, summaryInformation );
+            this.button.setEnabled ( this.active.value ().getValue ().asBoolean () && !summaryInformation.isBlocked () );
         }
         else
         {
-            if ( state == null )
-            {
-                this.button.setEnabled ( true );
-            }
-            else
-            {
-
-                if ( state.isBlockedNative () != null )
-                {
-                    this.button.setEnabled ( !state.isBlockedNative () );
-                }
-                else
-                {
-                    this.button.setEnabled ( true );
-                }
-            }
+            this.button.setEnabled ( !summaryInformation.isBlocked () );
         }
 
-        this.attributeLabel.updateStatusView ( state );
-
-        final DataItemValue value = values.get ( "value" ); //$NON-NLS-1$
+        final DataItemValue value = values.get ( "value" ).getValue (); //$NON-NLS-1$
 
         if ( value == null )
         {
@@ -206,4 +193,5 @@ public class ButtonComposite extends GenericComposite implements ControllerListe
         this.button.setText ( String.format ( this.format, value.getValue ().toLabel () ) );
         logger.info ( "update View for ButtonComposite: {}", this.writeDescriptor ); //$NON-NLS-1$
     }
+
 }

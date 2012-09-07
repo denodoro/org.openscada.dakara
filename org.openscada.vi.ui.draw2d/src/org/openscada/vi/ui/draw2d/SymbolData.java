@@ -23,6 +23,7 @@ import java.util.Map;
 
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.data.SummaryInformation;
 
 /**
  * Holds the data of the registered items for one symbol

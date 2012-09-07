@@ -104,6 +104,8 @@
   	
   	<openscada.builder.copyPlugin id="org.openscada.dakara.ui" />
   	
+  	<openscada.builder.copyPlugin id="org.openscada.vi" />
+  	
   	<openscada.builder.copyPlugin id="org.openscada.vi.model"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.model.edit"/>
   	<openscada.builder.copyPlugin id="org.openscada.vi.model.editor"/>

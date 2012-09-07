@@ -27,13 +27,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.openscada.da.client.DataItemValue;
-import org.openscada.vi.details.swt.data.ControllerListener;
+import org.openscada.vi.data.DataValue;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
-import org.openscada.vi.details.swt.data.SCADAAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LabelComposite extends GenericComposite implements ControllerListener
+public class LabelComposite extends GenericComposite
 {
     private static final Logger logger = LoggerFactory.getLogger ( LabelComposite.class );
 
@@ -51,7 +51,7 @@ public class LabelComposite extends GenericComposite implements ControllerListen
         this.format = format;
         if ( descriptor != null )
         {
-            this.controller.registerItem ( "value", descriptor, true ); //$NON-NLS-1$
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
         else
         {
@@ -61,7 +61,7 @@ public class LabelComposite extends GenericComposite implements ControllerListen
     }
 
     @Override
-    public void updateView ( final Object key, final Map<Object, DataItemValue> values, final SCADAAttributes state )
+    protected void updateState ( final Map<String, DataValue> values, final SummaryInformation state )
     {
         if ( isDisposed () )
         {
@@ -69,7 +69,7 @@ public class LabelComposite extends GenericComposite implements ControllerListen
             return;
         }
 
-        final DataItemValue value = values.get ( "value" ); //$NON-NLS-1$
+        final DataItemValue value = values.get ( "value" ).getValue (); //$NON-NLS-1$
 
         if ( value == null )
         {
@@ -86,4 +86,5 @@ public class LabelComposite extends GenericComposite implements ControllerListen
             this.label.setBackground ( null );
         }
     }
+
 }

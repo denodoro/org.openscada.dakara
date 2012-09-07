@@ -17,44 +17,65 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.draw2d;
+package org.openscada.vi.data;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.openscada.core.Variant;
 import org.openscada.core.connection.provider.ConnectionIdTracker;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.da.connection.provider.ConnectionService;
+import org.openscada.da.ui.connection.data.Item;
+import org.openscada.da.ui.connection.data.Item.Type;
+import org.osgi.framework.BundleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RegistrationManager
 {
-    private static final long SERVICE_TIMEOUT = Long.getLong ( "org.openscada.vi.ui.draw2d.serviceTimeout", 1000 );
+    private static final long SERVICE_TIMEOUT = Long.getLong ( "org.openscada.vi.data", 1000 );
+
+    private final static Logger logger = LoggerFactory.getLogger ( RegistrationManager.class );
 
     public interface Listener
     {
         public void triggerDataUpdate ();
     }
 
-    private final Listener listener;
+    private final Set<Listener> listeners = new LinkedHashSet<RegistrationManager.Listener> ();
 
     private final Map<String, DataItemRegistration> registrations = new LinkedHashMap<String, DataItemRegistration> ();
 
     private final AtomicReference<Map<String, DataValue>> currentValues = new AtomicReference<Map<String, DataValue>> ( Collections.<String, DataValue> emptyMap () );
 
-    public RegistrationManager ( final Listener listener )
+    private final BundleContext context;
+
+    private boolean open;
+
+    public RegistrationManager ( final BundleContext context )
     {
-        this.listener = listener;
+        this.context = context;
+    }
+
+    public void addListener ( final Listener listener )
+    {
+        this.listeners.add ( listener );
+    }
+
+    public void removeListener ( final Listener listener )
+    {
+        this.listeners.remove ( listener );
     }
 
     public void dispose ()
     {
-        for ( final DataItemRegistration registration : this.registrations.values () )
-        {
-            registration.dispose ();
-        }
+        close ();
         this.registrations.clear ();
     }
 
@@ -63,7 +84,40 @@ public class RegistrationManager
         final DataItemRegistration registration = this.registrations.remove ( name );
         if ( registration != null )
         {
-            registration.dispose ();
+            if ( this.open )
+            {
+                registration.close ();
+            }
+        }
+    }
+
+    public void open ()
+    {
+        if ( this.open )
+        {
+            return;
+        }
+
+        this.open = true;
+
+        for ( final DataItemRegistration registration : this.registrations.values () )
+        {
+            registration.open ();
+        }
+    }
+
+    public void close ()
+    {
+        if ( !this.open )
+        {
+            return;
+        }
+
+        this.open = false;
+
+        for ( final DataItemRegistration registration : this.registrations.values () )
+        {
+            registration.close ();
         }
     }
 
@@ -74,15 +128,21 @@ public class RegistrationManager
             throw new IllegalArgumentException ( String.format ( "'itemId' must not be null" ) );
         }
 
-        notifyChange ( name, DataItemValue.DISCONNECTED, ignoreSummary, nullInvalid );
-        final DataItemRegistration oldRegistration = this.registrations.put ( name, new DataItemRegistration ( this, name, itemId, connectionId, ignoreSummary, nullInvalid ) );
-        if ( oldRegistration != null )
+        notifyChange ( name, new Item ( connectionId, itemId, Type.ID ), DataItemValue.DISCONNECTED, ignoreSummary, nullInvalid );
+        final DataItemRegistration newRegistration = new DataItemRegistration ( this, this.context, name, itemId, connectionId, ignoreSummary, nullInvalid );
+        final DataItemRegistration oldRegistration = this.registrations.put ( name, newRegistration );
+        if ( this.open )
         {
-            oldRegistration.dispose ();
+            if ( oldRegistration != null )
+            {
+                oldRegistration.close ();
+            }
+
+            newRegistration.open ();
         }
     }
 
-    public void notifyChange ( final String name, final DataItemValue value, final boolean ignoreSummary, final boolean nullInvalid )
+    public void notifyChange ( final String name, final Item item, final DataItemValue value, final boolean ignoreSummary, final boolean nullInvalid )
     {
         Map<String, DataValue> currentMap;
         Map<String, DataValue> newMap;
@@ -90,10 +150,20 @@ public class RegistrationManager
         {
             currentMap = this.currentValues.get ();
             newMap = new LinkedHashMap<String, DataValue> ( currentMap );
-            newMap.put ( name, new DataValue ( value, ignoreSummary, nullInvalid ) );
+            newMap.put ( name, new DataValue ( value, item, ignoreSummary, nullInvalid ) );
         } while ( !this.currentValues.compareAndSet ( currentMap, newMap ) );
 
-        this.listener.triggerDataUpdate ();
+        for ( final Listener listener : this.listeners )
+        {
+            try
+            {
+                listener.triggerDataUpdate ();
+            }
+            catch ( final Exception e )
+            {
+                logger.warn ( "Failed to notify", e );
+            }
+        }
     }
 
     public Map<String, DataValue> getData ()
@@ -103,7 +173,7 @@ public class RegistrationManager
 
     public void startWrite ( final String connectionId, final String itemId, final Variant value ) throws InterruptedException
     {
-        final ConnectionIdTracker connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, null, ConnectionService.class );
+        final ConnectionIdTracker connectionTracker = new ConnectionIdTracker ( this.context, connectionId, null, ConnectionService.class );
         connectionTracker.open ();
         try
         {
@@ -118,7 +188,7 @@ public class RegistrationManager
 
     public void startWriteAttributes ( final String connectionId, final String itemId, final Map<String, Variant> attributes ) throws InterruptedException
     {
-        final ConnectionIdTracker connectionTracker = new ConnectionIdTracker ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, null, ConnectionService.class );
+        final ConnectionIdTracker connectionTracker = new ConnectionIdTracker ( this.context, connectionId, null, ConnectionService.class );
         connectionTracker.open ();
         try
         {
@@ -129,5 +199,17 @@ public class RegistrationManager
         {
             connectionTracker.close ();
         }
+    }
+
+    public Collection<Item> getItems ()
+    {
+        final Set<Item> result = new LinkedHashSet<Item> ( this.registrations.size () );
+
+        for ( final DataItemRegistration reg : this.registrations.values () )
+        {
+            result.add ( reg.getItem () );
+        }
+
+        return result;
     }
 }
