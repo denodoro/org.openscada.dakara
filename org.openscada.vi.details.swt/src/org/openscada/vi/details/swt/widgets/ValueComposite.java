@@ -49,8 +49,6 @@ public class ValueComposite extends ReadableComposite
 
         this.isDate = isDate;
 
-        //        final Font font = new Font ( this.getDisplay (), new FontData ( "Arial", 20, 2 ) );
-
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
         layout.center = true;
@@ -67,7 +65,6 @@ public class ValueComposite extends ReadableComposite
         this.dataLabel.setLayoutData ( rowData );
         this.dataLabel.setText ( "" ); //$NON-NLS-1$
         new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
-        //        this.textLabel.setFont ( font );
 
         if ( descriptor != null )
         {
