@@ -189,18 +189,20 @@ public abstract class FigureController implements Controller
         @Override
         public void start ()
         {
-            enableBlinking ( this.frequency );
+            enableBlinking ( true );
         }
 
         @Override
         public void stop ()
         {
+            enableBlinking ( false );
             super.dispose ();
         }
 
         @Override
-        public void toggle ( final boolean on )
+        public void toggle ( final int globalCounter )
         {
+            final boolean on = globalCounter % this.frequency == 0;
             this.applier.applyColor ( this.figure, on ? this.onColor : this.offColor );
         }
     }

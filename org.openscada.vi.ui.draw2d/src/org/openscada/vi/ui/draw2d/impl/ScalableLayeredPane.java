@@ -94,6 +94,7 @@ public class ScalableLayeredPane extends LayeredPane implements ScalableFigure
     /**
      * @see org.eclipse.draw2d.Figure#paintClientArea(Graphics)
      */
+    @SuppressWarnings ( "deprecation" )
     @Override
     protected void paintClientArea ( final Graphics graphics )
     {
@@ -127,6 +128,7 @@ public class ScalableLayeredPane extends LayeredPane implements ScalableFigure
      * @param newZoom
      *            The new zoom level
      */
+    @SuppressWarnings ( "deprecation" )
     @Override
     public void setScale ( final double newZoom )
     {
