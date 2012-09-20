@@ -96,7 +96,7 @@ public class Draw2DGraphics implements Graphics
     @Override
     public void fillRectangle ( final Rectangle rect )
     {
-        this.g.fillRectangle ( rect.x, rect.y, rect.height, rect.width );
+        this.g.fillRectangle ( rect.x, rect.y, rect.width, rect.height );
     }
 
     @Override
