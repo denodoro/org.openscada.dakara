@@ -55,7 +55,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.core.Variant;
 import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.ui.databinding.item.DataItemObservableValue;
@@ -251,10 +250,9 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.manager.dispose ();
     }
 
-    private VisualInterfaceViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
+    private ViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
     {
-        final VisualInterfaceViewInstance instance = new VisualInterfaceViewInstance ( this, this, this.viewHolder, this.toolBar, descriptor, this.manager, (IEvaluationService)getSite ().getService ( IEvaluationService.class ) );
-        instance.init ();
+        final ViewInstance instance = descriptor.getFactory ().createViewInstance ( this, this, descriptor, this.viewHolder, this.toolBar, this.manager, getSite () );
         this.instances.put ( descriptor.getId (), instance );
         return instance;
     }

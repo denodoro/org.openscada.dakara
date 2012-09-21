@@ -48,11 +48,14 @@ public class ViewInstanceDescriptor
 
     private final Expression defaultInstanceExpression;
 
-    public ViewInstanceDescriptor ( final String id, final String parentId, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Expression defaultInstanceExpression, final Map<String, String> properties )
+    private final ViewInstanceFactory factory;
+
+    public ViewInstanceDescriptor ( final String id, final String parentId, final ViewInstanceFactory factory, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Expression defaultInstanceExpression, final Map<String, String> properties )
     {
         super ();
         this.id = id;
         this.parentId = parentId;
+        this.factory = factory;
         this.uri = uri;
         this.name = name;
         this.properties = properties;
@@ -117,6 +120,11 @@ public class ViewInstanceDescriptor
     public int getOrder ()
     {
         return this.order;
+    }
+
+    public ViewInstanceFactory getFactory ()
+    {
+        return this.factory;
     }
 
     @Override

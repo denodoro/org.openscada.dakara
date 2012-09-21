@@ -83,16 +83,6 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="resource" type="string">
-            <annotation>
-               <documentation>
-                  A name of a view resource in the current bundle.
-               </documentation>
-               <appinfo>
-                  <meta.attribute kind="resource"/>
-               </appinfo>
-            </annotation>
-         </attribute>
          <attribute name="parent" type="string">
             <annotation>
                <documentation>
@@ -106,8 +96,18 @@
          <attribute name="uri" type="string">
             <annotation>
                <documentation>
-                  A URI to a view to load. May also be &lt;q&gt;platform:/...&lt;/q&gt;
+                  A URI to a view to load. May also be &lt;q&gt;platform:/...&lt;/q&gt;. The &lt;q&gt;uri&lt;/q&gt; attribute is preferred over the &lt;q&gt;resource&lt;/q&gt; attribute.
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="resource" type="string">
+            <annotation>
+               <documentation>
+                  A name of a view resource in the current bundle. Instead of the &lt;q&gt;resource&lt;/q&gt; attribute the &lt;q&gt;uri&lt;/q&gt; attribute may be used for defining the target.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
             </annotation>
          </attribute>
          <attribute name="zooming" type="boolean">
@@ -135,6 +135,16 @@ It is also possible to use a more complex expression using the child element &lt
 
 If both are specified this field is used.
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="factoryClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The factory which implements the view.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.openscada.vi.ui.user.ViewInstanceFactory"/>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>

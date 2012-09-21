@@ -85,12 +85,12 @@ public abstract class AbstractViewInstance implements ViewInstance
 
     private final ResourceManager manager;
 
-    public AbstractViewInstance ( final ViewManagerContext viewManagerContext, final ViewManager viewManager, final ResourceManager manager, final ViewInstanceDescriptor descriptor, final ToolBar toolbar, final IEvaluationService evaluationService )
+    public AbstractViewInstance ( final ViewManagerContext viewManagerContext, final ViewManager viewManager, final ResourceManager manager, final ViewInstanceDescriptor descriptor, final ToolBar toolBar, final IEvaluationService evaluationService )
     {
         this.viewManager = viewManager;
         this.viewManagerContext = viewManagerContext;
         this.evaluationService = evaluationService;
-        this.toolbar = toolbar;
+        this.toolbar = toolBar;
         this.manager = manager;
         this.descriptor = descriptor;
 

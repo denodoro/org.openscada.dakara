@@ -44,7 +44,6 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin
 {
-
     // The plug-in ID
     public static final String PLUGIN_ID = "org.openscada.vi.ui.user"; //$NON-NLS-1$
 
@@ -160,6 +159,9 @@ public class Activator extends AbstractUIPlugin
             final String id = element.getAttribute ( "id" );
             final String name = element.getAttribute ( "name" );
             final String parentId = element.getAttribute ( "parentId" );
+
+            final ViewInstanceFactory factory = (ViewInstanceFactory)element.createExecutableExtension ( "factoryClass" );
+
             final URI uri = makeUri ( element.getContributor ().getName (), element.getAttribute ( "resource" ), element.getAttribute ( "uri" ) );
 
             final Map<String, String> properties = new LinkedHashMap<String, String> ( 0 );
@@ -207,7 +209,7 @@ public class Activator extends AbstractUIPlugin
                 }
             }
 
-            return new ViewInstanceDescriptor ( id, parentId, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, properties );
+            return new ViewInstanceDescriptor ( id, parentId, factory, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, properties );
         }
         catch ( final Throwable e )
         {

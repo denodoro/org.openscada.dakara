@@ -19,21 +19,21 @@
 
 package org.openscada.vi.ui.user;
 
-import org.eclipse.swt.widgets.Control;
+import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.services.IEvaluationService;
 
-public interface ViewInstance
+public class VisualInterfaceFactory implements ViewInstanceFactory
 {
-    public void reload ();
 
-    public void deactivate ();
+    @Override
+    public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ToolBar toolBar, final ResourceManager manager, final IWorkbenchPartSite site )
+    {
+        final VisualInterfaceViewInstance instance = new VisualInterfaceViewInstance ( viewManager, viewManagerContext, viewHolder, toolBar, descriptor, manager, (IEvaluationService)site.getService ( IEvaluationService.class ) );
+        instance.init ();
+        return instance;
+    }
 
-    public void activate ();
-
-    public void setFocus ();
-
-    public Control getControl ();
-
-    public boolean isDefaultInstance ();
-
-    public ViewInstanceDescriptor getDescriptor ();
 }
