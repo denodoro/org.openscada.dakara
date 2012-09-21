@@ -24,11 +24,11 @@ public interface ViewManagerContext
 
     public int calculateToolbarIndex ( ViewInstanceDescriptor descriptor );
 
-    public void viewDefaultChanged ( VisualInterfaceViewInstance viewInstance, boolean state );
+    public void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
 
-    public void viewVisibilityChanged ( VisualInterfaceViewInstance viewInstance, boolean state );
+    public void viewVisibilityChanged ( ViewInstance viewInstance, boolean state );
 
-    public void viewActiveChanged ( VisualInterfaceViewInstance viewInstance, boolean state );
+    public void viewActiveChanged ( ViewInstance viewInstance, boolean state );
 
-    public void viewControlChanged ( VisualInterfaceViewInstance viewInstance );
+    public void viewControlChanged ( ViewInstance viewInstance );
 }

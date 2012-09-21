@@ -36,4 +36,6 @@ public interface ViewInstance
 
     public boolean isDefaultInstance ();
 
+    public ViewInstanceDescriptor getDescriptor ();
+
 }

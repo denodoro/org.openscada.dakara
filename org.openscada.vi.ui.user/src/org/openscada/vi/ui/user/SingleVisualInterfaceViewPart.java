@@ -254,6 +254,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     private VisualInterfaceViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
     {
         final VisualInterfaceViewInstance instance = new VisualInterfaceViewInstance ( this, this, this.viewHolder, this.toolBar, descriptor, this.manager, (IEvaluationService)getSite ().getService ( IEvaluationService.class ) );
+        instance.init ();
         this.instances.put ( descriptor.getId (), instance );
         return instance;
     }
@@ -318,7 +319,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewVisibilityChanged ( final VisualInterfaceViewInstance viewInstance, final boolean visible )
+    public void viewVisibilityChanged ( final ViewInstance viewInstance, final boolean visible )
     {
         if ( visible )
         {
@@ -375,7 +376,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewDefaultChanged ( final VisualInterfaceViewInstance viewInstance, final boolean state )
+    public void viewDefaultChanged ( final ViewInstance viewInstance, final boolean state )
     {
         if ( this.currentInstance == null )
         {
@@ -384,7 +385,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewActiveChanged ( final VisualInterfaceViewInstance viewInstance, final boolean state )
+    public void viewActiveChanged ( final ViewInstance viewInstance, final boolean state )
     {
         if ( !state )
         {
@@ -397,7 +398,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewControlChanged ( final VisualInterfaceViewInstance viewInstance )
+    public void viewControlChanged ( final ViewInstance viewInstance )
     {
         if ( this.currentInstance == viewInstance )
         {
