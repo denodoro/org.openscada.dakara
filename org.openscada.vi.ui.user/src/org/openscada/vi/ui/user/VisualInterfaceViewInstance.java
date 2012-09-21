@@ -45,7 +45,7 @@ import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
-public class VisualInterfaceViewInstance implements SummaryListener
+public class VisualInterfaceViewInstance implements ViewInstance, SummaryListener
 {
     private ToolItem button;
 

@@ -81,9 +81,9 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private ToolBar toolBar;
 
-    private final Map<String, VisualInterfaceViewInstance> instances = new LinkedHashMap<String, VisualInterfaceViewInstance> ( 1 );
+    private final Map<String, ViewInstance> instances = new LinkedHashMap<String, ViewInstance> ( 1 );
 
-    private VisualInterfaceViewInstance currentInstance;
+    private ViewInstance currentInstance;
 
     private StackLayout stackLayout;
 
@@ -267,7 +267,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     @Override
     public void showView ( final String id, final boolean force )
     {
-        final VisualInterfaceViewInstance instance = this.instances.get ( id );
+        final ViewInstance instance = this.instances.get ( id );
         if ( instance == null )
         {
             return;
@@ -275,7 +275,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         showView ( instance, force );
     }
 
-    protected void showView ( final VisualInterfaceViewInstance instance, final boolean force )
+    protected void showView ( final ViewInstance instance, final boolean force )
     {
         if ( this.currentInstance == instance && !force )
         {
@@ -359,7 +359,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
         for ( final ViewInstanceDescriptor desc : this.visibleDescriptors )
         {
-            final VisualInterfaceViewInstance instance = this.instances.get ( desc.getId () );
+            final ViewInstance instance = this.instances.get ( desc.getId () );
             if ( instance == null )
             {
                 continue;
