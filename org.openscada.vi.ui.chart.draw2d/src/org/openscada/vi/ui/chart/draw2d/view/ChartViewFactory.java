@@ -36,7 +36,7 @@ public class ChartViewFactory implements ViewInstanceFactory
     @Override
     public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ToolBar toolBar, final ResourceManager manager, final IWorkbenchPartSite site )
     {
-        final ChartView view = new ChartView ( viewManagerContext, viewManager, manager, descriptor, viewHolder, toolBar, (IEvaluationService)site.getService ( IEvaluationService.class ) );
+        final ChartView view = new ChartView ( viewManagerContext, viewManager, manager, descriptor, viewHolder, toolBar, (IEvaluationService)site.getService ( IEvaluationService.class ), true );
         view.init ();
         return view;
     }
