@@ -39,12 +39,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
     {
         final IPreferenceStore store = Activator.getDefault ().getPreferenceStore ();
         store.setDefault ( PreferenceConstants.P_IMG_OK, makeURI ( "ok.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_ALARM, makeURI ( "alarm.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_INVALID, makeURI ( "invalid.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_MANUAL, makeURI ( "manual.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_BLOCKED, makeURI ( "blocked.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_ALARM_0, makeURI ( "alarm0.png" ) );
-        store.setDefault ( PreferenceConstants.P_IMG_ALARM_1, makeURI ( "alarm1.png" ) );
         store.setDefault ( PreferenceConstants.P_IMG_INACTIVE, makeURI ( "inactive.png" ) );
 
         store.setDefault ( PreferenceConstants.P_DEFAULT_LAZY_ACTIVATTION, false );
