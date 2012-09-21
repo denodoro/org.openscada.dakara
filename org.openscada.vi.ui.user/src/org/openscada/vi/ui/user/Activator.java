@@ -133,6 +133,11 @@ public class Activator extends AbstractUIPlugin
         return result;
     }
 
+    /**
+     * Find the first customerLogo extension
+     * 
+     * @return a customer logo
+     */
     protected static ImageDescriptor findLogoDescriptor ()
     {
         for ( final IConfigurationElement element : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_VIEW ) )

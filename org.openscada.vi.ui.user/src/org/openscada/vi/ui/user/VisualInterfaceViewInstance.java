@@ -45,7 +45,7 @@ import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 
-public class ViewInstance implements SummaryListener
+public class VisualInterfaceViewInstance implements SummaryListener
 {
     private ToolItem button;
 
@@ -91,7 +91,7 @@ public class ViewInstance implements SummaryListener
 
     private Image currentButtonImage;
 
-    public ViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
+    public VisualInterfaceViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
     {
         this.parent = parent;
         this.viewManager = viewManager;
@@ -246,7 +246,7 @@ public class ViewInstance implements SummaryListener
                 @Override
                 public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
                 {
-                    showView ( ViewInstance.this.descriptor.getId () );
+                    showView ( VisualInterfaceViewInstance.this.descriptor.getId () );
                 };
             } );
             // set current state

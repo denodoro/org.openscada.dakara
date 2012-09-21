@@ -81,9 +81,9 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private ToolBar toolBar;
 
-    private final Map<String, ViewInstance> instances = new LinkedHashMap<String, ViewInstance> ( 1 );
+    private final Map<String, VisualInterfaceViewInstance> instances = new LinkedHashMap<String, VisualInterfaceViewInstance> ( 1 );
 
-    private ViewInstance currentInstance;
+    private VisualInterfaceViewInstance currentInstance;
 
     private StackLayout stackLayout;
 
@@ -126,9 +126,11 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         toolLayout.marginHeight = toolLayout.marginWidth = 0;
         toolWrapper.setLayout ( toolLayout );
 
+        // toolbar for view buttons
         this.toolBar = new ToolBar ( toolWrapper, SWT.HORIZONTAL | SWT.WRAP );
         this.toolBar.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
 
+        // FIXME: replace with extension point 
         createTime ( toolWrapper );
         createLogo ( toolWrapper );
 
@@ -249,9 +251,9 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.manager.dispose ();
     }
 
-    private ViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
+    private VisualInterfaceViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
     {
-        final ViewInstance instance = new ViewInstance ( this, this, this.viewHolder, this.toolBar, descriptor, this.manager, (IEvaluationService)getSite ().getService ( IEvaluationService.class ) );
+        final VisualInterfaceViewInstance instance = new VisualInterfaceViewInstance ( this, this, this.viewHolder, this.toolBar, descriptor, this.manager, (IEvaluationService)getSite ().getService ( IEvaluationService.class ) );
         this.instances.put ( descriptor.getId (), instance );
         return instance;
     }
@@ -265,7 +267,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     @Override
     public void showView ( final String id, final boolean force )
     {
-        final ViewInstance instance = this.instances.get ( id );
+        final VisualInterfaceViewInstance instance = this.instances.get ( id );
         if ( instance == null )
         {
             return;
@@ -273,7 +275,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         showView ( instance, force );
     }
 
-    protected void showView ( final ViewInstance instance, final boolean force )
+    protected void showView ( final VisualInterfaceViewInstance instance, final boolean force )
     {
         if ( this.currentInstance == instance && !force )
         {
@@ -316,7 +318,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewVisibilityChanged ( final ViewInstance viewInstance, final boolean visible )
+    public void viewVisibilityChanged ( final VisualInterfaceViewInstance viewInstance, final boolean visible )
     {
         if ( visible )
         {
@@ -357,7 +359,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
         for ( final ViewInstanceDescriptor desc : this.visibleDescriptors )
         {
-            final ViewInstance instance = this.instances.get ( desc.getId () );
+            final VisualInterfaceViewInstance instance = this.instances.get ( desc.getId () );
             if ( instance == null )
             {
                 continue;
@@ -373,7 +375,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewDefaultChanged ( final ViewInstance viewInstance, final boolean state )
+    public void viewDefaultChanged ( final VisualInterfaceViewInstance viewInstance, final boolean state )
     {
         if ( this.currentInstance == null )
         {
@@ -382,7 +384,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewActiveChanged ( final ViewInstance viewInstance, final boolean state )
+    public void viewActiveChanged ( final VisualInterfaceViewInstance viewInstance, final boolean state )
     {
         if ( !state )
         {
@@ -395,7 +397,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public void viewControlChanged ( final ViewInstance viewInstance )
+    public void viewControlChanged ( final VisualInterfaceViewInstance viewInstance )
     {
         if ( this.currentInstance == viewInstance )
         {
