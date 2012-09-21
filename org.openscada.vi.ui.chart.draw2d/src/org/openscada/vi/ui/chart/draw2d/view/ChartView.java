@@ -76,7 +76,7 @@ public class ChartView extends AbstractViewInstance
 
         if ( this.showSelector )
         {
-            this.selector = new ChartInputSelector ( this.wrapper, this.configuration );
+            this.selector = new ChartInputSelector ( this.wrapper, this.configuration, true );
             this.wrapper.setWeights ( new int[] { 90, 10 } );
         }
 
