@@ -16,6 +16,7 @@ package org.openscada.vi.details.model.DetailView;
  * <ul>
  *   <li>{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getDescriptor <em>Descriptor</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getReadDescriptor <em>Read Descriptor</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getWidth <em>Width</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,5 +77,31 @@ public interface TextInputComponent extends WriteableComponent
      * @generated
      */
     void setReadDescriptor ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Width</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Width</em>' attribute.
+     * @see #setWidth(int)
+     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getTextInputComponent_Width()
+     * @model
+     * @generated
+     */
+    int getWidth ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getWidth <em>Width</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Width</em>' attribute.
+     * @see #getWidth()
+     * @generated
+     */
+    void setWidth ( int value );
 
 } // TextInputComponent

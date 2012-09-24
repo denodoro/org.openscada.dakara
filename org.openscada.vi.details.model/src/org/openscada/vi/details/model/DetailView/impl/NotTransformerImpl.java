@@ -123,8 +123,8 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
     {
         switch ( featureID )
         {
-            case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                return basicSetValue ( null, msgs );
+        case DetailViewPackage.NOT_TRANSFORMER__VALUE:
+            return basicSetValue ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -139,8 +139,8 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
     {
         switch ( featureID )
         {
-            case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                return getValue ();
+        case DetailViewPackage.NOT_TRANSFORMER__VALUE:
+            return getValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -155,9 +155,9 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
     {
         switch ( featureID )
         {
-            case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                setValue ( (ValueSource)newValue );
-                return;
+        case DetailViewPackage.NOT_TRANSFORMER__VALUE:
+            setValue ( (ValueSource)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -172,9 +172,9 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
     {
         switch ( featureID )
         {
-            case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                setValue ( (ValueSource)null );
-                return;
+        case DetailViewPackage.NOT_TRANSFORMER__VALUE:
+            setValue ( (ValueSource)null );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -189,8 +189,8 @@ public class NotTransformerImpl extends ValueSourceImpl implements NotTransforme
     {
         switch ( featureID )
         {
-            case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                return value != null;
+        case DetailViewPackage.NOT_TRANSFORMER__VALUE:
+            return value != null;
         }
         return super.eIsSet ( featureID );
     }

@@ -101,8 +101,8 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
     {
         switch ( featureID )
         {
-            case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                return getFormat ();
+        case DetailViewPackage.LINK_COMPONENT__FORMAT:
+            return getFormat ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -117,9 +117,9 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
     {
         switch ( featureID )
         {
-            case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                setFormat ( (String)newValue );
-                return;
+        case DetailViewPackage.LINK_COMPONENT__FORMAT:
+            setFormat ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -134,9 +134,9 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
     {
         switch ( featureID )
         {
-            case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                setFormat ( FORMAT_EDEFAULT );
-                return;
+        case DetailViewPackage.LINK_COMPONENT__FORMAT:
+            setFormat ( FORMAT_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -151,8 +151,8 @@ public class LinkComponentImpl extends ComponentImpl implements LinkComponent
     {
         switch ( featureID )
         {
-            case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+        case DetailViewPackage.LINK_COMPONENT__FORMAT:
+            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
         }
         return super.eIsSet ( featureID );
     }

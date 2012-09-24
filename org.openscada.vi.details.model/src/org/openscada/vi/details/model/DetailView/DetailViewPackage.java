@@ -1363,13 +1363,22 @@ public interface DetailViewPackage extends EPackage
     int TEXT_INPUT_COMPONENT__READ_DESCRIPTOR = WRITEABLE_COMPONENT_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_INPUT_COMPONENT__WIDTH = WRITEABLE_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Text Input Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_INPUT_COMPONENT_FEATURE_COUNT = WRITEABLE_COMPONENT_FEATURE_COUNT + 2;
+    int TEXT_INPUT_COMPONENT_FEATURE_COUNT = WRITEABLE_COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.TextComponentImpl <em>Text Component</em>}' class.
@@ -2822,6 +2831,17 @@ public interface DetailViewPackage extends EPackage
     EAttribute getTextInputComponent_ReadDescriptor ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.TextInputComponent#getWidth <em>Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Width</em>'.
+     * @see org.openscada.vi.details.model.DetailView.TextInputComponent#getWidth()
+     * @see #getTextInputComponent()
+     * @generated
+     */
+    EAttribute getTextInputComponent_Width ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.WriteableComponent <em>Writeable Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3988,6 +4008,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute TEXT_INPUT_COMPONENT__READ_DESCRIPTOR = eINSTANCE.getTextInputComponent_ReadDescriptor ();
+
+        /**
+         * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT_INPUT_COMPONENT__WIDTH = eINSTANCE.getTextInputComponent_Width ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.WriteableComponentImpl <em>Writeable Component</em>}' class.

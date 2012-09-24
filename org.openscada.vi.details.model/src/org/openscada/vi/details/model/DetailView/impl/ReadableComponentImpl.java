@@ -277,16 +277,16 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                return getFormat ();
-            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                return getDecimal ();
-            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                return getAttribute ();
-            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                return getHdConnectionid ();
-            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                return getHdItemId ();
+        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+            return getFormat ();
+        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+            return getDecimal ();
+        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+            return getAttribute ();
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
+            return getHdConnectionid ();
+        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+            return getHdItemId ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -301,21 +301,21 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                setFormat ( (String)newValue );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                setDecimal ( (String)newValue );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                setAttribute ( (String)newValue );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                setHdConnectionid ( (String)newValue );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                setHdItemId ( (String)newValue );
-                return;
+        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+            setFormat ( (String)newValue );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+            setDecimal ( (String)newValue );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+            setAttribute ( (String)newValue );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
+            setHdConnectionid ( (String)newValue );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+            setHdItemId ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -330,21 +330,21 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                setFormat ( FORMAT_EDEFAULT );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                setDecimal ( DECIMAL_EDEFAULT );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                setAttribute ( ATTRIBUTE_EDEFAULT );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                setHdConnectionid ( HD_CONNECTIONID_EDEFAULT );
-                return;
-            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                setHdItemId ( HD_ITEM_ID_EDEFAULT );
-                return;
+        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+            setFormat ( FORMAT_EDEFAULT );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+            setDecimal ( DECIMAL_EDEFAULT );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+            setAttribute ( ATTRIBUTE_EDEFAULT );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
+            setHdConnectionid ( HD_CONNECTIONID_EDEFAULT );
+            return;
+        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+            setHdItemId ( HD_ITEM_ID_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -359,16 +359,16 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-                return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals ( decimal );
-            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-                return HD_CONNECTIONID_EDEFAULT == null ? hdConnectionid != null : !HD_CONNECTIONID_EDEFAULT.equals ( hdConnectionid );
-            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals ( hdItemId );
+        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+            return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals ( decimal );
+        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
+            return HD_CONNECTIONID_EDEFAULT == null ? hdConnectionid != null : !HD_CONNECTIONID_EDEFAULT.equals ( hdConnectionid );
+        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+            return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals ( hdItemId );
         }
         return super.eIsSet ( featureID );
     }

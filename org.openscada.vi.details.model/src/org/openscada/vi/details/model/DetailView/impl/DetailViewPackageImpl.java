@@ -1066,6 +1066,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getTextInputComponent_Width ()
+    {
+        return (EAttribute)textInputComponentEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getWriteableComponent ()
     {
         return writeableComponentEClass;
@@ -1701,6 +1711,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         textInputComponentEClass = createEClass ( TEXT_INPUT_COMPONENT );
         createEAttribute ( textInputComponentEClass, TEXT_INPUT_COMPONENT__DESCRIPTOR );
         createEAttribute ( textInputComponentEClass, TEXT_INPUT_COMPONENT__READ_DESCRIPTOR );
+        createEAttribute ( textInputComponentEClass, TEXT_INPUT_COMPONENT__WIDTH );
 
         writeableComponentEClass = createEClass ( WRITEABLE_COMPONENT );
         createEAttribute ( writeableComponentEClass, WRITEABLE_COMPONENT__CEIL );
@@ -1919,6 +1930,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEClass ( textInputComponentEClass, TextInputComponent.class, "TextInputComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getTextInputComponent_Descriptor (), ecorePackage.getEString (), "descriptor", null, 1, 1, TextInputComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getTextInputComponent_ReadDescriptor (), ecorePackage.getEString (), "readDescriptor", null, 0, 1, TextInputComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getTextInputComponent_Width (), ecorePackage.getEInt (), "width", null, 0, 1, TextInputComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( writeableComponentEClass, WriteableComponent.class, "WriteableComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getWriteableComponent_Ceil (), ecorePackage.getEDoubleObject (), "ceil", null, 0, 1, WriteableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

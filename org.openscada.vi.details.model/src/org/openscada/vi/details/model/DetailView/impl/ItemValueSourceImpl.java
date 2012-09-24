@@ -101,8 +101,8 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
     {
         switch ( featureID )
         {
-            case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                return getValueKey ();
+        case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
+            return getValueKey ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -117,9 +117,9 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
     {
         switch ( featureID )
         {
-            case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                setValueKey ( (String)newValue );
-                return;
+        case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
+            setValueKey ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -134,9 +134,9 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
     {
         switch ( featureID )
         {
-            case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                setValueKey ( VALUE_KEY_EDEFAULT );
-                return;
+        case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
+            setValueKey ( VALUE_KEY_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -151,8 +151,8 @@ public class ItemValueSourceImpl extends ValueSourceImpl implements ItemValueSou
     {
         switch ( featureID )
         {
-            case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                return VALUE_KEY_EDEFAULT == null ? valueKey != null : !VALUE_KEY_EDEFAULT.equals ( valueKey );
+        case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
+            return VALUE_KEY_EDEFAULT == null ? valueKey != null : !VALUE_KEY_EDEFAULT.equals ( valueKey );
         }
         return super.eIsSet ( featureID );
     }
