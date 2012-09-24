@@ -22,9 +22,9 @@ package org.openscada.vi.details.swt.widgets;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
@@ -45,35 +45,72 @@ public class TextInputComposite extends WriteableComposite
 
     private final DataItemDescriptor descriptor;
 
-    private final ControlImage controlImage;
+    private final DataItemDescriptor readDescriptor;
 
-    public TextInputComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId )
+    private final ControlImage controlImageRead;
+
+    private final ControlImage controlImageWrite;
+
+    private final BlockControlImage blockImage;
+
+    public TextInputComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId, int width )
     {
         super ( parent, style, format, decimal, ceil, floor, attribute, hdConnectionId, hdItemId );
-
         this.descriptor = descriptor;
+        this.readDescriptor = readDescriptor;
 
-        GridLayoutFactory.fillDefaults ().numColumns ( 3 ).margins ( 5, 5 ).spacing ( 0, 0 ).equalWidth ( false ).applyTo ( this );
-        GridDataFactory.fillDefaults ().grab ( true, false ).applyTo ( this );
+        if ( width == 0 )
+        {
+            width = 60;
+        }
 
-        this.controlImage = new ControlImage ( this, this.registrationManager );
-        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
+        final GridLayout layout = new GridLayout ( 3, false );
 
-        this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.CENTER );
-        GridDataFactory.fillDefaults ().grab ( false, false ).hint ( 80, 10 ).applyTo ( this.data );
-        addDefaultKeyListener ( this.data );
-
-        new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
+        setLayout ( layout );
 
         if ( readDescriptor != null )
         {
-            this.controlImage.setDetailItem ( readDescriptor.asItem () );
-            this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+            this.controlImageWrite = new ControlImage ( this, this.registrationManager );
+            this.controlImageRead = new ControlImage ( this.controlImageWrite, SWT.NONE, this.registrationManager );
         }
-        else if ( descriptor != null )
+        else
         {
-            this.controlImage.setDetailItem ( descriptor.asItem () );
-            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+            this.controlImageWrite = new ControlImage ( this, this.registrationManager );
+            this.controlImageRead = controlImageWrite;
+        }
+        this.blockImage = new BlockControlImage ( this.controlImageRead, SWT.NONE, this.registrationManager );
+        Helper.createTrendButton ( this.controlImageRead, hdConnectionId, hdItemId );
+
+
+        this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.RIGHT );
+        final GridData data = new GridData ( SWT.LEFT, SWT.CENTER, false, true );
+        data.widthHint = data.minimumWidth = width;
+        data.heightHint = data.minimumHeight = SWT.DEFAULT;
+
+        this.data.setLayoutData ( data );
+        this.data.setEnabled ( true );
+
+        this.data.setText ( "" ); //$NON-NLS-1$
+        final LabelOpenscadaDialog label = new LabelOpenscadaDialog ( this, SWT.NONE, format, descriptor );
+        final GridData labelData = new GridData ( SWT.FILL, SWT.CENTER, true, false );
+        labelData.minimumWidth = 100;
+        label.setLayoutData ( labelData );
+        addDefaultKeyListener ( this.data );
+
+        if ( descriptor != null )
+        {
+            if ( readDescriptor != null )
+            {
+                this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+                this.registrationManager.registerItem ( "valueWrite", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+                this.controlImageRead.setDetailItem ( readDescriptor.asItem () );
+            }
+            else
+            {
+                this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+            }
+            this.blockImage.setBlockItem ( descriptor.asItem () );
+            this.controlImageWrite.setDetailItem ( descriptor.asItem () );
         }
     }
 
