@@ -308,6 +308,7 @@ public class DetailComponentImpl implements DetailComponent
 
                 trackControl ( check );
                 trackItem ( descriptor );
+                trackItem ( readDescriptor );
             }
         } );
 
@@ -347,10 +348,11 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ), component.getWidth ()  );
 
                 trackControl ( valueSet );
                 trackItem ( textInputItem );
+                trackItem ( readItem );
             }
         } );
 
