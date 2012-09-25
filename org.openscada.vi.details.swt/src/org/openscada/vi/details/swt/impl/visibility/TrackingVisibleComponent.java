@@ -98,7 +98,10 @@ public abstract class TrackingVisibleComponent implements VisibleComponent
 
     protected void trackItem ( final DataItemDescriptor item )
     {
-        this.items.add ( item );
+        if ( item != null )
+        {
+            this.items.add ( item );
+        }
     }
 
     protected void untrackItem ( final DataItemDescriptor item )
