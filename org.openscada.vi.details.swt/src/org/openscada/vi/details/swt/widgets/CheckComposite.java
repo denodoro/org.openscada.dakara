@@ -45,9 +45,9 @@ public class CheckComposite extends GenericComposite
 
     private final DataItemDescriptor descriptor;
 
-    private final DataItemDescriptor readDescriptor;
-
     private final ControlImage controlImage;
+
+    private BlockControlImage blockImage;
 
     public CheckComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final DataItemDescriptor readDescriptor )
     {
@@ -55,7 +55,6 @@ public class CheckComposite extends GenericComposite
 
         this.attribute = attribute;
         this.descriptor = descriptor;
-        this.readDescriptor = readDescriptor;
 
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
@@ -65,6 +64,7 @@ public class CheckComposite extends GenericComposite
         setLayout ( layout );
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
+        this.blockImage = new BlockControlImage ( this.controlImage, SWT.NONE, this.registrationManager );
 
         this.button = new Button ( this, SWT.CHECK );
         this.button.addSelectionListener ( new SelectionAdapter () {
@@ -78,16 +78,21 @@ public class CheckComposite extends GenericComposite
         } );
 
         this.button.setText ( format );
+        this.button.setEnabled ( false );
 
-        if ( this.readDescriptor != null )
+        if ( descriptor != null )
         {
-            this.controlImage.setDetailItem ( readDescriptor.asItem () );
-            this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false );
-        }
-        else if ( this.descriptor != null )
-        {
+            if ( readDescriptor != null )
+            {
+                this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+                this.registrationManager.registerItem ( "valueWrite", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+            }
+            else
+            {
+                this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
+            }
+            this.blockImage.setBlockItem ( descriptor.asItem () );
             this.controlImage.setDetailItem ( descriptor.asItem () );
-            this.registrationManager.registerItem ( "value", descriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false );
         }
     }
 
