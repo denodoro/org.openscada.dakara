@@ -45,8 +45,6 @@ public class TextInputComposite extends WriteableComposite
 
     private final DataItemDescriptor descriptor;
 
-    private final DataItemDescriptor readDescriptor;
-
     private final ControlImage controlImageRead;
 
     private final ControlImage controlImageWrite;
@@ -57,7 +55,6 @@ public class TextInputComposite extends WriteableComposite
     {
         super ( parent, style, format, decimal, ceil, floor, attribute, hdConnectionId, hdItemId );
         this.descriptor = descriptor;
-        this.readDescriptor = readDescriptor;
 
         if ( width == 0 )
         {
@@ -76,11 +73,10 @@ public class TextInputComposite extends WriteableComposite
         else
         {
             this.controlImageWrite = new ControlImage ( this, this.registrationManager );
-            this.controlImageRead = controlImageWrite;
+            this.controlImageRead = this.controlImageWrite;
         }
         this.blockImage = new BlockControlImage ( this.controlImageRead, SWT.NONE, this.registrationManager );
         Helper.createTrendButton ( this.controlImageRead, hdConnectionId, hdItemId );
-
 
         this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.RIGHT );
         final GridData data = new GridData ( SWT.LEFT, SWT.CENTER, false, true );
