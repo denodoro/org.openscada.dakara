@@ -39,13 +39,9 @@ import org.openscada.da.ui.widgets.realtime.RealTimeListViewer;
 import org.openscada.vi.details.model.DetailView.Visibility;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.impl.visibility.VisibilityProviderFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 class RealTimeGroupTab implements GroupTab
 {
-    private static final Logger logger = LoggerFactory.getLogger ( RealTimeGroupTab.class );
-
     private RealTimeListViewer viewer;
 
     private Shell shell;
@@ -128,15 +124,7 @@ class RealTimeGroupTab implements GroupTab
         for ( final Object object : this.input )
         {
             final DataItemDescriptor item = (DataItemDescriptor)object;
-            // FIXME: why are some objects null? Fix the root cause!
-            if ( item != null )
-            {
-                addItem ( item );
-            }
-            else
-            {
-                logger.warn ( "DataItemDescriptor was null" );
-            }
+            addItem ( item );
         }
     }
 
