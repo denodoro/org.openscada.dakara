@@ -45,9 +45,7 @@ public class TextInputComposite extends WriteableComposite
 
     private final DataItemDescriptor descriptor;
 
-    private final ControlImage controlImageRead;
-
-    private final ControlImage controlImageWrite;
+    private final ControlImage controlImage;
 
     private final BlockControlImage blockImage;
 
@@ -65,18 +63,9 @@ public class TextInputComposite extends WriteableComposite
 
         setLayout ( layout );
 
-        if ( readDescriptor != null )
-        {
-            this.controlImageWrite = new ControlImage ( this, this.registrationManager );
-            this.controlImageRead = new ControlImage ( this.controlImageWrite, SWT.NONE, this.registrationManager );
-        }
-        else
-        {
-            this.controlImageWrite = new ControlImage ( this, this.registrationManager );
-            this.controlImageRead = this.controlImageWrite;
-        }
-        this.blockImage = new BlockControlImage ( this.controlImageRead, SWT.NONE, this.registrationManager );
-        Helper.createTrendButton ( this.controlImageRead, hdConnectionId, hdItemId );
+        this.controlImage = new ControlImage ( this, this.registrationManager );
+        this.blockImage = new BlockControlImage ( this.controlImage, SWT.NONE, this.registrationManager );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
 
         this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.RIGHT );
         final GridData data = new GridData ( SWT.LEFT, SWT.CENTER, false, true );
@@ -99,14 +88,13 @@ public class TextInputComposite extends WriteableComposite
             {
                 this.registrationManager.registerItem ( "value", readDescriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
                 this.registrationManager.registerItem ( "valueWrite", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
-                this.controlImageRead.setDetailItem ( readDescriptor.asItem () );
             }
             else
             {
                 this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
             }
             this.blockImage.setBlockItem ( descriptor.asItem () );
-            this.controlImageWrite.setDetailItem ( descriptor.asItem () );
+            this.controlImage.setDetailItem ( descriptor.asItem () );
         }
     }
 
