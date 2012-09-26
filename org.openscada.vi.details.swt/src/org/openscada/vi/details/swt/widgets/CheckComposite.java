@@ -87,7 +87,7 @@ public class CheckComposite extends GenericComposite
         else if ( this.descriptor != null )
         {
             this.controlImage.setDetailItem ( descriptor.asItem () );
-            this.registrationManager.registerItem ( "value", descriptor.getItemId (), readDescriptor.getConnectionInformation (), false, false );
+            this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false );
         }
     }
 
