@@ -45,6 +45,8 @@ public class BoolLEDComposite extends GenericComposite
 
     private final Label signalLabel;
 
+    private final boolean expectedValue;
+
     private final boolean isAlarm;
 
     private final Image imageGreen;
@@ -57,7 +59,7 @@ public class BoolLEDComposite extends GenericComposite
 
     private final ControlImage controlImage;
 
-    public BoolLEDComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final boolean isAlarm, final String attribute )
+    public BoolLEDComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final boolean expectedValue, final boolean isAlarm, final String attribute )
     {
         super ( parent, style, null, null );
 
@@ -73,6 +75,7 @@ public class BoolLEDComposite extends GenericComposite
         layout.pack = true;
         setLayout ( layout );
 
+        this.expectedValue = expectedValue;
         this.isAlarm = isAlarm;
         this.attribute = attribute;
 
@@ -149,7 +152,11 @@ public class BoolLEDComposite extends GenericComposite
             return;
         }
 
-        if ( value.asBoolean () == true )
+        if ( value.asBoolean () == expectedValue )
+        {
+            this.signalLabel.setImage ( this.imageGray );
+        }
+        else
         {
             if ( this.isAlarm )
             {
@@ -159,10 +166,6 @@ public class BoolLEDComposite extends GenericComposite
             {
                 this.signalLabel.setImage ( this.imageGreen );
             }
-        }
-        else
-        {
-            this.signalLabel.setImage ( this.imageGray );
         }
     }
 }

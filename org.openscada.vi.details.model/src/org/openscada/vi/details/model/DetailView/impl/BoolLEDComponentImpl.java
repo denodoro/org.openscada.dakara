@@ -23,6 +23,7 @@ import org.openscada.vi.details.model.DetailView.DetailViewPackage;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#getDescriptor <em>Descriptor</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#isAlarm <em>Alarm</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#isExpectedValue <em>Expected Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,26 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @ordered
      */
     protected String attribute = ATTRIBUTE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isExpectedValue() <em>Expected Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExpectedValue()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean EXPECTED_VALUE_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isExpectedValue() <em>Expected Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isExpectedValue()
+     * @generated
+     * @ordered
+     */
+    protected boolean expectedValue = EXPECTED_VALUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -228,6 +249,29 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isExpectedValue ()
+    {
+        return expectedValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setExpectedValue ( boolean newExpectedValue )
+    {
+        boolean oldExpectedValue = expectedValue;
+        expectedValue = newExpectedValue;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE, oldExpectedValue, expectedValue ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -241,6 +285,8 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
             return isAlarm ();
         case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
             return getAttribute ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            return isExpectedValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -266,6 +312,9 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
             return;
         case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
             setAttribute ( (String)newValue );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            setExpectedValue ( (Boolean)newValue );
             return;
         }
         super.eSet ( featureID, newValue );
@@ -293,6 +342,9 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
         case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
             setAttribute ( ATTRIBUTE_EDEFAULT );
             return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            setExpectedValue ( EXPECTED_VALUE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -315,6 +367,8 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
             return alarm != ALARM_EDEFAULT;
         case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
             return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            return expectedValue != EXPECTED_VALUE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -339,6 +393,8 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
         result.append ( alarm );
         result.append ( ", attribute: " );
         result.append ( attribute );
+        result.append ( ", expectedValue: " );
+        result.append ( expectedValue );
         result.append ( ')' );
         return result.toString ();
     }

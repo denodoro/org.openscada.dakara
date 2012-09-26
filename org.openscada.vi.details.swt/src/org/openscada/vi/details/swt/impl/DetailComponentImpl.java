@@ -539,7 +539,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isAlarm (), component.getAttribute () );
+                final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isExpectedValue(), component.isAlarm (), component.getAttribute () );
 
                 trackControl ( led );
                 trackItem ( item );

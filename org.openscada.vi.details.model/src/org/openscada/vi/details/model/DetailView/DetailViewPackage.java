@@ -511,13 +511,22 @@ public interface DetailViewPackage extends EPackage
     int BOOL_LED_COMPONENT__ATTRIBUTE = COMPONENT_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Expected Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BOOL_LED_COMPONENT__EXPECTED_VALUE = COMPONENT_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Bool LED Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BOOL_LED_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
+    int BOOL_LED_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.details.model.DetailView.impl.ValueSourceImpl <em>Value Source</em>}' class.
@@ -2438,6 +2447,17 @@ public interface DetailViewPackage extends EPackage
     EAttribute getBoolLEDComponent_Attribute ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#isExpectedValue <em>Expected Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Expected Value</em>'.
+     * @see org.openscada.vi.details.model.DetailView.BoolLEDComponent#isExpectedValue()
+     * @see #getBoolLEDComponent()
+     * @generated
+     */
+    EAttribute getBoolLEDComponent_ExpectedValue ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.details.model.DetailView.ValueSource <em>Value Source</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3684,6 +3704,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute BOOL_LED_COMPONENT__ATTRIBUTE = eINSTANCE.getBoolLEDComponent_Attribute ();
+
+        /**
+         * The meta object literal for the '<em><b>Expected Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BOOL_LED_COMPONENT__EXPECTED_VALUE = eINSTANCE.getBoolLEDComponent_ExpectedValue ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.details.model.DetailView.impl.ValueSourceImpl <em>Value Source</em>}' class.
