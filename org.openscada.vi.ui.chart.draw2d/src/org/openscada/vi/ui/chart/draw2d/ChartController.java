@@ -20,17 +20,25 @@
 package org.openscada.vi.ui.chart.draw2d;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.ui.chart.model.ChartModel.Chart;
 import org.openscada.vi.chart.model.chart.ChartView;
-import org.openscada.vi.ui.draw2d.Controller;
+import org.openscada.vi.ui.draw2d.SymbolController;
+import org.openscada.vi.ui.draw2d.primitives.FigureController;
 
-public class ChartController implements Controller
+public class ChartController extends FigureController
 {
     private final Chart configuration;
 
-    public ChartController ( final ChartView view )
+    private final ChartFigure figure;
+
+    public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view )
     {
+        super ( symbolController, resourceManager );
         this.configuration = ChartHelper.loadConfiguraton ( view.getConfigurationUri () );
+        this.figure = new ChartFigure ( this.configuration );
+
+        applyCommon ( view );
     }
 
     public Chart getConfiguration ()
@@ -41,7 +49,13 @@ public class ChartController implements Controller
     @Override
     public IFigure getFigure ()
     {
-        return new ChartFigure ( this.configuration );
+        return this.figure;
+    }
+
+    @Override
+    public void setOpaque ( final Boolean flag )
+    {
+        setOpaque ( flag, false );
     }
 
 }

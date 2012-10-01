@@ -7,9 +7,7 @@
 package org.openscada.vi.chart.model.chart.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.openscada.vi.model.VisualInterface.provider.VisualInterfaceEditPlugin;
 
 /**

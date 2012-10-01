@@ -9,13 +9,10 @@ package org.openscada.vi.chart.model.chart.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.openscada.vi.chart.model.chart.ChartFactory;
 import org.openscada.vi.chart.model.chart.ChartPackage;
 import org.openscada.vi.chart.model.chart.ChartView;
-
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
@@ -187,7 +184,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        chartViewEClass.getESuperTypes ().add ( theVisualInterfacePackage.getPrimitive () );
+        chartViewEClass.getESuperTypes ().add ( theVisualInterfacePackage.getFigure () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( chartViewEClass, ChartView.class, "ChartView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

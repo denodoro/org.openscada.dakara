@@ -7,7 +7,6 @@
 package org.openscada.vi.chart.model.chart.util;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**

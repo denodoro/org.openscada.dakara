@@ -6,7 +6,7 @@
  */
 package org.openscada.vi.chart.model.chart;
 
-import org.openscada.vi.model.VisualInterface.Primitive;
+import org.openscada.vi.model.VisualInterface.Figure;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.openscada.vi.model.VisualInterface.Primitive;
  * @model
  * @generated
  */
-public interface ChartView extends Primitive
+public interface ChartView extends Figure
 {
 
     /**
