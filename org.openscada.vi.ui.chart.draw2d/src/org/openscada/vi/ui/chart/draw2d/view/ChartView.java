@@ -40,6 +40,7 @@ public class ChartView extends AbstractViewInstance
         super ( viewManagerContext, viewManager, manager, descriptor, toolbar, evaluationService );
         this.showSelector = showSelector;
         this.viewHolder = viewHolder;
+
     }
 
     @Override
