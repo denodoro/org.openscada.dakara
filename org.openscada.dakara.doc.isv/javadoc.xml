@@ -27,6 +27,7 @@
         		use="true"
         		version="true">
         	<sourcepath location="${buildDirectory}/plugins/org.openscada.vi.ui.draw2d/src"/>
+        	<sourcepath location="${buildDirectory}/plugins/org.openscada.vi.ui.user/src"/>
         	<sourcepath location="${buildDirectory}/plugins/org.openscada.vi.details/src"/>
         	<sourcepath location="${buildDirectory}/plugins/org.openscada.vi.details.swt/src"/>
     	</javadoc>
