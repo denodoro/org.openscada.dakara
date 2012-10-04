@@ -630,7 +630,7 @@ public abstract class FigureController implements Controller
             final String tok[] = color.split ( "\\|" );
             final Color onColor = createColor ( Helper.makeColor ( tok[0] ) );
             Color offColor;
-            int frequency = 1;
+            int stepCount = 1;
             if ( tok.length > 1 )
             {
                 offColor = createColor ( Helper.makeColor ( tok[1] ) );
@@ -641,9 +641,9 @@ public abstract class FigureController implements Controller
             }
             if ( tok.length > 2 )
             {
-                frequency = Integer.parseInt ( tok[2] );
+                stepCount = Integer.parseInt ( tok[2] );
             }
-            return new BlinkingColor ( getFigure (), applier, onColor, offColor, frequency );
+            return new BlinkingColor ( getFigure (), applier, onColor, offColor, stepCount * 2 );
         }
         return new DefaultColor ( getFigure (), applier );
     }

@@ -33,7 +33,7 @@ public class ViewElementFactory implements org.openscada.vi.ui.draw2d.ViewElemen
     public Controller create ( final SymbolController controller, final Primitive element, final ResourceManager manager, final BasicViewElementFactory basicViewElementFactory )
     {
         final ChartView view = (ChartView)element;
-        return new ChartController ( view );
+        return new ChartController ( controller, manager, view );
     }
 
 }

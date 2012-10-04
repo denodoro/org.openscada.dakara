@@ -30,7 +30,8 @@ Export-Package: org.openscada.vi.ui.draw2d;version="1.0.0";
    org.eclipse.swt.graphics,
    org.osgi.framework,
    org.openscada.core,
-   org.eclipse.swt.widgets"
+   org.eclipse.swt.widgets",
+ org.openscada.vi.ui.draw2d.primitives
 Import-Package: com.google.common.io;version="0.6.0",
  com.google.gson;version="1.4.0",
  org.apache.commons.beanutils;version="1.8.0",

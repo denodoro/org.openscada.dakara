@@ -9,12 +9,11 @@ package org.openscada.vi.chart.model.chart.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.openscada.vi.chart.model.chart.*;
+import org.openscada.vi.chart.model.chart.ChartFactory;
+import org.openscada.vi.chart.model.chart.ChartPackage;
+import org.openscada.vi.chart.model.chart.ChartView;
 
 /**
  * <!-- begin-user-doc -->

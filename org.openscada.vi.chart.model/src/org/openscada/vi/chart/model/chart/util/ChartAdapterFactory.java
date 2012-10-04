@@ -8,13 +8,11 @@ package org.openscada.vi.chart.model.chart.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.openscada.vi.chart.model.chart.*;
-
+import org.openscada.vi.chart.model.chart.ChartPackage;
+import org.openscada.vi.chart.model.chart.ChartView;
+import org.openscada.vi.model.VisualInterface.Figure;
 import org.openscada.vi.model.VisualInterface.Primitive;
 
 /**
@@ -91,6 +89,12 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseFigure ( Figure object )
+        {
+            return createFigureAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -137,6 +141,21 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createPrimitiveAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.Figure <em>Figure</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.Figure
+     * @generated
+     */
+    public Adapter createFigureAdapter ()
     {
         return null;
     }
