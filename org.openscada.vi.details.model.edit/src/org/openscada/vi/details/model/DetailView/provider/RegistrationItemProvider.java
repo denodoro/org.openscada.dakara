@@ -137,11 +137,11 @@ public class RegistrationItemProvider extends ItemProviderAdapter implements IEd
 
         switch ( notification.getFeatureID ( Registration.class ) )
         {
-            case DetailViewPackage.REGISTRATION__KEY:
-            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.REGISTRATION__KEY:
+        case DetailViewPackage.REGISTRATION__DESCRIPTOR:
+        case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

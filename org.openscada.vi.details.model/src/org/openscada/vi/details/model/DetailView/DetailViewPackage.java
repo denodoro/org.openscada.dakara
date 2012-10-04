@@ -861,13 +861,13 @@ public interface DetailViewPackage extends EPackage
     int READABLE_COMPONENT__ATTRIBUTE = COMPONENT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int READABLE_COMPONENT__HD_CONNECTIONID = COMPONENT_FEATURE_COUNT + 3;
+    int READABLE_COMPONENT__HD_CONNECTION_ID = COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -934,13 +934,13 @@ public interface DetailViewPackage extends EPackage
     int WRITEABLE_COMPONENT__ATTRIBUTE = READABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int WRITEABLE_COMPONENT__HD_CONNECTIONID = READABLE_COMPONENT__HD_CONNECTIONID;
+    int WRITEABLE_COMPONENT__HD_CONNECTION_ID = READABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -1025,13 +1025,13 @@ public interface DetailViewPackage extends EPackage
     int VALUE_SET_COMPONENT__ATTRIBUTE = WRITEABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VALUE_SET_COMPONENT__HD_CONNECTIONID = WRITEABLE_COMPONENT__HD_CONNECTIONID;
+    int VALUE_SET_COMPONENT__HD_CONNECTION_ID = WRITEABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -1143,13 +1143,13 @@ public interface DetailViewPackage extends EPackage
     int VALUE_COMPONENT__ATTRIBUTE = READABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VALUE_COMPONENT__HD_CONNECTIONID = READABLE_COMPONENT__HD_CONNECTIONID;
+    int VALUE_COMPONENT__HD_CONNECTION_ID = READABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -1318,13 +1318,13 @@ public interface DetailViewPackage extends EPackage
     int TEXT_INPUT_COMPONENT__ATTRIBUTE = WRITEABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_INPUT_COMPONENT__HD_CONNECTIONID = WRITEABLE_COMPONENT__HD_CONNECTIONID;
+    int TEXT_INPUT_COMPONENT__HD_CONNECTION_ID = WRITEABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -1436,13 +1436,13 @@ public interface DetailViewPackage extends EPackage
     int TEXT_COMPONENT__ATTRIBUTE = READABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_COMPONENT__HD_CONNECTIONID = READABLE_COMPONENT__HD_CONNECTIONID;
+    int TEXT_COMPONENT__HD_CONNECTION_ID = READABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -1563,13 +1563,13 @@ public interface DetailViewPackage extends EPackage
     int TEXT_INPUT_MULTI_COMPONENT__ATTRIBUTE = WRITEABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_INPUT_MULTI_COMPONENT__HD_CONNECTIONID = WRITEABLE_COMPONENT__HD_CONNECTIONID;
+    int TEXT_INPUT_MULTI_COMPONENT__HD_CONNECTION_ID = WRITEABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -1837,13 +1837,13 @@ public interface DetailViewPackage extends EPackage
     int PROGRESS_COMPONENT__ATTRIBUTE = READABLE_COMPONENT__ATTRIBUTE;
 
     /**
-     * The feature id for the '<em><b>Hd Connectionid</b></em>' attribute.
+     * The feature id for the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROGRESS_COMPONENT__HD_CONNECTIONID = READABLE_COMPONENT__HD_CONNECTIONID;
+    int PROGRESS_COMPONENT__HD_CONNECTION_ID = READABLE_COMPONENT__HD_CONNECTION_ID;
 
     /**
      * The feature id for the '<em><b>Hd Item Id</b></em>' attribute.
@@ -2937,15 +2937,15 @@ public interface DetailViewPackage extends EPackage
     EAttribute getReadableComponent_Attribute ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionid <em>Hd Connectionid</em>}'.
+     * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionId <em>Hd Connection Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Hd Connectionid</em>'.
-     * @see org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionid()
+     * @return the meta object for the attribute '<em>Hd Connection Id</em>'.
+     * @see org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionId()
      * @see #getReadableComponent()
      * @generated
      */
-    EAttribute getReadableComponent_HdConnectionid ();
+    EAttribute getReadableComponent_HdConnectionId ();
 
     /**
      * Returns the meta object for the attribute '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdItemId <em>Hd Item Id</em>}'.
@@ -4106,12 +4106,12 @@ public interface DetailViewPackage extends EPackage
         EAttribute READABLE_COMPONENT__ATTRIBUTE = eINSTANCE.getReadableComponent_Attribute ();
 
         /**
-         * The meta object literal for the '<em><b>Hd Connectionid</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Hd Connection Id</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute READABLE_COMPONENT__HD_CONNECTIONID = eINSTANCE.getReadableComponent_HdConnectionid ();
+        EAttribute READABLE_COMPONENT__HD_CONNECTION_ID = eINSTANCE.getReadableComponent_HdConnectionId ();
 
         /**
          * The meta object literal for the '<em><b>Hd Item Id</b></em>' attribute feature.

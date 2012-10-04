@@ -58,7 +58,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
             addFormatPropertyDescriptor ( object );
             addDecimalPropertyDescriptor ( object );
             addAttributePropertyDescriptor ( object );
-            addHdConnectionidPropertyDescriptor ( object );
+            addHdConnectionIdPropertyDescriptor ( object );
             addHdItemIdPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
@@ -98,14 +98,14 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
     }
 
     /**
-     * This adds a property descriptor for the Hd Connectionid feature.
+     * This adds a property descriptor for the Hd Connection Id feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHdConnectionidPropertyDescriptor ( Object object )
+    protected void addHdConnectionIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdConnectionid_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdConnectionid_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_CONNECTIONID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdConnectionId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdConnectionId_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_CONNECTION_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -146,13 +146,13 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
 
         switch ( notification.getFeatureID ( ReadableComponent.class ) )
         {
-            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

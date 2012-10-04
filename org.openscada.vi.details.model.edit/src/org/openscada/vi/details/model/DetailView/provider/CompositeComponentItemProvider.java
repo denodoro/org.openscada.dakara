@@ -118,9 +118,9 @@ public class CompositeComponentItemProvider extends ComponentItemProvider implem
 
         switch ( notification.getFeatureID ( CompositeComponent.class ) )
         {
-            case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
