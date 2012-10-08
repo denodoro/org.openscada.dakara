@@ -263,7 +263,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( progress );
                 trackItem ( progressItem );
@@ -326,7 +326,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), component.getHdConnectionid (), component.getHdItemId () );
+                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), component.getHdConnectionId (), component.getHdItemId () );
 
                 trackControl ( text );
                 trackItem ( textItem );
@@ -348,7 +348,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ), component.getWidth ()  );
+                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), readItem, component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getWidth () );
 
                 trackControl ( valueSet );
                 trackItem ( textInputItem );
@@ -370,7 +370,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+                final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getAttribute (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( text );
                 trackItem ( textInputItem );
@@ -391,7 +391,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getDate (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.getAttribute (), component.getDate (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( value );
                 trackItem ( item );
@@ -414,7 +414,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), component.getHdConnectionid (), resolve ( component.getHdItemId (), properties ) );
+                final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.getAttribute (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( valueSet );
                 trackItem ( valueItem );
@@ -539,7 +539,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isExpectedValue(), component.isAlarm (), component.getAttribute () );
+                final BoolLEDComposite led = new BoolLEDComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.isExpectedValue (), component.isAlarm (), component.getAttribute () );
 
                 trackControl ( led );
                 trackItem ( item );
@@ -553,7 +553,7 @@ public class DetailComponentImpl implements DetailComponent
     {
         final String readDescriptor = component.getReadDescriptor ();
         final DataItemDescriptor readItem;
-        if ( readDescriptor != null && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
+        if ( ( readDescriptor != null ) && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
         {
             readItem = DataItemDescriptor.create ( resolve ( component.getReadDescriptor (), properties ) );
         }

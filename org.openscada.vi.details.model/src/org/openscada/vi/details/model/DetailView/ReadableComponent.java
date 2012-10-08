@@ -17,7 +17,7 @@ package org.openscada.vi.details.model.DetailView;
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getFormat <em>Format</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getDecimal <em>Decimal</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionid <em>Hd Connectionid</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionId <em>Hd Connection Id</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdItemId <em>Hd Item Id</em>}</li>
  * </ul>
  * </p>
@@ -107,30 +107,30 @@ public interface ReadableComponent extends Component
     void setAttribute ( String value );
 
     /**
-     * Returns the value of the '<em><b>Hd Connectionid</b></em>' attribute.
+     * Returns the value of the '<em><b>Hd Connection Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Hd Connectionid</em>' attribute isn't clear,
+     * If the meaning of the '<em>Hd Connection Id</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Hd Connectionid</em>' attribute.
-     * @see #setHdConnectionid(String)
-     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getReadableComponent_HdConnectionid()
+     * @return the value of the '<em>Hd Connection Id</em>' attribute.
+     * @see #setHdConnectionId(String)
+     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getReadableComponent_HdConnectionId()
      * @model
      * @generated
      */
-    String getHdConnectionid ();
+    String getHdConnectionId ();
 
     /**
-     * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionid <em>Hd Connectionid</em>}' attribute.
+     * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionId <em>Hd Connection Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Hd Connectionid</em>' attribute.
-     * @see #getHdConnectionid()
+     * @param value the new value of the '<em>Hd Connection Id</em>' attribute.
+     * @see #getHdConnectionId()
      * @generated
      */
-    void setHdConnectionid ( String value );
+    void setHdConnectionId ( String value );
 
     /**
      * Returns the value of the '<em><b>Hd Item Id</b></em>' attribute.

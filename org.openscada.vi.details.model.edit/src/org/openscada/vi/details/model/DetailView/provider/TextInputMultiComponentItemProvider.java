@@ -110,9 +110,9 @@ public class TextInputMultiComponentItemProvider extends WriteableComponentItemP
 
         switch ( notification.getFeatureID ( TextInputMultiComponent.class ) )
         {
-            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

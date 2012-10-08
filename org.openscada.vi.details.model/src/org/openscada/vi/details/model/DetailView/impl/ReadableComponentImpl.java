@@ -22,7 +22,7 @@ import org.openscada.vi.details.model.DetailView.ReadableComponent;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getDecimal <em>Decimal</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getHdConnectionid <em>Hd Connectionid</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getHdConnectionId <em>Hd Connection Id</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getHdItemId <em>Hd Item Id</em>}</li>
  * </ul>
  * </p>
@@ -92,24 +92,24 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     protected String attribute = ATTRIBUTE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getHdConnectionid() <em>Hd Connectionid</em>}' attribute.
+     * The default value of the '{@link #getHdConnectionId() <em>Hd Connection Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHdConnectionid()
+     * @see #getHdConnectionId()
      * @generated
      * @ordered
      */
-    protected static final String HD_CONNECTIONID_EDEFAULT = null;
+    protected static final String HD_CONNECTION_ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getHdConnectionid() <em>Hd Connectionid</em>}' attribute.
+     * The cached value of the '{@link #getHdConnectionId() <em>Hd Connection Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHdConnectionid()
+     * @see #getHdConnectionId()
      * @generated
      * @ordered
      */
-    protected String hdConnectionid = HD_CONNECTIONID_EDEFAULT;
+    protected String hdConnectionId = HD_CONNECTION_ID_EDEFAULT;
 
     /**
      * The default value of the '{@link #getHdItemId() <em>Hd Item Id</em>}' attribute.
@@ -226,9 +226,9 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getHdConnectionid ()
+    public String getHdConnectionId ()
     {
-        return hdConnectionid;
+        return hdConnectionId;
     }
 
     /**
@@ -236,12 +236,12 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHdConnectionid ( String newHdConnectionid )
+    public void setHdConnectionId ( String newHdConnectionId )
     {
-        String oldHdConnectionid = hdConnectionid;
-        hdConnectionid = newHdConnectionid;
+        String oldHdConnectionId = hdConnectionId;
+        hdConnectionId = newHdConnectionId;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID, oldHdConnectionid, hdConnectionid ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID, oldHdConnectionId, hdConnectionId ) );
     }
 
     /**
@@ -283,8 +283,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
             return getDecimal ();
         case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
             return getAttribute ();
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-            return getHdConnectionid ();
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+            return getHdConnectionId ();
         case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
             return getHdItemId ();
         }
@@ -310,8 +310,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
         case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
             setAttribute ( (String)newValue );
             return;
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-            setHdConnectionid ( (String)newValue );
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+            setHdConnectionId ( (String)newValue );
             return;
         case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
             setHdItemId ( (String)newValue );
@@ -339,8 +339,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
         case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
             setAttribute ( ATTRIBUTE_EDEFAULT );
             return;
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-            setHdConnectionid ( HD_CONNECTIONID_EDEFAULT );
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+            setHdConnectionId ( HD_CONNECTION_ID_EDEFAULT );
             return;
         case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
             setHdItemId ( HD_ITEM_ID_EDEFAULT );
@@ -365,8 +365,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
             return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals ( decimal );
         case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
             return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTIONID:
-            return HD_CONNECTIONID_EDEFAULT == null ? hdConnectionid != null : !HD_CONNECTIONID_EDEFAULT.equals ( hdConnectionid );
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+            return HD_CONNECTION_ID_EDEFAULT == null ? hdConnectionId != null : !HD_CONNECTION_ID_EDEFAULT.equals ( hdConnectionId );
         case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
             return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals ( hdItemId );
         }
@@ -391,8 +391,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
         result.append ( decimal );
         result.append ( ", attribute: " );
         result.append ( attribute );
-        result.append ( ", hdConnectionid: " );
-        result.append ( hdConnectionid );
+        result.append ( ", hdConnectionId: " );
+        result.append ( hdConnectionId );
         result.append ( ", hdItemId: " );
         result.append ( hdItemId );
         result.append ( ')' );

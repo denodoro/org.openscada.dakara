@@ -161,14 +161,14 @@ public class GroupGridEntryItemProvider extends ItemProviderAdapter implements I
 
         switch ( notification.getFeatureID ( GroupGridEntry.class ) )
         {
-            case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
-            case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
-            case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case DetailViewPackage.GROUP_GRID_ENTRY__LABEL:
+        case DetailViewPackage.GROUP_GRID_ENTRY__PERMISSION:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case DetailViewPackage.GROUP_GRID_ENTRY__COMPONENTS:
+        case DetailViewPackage.GROUP_GRID_ENTRY__VISIBILITY:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

@@ -57,6 +57,7 @@ public class TextInputComponentItemProvider extends WriteableComponentItemProvid
 
             addDescriptorPropertyDescriptor ( object );
             addReadDescriptorPropertyDescriptor ( object );
+            addWidthPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -81,6 +82,17 @@ public class TextInputComponentItemProvider extends WriteableComponentItemProvid
     protected void addReadDescriptorPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextInputComponent_readDescriptor_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextInputComponent_readDescriptor_feature", "_UI_TextInputComponent_type" ), DetailViewPackage.Literals.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Width feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addWidthPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TextInputComponent_width_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_TextInputComponent_width_feature", "_UI_TextInputComponent_type" ), DetailViewPackage.Literals.TEXT_INPUT_COMPONENT__WIDTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -122,10 +134,11 @@ public class TextInputComponentItemProvider extends WriteableComponentItemProvid
 
         switch ( notification.getFeatureID ( TextInputComponent.class ) )
         {
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

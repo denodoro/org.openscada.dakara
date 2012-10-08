@@ -1156,7 +1156,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getReadableComponent_HdConnectionid ()
+    public EAttribute getReadableComponent_HdConnectionId ()
     {
         return (EAttribute)readableComponentEClass.getEStructuralFeatures ().get ( 3 );
     }
@@ -1732,7 +1732,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__FORMAT );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__DECIMAL );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__ATTRIBUTE );
-        createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_CONNECTIONID );
+        createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_CONNECTION_ID );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_ITEM_ID );
 
         textComponentEClass = createEClass ( TEXT_COMPONENT );
@@ -1952,7 +1952,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getReadableComponent_Format (), ecorePackage.getEString (), "format", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getReadableComponent_Decimal (), ecorePackage.getEString (), "decimal", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getReadableComponent_Attribute (), ecorePackage.getEString (), "attribute", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getReadableComponent_HdConnectionid (), ecorePackage.getEString (), "hdConnectionid", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getReadableComponent_HdConnectionId (), ecorePackage.getEString (), "hdConnectionId", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getReadableComponent_HdItemId (), ecorePackage.getEString (), "hdItemId", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( textComponentEClass, TextComponent.class, "TextComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );

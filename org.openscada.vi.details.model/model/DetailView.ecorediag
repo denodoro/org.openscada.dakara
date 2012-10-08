@@ -522,7 +522,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_HFmqoeYMEeGX3co0P9TG0Q"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_HFmqouYMEeGX3co0P9TG0Q" type="2001">
-        <element xmi:type="ecore:EAttribute" href="DetailView.ecore#//ReadableComponent/hdConnectionid"/>
+        <element xmi:type="ecore:EAttribute" href="DetailView.ecore#//ReadableComponent/hdConnectionId"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_HFmqo-YMEeGX3co0P9TG0Q"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_HFmqpOYMEeGX3co0P9TG0Q" type="2001">
