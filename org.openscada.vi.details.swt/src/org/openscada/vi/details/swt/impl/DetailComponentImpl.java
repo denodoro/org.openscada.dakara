@@ -667,6 +667,10 @@ public class DetailComponentImpl implements DetailComponent
 
     public static String resolve ( final String input, final Map<String, String> properties )
     {
+        if ( input == null )
+        {
+            return null;
+        }
         final StringTemplate template = new StringTemplate ( input );
         template.setAttributes ( properties );
         return template.toString ();
