@@ -4,4 +4,6 @@
 <toc label="Getting Started" link_to="toc.xml#gettingstarted"> 
 	<topic label="Introduction"  href="html/gettingstarted/introduction.html"> 
 	</topic>
+ <topic href="html/gettingstarted/drawing.html" label="Drawing">
+ </topic>
 </toc>
