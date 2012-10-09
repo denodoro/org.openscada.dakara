@@ -170,14 +170,7 @@ public class VisualInterfaceViewer extends Composite
 
     private LayeredPane createPane ()
     {
-        if ( Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_HAIRLINE ) )
-        {
-            return new ScalableLayeredPane ();
-        }
-        else
-        {
-            return new org.eclipse.draw2d.ScalableLayeredPane ();
-        }
+        return new org.eclipse.draw2d.ScalableLayeredPane ();
     }
 
     public boolean isZooming ()

@@ -34,13 +34,11 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.ui.draw2d.Activator;
+import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
 import org.openscada.vi.ui.draw2d.Controller;
 import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
-import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
-import org.openscada.vi.ui.draw2d.impl.ScalableLayeredPane;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
-import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,16 +53,8 @@ public class SymbolReferenceController implements Controller
     {
         if ( symbolReference.getZoom () != null )
         {
-            if ( Activator.getDefault ().getPreferenceStore ().getBoolean ( PreferenceConstants.P_DEFAULT_HAIRLINE ) )
-            {
-                this.figure = new ScalableLayeredPane ();
-                ( (ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
-            }
-            else
-            {
-                this.figure = new org.eclipse.draw2d.ScalableLayeredPane ();
-                ( (org.eclipse.draw2d.ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
-            }
+            this.figure = new org.eclipse.draw2d.ScalableLayeredPane ();
+            ( (org.eclipse.draw2d.ScalableLayeredPane)this.figure ).setScale ( symbolReference.getZoom () );
         }
         else
         {
