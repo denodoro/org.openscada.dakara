@@ -27,7 +27,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -66,6 +65,7 @@ import org.openscada.vi.model.VisualInterface.provider.VisualInterfaceEditPlugin
  * This is a simple wizard for creating a new model file.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class VisualInterfaceModelWizard extends Wizard implements INewWizard
@@ -74,6 +74,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * The supported extensions for created files.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList ( Arrays.asList ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceEditorFilenameExtensions" ).split ( "\\s*,\\s*" ) ) );
@@ -82,6 +83,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * A formatted list of supported file extensions, suitable for display.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String FORMATTED_FILE_EXTENSIONS = VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceEditorFilenameExtensions" ).replaceAll ( "\\s*,\\s*", ", " );
@@ -90,6 +92,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * This caches an instance of the model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected VisualInterfacePackage visualInterfacePackage = VisualInterfacePackage.eINSTANCE;
@@ -98,14 +101,16 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * This caches an instance of the model factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected VisualInterfaceFactory visualInterfaceFactory = visualInterfacePackage.getVisualInterfaceFactory ();
+    protected VisualInterfaceFactory visualInterfaceFactory = this.visualInterfacePackage.getVisualInterfaceFactory ();
 
     /**
      * This is the file creation page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected VisualInterfaceModelWizardNewFileCreationPage newFileCreationPage;
@@ -114,6 +119,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * This is the initial object creation page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected VisualInterfaceModelWizardInitialObjectCreationPage initialObjectCreationPage;
@@ -122,6 +128,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * Remember the selection during initialization for populating the default container.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected IStructuredSelection selection;
@@ -130,6 +137,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * Remember the workbench during initialization.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected IWorkbench workbench;
@@ -138,6 +146,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * Caches the names of the types that can be created as the root object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected List<String> initialObjectNames;
@@ -146,9 +155,11 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * This just records the information.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void init ( IWorkbench workbench, IStructuredSelection selection )
+    @Override
+    public void init ( final IWorkbench workbench, final IStructuredSelection selection )
     {
         this.workbench = workbench;
         this.selection = selection;
@@ -160,39 +171,31 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * Returns the names of the types that can be created as the root object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     protected Collection<String> getInitialObjectNames ()
     {
-        if ( initialObjectNames == null )
+        if ( this.initialObjectNames == null )
         {
-            initialObjectNames = new ArrayList<String> ();
-            for ( EClassifier eClassifier : visualInterfacePackage.getEClassifiers () )
-            {
-                if ( eClassifier instanceof EClass )
-                {
-                    EClass eClass = (EClass)eClassifier;
-                    if ( !eClass.isAbstract () )
-                    {
-                        initialObjectNames.add ( eClass.getName () );
-                    }
-                }
-            }
-            Collections.sort ( initialObjectNames, CommonPlugin.INSTANCE.getComparator () );
+            this.initialObjectNames = new ArrayList<String> ();
+            this.initialObjectNames.add ( VisualInterfacePackage.Literals.SYMBOL.getName () );
+            Collections.sort ( this.initialObjectNames, CommonPlugin.INSTANCE.getComparator () );
         }
-        return initialObjectNames;
+        return this.initialObjectNames;
     }
 
     /**
      * Create a new model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected EObject createInitialModel ()
     {
-        EClass eClass = (EClass)visualInterfacePackage.getEClassifier ( initialObjectCreationPage.getInitialObjectName () );
-        EObject rootObject = visualInterfaceFactory.create ( eClass );
+        final EClass eClass = (EClass)this.visualInterfacePackage.getEClassifier ( this.initialObjectCreationPage.getInitialObjectName () );
+        final EObject rootObject = this.visualInterfaceFactory.create ( eClass );
         return rootObject;
     }
 
@@ -200,6 +203,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * Do the work after everything is specified.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -213,27 +217,27 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
             // Do the work within an operation.
             //
-            WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
+            final WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
                 @Override
-                protected void execute ( IProgressMonitor progressMonitor )
+                protected void execute ( final IProgressMonitor progressMonitor )
                 {
                     try
                     {
                         // Create a resource set
                         //
-                        ResourceSet resourceSet = new ResourceSetImpl ();
+                        final ResourceSet resourceSet = new ResourceSetImpl ();
 
                         // Get the URI of the model file.
                         //
-                        URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
+                        final URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
 
                         // Create a resource for this file.
                         //
-                        Resource resource = resourceSet.createResource ( fileURI );
+                        final Resource resource = resourceSet.createResource ( fileURI );
 
                         // Add the initial model object to the contents.
                         //
-                        EObject rootObject = createInitialModel ();
+                        final EObject rootObject = createInitialModel ();
                         if ( rootObject != null )
                         {
                             resource.getContents ().add ( rootObject );
@@ -241,11 +245,11 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
                         // Save the contents of the resource to the file system.
                         //
-                        Map<Object, Object> options = new HashMap<Object, Object> ();
-                        options.put ( XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding () );
+                        final Map<Object, Object> options = new HashMap<Object, Object> ();
+                        options.put ( XMLResource.OPTION_ENCODING, VisualInterfaceModelWizard.this.initialObjectCreationPage.getEncoding () );
                         resource.save ( options );
                     }
-                    catch ( Exception exception )
+                    catch ( final Exception exception )
                     {
                         VisualInterfaceEditorPlugin.INSTANCE.log ( exception );
                     }
@@ -260,13 +264,14 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
             // Select the new file resource in the current view.
             //
-            IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow ();
-            IWorkbenchPage page = workbenchWindow.getActivePage ();
+            final IWorkbenchWindow workbenchWindow = this.workbench.getActiveWorkbenchWindow ();
+            final IWorkbenchPage page = workbenchWindow.getActivePage ();
             final IWorkbenchPart activePart = page.getActivePart ();
             if ( activePart instanceof ISetSelectionTarget )
             {
                 final ISelection targetSelection = new StructuredSelection ( modelFile );
                 getShell ().getDisplay ().asyncExec ( new Runnable () {
+                    @Override
                     public void run ()
                     {
                         ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
@@ -278,9 +283,9 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
             //
             try
             {
-                page.openEditor ( new FileEditorInput ( modelFile ), workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
+                page.openEditor ( new FileEditorInput ( modelFile ), this.workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
             }
-            catch ( PartInitException exception )
+            catch ( final PartInitException exception )
             {
                 MessageDialog.openError ( workbenchWindow.getShell (), VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_OpenEditorError_label" ), exception.getMessage () ); //$NON-NLS-1$
                 return false;
@@ -288,7 +293,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
 
             return true;
         }
-        catch ( Exception exception )
+        catch ( final Exception exception )
         {
             VisualInterfaceEditorPlugin.INSTANCE.log ( exception );
             return false;
@@ -299,6 +304,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * This is the one page of the wizard.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public class VisualInterfaceModelWizardNewFileCreationPage extends WizardNewFileCreationPage
@@ -307,9 +313,10 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
          * Pass in the selection.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
-        public VisualInterfaceModelWizardNewFileCreationPage ( String pageId, IStructuredSelection selection )
+        public VisualInterfaceModelWizardNewFileCreationPage ( final String pageId, final IStructuredSelection selection )
         {
             super ( pageId, selection );
         }
@@ -318,6 +325,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
          * The framework calls this to see if the file is correct.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         @Override
@@ -325,10 +333,10 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         {
             if ( super.validatePage () )
             {
-                String extension = new Path ( getFileName () ).getFileExtension ();
+                final String extension = new Path ( getFileName () ).getFileExtension ();
                 if ( extension == null || !FILE_EXTENSIONS.contains ( extension ) )
                 {
-                    String key = FILE_EXTENSIONS.size () > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension"; //$NON-NLS-1$ //$NON-NLS-2$
+                    final String key = FILE_EXTENSIONS.size () > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension"; //$NON-NLS-1$ //$NON-NLS-2$
                     setErrorMessage ( VisualInterfaceEditorPlugin.INSTANCE.getString ( key, new Object[] { FORMATTED_FILE_EXTENSIONS } ) );
                     return false;
                 }
@@ -340,6 +348,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         public IFile getModelFile ()
@@ -352,6 +361,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * This is the page where the type of object to create is selected.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public class VisualInterfaceModelWizardInitialObjectCreationPage extends WizardPage
@@ -359,20 +369,22 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         protected Combo initialObjectField;
 
         /**
          * @generated
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+         *            <!-- begin-user-doc -->
+         *            <!-- end-user-doc -->
          */
         protected List<String> encodings;
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         protected Combo encodingField;
@@ -381,9 +393,10 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
          * Pass in the selection.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
-        public VisualInterfaceModelWizardInitialObjectCreationPage ( String pageId )
+        public VisualInterfaceModelWizardInitialObjectCreationPage ( final String pageId )
         {
             super ( pageId );
         }
@@ -391,75 +404,77 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
-        public void createControl ( Composite parent )
+        @Override
+        public void createControl ( final Composite parent )
         {
-            Composite composite = new Composite ( parent, SWT.NONE );
+            final Composite composite = new Composite ( parent, SWT.NONE );
             {
-                GridLayout layout = new GridLayout ();
+                final GridLayout layout = new GridLayout ();
                 layout.numColumns = 1;
                 layout.verticalSpacing = 12;
                 composite.setLayout ( layout );
 
-                GridData data = new GridData ();
+                final GridData data = new GridData ();
                 data.verticalAlignment = GridData.FILL;
                 data.grabExcessVerticalSpace = true;
                 data.horizontalAlignment = GridData.FILL;
                 composite.setLayoutData ( data );
             }
 
-            Label containerLabel = new Label ( composite, SWT.LEFT );
+            final Label containerLabel = new Label ( composite, SWT.LEFT );
             {
                 containerLabel.setText ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_ModelObject" ) ); //$NON-NLS-1$
 
-                GridData data = new GridData ();
+                final GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 containerLabel.setLayoutData ( data );
             }
 
-            initialObjectField = new Combo ( composite, SWT.BORDER );
+            this.initialObjectField = new Combo ( composite, SWT.BORDER );
             {
-                GridData data = new GridData ();
+                final GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                initialObjectField.setLayoutData ( data );
+                this.initialObjectField.setLayoutData ( data );
             }
 
-            for ( String objectName : getInitialObjectNames () )
+            for ( final String objectName : getInitialObjectNames () )
             {
-                initialObjectField.add ( getLabel ( objectName ) );
+                this.initialObjectField.add ( getLabel ( objectName ) );
             }
 
-            if ( initialObjectField.getItemCount () == 1 )
+            if ( this.initialObjectField.getItemCount () == 1 )
             {
-                initialObjectField.select ( 0 );
+                this.initialObjectField.select ( 0 );
             }
-            initialObjectField.addModifyListener ( validator );
+            this.initialObjectField.addModifyListener ( this.validator );
 
-            Label encodingLabel = new Label ( composite, SWT.LEFT );
+            final Label encodingLabel = new Label ( composite, SWT.LEFT );
             {
                 encodingLabel.setText ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_XMLEncoding" ) ); //$NON-NLS-1$
 
-                GridData data = new GridData ();
+                final GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 encodingLabel.setLayoutData ( data );
             }
-            encodingField = new Combo ( composite, SWT.BORDER );
+            this.encodingField = new Combo ( composite, SWT.BORDER );
             {
-                GridData data = new GridData ();
+                final GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                encodingField.setLayoutData ( data );
+                this.encodingField.setLayoutData ( data );
             }
 
-            for ( String encoding : getEncodings () )
+            for ( final String encoding : getEncodings () )
             {
-                encodingField.add ( encoding );
+                this.encodingField.add ( encoding );
             }
 
-            encodingField.select ( 0 );
-            encodingField.addModifyListener ( validator );
+            this.encodingField.select ( 0 );
+            this.encodingField.addModifyListener ( this.validator );
 
             setPageComplete ( validatePage () );
             setControl ( composite );
@@ -468,10 +483,12 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         protected ModifyListener validator = new ModifyListener () {
-            public void modifyText ( ModifyEvent e )
+            @Override
+            public void modifyText ( final ModifyEvent e )
             {
                 setPageComplete ( validatePage () );
             }
@@ -480,33 +497,35 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         protected boolean validatePage ()
         {
-            return getInitialObjectName () != null && getEncodings ().contains ( encodingField.getText () );
+            return getInitialObjectName () != null && getEncodings ().contains ( this.encodingField.getText () );
         }
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         @Override
-        public void setVisible ( boolean visible )
+        public void setVisible ( final boolean visible )
         {
             super.setVisible ( visible );
             if ( visible )
             {
-                if ( initialObjectField.getItemCount () == 1 )
+                if ( this.initialObjectField.getItemCount () == 1 )
                 {
-                    initialObjectField.clearSelection ();
-                    encodingField.setFocus ();
+                    this.initialObjectField.clearSelection ();
+                    this.encodingField.setFocus ();
                 }
                 else
                 {
-                    encodingField.clearSelection ();
-                    initialObjectField.setFocus ();
+                    this.encodingField.clearSelection ();
+                    this.initialObjectField.setFocus ();
                 }
             }
         }
@@ -514,13 +533,14 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         public String getInitialObjectName ()
         {
-            String label = initialObjectField.getText ();
+            final String label = this.initialObjectField.getText ();
 
-            for ( String name : getInitialObjectNames () )
+            for ( final String name : getInitialObjectNames () )
             {
                 if ( getLabel ( name ).equals ( label ) )
                 {
@@ -533,26 +553,28 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         public String getEncoding ()
         {
-            return encodingField.getText ();
+            return this.encodingField.getText ();
         }
 
         /**
          * Returns the label for the specified type name.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
-        protected String getLabel ( String typeName )
+        protected String getLabel ( final String typeName )
         {
             try
             {
                 return VisualInterfaceEditPlugin.INSTANCE.getString ( "_UI_" + typeName + "_type" ); //$NON-NLS-1$ //$NON-NLS-2$
             }
-            catch ( MissingResourceException mre )
+            catch ( final MissingResourceException mre )
             {
                 VisualInterfaceEditorPlugin.INSTANCE.log ( mre );
             }
@@ -562,19 +584,20 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         protected Collection<String> getEncodings ()
         {
-            if ( encodings == null )
+            if ( this.encodings == null )
             {
-                encodings = new ArrayList<String> ();
-                for ( StringTokenizer stringTokenizer = new StringTokenizer ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_XMLEncodingChoices" ) ); stringTokenizer.hasMoreTokens (); ) //$NON-NLS-1$
+                this.encodings = new ArrayList<String> ();
+                for ( final StringTokenizer stringTokenizer = new StringTokenizer ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_XMLEncodingChoices" ) ); stringTokenizer.hasMoreTokens (); ) //$NON-NLS-1$
                 {
-                    encodings.add ( stringTokenizer.nextToken () );
+                    this.encodings.add ( stringTokenizer.nextToken () );
                 }
             }
-            return encodings;
+            return this.encodings;
         }
     }
 
@@ -582,6 +605,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * The framework calls this to create the contents of the wizard.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -589,19 +613,19 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
     {
         // Create a page, set the title, and the initial model file name.
         //
-        newFileCreationPage = new VisualInterfaceModelWizardNewFileCreationPage ( "Whatever", selection ); //$NON-NLS-1$
-        newFileCreationPage.setTitle ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceModelWizard_label" ) ); //$NON-NLS-1$
-        newFileCreationPage.setDescription ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceModelWizard_description" ) ); //$NON-NLS-1$
-        newFileCreationPage.setFileName ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceEditorFilenameDefaultBase" ) + "." + FILE_EXTENSIONS.get ( 0 ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        addPage ( newFileCreationPage );
+        this.newFileCreationPage = new VisualInterfaceModelWizardNewFileCreationPage ( "Whatever", this.selection ); //$NON-NLS-1$
+        this.newFileCreationPage.setTitle ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceModelWizard_label" ) ); //$NON-NLS-1$
+        this.newFileCreationPage.setDescription ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceModelWizard_description" ) ); //$NON-NLS-1$
+        this.newFileCreationPage.setFileName ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceEditorFilenameDefaultBase" ) + "." + FILE_EXTENSIONS.get ( 0 ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        addPage ( this.newFileCreationPage );
 
         // Try and get the resource selection to determine a current directory for the file dialog.
         //
-        if ( selection != null && !selection.isEmpty () )
+        if ( this.selection != null && !this.selection.isEmpty () )
         {
             // Get the resource...
             //
-            Object selectedElement = selection.iterator ().next ();
+            final Object selectedElement = this.selection.iterator ().next ();
             if ( selectedElement instanceof IResource )
             {
                 // Get the resource parent, if its a file.
@@ -618,36 +642,37 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
                 {
                     // Set this for the container.
                     //
-                    newFileCreationPage.setContainerFullPath ( selectedResource.getFullPath () );
+                    this.newFileCreationPage.setContainerFullPath ( selectedResource.getFullPath () );
 
                     // Make up a unique new name here.
                     //
-                    String defaultModelBaseFilename = VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceEditorFilenameDefaultBase" ); //$NON-NLS-1$
-                    String defaultModelFilenameExtension = FILE_EXTENSIONS.get ( 0 );
+                    final String defaultModelBaseFilename = VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceEditorFilenameDefaultBase" ); //$NON-NLS-1$
+                    final String defaultModelFilenameExtension = FILE_EXTENSIONS.get ( 0 );
                     String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension; //$NON-NLS-1$
                     for ( int i = 1; ( (IContainer)selectedResource ).findMember ( modelFilename ) != null; ++i )
                     {
                         modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension; //$NON-NLS-1$
                     }
-                    newFileCreationPage.setFileName ( modelFilename );
+                    this.newFileCreationPage.setFileName ( modelFilename );
                 }
             }
         }
-        initialObjectCreationPage = new VisualInterfaceModelWizardInitialObjectCreationPage ( "Whatever2" ); //$NON-NLS-1$
-        initialObjectCreationPage.setTitle ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceModelWizard_label" ) ); //$NON-NLS-1$
-        initialObjectCreationPage.setDescription ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_Wizard_initial_object_description" ) ); //$NON-NLS-1$
-        addPage ( initialObjectCreationPage );
+        this.initialObjectCreationPage = new VisualInterfaceModelWizardInitialObjectCreationPage ( "Whatever2" ); //$NON-NLS-1$
+        this.initialObjectCreationPage.setTitle ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_VisualInterfaceModelWizard_label" ) ); //$NON-NLS-1$
+        this.initialObjectCreationPage.setDescription ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_Wizard_initial_object_description" ) ); //$NON-NLS-1$
+        addPage ( this.initialObjectCreationPage );
     }
 
     /**
      * Get the file from the page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public IFile getModelFile ()
     {
-        return newFileCreationPage.getModelFile ();
+        return this.newFileCreationPage.getModelFile ();
     }
 
 }
