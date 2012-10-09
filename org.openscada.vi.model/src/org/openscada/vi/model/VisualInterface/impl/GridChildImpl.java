@@ -26,6 +26,8 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getSpanCols <em>Span Cols</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getSpanRows <em>Span Rows</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getWidthHint <em>Width Hint</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridChildImpl#getHeightHint <em>Height Hint</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,7 +143,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      * @ordered
      */
-    protected static final int SPAN_ROWS_EDEFAULT = 0;
+    protected static final Integer SPAN_ROWS_EDEFAULT = new Integer ( 0 );
 
     /**
      * The cached value of the '{@link #getSpanRows() <em>Span Rows</em>}' attribute.
@@ -151,7 +153,47 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * @generated
      * @ordered
      */
-    protected int spanRows = SPAN_ROWS_EDEFAULT;
+    protected Integer spanRows = SPAN_ROWS_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getWidthHint() <em>Width Hint</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getWidthHint()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer WIDTH_HINT_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getWidthHint() <em>Width Hint</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getWidthHint()
+     * @generated
+     * @ordered
+     */
+    protected Integer widthHint = WIDTH_HINT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getHeightHint() <em>Height Hint</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHeightHint()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer HEIGHT_HINT_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getHeightHint() <em>Height Hint</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHeightHint()
+     * @generated
+     * @ordered
+     */
+    protected Integer heightHint = HEIGHT_HINT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -294,7 +336,7 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getSpanRows ()
+    public Integer getSpanRows ()
     {
         return spanRows;
     }
@@ -304,12 +346,58 @@ public class GridChildImpl extends ChildImpl implements GridChild
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setSpanRows ( int newSpanRows )
+    public void setSpanRows ( Integer newSpanRows )
     {
-        int oldSpanRows = spanRows;
+        Integer oldSpanRows = spanRows;
         spanRows = newSpanRows;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__SPAN_ROWS, oldSpanRows, spanRows ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Integer getWidthHint ()
+    {
+        return widthHint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setWidthHint ( Integer newWidthHint )
+    {
+        Integer oldWidthHint = widthHint;
+        widthHint = newWidthHint;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__WIDTH_HINT, oldWidthHint, widthHint ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Integer getHeightHint ()
+    {
+        return heightHint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setHeightHint ( Integer newHeightHint )
+    {
+        Integer oldHeightHint = heightHint;
+        heightHint = newHeightHint;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CHILD__HEIGHT_HINT, oldHeightHint, heightHint ) );
     }
 
     /**
@@ -334,6 +422,10 @@ public class GridChildImpl extends ChildImpl implements GridChild
                 return getSpanCols ();
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
                 return getSpanRows ();
+            case VisualInterfacePackage.GRID_CHILD__WIDTH_HINT:
+                return getWidthHint ();
+            case VisualInterfacePackage.GRID_CHILD__HEIGHT_HINT:
+                return getHeightHint ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -365,6 +457,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
                 return;
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
                 setSpanRows ( (Integer)newValue );
+                return;
+            case VisualInterfacePackage.GRID_CHILD__WIDTH_HINT:
+                setWidthHint ( (Integer)newValue );
+                return;
+            case VisualInterfacePackage.GRID_CHILD__HEIGHT_HINT:
+                setHeightHint ( (Integer)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -398,6 +496,12 @@ public class GridChildImpl extends ChildImpl implements GridChild
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
                 setSpanRows ( SPAN_ROWS_EDEFAULT );
                 return;
+            case VisualInterfacePackage.GRID_CHILD__WIDTH_HINT:
+                setWidthHint ( WIDTH_HINT_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CHILD__HEIGHT_HINT:
+                setHeightHint ( HEIGHT_HINT_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -423,7 +527,11 @@ public class GridChildImpl extends ChildImpl implements GridChild
             case VisualInterfacePackage.GRID_CHILD__SPAN_COLS:
                 return spanCols != SPAN_COLS_EDEFAULT;
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
-                return spanRows != SPAN_ROWS_EDEFAULT;
+                return SPAN_ROWS_EDEFAULT == null ? spanRows != null : !SPAN_ROWS_EDEFAULT.equals ( spanRows );
+            case VisualInterfacePackage.GRID_CHILD__WIDTH_HINT:
+                return WIDTH_HINT_EDEFAULT == null ? widthHint != null : !WIDTH_HINT_EDEFAULT.equals ( widthHint );
+            case VisualInterfacePackage.GRID_CHILD__HEIGHT_HINT:
+                return HEIGHT_HINT_EDEFAULT == null ? heightHint != null : !HEIGHT_HINT_EDEFAULT.equals ( heightHint );
         }
         return super.eIsSet ( featureID );
     }
@@ -452,6 +560,10 @@ public class GridChildImpl extends ChildImpl implements GridChild
         result.append ( spanCols );
         result.append ( ", spanRows: " ); //$NON-NLS-1$
         result.append ( spanRows );
+        result.append ( ", widthHint: " ); //$NON-NLS-1$
+        result.append ( widthHint );
+        result.append ( ", heightHint: " ); //$NON-NLS-1$
+        result.append ( heightHint );
         result.append ( ')' );
         return result.toString ();
     }

@@ -60,6 +60,14 @@ public class GridContainerController implements Controller
         gd.grabExcessVerticalSpace = child.isGrabVerticalSpace ();
         gd.horizontalSpan = child.getSpanCols ();
         gd.verticalSpan = child.getSpanRows ();
+        if ( child.getWidthHint () != null )
+        {
+            gd.widthHint = child.getWidthHint ();
+        }
+        if ( child.getHeightHint () != null )
+        {
+            gd.heightHint = child.getHeightHint ();
+        }
 
         return gd;
     }

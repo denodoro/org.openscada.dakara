@@ -20,6 +20,8 @@ package org.openscada.vi.model.VisualInterface;
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanCols <em>Span Cols</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanRows <em>Span Rows</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getWidthHint <em>Width Hint</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridChild#getHeightHint <em>Height Hint</em>}</li>
  * </ul>
  * </p>
  *
@@ -180,12 +182,12 @@ public interface GridChild extends Child
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Span Rows</em>' attribute.
-     * @see #setSpanRows(int)
+     * @see #setSpanRows(Integer)
      * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridChild_SpanRows()
-     * @model default="0" required="true"
+     * @model default="0"
      * @generated
      */
-    int getSpanRows ();
+    Integer getSpanRows ();
 
     /**
      * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getSpanRows <em>Span Rows</em>}' attribute.
@@ -195,6 +197,58 @@ public interface GridChild extends Child
      * @see #getSpanRows()
      * @generated
      */
-    void setSpanRows ( int value );
+    void setSpanRows ( Integer value );
+
+    /**
+     * Returns the value of the '<em><b>Width Hint</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Width Hint</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Width Hint</em>' attribute.
+     * @see #setWidthHint(Integer)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridChild_WidthHint()
+     * @model
+     * @generated
+     */
+    Integer getWidthHint ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getWidthHint <em>Width Hint</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Width Hint</em>' attribute.
+     * @see #getWidthHint()
+     * @generated
+     */
+    void setWidthHint ( Integer value );
+
+    /**
+     * Returns the value of the '<em><b>Height Hint</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Height Hint</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Height Hint</em>' attribute.
+     * @see #setHeightHint(Integer)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridChild_HeightHint()
+     * @model required="true"
+     * @generated
+     */
+    Integer getHeightHint ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridChild#getHeightHint <em>Height Hint</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Height Hint</em>' attribute.
+     * @see #getHeightHint()
+     * @generated
+     */
+    void setHeightHint ( Integer value );
 
 } // GridChild

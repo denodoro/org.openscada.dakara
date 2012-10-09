@@ -544,6 +544,14 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridChild/spanRows"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_hyWxocy7EeCZatunG8aJEQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_GniwcBIQEeKBy6bJscbSUQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridChild/widthHint"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_GniwcRIQEeKBy6bJscbSUQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Hmz1EBIQEeKBy6bJscbSUQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridChild/heightHint"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Hmz1ERIQEeKBy6bJscbSUQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_sMEM4sy6EeCZatunG8aJEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_sMEM48y6EeCZatunG8aJEQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_sMEM5My6EeCZatunG8aJEQ"/>

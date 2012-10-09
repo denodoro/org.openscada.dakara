@@ -1586,13 +1586,31 @@ public interface VisualInterfacePackage extends EPackage
     int GRID_CHILD__SPAN_ROWS = CHILD_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Width Hint</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__WIDTH_HINT = CHILD_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Height Hint</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CHILD__HEIGHT_HINT = CHILD_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Grid Child</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GRID_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 6;
+    int GRID_CHILD_FEATURE_COUNT = CHILD_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl <em>Figure Container</em>}' class.
@@ -3150,6 +3168,28 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getGridChild_SpanRows ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getWidthHint <em>Width Hint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Width Hint</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getWidthHint()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_WidthHint ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridChild#getHeightHint <em>Height Hint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Height Hint</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridChild#getHeightHint()
+     * @see #getGridChild()
+     * @generated
+     */
+    EAttribute getGridChild_HeightHint ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.FigureContainer <em>Figure Container</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4049,6 +4089,22 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute GRID_CHILD__SPAN_ROWS = eINSTANCE.getGridChild_SpanRows ();
+
+        /**
+         * The meta object literal for the '<em><b>Width Hint</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__WIDTH_HINT = eINSTANCE.getGridChild_WidthHint ();
+
+        /**
+         * The meta object literal for the '<em><b>Height Hint</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CHILD__HEIGHT_HINT = eINSTANCE.getGridChild_HeightHint ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.FigureContainerImpl <em>Figure Container</em>}' class.

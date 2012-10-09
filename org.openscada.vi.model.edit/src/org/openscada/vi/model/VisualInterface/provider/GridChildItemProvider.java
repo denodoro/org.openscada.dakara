@@ -61,6 +61,8 @@ public class GridChildItemProvider extends ChildItemProvider implements IEditing
             addGrabVerticalSpacePropertyDescriptor ( object );
             addSpanColsPropertyDescriptor ( object );
             addSpanRowsPropertyDescriptor ( object );
+            addWidthHintPropertyDescriptor ( object );
+            addHeightHintPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -140,7 +142,33 @@ public class GridChildItemProvider extends ChildItemProvider implements IEditing
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_spanRows_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_spanRows_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__SPAN_ROWS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CHILD__SPAN_ROWS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Width Hint feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addWidthHintPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_widthHint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_widthHint_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CHILD__WIDTH_HINT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Height Hint feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addHeightHintPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_heightHint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_heightHint_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CHILD__HEIGHT_HINT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -189,6 +217,8 @@ public class GridChildItemProvider extends ChildItemProvider implements IEditing
             case VisualInterfacePackage.GRID_CHILD__GRAB_VERTICAL_SPACE:
             case VisualInterfacePackage.GRID_CHILD__SPAN_COLS:
             case VisualInterfacePackage.GRID_CHILD__SPAN_ROWS:
+            case VisualInterfacePackage.GRID_CHILD__WIDTH_HINT:
+            case VisualInterfacePackage.GRID_CHILD__HEIGHT_HINT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
