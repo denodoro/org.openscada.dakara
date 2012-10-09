@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -28,8 +28,8 @@ import org.eclipse.draw2d.ConnectionLayer;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Layer;
-import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.draw2d.ManhattanConnectionRouter;
+import org.eclipse.draw2d.ScalableLayeredPane;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
@@ -48,7 +48,6 @@ import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
-import org.openscada.vi.ui.draw2d.impl.ScalableLayeredPane;
 import org.openscada.vi.ui.draw2d.loader.StaticSymbolLoader;
 import org.openscada.vi.ui.draw2d.loader.SymbolLoader;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
@@ -70,7 +69,7 @@ public class VisualInterfaceViewer extends Composite
 
     private Boolean zooming;
 
-    private LayeredPane pane;
+    private ScalableLayeredPane pane;
 
     private IFigure figure;
 
@@ -168,7 +167,7 @@ public class VisualInterfaceViewer extends Composite
         }
     }
 
-    private LayeredPane createPane ()
+    private ScalableLayeredPane createPane ()
     {
         return new org.eclipse.draw2d.ScalableLayeredPane ();
     }
@@ -262,11 +261,7 @@ public class VisualInterfaceViewer extends Composite
     {
         if ( this.pane instanceof org.eclipse.draw2d.ScalableLayeredPane )
         {
-            ( (org.eclipse.draw2d.ScalableLayeredPane)this.pane ).setScale ( newZoom );
-        }
-        else if ( this.pane instanceof ScalableLayeredPane )
-        {
-            ( (ScalableLayeredPane)this.pane ).setScale ( newZoom );
+            this.pane.setScale ( newZoom );
         }
     }
 
