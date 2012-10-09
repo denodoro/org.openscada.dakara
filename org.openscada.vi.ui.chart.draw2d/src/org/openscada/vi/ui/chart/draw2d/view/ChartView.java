@@ -115,7 +115,6 @@ public class ChartView extends AbstractViewInstance
         {
             this.chartArea.dispose ();
             this.chartArea = null;
-
         }
         if ( this.selector != null )
         {
