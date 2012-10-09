@@ -72,11 +72,6 @@ public class ChartView extends AbstractViewInstance
         return this.wrapper;
     }
 
-    private Chart loadConfiguration ()
-    {
-        return ChartHelper.loadConfiguraton ( this.descriptor.getUri ().toString () );
-    }
-
     @Override
     protected void activateView ()
     {
@@ -89,7 +84,7 @@ public class ChartView extends AbstractViewInstance
         this.wrapper.setLayout ( new FillLayout ( SWT.HORIZONTAL ) );
 
         this.chartArea = new ChartArea ( this.wrapper, SWT.NONE );
-        this.configuration = loadConfiguration ();
+        this.configuration = ChartHelper.loadConfiguraton ( this.descriptor.getUri ().toString () );
         this.chart = new ChartViewer ( this.chartArea.getChartRenderer (), this.configuration );
 
         if ( this.showSelector )
