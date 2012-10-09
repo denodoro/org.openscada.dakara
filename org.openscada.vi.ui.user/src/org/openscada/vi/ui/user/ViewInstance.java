@@ -25,9 +25,9 @@ public interface ViewInstance
 {
     public void reload ();
 
-    public void deactivate ();
-
     public void activate ();
+
+    public void deactivate ();
 
     public void setFocus ();
 

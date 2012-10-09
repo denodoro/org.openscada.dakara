@@ -42,6 +42,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.MouseAdapter;
@@ -402,5 +403,11 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         {
             updateTopControl ();
         }
+    }
+
+    @Override
+    public void setSelectionProvider ( final ISelectionProvider selectionProvider )
+    {
+        getSite ().setSelectionProvider ( selectionProvider );
     }
 }

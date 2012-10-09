@@ -19,9 +19,10 @@
 
 package org.openscada.vi.ui.user;
 
+import org.eclipse.jface.viewers.ISelectionProvider;
+
 public interface ViewManagerContext
 {
-
     public int calculateToolbarIndex ( ViewInstanceDescriptor descriptor );
 
     public void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
@@ -31,4 +32,6 @@ public interface ViewManagerContext
     public void viewActiveChanged ( ViewInstance viewInstance, boolean state );
 
     public void viewControlChanged ( ViewInstance viewInstance );
+
+    public void setSelectionProvider ( ISelectionProvider selectionProvider );
 }

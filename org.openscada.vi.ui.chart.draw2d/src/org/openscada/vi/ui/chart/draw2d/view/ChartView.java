@@ -53,11 +53,14 @@ public class ChartView extends AbstractViewInstance
 
     private ChartInputSelector selector;
 
+    private final ViewManagerContext viewManagerContext;
+
     public ChartView ( final ViewManagerContext viewManagerContext, final ViewManager viewManager, final ResourceManager manager, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ToolBar toolbar, final IEvaluationService evaluationService, final boolean showSelector )
     {
         super ( viewManagerContext, viewManager, manager, descriptor, toolbar, evaluationService );
         this.showSelector = showSelector;
         this.viewHolder = viewHolder;
+        this.viewManagerContext = viewManagerContext;
     }
 
     @Override
@@ -94,11 +97,16 @@ public class ChartView extends AbstractViewInstance
         }
 
         fireActiveStateChanged ( true );
+
+        this.viewManagerContext.setSelectionProvider ( this.chart );
+        this.chart.setFocus ();
     }
 
     @Override
     protected void deactivateView ()
     {
+        this.viewManagerContext.setSelectionProvider ( null );
+
         boolean didDispose = false;
         if ( this.chart != null )
         {
