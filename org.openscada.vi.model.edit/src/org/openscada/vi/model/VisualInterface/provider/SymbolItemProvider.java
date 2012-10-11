@@ -150,6 +150,7 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__ROOT );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__PROPERTIES );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__CURSORS );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS );
@@ -214,12 +215,12 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
             case VisualInterfacePackage.SYMBOL__ON_INIT:
             case VisualInterfacePackage.SYMBOL__ON_DISPOSE:
             case VisualInterfacePackage.SYMBOL__ON_UPDATE:
-            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
             case VisualInterfacePackage.SYMBOL__BACKGROUND_COLOR:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case VisualInterfacePackage.SYMBOL__ROOT:
             case VisualInterfacePackage.SYMBOL__PROPERTIES:
+            case VisualInterfacePackage.SYMBOL__SCRIPT_MODULES:
             case VisualInterfacePackage.SYMBOL__CURSORS:
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
@@ -264,6 +265,8 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__PROPERTIES, VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) ) );
+
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES, "" ) ); //$NON-NLS-1$
 
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__CURSORS, VisualInterfaceFactory.eINSTANCE.createSystemCursor () ) );
 

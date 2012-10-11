@@ -39,7 +39,7 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onInit"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onDispose"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onUpdate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/scriptModules"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/scriptModules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/cursors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundColor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/designSize"/>
@@ -139,6 +139,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabVerticalSpace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanCols"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanRows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/widthHint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/heightHint"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//FigureContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//FigureContainer/content"/>
