@@ -60,9 +60,13 @@ import org.openscada.vi.ui.draw2d.SymbolController;
 /**
  * A figure controller
  * <p>
- * This figure controller needs to know when the figure it controls was added or removed. Since draw2d does not provide a "addRemovedListener" for IFigure but a {@link IFigure#removeNotify()} that can
- * be overridden it is the responsibility of the implementing controller to call {@link #start()} and {@link #stop()} when the implementing {@link IFigure#addNotify()} and
- * {@link IFigure#removeNotify()} get called. So create your figure like the following snippet shows: <code><pre>
+ * This figure controller needs to know when the figure it controls was added or
+ * removed. Since draw2d does not provide a "addRemovedListener" for IFigure but
+ * a {@link IFigure#removeNotify()} that can be overridden it is the
+ * responsibility of the implementing controller to call {@link #start()} and
+ * {@link #stop()} when the implementing {@link IFigure#addNotify()} and
+ * {@link IFigure#removeNotify()} get called. So create your figure like the
+ * following snippet shows: <code><pre>
 IFigure figure = new PolylineShape () {
     public void addNotify () {
         super.addNotify ();
@@ -556,16 +560,19 @@ public abstract class FigureController implements Controller
         if ( border.startsWith ( "MARGIN:" ) )
         {
             final Map<String, String> args = parseBorderArguments ( "inset", border.substring ( "MARGIN:".length () ) );
-            final int inset;
             if ( args.containsKey ( "inset" ) )
             {
-                inset = Integer.parseInt ( args.get ( "inset" ) );
+                return new MarginBorder ( Integer.parseInt ( args.get ( "inset" ) ) );
+            }
+            else if ( args.containsKey ( "insets" ) )
+            {
+                final String[] insets = args.get ( "insets" ).split ( ", ?" );
+                return new MarginBorder ( Integer.parseInt ( insets[0] ), Integer.parseInt ( insets[1] ), Integer.parseInt ( insets[2] ), Integer.parseInt ( insets[3] ) );
             }
             else
             {
-                inset = 0;
+                return new MarginBorder ( 0 );
             }
-            return new MarginBorder ( inset );
         }
         if ( border.startsWith ( "COMPOUND:" ) )
         {
