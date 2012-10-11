@@ -562,12 +562,20 @@ public abstract class FigureController implements Controller
             final Map<String, String> args = parseBorderArguments ( "inset", border.substring ( "MARGIN:".length () ) );
             if ( args.containsKey ( "inset" ) )
             {
-                return new MarginBorder ( Integer.parseInt ( args.get ( "inset" ) ) );
+                final String value = args.get ( "inset" );
+                if ( value.contains ( "," ) )
+                {
+                    final String[] insets = args.get ( "insets" ).split ( ", ?" );
+                    return new MarginBorder ( Integer.parseInt ( insets[0] ), Integer.parseInt ( insets[1] ), Integer.parseInt ( insets[2] ), Integer.parseInt ( insets[3] ) );
+                }
+                else
+                {
+                    return new MarginBorder ( Integer.parseInt ( args.get ( "inset" ) ) );
+                }
             }
-            else if ( args.containsKey ( "insets" ) )
+            else if ( args.containsKey ( "t" ) || args.containsKey ( "l" ) || args.containsKey ( "r" ) || args.containsKey ( "b" ) )
             {
-                final String[] insets = args.get ( "insets" ).split ( ", ?" );
-                return new MarginBorder ( Integer.parseInt ( insets[0] ), Integer.parseInt ( insets[1] ), Integer.parseInt ( insets[2] ), Integer.parseInt ( insets[3] ) );
+                return new MarginBorder ( makeInt ( args, "t", 0 ), makeInt ( args, "l", 0 ), makeInt ( args, "b", 0 ), makeInt ( args, "r", 0 ) );
             }
             else
             {
@@ -582,6 +590,16 @@ public abstract class FigureController implements Controller
 
         StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Invalid border string: " + border ), StatusManager.LOG );
         return null;
+    }
+
+    private int makeInt ( final Map<String, String> args, final String string, final int defaultValue )
+    {
+        final String value = args.get ( string );
+        if ( value == null || value.isEmpty () )
+        {
+            return defaultValue;
+        }
+        return Integer.parseInt ( value );
     }
 
     protected Map<String, String> parseBorderArguments ( final String singleArgumentName, final String border )
