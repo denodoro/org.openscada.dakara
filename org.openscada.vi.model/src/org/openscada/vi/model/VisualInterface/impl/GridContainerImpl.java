@@ -32,6 +32,10 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#isEqualWidth <em>Equal Width</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#getHorizontalSpacing <em>Horizontal Spacing</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#getVerticalSpacing <em>Vertical Spacing</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#getMarginWidth <em>Margin Width</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.GridContainerImpl#getMarginHeight <em>Margin Height</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,6 +112,86 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * @ordered
      */
     protected EList<GridChild> children;
+
+    /**
+     * The default value of the '{@link #getHorizontalSpacing() <em>Horizontal Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHorizontalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected static final int HORIZONTAL_SPACING_EDEFAULT = 5;
+
+    /**
+     * The cached value of the '{@link #getHorizontalSpacing() <em>Horizontal Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHorizontalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected int horizontalSpacing = HORIZONTAL_SPACING_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getVerticalSpacing() <em>Vertical Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVerticalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected static final int VERTICAL_SPACING_EDEFAULT = 5;
+
+    /**
+     * The cached value of the '{@link #getVerticalSpacing() <em>Vertical Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getVerticalSpacing()
+     * @generated
+     * @ordered
+     */
+    protected int verticalSpacing = VERTICAL_SPACING_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getMarginWidth() <em>Margin Width</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMarginWidth()
+     * @generated
+     * @ordered
+     */
+    protected static final int MARGIN_WIDTH_EDEFAULT = 5;
+
+    /**
+     * The cached value of the '{@link #getMarginWidth() <em>Margin Width</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMarginWidth()
+     * @generated
+     * @ordered
+     */
+    protected int marginWidth = MARGIN_WIDTH_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getMarginHeight() <em>Margin Height</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMarginHeight()
+     * @generated
+     * @ordered
+     */
+    protected static final int MARGIN_HEIGHT_EDEFAULT = 5;
+
+    /**
+     * The cached value of the '{@link #getMarginHeight() <em>Margin Height</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMarginHeight()
+     * @generated
+     * @ordered
+     */
+    protected int marginHeight = MARGIN_HEIGHT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -218,6 +302,98 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getHorizontalSpacing ()
+    {
+        return horizontalSpacing;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setHorizontalSpacing ( int newHorizontalSpacing )
+    {
+        int oldHorizontalSpacing = horizontalSpacing;
+        horizontalSpacing = newHorizontalSpacing;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__HORIZONTAL_SPACING, oldHorizontalSpacing, horizontalSpacing ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getVerticalSpacing ()
+    {
+        return verticalSpacing;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setVerticalSpacing ( int newVerticalSpacing )
+    {
+        int oldVerticalSpacing = verticalSpacing;
+        verticalSpacing = newVerticalSpacing;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__VERTICAL_SPACING, oldVerticalSpacing, verticalSpacing ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getMarginWidth ()
+    {
+        return marginWidth;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMarginWidth ( int newMarginWidth )
+    {
+        int oldMarginWidth = marginWidth;
+        marginWidth = newMarginWidth;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__MARGIN_WIDTH, oldMarginWidth, marginWidth ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getMarginHeight ()
+    {
+        return marginHeight;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMarginHeight ( int newMarginHeight )
+    {
+        int oldMarginHeight = marginHeight;
+        marginHeight = newMarginHeight;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.GRID_CONTAINER__MARGIN_HEIGHT, oldMarginHeight, marginHeight ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -247,6 +423,14 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
                 return isEqualWidth ();
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
                 return getChildren ();
+            case VisualInterfacePackage.GRID_CONTAINER__HORIZONTAL_SPACING:
+                return getHorizontalSpacing ();
+            case VisualInterfacePackage.GRID_CONTAINER__VERTICAL_SPACING:
+                return getVerticalSpacing ();
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_WIDTH:
+                return getMarginWidth ();
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_HEIGHT:
+                return getMarginHeight ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -275,6 +459,18 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
                 getChildren ().clear ();
                 getChildren ().addAll ( (Collection<? extends GridChild>)newValue );
                 return;
+            case VisualInterfacePackage.GRID_CONTAINER__HORIZONTAL_SPACING:
+                setHorizontalSpacing ( (Integer)newValue );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__VERTICAL_SPACING:
+                setVerticalSpacing ( (Integer)newValue );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_WIDTH:
+                setMarginWidth ( (Integer)newValue );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_HEIGHT:
+                setMarginHeight ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -301,6 +497,18 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
                 getChildren ().clear ();
                 return;
+            case VisualInterfacePackage.GRID_CONTAINER__HORIZONTAL_SPACING:
+                setHorizontalSpacing ( HORIZONTAL_SPACING_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__VERTICAL_SPACING:
+                setVerticalSpacing ( VERTICAL_SPACING_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_WIDTH:
+                setMarginWidth ( MARGIN_WIDTH_EDEFAULT );
+                return;
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_HEIGHT:
+                setMarginHeight ( MARGIN_HEIGHT_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -323,6 +531,14 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
                 return equalWidth != EQUAL_WIDTH_EDEFAULT;
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:
                 return children != null && !children.isEmpty ();
+            case VisualInterfacePackage.GRID_CONTAINER__HORIZONTAL_SPACING:
+                return horizontalSpacing != HORIZONTAL_SPACING_EDEFAULT;
+            case VisualInterfacePackage.GRID_CONTAINER__VERTICAL_SPACING:
+                return verticalSpacing != VERTICAL_SPACING_EDEFAULT;
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_WIDTH:
+                return marginWidth != MARGIN_WIDTH_EDEFAULT;
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_HEIGHT:
+                return marginHeight != MARGIN_HEIGHT_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -345,6 +561,14 @@ public class GridContainerImpl extends EObjectImpl implements GridContainer
         result.append ( columns );
         result.append ( ", equalWidth: " ); //$NON-NLS-1$
         result.append ( equalWidth );
+        result.append ( ", horizontalSpacing: " ); //$NON-NLS-1$
+        result.append ( horizontalSpacing );
+        result.append ( ", verticalSpacing: " ); //$NON-NLS-1$
+        result.append ( verticalSpacing );
+        result.append ( ", marginWidth: " ); //$NON-NLS-1$
+        result.append ( marginWidth );
+        result.append ( ", marginHeight: " ); //$NON-NLS-1$
+        result.append ( marginHeight );
         result.append ( ')' );
         return result.toString ();
     }

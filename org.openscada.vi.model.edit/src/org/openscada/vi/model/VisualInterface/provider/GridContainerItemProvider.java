@@ -63,6 +63,10 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
             addNamePropertyDescriptor ( object );
             addColumnsPropertyDescriptor ( object );
             addEqualWidthPropertyDescriptor ( object );
+            addHorizontalSpacingPropertyDescriptor ( object );
+            addVerticalSpacingPropertyDescriptor ( object );
+            addMarginWidthPropertyDescriptor ( object );
+            addMarginHeightPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -104,6 +108,58 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_equalWidth_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Horizontal Spacing feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addHorizontalSpacingPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_horizontalSpacing_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_horizontalSpacing_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CONTAINER__HORIZONTAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Vertical Spacing feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addVerticalSpacingPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_verticalSpacing_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_verticalSpacing_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CONTAINER__VERTICAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Margin Width feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addMarginWidthPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_marginWidth_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_marginWidth_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CONTAINER__MARGIN_WIDTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Margin Height feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addMarginHeightPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_marginHeight_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_marginHeight_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.GRID_CONTAINER__MARGIN_HEIGHT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -182,6 +238,10 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
             case VisualInterfacePackage.GRID_CONTAINER__NAME:
             case VisualInterfacePackage.GRID_CONTAINER__COLUMNS:
             case VisualInterfacePackage.GRID_CONTAINER__EQUAL_WIDTH:
+            case VisualInterfacePackage.GRID_CONTAINER__HORIZONTAL_SPACING:
+            case VisualInterfacePackage.GRID_CONTAINER__VERTICAL_SPACING:
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_WIDTH:
+            case VisualInterfacePackage.GRID_CONTAINER__MARGIN_HEIGHT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case VisualInterfacePackage.GRID_CONTAINER__CHILDREN:

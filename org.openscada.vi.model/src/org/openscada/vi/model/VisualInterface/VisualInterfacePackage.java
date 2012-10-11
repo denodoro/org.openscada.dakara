@@ -1394,13 +1394,49 @@ public interface VisualInterfacePackage extends EPackage
     int GRID_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Horizontal Spacing</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__HORIZONTAL_SPACING = CONTAINER_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Vertical Spacing</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__VERTICAL_SPACING = CONTAINER_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Margin Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__MARGIN_WIDTH = CONTAINER_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Margin Height</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GRID_CONTAINER__MARGIN_HEIGHT = CONTAINER_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Grid Container</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GRID_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 3;
+    int GRID_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 7;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl <em>Border Container</em>}' class.
@@ -3028,6 +3064,50 @@ public interface VisualInterfacePackage extends EPackage
     EReference getGridContainer_Children ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Horizontal Spacing</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getHorizontalSpacing()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_HorizontalSpacing ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#getVerticalSpacing <em>Vertical Spacing</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Vertical Spacing</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getVerticalSpacing()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_VerticalSpacing ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#getMarginWidth <em>Margin Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Margin Width</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getMarginWidth()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_MarginWidth ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.GridContainer#getMarginHeight <em>Margin Height</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Margin Height</em>'.
+     * @see org.openscada.vi.model.VisualInterface.GridContainer#getMarginHeight()
+     * @see #getGridContainer()
+     * @generated
+     */
+    EAttribute getGridContainer_MarginHeight ();
+
+    /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.BorderContainer <em>Border Container</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3979,6 +4059,38 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference GRID_CONTAINER__CHILDREN = eINSTANCE.getGridContainer_Children ();
+
+        /**
+         * The meta object literal for the '<em><b>Horizontal Spacing</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__HORIZONTAL_SPACING = eINSTANCE.getGridContainer_HorizontalSpacing ();
+
+        /**
+         * The meta object literal for the '<em><b>Vertical Spacing</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__VERTICAL_SPACING = eINSTANCE.getGridContainer_VerticalSpacing ();
+
+        /**
+         * The meta object literal for the '<em><b>Margin Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__MARGIN_WIDTH = eINSTANCE.getGridContainer_MarginWidth ();
+
+        /**
+         * The meta object literal for the '<em><b>Margin Height</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GRID_CONTAINER__MARGIN_HEIGHT = eINSTANCE.getGridContainer_MarginHeight ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.BorderContainerImpl <em>Border Container</em>}' class.

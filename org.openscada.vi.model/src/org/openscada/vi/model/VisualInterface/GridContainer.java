@@ -19,6 +19,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#isEqualWidth <em>Equal Width</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#getVerticalSpacing <em>Vertical Spacing</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#getMarginWidth <em>Margin Width</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.GridContainer#getMarginHeight <em>Margin Height</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,5 +101,113 @@ public interface GridContainer extends Container
      * @generated
      */
     EList<GridChild> getChildren ();
+
+    /**
+     * Returns the value of the '<em><b>Horizontal Spacing</b></em>' attribute.
+     * The default value is <code>"5"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Horizontal Spacing</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Horizontal Spacing</em>' attribute.
+     * @see #setHorizontalSpacing(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridContainer_HorizontalSpacing()
+     * @model default="5" required="true"
+     * @generated
+     */
+    int getHorizontalSpacing ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Horizontal Spacing</em>' attribute.
+     * @see #getHorizontalSpacing()
+     * @generated
+     */
+    void setHorizontalSpacing ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Vertical Spacing</b></em>' attribute.
+     * The default value is <code>"5"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Vertical Spacing</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Vertical Spacing</em>' attribute.
+     * @see #setVerticalSpacing(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridContainer_VerticalSpacing()
+     * @model default="5" required="true"
+     * @generated
+     */
+    int getVerticalSpacing ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridContainer#getVerticalSpacing <em>Vertical Spacing</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Vertical Spacing</em>' attribute.
+     * @see #getVerticalSpacing()
+     * @generated
+     */
+    void setVerticalSpacing ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Margin Width</b></em>' attribute.
+     * The default value is <code>"5"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Margin Width</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Margin Width</em>' attribute.
+     * @see #setMarginWidth(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridContainer_MarginWidth()
+     * @model default="5" required="true"
+     * @generated
+     */
+    int getMarginWidth ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridContainer#getMarginWidth <em>Margin Width</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Margin Width</em>' attribute.
+     * @see #getMarginWidth()
+     * @generated
+     */
+    void setMarginWidth ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Margin Height</b></em>' attribute.
+     * The default value is <code>"5"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Margin Height</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Margin Height</em>' attribute.
+     * @see #setMarginHeight(int)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getGridContainer_MarginHeight()
+     * @model default="5" required="true"
+     * @generated
+     */
+    int getMarginHeight ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.GridContainer#getMarginHeight <em>Margin Height</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Margin Height</em>' attribute.
+     * @see #getMarginHeight()
+     * @generated
+     */
+    void setMarginHeight ( int value );
 
 } // GridContainer

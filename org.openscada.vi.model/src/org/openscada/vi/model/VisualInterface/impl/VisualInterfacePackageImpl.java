@@ -1014,6 +1014,46 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridContainer_HorizontalSpacing ()
+    {
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridContainer_VerticalSpacing ()
+    {
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridContainer_MarginWidth ()
+    {
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGridContainer_MarginHeight ()
+    {
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1431,6 +1471,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEAttribute ( gridContainerEClass, GRID_CONTAINER__COLUMNS );
         createEAttribute ( gridContainerEClass, GRID_CONTAINER__EQUAL_WIDTH );
         createEReference ( gridContainerEClass, GRID_CONTAINER__CHILDREN );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__HORIZONTAL_SPACING );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__VERTICAL_SPACING );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__MARGIN_WIDTH );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__MARGIN_HEIGHT );
 
         borderContainerEClass = createEClass ( BORDER_CONTAINER );
         createEReference ( borderContainerEClass, BORDER_CONTAINER__CHILDREN );
@@ -1610,6 +1654,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEAttribute ( getGridContainer_Columns (), ecorePackage.getEInt (), "columns", "1", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getGridContainer_EqualWidth (), ecorePackage.getEBoolean (), "equalWidth", "false", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getGridContainer_Children (), this.getGridChild (), null, "children", null, 0, -1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getGridContainer_HorizontalSpacing (), ecorePackage.getEInt (), "horizontalSpacing", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_VerticalSpacing (), ecorePackage.getEInt (), "verticalSpacing", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_MarginWidth (), ecorePackage.getEInt (), "marginWidth", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_MarginHeight (), ecorePackage.getEInt (), "marginHeight", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( borderContainerEClass, BorderContainer.class, "BorderContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getBorderContainer_Children (), this.getBorderChild (), null, "children", null, 0, -1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

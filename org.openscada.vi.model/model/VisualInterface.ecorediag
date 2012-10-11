@@ -460,6 +460,22 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridContainer/equalWidth"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3F7SYcy6EeCZatunG8aJEQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_TVMNAROrEeKn_PzQrQsy-Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridContainer/horizontalSpacing"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TVMNAhOrEeKn_PzQrQsy-Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_W9hloBOrEeKn_PzQrQsy-Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridContainer/verticalSpacing"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_W9hloROrEeKn_PzQrQsy-Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Zd53sBOrEeKn_PzQrQsy-Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridContainer/marginWidth"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Zd53sROrEeKn_PzQrQsy-Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_al9r8BOrEeKn_PzQrQsy-Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//GridContainer/marginHeight"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_al9r8ROrEeKn_PzQrQsy-Q"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_al7cocy6EeCZatunG8aJEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_al7cosy6EeCZatunG8aJEQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_al7co8y6EeCZatunG8aJEQ"/>

@@ -38,7 +38,8 @@ public class GridContainerController implements Controller
     {
         this.figure = new Figure ();
 
-        this.figure.setLayoutManager ( new GridLayout ( element.getColumns (), element.isEqualWidth () ) );
+        final GridLayout gridLayout = new GridLayout ( element.getColumns (), element.isEqualWidth () );
+        gridLayout.this.figure.setLayoutManager ( gridLayout );
 
         for ( final GridChild child : element.getChildren () )
         {
