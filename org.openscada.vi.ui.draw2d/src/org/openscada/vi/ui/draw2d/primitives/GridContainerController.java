@@ -39,7 +39,12 @@ public class GridContainerController implements Controller
         this.figure = new Figure ();
 
         final GridLayout gridLayout = new GridLayout ( element.getColumns (), element.isEqualWidth () );
-        gridLayout.this.figure.setLayoutManager ( gridLayout );
+        gridLayout.horizontalSpacing = element.getHorizontalSpacing ();
+        gridLayout.verticalSpacing = element.getVerticalSpacing ();
+        gridLayout.marginHeight = element.getMarginHeight ();
+        gridLayout.marginWidth = element.getMarginWidth ();
+
+        this.figure.setLayoutManager ( gridLayout );
 
         for ( final GridChild child : element.getChildren () )
         {
