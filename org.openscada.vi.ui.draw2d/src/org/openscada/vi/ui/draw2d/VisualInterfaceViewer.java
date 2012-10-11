@@ -89,9 +89,12 @@ public class VisualInterfaceViewer extends Composite
      * @param uri
      *            the URI from which the root symbol should be loaded
      * @param scriptObjects
-     *            optionally some script objects that get injected into the script context. May be <code>null</code>.
+     *            optionally some script objects that get injected into the
+     *            script context. May be <code>null</code>.
      * @param properties
-     *            additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
+     *            additional properties for symbol creation. May be
+     *            <code>null</code>. These properties override the symbols
+     *            properties.
      */
     public VisualInterfaceViewer ( final Composite parent, final int style, final URI uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
@@ -108,9 +111,12 @@ public class VisualInterfaceViewer extends Composite
      * @param uri
      *            the URI from which the root symbol should be loaded
      * @param scriptObjects
-     *            optionally some script objects that get injected into the script context. May be <code>null</code>
+     *            optionally some script objects that get injected into the
+     *            script context. May be <code>null</code>
      * @param properties
-     *            additional properties for symbol creation. May be <code>null</code>. These properties override the symbols properties.
+     *            additional properties for symbol creation. May be
+     *            <code>null</code>. These properties override the symbols
+     *            properties.
      */
     public VisualInterfaceViewer ( final Composite parent, final int style, final String uri, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
@@ -158,7 +164,7 @@ public class VisualInterfaceViewer extends Composite
 
             loader.load ();
             this.symbol = loader.getSymbol ();
-            create ( loader.getSymbol (), loader.getClassLoader () );
+            create ( loader.getSourceName (), loader.getSymbol (), loader.getClassLoader () );
             applyColor ( loader.getSymbol () );
         }
         catch ( final Exception e )
@@ -265,7 +271,7 @@ public class VisualInterfaceViewer extends Composite
         }
     }
 
-    protected void create ( final Symbol symbol, final ClassLoader classLoader )
+    protected void create ( final String symbolInfoName, final Symbol symbol, final ClassLoader classLoader )
     {
         try
         {
@@ -276,7 +282,7 @@ public class VisualInterfaceViewer extends Composite
             }
             properties.putAll ( this.initialProperties );
 
-            this.controller = new SymbolController ( symbol, classLoader, properties, this.scriptObjects );
+            this.controller = new SymbolController ( symbolInfoName, symbol, classLoader, properties, this.scriptObjects );
 
             final Controller controller = create ( symbol.getRoot () );
 

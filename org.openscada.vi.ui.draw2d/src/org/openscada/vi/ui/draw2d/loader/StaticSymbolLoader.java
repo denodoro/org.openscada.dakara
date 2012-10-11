@@ -34,6 +34,12 @@ public class StaticSymbolLoader implements SymbolLoader
     }
 
     @Override
+    public String getSourceName ()
+    {
+        return "<unknown>";
+    }
+
+    @Override
     public void load ()
     {
         // nothing to do

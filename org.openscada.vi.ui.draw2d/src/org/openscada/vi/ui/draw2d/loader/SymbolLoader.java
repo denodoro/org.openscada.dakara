@@ -24,6 +24,8 @@ import org.openscada.vi.model.VisualInterface.Symbol;
 public interface SymbolLoader
 {
 
+    public String getSourceName ();
+
     public void load () throws Exception;
 
     public Symbol getSymbol ();

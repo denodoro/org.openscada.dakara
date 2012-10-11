@@ -48,6 +48,12 @@ public class XMISymbolLoader implements SymbolLoader
         this.classLoader = findClassLoader ( uri );
     }
 
+    @Override
+    public String getSourceName ()
+    {
+        return this.uri.toString ();
+    }
+
     private ClassLoader findClassLoader ( final URI uri )
     {
         return Activator.class.getClassLoader ();

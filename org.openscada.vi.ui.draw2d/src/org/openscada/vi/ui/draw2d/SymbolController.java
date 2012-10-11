@@ -112,13 +112,18 @@ public class SymbolController implements Listener
 
     private MessageConsole createdConsole;
 
-    public SymbolController ( final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
+    private MessageConsoleStream logStream;
+
+    private final String symbolInfoName;
+
+    public SymbolController ( final String symbolInfoName, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
-        this ( null, symbol, classLoader, properties, scriptObjects );
+        this ( symbolInfoName, null, symbol, classLoader, properties, scriptObjects );
     }
 
-    public SymbolController ( final SymbolController parentController, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
+    public SymbolController ( final String symbolInfoName, final SymbolController parentController, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
+        this.symbolInfoName = symbolInfoName;
         this.parentController = parentController;
         this.classLoader = classLoader;
 
@@ -200,6 +205,9 @@ public class SymbolController implements Listener
         final MessageConsoleStream errorStream = this.console.newMessageStream ();
         errorStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
         scriptContext.setErrorWriter ( new PrintWriter ( new OutputStreamWriter ( errorStream ) ) );
+
+        this.logStream = this.console.newMessageStream ();
+        this.logStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_GRAY ) );
     }
 
     private MessageConsole createOrGetConsole ()
@@ -210,7 +218,7 @@ public class SymbolController implements Listener
         }
 
         final IConsoleManager manager = ConsolePlugin.getDefault ().getConsoleManager ();
-        final MessageConsole console = new MessageConsole ( "Symbol Debug Console", null, null, true );
+        final MessageConsole console = new MessageConsole ( String.format ( "Symbol Debug Console: %s", this.symbolInfoName ), null, null, true );
         manager.addConsoles ( new IConsole[] { console } );
         this.createdConsole = console;
         return console;
@@ -251,7 +259,9 @@ public class SymbolController implements Listener
 
     private void loadScript ( final String module ) throws Exception
     {
+        this.logStream.println ( String.format ( "Loading script module: %s", module ) );
         final String moduleSource = Resources.toString ( new URL ( module ), Charset.forName ( "UTF-8" ) );
+
         new ScriptExecutor ( this.engine, moduleSource, this.classLoader ).execute ( this.scriptContext );
     }
 
@@ -285,6 +295,18 @@ public class SymbolController implements Listener
         {
             ConsolePlugin.getDefault ().getConsoleManager ().removeConsoles ( new IConsole[] { this.createdConsole } );
             this.createdConsole = null;
+        }
+
+        if ( this.logStream != null && !this.logStream.isClosed () )
+        {
+            try
+            {
+                this.logStream.close ();
+            }
+            catch ( final IOException e )
+            {
+                logger.warn ( "Failed to close log stream", e );
+            }
         }
 
         try
