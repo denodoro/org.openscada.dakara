@@ -33,6 +33,7 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.core.Variant;
 import org.openscada.core.VariantEditor;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.ui.draw2d.primitives.FigureContainerController;
 import org.openscada.vi.ui.draw2d.primitives.ImageController;
 import org.openscada.vi.ui.draw2d.primitives.RectangleController;
@@ -68,7 +69,8 @@ public class SymbolContext
      * 
      * @param name
      *            the name of the symbol to fetch
-     * @return returns either a reference to the element controller of <code>null</code> if the element could not be found.
+     * @return returns either a reference to the element controller of
+     *         <code>null</code> if the element could not be found.
      * @see org.openscada.vi.ui.draw2d.primitives
      * @see FigureContainerController
      * @see ImageController
@@ -103,7 +105,8 @@ public class SymbolContext
     /**
      * Unregister item for symbol
      * <p>
-     * There is no need to unregister items when the symbol is disposed. This will be performed automatically.
+     * There is no need to unregister items when the symbol is disposed. This
+     * will be performed automatically.
      * </p>
      * 
      * @param name
@@ -145,6 +148,16 @@ public class SymbolContext
     public void startWriteAttributes ( final String connectionId, final String itemId, final Map<String, Variant> attributes ) throws InterruptedException
     {
         this.controller.startWriteAttributes ( connectionId, itemId, attributes );
+    }
+
+    public SymbolContext getParent ()
+    {
+        return this.controller.getParentContext ();
+    }
+
+    public SummaryInformation getSummary ()
+    {
+        return this.controller.getSummaryInformation ();
     }
 
     /**

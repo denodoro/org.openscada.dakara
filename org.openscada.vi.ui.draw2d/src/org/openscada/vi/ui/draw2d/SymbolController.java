@@ -572,4 +572,21 @@ public class SymbolController implements Listener
         }
     }
 
+    protected SymbolContext getContext ()
+    {
+        return this.context;
+    }
+
+    public SymbolContext getParentContext ()
+    {
+        if ( this.parentController != null )
+        {
+            return this.parentController.getContext ();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }
