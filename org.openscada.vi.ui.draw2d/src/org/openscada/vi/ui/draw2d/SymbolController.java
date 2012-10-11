@@ -34,12 +34,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import javax.script.Bindings;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import javax.script.SimpleScriptContext;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -343,12 +341,9 @@ public class SymbolController implements Listener
     public Object createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
     {
         final ScriptExecutor executor = new ScriptExecutor ( this.engine, onCreateProperties, this.classLoader );
-        final SimpleScriptContext currentContext = new SimpleScriptContext ();
-        final Bindings bindings = this.engine.createBindings ();
-        bindings.put ( "properties", currentProperties );
-        bindings.put ( "controller", this.context );
-        currentContext.setBindings ( bindings, ScriptContext.ENGINE_SCOPE );
-        return executor.execute ( currentContext );
+        final Map<String, Object> localProperties = new HashMap<String, Object> ( 1 );
+        localProperties.put ( "properties", currentProperties );
+        return executor.execute ( this.scriptContext, localProperties );
     }
 
     public Object getElement ( final String name )
