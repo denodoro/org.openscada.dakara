@@ -94,7 +94,8 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_columns_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_columns_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CONTAINER__COLUMNS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CONTAINER__COLUMNS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_basicPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -107,7 +108,8 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_equalWidth_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_equalWidth_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CONTAINER__EQUAL_WIDTH, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_basicPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -120,7 +122,8 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_horizontalSpacing_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_horizontalSpacing_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CONTAINER__HORIZONTAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CONTAINER__HORIZONTAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_spacingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -133,7 +136,8 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_verticalSpacing_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_verticalSpacing_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CONTAINER__VERTICAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CONTAINER__VERTICAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_spacingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -146,7 +150,8 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_marginWidth_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_marginWidth_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CONTAINER__MARGIN_WIDTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CONTAINER__MARGIN_WIDTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_spacingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -159,7 +164,8 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridContainer_marginHeight_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_GridContainer_marginHeight_feature", "_UI_GridContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CONTAINER__MARGIN_HEIGHT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.GRID_CONTAINER__MARGIN_HEIGHT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_spacingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

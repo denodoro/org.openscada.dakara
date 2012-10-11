@@ -99,7 +99,7 @@
           ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/border"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/opaque"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/opaque"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
@@ -120,9 +120,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SystemCursor/type"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//GridContainer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/columns"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/equalWidth"/>
+      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/columns"/>
+      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/equalWidth"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//GridContainer/children"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/horizontalSpacing"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/verticalSpacing"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/marginWidth"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/marginHeight"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//BorderContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//BorderContainer/children"/>

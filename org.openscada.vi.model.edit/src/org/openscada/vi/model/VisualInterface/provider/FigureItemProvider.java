@@ -194,7 +194,8 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_opaque_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_opaque_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.FIGURE__OPAQUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.FIGURE__OPAQUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
