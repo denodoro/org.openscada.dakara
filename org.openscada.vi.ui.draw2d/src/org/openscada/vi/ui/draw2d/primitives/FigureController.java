@@ -565,7 +565,7 @@ public abstract class FigureController implements Controller
                 final String value = args.get ( "inset" );
                 if ( value.contains ( "," ) )
                 {
-                    final String[] insets = args.get ( "insets" ).split ( ", ?" );
+                    final String[] insets = args.get ( "inset" ).split ( ", ?" );
                     return new MarginBorder ( Integer.parseInt ( insets[0] ), Integer.parseInt ( insets[1] ), Integer.parseInt ( insets[2] ), Integer.parseInt ( insets[3] ) );
                 }
                 else
