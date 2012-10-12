@@ -49,7 +49,7 @@ public class ChartController extends FigureController
 
     public void setChartConfigurationUri ( final String configurationUri )
     {
-        if ( this.figure != null )
+        if ( this.figure != null && configurationUri != null )
         {
             this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( this.view.getConfigurationUri () ) );
         }
