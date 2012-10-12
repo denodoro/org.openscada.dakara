@@ -37,9 +37,13 @@ import org.eclipse.ui.services.IEvaluationReference;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.core.ui.styles.StyleBlinker;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractViewInstance implements ViewInstance
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( AbstractViewInstance.class );
 
     private static final String PROP_DEFAULT_INSTANCE = "defaultInstance";
 
@@ -410,6 +414,7 @@ public abstract class AbstractViewInstance implements ViewInstance
 
         if ( this.button != null )
         {
+            logger.debug ( "Setting button selection" );
             this.button.setSelection ( true );
         }
 
