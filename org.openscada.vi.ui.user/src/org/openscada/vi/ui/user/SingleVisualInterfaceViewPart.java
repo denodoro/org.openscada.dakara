@@ -101,6 +101,8 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private final Set<ViewInstanceDescriptor> visibleDescriptors = new HashSet<ViewInstanceDescriptor> ();
 
+    private boolean switchingView;
+
     public SingleVisualInterfaceViewPart ()
     {
         this.descriptors = new ArrayList<ViewInstanceDescriptor> ( Activator.getDescriptors () );
@@ -277,20 +279,31 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     protected void showView ( final ViewInstance instance, final boolean force )
     {
+
         if ( this.currentInstance == instance && !force )
         {
             return;
         }
 
-        if ( this.currentInstance != null )
+        this.switchingView = true;
+
+        try
         {
-            this.currentInstance.deactivate ();
+
+            if ( this.currentInstance != null )
+            {
+                this.currentInstance.deactivate ();
+            }
+
+            this.currentInstance = instance;
+            this.currentInstance.activate ();
+
+            updateTopControl ();
         }
-
-        this.currentInstance = instance;
-        this.currentInstance.activate ();
-
-        updateTopControl ();
+        finally
+        {
+            this.switchingView = false;
+        }
     }
 
     private void updateTopControl ()
@@ -386,8 +399,12 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     @Override
     public void viewActiveChanged ( final ViewInstance viewInstance, final boolean state )
     {
-        if ( !state )
+        if ( !state && !this.switchingView )
         {
+            /*
+             * The current view got deactivated. But we only assign a new view
+             * if we are not in the middle of switching views. 
+             */
             if ( this.currentInstance == viewInstance )
             {
                 this.currentInstance = null;
@@ -401,6 +418,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     {
         if ( this.currentInstance == viewInstance )
         {
+            // The control of the active view changes .. so we need to update it
             updateTopControl ();
         }
     }
