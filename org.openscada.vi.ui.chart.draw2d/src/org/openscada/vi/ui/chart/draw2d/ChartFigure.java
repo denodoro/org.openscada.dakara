@@ -35,11 +35,24 @@ public class ChartFigure extends Figure
 
     private ChartViewer viewer;
 
-    private final Chart configuration;
+    private Chart configuration;
 
-    public ChartFigure ( final Chart configuration )
+    private boolean realize;
+
+    public ChartFigure ()
     {
+    }
+
+    public void setConfiguration ( final Chart configuration )
+    {
+        // dispose if created
+        doDisposeRenderer ();
+
+        // set configuration
         this.configuration = configuration;
+
+        // check to create .. will only created if was created due to the realize flag
+        checkCreate ();
     }
 
     @Override
@@ -80,6 +93,12 @@ public class ChartFigure extends Figure
 
     protected void disposeRenderer ()
     {
+        this.realize = false;
+        doDisposeRenderer ();
+    }
+
+    private void doDisposeRenderer ()
+    {
         if ( this.viewer != null )
         {
             this.viewer.dispose ();
@@ -95,8 +114,22 @@ public class ChartFigure extends Figure
     protected void createRenderer ()
     {
         disposeRenderer ();
+        this.realize = true;
+        checkCreate ();
+    }
+
+    private void doCreateRenderer ()
+    {
         this.renderer = new FigureRenderer ( this );
         this.viewer = new ChartViewer ( this.renderer, this.configuration != null ? this.configuration : makeDefaultConfiguration () );
+    }
+
+    private void checkCreate ()
+    {
+        if ( this.configuration != null && this.realize )
+        {
+            doCreateRenderer ();
+        }
     }
 
     @Override

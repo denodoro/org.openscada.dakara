@@ -21,29 +21,38 @@ package org.openscada.vi.ui.chart.draw2d;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.jface.resource.ResourceManager;
-import org.openscada.ui.chart.model.ChartModel.Chart;
 import org.openscada.vi.chart.model.chart.ChartView;
 import org.openscada.vi.ui.draw2d.SymbolController;
 import org.openscada.vi.ui.draw2d.primitives.FigureController;
 
 public class ChartController extends FigureController
 {
-    private final Chart configuration;
-
     private final ChartFigure figure;
+
+    private final ChartView view;
 
     public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view )
     {
         super ( symbolController, resourceManager );
-        this.configuration = ChartHelper.loadConfiguraton ( view.getConfigurationUri () );
-        this.figure = new ChartFigure ( this.configuration );
+        this.view = view;
+
+        this.figure = new ChartFigure ();
 
         applyCommon ( view );
     }
 
-    public Chart getConfiguration ()
+    protected void applyCommon ( final ChartView view )
     {
-        return this.configuration;
+        setChartConfigurationUri ( view.getConfigurationUri () );
+        super.applyCommon ( view );
+    }
+
+    public void setChartConfigurationUri ( final String configurationUri )
+    {
+        if ( this.figure != null )
+        {
+            this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( this.view.getConfigurationUri () ) );
+        }
     }
 
     @Override
