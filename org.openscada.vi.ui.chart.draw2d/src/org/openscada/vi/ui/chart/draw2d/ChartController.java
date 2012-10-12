@@ -29,12 +29,9 @@ public class ChartController extends FigureController
 {
     private final ChartFigure figure;
 
-    private final ChartView view;
-
     public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view )
     {
         super ( symbolController, resourceManager );
-        this.view = view;
 
         this.figure = new ChartFigure ();
 
@@ -53,7 +50,7 @@ public class ChartController extends FigureController
     {
         if ( this.figure != null && configurationUri != null )
         {
-            this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( this.view.getConfigurationUri () ) );
+            this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( configurationUri ) );
         }
     }
 
