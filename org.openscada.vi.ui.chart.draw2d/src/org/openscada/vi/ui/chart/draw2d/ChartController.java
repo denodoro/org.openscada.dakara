@@ -38,6 +38,8 @@ public class ChartController extends FigureController
 
         this.figure = new ChartFigure ();
 
+        symbolController.addElement ( view, this );
+
         applyCommon ( view );
     }
 
