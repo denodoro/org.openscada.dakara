@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -229,6 +229,25 @@ public abstract class FigureController implements Controller
         this.controller = controller;
     }
 
+    /**
+     * Get the figure that is used for controlling the properties of this
+     * controller.
+     * <p>
+     * The figure returned is by default the same as the
+     * {@link #getFigure()}. But in some cases it might be necessary
+     * to return a different figure.
+     * </p>
+     * 
+     * @return the figure that should the attributes applied
+     */
+    protected abstract IFigure getPropertyFigure ();
+
+    @Override
+    public IFigure getFigure ()
+    {
+        return getPropertyFigure ();
+    }
+
     protected void applyCommon ( final Figure figure )
     {
         setBorder ( figure.getBorder () );
@@ -253,7 +272,7 @@ public abstract class FigureController implements Controller
 
         if ( this.onClick != null || this.onDoubleClick != null )
         {
-            getFigure ().addMouseListener ( new MouseListener.Stub () {
+            getPropertyFigure ().addMouseListener ( new MouseListener.Stub () {
                 @Override
                 public void mouseReleased ( final MouseEvent me )
                 {
@@ -271,7 +290,7 @@ public abstract class FigureController implements Controller
 
     public void setCursor ( final String cursor )
     {
-        getFigure ().setCursor ( getCursor ( cursor ) );
+        getPropertyFigure ().setCursor ( getCursor ( cursor ) );
     }
 
     public static enum SWTCursors
@@ -338,42 +357,42 @@ public abstract class FigureController implements Controller
 
     public void setPreferredSize ( final org.eclipse.draw2d.geometry.Dimension size )
     {
-        getFigure ().setPreferredSize ( size );
+        getPropertyFigure ().setPreferredSize ( size );
     }
 
     public void setSize ( final org.eclipse.draw2d.geometry.Dimension size )
     {
         if ( size != null )
         {
-            getFigure ().setSize ( size );
+            getPropertyFigure ().setSize ( size );
         }
     }
 
     public void setSize ( final double width, final double height )
     {
-        final Rectangle b = getFigure ().getBounds ();
+        final Rectangle b = getPropertyFigure ().getBounds ();
 
-        getFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), width, height ) );
+        getPropertyFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), width, height ) );
     }
 
     public void setWidth ( final double width )
     {
-        final Rectangle b = getFigure ().getBounds ();
+        final Rectangle b = getPropertyFigure ().getBounds ();
 
-        getFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), width, b.preciseHeight () ) );
+        getPropertyFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), width, b.preciseHeight () ) );
     }
 
     public void setHeight ( final double height )
     {
-        final Rectangle b = getFigure ().getBounds ();
+        final Rectangle b = getPropertyFigure ().getBounds ();
 
-        getFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), b.preciseWidth (), height ) );
+        getPropertyFigure ().setBounds ( new PrecisionRectangle ( b.preciseX (), b.preciseY (), b.preciseWidth (), height ) );
     }
 
     public Dimension getPreferredSize ()
     {
         final Dimension dimension = VisualInterfaceFactory.eINSTANCE.createDimension ();
-        final org.eclipse.draw2d.geometry.Dimension size = getFigure ().getPreferredSize ();
+        final org.eclipse.draw2d.geometry.Dimension size = getPropertyFigure ().getPreferredSize ();
         dimension.setHeight ( size.preciseWidth () );
         dimension.setWidth ( size.preciseWidth () );
         return dimension;
@@ -383,23 +402,23 @@ public abstract class FigureController implements Controller
     {
         final PrecisionDimension dim = new PrecisionDimension ();
         dim.setPreciseWidth ( value );
-        dim.setPreciseHeight ( getFigure ().getPreferredSize ().preciseHeight () );
+        dim.setPreciseHeight ( getPropertyFigure ().getPreferredSize ().preciseHeight () );
 
-        getFigure ().setPreferredSize ( dim );
+        getPropertyFigure ().setPreferredSize ( dim );
     }
 
     public void setPreferredHeight ( final double value )
     {
         final PrecisionDimension dim = new PrecisionDimension ();
-        dim.setPreciseWidth ( getFigure ().getPreferredSize ().preciseWidth () );
+        dim.setPreciseWidth ( getPropertyFigure ().getPreferredSize ().preciseWidth () );
         dim.setPreciseHeight ( value );
 
-        getFigure ().setPreferredSize ( dim );
+        getPropertyFigure ().setPreferredSize ( dim );
     }
 
     public void setBorder ( final String border )
     {
-        getFigure ().setBorder ( makeBorder ( border ) );
+        getPropertyFigure ().setBorder ( makeBorder ( border ) );
     }
 
     public void setBackgroundColor ( final String color )
@@ -462,7 +481,7 @@ public abstract class FigureController implements Controller
 
     public void setVisible ( final boolean flag )
     {
-        getFigure ().setVisible ( flag );
+        getPropertyFigure ().setVisible ( flag );
     }
 
     public abstract void setOpaque ( final Boolean flag );
@@ -471,11 +490,11 @@ public abstract class FigureController implements Controller
     {
         if ( flag == null )
         {
-            getFigure ().setOpaque ( defaultValue );
+            getPropertyFigure ().setOpaque ( defaultValue );
         }
         else
         {
-            getFigure ().setOpaque ( flag );
+            getPropertyFigure ().setOpaque ( flag );
         }
     }
 
@@ -643,12 +662,12 @@ public abstract class FigureController implements Controller
     {
         if ( color == null )
         {
-            return new DefaultColor ( getFigure (), applier );
+            return new DefaultColor ( getPropertyFigure (), applier );
         }
 
         if ( color.startsWith ( "#" ) && !color.contains ( "|" ) )
         {
-            return new StaticColor ( getFigure (), applier, createColor ( Helper.makeColor ( color ) ) );
+            return new StaticColor ( getPropertyFigure (), applier, createColor ( Helper.makeColor ( color ) ) );
         }
         else if ( ( color.startsWith ( "#" ) || color.startsWith ( "|" ) ) && color.contains ( "|" ) )
         {
@@ -668,9 +687,9 @@ public abstract class FigureController implements Controller
             {
                 stepCount = Integer.parseInt ( tok[2] );
             }
-            return new BlinkingColor ( getFigure (), applier, onColor, offColor, stepCount * 2 );
+            return new BlinkingColor ( getPropertyFigure (), applier, onColor, offColor, stepCount * 2 );
         }
-        return new DefaultColor ( getFigure (), applier );
+        return new DefaultColor ( getPropertyFigure (), applier );
     }
 
     protected Color createColor ( final RGB rgb )

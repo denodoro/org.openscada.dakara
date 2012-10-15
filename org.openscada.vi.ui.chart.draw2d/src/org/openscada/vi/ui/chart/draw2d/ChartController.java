@@ -19,7 +19,10 @@
 
 package org.openscada.vi.ui.chart.draw2d;
 
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.chart.model.chart.ChartView;
 import org.openscada.vi.ui.draw2d.SymbolController;
@@ -29,11 +32,21 @@ public class ChartController extends FigureController
 {
     private final ChartFigure figure;
 
+    private final Figure wrapperFigure;
+
+    private final Label errorFigure;
+
     public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view )
     {
         super ( symbolController, resourceManager );
 
+        this.wrapperFigure = new Figure ();
+        this.wrapperFigure.setOpaque ( false );
         this.figure = new ChartFigure ();
+
+        this.wrapperFigure.setLayoutManager ( new StackLayout () );
+        this.wrapperFigure.add ( this.figure );
+        this.errorFigure = new Label ( "Error" );
 
         symbolController.addElement ( view, this );
 
@@ -48,16 +61,34 @@ public class ChartController extends FigureController
 
     public void setChartConfigurationUri ( final String configurationUri )
     {
+        if ( this.wrapperFigure.getChildren ().contains ( this.errorFigure ) )
+        {
+            this.wrapperFigure.remove ( this.errorFigure );
+        }
+
         if ( this.figure != null && configurationUri != null )
         {
-            this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( configurationUri ) );
+            try
+            {
+                this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( configurationUri ) );
+            }
+            catch ( final Exception e )
+            {
+                this.wrapperFigure.add ( this.errorFigure );
+            }
         }
+    }
+
+    @Override
+    public IFigure getPropertyFigure ()
+    {
+        return this.figure;
     }
 
     @Override
     public IFigure getFigure ()
     {
-        return this.figure;
+        return this.wrapperFigure;
     }
 
     @Override

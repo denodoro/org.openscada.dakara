@@ -73,7 +73,7 @@ public class FigureContainerController extends FigureController
     }
 
     @Override
-    public Figure getFigure ()
+    public Figure getPropertyFigure ()
     {
         return this.figure;
     }

@@ -43,4 +43,16 @@ public class Helper
         pw.close ();
         return sw.toString ();
     }
+
+    public static Controller createErrorController ( final Throwable e )
+    {
+        return new Controller () {
+
+            @Override
+            public IFigure getFigure ()
+            {
+                return createErrorFigure ( e );
+            }
+        };
+    }
 }

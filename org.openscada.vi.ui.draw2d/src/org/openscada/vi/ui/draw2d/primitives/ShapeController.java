@@ -45,46 +45,46 @@ public abstract class ShapeController extends FigureController
 
     public void setOutline ( final boolean flag )
     {
-        getFigure ().setOutline ( flag );
+        getPropertyFigure ().setOutline ( flag );
     }
 
     public void setAlpha ( final Double alpha )
     {
         if ( alpha != null )
         {
-            getFigure ().setAlpha ( (int) ( Math.max ( 0.0, Math.min ( 1.0, alpha ) ) * 255.0 ) );
+            getPropertyFigure ().setAlpha ( (int) ( Math.max ( 0.0, Math.min ( 1.0, alpha ) ) * 255.0 ) );
         }
         else
         {
-            getFigure ().setAlpha ( null );
+            getPropertyFigure ().setAlpha ( null );
         }
     }
 
     public void setLineWidth ( final float width )
     {
-        getFigure ().setLineWidthFloat ( width );
+        getPropertyFigure ().setLineWidthFloat ( width );
     }
 
     public void setFill ( final boolean state )
     {
-        getFigure ().setFill ( state );
+        getPropertyFigure ().setFill ( state );
     }
 
     protected void setAntialias ( final Boolean value, final boolean defaultValue )
     {
         if ( value == null )
         {
-            getFigure ().setAntialias ( defaultValue ? SWT.ON : SWT.OFF );
+            getPropertyFigure ().setAntialias ( defaultValue ? SWT.ON : SWT.OFF );
         }
         else
         {
-            getFigure ().setAntialias ( value ? SWT.ON : SWT.OFF );
+            getPropertyFigure ().setAntialias ( value ? SWT.ON : SWT.OFF );
         }
     }
 
     public abstract void setAntialias ( Boolean value );
 
     @Override
-    public abstract org.eclipse.draw2d.Shape getFigure ();
+    protected abstract org.eclipse.draw2d.Shape getPropertyFigure ();
 
 }

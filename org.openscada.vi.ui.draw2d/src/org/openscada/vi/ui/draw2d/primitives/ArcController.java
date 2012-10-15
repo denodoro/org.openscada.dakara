@@ -68,7 +68,7 @@ public class ArcController extends ShapeController
     }
 
     @Override
-    public Shape getFigure ()
+    protected Shape getPropertyFigure ()
     {
         return this.figure;
     }

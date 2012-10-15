@@ -24,6 +24,7 @@ import org.openscada.vi.chart.model.chart.ChartView;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.ui.draw2d.BasicViewElementFactory;
 import org.openscada.vi.ui.draw2d.Controller;
+import org.openscada.vi.ui.draw2d.Helper;
 import org.openscada.vi.ui.draw2d.SymbolController;
 
 public class ViewElementFactory implements org.openscada.vi.ui.draw2d.ViewElementFactory
@@ -32,8 +33,15 @@ public class ViewElementFactory implements org.openscada.vi.ui.draw2d.ViewElemen
     @Override
     public Controller create ( final SymbolController controller, final Primitive element, final ResourceManager manager, final BasicViewElementFactory basicViewElementFactory )
     {
-        final ChartView view = (ChartView)element;
-        return new ChartController ( controller, manager, view );
+        try
+        {
+            final ChartView view = (ChartView)element;
+            return new ChartController ( controller, manager, view );
+        }
+        catch ( final Exception e )
+        {
+            return Helper.createErrorController ( e );
+        }
     }
 
 }
