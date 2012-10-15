@@ -112,6 +112,8 @@ public class SymbolController implements Listener
 
     private MessageConsoleStream logStream;
 
+    private MessageConsoleStream errorStream;
+
     private final String symbolInfoName;
 
     public SymbolController ( final String symbolInfoName, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
@@ -200,9 +202,9 @@ public class SymbolController implements Listener
         final MessageConsoleStream writerStream = this.console.newMessageStream ();
         scriptContext.setWriter ( new PrintWriter ( new OutputStreamWriter ( writerStream ) ) );
 
-        final MessageConsoleStream errorStream = this.console.newMessageStream ();
-        errorStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
-        scriptContext.setErrorWriter ( new PrintWriter ( new OutputStreamWriter ( errorStream ) ) );
+        this.errorStream = this.console.newMessageStream ();
+        this.errorStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
+        scriptContext.setErrorWriter ( new PrintWriter ( new OutputStreamWriter ( this.errorStream ) ) );
 
         this.logStream = this.console.newMessageStream ();
         this.logStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_GRAY ) );
@@ -570,6 +572,19 @@ public class SymbolController implements Listener
         catch ( final IOException e )
         {
         }
+    }
+
+    public void errorLog ( final String string )
+    {
+        errorLog ( string, null );
+    }
+
+    public void errorLog ( final String string, final Exception e )
+    {
+        final PrintWriter pw = new PrintWriter ( this.errorStream );
+        pw.println ( string );
+        e.printStackTrace ( pw );
+        pw.flush ();
     }
 
     protected SymbolContext getContext ()

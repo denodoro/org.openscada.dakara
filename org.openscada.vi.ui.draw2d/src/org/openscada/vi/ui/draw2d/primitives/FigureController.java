@@ -233,9 +233,8 @@ public abstract class FigureController implements Controller
      * Get the figure that is used for controlling the properties of this
      * controller.
      * <p>
-     * The figure returned is by default the same as the
-     * {@link #getFigure()}. But in some cases it might be necessary
-     * to return a different figure.
+     * The figure returned is by default the same as the {@link #getFigure()}.
+     * But in some cases it might be necessary to return a different figure.
      * </p>
      * 
      * @return the figure that should the attributes applied
@@ -344,7 +343,14 @@ public abstract class FigureController implements Controller
         this.controller.debugLog ( String.format ( "Double click: %s", me ) );
         final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ( 1 );
         scriptObjects.put ( "event", me );
-        this.controller.execute ( this.onDoubleClick, scriptObjects );
+        try
+        {
+            this.controller.execute ( this.onDoubleClick, scriptObjects );
+        }
+        catch ( final Exception e )
+        {
+            this.controller.errorLog ( "Failed to handle onDoubleClick", e );
+        }
     }
 
     protected void handleOnClick ( final MouseEvent me )
@@ -352,7 +358,15 @@ public abstract class FigureController implements Controller
         this.controller.debugLog ( String.format ( "Click: %s", me ) );
         final Map<String, Object> scriptObjects = new LinkedHashMap<String, Object> ( 1 );
         scriptObjects.put ( "event", me );
-        this.controller.execute ( this.onClick, scriptObjects );
+
+        try
+        {
+            this.controller.execute ( this.onClick, scriptObjects );
+        }
+        catch ( final Exception e )
+        {
+            this.controller.errorLog ( "Failed to handle onClick", e );
+        }
     }
 
     public void setPreferredSize ( final org.eclipse.draw2d.geometry.Dimension size )
