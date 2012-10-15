@@ -21,10 +21,10 @@ package org.openscada.vi.ui.chart.draw2d;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.jface.resource.ResourceManager;
 import org.openscada.vi.chart.model.chart.ChartView;
+import org.openscada.vi.ui.draw2d.ErrorFigure;
 import org.openscada.vi.ui.draw2d.SymbolController;
 import org.openscada.vi.ui.draw2d.primitives.FigureController;
 
@@ -34,7 +34,7 @@ public class ChartController extends FigureController
 
     private final Figure wrapperFigure;
 
-    private final Label errorFigure;
+    private final ErrorFigure errorFigure;
 
     public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view )
     {
@@ -46,7 +46,7 @@ public class ChartController extends FigureController
 
         this.wrapperFigure.setLayoutManager ( new StackLayout () );
         this.wrapperFigure.add ( this.figure );
-        this.errorFigure = new Label ( "Error" );
+        this.errorFigure = new ErrorFigure ();
 
         symbolController.addElement ( view, this );
 
@@ -75,6 +75,7 @@ public class ChartController extends FigureController
             catch ( final Exception e )
             {
                 this.wrapperFigure.add ( this.errorFigure );
+                this.errorFigure.setException ( e );
             }
         }
     }

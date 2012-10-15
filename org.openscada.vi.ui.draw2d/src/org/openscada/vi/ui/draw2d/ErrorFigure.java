@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -19,26 +19,33 @@
 
 package org.openscada.vi.ui.draw2d;
 
-import org.eclipse.draw2d.IFigure;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
-public class Helper
+import org.eclipse.draw2d.Label;
+
+public class ErrorFigure extends Label
 {
-    public static IFigure createErrorFigure ( final Throwable e )
+
+    public ErrorFigure ()
     {
-        final ErrorFigure label = new ErrorFigure ();
-        label.setException ( e );
-        return label;
+        setOpaque ( true );
     }
 
-    public static Controller createErrorController ( final Throwable e )
+    public void setException ( final Throwable e )
     {
-        return new Controller () {
-
-            @Override
-            public IFigure getFigure ()
-            {
-                return createErrorFigure ( e );
-            }
-        };
+        setText ( String.format ( "%s", e ) );
+        setToolTip ( new Label ( formatException ( e ) ) );
     }
+
+    private static String formatException ( final Throwable e )
+    {
+        final StringWriter sw = new StringWriter ();
+        final PrintWriter pw = new PrintWriter ( sw );
+
+        e.printStackTrace ( pw );
+        pw.close ();
+        return sw.toString ();
+    }
+
 }
