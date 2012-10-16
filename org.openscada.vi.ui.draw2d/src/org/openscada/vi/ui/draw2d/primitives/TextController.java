@@ -81,58 +81,104 @@ public class TextController extends FigureController
         setFontFull ( element.getFontName (), element.getFontSize (), element.isFontBold (), element.isFontItalic () );
     }
 
-    public void setFont ( final String fontName, final int fontSize )
+    public void setFontBold ( final boolean bold )
+    {
+        setFontFull ( null, null, bold, null );
+    }
+
+    public void setFontItalic ( final boolean italic )
+    {
+        setFontFull ( null, null, null, italic );
+    }
+
+    public void setFont ( final String fontName, final Integer fontSize )
     {
         setFontFull ( fontName, fontSize, false, false );
     }
 
-    public void setFontFull ( final String fontName, final int fontSize, final boolean bold, final boolean italic )
+    public void setFontFull ( final String fontName, final Integer fontSize, final Boolean bold, final Boolean italic )
     {
         this.figure.setFont ( convertFont ( fontName, fontSize, bold, italic ) );
     }
 
-    private Font convertFont ( final String fontName, final int fontSize, final boolean bold, final boolean italic )
+    private Font convertFont ( final String fontName, final Integer fontSize, final Boolean bold, final Boolean italic )
     {
-        if ( fontName == null && fontSize <= 0 )
+        if ( fontName == null && fontSize == null && bold == null && italic == null )
         {
             return null;
         }
 
-        if ( fontName != null && fontSize > 0 )
-        {
-            return this.manager.createFont ( FontDescriptor.createFrom ( fontName, fontSize, makeStyle ( bold, italic ) ) );
-        }
-        else
-        {
-            Font font = this.figure.getFont ();
-            if ( font == null )
-            {
-                font = this.canvas.getFont ();
-            }
-            if ( font == null )
-            {
-                font = Display.getDefault ().getSystemFont ();
-            }
-            final FontData[] fontData = FontDescriptor.copy ( font.getFontData () );
-            for ( final FontData fd : fontData )
-            {
-                if ( fontName != null )
-                {
-                    fd.setName ( fontName );
-                }
-                if ( fontSize > 0 )
-                {
-                    fd.setHeight ( fontSize );
-                }
-                fd.setStyle ( makeStyle ( bold, italic ) );
-            }
-            return this.manager.createFont ( FontDescriptor.createFrom ( fontData ) );
-        }
-    }
+        FontData[] fontData;
+        Font font = this.figure.getFont ();
 
-    private int makeStyle ( final boolean bold, final boolean italic )
-    {
-        return SWT.NORMAL | ( bold ? SWT.BOLD : 0 ) | ( italic ? SWT.ITALIC : 0 );
+        if ( font == null )
+        {
+            font = this.canvas.getFont ();
+        }
+        if ( font == null )
+        {
+            font = Display.getDefault ().getSystemFont ();
+        }
+        fontData = FontDescriptor.copy ( font.getFontData () );
+
+        if ( fontName != null )
+        {
+            if ( fontSize != null && fontSize > 0 )
+            {
+                fontData = FontDescriptor.createFrom ( fontName, fontSize, SWT.NORMAL ).getFontData ();
+            }
+            else
+            {
+                // we need to get the original font size and change the font only
+                int origFontSize = 0;
+                for ( final FontData fd : fontData )
+                {
+                    origFontSize = fd.getHeight ();
+                }
+                fontData = FontDescriptor.createFrom ( fontName, origFontSize, SWT.NORMAL ).getFontData ();
+            }
+        }
+
+        for ( final FontData fd : fontData )
+        {
+            if ( fontName != null )
+            {
+                fd.setName ( fontName );
+            }
+            if ( fontSize != null && fontSize > 0 )
+            {
+                fd.setHeight ( fontSize );
+            }
+
+            int style = fd.getStyle ();
+
+            if ( bold != null )
+            {
+                if ( bold )
+                {
+                    style = style | SWT.BOLD;
+                }
+                else
+                {
+                    style = style & ~SWT.BOLD;
+                }
+            }
+            if ( italic != null )
+            {
+                if ( italic )
+                {
+                    style = style | SWT.ITALIC;
+                }
+                else
+                {
+                    style = style & ~SWT.ITALIC;
+                }
+            }
+
+            fd.setStyle ( style );
+        }
+        return this.manager.createFont ( FontDescriptor.createFrom ( fontData ) );
+
     }
 
     private int convertOrientation ( final Orientation orientation, final int defaultValue )
