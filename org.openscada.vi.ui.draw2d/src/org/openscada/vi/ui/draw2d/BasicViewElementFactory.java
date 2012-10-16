@@ -87,7 +87,7 @@ public class BasicViewElementFactory
     {
         if ( element == null )
         {
-            StatusManager.getManager ().handle ( new Status ( IStatus.WARNING, Activator.PLUGIN_ID, "Empty element found" ), StatusManager.LOG );
+            StatusManager.getManager ().handle ( new Status ( IStatus.INFO, Activator.PLUGIN_ID, "Empty element found" ), StatusManager.LOG );
             return new Controller () {
 
                 @Override
