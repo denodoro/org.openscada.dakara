@@ -20,8 +20,8 @@
 package org.openscada.vi.details.swt.widgets;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Composite;
@@ -49,19 +49,13 @@ public class LinkComposite extends Composite
         this.textLabel = new Link ( this, SWT.NONE );
         this.textLabel.setText ( format );
 
-        this.textLabel.addSelectionListener ( new SelectionListener () {
+        this.textLabel.addSelectionListener ( new SelectionAdapter () {
 
             @Override
             public void widgetSelected ( final SelectionEvent event )
             {
                 logger.info ( "LinkComponent selected: {}", event.text ); //$NON-NLS-1$
                 Program.launch ( event.text );
-            }
-
-            @Override
-            public void widgetDefaultSelected ( final SelectionEvent arg0 )
-            {
-
             }
         } );
     }
