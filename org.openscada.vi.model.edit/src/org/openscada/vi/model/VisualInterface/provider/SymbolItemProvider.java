@@ -264,6 +264,8 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
 
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__ROOT, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__PROPERTIES, VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) ) );
 
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__SCRIPT_MODULES, "" ) ); //$NON-NLS-1$

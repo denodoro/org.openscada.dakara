@@ -31,6 +31,7 @@ import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Orientation;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Rectangle;
+import org.openscada.vi.model.VisualInterface.StackContainer;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.SystemCursor;
@@ -135,6 +136,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return createArc ();
             case VisualInterfacePackage.CONNECTION:
                 return createConnection ();
+            case VisualInterfacePackage.STACK_CONTAINER:
+                return createStackContainer ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -415,6 +418,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         ConnectionImpl connection = new ConnectionImpl ();
         return connection;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public StackContainer createStackContainer ()
+    {
+        StackContainerImpl stackContainer = new StackContainerImpl ();
+        return stackContainer;
     }
 
     /**

@@ -37,6 +37,7 @@ import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
 import org.openscada.vi.model.VisualInterface.Shape;
+import org.openscada.vi.model.VisualInterface.StackContainer;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.SystemCursor;
@@ -208,6 +209,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass connectionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stackContainerEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1314,6 +1322,26 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getStackContainer ()
+    {
+        return stackContainerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getStackContainer_Children ()
+    {
+        return (EReference)stackContainerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
@@ -1510,6 +1538,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEReference ( connectionEClass, CONNECTION__START );
         createEReference ( connectionEClass, CONNECTION__END );
 
+        stackContainerEClass = createEClass ( STACK_CONTAINER );
+        createEReference ( stackContainerEClass, STACK_CONTAINER__CHILDREN );
+
         // Create enums
         alignmentEEnum = createEEnum ( ALIGNMENT );
         orientationEEnum = createEEnum ( ORIENTATION );
@@ -1563,6 +1594,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         imageEClass.getESuperTypes ().add ( this.getFigure () );
         ellipseEClass.getESuperTypes ().add ( this.getShape () );
         arcEClass.getESuperTypes ().add ( this.getShape () );
+        stackContainerEClass.getESuperTypes ().add ( this.getContainer () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1693,6 +1725,9 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEReference ( getConnection_Start (), this.getPrimitive (), null, "start", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getConnection_End (), this.getPrimitive (), null, "end", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getConnection_End ().getEKeys ().add ( this.getPrimitive_Name () );
+
+        initEClass ( stackContainerEClass, StackContainer.class, "StackContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getStackContainer_Children (), this.getPrimitive (), null, "children", null, 0, -1, StackContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( alignmentEEnum, Alignment.class, "Alignment" ); //$NON-NLS-1$

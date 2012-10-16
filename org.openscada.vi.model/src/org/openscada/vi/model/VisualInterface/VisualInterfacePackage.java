@@ -2248,6 +2248,43 @@ public interface VisualInterfacePackage extends EPackage
     int CONNECTION_FEATURE_COUNT = 2;
 
     /**
+     * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.StackContainerImpl <em>Stack Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.openscada.vi.model.VisualInterface.impl.StackContainerImpl
+     * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getStackContainer()
+     * @generated
+     */
+    int STACK_CONTAINER = 26;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STACK_CONTAINER__NAME = CONTAINER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STACK_CONTAINER__CHILDREN = CONTAINER_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Stack Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STACK_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2255,7 +2292,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 26;
+    int ALIGNMENT = 27;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.Orientation <em>Orientation</em>}' enum.
@@ -2265,7 +2302,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 27;
+    int ORIENTATION = 28;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.SystemCursorType <em>System Cursor Type</em>}' enum.
@@ -2275,7 +2312,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 28;
+    int SYSTEM_CURSOR_TYPE = 29;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.GridAlignment <em>Grid Alignment</em>}' enum.
@@ -2285,7 +2322,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 29;
+    int GRID_ALIGNMENT = 30;
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.Symbol <em>Symbol</em>}'.
@@ -3386,6 +3423,27 @@ public interface VisualInterfacePackage extends EPackage
     EReference getConnection_End ();
 
     /**
+     * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.StackContainer <em>Stack Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Stack Container</em>'.
+     * @see org.openscada.vi.model.VisualInterface.StackContainer
+     * @generated
+     */
+    EClass getStackContainer ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.openscada.vi.model.VisualInterface.StackContainer#getChildren <em>Children</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.openscada.vi.model.VisualInterface.StackContainer#getChildren()
+     * @see #getStackContainer()
+     * @generated
+     */
+    EReference getStackContainer_Children ();
+
+    /**
      * Returns the meta object for enum '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4315,6 +4373,24 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference CONNECTION__END = eINSTANCE.getConnection_End ();
+
+        /**
+         * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.StackContainerImpl <em>Stack Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.openscada.vi.model.VisualInterface.impl.StackContainerImpl
+         * @see org.openscada.vi.model.VisualInterface.impl.VisualInterfacePackageImpl#getStackContainer()
+         * @generated
+         */
+        EClass STACK_CONTAINER = eINSTANCE.getStackContainer ();
+
+        /**
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference STACK_CONTAINER__CHILDREN = eINSTANCE.getStackContainer_Children ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.Alignment <em>Alignment</em>}' enum.

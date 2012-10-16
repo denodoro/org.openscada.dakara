@@ -11,7 +11,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
@@ -24,17 +26,18 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.openscada.vi.model.VisualInterface.Child;
+
+import org.openscada.vi.model.VisualInterface.StackContainer;
 import org.openscada.vi.model.VisualInterface.VisualInterfaceFactory;
 import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
 
 /**
- * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.Child} object.
+ * This is the item provider adapter for a {@link org.openscada.vi.model.VisualInterface.StackContainer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChildItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class StackContainerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -42,7 +45,7 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
      * <!-- end-user-doc -->
      * @generated
      */
-    public ChildItemProvider ( AdapterFactory adapterFactory )
+    public StackContainerItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -73,9 +76,9 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Child_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Child_name_feature", "_UI_Child_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.CHILD__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,7 +95,7 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( VisualInterfacePackage.Literals.CHILD__ELEMENT );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN );
         }
         return childrenFeatures;
     }
@@ -112,7 +115,7 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     }
 
     /**
-     * This returns Child.gif.
+     * This returns StackContainer.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -120,7 +123,7 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Child" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/StackContainer" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -132,9 +135,9 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Child)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_Child_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Child_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (StackContainer)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_StackContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_StackContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -149,12 +152,12 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Child.class ) )
+        switch ( notification.getFeatureID ( StackContainer.class ) )
         {
-            case VisualInterfacePackage.CHILD__NAME:
+            case VisualInterfacePackage.STACK_CONTAINER__NAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
-            case VisualInterfacePackage.CHILD__ELEMENT:
+            case VisualInterfacePackage.STACK_CONTAINER__CHILDREN:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -173,29 +176,29 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createText () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createText () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createLine () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createLine () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createImage () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createImage () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
     }
 
     /**

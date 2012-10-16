@@ -215,4 +215,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//Primitive"
         eKeys="#//Primitive/name"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StackContainer" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//Primitive" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

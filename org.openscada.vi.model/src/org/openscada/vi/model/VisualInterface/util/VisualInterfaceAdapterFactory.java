@@ -31,6 +31,7 @@ import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
 import org.openscada.vi.model.VisualInterface.Shape;
+import org.openscada.vi.model.VisualInterface.StackContainer;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.SystemCursor;
@@ -254,6 +255,12 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
         public Adapter caseConnection ( Connection object )
         {
             return createConnectionAdapter ();
+        }
+
+        @Override
+        public Adapter caseStackContainer ( StackContainer object )
+        {
+            return createStackContainerAdapter ();
         }
 
         @Override
@@ -663,6 +670,21 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createConnectionAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.openscada.vi.model.VisualInterface.StackContainer <em>Stack Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.openscada.vi.model.VisualInterface.StackContainer
+     * @generated
+     */
+    public Adapter createStackContainerAdapter ()
     {
         return null;
     }

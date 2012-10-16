@@ -30,6 +30,7 @@ import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
 import org.openscada.vi.model.VisualInterface.Shape;
+import org.openscada.vi.model.VisualInterface.StackContainer;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.SystemCursor;
@@ -372,6 +373,18 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
             {
                 Connection connection = (Connection)theEObject;
                 T result = caseConnection ( connection );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case VisualInterfacePackage.STACK_CONTAINER:
+            {
+                StackContainer stackContainer = (StackContainer)theEObject;
+                T result = caseStackContainer ( stackContainer );
+                if ( result == null )
+                    result = caseContainer ( stackContainer );
+                if ( result == null )
+                    result = casePrimitive ( stackContainer );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -793,6 +806,22 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseConnection ( Connection object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Stack Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Stack Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStackContainer ( StackContainer object )
     {
         return null;
     }

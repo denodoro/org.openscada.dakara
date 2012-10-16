@@ -172,6 +172,8 @@ public class FigureContainerItemProvider extends FigureItemProvider implements I
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
+
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
     }
 
 }

@@ -615,6 +615,31 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.openscada.vi.model.VisualInterface.StackContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected StackContainerItemProvider stackContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.openscada.vi.model.VisualInterface.StackContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createStackContainerAdapter ()
+    {
+        if ( stackContainerItemProvider == null )
+        {
+            stackContainerItemProvider = new StackContainerItemProvider ( this );
+        }
+
+        return stackContainerItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -797,6 +822,8 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
             arcItemProvider.dispose ();
         if ( connectionItemProvider != null )
             connectionItemProvider.dispose ();
+        if ( stackContainerItemProvider != null )
+            stackContainerItemProvider.dispose ();
     }
 
 }

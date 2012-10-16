@@ -48,6 +48,7 @@ import org.openscada.vi.model.VisualInterface.Line;
 import org.openscada.vi.model.VisualInterface.Position;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Rectangle;
+import org.openscada.vi.model.VisualInterface.StackContainer;
 import org.openscada.vi.model.VisualInterface.SymbolReference;
 import org.openscada.vi.model.VisualInterface.Text;
 import org.openscada.vi.model.VisualInterface.XYContainer;
@@ -60,6 +61,7 @@ import org.openscada.vi.ui.draw2d.primitives.GridContainerController;
 import org.openscada.vi.ui.draw2d.primitives.ImageController;
 import org.openscada.vi.ui.draw2d.primitives.LineController;
 import org.openscada.vi.ui.draw2d.primitives.RectangleController;
+import org.openscada.vi.ui.draw2d.primitives.StackContainerController;
 import org.openscada.vi.ui.draw2d.primitives.SymbolReferenceController;
 import org.openscada.vi.ui.draw2d.primitives.TextController;
 import org.openscada.vi.ui.draw2d.primitives.XYContainerController;
@@ -137,6 +139,10 @@ public class BasicViewElementFactory
         else if ( element instanceof FigureContainer )
         {
             return new FigureContainerController ( controller, (FigureContainer)element, this.manager, this );
+        }
+        else if ( element instanceof StackContainer )
+        {
+            return new StackContainerController ( controller, (StackContainer)element, this );
         }
         else if ( element instanceof Image )
         {
