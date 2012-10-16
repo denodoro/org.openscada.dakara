@@ -89,7 +89,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="identifier" basedOn="org.openscada.vi.ui.user.view/@id"/>
+                  <meta.attribute kind="identifier" basedOn="org.openscada.vi.ui.user.view/viewInstance/@id"/>
                </appinfo>
             </annotation>
          </attribute>
