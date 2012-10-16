@@ -124,7 +124,7 @@ public class TextComposite extends ReadableComposite implements Listener
     {
         if ( isDisposed () )
         {
-            logger.info ( "No updateView cause widget is disposed" ); //$NON-NLS-1$
+            logger.trace ( "No updateView cause widget is disposed" ); //$NON-NLS-1$
             return;
         }
 
