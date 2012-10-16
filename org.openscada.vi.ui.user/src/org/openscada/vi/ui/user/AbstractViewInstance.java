@@ -126,6 +126,11 @@ public abstract class AbstractViewInstance implements ViewInstance
 
     protected abstract void deactivateView ();
 
+    protected boolean hasButton ()
+    {
+        return this.descriptor.getParentId () == null || this.descriptor.getParentId ().isEmpty ();
+    }
+
     private Image createImage ( final String key )
     {
         try
@@ -324,7 +329,7 @@ public abstract class AbstractViewInstance implements ViewInstance
 
     private void createToolbarButton ()
     {
-        if ( this.button == null )
+        if ( this.button == null && hasButton () )
         {
             final int index = this.viewManagerContext.calculateToolbarIndex ( this.descriptor );
 
