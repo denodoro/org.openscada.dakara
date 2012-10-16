@@ -158,7 +158,7 @@ public class Activator extends AbstractUIPlugin
         {
             final String id = element.getAttribute ( "id" );
             final String name = element.getAttribute ( "name" );
-            final String parentId = element.getAttribute ( "parentId" );
+            final String parentId = element.getAttribute ( "parent" );
 
             final ViewInstanceFactory factory = (ViewInstanceFactory)element.createExecutableExtension ( "factoryClass" );
 

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -60,6 +61,8 @@ import org.openscada.core.Variant;
 import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.ui.databinding.item.DataItemObservableValue;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A view part which holds a set of views and navigation controls
@@ -68,6 +71,8 @@ import org.openscada.vi.ui.user.preferences.PreferenceConstants;
  */
 public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManager, ViewManagerContext
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( SingleVisualInterfaceViewPart.class );
 
     private static final Comparator<? super ViewInstanceDescriptor> DESCRIPTOR_ORDER_COMPARATOR = new Comparator<ViewInstanceDescriptor> () {
         @Override
@@ -279,7 +284,6 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     protected void showView ( final ViewInstance instance, final boolean force )
     {
-
         if ( this.currentInstance == instance && !force )
         {
             return;
@@ -321,12 +325,38 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         }
     }
 
+    protected static boolean hasParent ( final ViewInstanceDescriptor descriptor )
+    {
+        return descriptor.getParentId () != null && !descriptor.getParentId ().isEmpty ();
+    }
+
     @Override
     public int calculateToolbarIndex ( final ViewInstanceDescriptor descriptor )
     {
+        if ( hasParent ( descriptor ) )
+        {
+            logger.debug ( "Has no parent: {}", descriptor );
+            return -1;
+        }
+
         final List<ViewInstanceDescriptor> data = new ArrayList<ViewInstanceDescriptor> ( this.visibleDescriptors );
+
+        // remove all views with a parent
+        final Iterator<ViewInstanceDescriptor> i = data.iterator ();
+        while ( i.hasNext () )
+        {
+            if ( hasParent ( i.next () ) )
+            {
+                logger.debug ( "{} has no parent, remove: ", descriptor );
+                i.remove ();
+            }
+        }
+
         data.add ( descriptor );
         Collections.sort ( data, DESCRIPTOR_ORDER_COMPARATOR );
+
+        logger.debug ( "Sort order: {}", data );
+
         return data.indexOf ( descriptor );
     }
 

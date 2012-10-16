@@ -128,6 +128,12 @@ public class ViewInstanceDescriptor
     }
 
     @Override
+    public String toString ()
+    {
+        return String.format ( "[ViewInstance: %s]", this.id );
+    }
+
+    @Override
     public int hashCode ()
     {
         final int prime = 31;
