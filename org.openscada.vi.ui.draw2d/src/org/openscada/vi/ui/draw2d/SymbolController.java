@@ -466,7 +466,7 @@ public class SymbolController implements Listener
     {
         if ( this.registrationManager == null )
         {
-            // dispose7
+            // dispose?
             return;
         }
 
