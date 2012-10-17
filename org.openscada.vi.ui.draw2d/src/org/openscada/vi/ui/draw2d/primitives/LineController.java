@@ -34,7 +34,7 @@ public class LineController extends ShapeController
 {
     private final PolylineShape figure;
 
-    private final PointList points;
+    private PointList points;
 
     public LineController ( final SymbolController controller, final Line element, final ResourceManager manager )
     {
@@ -56,20 +56,48 @@ public class LineController extends ShapeController
             }
         };
 
-        this.points = new PointList ();
+        final PointList points = new PointList ();
         for ( final Position pos : element.getPoints () )
         {
             final Point p = new PrecisionPoint ( pos.getX (), pos.getY () );
-            this.points.addPoint ( p );
+            points.addPoint ( p );
         }
-
-        this.figure.setPoints ( this.points );
-        this.figure.getPreferredSize ();
-        // this.figure.setBounds ( this.points.getBounds ().expand ( 10, 10 ) );
+        setPoints ( points );
 
         controller.addElement ( element, this );
 
         applyCommon ( element );
+    }
+
+    public void setPoints ( final PointList points )
+    {
+        this.points = points;
+
+        this.figure.setPoints ( this.points );
+    }
+
+    /**
+     * Set points as string
+     * <p>
+     * <code>
+     * 1.5;2.5|1.5;2.5
+     * </code>
+     * </p>
+     * 
+     * @param points
+     */
+    public void setPointsString ( final String pointsString )
+    {
+        final PointList pointList = new PointList ();
+
+        final String[] points = pointsString.split ( "\\|" );
+        for ( final String point : points )
+        {
+            final String[] toks = point.split ( ";" );
+            final PrecisionPoint p = new PrecisionPoint ( Double.parseDouble ( toks[0] ), Double.parseDouble ( toks[1] ) );
+            pointList.addPoint ( p );
+        }
+        setPoints ( pointList );
     }
 
     @Override

@@ -369,6 +369,11 @@ public abstract class FigureController implements Controller
         }
     }
 
+    public void setPreferredSize ( final double width, final double height )
+    {
+        setPreferredSize ( new PrecisionDimension ( width, height ) );
+    }
+
     public void setPreferredSize ( final org.eclipse.draw2d.geometry.Dimension size )
     {
         getPropertyFigure ().setPreferredSize ( size );
