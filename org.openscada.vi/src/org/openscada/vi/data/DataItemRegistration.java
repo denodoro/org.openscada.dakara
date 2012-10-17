@@ -106,7 +106,7 @@ public class DataItemRegistration implements Observer
         }
 
         // at the end we are disconnected ... notify as last operation
-        if ( connectionService == null )
+        if ( this.connectionService == null )
         {
             notifyChange ( DataItemValue.DISCONNECTED );
         }
