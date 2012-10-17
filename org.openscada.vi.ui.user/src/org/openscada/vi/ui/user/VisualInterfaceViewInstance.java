@@ -31,14 +31,21 @@ import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class VisualInterfaceViewInstance extends AbstractViewInstance implements SummaryListener
+public class VisualInterfaceViewInstance extends AbstractViewInstance implements SummaryListener, SummaryProvider
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( VisualInterfaceViewInstance.class );
+
     private VisualInterfaceViewer viewer;
 
     private final Composite parent;
 
     private final LinkedHashMap<String, Object> scriptObjects;
+
+    private SummaryInformation currentSummary;
 
     public VisualInterfaceViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
     {
@@ -112,8 +119,16 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
     }
 
     @Override
+    public SummaryInformation getSummary ()
+    {
+        return this.currentSummary;
+    }
+
+    @Override
     public void summaryChanged ( final SummaryInformation summary )
     {
+        logger.debug ( "Summary changed: {}", summary );
+        this.currentSummary = summary;
         this.blinker.setStyle ( org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator ().generateStyle ( summary.getStateInformation () ) );
     }
 }

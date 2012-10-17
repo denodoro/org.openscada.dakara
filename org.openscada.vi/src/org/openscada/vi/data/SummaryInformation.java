@@ -19,8 +19,10 @@
 
 package org.openscada.vi.data;
 
+import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import org.openscada.core.ui.styles.StateInformation;
@@ -33,15 +35,18 @@ public class SummaryInformation
 
     private final Collection<SummaryInformation> childData;
 
-    public SummaryInformation ( final Map<String, DataValue> data, final Collection<SummaryInformation> childData )
+    private final List<String> nameHierarchy;
+
+    public SummaryInformation ( final List<String> nameHierarchy, final Map<String, DataValue> data, final Collection<SummaryInformation> childData )
     {
+        this.nameHierarchy = nameHierarchy;
         this.data = data;
         this.childData = childData == null ? Collections.<SummaryInformation> emptyList () : childData;
     }
 
     public SummaryInformation ( final Map<String, DataValue> data )
     {
-        this ( data, Collections.<SummaryInformation> emptyList () );
+        this ( Collections.<String> emptyList (), data, Collections.<SummaryInformation> emptyList () );
     }
 
     public boolean isValid ()
@@ -51,7 +56,6 @@ public class SummaryInformation
             if ( entry.getValue () == null || entry.getValue ().isIgnoreSummary () )
             {
                 continue;
-
             }
 
             final DataItemValue value = entry.getValue ().getValue ();
@@ -176,5 +180,43 @@ public class SummaryInformation
         sb.append ( "]" );
 
         return sb.toString ();
+    }
+
+    public void dump ( final PrintStream out )
+    {
+        dump ( "", out );
+    }
+
+    private static String PAD = "   ";
+
+    protected void dump ( final String in, final PrintStream out )
+    {
+        out.println ( in + PAD + "name: " + this.nameHierarchy );
+        out.print ( in + PAD + "valid: " + isValid () );
+        out.print ( ", connected: " + isConnected () );
+        out.print ( ", error: " + isError () );
+        out.print ( ", alarm: " + isAlarm () );
+        out.print ( ", warning: " + isWarning () );
+        out.print ( ", manual: " + isManual () );
+        out.print ( ", blocked: " + isBlocked () );
+        out.println ();
+        if ( !this.data.isEmpty () )
+        {
+            out.println ( in + PAD + "data:" );
+            for ( final Map.Entry<String, DataValue> entry : this.data.entrySet () )
+            {
+                out.print ( in + PAD + PAD + entry.getKey () + "=>" );
+                entry.getValue ().dump ( out );
+                out.println ();
+            }
+        }
+        if ( !this.childData.isEmpty () )
+        {
+            out.println ( in + PAD + "children:" );
+            for ( final SummaryInformation child : this.childData )
+            {
+                child.dump ( in + PAD + PAD, out );
+            }
+        }
     }
 }

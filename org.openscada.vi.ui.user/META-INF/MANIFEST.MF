@@ -16,9 +16,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.expressions;bundle-version="3.4.300"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: org.openscada.core;version="0.17.0",
+Import-Package: com.google.common.base;version="12.0.0",
+ org.openscada.core;version="0.17.0",
  org.openscada.core.ui.styles;version="1.0.0",
  org.openscada.ui.databinding;version="0.17.0",
+ org.openscada.ui.utils;version="1.0.0",
  org.openscada.ui.utils.blink;version="0.17.0",
  org.openscada.ui.utils.status;version="0.17.0",
  org.openscada.vi.data;version="1.0.0",

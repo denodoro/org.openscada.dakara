@@ -58,9 +58,17 @@ public class RegistrationManager
 
     private boolean open;
 
+    private final String name;
+
     public RegistrationManager ( final BundleContext context )
     {
+        this ( context, null );
+    }
+
+    public RegistrationManager ( final BundleContext context, final String name )
+    {
         this.context = context;
+        this.name = name;
     }
 
     public void addListener ( final Listener listener )
@@ -144,14 +152,22 @@ public class RegistrationManager
 
     public void notifyChange ( final String name, final Item item, final DataItemValue value, final boolean ignoreSummary, final boolean nullInvalid )
     {
+        // logger.debug ( "notifyChange - name: {}, item: {}, value: {}, ignoreSummary: {}, nullInvalid: {}", new Object[] { name, item, value, ignoreSummary, nullInvalid } );
         Map<String, DataValue> currentMap;
         Map<String, DataValue> newMap;
+        int t = 0;
         do
         {
+            t++;
             currentMap = this.currentValues.get ();
             newMap = new LinkedHashMap<String, DataValue> ( currentMap );
             newMap.put ( name, new DataValue ( value, item, ignoreSummary, nullInvalid ) );
         } while ( !this.currentValues.compareAndSet ( currentMap, newMap ) );
+
+        if ( t > 1 )
+        {
+            logger.debug ( "Took {} updates", t );
+        }
 
         for ( final Listener listener : this.listeners )
         {
@@ -168,6 +184,7 @@ public class RegistrationManager
 
     public Map<String, DataValue> getData ()
     {
+        logger.debug ( "{} - getData: {}", this.name, this.currentValues.get () );
         return Collections.unmodifiableMap ( this.currentValues.get () );
     }
 

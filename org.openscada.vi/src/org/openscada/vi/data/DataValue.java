@@ -19,6 +19,8 @@
 
 package org.openscada.vi.data;
 
+import java.io.PrintStream;
+
 import org.openscada.da.client.DataItemValue;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.utils.lang.Immutable;
@@ -67,5 +69,10 @@ public class DataValue
     public String toString ()
     {
         return this.value != null ? this.value.toString () : "<null>";
+    }
+
+    public void dump ( final PrintStream out )
+    {
+        out.print ( String.format ( "item: '%s', value: '%s', ignoreSummary: %s, nullInvalid: %s", this.item, this.value, this.ignoreSummary, this.nullInvalid ) );
     }
 }

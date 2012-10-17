@@ -26,10 +26,12 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -116,6 +118,8 @@ public class SymbolController implements Listener
 
     private final String symbolInfoName;
 
+    private final List<String> nameHierarchy;
+
     public SymbolController ( final String symbolInfoName, final Symbol symbol, final ClassLoader classLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
         this ( symbolInfoName, null, symbol, classLoader, properties, scriptObjects );
@@ -127,8 +131,10 @@ public class SymbolController implements Listener
         this.parentController = parentController;
         this.classLoader = classLoader;
 
+        this.nameHierarchy = makeNameHierarchy ();
+
         this.symbolData = new SymbolData ( this );
-        this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext () );
+        this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext (), symbolInfoName );
         this.registrationManager.addListener ( this );
         this.registrationManager.open ();
         this.engineManager = new ScriptEngineManager ( classLoader );
@@ -187,6 +193,18 @@ public class SymbolController implements Listener
         this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), classLoader );
         this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), classLoader );
         this.onUpdate = new ScriptExecutor ( this.engine, symbol.getOnUpdate (), classLoader );
+    }
+
+    private List<String> makeNameHierarchy ()
+    {
+        final List<String> result = new LinkedList<String> ();
+        SymbolController current = this;
+        while ( current != null )
+        {
+            result.add ( 0, current.symbolInfoName );
+            current = current.parentController;
+        }
+        return Collections.unmodifiableList ( result );
     }
 
     private void assignConsole ( final ScriptContext scriptContext )
@@ -426,6 +444,11 @@ public class SymbolController implements Listener
         }
     }
 
+    /**
+     * @deprecated should directly use DataValue
+     * @return
+     */
+    @Deprecated
     public Map<String, DataItemValue> getData ()
     {
         return convert ( this.registrationManager.getData () );
@@ -447,7 +470,7 @@ public class SymbolController implements Listener
 
     public SummaryInformation getSummaryInformation ()
     {
-        return new SummaryInformation ( this.registrationManager.getData (), collectChildrenData () );
+        return new SummaryInformation ( this.nameHierarchy, this.registrationManager.getData (), collectChildrenData () );
     }
 
     private Collection<SummaryInformation> collectChildrenData ()
@@ -478,16 +501,11 @@ public class SymbolController implements Listener
         this.lastData = currentData;
 
         runUpdate ();
-
-        // propagate update
-        if ( this.parentController != null )
-        {
-            this.parentController.runUpdate ();
-        }
     }
 
     private void runUpdate ()
     {
+        logger.debug ( "Running update: {}", this.nameHierarchy );
         try
         {
             this.onUpdate.execute ( this.scriptContext );
@@ -497,13 +515,23 @@ public class SymbolController implements Listener
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
         }
         notifySummaryListeners ();
+
+        // propagate update
+        if ( this.parentController != null )
+        {
+            this.parentController.runUpdate ();
+        }
     }
 
     protected void notifySummaryListeners ()
     {
         final SummaryInformation info = getSummaryInformation ();
+
+        logger.debug ( "notify summary: {}", info );
+
         for ( final SummaryListener listener : this.summaryListeners )
         {
+            logger.debug ( "notify to: {}", listener );
             listener.summaryChanged ( info );
         }
     }

@@ -19,5 +19,32 @@
             class="org.openscada.vi.ui.user.preferences.PreferenceInitializer">
       </initializer>
    </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.openscada.vi.ui.user.SingleVisualInterfaceView">
+         <command
+               commandId="org.openscada.vi.ui.user.showSummaries"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.openscada.vi.ui.user.showSummaries"
+            name="Show Summaries">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.openscada.vi.ui.user.showSummaries">
+         <class
+               class="org.openscada.vi.ui.user.debug.ShowSummariesHandler">
+         </class>
+      </handler>
+   </extension>
 
 </plugin>

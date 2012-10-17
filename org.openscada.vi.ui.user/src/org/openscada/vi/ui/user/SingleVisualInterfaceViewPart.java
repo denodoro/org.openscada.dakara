@@ -38,12 +38,20 @@ import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.MouseAdapter;
@@ -56,10 +64,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.part.ViewPart;
 import org.openscada.core.Variant;
 import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.ui.databinding.item.DataItemObservableValue;
+import org.openscada.ui.utils.AbstractSelectionProvider;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -108,6 +118,10 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private boolean switchingView;
 
+    private Action reloadAction;
+
+    private ISelectionProvider selectionProvider;
+
     public SingleVisualInterfaceViewPart ()
     {
         this.descriptors = new ArrayList<ViewInstanceDescriptor> ( Activator.getDescriptors () );
@@ -129,7 +143,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
         final Composite toolWrapper = new Composite ( wrapper, SWT.NONE );
         toolWrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
-        final GridLayout toolLayout = new GridLayout ( 1 + ( hasTime () ? 1 : 0 ) + ( hasLogo () ? 1 : 0 ), false );
+        final GridLayout toolLayout = new GridLayout ( 1 + ( hasTime () ? 1 : 0 ) + ( hasLogo () ? 1 : 0 ) + ( hasDebug () ? 1 : 0 ), false );
         toolLayout.marginHeight = toolLayout.marginWidth = 0;
         toolWrapper.setLayout ( toolLayout );
 
@@ -137,9 +151,14 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.toolBar = new ToolBar ( toolWrapper, SWT.HORIZONTAL | SWT.WRAP );
         this.toolBar.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
 
+        // selection
+        this.selectionProvider = new AbstractSelectionProvider ();
+        getSite ().setSelectionProvider ( this.selectionProvider );
+
         // FIXME: replace with extension point 
         createTime ( toolWrapper );
         createLogo ( toolWrapper );
+        createDebug ( toolWrapper );
 
         this.viewHolder = new Composite ( wrapper, SWT.NONE );
         this.viewHolder.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
@@ -169,6 +188,78 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         }
 
         return Activator.findLogoDescriptor ();
+    }
+
+    private void createDebug ( final Composite parent )
+    {
+        if ( !hasDebug () )
+        {
+            return;
+        }
+        final Label label = new Label ( parent, SWT.NONE );
+        label.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
+        label.setImage ( this.manager.createImageWithDefault ( ImageDescriptor.createFromURL ( FileLocator.find ( Activator.getDefault ().getBundle (), new Path ( "/resources/debugIcon.png" ), Collections.EMPTY_MAP ) ) ) );
+
+        final MenuManager menuManager = new MenuManager ( "#PopupMenu", "org.openscada.vi.ui.user.debugMenu" );
+
+        menuManager.setRemoveAllWhenShown ( true );
+
+        label.setMenu ( menuManager.createContextMenu ( label ) );
+
+        createActions ();
+
+        menuManager.addMenuListener ( new IMenuListener () {
+            @Override
+            public void menuAboutToShow ( final IMenuManager menuManager )
+            {
+                contextMenuAboutToShow ( menuManager );
+            }
+        } );
+
+        updateSelection ();
+
+        getSite ().registerContextMenu ( menuManager, this.selectionProvider );
+    }
+
+    private void updateSelection ()
+    {
+        final StructuredSelection sel;
+        if ( this.currentInstance == null )
+        {
+            sel = StructuredSelection.EMPTY;
+        }
+        else
+        {
+            sel = new StructuredSelection ( this.currentInstance );
+        }
+        logger.debug ( "Setting selection: {}", sel );
+        this.selectionProvider.setSelection ( sel );
+    }
+
+    private void createActions ()
+    {
+        this.reloadAction = new Action ( "Reload" ) {
+            @Override
+            public void run ()
+            {
+                if ( SingleVisualInterfaceViewPart.this.currentInstance != null )
+                {
+                    SingleVisualInterfaceViewPart.this.currentInstance.reload ();
+                }
+            }
+        };
+    }
+
+    protected void contextMenuAboutToShow ( final IMenuManager menuManager )
+    {
+        menuManager.add ( this.reloadAction );
+        menuManager.add ( new Separator () );
+        menuManager.add ( new Separator ( IWorkbenchActionConstants.MB_ADDITIONS ) );
+    }
+
+    private boolean hasDebug ()
+    {
+        return Boolean.getBoolean ( "vi.debug" );
     }
 
     private boolean hasLogo ()
@@ -308,6 +399,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         {
             this.switchingView = false;
         }
+        updateSelection ();
     }
 
     private void updateTopControl ()
