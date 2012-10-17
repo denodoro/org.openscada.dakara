@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,7 +49,6 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.core.Variant;
-import org.openscada.da.client.DataItemValue;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.utils.script.ScriptExecutor;
 import org.openscada.vi.data.DataValue;
@@ -444,28 +442,9 @@ public class SymbolController implements Listener
         }
     }
 
-    /**
-     * @deprecated should directly use DataValue
-     * @return
-     */
-    @Deprecated
-    public Map<String, DataItemValue> getData ()
+    public Map<String, DataValue> getRegistrationManagerData ()
     {
-        return convert ( this.registrationManager.getData () );
-    }
-
-    private Map<String, DataItemValue> convert ( final Map<String, DataValue> data )
-    {
-        final Map<String, DataItemValue> values = new LinkedHashMap<String, DataItemValue> ( data.size () );
-        for ( final Map.Entry<String, DataValue> entry : data.entrySet () )
-        {
-            if ( entry.getValue () == null )
-            {
-                continue;
-            }
-            values.put ( entry.getKey (), entry.getValue ().getValue () );
-        }
-        return values;
+        return this.registrationManager.getData ();
     }
 
     public SummaryInformation getSummaryInformation ()

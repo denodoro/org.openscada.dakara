@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -19,21 +19,27 @@
 
 package org.openscada.vi.ui.draw2d;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.openscada.core.Variant;
 import org.openscada.da.client.DataItemValue;
+import org.openscada.vi.data.DataValue;
 import org.openscada.vi.data.SummaryInformation;
 
 /**
  * Holds the data of the registered items for one symbol
  * <p>
- * All items that are registered for one symbol will provide the data to the symbols SymbolData instance. The information can be accessed by calling methods like {@link #getPrimaryValue(String)} or
- * {@link #getValue(String)}.
+ * All items that are registered for one symbol will provide the data to the
+ * symbols SymbolData instance. The information can be accessed by calling
+ * methods like {@link #getPrimaryValue(String)} or {@link #getValue(String)}.
  * </p>
  * <p>
- * If the item was registered using {@link SymbolContext#registerItem(String, String, String, boolean, boolean)} with
- * <q>ignoreSummary</q> set to <code>true</code> then the value of this dataitem will not be considered for the summary state.
+ * If the item was registered using
+ * {@link SymbolContext#registerItem(String, String, String, boolean, boolean)}
+ * with
+ * <q>ignoreSummary</q> set to <code>true</code> then the value of this dataitem
+ * will not be considered for the summary state.
  * </p>
  * 
  * @author Jens Reimann
@@ -50,17 +56,36 @@ public class SymbolData
 
     public Map<String, DataItemValue> getValues ()
     {
-        return this.controller.getData ();
+        return convert ( this.controller.getRegistrationManagerData () );
+    }
+
+    private Map<String, DataItemValue> convert ( final Map<String, DataValue> data )
+    {
+        final Map<String, DataItemValue> values = new LinkedHashMap<String, DataItemValue> ( data.size () );
+        for ( final Map.Entry<String, DataValue> entry : data.entrySet () )
+        {
+            if ( entry.getValue () == null )
+            {
+                continue;
+            }
+            values.put ( entry.getKey (), entry.getValue ().getValue () );
+        }
+        return values;
     }
 
     public DataItemValue getValue ( final String name )
     {
-        return this.controller.getData ().get ( name );
+        final DataValue dv = this.controller.getRegistrationManagerData ().get ( name );
+        if ( dv == null )
+        {
+            return null;
+        }
+        return dv.getValue ();
     }
 
     public Variant getPrimaryValue ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return Variant.NULL;
@@ -73,7 +98,7 @@ public class SymbolData
 
     public boolean isError ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return true;
@@ -93,7 +118,7 @@ public class SymbolData
 
     public boolean isAlarm ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return false;
@@ -106,7 +131,7 @@ public class SymbolData
 
     public boolean isManual ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return false;
@@ -119,7 +144,7 @@ public class SymbolData
 
     public boolean isBlocked ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return false;
@@ -132,7 +157,7 @@ public class SymbolData
 
     public boolean isAckRequired ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return false;
@@ -145,7 +170,7 @@ public class SymbolData
 
     public boolean isValid ( final String name )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return false;
@@ -165,7 +190,7 @@ public class SymbolData
 
     public boolean isAttributeWithDefault ( final String name, final String attributeName, final boolean defaultValue )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return defaultValue;
@@ -186,7 +211,7 @@ public class SymbolData
 
     public Variant getAttributeValue ( final String name, final String attributeName )
     {
-        final DataItemValue div = this.controller.getData ().get ( name );
+        final DataItemValue div = getValue ( name );
         if ( div == null )
         {
             return Variant.NULL;
