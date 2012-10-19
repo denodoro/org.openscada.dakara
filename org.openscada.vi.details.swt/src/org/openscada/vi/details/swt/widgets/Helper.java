@@ -22,11 +22,18 @@ package org.openscada.vi.details.swt.widgets;
 import org.eclipse.swt.SWT;
 import org.openscada.vi.details.swt.widgets.control.ControlImage;
 import org.openscada.vi.details.swt.widgets.control.TrendControlImage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Helper
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( Helper.class );
+
     public static TrendControlImage createTrendButton ( final ControlImage controlImage, final String connectionId, final String itemId )
     {
+        logger.debug ( "Checking createTrendButton - connectionId: {}, itemId: {}", connectionId, itemId );
+
         if ( connectionId == null || connectionId.isEmpty () )
         {
             return null;
