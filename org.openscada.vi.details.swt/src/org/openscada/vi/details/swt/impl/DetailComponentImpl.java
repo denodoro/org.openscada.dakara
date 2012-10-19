@@ -123,9 +123,11 @@ public class DetailComponentImpl implements DetailComponent
         }
     }
 
-    /** Returns a list of descriptors used by this and all sub components
+    /**
+     * Returns a list of descriptors used by this and all sub components
      * 
-     * @return the list of descriptors. It never returns <code>null</code>. */
+     * @return the list of descriptors. It never returns <code>null</code>.
+     */
     @Override
     public IObservableSet getDescriptors ()
     {
@@ -261,7 +263,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
+                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( progress );
                 trackItem ( progressItem );
@@ -324,7 +326,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), component.getHdConnectionId (), component.getHdItemId () );
+                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
 
                 trackControl ( text );
                 trackItem ( textItem );
@@ -551,7 +553,7 @@ public class DetailComponentImpl implements DetailComponent
     {
         final String readDescriptor = component.getReadDescriptor ();
         final DataItemDescriptor readItem;
-        if ( ( readDescriptor != null ) && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
+        if ( readDescriptor != null && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
         {
             readItem = DataItemDescriptor.create ( resolve ( component.getReadDescriptor (), properties ) );
         }
