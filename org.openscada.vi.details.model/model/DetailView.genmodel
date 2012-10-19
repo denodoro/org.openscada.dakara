@@ -45,6 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/descriptor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/alarm"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BoolLEDComponent/expectedValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="DetailView.ecore#//ValueSource"/>
     <genClasses ecoreClass="DetailView.ecore#//ItemValueSource">
@@ -93,17 +94,20 @@
     <genClasses ecoreClass="DetailView.ecore#//TextInputComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextInputComponent/descriptor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextInputComponent/readDescriptor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextInputComponent/width"/>
     </genClasses>
     <genClasses image="false" ecoreClass="DetailView.ecore#//WriteableComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//WriteableComponent/ceil"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//WriteableComponent/floor"/>
     </genClasses>
     <genClasses image="false" ecoreClass="DetailView.ecore#//ReadableComponent">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/decimal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/attribute"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdConnectionid"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdItemId"/>
+      <genFeatures createChild="false" propertyCategory="format" propertyDescription=""
+          ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/format"/>
+      <genFeatures createChild="false" propertyCategory="format" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/decimal"/>
+      <genFeatures createChild="false" propertyCategory="format" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/attribute"/>
+      <genFeatures createChild="false" propertyCategory="hd" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdConnectionId"/>
+      <genFeatures createChild="false" propertyCategory="hd" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdItemId"/>
+      <genFeatures createChild="false" propertyCategory="hd" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdQueryString"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//TextComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/descriptor"/>

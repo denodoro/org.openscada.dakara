@@ -60,6 +60,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
             addAttributePropertyDescriptor ( object );
             addHdConnectionIdPropertyDescriptor ( object );
             addHdItemIdPropertyDescriptor ( object );
+            addHdQueryStringPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -72,7 +73,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addFormatPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_format_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_format_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_format_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_format_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), null ) );
     }
 
     /**
@@ -83,7 +84,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addDecimalPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_decimal_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_decimal_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__DECIMAL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_decimal_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_decimal_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__DECIMAL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), null ) );
     }
 
     /**
@@ -94,7 +95,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addAttributePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_attribute_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_attribute_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_attribute_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_attribute_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), null ) );
     }
 
     /**
@@ -105,7 +106,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addHdConnectionIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdConnectionId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdConnectionId_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_CONNECTION_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdConnectionId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdConnectionId_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_CONNECTION_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_hdPropertyCategory" ), null ) );
     }
 
     /**
@@ -116,7 +117,18 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addHdItemIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdItemId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdItemId_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdItemId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdItemId_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_hdPropertyCategory" ), null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Hd Query String feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addHdQueryStringPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReadableComponent_hdQueryString_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_hdQueryString_feature", "_UI_ReadableComponent_type" ), DetailViewPackage.Literals.READABLE_COMPONENT__HD_QUERY_STRING, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_hdPropertyCategory" ), null ) );
     }
 
     /**
@@ -146,13 +158,14 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
 
         switch ( notification.getFeatureID ( ReadableComponent.class ) )
         {
-        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
-        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+            case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

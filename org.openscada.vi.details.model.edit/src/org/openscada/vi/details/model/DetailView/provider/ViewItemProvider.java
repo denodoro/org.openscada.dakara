@@ -136,12 +136,12 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
 
         switch ( notification.getFeatureID ( View.class ) )
         {
-        case DetailViewPackage.VIEW__HEADER_COMPONENT:
-        case DetailViewPackage.VIEW__GROUPS:
-        case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
-        case DetailViewPackage.VIEW__SCRIPT_MODULE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+            case DetailViewPackage.VIEW__GROUPS:
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

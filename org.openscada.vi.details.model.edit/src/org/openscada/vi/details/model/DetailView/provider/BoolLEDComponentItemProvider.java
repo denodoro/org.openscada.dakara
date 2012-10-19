@@ -158,13 +158,13 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
 
         switch ( notification.getFeatureID ( BoolLEDComponent.class ) )
         {
-        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

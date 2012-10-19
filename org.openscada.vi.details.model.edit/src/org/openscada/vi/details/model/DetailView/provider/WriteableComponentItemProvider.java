@@ -110,10 +110,10 @@ public class WriteableComponentItemProvider extends ReadableComponentItemProvide
 
         switch ( notification.getFeatureID ( WriteableComponent.class ) )
         {
-        case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-        case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
+            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

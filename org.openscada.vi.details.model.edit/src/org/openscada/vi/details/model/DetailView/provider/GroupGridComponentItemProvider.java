@@ -157,13 +157,13 @@ public class GroupGridComponentItemProvider extends ComponentItemProvider implem
 
         switch ( notification.getFeatureID ( GroupGridComponent.class ) )
         {
-        case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-        case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
+            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

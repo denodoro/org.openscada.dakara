@@ -122,10 +122,10 @@ public class ValueComponentItemProvider extends ReadableComponentItemProvider im
 
         switch ( notification.getFeatureID ( ValueComponent.class ) )
         {
-        case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-        case DetailViewPackage.VALUE_COMPONENT__DATE:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
+            case DetailViewPackage.VALUE_COMPONENT__DATE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

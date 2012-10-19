@@ -104,8 +104,8 @@ public class TestVisibilityImpl extends VisibilityImpl implements TestVisibility
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEST_VISIBILITY__ID:
-            return getId ();
+            case DetailViewPackage.TEST_VISIBILITY__ID:
+                return getId ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -120,9 +120,9 @@ public class TestVisibilityImpl extends VisibilityImpl implements TestVisibility
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEST_VISIBILITY__ID:
-            setId ( (String)newValue );
-            return;
+            case DetailViewPackage.TEST_VISIBILITY__ID:
+                setId ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -137,9 +137,9 @@ public class TestVisibilityImpl extends VisibilityImpl implements TestVisibility
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEST_VISIBILITY__ID:
-            setId ( ID_EDEFAULT );
-            return;
+            case DetailViewPackage.TEST_VISIBILITY__ID:
+                setId ( ID_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -154,8 +154,8 @@ public class TestVisibilityImpl extends VisibilityImpl implements TestVisibility
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEST_VISIBILITY__ID:
-            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case DetailViewPackage.TEST_VISIBILITY__ID:
+                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
         }
         return super.eIsSet ( featureID );
     }

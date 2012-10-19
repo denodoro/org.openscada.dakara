@@ -118,9 +118,9 @@ public class CompositeTransformerItemProvider extends ValueSourceItemProvider im
 
         switch ( notification.getFeatureID ( CompositeTransformer.class ) )
         {
-        case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

@@ -145,10 +145,10 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-            return getFormat ();
-        case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-            return getDescriptor ();
+            case DetailViewPackage.LABEL_COMPONENT__FORMAT:
+                return getFormat ();
+            case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
+                return getDescriptor ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -163,12 +163,12 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-            setFormat ( (String)newValue );
-            return;
-        case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-            setDescriptor ( (String)newValue );
-            return;
+            case DetailViewPackage.LABEL_COMPONENT__FORMAT:
+                setFormat ( (String)newValue );
+                return;
+            case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
+                setDescriptor ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -183,12 +183,12 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-            setFormat ( FORMAT_EDEFAULT );
-            return;
-        case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-            setDescriptor ( DESCRIPTOR_EDEFAULT );
-            return;
+            case DetailViewPackage.LABEL_COMPONENT__FORMAT:
+                setFormat ( FORMAT_EDEFAULT );
+                return;
+            case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -203,10 +203,10 @@ public class LabelComponentImpl extends ComponentImpl implements LabelComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-        case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+            case DetailViewPackage.LABEL_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
         }
         return super.eIsSet ( featureID );
     }

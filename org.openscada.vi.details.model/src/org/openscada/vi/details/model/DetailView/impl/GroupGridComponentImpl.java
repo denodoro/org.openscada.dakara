@@ -178,8 +178,8 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-            return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -194,12 +194,12 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-            return getGroups ();
-        case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-            return isEqually ();
-        case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-            return getCols ();
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                return getGroups ();
+            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
+                return isEqually ();
+            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
+                return getCols ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -215,16 +215,16 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-            getGroups ().clear ();
-            getGroups ().addAll ( (Collection<? extends GroupGridEntry>)newValue );
-            return;
-        case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-            setEqually ( (Boolean)newValue );
-            return;
-        case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-            setCols ( (Integer)newValue );
-            return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                getGroups ().clear ();
+                getGroups ().addAll ( (Collection<? extends GroupGridEntry>)newValue );
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
+                setEqually ( (Boolean)newValue );
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
+                setCols ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -239,15 +239,15 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-            getGroups ().clear ();
-            return;
-        case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-            setEqually ( EQUALLY_EDEFAULT );
-            return;
-        case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-            setCols ( COLS_EDEFAULT );
-            return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                getGroups ().clear ();
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
+                setEqually ( EQUALLY_EDEFAULT );
+                return;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
+                setCols ( COLS_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -262,12 +262,12 @@ public class GroupGridComponentImpl extends ComponentImpl implements GroupGridCo
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
-            return groups != null && !groups.isEmpty ();
-        case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
-            return equally != EQUALLY_EDEFAULT;
-        case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
-            return cols != COLS_EDEFAULT;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__GROUPS:
+                return groups != null && !groups.isEmpty ();
+            case DetailViewPackage.GROUP_GRID_COMPONENT__EQUALLY:
+                return equally != EQUALLY_EDEFAULT;
+            case DetailViewPackage.GROUP_GRID_COMPONENT__COLS:
+                return cols != COLS_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

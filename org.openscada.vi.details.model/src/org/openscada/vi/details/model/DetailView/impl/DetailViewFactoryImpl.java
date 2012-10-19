@@ -94,66 +94,66 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
     {
         switch ( eClass.getClassifierID () )
         {
-        case DetailViewPackage.VIEW:
-            return createView ();
-        case DetailViewPackage.GROUP_ENTRY:
-            return createGroupEntry ();
-        case DetailViewPackage.LABEL_COMPONENT:
-            return createLabelComponent ();
-        case DetailViewPackage.FILL_LAYOUT_COMPONENT:
-            return createFillLayoutComponent ();
-        case DetailViewPackage.BUTTON_COMPONENT:
-            return createButtonComponent ();
-        case DetailViewPackage.BOOL_LED_COMPONENT:
-            return createBoolLEDComponent ();
-        case DetailViewPackage.ITEM_VALUE_SOURCE:
-            return createItemValueSource ();
-        case DetailViewPackage.NOT_TRANSFORMER:
-            return createNotTransformer ();
-        case DetailViewPackage.REGISTRATION:
-            return createRegistration ();
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT:
-            return createSimpleGridComponent ();
-        case DetailViewPackage.GROUP_GRID_COMPONENT:
-            return createGroupGridComponent ();
-        case DetailViewPackage.GROUP_GRID_ENTRY:
-            return createGroupGridEntry ();
-        case DetailViewPackage.VALUE_SET_COMPONENT:
-            return createValueSetComponent ();
-        case DetailViewPackage.VALUE_COMPONENT:
-            return createValueComponent ();
-        case DetailViewPackage.AND_TRANSFORMER:
-            return createAndTransformer ();
-        case DetailViewPackage.OR_TRANSFORMER:
-            return createOrTransformer ();
-        case DetailViewPackage.TEXT_INPUT_COMPONENT:
-            return createTextInputComponent ();
-        case DetailViewPackage.TEXT_COMPONENT:
-            return createTextComponent ();
-        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT:
-            return createTextInputMultiComponent ();
-        case DetailViewPackage.CHECK_COMPONENT:
-            return createCheckComponent ();
-        case DetailViewPackage.LINK_COMPONENT:
-            return createLinkComponent ();
-        case DetailViewPackage.URL_IMAGE_COMPONENT:
-            return createURLImageComponent ();
-        case DetailViewPackage.PROGRESS_COMPONENT:
-            return createProgressComponent ();
-        case DetailViewPackage.HIDDEN_COMPONENT:
-            return createHiddenComponent ();
-        case DetailViewPackage.SCRIPT_VISIBILITY:
-            return createScriptVisibility ();
-        case DetailViewPackage.PERMISSION_VISIBILITY:
-            return createPermissionVisibility ();
-        case DetailViewPackage.INVISIBLE:
-            return createInvisible ();
-        case DetailViewPackage.TEST_VISIBILITY:
-            return createTestVisibility ();
-        case DetailViewPackage.SCRIPT_MODULE:
-            return createScriptModule ();
-        default:
-            throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
+            case DetailViewPackage.VIEW:
+                return createView ();
+            case DetailViewPackage.GROUP_ENTRY:
+                return createGroupEntry ();
+            case DetailViewPackage.LABEL_COMPONENT:
+                return createLabelComponent ();
+            case DetailViewPackage.FILL_LAYOUT_COMPONENT:
+                return createFillLayoutComponent ();
+            case DetailViewPackage.BUTTON_COMPONENT:
+                return createButtonComponent ();
+            case DetailViewPackage.BOOL_LED_COMPONENT:
+                return createBoolLEDComponent ();
+            case DetailViewPackage.ITEM_VALUE_SOURCE:
+                return createItemValueSource ();
+            case DetailViewPackage.NOT_TRANSFORMER:
+                return createNotTransformer ();
+            case DetailViewPackage.REGISTRATION:
+                return createRegistration ();
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT:
+                return createSimpleGridComponent ();
+            case DetailViewPackage.GROUP_GRID_COMPONENT:
+                return createGroupGridComponent ();
+            case DetailViewPackage.GROUP_GRID_ENTRY:
+                return createGroupGridEntry ();
+            case DetailViewPackage.VALUE_SET_COMPONENT:
+                return createValueSetComponent ();
+            case DetailViewPackage.VALUE_COMPONENT:
+                return createValueComponent ();
+            case DetailViewPackage.AND_TRANSFORMER:
+                return createAndTransformer ();
+            case DetailViewPackage.OR_TRANSFORMER:
+                return createOrTransformer ();
+            case DetailViewPackage.TEXT_INPUT_COMPONENT:
+                return createTextInputComponent ();
+            case DetailViewPackage.TEXT_COMPONENT:
+                return createTextComponent ();
+            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT:
+                return createTextInputMultiComponent ();
+            case DetailViewPackage.CHECK_COMPONENT:
+                return createCheckComponent ();
+            case DetailViewPackage.LINK_COMPONENT:
+                return createLinkComponent ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT:
+                return createURLImageComponent ();
+            case DetailViewPackage.PROGRESS_COMPONENT:
+                return createProgressComponent ();
+            case DetailViewPackage.HIDDEN_COMPONENT:
+                return createHiddenComponent ();
+            case DetailViewPackage.SCRIPT_VISIBILITY:
+                return createScriptVisibility ();
+            case DetailViewPackage.PERMISSION_VISIBILITY:
+                return createPermissionVisibility ();
+            case DetailViewPackage.INVISIBLE:
+                return createInvisible ();
+            case DetailViewPackage.TEST_VISIBILITY:
+                return createTestVisibility ();
+            case DetailViewPackage.SCRIPT_MODULE:
+                return createScriptModule ();
+            default:
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
     }
 

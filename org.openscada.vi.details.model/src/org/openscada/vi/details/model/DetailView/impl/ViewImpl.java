@@ -207,14 +207,14 @@ public class ViewImpl extends EObjectImpl implements View
     {
         switch ( featureID )
         {
-        case DetailViewPackage.VIEW__HEADER_COMPONENT:
-            return basicSetHeaderComponent ( null, msgs );
-        case DetailViewPackage.VIEW__GROUPS:
-            return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
-        case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
-            return ( (InternalEList<?>)getHiddenComponent () ).basicRemove ( otherEnd, msgs );
-        case DetailViewPackage.VIEW__SCRIPT_MODULE:
-            return ( (InternalEList<?>)getScriptModule () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+                return basicSetHeaderComponent ( null, msgs );
+            case DetailViewPackage.VIEW__GROUPS:
+                return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                return ( (InternalEList<?>)getHiddenComponent () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                return ( (InternalEList<?>)getScriptModule () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -229,14 +229,14 @@ public class ViewImpl extends EObjectImpl implements View
     {
         switch ( featureID )
         {
-        case DetailViewPackage.VIEW__HEADER_COMPONENT:
-            return getHeaderComponent ();
-        case DetailViewPackage.VIEW__GROUPS:
-            return getGroups ();
-        case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
-            return getHiddenComponent ();
-        case DetailViewPackage.VIEW__SCRIPT_MODULE:
-            return getScriptModule ();
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+                return getHeaderComponent ();
+            case DetailViewPackage.VIEW__GROUPS:
+                return getGroups ();
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                return getHiddenComponent ();
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                return getScriptModule ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -252,21 +252,21 @@ public class ViewImpl extends EObjectImpl implements View
     {
         switch ( featureID )
         {
-        case DetailViewPackage.VIEW__HEADER_COMPONENT:
-            setHeaderComponent ( (Component)newValue );
-            return;
-        case DetailViewPackage.VIEW__GROUPS:
-            getGroups ().clear ();
-            getGroups ().addAll ( (Collection<? extends GroupEntry>)newValue );
-            return;
-        case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
-            getHiddenComponent ().clear ();
-            getHiddenComponent ().addAll ( (Collection<? extends HiddenComponent>)newValue );
-            return;
-        case DetailViewPackage.VIEW__SCRIPT_MODULE:
-            getScriptModule ().clear ();
-            getScriptModule ().addAll ( (Collection<? extends ScriptModule>)newValue );
-            return;
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+                setHeaderComponent ( (Component)newValue );
+                return;
+            case DetailViewPackage.VIEW__GROUPS:
+                getGroups ().clear ();
+                getGroups ().addAll ( (Collection<? extends GroupEntry>)newValue );
+                return;
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                getHiddenComponent ().clear ();
+                getHiddenComponent ().addAll ( (Collection<? extends HiddenComponent>)newValue );
+                return;
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                getScriptModule ().clear ();
+                getScriptModule ().addAll ( (Collection<? extends ScriptModule>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -281,18 +281,18 @@ public class ViewImpl extends EObjectImpl implements View
     {
         switch ( featureID )
         {
-        case DetailViewPackage.VIEW__HEADER_COMPONENT:
-            setHeaderComponent ( (Component)null );
-            return;
-        case DetailViewPackage.VIEW__GROUPS:
-            getGroups ().clear ();
-            return;
-        case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
-            getHiddenComponent ().clear ();
-            return;
-        case DetailViewPackage.VIEW__SCRIPT_MODULE:
-            getScriptModule ().clear ();
-            return;
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+                setHeaderComponent ( (Component)null );
+                return;
+            case DetailViewPackage.VIEW__GROUPS:
+                getGroups ().clear ();
+                return;
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                getHiddenComponent ().clear ();
+                return;
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                getScriptModule ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -307,14 +307,14 @@ public class ViewImpl extends EObjectImpl implements View
     {
         switch ( featureID )
         {
-        case DetailViewPackage.VIEW__HEADER_COMPONENT:
-            return headerComponent != null;
-        case DetailViewPackage.VIEW__GROUPS:
-            return groups != null && !groups.isEmpty ();
-        case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
-            return hiddenComponent != null && !hiddenComponent.isEmpty ();
-        case DetailViewPackage.VIEW__SCRIPT_MODULE:
-            return scriptModule != null && !scriptModule.isEmpty ();
+            case DetailViewPackage.VIEW__HEADER_COMPONENT:
+                return headerComponent != null;
+            case DetailViewPackage.VIEW__GROUPS:
+                return groups != null && !groups.isEmpty ();
+            case DetailViewPackage.VIEW__HIDDEN_COMPONENT:
+                return hiddenComponent != null && !hiddenComponent.isEmpty ();
+            case DetailViewPackage.VIEW__SCRIPT_MODULE:
+                return scriptModule != null && !scriptModule.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

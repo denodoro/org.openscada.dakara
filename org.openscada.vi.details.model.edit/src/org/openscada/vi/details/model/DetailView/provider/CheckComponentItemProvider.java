@@ -146,12 +146,12 @@ public class CheckComponentItemProvider extends ComponentItemProvider implements
 
         switch ( notification.getFeatureID ( CheckComponent.class ) )
         {
-        case DetailViewPackage.CHECK_COMPONENT__FORMAT:
-        case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
-        case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
-        case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.CHECK_COMPONENT__FORMAT:
+            case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
+            case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
+            case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

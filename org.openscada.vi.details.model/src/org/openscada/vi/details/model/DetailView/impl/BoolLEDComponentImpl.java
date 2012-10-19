@@ -277,16 +277,16 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-            return getFormat ();
-        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-            return getDescriptor ();
-        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-            return isAlarm ();
-        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-            return getAttribute ();
-        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-            return isExpectedValue ();
+            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+                return getFormat ();
+            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+                return getDescriptor ();
+            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+                return isAlarm ();
+            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+                return getAttribute ();
+            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+                return isExpectedValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -301,21 +301,21 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-            setFormat ( (String)newValue );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-            setDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-            setAlarm ( (Boolean)newValue );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-            setAttribute ( (String)newValue );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-            setExpectedValue ( (Boolean)newValue );
-            return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+                setFormat ( (String)newValue );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+                setDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+                setAlarm ( (Boolean)newValue );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+                setAttribute ( (String)newValue );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+                setExpectedValue ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -330,21 +330,21 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-            setFormat ( FORMAT_EDEFAULT );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-            setDescriptor ( DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-            setAlarm ( ALARM_EDEFAULT );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-            setAttribute ( ATTRIBUTE_EDEFAULT );
-            return;
-        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-            setExpectedValue ( EXPECTED_VALUE_EDEFAULT );
-            return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+                setFormat ( FORMAT_EDEFAULT );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+                setAlarm ( ALARM_EDEFAULT );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+                setAttribute ( ATTRIBUTE_EDEFAULT );
+                return;
+            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+                setExpectedValue ( EXPECTED_VALUE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -359,16 +359,16 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-            return alarm != ALARM_EDEFAULT;
-        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-            return expectedValue != EXPECTED_VALUE_EDEFAULT;
+            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+                return alarm != ALARM_EDEFAULT;
+            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+                return expectedValue != EXPECTED_VALUE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

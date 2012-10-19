@@ -145,10 +145,10 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-            return isEqually ();
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-            return getCols ();
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
+                return isEqually ();
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
+                return getCols ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -163,12 +163,12 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-            setEqually ( (Boolean)newValue );
-            return;
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-            setCols ( (Integer)newValue );
-            return;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
+                setEqually ( (Boolean)newValue );
+                return;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
+                setCols ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -183,12 +183,12 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-            setEqually ( EQUALLY_EDEFAULT );
-            return;
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-            setCols ( COLS_EDEFAULT );
-            return;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
+                setEqually ( EQUALLY_EDEFAULT );
+                return;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
+                setCols ( COLS_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -203,10 +203,10 @@ public class SimpleGridComponentImpl extends CompositeComponentImpl implements S
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-            return equally != EQUALLY_EDEFAULT;
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-            return cols != COLS_EDEFAULT;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
+                return equally != EQUALLY_EDEFAULT;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
+                return cols != COLS_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

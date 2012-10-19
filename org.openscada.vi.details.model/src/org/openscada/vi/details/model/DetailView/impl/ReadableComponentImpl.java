@@ -24,6 +24,7 @@ import org.openscada.vi.details.model.DetailView.ReadableComponent;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getHdConnectionId <em>Hd Connection Id</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getHdItemId <em>Hd Item Id</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.ReadableComponentImpl#getHdQueryString <em>Hd Query String</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +131,26 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @ordered
      */
     protected String hdItemId = HD_ITEM_ID_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getHdQueryString() <em>Hd Query String</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHdQueryString()
+     * @generated
+     * @ordered
+     */
+    protected static final String HD_QUERY_STRING_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getHdQueryString() <em>Hd Query String</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHdQueryString()
+     * @generated
+     * @ordered
+     */
+    protected String hdQueryString = HD_QUERY_STRING_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -272,21 +293,46 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getHdQueryString ()
+    {
+        return hdQueryString;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setHdQueryString ( String newHdQueryString )
+    {
+        String oldHdQueryString = hdQueryString;
+        hdQueryString = newHdQueryString;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING, oldHdQueryString, hdQueryString ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
-        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-            return getFormat ();
-        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-            return getDecimal ();
-        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-            return getAttribute ();
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
-            return getHdConnectionId ();
-        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-            return getHdItemId ();
+            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+                return getFormat ();
+            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+                return getDecimal ();
+            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+                return getAttribute ();
+            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+                return getHdConnectionId ();
+            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+                return getHdItemId ();
+            case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
+                return getHdQueryString ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -301,21 +347,24 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-            setFormat ( (String)newValue );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-            setDecimal ( (String)newValue );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-            setAttribute ( (String)newValue );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
-            setHdConnectionId ( (String)newValue );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-            setHdItemId ( (String)newValue );
-            return;
+            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+                setFormat ( (String)newValue );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+                setDecimal ( (String)newValue );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+                setAttribute ( (String)newValue );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+                setHdConnectionId ( (String)newValue );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+                setHdItemId ( (String)newValue );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
+                setHdQueryString ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -330,21 +379,24 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-            setFormat ( FORMAT_EDEFAULT );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-            setDecimal ( DECIMAL_EDEFAULT );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-            setAttribute ( ATTRIBUTE_EDEFAULT );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
-            setHdConnectionId ( HD_CONNECTION_ID_EDEFAULT );
-            return;
-        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-            setHdItemId ( HD_ITEM_ID_EDEFAULT );
-            return;
+            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+                setFormat ( FORMAT_EDEFAULT );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+                setDecimal ( DECIMAL_EDEFAULT );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+                setAttribute ( ATTRIBUTE_EDEFAULT );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+                setHdConnectionId ( HD_CONNECTION_ID_EDEFAULT );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+                setHdItemId ( HD_ITEM_ID_EDEFAULT );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
+                setHdQueryString ( HD_QUERY_STRING_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -359,16 +411,18 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
     {
         switch ( featureID )
         {
-        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-            return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals ( decimal );
-        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
-            return HD_CONNECTION_ID_EDEFAULT == null ? hdConnectionId != null : !HD_CONNECTION_ID_EDEFAULT.equals ( hdConnectionId );
-        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-            return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals ( hdItemId );
+            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+                return DECIMAL_EDEFAULT == null ? decimal != null : !DECIMAL_EDEFAULT.equals ( decimal );
+            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+                return HD_CONNECTION_ID_EDEFAULT == null ? hdConnectionId != null : !HD_CONNECTION_ID_EDEFAULT.equals ( hdConnectionId );
+            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+                return HD_ITEM_ID_EDEFAULT == null ? hdItemId != null : !HD_ITEM_ID_EDEFAULT.equals ( hdItemId );
+            case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
+                return HD_QUERY_STRING_EDEFAULT == null ? hdQueryString != null : !HD_QUERY_STRING_EDEFAULT.equals ( hdQueryString );
         }
         return super.eIsSet ( featureID );
     }
@@ -395,6 +449,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
         result.append ( hdConnectionId );
         result.append ( ", hdItemId: " );
         result.append ( hdItemId );
+        result.append ( ", hdQueryString: " );
+        result.append ( hdQueryString );
         result.append ( ')' );
         return result.toString ();
     }

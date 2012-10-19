@@ -76,390 +76,390 @@ public class DetailViewSwitch<T> extends Switch<T>
     {
         switch ( classifierID )
         {
-        case DetailViewPackage.VIEW:
-        {
-            View view = (View)theEObject;
-            T result = caseView ( view );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.COMPONENT:
-        {
-            Component component = (Component)theEObject;
-            T result = caseComponent ( component );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.GROUP_ENTRY:
-        {
-            GroupEntry groupEntry = (GroupEntry)theEObject;
-            T result = caseGroupEntry ( groupEntry );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.LABEL_COMPONENT:
-        {
-            LabelComponent labelComponent = (LabelComponent)theEObject;
-            T result = caseLabelComponent ( labelComponent );
-            if ( result == null )
-                result = caseComponent ( labelComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.COMPOSITE_COMPONENT:
-        {
-            CompositeComponent compositeComponent = (CompositeComponent)theEObject;
-            T result = caseCompositeComponent ( compositeComponent );
-            if ( result == null )
-                result = caseComponent ( compositeComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.FILL_LAYOUT_COMPONENT:
-        {
-            FillLayoutComponent fillLayoutComponent = (FillLayoutComponent)theEObject;
-            T result = caseFillLayoutComponent ( fillLayoutComponent );
-            if ( result == null )
-                result = caseCompositeComponent ( fillLayoutComponent );
-            if ( result == null )
-                result = caseComponent ( fillLayoutComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.BUTTON_COMPONENT:
-        {
-            ButtonComponent buttonComponent = (ButtonComponent)theEObject;
-            T result = caseButtonComponent ( buttonComponent );
-            if ( result == null )
-                result = caseGenericComponent ( buttonComponent );
-            if ( result == null )
-                result = caseComponent ( buttonComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.BOOL_LED_COMPONENT:
-        {
-            BoolLEDComponent boolLEDComponent = (BoolLEDComponent)theEObject;
-            T result = caseBoolLEDComponent ( boolLEDComponent );
-            if ( result == null )
-                result = caseComponent ( boolLEDComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.VALUE_SOURCE:
-        {
-            ValueSource valueSource = (ValueSource)theEObject;
-            T result = caseValueSource ( valueSource );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.ITEM_VALUE_SOURCE:
-        {
-            ItemValueSource itemValueSource = (ItemValueSource)theEObject;
-            T result = caseItemValueSource ( itemValueSource );
-            if ( result == null )
-                result = caseValueSource ( itemValueSource );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.NOT_TRANSFORMER:
-        {
-            NotTransformer notTransformer = (NotTransformer)theEObject;
-            T result = caseNotTransformer ( notTransformer );
-            if ( result == null )
-                result = caseValueSource ( notTransformer );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.GENERIC_COMPONENT:
-        {
-            GenericComponent genericComponent = (GenericComponent)theEObject;
-            T result = caseGenericComponent ( genericComponent );
-            if ( result == null )
-                result = caseComponent ( genericComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.REGISTRATION:
-        {
-            Registration registration = (Registration)theEObject;
-            T result = caseRegistration ( registration );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT:
-        {
-            SimpleGridComponent simpleGridComponent = (SimpleGridComponent)theEObject;
-            T result = caseSimpleGridComponent ( simpleGridComponent );
-            if ( result == null )
-                result = caseCompositeComponent ( simpleGridComponent );
-            if ( result == null )
-                result = caseComponent ( simpleGridComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.GROUP_GRID_COMPONENT:
-        {
-            GroupGridComponent groupGridComponent = (GroupGridComponent)theEObject;
-            T result = caseGroupGridComponent ( groupGridComponent );
-            if ( result == null )
-                result = caseComponent ( groupGridComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.GROUP_GRID_ENTRY:
-        {
-            GroupGridEntry groupGridEntry = (GroupGridEntry)theEObject;
-            T result = caseGroupGridEntry ( groupGridEntry );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.VALUE_SET_COMPONENT:
-        {
-            ValueSetComponent valueSetComponent = (ValueSetComponent)theEObject;
-            T result = caseValueSetComponent ( valueSetComponent );
-            if ( result == null )
-                result = caseWriteableComponent ( valueSetComponent );
-            if ( result == null )
-                result = caseReadableComponent ( valueSetComponent );
-            if ( result == null )
-                result = caseComponent ( valueSetComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.VALUE_COMPONENT:
-        {
-            ValueComponent valueComponent = (ValueComponent)theEObject;
-            T result = caseValueComponent ( valueComponent );
-            if ( result == null )
-                result = caseReadableComponent ( valueComponent );
-            if ( result == null )
-                result = caseComponent ( valueComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.COMPOSITE_TRANSFORMER:
-        {
-            CompositeTransformer compositeTransformer = (CompositeTransformer)theEObject;
-            T result = caseCompositeTransformer ( compositeTransformer );
-            if ( result == null )
-                result = caseValueSource ( compositeTransformer );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.AND_TRANSFORMER:
-        {
-            AndTransformer andTransformer = (AndTransformer)theEObject;
-            T result = caseAndTransformer ( andTransformer );
-            if ( result == null )
-                result = caseCompositeTransformer ( andTransformer );
-            if ( result == null )
-                result = caseValueSource ( andTransformer );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.OR_TRANSFORMER:
-        {
-            OrTransformer orTransformer = (OrTransformer)theEObject;
-            T result = caseOrTransformer ( orTransformer );
-            if ( result == null )
-                result = caseCompositeTransformer ( orTransformer );
-            if ( result == null )
-                result = caseValueSource ( orTransformer );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.TEXT_INPUT_COMPONENT:
-        {
-            TextInputComponent textInputComponent = (TextInputComponent)theEObject;
-            T result = caseTextInputComponent ( textInputComponent );
-            if ( result == null )
-                result = caseWriteableComponent ( textInputComponent );
-            if ( result == null )
-                result = caseReadableComponent ( textInputComponent );
-            if ( result == null )
-                result = caseComponent ( textInputComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.WRITEABLE_COMPONENT:
-        {
-            WriteableComponent writeableComponent = (WriteableComponent)theEObject;
-            T result = caseWriteableComponent ( writeableComponent );
-            if ( result == null )
-                result = caseReadableComponent ( writeableComponent );
-            if ( result == null )
-                result = caseComponent ( writeableComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.READABLE_COMPONENT:
-        {
-            ReadableComponent readableComponent = (ReadableComponent)theEObject;
-            T result = caseReadableComponent ( readableComponent );
-            if ( result == null )
-                result = caseComponent ( readableComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.TEXT_COMPONENT:
-        {
-            TextComponent textComponent = (TextComponent)theEObject;
-            T result = caseTextComponent ( textComponent );
-            if ( result == null )
-                result = caseReadableComponent ( textComponent );
-            if ( result == null )
-                result = caseComponent ( textComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT:
-        {
-            TextInputMultiComponent textInputMultiComponent = (TextInputMultiComponent)theEObject;
-            T result = caseTextInputMultiComponent ( textInputMultiComponent );
-            if ( result == null )
-                result = caseWriteableComponent ( textInputMultiComponent );
-            if ( result == null )
-                result = caseReadableComponent ( textInputMultiComponent );
-            if ( result == null )
-                result = caseComponent ( textInputMultiComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.CHECK_COMPONENT:
-        {
-            CheckComponent checkComponent = (CheckComponent)theEObject;
-            T result = caseCheckComponent ( checkComponent );
-            if ( result == null )
-                result = caseComponent ( checkComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.LINK_COMPONENT:
-        {
-            LinkComponent linkComponent = (LinkComponent)theEObject;
-            T result = caseLinkComponent ( linkComponent );
-            if ( result == null )
-                result = caseComponent ( linkComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.URL_IMAGE_COMPONENT:
-        {
-            URLImageComponent urlImageComponent = (URLImageComponent)theEObject;
-            T result = caseURLImageComponent ( urlImageComponent );
-            if ( result == null )
-                result = caseComponent ( urlImageComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.PROGRESS_COMPONENT:
-        {
-            ProgressComponent progressComponent = (ProgressComponent)theEObject;
-            T result = caseProgressComponent ( progressComponent );
-            if ( result == null )
-                result = caseReadableComponent ( progressComponent );
-            if ( result == null )
-                result = caseComponent ( progressComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.HIDDEN_COMPONENT:
-        {
-            HiddenComponent hiddenComponent = (HiddenComponent)theEObject;
-            T result = caseHiddenComponent ( hiddenComponent );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.VISIBILITY:
-        {
-            Visibility visibility = (Visibility)theEObject;
-            T result = caseVisibility ( visibility );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.SCRIPT_VISIBILITY:
-        {
-            ScriptVisibility scriptVisibility = (ScriptVisibility)theEObject;
-            T result = caseScriptVisibility ( scriptVisibility );
-            if ( result == null )
-                result = caseVisibility ( scriptVisibility );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.PERMISSION_VISIBILITY:
-        {
-            PermissionVisibility permissionVisibility = (PermissionVisibility)theEObject;
-            T result = casePermissionVisibility ( permissionVisibility );
-            if ( result == null )
-                result = caseVisibility ( permissionVisibility );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.INVISIBLE:
-        {
-            Invisible invisible = (Invisible)theEObject;
-            T result = caseInvisible ( invisible );
-            if ( result == null )
-                result = caseVisibility ( invisible );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.TEST_VISIBILITY:
-        {
-            TestVisibility testVisibility = (TestVisibility)theEObject;
-            T result = caseTestVisibility ( testVisibility );
-            if ( result == null )
-                result = caseVisibility ( testVisibility );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        case DetailViewPackage.SCRIPT_MODULE:
-        {
-            ScriptModule scriptModule = (ScriptModule)theEObject;
-            T result = caseScriptModule ( scriptModule );
-            if ( result == null )
-                result = defaultCase ( theEObject );
-            return result;
-        }
-        default:
-            return defaultCase ( theEObject );
+            case DetailViewPackage.VIEW:
+            {
+                View view = (View)theEObject;
+                T result = caseView ( view );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.COMPONENT:
+            {
+                Component component = (Component)theEObject;
+                T result = caseComponent ( component );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.GROUP_ENTRY:
+            {
+                GroupEntry groupEntry = (GroupEntry)theEObject;
+                T result = caseGroupEntry ( groupEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.LABEL_COMPONENT:
+            {
+                LabelComponent labelComponent = (LabelComponent)theEObject;
+                T result = caseLabelComponent ( labelComponent );
+                if ( result == null )
+                    result = caseComponent ( labelComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.COMPOSITE_COMPONENT:
+            {
+                CompositeComponent compositeComponent = (CompositeComponent)theEObject;
+                T result = caseCompositeComponent ( compositeComponent );
+                if ( result == null )
+                    result = caseComponent ( compositeComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.FILL_LAYOUT_COMPONENT:
+            {
+                FillLayoutComponent fillLayoutComponent = (FillLayoutComponent)theEObject;
+                T result = caseFillLayoutComponent ( fillLayoutComponent );
+                if ( result == null )
+                    result = caseCompositeComponent ( fillLayoutComponent );
+                if ( result == null )
+                    result = caseComponent ( fillLayoutComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.BUTTON_COMPONENT:
+            {
+                ButtonComponent buttonComponent = (ButtonComponent)theEObject;
+                T result = caseButtonComponent ( buttonComponent );
+                if ( result == null )
+                    result = caseGenericComponent ( buttonComponent );
+                if ( result == null )
+                    result = caseComponent ( buttonComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.BOOL_LED_COMPONENT:
+            {
+                BoolLEDComponent boolLEDComponent = (BoolLEDComponent)theEObject;
+                T result = caseBoolLEDComponent ( boolLEDComponent );
+                if ( result == null )
+                    result = caseComponent ( boolLEDComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.VALUE_SOURCE:
+            {
+                ValueSource valueSource = (ValueSource)theEObject;
+                T result = caseValueSource ( valueSource );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.ITEM_VALUE_SOURCE:
+            {
+                ItemValueSource itemValueSource = (ItemValueSource)theEObject;
+                T result = caseItemValueSource ( itemValueSource );
+                if ( result == null )
+                    result = caseValueSource ( itemValueSource );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.NOT_TRANSFORMER:
+            {
+                NotTransformer notTransformer = (NotTransformer)theEObject;
+                T result = caseNotTransformer ( notTransformer );
+                if ( result == null )
+                    result = caseValueSource ( notTransformer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.GENERIC_COMPONENT:
+            {
+                GenericComponent genericComponent = (GenericComponent)theEObject;
+                T result = caseGenericComponent ( genericComponent );
+                if ( result == null )
+                    result = caseComponent ( genericComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.REGISTRATION:
+            {
+                Registration registration = (Registration)theEObject;
+                T result = caseRegistration ( registration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT:
+            {
+                SimpleGridComponent simpleGridComponent = (SimpleGridComponent)theEObject;
+                T result = caseSimpleGridComponent ( simpleGridComponent );
+                if ( result == null )
+                    result = caseCompositeComponent ( simpleGridComponent );
+                if ( result == null )
+                    result = caseComponent ( simpleGridComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.GROUP_GRID_COMPONENT:
+            {
+                GroupGridComponent groupGridComponent = (GroupGridComponent)theEObject;
+                T result = caseGroupGridComponent ( groupGridComponent );
+                if ( result == null )
+                    result = caseComponent ( groupGridComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.GROUP_GRID_ENTRY:
+            {
+                GroupGridEntry groupGridEntry = (GroupGridEntry)theEObject;
+                T result = caseGroupGridEntry ( groupGridEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.VALUE_SET_COMPONENT:
+            {
+                ValueSetComponent valueSetComponent = (ValueSetComponent)theEObject;
+                T result = caseValueSetComponent ( valueSetComponent );
+                if ( result == null )
+                    result = caseWriteableComponent ( valueSetComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( valueSetComponent );
+                if ( result == null )
+                    result = caseComponent ( valueSetComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.VALUE_COMPONENT:
+            {
+                ValueComponent valueComponent = (ValueComponent)theEObject;
+                T result = caseValueComponent ( valueComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( valueComponent );
+                if ( result == null )
+                    result = caseComponent ( valueComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.COMPOSITE_TRANSFORMER:
+            {
+                CompositeTransformer compositeTransformer = (CompositeTransformer)theEObject;
+                T result = caseCompositeTransformer ( compositeTransformer );
+                if ( result == null )
+                    result = caseValueSource ( compositeTransformer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.AND_TRANSFORMER:
+            {
+                AndTransformer andTransformer = (AndTransformer)theEObject;
+                T result = caseAndTransformer ( andTransformer );
+                if ( result == null )
+                    result = caseCompositeTransformer ( andTransformer );
+                if ( result == null )
+                    result = caseValueSource ( andTransformer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.OR_TRANSFORMER:
+            {
+                OrTransformer orTransformer = (OrTransformer)theEObject;
+                T result = caseOrTransformer ( orTransformer );
+                if ( result == null )
+                    result = caseCompositeTransformer ( orTransformer );
+                if ( result == null )
+                    result = caseValueSource ( orTransformer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.TEXT_INPUT_COMPONENT:
+            {
+                TextInputComponent textInputComponent = (TextInputComponent)theEObject;
+                T result = caseTextInputComponent ( textInputComponent );
+                if ( result == null )
+                    result = caseWriteableComponent ( textInputComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( textInputComponent );
+                if ( result == null )
+                    result = caseComponent ( textInputComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.WRITEABLE_COMPONENT:
+            {
+                WriteableComponent writeableComponent = (WriteableComponent)theEObject;
+                T result = caseWriteableComponent ( writeableComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( writeableComponent );
+                if ( result == null )
+                    result = caseComponent ( writeableComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.READABLE_COMPONENT:
+            {
+                ReadableComponent readableComponent = (ReadableComponent)theEObject;
+                T result = caseReadableComponent ( readableComponent );
+                if ( result == null )
+                    result = caseComponent ( readableComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.TEXT_COMPONENT:
+            {
+                TextComponent textComponent = (TextComponent)theEObject;
+                T result = caseTextComponent ( textComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( textComponent );
+                if ( result == null )
+                    result = caseComponent ( textComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT:
+            {
+                TextInputMultiComponent textInputMultiComponent = (TextInputMultiComponent)theEObject;
+                T result = caseTextInputMultiComponent ( textInputMultiComponent );
+                if ( result == null )
+                    result = caseWriteableComponent ( textInputMultiComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( textInputMultiComponent );
+                if ( result == null )
+                    result = caseComponent ( textInputMultiComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.CHECK_COMPONENT:
+            {
+                CheckComponent checkComponent = (CheckComponent)theEObject;
+                T result = caseCheckComponent ( checkComponent );
+                if ( result == null )
+                    result = caseComponent ( checkComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.LINK_COMPONENT:
+            {
+                LinkComponent linkComponent = (LinkComponent)theEObject;
+                T result = caseLinkComponent ( linkComponent );
+                if ( result == null )
+                    result = caseComponent ( linkComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.URL_IMAGE_COMPONENT:
+            {
+                URLImageComponent urlImageComponent = (URLImageComponent)theEObject;
+                T result = caseURLImageComponent ( urlImageComponent );
+                if ( result == null )
+                    result = caseComponent ( urlImageComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.PROGRESS_COMPONENT:
+            {
+                ProgressComponent progressComponent = (ProgressComponent)theEObject;
+                T result = caseProgressComponent ( progressComponent );
+                if ( result == null )
+                    result = caseReadableComponent ( progressComponent );
+                if ( result == null )
+                    result = caseComponent ( progressComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.HIDDEN_COMPONENT:
+            {
+                HiddenComponent hiddenComponent = (HiddenComponent)theEObject;
+                T result = caseHiddenComponent ( hiddenComponent );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.VISIBILITY:
+            {
+                Visibility visibility = (Visibility)theEObject;
+                T result = caseVisibility ( visibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.SCRIPT_VISIBILITY:
+            {
+                ScriptVisibility scriptVisibility = (ScriptVisibility)theEObject;
+                T result = caseScriptVisibility ( scriptVisibility );
+                if ( result == null )
+                    result = caseVisibility ( scriptVisibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.PERMISSION_VISIBILITY:
+            {
+                PermissionVisibility permissionVisibility = (PermissionVisibility)theEObject;
+                T result = casePermissionVisibility ( permissionVisibility );
+                if ( result == null )
+                    result = caseVisibility ( permissionVisibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.INVISIBLE:
+            {
+                Invisible invisible = (Invisible)theEObject;
+                T result = caseInvisible ( invisible );
+                if ( result == null )
+                    result = caseVisibility ( invisible );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.TEST_VISIBILITY:
+            {
+                TestVisibility testVisibility = (TestVisibility)theEObject;
+                T result = caseTestVisibility ( testVisibility );
+                if ( result == null )
+                    result = caseVisibility ( testVisibility );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DetailViewPackage.SCRIPT_MODULE:
+            {
+                ScriptModule scriptModule = (ScriptModule)theEObject;
+                T result = caseScriptModule ( scriptModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            default:
+                return defaultCase ( theEObject );
         }
     }
 

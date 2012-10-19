@@ -19,6 +19,7 @@ package org.openscada.vi.details.model.DetailView;
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdConnectionId <em>Hd Connection Id</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdItemId <em>Hd Item Id</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdQueryString <em>Hd Query String</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,5 +158,31 @@ public interface ReadableComponent extends Component
      * @generated
      */
     void setHdItemId ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Hd Query String</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hd Query String</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hd Query String</em>' attribute.
+     * @see #setHdQueryString(String)
+     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getReadableComponent_HdQueryString()
+     * @model
+     * @generated
+     */
+    String getHdQueryString ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.ReadableComponent#getHdQueryString <em>Hd Query String</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Hd Query String</em>' attribute.
+     * @see #getHdQueryString()
+     * @generated
+     */
+    void setHdQueryString ( String value );
 
 } // ReadableComponent

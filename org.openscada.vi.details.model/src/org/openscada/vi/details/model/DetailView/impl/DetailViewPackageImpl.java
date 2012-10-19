@@ -1176,6 +1176,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getReadableComponent_HdQueryString ()
+    {
+        return (EAttribute)readableComponentEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getTextComponent ()
     {
         return textComponentEClass;
@@ -1734,6 +1744,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__ATTRIBUTE );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_CONNECTION_ID );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_ITEM_ID );
+        createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_QUERY_STRING );
 
         textComponentEClass = createEClass ( TEXT_COMPONENT );
         createEAttribute ( textComponentEClass, TEXT_COMPONENT__DESCRIPTOR );
@@ -1954,6 +1965,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getReadableComponent_Attribute (), ecorePackage.getEString (), "attribute", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getReadableComponent_HdConnectionId (), ecorePackage.getEString (), "hdConnectionId", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getReadableComponent_HdItemId (), ecorePackage.getEString (), "hdItemId", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getReadableComponent_HdQueryString (), ecorePackage.getEString (), "hdQueryString", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( textComponentEClass, TextComponent.class, "TextComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getTextComponent_Descriptor (), ecorePackage.getEString (), "descriptor", null, 1, 1, TextComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );

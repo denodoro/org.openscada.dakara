@@ -193,12 +193,12 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
-            return getScriptLanguage ();
-        case DetailViewPackage.SCRIPT_MODULE__CODE:
-            return getCode ();
-        case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
-            return getCodeUri ();
+            case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
+                return getScriptLanguage ();
+            case DetailViewPackage.SCRIPT_MODULE__CODE:
+                return getCode ();
+            case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
+                return getCodeUri ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -213,15 +213,15 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
-            setScriptLanguage ( (String)newValue );
-            return;
-        case DetailViewPackage.SCRIPT_MODULE__CODE:
-            setCode ( (String)newValue );
-            return;
-        case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
-            setCodeUri ( (String)newValue );
-            return;
+            case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
+                setScriptLanguage ( (String)newValue );
+                return;
+            case DetailViewPackage.SCRIPT_MODULE__CODE:
+                setCode ( (String)newValue );
+                return;
+            case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
+                setCodeUri ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -236,15 +236,15 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
-            setScriptLanguage ( SCRIPT_LANGUAGE_EDEFAULT );
-            return;
-        case DetailViewPackage.SCRIPT_MODULE__CODE:
-            setCode ( CODE_EDEFAULT );
-            return;
-        case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
-            setCodeUri ( CODE_URI_EDEFAULT );
-            return;
+            case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
+                setScriptLanguage ( SCRIPT_LANGUAGE_EDEFAULT );
+                return;
+            case DetailViewPackage.SCRIPT_MODULE__CODE:
+                setCode ( CODE_EDEFAULT );
+                return;
+            case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
+                setCodeUri ( CODE_URI_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -259,12 +259,12 @@ public class ScriptModuleImpl extends EObjectImpl implements ScriptModule
     {
         switch ( featureID )
         {
-        case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
-            return SCRIPT_LANGUAGE_EDEFAULT == null ? scriptLanguage != null : !SCRIPT_LANGUAGE_EDEFAULT.equals ( scriptLanguage );
-        case DetailViewPackage.SCRIPT_MODULE__CODE:
-            return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals ( code );
-        case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
-            return CODE_URI_EDEFAULT == null ? codeUri != null : !CODE_URI_EDEFAULT.equals ( codeUri );
+            case DetailViewPackage.SCRIPT_MODULE__SCRIPT_LANGUAGE:
+                return SCRIPT_LANGUAGE_EDEFAULT == null ? scriptLanguage != null : !SCRIPT_LANGUAGE_EDEFAULT.equals ( scriptLanguage );
+            case DetailViewPackage.SCRIPT_MODULE__CODE:
+                return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals ( code );
+            case DetailViewPackage.SCRIPT_MODULE__CODE_URI:
+                return CODE_URI_EDEFAULT == null ? codeUri != null : !CODE_URI_EDEFAULT.equals ( codeUri );
         }
         return super.eIsSet ( featureID );
     }

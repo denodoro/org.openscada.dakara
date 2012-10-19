@@ -321,18 +321,18 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-            return getDescriptor ();
-        case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-            return getWidth ();
-        case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-            return getHeight ();
-        case DetailViewPackage.TEXT_COMPONENT__DATE:
-            return isDate ();
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-            return getTextHeight ();
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-            return getTextMap ();
+            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
+                return getDescriptor ();
+            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
+                return getWidth ();
+            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
+                return getHeight ();
+            case DetailViewPackage.TEXT_COMPONENT__DATE:
+                return isDate ();
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
+                return getTextHeight ();
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
+                return getTextMap ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -347,24 +347,24 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-            setDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-            setWidth ( (Integer)newValue );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-            setHeight ( (Integer)newValue );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__DATE:
-            setDate ( (Boolean)newValue );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-            setTextHeight ( (Integer)newValue );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-            setTextMap ( (String)newValue );
-            return;
+            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
+                setDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
+                setWidth ( (Integer)newValue );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
+                setHeight ( (Integer)newValue );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__DATE:
+                setDate ( (Boolean)newValue );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
+                setTextHeight ( (Integer)newValue );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
+                setTextMap ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -379,24 +379,24 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-            setDescriptor ( DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-            setWidth ( WIDTH_EDEFAULT );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-            setHeight ( HEIGHT_EDEFAULT );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__DATE:
-            setDate ( DATE_EDEFAULT );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-            setTextHeight ( TEXT_HEIGHT_EDEFAULT );
-            return;
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-            setTextMap ( TEXT_MAP_EDEFAULT );
-            return;
+            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
+                setWidth ( WIDTH_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
+                setHeight ( HEIGHT_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__DATE:
+                setDate ( DATE_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
+                setTextHeight ( TEXT_HEIGHT_EDEFAULT );
+                return;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
+                setTextMap ( TEXT_MAP_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -411,18 +411,18 @@ public class TextComponentImpl extends ReadableComponentImpl implements TextComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-        case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-            return width != WIDTH_EDEFAULT;
-        case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-            return height != HEIGHT_EDEFAULT;
-        case DetailViewPackage.TEXT_COMPONENT__DATE:
-            return date != DATE_EDEFAULT;
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-            return textHeight != TEXT_HEIGHT_EDEFAULT;
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-            return TEXT_MAP_EDEFAULT == null ? textMap != null : !TEXT_MAP_EDEFAULT.equals ( textMap );
+            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
+                return width != WIDTH_EDEFAULT;
+            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
+                return height != HEIGHT_EDEFAULT;
+            case DetailViewPackage.TEXT_COMPONENT__DATE:
+                return date != DATE_EDEFAULT;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
+                return textHeight != TEXT_HEIGHT_EDEFAULT;
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
+                return TEXT_MAP_EDEFAULT == null ? textMap != null : !TEXT_MAP_EDEFAULT.equals ( textMap );
         }
         return super.eIsSet ( featureID );
     }

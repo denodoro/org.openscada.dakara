@@ -88,8 +88,8 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
     {
         switch ( featureID )
         {
-        case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-            return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
+            case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
+                return ( (InternalEList<?>)getChildren () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -104,8 +104,8 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
     {
         switch ( featureID )
         {
-        case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-            return getChildren ();
+            case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
+                return getChildren ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -121,10 +121,10 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
     {
         switch ( featureID )
         {
-        case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-            getChildren ().clear ();
-            getChildren ().addAll ( (Collection<? extends Component>)newValue );
-            return;
+            case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
+                getChildren ().clear ();
+                getChildren ().addAll ( (Collection<? extends Component>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -139,9 +139,9 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
     {
         switch ( featureID )
         {
-        case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-            getChildren ().clear ();
-            return;
+            case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
+                getChildren ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -156,8 +156,8 @@ public abstract class CompositeComponentImpl extends ComponentImpl implements Co
     {
         switch ( featureID )
         {
-        case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
-            return children != null && !children.isEmpty ();
+            case DetailViewPackage.COMPOSITE_COMPONENT__CHILDREN:
+                return children != null && !children.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

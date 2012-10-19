@@ -133,9 +133,9 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
 
         switch ( notification.getFeatureID ( Component.class ) )
         {
-        case DetailViewPackage.COMPONENT__VISIBILITY:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case DetailViewPackage.COMPONENT__VISIBILITY:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

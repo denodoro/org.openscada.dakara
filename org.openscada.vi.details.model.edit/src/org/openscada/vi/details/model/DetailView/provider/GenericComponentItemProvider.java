@@ -118,9 +118,9 @@ public class GenericComponentItemProvider extends ComponentItemProvider implemen
 
         switch ( notification.getFeatureID ( GenericComponent.class ) )
         {
-        case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case DetailViewPackage.GENERIC_COMPONENT__REGISTRATIONS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

@@ -277,16 +277,16 @@ public class ProgressComponentImpl extends ReadableComponentImpl implements Prog
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
-            return getDescriptor ();
-        case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
-            return getFactor ();
-        case DetailViewPackage.PROGRESS_COMPONENT__MAX:
-            return getMax ();
-        case DetailViewPackage.PROGRESS_COMPONENT__MIN:
-            return getMin ();
-        case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
-            return getWidth ();
+            case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
+                return getDescriptor ();
+            case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
+                return getFactor ();
+            case DetailViewPackage.PROGRESS_COMPONENT__MAX:
+                return getMax ();
+            case DetailViewPackage.PROGRESS_COMPONENT__MIN:
+                return getMin ();
+            case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
+                return getWidth ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -301,21 +301,21 @@ public class ProgressComponentImpl extends ReadableComponentImpl implements Prog
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
-            setDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
-            setFactor ( (Double)newValue );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__MAX:
-            setMax ( (Double)newValue );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__MIN:
-            setMin ( (Double)newValue );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
-            setWidth ( (Integer)newValue );
-            return;
+            case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
+                setDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
+                setFactor ( (Double)newValue );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__MAX:
+                setMax ( (Double)newValue );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__MIN:
+                setMin ( (Double)newValue );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
+                setWidth ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -330,21 +330,21 @@ public class ProgressComponentImpl extends ReadableComponentImpl implements Prog
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
-            setDescriptor ( DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
-            setFactor ( FACTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__MAX:
-            setMax ( MAX_EDEFAULT );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__MIN:
-            setMin ( MIN_EDEFAULT );
-            return;
-        case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
-            setWidth ( WIDTH_EDEFAULT );
-            return;
+            case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
+                setFactor ( FACTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__MAX:
+                setMax ( MAX_EDEFAULT );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__MIN:
+                setMin ( MIN_EDEFAULT );
+                return;
+            case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
+                setWidth ( WIDTH_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -359,16 +359,16 @@ public class ProgressComponentImpl extends ReadableComponentImpl implements Prog
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
-            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-        case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
-            return factor != FACTOR_EDEFAULT;
-        case DetailViewPackage.PROGRESS_COMPONENT__MAX:
-            return max != MAX_EDEFAULT;
-        case DetailViewPackage.PROGRESS_COMPONENT__MIN:
-            return min != MIN_EDEFAULT;
-        case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
-            return width != WIDTH_EDEFAULT;
+            case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+            case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
+                return factor != FACTOR_EDEFAULT;
+            case DetailViewPackage.PROGRESS_COMPONENT__MAX:
+                return max != MAX_EDEFAULT;
+            case DetailViewPackage.PROGRESS_COMPONENT__MIN:
+                return min != MIN_EDEFAULT;
+            case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
+                return width != WIDTH_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

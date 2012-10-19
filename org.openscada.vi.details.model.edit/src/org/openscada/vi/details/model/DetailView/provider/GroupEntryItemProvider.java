@@ -161,14 +161,14 @@ public class GroupEntryItemProvider extends ItemProviderAdapter implements IEdit
 
         switch ( notification.getFeatureID ( GroupEntry.class ) )
         {
-        case DetailViewPackage.GROUP_ENTRY__LABEL:
-        case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-        case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-            return;
+            case DetailViewPackage.GROUP_ENTRY__LABEL:
+            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

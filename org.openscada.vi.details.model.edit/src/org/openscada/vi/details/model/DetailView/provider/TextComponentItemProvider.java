@@ -170,14 +170,14 @@ public class TextComponentItemProvider extends ReadableComponentItemProvider imp
 
         switch ( notification.getFeatureID ( TextComponent.class ) )
         {
-        case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
-        case DetailViewPackage.TEXT_COMPONENT__WIDTH:
-        case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
-        case DetailViewPackage.TEXT_COMPONENT__DATE:
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
-        case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.TEXT_COMPONENT__DESCRIPTOR:
+            case DetailViewPackage.TEXT_COMPONENT__WIDTH:
+            case DetailViewPackage.TEXT_COMPONENT__HEIGHT:
+            case DetailViewPackage.TEXT_COMPONENT__DATE:
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_HEIGHT:
+            case DetailViewPackage.TEXT_COMPONENT__TEXT_MAP:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

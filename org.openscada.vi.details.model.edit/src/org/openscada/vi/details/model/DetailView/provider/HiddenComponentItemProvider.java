@@ -113,9 +113,9 @@ public class HiddenComponentItemProvider extends ItemProviderAdapter implements 
 
         switch ( notification.getFeatureID ( HiddenComponent.class ) )
         {
-        case DetailViewPackage.HIDDEN_COMPONENT__DESCRIPTOR:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.HIDDEN_COMPONENT__DESCRIPTOR:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

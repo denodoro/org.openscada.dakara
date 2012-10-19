@@ -277,16 +277,16 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-            return getDescriptor ();
-        case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-            return getImageUrl ();
-        case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-            return getFallbackImageUrl ();
-        case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-            return getWidth ();
-        case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-            return getHeight ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
+                return getDescriptor ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
+                return getImageUrl ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
+                return getFallbackImageUrl ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
+                return getWidth ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
+                return getHeight ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -301,21 +301,21 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-            setDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-            setImageUrl ( (String)newValue );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-            setFallbackImageUrl ( (String)newValue );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-            setWidth ( (Integer)newValue );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-            setHeight ( (Integer)newValue );
-            return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
+                setDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
+                setImageUrl ( (String)newValue );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
+                setFallbackImageUrl ( (String)newValue );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
+                setWidth ( (Integer)newValue );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
+                setHeight ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -330,21 +330,21 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-            setDescriptor ( DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-            setImageUrl ( IMAGE_URL_EDEFAULT );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-            setFallbackImageUrl ( FALLBACK_IMAGE_URL_EDEFAULT );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-            setWidth ( WIDTH_EDEFAULT );
-            return;
-        case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-            setHeight ( HEIGHT_EDEFAULT );
-            return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
+                setImageUrl ( IMAGE_URL_EDEFAULT );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
+                setFallbackImageUrl ( FALLBACK_IMAGE_URL_EDEFAULT );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
+                setWidth ( WIDTH_EDEFAULT );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
+                setHeight ( HEIGHT_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -359,16 +359,16 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
     {
         switch ( featureID )
         {
-        case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-        case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-            return IMAGE_URL_EDEFAULT == null ? imageUrl != null : !IMAGE_URL_EDEFAULT.equals ( imageUrl );
-        case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-            return FALLBACK_IMAGE_URL_EDEFAULT == null ? fallbackImageUrl != null : !FALLBACK_IMAGE_URL_EDEFAULT.equals ( fallbackImageUrl );
-        case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-            return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals ( width );
-        case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-            return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals ( height );
+            case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+            case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
+                return IMAGE_URL_EDEFAULT == null ? imageUrl != null : !IMAGE_URL_EDEFAULT.equals ( imageUrl );
+            case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
+                return FALLBACK_IMAGE_URL_EDEFAULT == null ? fallbackImageUrl != null : !FALLBACK_IMAGE_URL_EDEFAULT.equals ( fallbackImageUrl );
+            case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
+                return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals ( width );
+            case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
+                return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals ( height );
         }
         return super.eIsSet ( featureID );
     }

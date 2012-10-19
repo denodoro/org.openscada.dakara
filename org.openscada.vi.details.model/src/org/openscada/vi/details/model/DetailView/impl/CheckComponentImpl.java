@@ -233,14 +233,14 @@ public class CheckComponentImpl extends ComponentImpl implements CheckComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.CHECK_COMPONENT__FORMAT:
-            return getFormat ();
-        case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
-            return getDescriptor ();
-        case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
-            return getAttribute ();
-        case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
-            return getReadDescriptor ();
+            case DetailViewPackage.CHECK_COMPONENT__FORMAT:
+                return getFormat ();
+            case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
+                return getDescriptor ();
+            case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
+                return getAttribute ();
+            case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
+                return getReadDescriptor ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -255,18 +255,18 @@ public class CheckComponentImpl extends ComponentImpl implements CheckComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.CHECK_COMPONENT__FORMAT:
-            setFormat ( (String)newValue );
-            return;
-        case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
-            setDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
-            setAttribute ( (String)newValue );
-            return;
-        case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
-            setReadDescriptor ( (String)newValue );
-            return;
+            case DetailViewPackage.CHECK_COMPONENT__FORMAT:
+                setFormat ( (String)newValue );
+                return;
+            case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
+                setDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
+                setAttribute ( (String)newValue );
+                return;
+            case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
+                setReadDescriptor ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -281,18 +281,18 @@ public class CheckComponentImpl extends ComponentImpl implements CheckComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.CHECK_COMPONENT__FORMAT:
-            setFormat ( FORMAT_EDEFAULT );
-            return;
-        case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
-            setDescriptor ( DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
-            setAttribute ( ATTRIBUTE_EDEFAULT );
-            return;
-        case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
-            setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
-            return;
+            case DetailViewPackage.CHECK_COMPONENT__FORMAT:
+                setFormat ( FORMAT_EDEFAULT );
+                return;
+            case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
+                setDescriptor ( DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
+                setAttribute ( ATTRIBUTE_EDEFAULT );
+                return;
+            case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
+                setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -307,14 +307,14 @@ public class CheckComponentImpl extends ComponentImpl implements CheckComponent
     {
         switch ( featureID )
         {
-        case DetailViewPackage.CHECK_COMPONENT__FORMAT:
-            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-        case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
-            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-        case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
-            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-        case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
-            return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
+            case DetailViewPackage.CHECK_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
+                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+            case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+            case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
+                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
         }
         return super.eIsSet ( featureID );
     }

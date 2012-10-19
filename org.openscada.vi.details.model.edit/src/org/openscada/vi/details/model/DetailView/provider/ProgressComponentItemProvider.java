@@ -158,13 +158,13 @@ public class ProgressComponentItemProvider extends ReadableComponentItemProvider
 
         switch ( notification.getFeatureID ( ProgressComponent.class ) )
         {
-        case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
-        case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
-        case DetailViewPackage.PROGRESS_COMPONENT__MAX:
-        case DetailViewPackage.PROGRESS_COMPONENT__MIN:
-        case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.PROGRESS_COMPONENT__DESCRIPTOR:
+            case DetailViewPackage.PROGRESS_COMPONENT__FACTOR:
+            case DetailViewPackage.PROGRESS_COMPONENT__MAX:
+            case DetailViewPackage.PROGRESS_COMPONENT__MIN:
+            case DetailViewPackage.PROGRESS_COMPONENT__WIDTH:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

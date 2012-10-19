@@ -112,9 +112,9 @@ public class TestVisibilityItemProvider extends VisibilityItemProvider implement
 
         switch ( notification.getFeatureID ( TestVisibility.class ) )
         {
-        case DetailViewPackage.TEST_VISIBILITY__ID:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.TEST_VISIBILITY__ID:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

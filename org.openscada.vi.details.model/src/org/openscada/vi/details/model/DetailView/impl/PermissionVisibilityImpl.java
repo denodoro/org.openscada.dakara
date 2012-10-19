@@ -101,8 +101,8 @@ public class PermissionVisibilityImpl extends VisibilityImpl implements Permissi
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
-            return getRequiredPermission ();
+            case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
+                return getRequiredPermission ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -117,9 +117,9 @@ public class PermissionVisibilityImpl extends VisibilityImpl implements Permissi
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
-            setRequiredPermission ( (String)newValue );
-            return;
+            case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
+                setRequiredPermission ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -134,9 +134,9 @@ public class PermissionVisibilityImpl extends VisibilityImpl implements Permissi
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
-            setRequiredPermission ( REQUIRED_PERMISSION_EDEFAULT );
-            return;
+            case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
+                setRequiredPermission ( REQUIRED_PERMISSION_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -151,8 +151,8 @@ public class PermissionVisibilityImpl extends VisibilityImpl implements Permissi
     {
         switch ( featureID )
         {
-        case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
-            return REQUIRED_PERMISSION_EDEFAULT == null ? requiredPermission != null : !REQUIRED_PERMISSION_EDEFAULT.equals ( requiredPermission );
+            case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
+                return REQUIRED_PERMISSION_EDEFAULT == null ? requiredPermission != null : !REQUIRED_PERMISSION_EDEFAULT.equals ( requiredPermission );
         }
         return super.eIsSet ( featureID );
     }

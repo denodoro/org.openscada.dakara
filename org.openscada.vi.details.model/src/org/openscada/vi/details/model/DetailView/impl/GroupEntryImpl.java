@@ -276,10 +276,10 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-            return basicSetComponent ( null, msgs );
-        case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
-            return basicSetVisibility ( null, msgs );
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+                return basicSetComponent ( null, msgs );
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                return basicSetVisibility ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -294,14 +294,14 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-            return getComponent ();
-        case DetailViewPackage.GROUP_ENTRY__LABEL:
-            return getLabel ();
-        case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-            return getPermission ();
-        case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
-            return getVisibility ();
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+                return getComponent ();
+            case DetailViewPackage.GROUP_ENTRY__LABEL:
+                return getLabel ();
+            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
+                return getPermission ();
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                return getVisibility ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -316,18 +316,18 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-            setComponent ( (Component)newValue );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__LABEL:
-            setLabel ( (String)newValue );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-            setPermission ( (String)newValue );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
-            setVisibility ( (Visibility)newValue );
-            return;
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+                setComponent ( (Component)newValue );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__LABEL:
+                setLabel ( (String)newValue );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
+                setPermission ( (String)newValue );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                setVisibility ( (Visibility)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -342,18 +342,18 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-            setComponent ( (Component)null );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__LABEL:
-            setLabel ( LABEL_EDEFAULT );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-            setPermission ( PERMISSION_EDEFAULT );
-            return;
-        case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
-            setVisibility ( (Visibility)null );
-            return;
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+                setComponent ( (Component)null );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__LABEL:
+                setLabel ( LABEL_EDEFAULT );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
+                setPermission ( PERMISSION_EDEFAULT );
+                return;
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                setVisibility ( (Visibility)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -368,14 +368,14 @@ public class GroupEntryImpl extends EObjectImpl implements GroupEntry
     {
         switch ( featureID )
         {
-        case DetailViewPackage.GROUP_ENTRY__COMPONENT:
-            return component != null;
-        case DetailViewPackage.GROUP_ENTRY__LABEL:
-            return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals ( label );
-        case DetailViewPackage.GROUP_ENTRY__PERMISSION:
-            return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals ( permission );
-        case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
-            return visibility != null;
+            case DetailViewPackage.GROUP_ENTRY__COMPONENT:
+                return component != null;
+            case DetailViewPackage.GROUP_ENTRY__LABEL:
+                return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals ( label );
+            case DetailViewPackage.GROUP_ENTRY__PERMISSION:
+                return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals ( permission );
+            case DetailViewPackage.GROUP_ENTRY__VISIBILITY:
+                return visibility != null;
         }
         return super.eIsSet ( featureID );
     }

@@ -122,10 +122,10 @@ public class SimpleGridComponentItemProvider extends CompositeComponentItemProvi
 
         switch ( notification.getFeatureID ( SimpleGridComponent.class ) )
         {
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
-        case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
-            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-            return;
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__EQUALLY:
+            case DetailViewPackage.SIMPLE_GRID_COMPONENT__COLS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
         }
         super.notifyChanged ( notification );
     }

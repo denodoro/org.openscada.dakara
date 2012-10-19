@@ -387,8 +387,8 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-            return basicSetActive ( null, msgs );
+            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+                return basicSetActive ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -403,20 +403,20 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-            return getFormat ();
-        case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-            return getValue ();
-        case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-            return getReadDescriptor ();
-        case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-            return getWriteDescriptor ();
-        case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-            return getActive ();
-        case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-            return getAttribute ();
-        case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-            return getTextHeight ();
+            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
+                return getFormat ();
+            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
+                return getValue ();
+            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
+                return getReadDescriptor ();
+            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
+                return getWriteDescriptor ();
+            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+                return getActive ();
+            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
+                return getAttribute ();
+            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
+                return getTextHeight ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -431,27 +431,27 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-            setFormat ( (String)newValue );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-            setValue ( (String)newValue );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-            setReadDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-            setWriteDescriptor ( (String)newValue );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-            setActive ( (ValueSource)newValue );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-            setAttribute ( (String)newValue );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-            setTextHeight ( (Integer)newValue );
-            return;
+            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
+                setFormat ( (String)newValue );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
+                setValue ( (String)newValue );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
+                setReadDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
+                setWriteDescriptor ( (String)newValue );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+                setActive ( (ValueSource)newValue );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
+                setAttribute ( (String)newValue );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
+                setTextHeight ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -466,27 +466,27 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-            setFormat ( FORMAT_EDEFAULT );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-            setValue ( VALUE_EDEFAULT );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-            setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-            setWriteDescriptor ( WRITE_DESCRIPTOR_EDEFAULT );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-            setActive ( (ValueSource)null );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-            setAttribute ( ATTRIBUTE_EDEFAULT );
-            return;
-        case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-            setTextHeight ( TEXT_HEIGHT_EDEFAULT );
-            return;
+            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
+                setFormat ( FORMAT_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
+                setValue ( VALUE_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
+                setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
+                setWriteDescriptor ( WRITE_DESCRIPTOR_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+                setActive ( (ValueSource)null );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
+                setAttribute ( ATTRIBUTE_EDEFAULT );
+                return;
+            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
+                setTextHeight ( TEXT_HEIGHT_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -501,20 +501,20 @@ public class ButtonComponentImpl extends GenericComponentImpl implements ButtonC
     {
         switch ( featureID )
         {
-        case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-        case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-            return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
-        case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-            return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
-        case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-            return WRITE_DESCRIPTOR_EDEFAULT == null ? writeDescriptor != null : !WRITE_DESCRIPTOR_EDEFAULT.equals ( writeDescriptor );
-        case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-            return active != null;
-        case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-        case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-            return textHeight != TEXT_HEIGHT_EDEFAULT;
+            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
+                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
+                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
+            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
+                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
+            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
+                return WRITE_DESCRIPTOR_EDEFAULT == null ? writeDescriptor != null : !WRITE_DESCRIPTOR_EDEFAULT.equals ( writeDescriptor );
+            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+                return active != null;
+            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
+                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
+                return textHeight != TEXT_HEIGHT_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
