@@ -71,12 +71,14 @@ public class TrendControlImage extends Composite
             final ICommandService commandService = (ICommandService)PlatformUI.getWorkbench ().getService ( ICommandService.class );
             final IHandlerService handlerService = (IHandlerService)PlatformUI.getWorkbench ().getService ( IHandlerService.class );
 
-            final Command command = commandService.getCommand ( "org.openscada.hd.ui.createManagedTrendView" ); //$NON-NLS-1$
+            final Command command = commandService.getCommand ( "org.openscada.ui.chart.commands.OpenParametersCharView" ); //$NON-NLS-1$
 
-            final Parameterization[] parameterizations = new Parameterization[3];
-            parameterizations[0] = new Parameterization ( command.getParameter ( "org.openscada.hd.ui.connectionId" ), this.connectionId ); //$NON-NLS-1$
-            parameterizations[1] = new Parameterization ( command.getParameter ( "org.openscada.hd.ui.storageName" ), this.itemId ); //$NON-NLS-1$
-            parameterizations[2] = new Parameterization ( command.getParameter ( "org.openscada.hd.ui.queryTimespec" ), "40:10:200" ); //$NON-NLS-1$ //$NON-NLS-2$
+            final Parameterization[] parameterizations = new Parameterization[4];
+            parameterizations[0] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.connectionId" ), this.connectionId ); //$NON-NLS-1$
+            parameterizations[1] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.itemId" ), this.itemId ); //$NON-NLS-1$
+            parameterizations[2] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.queryTimespec" ), "40:10:200" ); //$NON-NLS-1$ //$NON-NLS-2$
+            parameterizations[3] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.itemType" ), "hd" ); //$NON-NLS-1$ //$NON-NLS-2$
+
             final ParameterizedCommand parameterCommand = new ParameterizedCommand ( command, parameterizations );
 
             handlerService.executeCommand ( parameterCommand, null );
