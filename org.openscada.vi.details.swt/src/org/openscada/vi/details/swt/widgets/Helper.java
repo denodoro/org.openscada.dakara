@@ -20,6 +20,8 @@
 package org.openscada.vi.details.swt.widgets;
 
 import org.eclipse.swt.SWT;
+import org.openscada.vi.details.swt.widgets.control.ControlImage;
+import org.openscada.vi.details.swt.widgets.control.TrendControlImage;
 
 public class Helper
 {

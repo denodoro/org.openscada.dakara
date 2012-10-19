@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.details.swt.widgets;
+package org.openscada.vi.details.swt.widgets.control;
 
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.Parameterization;
@@ -35,6 +35,7 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.vi.details.swt.Activator;
+import org.openscada.vi.details.swt.widgets.Messages;
 
 public class TrendControlImage extends Composite
 {

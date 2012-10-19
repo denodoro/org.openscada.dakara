@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.details.swt.widgets;
+package org.openscada.vi.details.swt.widgets.control;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -46,6 +46,9 @@ import org.openscada.vi.data.DataValue;
 import org.openscada.vi.data.RegistrationManager;
 import org.openscada.vi.data.RegistrationManager.Listener;
 import org.openscada.vi.details.swt.Activator;
+import org.openscada.vi.details.swt.widgets.DataItemToolTip;
+import org.openscada.vi.details.swt.widgets.LockMessageDialog;
+import org.openscada.vi.details.swt.widgets.Messages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

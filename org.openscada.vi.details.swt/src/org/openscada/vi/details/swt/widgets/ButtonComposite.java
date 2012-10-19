@@ -41,6 +41,7 @@ import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.details.model.DetailView.Registration;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.source.ValueSourceController;
+import org.openscada.vi.details.swt.widgets.control.ControlImage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

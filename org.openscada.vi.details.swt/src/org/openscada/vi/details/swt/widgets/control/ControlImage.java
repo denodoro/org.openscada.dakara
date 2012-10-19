@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.details.swt.widgets;
+package org.openscada.vi.details.swt.widgets.control;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
@@ -36,6 +36,7 @@ import org.openscada.da.client.dataitem.details.dialog.DataItemDetailsDialog;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.vi.data.RegistrationManager;
 import org.openscada.vi.data.SummaryInformation;
+import org.openscada.vi.details.swt.widgets.DragHelper;
 
 public class ControlImage extends Composite implements RegistrationManager.Listener
 {
