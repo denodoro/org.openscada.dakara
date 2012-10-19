@@ -44,12 +44,15 @@ public class TrendControlImage extends Composite
 
     private final String itemId;
 
-    public TrendControlImage ( final Composite parent, final int style, final String connectionId, final String itemId )
+    private final String queryString;
+
+    public TrendControlImage ( final Composite parent, final int style, final String connectionId, final String itemId, final String queryString )
     {
         super ( parent, style );
 
         this.connectionId = connectionId;
         this.itemId = itemId;
+        this.queryString = queryString;
 
         setLayout ( new FillLayout () );
 
@@ -76,7 +79,14 @@ public class TrendControlImage extends Composite
             final Parameterization[] parameterizations = new Parameterization[4];
             parameterizations[0] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.connectionId" ), this.connectionId ); //$NON-NLS-1$
             parameterizations[1] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.itemId" ), this.itemId ); //$NON-NLS-1$
-            parameterizations[2] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.queryTimespec" ), "40:10:200" ); //$NON-NLS-1$ //$NON-NLS-2$
+            if ( this.queryString == null || this.queryString.isEmpty () )
+            {
+                parameterizations[2] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.queryTimespec" ), "2400000:600000" ); //$NON-NLS-1$ //$NON-NLS-2$
+            }
+            else
+            {
+                parameterizations[2] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.queryTimespec" ), this.queryString ); //$NON-NLS-1$ 
+            }
             parameterizations[3] = new Parameterization ( command.getParameter ( "org.openscada.ui.chart.itemType" ), "hd" ); //$NON-NLS-1$ //$NON-NLS-2$
 
             final ParameterizedCommand parameterCommand = new ParameterizedCommand ( command, parameterizations );

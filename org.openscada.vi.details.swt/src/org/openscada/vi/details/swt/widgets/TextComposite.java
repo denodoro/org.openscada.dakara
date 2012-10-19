@@ -56,7 +56,7 @@ public class TextComposite extends ReadableComposite implements Listener
 
     private final BlockControlImage blockImage;
 
-    public TextComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, int width, int height, final boolean date, final int textHeight, final String textMap, final String hdConnectionId, final String hdItemId )
+    public TextComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, int width, int height, final boolean date, final int textHeight, final String textMap, final String hdConnectionId, final String hdItemId, final String queryString )
     {
         super ( parent, style, format, decimal, attribute );
 
@@ -78,7 +78,7 @@ public class TextComposite extends ReadableComposite implements Listener
         setLayout ( layout );
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
-        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId, queryString );
 
         this.blockImage = new BlockControlImage ( this.controlImage, SWT.NONE, this.registrationManager );
 

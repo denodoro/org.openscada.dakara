@@ -263,7 +263,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
+                final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
 
                 trackControl ( progress );
                 trackItem ( progressItem );
@@ -326,7 +326,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
+                final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
 
                 trackControl ( text );
                 trackItem ( textItem );
@@ -348,7 +348,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), resolve ( component.getAttribute (), properties ), readItem, component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getWidth () );
+                final TextInputComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), resolve ( component.getAttribute (), properties ), readItem, component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getWidth (), component.getHdQueryString () );
 
                 trackControl ( valueSet );
                 trackItem ( textInputItem );
@@ -391,7 +391,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getDate (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
+                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getDate (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
 
                 trackControl ( value );
                 trackItem ( item );

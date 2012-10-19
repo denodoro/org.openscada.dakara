@@ -51,7 +51,7 @@ public class TextInputComposite extends WriteableComposite
 
     private final BlockControlImage blockImage;
 
-    public TextInputComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId, int width )
+    public TextInputComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId, int width, final String queryString )
     {
         super ( parent, style, format, decimal, ceil, floor, attribute, hdConnectionId, hdItemId );
         this.descriptor = descriptor;
@@ -67,7 +67,7 @@ public class TextInputComposite extends WriteableComposite
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
         this.blockImage = new BlockControlImage ( this.controlImage, SWT.NONE, this.registrationManager );
-        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId, queryString );
 
         this.data = new Text ( this, SWT.BORDER | SWT.SINGLE | SWT.RIGHT );
         final GridData data = new GridData ( SWT.LEFT, SWT.CENTER, false, true );

@@ -30,9 +30,9 @@ public class Helper
 
     private final static Logger logger = LoggerFactory.getLogger ( Helper.class );
 
-    public static TrendControlImage createTrendButton ( final ControlImage controlImage, final String connectionId, final String itemId )
+    public static TrendControlImage createTrendButton ( final ControlImage controlImage, final String connectionId, final String itemId, final String queryString )
     {
-        logger.debug ( "Checking createTrendButton - connectionId: {}, itemId: {}", connectionId, itemId );
+        logger.debug ( "Checking createTrendButton - connectionId: {}, itemId: {}, queryString: {}", new Object[] { connectionId, itemId, queryString } );
 
         if ( connectionId == null || connectionId.isEmpty () )
         {
@@ -44,6 +44,6 @@ public class Helper
             return null;
         }
 
-        return new TrendControlImage ( controlImage.getClientSpace (), SWT.NONE, connectionId, itemId );
+        return new TrendControlImage ( controlImage.getClientSpace (), SWT.NONE, connectionId, itemId, queryString );
     }
 }

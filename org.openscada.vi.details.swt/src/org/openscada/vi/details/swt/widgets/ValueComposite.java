@@ -44,7 +44,7 @@ public class ValueComposite extends ReadableComposite
 
     private final ControlImage controlImage;
 
-    public ValueComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, final Boolean isDate, final String hdConnectionId, final String hdItemId )
+    public ValueComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, final Boolean isDate, final String hdConnectionId, final String hdItemId, final String queryString )
     {
         super ( parent, style, format, decimal, attribute );
 
@@ -58,7 +58,7 @@ public class ValueComposite extends ReadableComposite
         setLayout ( layout );
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
-        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId, queryString );
 
         this.dataLabel = new Label ( this, SWT.NONE );
         final RowData rowData = new RowData ( 80, SWT.DEFAULT );

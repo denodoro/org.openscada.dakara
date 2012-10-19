@@ -66,7 +66,7 @@ public class ProgressComposite extends ReadableComposite
 
     private final ControlImage controlImage;
 
-    public ProgressComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, final double max, final double min, final double factor, final int width, final String hdConnectionId, final String hdItemId )
+    public ProgressComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String decimal, final String attribute, final double max, final double min, final double factor, final int width, final String hdConnectionId, final String hdItemId, final String queryString )
     {
         super ( parent, style, format, decimal, attribute );
 
@@ -113,7 +113,7 @@ public class ProgressComposite extends ReadableComposite
         }
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
-        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId );
+        Helper.createTrendButton ( this.controlImage, hdConnectionId, hdItemId, queryString );
 
         this.progressBar = new ProgressBar ( this, SWT.NONE );
         //        this.progressBar.setSize ( this.progressWidth, this.textHeight );
