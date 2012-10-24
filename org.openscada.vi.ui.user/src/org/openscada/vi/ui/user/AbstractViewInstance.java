@@ -433,7 +433,7 @@ public abstract class AbstractViewInstance implements ViewInstance
     {
         if ( image == null )
         {
-            this.currentButtonImage = this.lazy ? this.imageInactive : this.imageOk;
+            this.currentButtonImage = this.lazy && !this.active ? this.imageInactive : this.imageOk;
         }
         else
         {
