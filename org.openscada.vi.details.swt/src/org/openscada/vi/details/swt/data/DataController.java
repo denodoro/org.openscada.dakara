@@ -206,7 +206,7 @@ public class DataController
             tracker.open ();
             tracker.waitForService ( 100 );
 
-            ( (org.openscada.ae.connection.provider.ConnectionService)tracker.getService () ).getConnection ().acknowledge ( source, timestamp );
+            ( (org.openscada.ae.connection.provider.ConnectionService)tracker.getService () ).getConnection ().acknowledge ( source, timestamp, null );
         }
         catch ( final InterruptedException e )
         {
@@ -241,9 +241,11 @@ public class DataController
      * Write value and/or attributes
      * 
      * @param value
-     *            the value to write or <code>null</code> if no value should be written
+     *            the value to write or <code>null</code> if no value should be
+     *            written
      * @param attributes
-     *            the attributes to write or <code>null</code> if no attributes should be written
+     *            the attributes to write or <code>null</code> if no attributes
+     *            should be written
      * @param descriptor
      *            the item descriptor to which it will write
      */
