@@ -32,6 +32,7 @@ import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.CompoundBorder;
 import org.eclipse.draw2d.GroupBoxBorder;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.MouseEvent;
@@ -258,6 +259,7 @@ public abstract class FigureController implements Controller
         setCursor ( convert ( figure.getCursor () ) );
         setVisible ( figure.isVisible () );
         setOpaque ( figure.getOpaque () );
+        setToolTip ( figure.getToolTip () );
 
         try
         {
@@ -284,6 +286,18 @@ public abstract class FigureController implements Controller
                     handleOnDoubleClick ( me );
                 }
             } );
+        }
+    }
+
+    public void setToolTip ( final String string )
+    {
+        if ( string == null )
+        {
+            getPropertyFigure ().setToolTip ( null );
+        }
+        else
+        {
+            getPropertyFigure ().setToolTip ( new Label ( string ) );
         }
     }
 

@@ -100,6 +100,7 @@
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/border"/>
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/opaque"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/toolTip"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
@@ -160,6 +161,9 @@
     <genClasses ecoreClass="VisualInterface.ecore#//Connection">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Connection/start"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Connection/end"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//StackContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//StackContainer/children"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

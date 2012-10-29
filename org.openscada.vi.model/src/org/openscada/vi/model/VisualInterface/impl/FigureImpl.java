@@ -34,6 +34,7 @@ import org.openscada.vi.model.VisualInterface.VisualInterfacePackage;
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getBorder <em>Border</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getOpaque <em>Opaque</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.impl.FigureImpl#getToolTip <em>Tool Tip</em>}</li>
  * </ul>
  * </p>
  *
@@ -220,6 +221,26 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * @ordered
      */
     protected Boolean opaque = OPAQUE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getToolTip() <em>Tool Tip</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getToolTip()
+     * @generated
+     * @ordered
+     */
+    protected static final String TOOL_TIP_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getToolTip() <em>Tool Tip</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getToolTip()
+     * @generated
+     * @ordered
+     */
+    protected String toolTip = TOOL_TIP_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -526,6 +547,29 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getToolTip ()
+    {
+        return toolTip;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setToolTip ( String newToolTip )
+    {
+        String oldToolTip = toolTip;
+        toolTip = newToolTip;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.FIGURE__TOOL_TIP, oldToolTip, toolTip ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -569,6 +613,8 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
                 return getBorder ();
             case VisualInterfacePackage.FIGURE__OPAQUE:
                 return getOpaque ();
+            case VisualInterfacePackage.FIGURE__TOOL_TIP:
+                return getToolTip ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -612,6 +658,9 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
                 return;
             case VisualInterfacePackage.FIGURE__OPAQUE:
                 setOpaque ( (Boolean)newValue );
+                return;
+            case VisualInterfacePackage.FIGURE__TOOL_TIP:
+                setToolTip ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -657,6 +706,9 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
             case VisualInterfacePackage.FIGURE__OPAQUE:
                 setOpaque ( OPAQUE_EDEFAULT );
                 return;
+            case VisualInterfacePackage.FIGURE__TOOL_TIP:
+                setToolTip ( TOOL_TIP_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -691,6 +743,8 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
                 return BORDER_EDEFAULT == null ? border != null : !BORDER_EDEFAULT.equals ( border );
             case VisualInterfacePackage.FIGURE__OPAQUE:
                 return OPAQUE_EDEFAULT == null ? opaque != null : !OPAQUE_EDEFAULT.equals ( opaque );
+            case VisualInterfacePackage.FIGURE__TOOL_TIP:
+                return TOOL_TIP_EDEFAULT == null ? toolTip != null : !TOOL_TIP_EDEFAULT.equals ( toolTip );
         }
         return super.eIsSet ( featureID );
     }
@@ -723,6 +777,8 @@ public abstract class FigureImpl extends EObjectImpl implements Figure
         result.append ( border );
         result.append ( ", opaque: " ); //$NON-NLS-1$
         result.append ( opaque );
+        result.append ( ", toolTip: " ); //$NON-NLS-1$
+        result.append ( toolTip );
         result.append ( ')' );
         return result.toString ();
     }

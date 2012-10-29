@@ -23,6 +23,7 @@ package org.openscada.vi.model.VisualInterface;
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getBorder <em>Border</em>}</li>
  *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getOpaque <em>Opaque</em>}</li>
+ *   <li>{@link org.openscada.vi.model.VisualInterface.Figure#getToolTip <em>Tool Tip</em>}</li>
  * </ul>
  * </p>
  *
@@ -266,5 +267,31 @@ public interface Figure extends Primitive
      * @generated
      */
     void setOpaque ( Boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Tool Tip</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Tool Tip</em>' attribute.
+     * @see #setToolTip(String)
+     * @see org.openscada.vi.model.VisualInterface.VisualInterfacePackage#getFigure_ToolTip()
+     * @model
+     * @generated
+     */
+    String getToolTip ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.model.VisualInterface.Figure#getToolTip <em>Tool Tip</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Tool Tip</em>' attribute.
+     * @see #getToolTip()
+     * @generated
+     */
+    void setToolTip ( String value );
 
 } // Figure

@@ -327,13 +327,22 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE__OPAQUE = PRIMITIVE_FEATURE_COUNT + 8;
 
     /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE__TOOL_TIP = PRIMITIVE_FEATURE_COUNT + 9;
+
+    /**
      * The number of structural features of the '<em>Figure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 9;
+    int FIGURE_FEATURE_COUNT = PRIMITIVE_FEATURE_COUNT + 10;
 
     /**
      * The meta object id for the '{@link org.openscada.vi.model.VisualInterface.impl.ShapeImpl <em>Shape</em>}' class.
@@ -434,6 +443,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int SHAPE__OPAQUE = FIGURE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SHAPE__TOOL_TIP = FIGURE__TOOL_TIP;
 
     /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
@@ -590,6 +608,15 @@ public interface VisualInterfacePackage extends EPackage
     int RECTANGLE__OPAQUE = SHAPE__OPAQUE;
 
     /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int RECTANGLE__TOOL_TIP = SHAPE__TOOL_TIP;
+
+    /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -742,6 +769,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int TEXT__OPAQUE = FIGURE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__TOOL_TIP = FIGURE__TOOL_TIP;
 
     /**
      * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -1098,6 +1134,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int LINE__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LINE__TOOL_TIP = SHAPE__TOOL_TIP;
 
     /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
@@ -1749,6 +1794,15 @@ public interface VisualInterfacePackage extends EPackage
     int FIGURE_CONTAINER__OPAQUE = FIGURE__OPAQUE;
 
     /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIGURE_CONTAINER__TOOL_TIP = FIGURE__TOOL_TIP;
+
+    /**
      * The feature id for the '<em><b>Content</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1867,6 +1921,15 @@ public interface VisualInterfacePackage extends EPackage
     int IMAGE__OPAQUE = FIGURE__OPAQUE;
 
     /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__TOOL_TIP = FIGURE__TOOL_TIP;
+
+    /**
      * The feature id for the '<em><b>Uri</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1983,6 +2046,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int ELLIPSE__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELLIPSE__TOOL_TIP = SHAPE__TOOL_TIP;
 
     /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
@@ -2137,6 +2209,15 @@ public interface VisualInterfacePackage extends EPackage
      * @ordered
      */
     int ARC__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARC__TOOL_TIP = SHAPE__TOOL_TIP;
 
     /**
      * The feature id for the '<em><b>Line Width</b></em>' attribute.
@@ -2905,6 +2986,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getFigure_Opaque ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.openscada.vi.model.VisualInterface.Figure#getToolTip <em>Tool Tip</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Tool Tip</em>'.
+     * @see org.openscada.vi.model.VisualInterface.Figure#getToolTip()
+     * @see #getFigure()
+     * @generated
+     */
+    EAttribute getFigure_ToolTip ();
 
     /**
      * Returns the meta object for class '{@link org.openscada.vi.model.VisualInterface.SymbolReference <em>Symbol Reference</em>}'.
@@ -3961,6 +4053,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute FIGURE__OPAQUE = eINSTANCE.getFigure_Opaque ();
+
+        /**
+         * The meta object literal for the '<em><b>Tool Tip</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIGURE__TOOL_TIP = eINSTANCE.getFigure_ToolTip ();
 
         /**
          * The meta object literal for the '{@link org.openscada.vi.model.VisualInterface.impl.SymbolReferenceImpl <em>Symbol Reference</em>}' class.

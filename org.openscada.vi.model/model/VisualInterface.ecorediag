@@ -247,6 +247,10 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/opaque"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GeD4wc1lEeCcyLDEFQz-bQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_aWNKYCHdEeKkDM2DFuEq-Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/toolTip"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aWNKYSHdEeKkDM2DFuEq-Q"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_61fs4sgDEeCAIKcTIp9H1A"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_61fs48gDEeCAIKcTIp9H1A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_61fs5MgDEeCAIKcTIp9H1A"/>
