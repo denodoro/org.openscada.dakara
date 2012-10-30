@@ -176,19 +176,13 @@ public abstract class FigureController implements Controller
 
         private final ColorApplier applier;
 
-        private final Color onColor;
+        private final Color[] colors;
 
-        private final Color offColor;
-
-        private final int frequency;
-
-        public BlinkingColor ( final IFigure figure, final ColorApplier applier, final Color onColor, final Color offColor, final int frequency )
+        public BlinkingColor ( final IFigure figure, final ColorApplier applier, final Color[] colors )
         {
             this.figure = figure;
             this.applier = applier;
-            this.onColor = onColor;
-            this.offColor = offColor;
-            this.frequency = frequency;
+            this.colors = colors;
         }
 
         @Override
@@ -207,8 +201,14 @@ public abstract class FigureController implements Controller
         @Override
         public void toggle ( final int globalCounter )
         {
-            final boolean on = globalCounter % this.frequency == 0;
-            this.applier.applyColor ( this.figure, on ? this.onColor : this.offColor );
+            if ( this.colors == null || this.colors.length == 0 )
+            {
+                this.applier.applyColor ( this.figure, null );
+            }
+            else
+            {
+                this.applier.applyColor ( this.figure, this.colors[globalCounter % this.colors.length] );
+            }
         }
     }
 
@@ -704,23 +704,16 @@ public abstract class FigureController implements Controller
         }
         else if ( ( color.startsWith ( "#" ) || color.startsWith ( "|" ) ) && color.contains ( "|" ) )
         {
-            final String tok[] = color.split ( "\\|" );
-            final Color onColor = createColor ( Helper.makeColor ( tok[0] ) );
-            Color offColor;
-            int stepCount = 1;
-            if ( tok.length > 1 )
+            final String tok[] = color.split ( "\\|", -1 );
+
+            final Color[] colors = new Color[tok.length];
+            int i = 0;
+            for ( final String colorString : tok )
             {
-                offColor = createColor ( Helper.makeColor ( tok[1] ) );
+                colors[i] = createColor ( Helper.makeColor ( colorString ) );
+                i++;
             }
-            else
-            {
-                offColor = null;
-            }
-            if ( tok.length > 2 )
-            {
-                stepCount = Integer.parseInt ( tok[2] );
-            }
-            return new BlinkingColor ( getPropertyFigure (), applier, onColor, offColor, stepCount * 2 );
+            return new BlinkingColor ( getPropertyFigure (), applier, colors );
         }
         return new DefaultColor ( getPropertyFigure (), applier );
     }

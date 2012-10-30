@@ -176,6 +176,7 @@ public class SymbolController implements Listener
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE );
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE );
         this.scriptContext.setAttribute ( "GSON", createJson (), ScriptContext.ENGINE_SCOPE );
+        this.scriptContext.setAttribute ( "styleGenerator", org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator (), ScriptContext.ENGINE_SCOPE );
         this.scriptObjects = scriptObjects;
         addScriptObjects ( scriptObjects );
         if ( parentController != null )
