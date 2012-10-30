@@ -127,9 +127,9 @@ public class SummaryInformation
         return isAttribute ( "blocked", false );
     }
 
-    public boolean isAckRequired ()
+    public boolean isAckRequired ( final String severity )
     {
-        return isAttribute ( "ackRequired", false );
+        return isAttribute ( severity + ".ackRequired", false );
     }
 
     public boolean isAttribute ( final String attributeName, final boolean defaultValue )

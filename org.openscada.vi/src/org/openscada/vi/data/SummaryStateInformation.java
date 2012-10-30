@@ -35,9 +35,17 @@ class SummaryStateInformation extends AbstractStateInformation
     {
         final EnumSet<State> result = EnumSet.noneOf ( State.class );
 
-        if ( info.isAckRequired () )
+        if ( info.isAckRequired ( "warning" ) )
         {
-            result.add ( State.ACK );
+            result.add ( State.WARNING_ACK );
+        }
+        if ( info.isAckRequired ( "alarm" ) )
+        {
+            result.add ( State.ALARM_ACK );
+        }
+        if ( info.isAckRequired ( "error" ) )
+        {
+            result.add ( State.ERROR_ACK );
         }
         if ( info.isManual () )
         {

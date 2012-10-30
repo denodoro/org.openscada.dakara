@@ -33,6 +33,8 @@ import org.openscada.vi.details.swt.source.ValueSourceController;
 public abstract class CompositeTransformerController implements ValueSourceController
 {
 
+    private static final String[] SEVERITIES = new String[] { "error", "alarm", "warning" };
+
     protected final List<ValueSourceController> values;
 
     protected SummaryInformation state;
@@ -67,7 +69,12 @@ public abstract class CompositeTransformerController implements ValueSourceContr
         attributes.put ( "error", Variant.valueOf ( this.state.isError () ) ); //$NON-NLS-1$
         attributes.put ( "manual", Variant.valueOf ( this.state.isManual () ) ); //$NON-NLS-1$
         attributes.put ( "alarm", Variant.valueOf ( this.state.isAlarm () ) ); //$NON-NLS-1$
-        attributes.put ( "ackRequired", Variant.valueOf ( this.state.isAckRequired () ) ); //$NON-NLS-1$
+
+        for ( final String severity : SEVERITIES )
+        {
+            attributes.put ( severity + ".ackRequired", Variant.valueOf ( this.state.isAckRequired ( severity ) ) ); //$NON-NLS-1$    
+        }
+
         return attributes;
     }
 
