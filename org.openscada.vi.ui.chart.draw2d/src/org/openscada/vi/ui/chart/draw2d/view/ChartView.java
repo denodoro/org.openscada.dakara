@@ -32,10 +32,10 @@ import org.openscada.ui.chart.model.ChartModel.Chart;
 import org.openscada.ui.chart.selector.ChartInputSelector;
 import org.openscada.ui.chart.viewer.ChartViewer;
 import org.openscada.vi.ui.chart.draw2d.ChartHelper;
-import org.openscada.vi.ui.user.AbstractViewInstance;
-import org.openscada.vi.ui.user.ViewInstanceDescriptor;
-import org.openscada.vi.ui.user.ViewManager;
-import org.openscada.vi.ui.user.ViewManagerContext;
+import org.openscada.vi.ui.user.viewer.AbstractViewInstance;
+import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
+import org.openscada.vi.ui.user.viewer.ViewManager;
+import org.openscada.vi.ui.user.viewer.ViewManagerContext;
 
 public class ChartView extends AbstractViewInstance
 {

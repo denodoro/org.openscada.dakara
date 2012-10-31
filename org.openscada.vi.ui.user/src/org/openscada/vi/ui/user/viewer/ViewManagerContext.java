@@ -1,6 +1,6 @@
 /*
  * This file is part of the openSCADA project
- * Copyright (C) 2006-2011 TH4 SYSTEMS GmbH (http://th4-systems.com)
+ * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -17,11 +17,21 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user;
+package org.openscada.vi.ui.user.viewer;
 
-public interface ViewManager
+import org.eclipse.jface.viewers.ISelectionProvider;
+
+public interface ViewManagerContext
 {
-    public void showView ( String id );
+    public int calculateToolbarIndex ( ViewInstanceDescriptor descriptor );
 
-    public void showView ( String id, boolean force );
+    public void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
+
+    public void viewVisibilityChanged ( ViewInstance viewInstance, boolean state );
+
+    public void viewActiveChanged ( ViewInstance viewInstance, boolean state );
+
+    public void viewControlChanged ( ViewInstance viewInstance );
+
+    public void setSelectionProvider ( ISelectionProvider selectionProvider );
 }

@@ -23,6 +23,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.openscada.vi.ui.user.viewer.ViewInstance;
+import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
 
 public class ErrorView implements ViewInstance
 {

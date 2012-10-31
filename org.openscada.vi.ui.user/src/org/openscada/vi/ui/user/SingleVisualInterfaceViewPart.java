@@ -71,6 +71,10 @@ import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.ui.databinding.item.DataItemObservableValue;
 import org.openscada.ui.utils.AbstractSelectionProvider;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
+import org.openscada.vi.ui.user.viewer.ViewInstance;
+import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
+import org.openscada.vi.ui.user.viewer.ViewManager;
+import org.openscada.vi.ui.user.viewer.ViewManagerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

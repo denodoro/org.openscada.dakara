@@ -24,6 +24,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.services.IEvaluationService;
+import org.openscada.vi.ui.user.viewer.ViewInstance;
+import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
+import org.openscada.vi.ui.user.viewer.ViewInstanceFactory;
+import org.openscada.vi.ui.user.viewer.ViewManager;
+import org.openscada.vi.ui.user.viewer.ViewManagerContext;
 
 public class VisualInterfaceFactory implements ViewInstanceFactory
 {

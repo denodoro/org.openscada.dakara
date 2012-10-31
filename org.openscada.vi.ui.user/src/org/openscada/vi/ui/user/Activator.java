@@ -36,6 +36,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
+import org.openscada.vi.ui.user.viewer.ViewInstanceFactory;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 

@@ -17,7 +17,7 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user;
+package org.openscada.vi.ui.user.viewer;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.services.IEvaluationReference;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.core.ui.styles.StyleBlinker;
+import org.openscada.vi.ui.user.Activator;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

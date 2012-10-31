@@ -17,21 +17,23 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user;
+package org.openscada.vi.ui.user.viewer;
 
-import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.swt.widgets.Control;
 
-public interface ViewManagerContext
+public interface ViewInstance
 {
-    public int calculateToolbarIndex ( ViewInstanceDescriptor descriptor );
+    public void reload ();
 
-    public void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
+    public void activate ();
 
-    public void viewVisibilityChanged ( ViewInstance viewInstance, boolean state );
+    public void deactivate ();
 
-    public void viewActiveChanged ( ViewInstance viewInstance, boolean state );
+    public void setFocus ();
 
-    public void viewControlChanged ( ViewInstance viewInstance );
+    public Control getControl ();
 
-    public void setSelectionProvider ( ISelectionProvider selectionProvider );
+    public boolean isDefaultInstance ();
+
+    public ViewInstanceDescriptor getDescriptor ();
 }

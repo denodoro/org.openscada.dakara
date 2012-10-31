@@ -31,6 +31,10 @@ import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.data.SummaryListener;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
+import org.openscada.vi.ui.user.viewer.AbstractViewInstance;
+import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
+import org.openscada.vi.ui.user.viewer.ViewManager;
+import org.openscada.vi.ui.user.viewer.ViewManagerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
