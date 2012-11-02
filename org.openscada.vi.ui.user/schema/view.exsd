@@ -147,6 +147,13 @@ If both are specified this field is used.
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="summaryItem" type="string">
+            <annotation>
+               <documentation>
+                  Define a summary item in the form of &quot;connectionId#itemId&quot;. This item is used for summary information instead of the summary information of the view. Also this summary will be shown independent of the lazy and active state of the view.
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

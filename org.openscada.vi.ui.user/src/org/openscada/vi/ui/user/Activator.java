@@ -186,6 +186,17 @@ public class Activator extends AbstractUIPlugin
 
             final Boolean zooming = element.getAttribute ( "zooming" ) == null ? null : Boolean.parseBoolean ( element.getAttribute ( "zooming" ) );
 
+            // parse summaryItem - if available
+            String summaryConnectionId = null;
+            String summaryItemId = null;
+            final String summaryItem = element.getAttribute ( "summaryItem" );
+            if ( summaryItem.contains ( "#" ) )
+            {
+                final String tok[] = summaryItem.split ( "\\#", 2 );
+                summaryConnectionId = tok[0];
+                summaryItemId = tok[1];
+            }
+
             Expression lazyExpression = null;
             Expression visibleExpression = null;
             Expression defaultInstanceExpression = null;
@@ -211,7 +222,7 @@ public class Activator extends AbstractUIPlugin
                 }
             }
 
-            return new ViewInstanceDescriptor ( id, parentId, factory, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, properties );
+            return new ViewInstanceDescriptor ( id, parentId, factory, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, summaryConnectionId, summaryItemId, properties );
         }
         catch ( final Throwable e )
         {
