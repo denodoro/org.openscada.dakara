@@ -20,12 +20,22 @@
 package org.openscada.vi.ui.user.viewer;
 
 import java.net.URI;
+import java.util.Comparator;
 import java.util.Map;
 
 import org.eclipse.core.expressions.Expression;
 
 public class ViewInstanceDescriptor
 {
+
+    public static final Comparator<? super ViewInstanceDescriptor> DESCRIPTOR_ORDER_COMPARATOR = new Comparator<ViewInstanceDescriptor> () {
+        @Override
+        public int compare ( final ViewInstanceDescriptor o1, final ViewInstanceDescriptor o2 )
+        {
+            return Integer.valueOf ( o1.getOrder () ).compareTo ( o2.getOrder () );
+        }
+    };
+
     private final String id;
 
     private final String parentId;

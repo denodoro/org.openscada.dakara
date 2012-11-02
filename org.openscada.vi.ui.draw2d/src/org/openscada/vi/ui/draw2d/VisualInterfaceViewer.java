@@ -45,7 +45,9 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.status.StatusHelper;
+import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.data.SummaryListener;
+import org.openscada.vi.data.SummaryProvider;
 import org.openscada.vi.model.VisualInterface.Primitive;
 import org.openscada.vi.model.VisualInterface.Symbol;
 import org.openscada.vi.ui.draw2d.loader.StaticSymbolLoader;
@@ -53,7 +55,7 @@ import org.openscada.vi.ui.draw2d.loader.SymbolLoader;
 import org.openscada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.openscada.vi.ui.draw2d.preferences.PreferenceConstants;
 
-public class VisualInterfaceViewer extends Composite
+public class VisualInterfaceViewer extends Composite implements SummaryProvider
 {
     private final BasicViewElementFactory factory;
 
@@ -319,6 +321,7 @@ public class VisualInterfaceViewer extends Composite
         }
     }
 
+    @Override
     public void addSummaryListener ( final SummaryListener listener )
     {
         if ( this.controller != null )
@@ -327,12 +330,19 @@ public class VisualInterfaceViewer extends Composite
         }
     }
 
+    @Override
     public void removeSummaryListener ( final SummaryListener listener )
     {
         if ( this.controller != null )
         {
             this.controller.removeSummaryListener ( listener );
         }
+    }
+
+    @Override
+    public SummaryInformation getSummary ()
+    {
+        return this.controller.getSummaryInformation ();
     }
 
 }

@@ -24,4 +24,8 @@ public interface ViewManager
     public void showView ( String id );
 
     public void showView ( String id, boolean force );
+
+    public void addViewManagerListener ( ViewManagerListener listener );
+
+    public void removeViewManagerListener ( ViewManagerListener listener );
 }

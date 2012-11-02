@@ -21,7 +21,6 @@ package org.openscada.vi.ui.chart.draw2d.view;
 
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.vi.ui.user.viewer.ViewInstance;
@@ -34,9 +33,9 @@ public class ChartViewFactory implements ViewInstanceFactory
 {
 
     @Override
-    public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ToolBar toolBar, final ResourceManager manager, final IWorkbenchPartSite site )
+    public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ResourceManager manager, final IWorkbenchPartSite site )
     {
-        final ChartView view = new ChartView ( viewManagerContext, viewManager, manager, descriptor, viewHolder, toolBar, (IEvaluationService)site.getService ( IEvaluationService.class ), true );
+        final ChartView view = new ChartView ( viewManagerContext, manager, descriptor, viewHolder, (IEvaluationService)site.getService ( IEvaluationService.class ), true );
         view.init ();
         return view;
     }

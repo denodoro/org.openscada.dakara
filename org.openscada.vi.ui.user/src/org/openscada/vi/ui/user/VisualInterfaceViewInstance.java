@@ -20,16 +20,19 @@
 package org.openscada.vi.ui.user;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.core.runtime.SafeRunner;
+import org.eclipse.jface.util.SafeRunnable;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.vi.data.SummaryInformation;
 import org.openscada.vi.data.SummaryListener;
+import org.openscada.vi.data.SummaryProvider;
 import org.openscada.vi.ui.draw2d.VisualInterfaceViewer;
 import org.openscada.vi.ui.user.viewer.AbstractViewInstance;
 import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
@@ -40,7 +43,6 @@ import org.slf4j.LoggerFactory;
 
 public class VisualInterfaceViewInstance extends AbstractViewInstance implements SummaryListener, SummaryProvider
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( VisualInterfaceViewInstance.class );
 
     private VisualInterfaceViewer viewer;
@@ -51,9 +53,11 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
 
     private SummaryInformation currentSummary;
 
-    public VisualInterfaceViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ToolBar toolbar, final ViewInstanceDescriptor descriptor, final ResourceManager manager, final IEvaluationService evaluationService )
+    private final Set<SummaryListener> summaryListeners = new LinkedHashSet<SummaryListener> ();
+
+    public VisualInterfaceViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final Composite parent, final ViewInstanceDescriptor descriptor, final IEvaluationService evaluationService )
     {
-        super ( viewManagerContext, viewManager, manager, descriptor, toolbar, evaluationService );
+        super ( viewManagerContext, descriptor, evaluationService );
         this.parent = parent;
 
         // create the visual interface view
@@ -76,8 +80,6 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
 
         // always add summary listener if we are active
         this.viewer.addSummaryListener ( this );
-
-        fireActiveStateChanged ( true );
     }
 
     @Override
@@ -86,20 +88,15 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
         if ( this.viewer != null )
         {
             this.viewer.removeSummaryListener ( this );
-            this.blinker.setStyle ( null );
 
             this.viewer.dispose ();
             this.viewer = null;
-
-            fireActiveStateChanged ( false );
         }
     }
 
     @Override
     public void dispose ()
     {
-        this.blinker.dispose ();
-
         if ( this.viewer != null )
         {
             this.viewer.removeSummaryListener ( this );
@@ -133,6 +130,33 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
     {
         logger.debug ( "Summary changed: {}", summary );
         this.currentSummary = summary;
-        this.blinker.setStyle ( org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator ().generateStyle ( summary.getStateInformation () ) );
+        fireSummaryChanged ( summary );
+    }
+
+    private void fireSummaryChanged ( final SummaryInformation summary )
+    {
+        for ( final SummaryListener listener : this.summaryListeners )
+        {
+            SafeRunner.run ( new SafeRunnable () {
+
+                @Override
+                public void run () throws Exception
+                {
+                    listener.summaryChanged ( summary );
+                }
+            } );
+        }
+    }
+
+    @Override
+    public void addSummaryListener ( final SummaryListener summaryListener )
+    {
+        this.summaryListeners.add ( summaryListener );
+    }
+
+    @Override
+    public void removeSummaryListener ( final SummaryListener summaryListener )
+    {
+        this.summaryListeners.remove ( summaryListener );
     }
 }

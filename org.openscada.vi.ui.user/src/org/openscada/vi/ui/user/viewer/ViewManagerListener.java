@@ -16,12 +16,19 @@
  * version 3 along with openSCADA. If not, see
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
+package org.openscada.vi.ui.user.viewer;
 
-package org.openscada.vi.ui.user;
-
-import org.openscada.vi.data.SummaryInformation;
-
-public interface SummaryProvider
+public interface ViewManagerListener
 {
-    public SummaryInformation getSummary ();
+
+    public abstract void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
+
+    public abstract void viewVisibilityChanged ( ViewInstance viewInstance, boolean state );
+
+    public abstract void viewLazynessChanged ( ViewInstance viewInstance, boolean state );
+
+    public abstract void viewActiveChanged ( ViewInstance viewInstance, boolean state );
+
+    public abstract void viewControlChanged ( ViewInstance viewInstance );
+
 }

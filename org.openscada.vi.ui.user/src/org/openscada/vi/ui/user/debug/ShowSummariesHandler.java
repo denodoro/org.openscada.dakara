@@ -24,7 +24,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.openscada.ui.databinding.AbstractSelectionHandler;
 import org.openscada.ui.databinding.AdapterHelper;
 import org.openscada.vi.data.SummaryInformation;
-import org.openscada.vi.ui.user.SummaryProvider;
+import org.openscada.vi.data.SummaryProvider;
 
 public class ShowSummariesHandler extends AbstractSelectionHandler
 {

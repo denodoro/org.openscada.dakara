@@ -25,7 +25,6 @@ import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.services.IEvaluationService;
 import org.openscada.chart.swt.ChartArea;
 import org.openscada.ui.chart.model.ChartModel.Chart;
@@ -34,7 +33,6 @@ import org.openscada.ui.chart.viewer.ChartViewer;
 import org.openscada.vi.ui.chart.draw2d.ChartHelper;
 import org.openscada.vi.ui.user.viewer.AbstractViewInstance;
 import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
-import org.openscada.vi.ui.user.viewer.ViewManager;
 import org.openscada.vi.ui.user.viewer.ViewManagerContext;
 
 public class ChartView extends AbstractViewInstance
@@ -55,9 +53,9 @@ public class ChartView extends AbstractViewInstance
 
     private final ViewManagerContext viewManagerContext;
 
-    public ChartView ( final ViewManagerContext viewManagerContext, final ViewManager viewManager, final ResourceManager manager, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ToolBar toolbar, final IEvaluationService evaluationService, final boolean showSelector )
+    public ChartView ( final ViewManagerContext viewManagerContext, final ResourceManager manager, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final IEvaluationService evaluationService, final boolean showSelector )
     {
-        super ( viewManagerContext, viewManager, manager, descriptor, toolbar, evaluationService );
+        super ( viewManagerContext, descriptor, evaluationService );
         this.showSelector = showSelector;
         this.viewHolder = viewHolder;
         this.viewManagerContext = viewManagerContext;
@@ -96,8 +94,6 @@ public class ChartView extends AbstractViewInstance
             this.wrapper.setWeights ( new int[] { 90, 10 } );
         }
 
-        fireActiveStateChanged ( true );
-
         this.viewManagerContext.setSelectionProvider ( this.chart );
         this.chart.setFocus ();
     }
@@ -107,10 +103,8 @@ public class ChartView extends AbstractViewInstance
     {
         this.viewManagerContext.setSelectionProvider ( null );
 
-        boolean didDispose = false;
         if ( this.chart != null )
         {
-            didDispose = true;
             this.chart.dispose ();
             this.chart = null;
         }
@@ -129,12 +123,6 @@ public class ChartView extends AbstractViewInstance
             this.wrapper.dispose ();
             this.wrapper = null;
         }
-
-        if ( didDispose )
-        {
-            fireActiveStateChanged ( false );
-        }
-
     }
 
 }

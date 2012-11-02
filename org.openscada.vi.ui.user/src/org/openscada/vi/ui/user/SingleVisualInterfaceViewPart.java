@@ -23,10 +23,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +39,7 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -50,6 +50,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.jface.util.SafeRunnable;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
@@ -63,18 +64,19 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.part.ViewPart;
 import org.openscada.core.Variant;
 import org.openscada.ui.databinding.VariantToStringConverter;
 import org.openscada.ui.databinding.item.DataItemObservableValue;
 import org.openscada.ui.utils.AbstractSelectionProvider;
+import org.openscada.vi.ui.user.navigation.ToolBarNavigator;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.openscada.vi.ui.user.viewer.ViewInstance;
 import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
 import org.openscada.vi.ui.user.viewer.ViewManager;
 import org.openscada.vi.ui.user.viewer.ViewManagerContext;
+import org.openscada.vi.ui.user.viewer.ViewManagerListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -88,17 +90,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private final static Logger logger = LoggerFactory.getLogger ( SingleVisualInterfaceViewPart.class );
 
-    private static final Comparator<? super ViewInstanceDescriptor> DESCRIPTOR_ORDER_COMPARATOR = new Comparator<ViewInstanceDescriptor> () {
-        @Override
-        public int compare ( final ViewInstanceDescriptor o1, final ViewInstanceDescriptor o2 )
-        {
-            return Integer.valueOf ( o1.getOrder () ).compareTo ( o2.getOrder () );
-        }
-    };
-
     private Composite viewHolder;
-
-    private ToolBar toolBar;
 
     private final Map<String, ViewInstance> instances = new LinkedHashMap<String, ViewInstance> ( 1 );
 
@@ -126,10 +118,14 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private ISelectionProvider selectionProvider;
 
+    private ToolBarNavigator toolBarNavigator;
+
+    private final Set<ViewManagerListener> viewManagerListeners = new LinkedHashSet<ViewManagerListener> ();
+
     public SingleVisualInterfaceViewPart ()
     {
         this.descriptors = new ArrayList<ViewInstanceDescriptor> ( Activator.getDescriptors () );
-        Collections.sort ( this.descriptors, DESCRIPTOR_ORDER_COMPARATOR );
+        Collections.sort ( this.descriptors, ViewInstanceDescriptor.DESCRIPTOR_ORDER_COMPARATOR );
     }
 
     @Override
@@ -152,8 +148,8 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         toolWrapper.setLayout ( toolLayout );
 
         // toolbar for view buttons
-        this.toolBar = new ToolBar ( toolWrapper, SWT.HORIZONTAL | SWT.WRAP );
-        this.toolBar.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
+        this.toolBarNavigator = new ToolBarNavigator ( toolWrapper, SWT.HORIZONTAL | SWT.WRAP, this );
+        this.toolBarNavigator.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
 
         // selection
         this.selectionProvider = new AbstractSelectionProvider ();
@@ -355,7 +351,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private ViewInstance createAndAddView ( final ViewInstanceDescriptor descriptor )
     {
-        final ViewInstance instance = descriptor.getFactory ().createViewInstance ( this, this, descriptor, this.viewHolder, this.toolBar, this.manager, getSite () );
+        final ViewInstance instance = descriptor.getFactory ().createViewInstance ( this, this, descriptor, this.viewHolder, this.manager, getSite () );
         this.instances.put ( descriptor.getId (), instance );
         return instance;
     }
@@ -388,7 +384,6 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
         try
         {
-
             if ( this.currentInstance != null )
             {
                 this.currentInstance.deactivate ();
@@ -427,38 +422,10 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     }
 
     @Override
-    public int calculateToolbarIndex ( final ViewInstanceDescriptor descriptor )
-    {
-        if ( hasParent ( descriptor ) )
-        {
-            logger.debug ( "Has no parent: {}", descriptor );
-            return -1;
-        }
-
-        final List<ViewInstanceDescriptor> data = new ArrayList<ViewInstanceDescriptor> ( this.visibleDescriptors );
-
-        // remove all views with a parent
-        final Iterator<ViewInstanceDescriptor> i = data.iterator ();
-        while ( i.hasNext () )
-        {
-            if ( hasParent ( i.next () ) )
-            {
-                logger.debug ( "{} has no parent, remove: ", descriptor );
-                i.remove ();
-            }
-        }
-
-        data.add ( descriptor );
-        Collections.sort ( data, DESCRIPTOR_ORDER_COMPARATOR );
-
-        logger.debug ( "Sort order: {}", data );
-
-        return data.indexOf ( descriptor );
-    }
-
-    @Override
     public void viewVisibilityChanged ( final ViewInstance viewInstance, final boolean visible )
     {
+        fireViewVisibilityChanged ( viewInstance, visible );
+
         if ( visible )
         {
             this.visibleDescriptors.add ( viewInstance.getDescriptor () );
@@ -480,6 +447,21 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         {
             // find new visible main
             activateNextMain ();
+        }
+    }
+
+    private void fireViewVisibilityChanged ( final ViewInstance viewInstance, final boolean visible )
+    {
+        for ( final ViewManagerListener listener : this.viewManagerListeners )
+        {
+            SafeRunner.run ( new SafeRunnable () {
+
+                @Override
+                public void run () throws Exception
+                {
+                    listener.viewVisibilityChanged ( viewInstance, visible );
+                }
+            } );
         }
     }
 
@@ -508,7 +490,7 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
                 result.add ( desc );
             }
         }
-        Collections.sort ( result, DESCRIPTOR_ORDER_COMPARATOR );
+        Collections.sort ( result, ViewInstanceDescriptor.DESCRIPTOR_ORDER_COMPARATOR );
 
         return result;
     }
@@ -537,6 +519,45 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
                 activateNextMain ();
             }
         }
+        fireActiveChanged ( viewInstance, state );
+    }
+
+    private void fireActiveChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+        for ( final ViewManagerListener listener : this.viewManagerListeners )
+        {
+            SafeRunner.run ( new SafeRunnable () {
+
+                @Override
+                public void run () throws Exception
+                {
+                    listener.viewActiveChanged ( viewInstance, state );
+                }
+            } );
+        }
+    }
+
+    @Override
+    public void viewLazynessChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+        logger.debug ( "viewLazynessChanged : {} - {}", viewInstance.getDescriptor (), state );
+
+        fireLazyStateChanged ( viewInstance, state );
+    }
+
+    private void fireLazyStateChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+        for ( final ViewManagerListener listener : this.viewManagerListeners )
+        {
+            SafeRunner.run ( new SafeRunnable () {
+
+                @Override
+                public void run () throws Exception
+                {
+                    listener.viewLazynessChanged ( viewInstance, state );
+                }
+            } );
+        }
     }
 
     @Override
@@ -553,5 +574,17 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     public void setSelectionProvider ( final ISelectionProvider selectionProvider )
     {
         getSite ().setSelectionProvider ( selectionProvider );
+    }
+
+    @Override
+    public void addViewManagerListener ( final ViewManagerListener listener )
+    {
+        this.viewManagerListeners.add ( listener );
+    }
+
+    @Override
+    public void removeViewManagerListener ( final ViewManagerListener listener )
+    {
+        this.viewManagerListeners.remove ( listener );
     }
 }

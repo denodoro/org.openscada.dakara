@@ -19,33 +19,13 @@
 
 package org.openscada.vi.ui.user.viewer;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.services.IEvaluationReference;
 import org.eclipse.ui.services.IEvaluationService;
-import org.openscada.core.ui.styles.StyleBlinker;
-import org.openscada.vi.ui.user.Activator;
-import org.openscada.vi.ui.user.preferences.PreferenceConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractViewInstance implements ViewInstance
 {
-
-    private final static Logger logger = LoggerFactory.getLogger ( AbstractViewInstance.class );
-
     private static final String PROP_DEFAULT_INSTANCE = "defaultInstance";
 
     private static final String PROP_LAZY = "lazy";
@@ -70,50 +50,15 @@ public abstract class AbstractViewInstance implements ViewInstance
 
     private final ViewManagerContext viewManagerContext;
 
-    private final ToolBar toolbar;
-
     private boolean suppressActiveEvent = false;
-
-    private ToolItem button;
 
     protected final ViewInstanceDescriptor descriptor;
 
-    private final ViewManager viewManager;
-
-    protected final StyleBlinker blinker;
-
-    private final Image imageOk;
-
-    private final Image imageInactive;
-
-    private Image currentButtonImage;
-
-    private final ResourceManager manager;
-
-    public AbstractViewInstance ( final ViewManagerContext viewManagerContext, final ViewManager viewManager, final ResourceManager manager, final ViewInstanceDescriptor descriptor, final ToolBar toolBar, final IEvaluationService evaluationService )
+    public AbstractViewInstance ( final ViewManagerContext viewManagerContext, final ViewInstanceDescriptor descriptor, final IEvaluationService evaluationService )
     {
-        this.viewManager = viewManager;
         this.viewManagerContext = viewManagerContext;
         this.evaluationService = evaluationService;
-        this.toolbar = toolBar;
-        this.manager = manager;
         this.descriptor = descriptor;
-
-        // create resources
-
-        this.imageOk = createImage ( PreferenceConstants.P_IMG_OK );
-        this.imageInactive = createImage ( PreferenceConstants.P_IMG_INACTIVE );
-
-        // create the blinker
-
-        this.blinker = new StyleBlinker () {
-            @Override
-            public void update ( final Image image, final Color foreground, final Color background, final Font font )
-            {
-                handleUpdateStyle ( image, foreground, background, font );
-            }
-        };
-        this.blinker.setStyle ( null );
     }
 
     public void init ()
@@ -126,24 +71,6 @@ public abstract class AbstractViewInstance implements ViewInstance
     protected abstract void activateView ();
 
     protected abstract void deactivateView ();
-
-    protected boolean hasButton ()
-    {
-        return this.descriptor.getParentId () == null || this.descriptor.getParentId ().isEmpty ();
-    }
-
-    private Image createImage ( final String key )
-    {
-        try
-        {
-            final String uri = Activator.getDefault ().getPreferenceStore ().getString ( key );
-            return this.manager.createImageWithDefault ( ImageDescriptor.createFromURL ( new URL ( uri ) ) );
-        }
-        catch ( final MalformedURLException e )
-        {
-            return this.manager.createImageWithDefault ( ImageDescriptor.getMissingImageDescriptor () );
-        }
-    }
 
     public void dispose ()
     {
@@ -163,12 +90,6 @@ public abstract class AbstractViewInstance implements ViewInstance
         {
             this.evaluationService.removeEvaluationListener ( this.defaultInstanceRef );
             this.defaultInstanceRef = null;
-        }
-
-        if ( this.button != null )
-        {
-            this.button.dispose ();
-            this.button = null;
         }
     }
 
@@ -276,6 +197,7 @@ public abstract class AbstractViewInstance implements ViewInstance
         }
 
         this.lazy = lazy;
+        fireLazyStateChanged ( lazy );
     }
 
     public boolean isVisible ()
@@ -292,15 +214,6 @@ public abstract class AbstractViewInstance implements ViewInstance
 
         this.visible = state;
 
-        if ( state )
-        {
-            createToolbarButton ();
-        }
-        else
-        {
-            disposeToolbarButton ();
-        }
-
         fireVisibleStateChanged ( state );
     }
 
@@ -312,6 +225,14 @@ public abstract class AbstractViewInstance implements ViewInstance
         }
     }
 
+    private void fireLazyStateChanged ( final boolean state )
+    {
+        if ( this.viewManagerContext != null )
+        {
+            this.viewManagerContext.viewLazynessChanged ( this, state );
+        }
+    }
+
     private void fireDefaultStateChanged ( final boolean state )
     {
         if ( this.viewManagerContext != null )
@@ -320,50 +241,11 @@ public abstract class AbstractViewInstance implements ViewInstance
         }
     }
 
-    protected void fireActiveStateChanged ( final boolean state )
+    private void fireActiveStateChanged ( final boolean state )
     {
         if ( this.viewManagerContext != null && !this.suppressActiveEvent )
         {
             this.viewManagerContext.viewActiveChanged ( this, state );
-        }
-    }
-
-    private void createToolbarButton ()
-    {
-        if ( this.button == null && hasButton () )
-        {
-            final int index = this.viewManagerContext.calculateToolbarIndex ( this.descriptor );
-
-            if ( index < 0 )
-            {
-                return;
-            }
-
-            this.button = new ToolItem ( this.toolbar, SWT.RADIO, index );
-            this.button.setText ( this.descriptor.getName () );
-            this.button.addSelectionListener ( new SelectionAdapter () {
-                @Override
-                public void widgetSelected ( final org.eclipse.swt.events.SelectionEvent e )
-                {
-                    showView ( AbstractViewInstance.this.descriptor.getId () );
-                };
-            } );
-            // set current state
-            this.button.setImage ( this.currentButtonImage );
-        }
-    }
-
-    protected void showView ( final String id )
-    {
-        this.viewManager.showView ( id );
-    }
-
-    private void disposeToolbarButton ()
-    {
-        if ( this.button != null )
-        {
-            this.button.dispose ();
-            this.button = null;
         }
     }
 
@@ -401,11 +283,7 @@ public abstract class AbstractViewInstance implements ViewInstance
     public void deactivate ()
     {
         this.active = false;
-
-        if ( this.button != null )
-        {
-            this.button.setSelection ( false );
-        }
+        fireActiveStateChanged ( false );
 
         if ( this.lazy )
         {
@@ -417,38 +295,11 @@ public abstract class AbstractViewInstance implements ViewInstance
     public void activate ()
     {
         this.active = true;
-
-        if ( this.button != null )
-        {
-            logger.debug ( "Setting button selection" );
-            this.button.setSelection ( true );
-        }
+        fireActiveStateChanged ( true );
 
         if ( this.lazy )
         {
             activateView ();
-        }
-    }
-
-    protected void handleUpdateStyle ( final Image image, final Color foreground, final Color background, final Font font )
-    {
-        if ( image == null )
-        {
-            this.currentButtonImage = this.lazy && !this.active ? this.imageInactive : this.imageOk;
-        }
-        else
-        {
-            this.currentButtonImage = image;
-        }
-
-        if ( this.button == null )
-        {
-            return;
-        }
-
-        if ( !this.button.isDisposed () )
-        {
-            this.button.setImage ( this.currentButtonImage );
         }
     }
 

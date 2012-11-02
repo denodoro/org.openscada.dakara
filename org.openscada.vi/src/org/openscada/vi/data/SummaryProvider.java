@@ -17,11 +17,13 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user.viewer;
+package org.openscada.vi.data;
 
-import org.eclipse.jface.viewers.ISelectionProvider;
-
-public interface ViewManagerContext extends ViewManagerListener
+public interface SummaryProvider
 {
-    public void setSelectionProvider ( ISelectionProvider selectionProvider );
+    public SummaryInformation getSummary ();
+
+    public void addSummaryListener ( SummaryListener summaryListener );
+
+    public void removeSummaryListener ( SummaryListener summaryListener );
 }

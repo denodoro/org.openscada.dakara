@@ -21,10 +21,9 @@ package org.openscada.vi.ui.user.viewer;
 
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.IWorkbenchPartSite;
 
 public interface ViewInstanceFactory
 {
-    public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, ViewInstanceDescriptor descriptor, Composite viewHolder, ToolBar toolBar, ResourceManager manager, IWorkbenchPartSite site );
+    public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, ViewInstanceDescriptor descriptor, Composite viewHolder, ResourceManager manager, IWorkbenchPartSite site );
 }
