@@ -30,10 +30,10 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.openscada.core.ui.styles.StateInformation;
 import org.openscada.core.ui.styles.StyleBlinker;
-import org.openscada.vi.data.SummaryInformation;
-import org.openscada.vi.data.SummaryListener;
-import org.openscada.vi.data.SummaryProvider;
+import org.openscada.da.ui.connection.data.Item;
+import org.openscada.da.ui.connection.data.Item.Type;
 import org.openscada.vi.ui.user.Activator;
 import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.openscada.vi.ui.user.viewer.ViewInstance;
@@ -42,7 +42,7 @@ import org.openscada.vi.ui.user.viewer.ViewManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ToolBarNavigatorItem implements SummaryListener
+public class ToolBarNavigatorItem implements StateListener
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( ToolBarNavigatorItem.class );
@@ -72,6 +72,12 @@ public class ToolBarNavigatorItem implements SummaryListener
     private final ToolBarNavigator toolBarNavigator;
 
     private final ViewInstance instance;
+
+    private StateProvider summaryProvider;
+
+    private Image styleImage;
+
+    private boolean lazySummary;
 
     public ToolBarNavigatorItem ( final ToolBarNavigator toolBarNavigator, final ToolBar toolbar, final int index, final ViewManager viewManager, final ViewInstance viewInstance, final ResourceManager manager )
     {
@@ -112,25 +118,36 @@ public class ToolBarNavigatorItem implements SummaryListener
                 handleUpdateStyle ( image, foreground, background, font );
             }
         };
+
+        // initialize
+
+        this.lazy = viewInstance.isLazy ();
+        this.active = viewInstance.isActive ();
+
         this.blinker.setStyle ( null );
 
-        if ( this.instance instanceof SummaryProvider )
+        // connect summary
+
+        if ( this.descriptor.getSummaryConnectionId () != null && this.descriptor.getSummaryItemId () != null )
         {
-            ( (SummaryProvider)this.instance ).addSummaryListener ( this );
-            final SummaryInformation summary = ( (SummaryProvider)this.instance ).getSummary ();
-            if ( summary != null )
-            {
-                this.blinker.setStyle ( org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator ().generateStyle ( summary.getStateInformation () ) );
-            }
+            logger.info ( "Creating summary provider using item: {} - {}", this.descriptor.getSummaryConnectionId (), this.descriptor.getSummaryItemId () );
+            this.summaryProvider = new ItemSummaryProvider ( this, new Item ( this.descriptor.getSummaryConnectionId (), this.descriptor.getSummaryItemId (), Type.ID ) );
+        }
+        else if ( this.instance instanceof org.openscada.vi.data.SummaryProvider )
+        {
+            logger.info ( "Creating summary provider using view summary information" );
+            this.summaryProvider = new DelegatingSummaryProvider ( (org.openscada.vi.data.SummaryProvider)this.instance, this );
+            this.lazySummary = true;
         }
     }
 
     public void dispose ()
     {
-        if ( this.instance instanceof SummaryProvider )
+        if ( this.summaryProvider != null )
         {
-            ( (SummaryProvider)this.instance ).removeSummaryListener ( this );
+            this.summaryProvider.dispose ();
         }
+
         this.blinker.dispose ();
         this.button.dispose ();
     }
@@ -181,6 +198,7 @@ public class ToolBarNavigatorItem implements SummaryListener
     public void setLazy ( final boolean lazy )
     {
         this.lazy = lazy;
+        setButtonImage ( this.styleImage );
     }
 
     public void setActive ( final boolean active )
@@ -191,34 +209,44 @@ public class ToolBarNavigatorItem implements SummaryListener
         {
             this.blinker.setStyle ( null );
         }
+        else
+        {
+            setButtonImage ( this.styleImage );
+        }
     }
 
     protected void handleUpdateStyle ( final Image image, final Color foreground, final Color background, final Font font )
     {
+        logger.debug ( "Update Style" );
+
+        this.styleImage = image;
+        setButtonImage ( this.styleImage );
+    }
+
+    private void setButtonImage ( final Image image )
+    {
+        logger.debug ( "Setting button image for {} - image: {}, lazy: {}, active: {}", new Object[] { this.descriptor, image, this.lazy, this.active } );
+
         if ( image == null )
         {
-            this.currentButtonImage = this.lazy && !this.active ? this.imageInactive : this.imageOk;
+            this.currentButtonImage = this.lazy && this.lazySummary && !this.active ? this.imageInactive : this.imageOk;
         }
         else
         {
             this.currentButtonImage = image;
         }
 
-        if ( this.button == null )
-        {
-            return;
-        }
-
-        if ( !this.button.isDisposed () )
+        if ( this.button != null && !this.button.isDisposed () )
         {
             this.button.setImage ( this.currentButtonImage );
         }
     }
 
     @Override
-    public void summaryChanged ( final SummaryInformation summary )
+    public void stateChange ( final StateInformation stateInformation )
     {
-        logger.debug ( "Summary changed: {}", summary );
-        this.blinker.setStyle ( org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator ().generateStyle ( summary.getStateInformation () ) );
+        logger.debug ( "Summary state changed: {}", stateInformation );
+        this.blinker.setStyle ( org.openscada.core.ui.styles.Activator.getDefaultStyleGenerator ().generateStyle ( stateInformation ) );
     }
+
 }

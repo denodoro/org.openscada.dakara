@@ -177,6 +177,18 @@ public abstract class AbstractViewInstance implements ViewInstance
         return this.defaultInstance;
     }
 
+    @Override
+    public boolean isActive ()
+    {
+        return this.active;
+    }
+
+    @Override
+    public boolean isLazy ()
+    {
+        return this.lazy;
+    }
+
     protected void setLazy ( final boolean lazy )
     {
         if ( this.lazy == lazy )

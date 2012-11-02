@@ -1,5 +1,5 @@
 /*
-public boolean isLazy (); * This file is part of the openSCADA project
+ * This file is part of the openSCADA project
  * Copyright (C) 2006-2012 TH4 SYSTEMS GmbH (http://th4-systems.com)
  *
  * openSCADA is free software: you can redistribute it and/or modify
@@ -17,27 +17,9 @@ public boolean isLazy (); * This file is part of the openSCADA project
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user.viewer;
+package org.openscada.vi.ui.user.navigation;
 
-import org.eclipse.swt.widgets.Control;
-
-public interface ViewInstance
+public interface StateProvider
 {
-    public void reload ();
-
-    public void activate ();
-
-    public void deactivate ();
-
-    public void setFocus ();
-
-    public Control getControl ();
-
-    public boolean isDefaultInstance ();
-
-    public ViewInstanceDescriptor getDescriptor ();
-
-    public boolean isLazy ();
-
-    public boolean isActive ();
+    public void dispose ();
 }

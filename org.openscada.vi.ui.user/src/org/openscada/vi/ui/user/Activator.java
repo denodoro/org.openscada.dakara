@@ -190,7 +190,7 @@ public class Activator extends AbstractUIPlugin
             String summaryConnectionId = null;
             String summaryItemId = null;
             final String summaryItem = element.getAttribute ( "summaryItem" );
-            if ( summaryItem.contains ( "#" ) )
+            if ( summaryItem != null && summaryItem.contains ( "#" ) )
             {
                 final String tok[] = summaryItem.split ( "\\#", 2 );
                 summaryConnectionId = tok[0];

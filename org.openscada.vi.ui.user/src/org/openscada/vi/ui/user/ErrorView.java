@@ -80,4 +80,16 @@ public class ErrorView implements ViewInstance
         return this.descriptor;
     }
 
+    @Override
+    public boolean isActive ()
+    {
+        return true;
+    }
+
+    @Override
+    public boolean isLazy ()
+    {
+        return false;
+    }
+
 }
