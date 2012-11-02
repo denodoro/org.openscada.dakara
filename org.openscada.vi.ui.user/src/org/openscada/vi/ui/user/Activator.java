@@ -33,11 +33,11 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.openscada.ui.utils.status.StatusHelper;
 import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
 import org.openscada.vi.ui.user.viewer.ViewInstanceFactory;
+import org.openscada.vi.ui.user.viewer.ext.ExtensionDescriptor;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
@@ -51,9 +51,9 @@ public class Activator extends AbstractUIPlugin
 
     public static final String EXTP_VIEW = PLUGIN_ID + ".view"; //$NON-NLS-1$
 
-    private static final String ELE_VIEW_INSTANCE = "viewInstance"; //$NON-NLS-1$
+    public static final String EXTP_VIEWER = PLUGIN_ID + ".viewer"; //$NON-NLS-1$
 
-    private static final String ELE_CUSTOMER_LOGO = "customerLogo"; //$NON-NLS-1$
+    private static final String ELE_VIEW_INSTANCE = "viewInstance"; //$NON-NLS-1$
 
     private static final String ELE_PROPERTY = "property"; //$NON-NLS-1$
 
@@ -101,6 +101,23 @@ public class Activator extends AbstractUIPlugin
         return plugin;
     }
 
+    public static List<ExtensionDescriptor> getExtensionDescriptors ()
+    {
+        final List<ExtensionDescriptor> result = new LinkedList<ExtensionDescriptor> ();
+
+        for ( final IConfigurationElement element : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_VIEWER ) )
+        {
+            if ( !"viewerExtension".equals ( element.getName () ) )
+            {
+                continue;
+            }
+
+            result.add ( new ExtensionDescriptor ( element ) );
+        }
+
+        return result;
+    }
+
     protected List<ViewInstanceDescriptor> internalGetDescriptors ()
     {
         if ( this.descriptors == null )
@@ -132,26 +149,6 @@ public class Activator extends AbstractUIPlugin
             }
         }
         return result;
-    }
-
-    /**
-     * Find the first customerLogo extension
-     * 
-     * @return a customer logo
-     */
-    protected static ImageDescriptor findLogoDescriptor ()
-    {
-        for ( final IConfigurationElement element : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_VIEW ) )
-        {
-            if ( !ELE_CUSTOMER_LOGO.equals ( element.getName () ) )
-            {
-                continue;
-            }
-            final String resource = element.getAttribute ( "resource" );
-            final String pluginId = element.getContributor ().getName ();
-            return imageDescriptorFromPlugin ( pluginId, resource );
-        }
-        return null;
     }
 
     private static ViewInstanceDescriptor convert ( final IConfigurationElement element )

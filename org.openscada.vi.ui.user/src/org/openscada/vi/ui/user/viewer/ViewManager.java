@@ -19,13 +19,19 @@
 
 package org.openscada.vi.ui.user.viewer;
 
+import org.eclipse.jface.action.MenuManager;
+
 public interface ViewManager
 {
     public void showView ( String id );
 
     public void showView ( String id, boolean force );
 
+    public void reloadCurrentView ();
+
     public void addViewManagerListener ( ViewManagerListener listener );
 
     public void removeViewManagerListener ( ViewManagerListener listener );
+
+    public void registerMenuManager ( MenuManager menuManager );
 }

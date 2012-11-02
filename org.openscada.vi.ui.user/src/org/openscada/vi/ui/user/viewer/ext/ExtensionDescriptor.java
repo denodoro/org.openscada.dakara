@@ -17,16 +17,37 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user.preferences;
+package org.openscada.vi.ui.user.viewer.ext;
 
-/**
- * Constant definitions for plug-in preferences
- */
-public class PreferenceConstants
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+
+public class ExtensionDescriptor
 {
-    public static final String P_IMG_OK = "image.ok";
+    private final IConfigurationElement element;
 
-    public static final String P_IMG_INACTIVE = "image.inactive";
+    public ExtensionDescriptor ( final IConfigurationElement element )
+    {
+        this.element = element;
+    }
 
-    public static final String P_DEFAULT_LAZY_ACTIVATTION = "lazyActivation.default";
+    public String getLocation ()
+    {
+        return this.element.getAttribute ( "location" );
+    }
+
+    public String getAlign ()
+    {
+        return this.element.getAttribute ( "align" );
+    }
+
+    public ViewerExtension createExtension () throws CoreException
+    {
+        final Object result = this.element.createExecutableExtension ( "class" );
+        if ( result instanceof ViewerExtension )
+        {
+            return (ViewerExtension)result;
+        }
+        return null;
+    }
 }

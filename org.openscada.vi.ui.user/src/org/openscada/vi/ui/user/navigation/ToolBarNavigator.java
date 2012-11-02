@@ -33,6 +33,7 @@ import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.ToolBar;
 import org.openscada.vi.ui.user.viewer.ViewInstance;
 import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
@@ -89,6 +90,11 @@ public class ToolBarNavigator implements ViewManagerListener
         this.toolbar.setLayoutData ( layoutData );
     }
 
+    public Control getControl ()
+    {
+        return this.toolbar;
+    }
+
     protected boolean hasButton ( final ViewInstanceDescriptor descriptor )
     {
         return descriptor.getParentId () == null || descriptor.getParentId ().isEmpty ();
@@ -115,6 +121,7 @@ public class ToolBarNavigator implements ViewManagerListener
                 final int index = calculateToolbarIndex ( descriptor );
                 item = new ToolBarNavigatorItem ( this, this.toolbar, index, this.viewManager, viewInstance, this.resourceManager );
                 this.itemMap.put ( descriptor, item );
+                this.toolbar.getParent ().getParent ().layout ();
             }
         }
         else

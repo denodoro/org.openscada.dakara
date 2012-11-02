@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: openSCADA VI Viewer Extensions
+Bundle-SymbolicName: org.openscada.vi.ui.viewer.ext
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.openscada.vi.ui.viewer.ext.Activator
+Bundle-Vendor: TH4 SYSTEMS GmbH
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.databinding;bundle-version="1.4.0",
+ org.eclipse.core.databinding.beans;bundle-version="1.2.100",
+ org.eclipse.jface.databinding;bundle-version="1.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.openscada.vi.ui.viewer.ext.image;version="1.0.0",
+ org.openscada.vi.ui.viewer.ext.item;version="1.0.0"
+Import-Package: org.openscada.core;version="1.0.0",
+ org.openscada.da.ui.connection.data;version="1.0.0",
+ org.openscada.ui.databinding;version="1.0.0",
+ org.openscada.ui.databinding.item;version="1.0.0",
+ org.openscada.vi.ui.user.viewer;version="1.0.0",
+ org.openscada.vi.ui.user.viewer.ext;version="1.0.0",
+ org.slf4j;version="1.5.0"

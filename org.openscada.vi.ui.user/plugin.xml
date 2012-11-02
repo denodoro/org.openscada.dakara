@@ -2,6 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="view" name="Visual Interface View" schema="schema/view.exsd"/>
+   <extension-point id="viewer" name="VI Viewer Extensions" schema="schema/viewer.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <view

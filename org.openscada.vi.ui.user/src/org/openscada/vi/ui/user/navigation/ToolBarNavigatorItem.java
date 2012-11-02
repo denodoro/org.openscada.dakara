@@ -104,6 +104,7 @@ public class ToolBarNavigatorItem implements StateListener
 
         this.imageOk = createImage ( PreferenceConstants.P_IMG_OK );
         this.imageInactive = createImage ( PreferenceConstants.P_IMG_INACTIVE );
+        this.button.setImage ( this.imageInactive );
 
         // create the button
 

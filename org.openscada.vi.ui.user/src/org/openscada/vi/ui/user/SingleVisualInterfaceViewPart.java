@@ -19,8 +19,6 @@
 
 package org.openscada.vi.ui.user;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -31,22 +29,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.UpdateValueStrategy;
-import org.eclipse.core.databinding.beans.PojoObservables;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.core.databinding.observable.value.IValueChangeListener;
-import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.SafeRunner;
-import org.eclipse.jface.action.Action;
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.databinding.swt.SWTObservables;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
@@ -55,28 +40,22 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.swt.widgets.Layout;
 import org.eclipse.ui.part.ViewPart;
-import org.openscada.core.Variant;
-import org.openscada.ui.databinding.VariantToStringConverter;
-import org.openscada.ui.databinding.item.DataItemObservableValue;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.openscada.ui.utils.AbstractSelectionProvider;
-import org.openscada.vi.ui.user.navigation.ToolBarNavigator;
-import org.openscada.vi.ui.user.preferences.PreferenceConstants;
 import org.openscada.vi.ui.user.viewer.ViewInstance;
 import org.openscada.vi.ui.user.viewer.ViewInstanceDescriptor;
 import org.openscada.vi.ui.user.viewer.ViewManager;
 import org.openscada.vi.ui.user.viewer.ViewManagerContext;
 import org.openscada.vi.ui.user.viewer.ViewManagerListener;
+import org.openscada.vi.ui.user.viewer.ext.ExtensionDescriptor;
+import org.openscada.vi.ui.user.viewer.ext.ViewerExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,25 +79,13 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
 
     private ResourceManager manager;
 
-    private Label timeLabel;
-
-    private DataItemObservableValue dataItem;
-
-    private DataBindingContext dbc;
-
-    private Image logoImage;
-
     private final List<ViewInstanceDescriptor> descriptors;
 
     private final Set<ViewInstanceDescriptor> visibleDescriptors = new HashSet<ViewInstanceDescriptor> ();
 
     private boolean switchingView;
 
-    private Action reloadAction;
-
     private ISelectionProvider selectionProvider;
-
-    private ToolBarNavigator toolBarNavigator;
 
     private final Set<ViewManagerListener> viewManagerListeners = new LinkedHashSet<ViewManagerListener> ();
 
@@ -132,37 +99,54 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     public void createPartControl ( final Composite parent )
     {
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
-        this.dbc = new DataBindingContext ();
 
         parent.setLayout ( new FillLayout () );
-        final Composite wrapper = new Composite ( parent, SWT.NONE );
-        final GridLayout layout = new GridLayout ( 1, true );
-        layout.horizontalSpacing = layout.verticalSpacing = 0;
-        layout.marginHeight = layout.marginWidth = 0;
-        wrapper.setLayout ( layout );
-
-        final Composite toolWrapper = new Composite ( wrapper, SWT.NONE );
-        toolWrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
-        final GridLayout toolLayout = new GridLayout ( 1 + ( hasTime () ? 1 : 0 ) + ( hasLogo () ? 1 : 0 ) + ( hasDebug () ? 1 : 0 ), false );
-        toolLayout.marginHeight = toolLayout.marginWidth = 0;
-        toolWrapper.setLayout ( toolLayout );
-
-        // toolbar for view buttons
-        this.toolBarNavigator = new ToolBarNavigator ( toolWrapper, SWT.HORIZONTAL | SWT.WRAP, this );
-        this.toolBarNavigator.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
 
         // selection
         this.selectionProvider = new AbstractSelectionProvider ();
         getSite ().setSelectionProvider ( this.selectionProvider );
 
-        // FIXME: replace with extension point 
-        createTime ( toolWrapper );
-        createLogo ( toolWrapper );
-        createDebug ( toolWrapper );
+        final List<ExtensionDescriptor> extensions = Activator.getExtensionDescriptors ();
+
+        final Composite wrapper = new Composite ( parent, SWT.NONE );
+        final GridLayout gridLayout = new GridLayout ( 3, false );
+        gridLayout.horizontalSpacing = gridLayout.verticalSpacing = 0;
+        gridLayout.marginHeight = gridLayout.marginWidth = 0;
+        wrapper.setLayout ( gridLayout );
+
+        final Composite topComposite = new Composite ( wrapper, SWT.NONE );
+        topComposite.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false, 3, 1 ) );
+        topComposite.setLayout ( createExtensionGridLayout () );
+
+        final Composite leftComposite = new Composite ( wrapper, SWT.NONE );
+        leftComposite.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, false, true ) );
+        leftComposite.setLayout ( createExtensionGridLayout () );
+
+        // create main
 
         this.viewHolder = new Composite ( wrapper, SWT.NONE );
         this.viewHolder.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         this.viewHolder.setLayout ( this.stackLayout = new StackLayout () );
+
+        final Composite rightComposite = new Composite ( wrapper, SWT.NONE );
+        rightComposite.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, false, true ) );
+        rightComposite.setLayout ( createExtensionGridLayout () );
+
+        final Composite bottomComposite = new Composite ( wrapper, SWT.NONE );
+        bottomComposite.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false, 3, 1 ) );
+        bottomComposite.setLayout ( createExtensionGridLayout () );
+
+        try
+        {
+            createExtensions ( extensions, topComposite, "TOP", true );
+            createExtensions ( extensions, bottomComposite, "BOTTOM", true );
+            createExtensions ( extensions, leftComposite, "LEFT", false );
+            createExtensions ( extensions, rightComposite, "RIGHT", false );
+        }
+        catch ( final CoreException e )
+        {
+            StatusManager.getManager ().handle ( e, Activator.PLUGIN_ID );
+        }
 
         for ( final ViewInstanceDescriptor descriptor : this.descriptors )
         {
@@ -171,55 +155,127 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         activateNextMain ();
     }
 
-    protected ImageDescriptor getLogoDescriptor ()
+    private Layout createExtensionGridLayout ()
     {
-        final String logoUri = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_IMG_LOGO );
+        final GridLayout gridLayout = new GridLayout ( 1, false );
 
-        if ( logoUri != null && !logoUri.isEmpty () )
-        {
-            try
-            {
-                return ImageDescriptor.createFromURL ( new URL ( logoUri ) );
-            }
-            catch ( final MalformedURLException e )
-            {
-                return ImageDescriptor.getMissingImageDescriptor ();
-            }
-        }
+        gridLayout.horizontalSpacing = gridLayout.verticalSpacing = 0;
+        gridLayout.marginHeight = gridLayout.marginWidth = 0;
 
-        return Activator.findLogoDescriptor ();
+        return gridLayout;
     }
 
-    private void createDebug ( final Composite parent )
+    private void createExtensions ( final List<ExtensionDescriptor> extensions, final Composite composite, final String location, final boolean horizontal ) throws CoreException
     {
-        if ( !hasDebug () )
+        int count = 0;
+        for ( final ExtensionDescriptor extension : extensions )
         {
-            return;
-        }
-        final Label label = new Label ( parent, SWT.NONE );
-        label.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
-        label.setImage ( this.manager.createImageWithDefault ( ImageDescriptor.createFromURL ( FileLocator.find ( Activator.getDefault ().getBundle (), new Path ( "/resources/debugIcon.png" ), Collections.EMPTY_MAP ) ) ) );
-
-        final MenuManager menuManager = new MenuManager ( "#PopupMenu", "org.openscada.vi.ui.user.debugMenu" );
-
-        menuManager.setRemoveAllWhenShown ( true );
-
-        label.setMenu ( menuManager.createContextMenu ( label ) );
-
-        createActions ();
-
-        menuManager.addMenuListener ( new IMenuListener () {
-            @Override
-            public void menuAboutToShow ( final IMenuManager menuManager )
+            if ( !location.equals ( extension.getLocation () ) )
             {
-                contextMenuAboutToShow ( menuManager );
+                continue;
             }
-        } );
 
-        updateSelection ();
-
-        getSite ().registerContextMenu ( menuManager, this.selectionProvider );
+            final ViewerExtension viewerExtension = extension.createExtension ();
+            if ( viewerExtension != null )
+            {
+                final Control result = viewerExtension.create ( composite, this, horizontal );
+                if ( result != null )
+                {
+                    count++;
+                    final String align = extension.getAlign ();
+                    if ( "END".equalsIgnoreCase ( align ) )
+                    {
+                        result.setLayoutData ( new GridData ( horizontal ? SWT.FILL : SWT.END, SWT.FILL, !horizontal, horizontal ) );
+                    }
+                    else if ( "FILL".equalsIgnoreCase ( align ) )
+                    {
+                        result.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
+                    }
+                    else
+                    {
+                        result.setLayoutData ( new GridData ( horizontal ? SWT.FILL : SWT.BEGINNING, SWT.FILL, !horizontal, horizontal ) );
+                    }
+                }
+            }
+        }
+        if ( composite.getLayout () instanceof GridLayout )
+        {
+            ( (GridLayout)composite.getLayout () ).numColumns = count;
+        }
     }
+
+    /*
+    private void createViewer ( final Composite parent, final boolean horizontal )
+    {
+        if ( horizontal )
+        {
+            final Composite wrapper = new Composite ( parent, SWT.NONE );
+            final GridLayout layout = new GridLayout ( 1, true );
+            layout.horizontalSpacing = layout.verticalSpacing = 0;
+            layout.marginHeight = layout.marginWidth = 0;
+            wrapper.setLayout ( layout );
+
+            // create toolbar
+
+            createToolBar ( wrapper, horizontal );
+
+        }
+        else
+        {
+            final Composite wrapper = new Composite ( parent, SWT.NONE );
+            final GridLayout layout = new GridLayout ( 2, false );
+            layout.horizontalSpacing = layout.verticalSpacing = 0;
+            layout.marginHeight = layout.marginWidth = 0;
+            wrapper.setLayout ( layout );
+
+            createToolBar ( wrapper, horizontal );
+
+            this.viewHolder = new Composite ( wrapper, SWT.NONE );
+            this.viewHolder.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
+            this.viewHolder.setLayout ( this.stackLayout = new StackLayout () );
+        }
+    }
+
+    private void createToolBar ( final Composite wrapper, final boolean horizontal )
+    {
+        if ( horizontal )
+        {
+            final Composite toolWrapper = new Composite ( wrapper, SWT.NONE );
+            toolWrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
+            final GridLayout toolLayout = new GridLayout ( 1 + ( hasTime () ? 1 : 0 ) + ( hasLogo () ? 1 : 0 ) + ( hasDebug () ? 1 : 0 ), false );
+            toolLayout.marginHeight = toolLayout.marginWidth = 0;
+            toolWrapper.setLayout ( toolLayout );
+
+            // toolbar for view buttons
+            this.toolBarNavigator = new ToolBarNavigator ( toolWrapper, SWT.HORIZONTAL | SWT.WRAP, this );
+            this.toolBarNavigator.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
+
+            // FIXME: replace with extension point 
+            createTime ( toolWrapper );
+            createLogo ( toolWrapper );
+            createDebug ( toolWrapper );
+        }
+        else
+        {
+            final Composite toolWrapper = new Composite ( wrapper, SWT.NONE );
+            toolWrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, false, true ) );
+            final GridLayout toolLayout = new GridLayout ( 1, false );
+            toolLayout.marginHeight = toolLayout.marginWidth = 0;
+            toolWrapper.setLayout ( toolLayout );
+
+            // toolbar for view buttons
+            this.toolBarNavigator = new ToolBarNavigator ( toolWrapper, SWT.VERTICAL | SWT.RIGHT, this );
+            this.toolBarNavigator.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, false, true ) );
+
+            // FIXME: replace with extension point 
+
+            createTime ( toolWrapper );
+            createLogo ( toolWrapper );
+            createDebug ( toolWrapper );
+
+        }
+    }
+    */
 
     private void updateSelection ()
     {
@@ -236,115 +292,9 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
         this.selectionProvider.setSelection ( sel );
     }
 
-    private void createActions ()
-    {
-        this.reloadAction = new Action ( "Reload" ) {
-            @Override
-            public void run ()
-            {
-                if ( SingleVisualInterfaceViewPart.this.currentInstance != null )
-                {
-                    SingleVisualInterfaceViewPart.this.currentInstance.reload ();
-                }
-            }
-        };
-    }
-
-    protected void contextMenuAboutToShow ( final IMenuManager menuManager )
-    {
-        menuManager.add ( this.reloadAction );
-        menuManager.add ( new Separator () );
-        menuManager.add ( new Separator ( IWorkbenchActionConstants.MB_ADDITIONS ) );
-    }
-
-    private boolean hasDebug ()
-    {
-        return Boolean.getBoolean ( "vi.debug" );
-    }
-
-    private boolean hasLogo ()
-    {
-        return getLogoDescriptor () != null;
-    }
-
-    protected void createLogo ( final Composite parent )
-    {
-        final ImageDescriptor descriptor = getLogoDescriptor ();
-
-        if ( descriptor == null )
-        {
-            return;
-        }
-
-        final Label label = new Label ( parent, SWT.NONE );
-        this.logoImage = this.manager.createImageWithDefault ( descriptor );
-        label.setImage ( this.logoImage );
-        label.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
-
-        label.addMouseListener ( new MouseAdapter () {
-
-            @Override
-            public void mouseDoubleClick ( final MouseEvent e )
-            {
-                if ( ( e.stateMask & SWT.MOD1 ) == 0 && e.button != 3 )
-                {
-                    return;
-                }
-
-                if ( SingleVisualInterfaceViewPart.this.currentInstance != null )
-                {
-                    SingleVisualInterfaceViewPart.this.currentInstance.reload ();
-                }
-            }
-        } );
-    }
-
-    protected boolean hasTime ()
-    {
-        final String connectionId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_CONNECTION_ID );
-        final String dataItemId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_DATA_ITEM );
-
-        if ( connectionId == null || dataItemId == null || connectionId.isEmpty () || dataItemId.isEmpty () )
-        {
-            return false;
-        }
-        return true;
-    }
-
-    protected void createTime ( final Composite parent )
-    {
-        if ( !hasTime () )
-        {
-            return;
-        }
-
-        final String connectionId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_CONNECTION_ID );
-        final String dataItemId = Activator.getDefault ().getPreferenceStore ().getString ( PreferenceConstants.P_TIME_DATA_ITEM );
-
-        this.timeLabel = new Label ( parent, SWT.NONE );
-        this.timeLabel.setLayoutData ( new GridData ( SWT.CENTER, SWT.CENTER, false, false ) );
-
-        this.dataItem = new DataItemObservableValue ( Activator.getDefault ().getBundle ().getBundleContext (), connectionId, dataItemId );
-        final IObservableValue model = PojoObservables.observeDetailValue ( this.dataItem, "value", Variant.class ); //$NON-NLS-1$
-        this.dbc.bindValue ( SWTObservables.observeText ( this.timeLabel ), model, null, new UpdateValueStrategy ().setConverter ( new VariantToStringConverter () ) );
-        model.addValueChangeListener ( new IValueChangeListener () {
-
-            @Override
-            public void handleValueChange ( final ValueChangeEvent event )
-            {
-                SingleVisualInterfaceViewPart.this.timeLabel.getParent ().layout ( new Control[] { SingleVisualInterfaceViewPart.this.timeLabel } );
-            }
-        } );
-    }
-
     @Override
     public void dispose ()
     {
-        if ( this.dataItem != null )
-        {
-            this.dataItem.dispose ();
-            this.dataItem = null;
-        }
         super.dispose ();
         this.manager.dispose ();
     }
@@ -586,5 +536,21 @@ public class SingleVisualInterfaceViewPart extends ViewPart implements ViewManag
     public void removeViewManagerListener ( final ViewManagerListener listener )
     {
         this.viewManagerListeners.remove ( listener );
+    }
+
+    @Override
+    public void reloadCurrentView ()
+    {
+        if ( this.currentInstance != null )
+        {
+            this.currentInstance.reload ();
+        }
+    }
+
+    @Override
+    public void registerMenuManager ( final MenuManager menuManager )
+    {
+        updateSelection ();
+        getSite ().registerContextMenu ( menuManager, this.selectionProvider );
     }
 }

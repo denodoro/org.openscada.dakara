@@ -16,17 +16,15 @@
  * version 3 along with openSCADA. If not, see
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
+package org.openscada.vi.ui.user.viewer.ext;
 
-package org.openscada.vi.ui.user.preferences;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.openscada.vi.ui.user.viewer.ViewManager;
 
-/**
- * Constant definitions for plug-in preferences
- */
-public class PreferenceConstants
+public interface ViewerExtension
 {
-    public static final String P_IMG_OK = "image.ok";
 
-    public static final String P_IMG_INACTIVE = "image.inactive";
+    public Control create ( Composite parent, final ViewManager viewManager, boolean horizontal );
 
-    public static final String P_DEFAULT_LAZY_ACTIVATTION = "lazyActivation.default";
 }
