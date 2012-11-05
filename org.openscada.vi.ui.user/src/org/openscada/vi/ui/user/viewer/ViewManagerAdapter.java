@@ -19,17 +19,32 @@
 
 package org.openscada.vi.ui.user.viewer;
 
-public interface ViewManagerListener
+public class ViewManagerAdapter implements ViewManagerListener
 {
 
-    public abstract void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
+    @Override
+    public void viewDefaultChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+    }
 
-    public abstract void viewVisibilityChanged ( ViewInstance viewInstance, boolean state );
+    @Override
+    public void viewVisibilityChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+    }
 
-    public abstract void viewLazynessChanged ( ViewInstance viewInstance, boolean state );
+    @Override
+    public void viewLazynessChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+    }
 
-    public abstract void viewActiveChanged ( ViewInstance viewInstance, boolean state );
+    @Override
+    public void viewActiveChanged ( final ViewInstance viewInstance, final boolean state )
+    {
+    }
 
-    public abstract void viewControlChanged ( ViewInstance viewInstance );
+    @Override
+    public void viewControlChanged ( final ViewInstance viewInstance )
+    {
+    }
 
 }

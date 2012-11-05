@@ -237,4 +237,30 @@ public class Activator extends AbstractUIPlugin
         final Bundle bundle = Platform.getBundle ( contributerId );
         return FileLocator.find ( bundle, new Path ( resource ), new HashMap<String, String> () ).toURI ();
     }
+
+    public static ViewInstanceDescriptor findParent ( final ViewInstanceDescriptor descriptor )
+    {
+        return getDefault ().findParentDescriptor ( descriptor );
+    }
+
+    protected ViewInstanceDescriptor findParentDescriptor ( final ViewInstanceDescriptor childDescriptor )
+    {
+        if ( childDescriptor.getParentId () == null || childDescriptor.getParentId ().isEmpty () )
+        {
+            return null;
+        }
+
+        for ( final ViewInstanceDescriptor descriptor : this.descriptors )
+        {
+            if ( descriptor.getId () == null )
+            {
+                continue;
+            }
+            if ( descriptor.getId ().equals ( childDescriptor.getParentId () ) )
+            {
+                return descriptor;
+            }
+        }
+        return null;
+    }
 }

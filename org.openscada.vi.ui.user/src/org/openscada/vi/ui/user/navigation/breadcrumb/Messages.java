@@ -17,19 +17,24 @@
  * <http://opensource.org/licenses/lgpl-3.0.html> for a copy of the LGPLv3 License.
  */
 
-package org.openscada.vi.ui.user.viewer;
+package org.openscada.vi.ui.user.navigation.breadcrumb;
 
-public interface ViewManagerListener
+import org.eclipse.osgi.util.NLS;
+
+public class Messages extends NLS
 {
+    private static final String BUNDLE_NAME = "org.openscada.vi.ui.user.navigation.breadcrumb.messages"; //$NON-NLS-1$
 
-    public abstract void viewDefaultChanged ( ViewInstance viewInstance, boolean state );
+    public static String BreadcrumbNavigator_Splitter_Horizontal;
 
-    public abstract void viewVisibilityChanged ( ViewInstance viewInstance, boolean state );
+    public static String BreadcrumbNavigator_Splitter_Vertical;
+    static
+    {
+        // initialize resource bundle
+        NLS.initializeMessages ( BUNDLE_NAME, Messages.class );
+    }
 
-    public abstract void viewLazynessChanged ( ViewInstance viewInstance, boolean state );
-
-    public abstract void viewActiveChanged ( ViewInstance viewInstance, boolean state );
-
-    public abstract void viewControlChanged ( ViewInstance viewInstance );
-
+    private Messages ()
+    {
+    }
 }
