@@ -153,6 +153,13 @@ If both are specified this field is used.
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="mainView" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  Check if this view is a main entry point. This might bring up the view e.g. in the toolbar navigator.
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 

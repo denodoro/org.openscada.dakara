@@ -107,7 +107,7 @@ public class ToolBarNavigator implements ViewManagerListener
 
         final ViewInstanceDescriptor descriptor = viewInstance.getDescriptor ();
 
-        if ( hasParent ( descriptor ) )
+        if ( !isMain ( descriptor ) )
         {
             return;
         }
@@ -119,6 +119,7 @@ public class ToolBarNavigator implements ViewManagerListener
             if ( item == null )
             {
                 final int index = calculateToolbarIndex ( descriptor );
+                logger.info ( "Adding view at index {}", index );
                 item = new ToolBarNavigatorItem ( this, this.toolbar, index, this.viewManager, viewInstance, this.resourceManager );
                 this.itemMap.put ( descriptor, item );
                 this.toolbar.getParent ().getParent ().layout ();
@@ -173,7 +174,7 @@ public class ToolBarNavigator implements ViewManagerListener
 
     public int calculateToolbarIndex ( final ViewInstanceDescriptor descriptor )
     {
-        if ( hasParent ( descriptor ) )
+        if ( !isMain ( descriptor ) )
         {
             logger.debug ( "Has parent: {}", descriptor );
             return -1;
@@ -185,7 +186,7 @@ public class ToolBarNavigator implements ViewManagerListener
         final Iterator<ViewInstanceDescriptor> i = data.iterator ();
         while ( i.hasNext () )
         {
-            if ( hasParent ( i.next () ) )
+            if ( !isMain ( i.next () ) )
             {
                 logger.debug ( "{} has parent, remove: ", descriptor );
                 i.remove ();
@@ -202,9 +203,9 @@ public class ToolBarNavigator implements ViewManagerListener
         return result;
     }
 
-    private boolean hasParent ( final ViewInstanceDescriptor descriptor )
+    protected boolean isMain ( final ViewInstanceDescriptor descriptor )
     {
-        return descriptor.getParentId () != null;
+        return descriptor.isMainView ();
     }
 
 }

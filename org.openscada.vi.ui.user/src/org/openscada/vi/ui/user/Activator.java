@@ -180,6 +180,7 @@ public class Activator extends AbstractUIPlugin
             }
 
             final boolean defaultInstance = element.getAttribute ( "defaultInstance" ) == null ? false : Boolean.parseBoolean ( element.getAttribute ( "defaultInstance" ) );
+            final boolean mainView = element.getAttribute ( "mainView" ) == null ? false : Boolean.parseBoolean ( element.getAttribute ( "mainView" ) );
 
             final Boolean zooming = element.getAttribute ( "zooming" ) == null ? null : Boolean.parseBoolean ( element.getAttribute ( "zooming" ) );
 
@@ -219,7 +220,7 @@ public class Activator extends AbstractUIPlugin
                 }
             }
 
-            return new ViewInstanceDescriptor ( id, parentId, factory, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, summaryConnectionId, summaryItemId, properties );
+            return new ViewInstanceDescriptor ( id, parentId, factory, uri, name, order, defaultInstance, zooming, lazyExpression, visibleExpression, defaultInstanceExpression, summaryConnectionId, summaryItemId, mainView, properties );
         }
         catch ( final Throwable e )
         {

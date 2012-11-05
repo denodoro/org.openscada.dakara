@@ -64,7 +64,9 @@ public class ViewInstanceDescriptor
 
     private final String summaryItemId;
 
-    public ViewInstanceDescriptor ( final String id, final String parentId, final ViewInstanceFactory factory, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Expression defaultInstanceExpression, final String summaryConnectionId, final String summaryItemId, final Map<String, String> properties )
+    private final boolean mainView;
+
+    public ViewInstanceDescriptor ( final String id, final String parentId, final ViewInstanceFactory factory, final URI uri, final String name, final int order, final boolean defaultInstance, final Boolean zooming, final Expression lazyExpression, final Expression visibleExpression, final Expression defaultInstanceExpression, final String summaryConnectionId, final String summaryItemId, final boolean mainView, final Map<String, String> properties )
     {
         super ();
         this.id = id;
@@ -81,6 +83,12 @@ public class ViewInstanceDescriptor
         this.defaultInstanceExpression = defaultInstanceExpression;
         this.summaryConnectionId = summaryConnectionId;
         this.summaryItemId = summaryItemId;
+        this.mainView = mainView;
+    }
+
+    public boolean isMainView ()
+    {
+        return this.mainView;
     }
 
     public boolean isDefaultInstance ()
