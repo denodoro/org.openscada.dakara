@@ -124,8 +124,8 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPONENT__VISIBILITY:
-                return basicSetVisibility ( null, msgs );
+        case DetailViewPackage.COMPONENT__VISIBILITY:
+            return basicSetVisibility ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -140,8 +140,8 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPONENT__VISIBILITY:
-                return getVisibility ();
+        case DetailViewPackage.COMPONENT__VISIBILITY:
+            return getVisibility ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -156,9 +156,9 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPONENT__VISIBILITY:
-                setVisibility ( (Visibility)newValue );
-                return;
+        case DetailViewPackage.COMPONENT__VISIBILITY:
+            setVisibility ( (Visibility)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -173,9 +173,9 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPONENT__VISIBILITY:
-                setVisibility ( (Visibility)null );
-                return;
+        case DetailViewPackage.COMPONENT__VISIBILITY:
+            setVisibility ( (Visibility)null );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -190,8 +190,8 @@ public abstract class ComponentImpl extends EObjectImpl implements Component
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPONENT__VISIBILITY:
-                return visibility != null;
+        case DetailViewPackage.COMPONENT__VISIBILITY:
+            return visibility != null;
         }
         return super.eIsSet ( featureID );
     }

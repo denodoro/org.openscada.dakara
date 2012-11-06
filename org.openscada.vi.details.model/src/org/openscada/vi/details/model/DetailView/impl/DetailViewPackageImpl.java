@@ -706,6 +706,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getBoolLEDComponent_OnOff ()
+    {
+        return (EAttribute)boolLEDComponentEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getValueSource ()
     {
         return valueSourceEClass;
@@ -1681,6 +1691,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( boolLEDComponentEClass, BOOL_LED_COMPONENT__ALARM );
         createEAttribute ( boolLEDComponentEClass, BOOL_LED_COMPONENT__ATTRIBUTE );
         createEAttribute ( boolLEDComponentEClass, BOOL_LED_COMPONENT__EXPECTED_VALUE );
+        createEAttribute ( boolLEDComponentEClass, BOOL_LED_COMPONENT__ON_OFF );
 
         valueSourceEClass = createEClass ( VALUE_SOURCE );
 
@@ -1902,6 +1913,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getBoolLEDComponent_Alarm (), ecorePackage.getEBoolean (), "alarm", null, 0, 1, BoolLEDComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getBoolLEDComponent_Attribute (), ecorePackage.getEString (), "attribute", null, 0, 1, BoolLEDComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getBoolLEDComponent_ExpectedValue (), ecorePackage.getEBoolean (), "expectedValue", "false", 0, 1, BoolLEDComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getBoolLEDComponent_OnOff (), ecorePackage.getEBoolean (), "onOff", "false", 0, 1, BoolLEDComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         initEClass ( valueSourceEClass, ValueSource.class, "ValueSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 

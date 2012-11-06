@@ -145,10 +145,10 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
     {
         switch ( featureID )
         {
-            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                return getCeil ();
-            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                return getFloor ();
+        case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
+            return getCeil ();
+        case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
+            return getFloor ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -163,12 +163,12 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
     {
         switch ( featureID )
         {
-            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                setCeil ( (Double)newValue );
-                return;
-            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                setFloor ( (Double)newValue );
-                return;
+        case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
+            setCeil ( (Double)newValue );
+            return;
+        case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
+            setFloor ( (Double)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -183,12 +183,12 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
     {
         switch ( featureID )
         {
-            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                setCeil ( CEIL_EDEFAULT );
-                return;
-            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                setFloor ( FLOOR_EDEFAULT );
-                return;
+        case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
+            setCeil ( CEIL_EDEFAULT );
+            return;
+        case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
+            setFloor ( FLOOR_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -203,10 +203,10 @@ public abstract class WriteableComponentImpl extends ReadableComponentImpl imple
     {
         switch ( featureID )
         {
-            case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
-                return CEIL_EDEFAULT == null ? ceil != null : !CEIL_EDEFAULT.equals ( ceil );
-            case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
-                return floor != FLOOR_EDEFAULT;
+        case DetailViewPackage.WRITEABLE_COMPONENT__CEIL:
+            return CEIL_EDEFAULT == null ? ceil != null : !CEIL_EDEFAULT.equals ( ceil );
+        case DetailViewPackage.WRITEABLE_COMPONENT__FLOOR:
+            return floor != FLOOR_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

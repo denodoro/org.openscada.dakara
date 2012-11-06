@@ -110,9 +110,9 @@ public class PermissionVisibilityItemProvider extends VisibilityItemProvider imp
 
         switch ( notification.getFeatureID ( PermissionVisibility.class ) )
         {
-            case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.PERMISSION_VISIBILITY__REQUIRED_PERMISSION:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

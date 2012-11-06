@@ -60,6 +60,7 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
             addAlarmPropertyDescriptor ( object );
             addAttributePropertyDescriptor ( object );
             addExpectedValuePropertyDescriptor ( object );
+            addOnOffPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -120,6 +121,17 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
     }
 
     /**
+     * This adds a property descriptor for the On Off feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnOffPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_onOff_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_onOff_feature", "_UI_BoolLEDComponent_type" ), DetailViewPackage.Literals.BOOL_LED_COMPONENT__ON_OFF, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This returns BoolLEDComponent.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -158,13 +170,14 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
 
         switch ( notification.getFeatureID ( BoolLEDComponent.class ) )
         {
-            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+        case DetailViewPackage.BOOL_LED_COMPONENT__ON_OFF:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

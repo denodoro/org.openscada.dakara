@@ -158,14 +158,14 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
 
         switch ( notification.getFeatureID ( ReadableComponent.class ) )
         {
-            case DetailViewPackage.READABLE_COMPONENT__FORMAT:
-            case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
-            case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
-            case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
-            case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
-            case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.READABLE_COMPONENT__FORMAT:
+        case DetailViewPackage.READABLE_COMPONENT__DECIMAL:
+        case DetailViewPackage.READABLE_COMPONENT__ATTRIBUTE:
+        case DetailViewPackage.READABLE_COMPONENT__HD_CONNECTION_ID:
+        case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
+        case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

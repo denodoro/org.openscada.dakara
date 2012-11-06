@@ -205,17 +205,17 @@ public class ButtonComponentItemProvider extends GenericComponentItemProvider im
 
         switch ( notification.getFeatureID ( ButtonComponent.class ) )
         {
-            case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
-            case DetailViewPackage.BUTTON_COMPONENT__VALUE:
-            case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
-            case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
-            case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
-            case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case DetailViewPackage.BUTTON_COMPONENT__FORMAT:
+        case DetailViewPackage.BUTTON_COMPONENT__VALUE:
+        case DetailViewPackage.BUTTON_COMPONENT__READ_DESCRIPTOR:
+        case DetailViewPackage.BUTTON_COMPONENT__WRITE_DESCRIPTOR:
+        case DetailViewPackage.BUTTON_COMPONENT__ATTRIBUTE:
+        case DetailViewPackage.BUTTON_COMPONENT__TEXT_HEIGHT:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
+        case DetailViewPackage.BUTTON_COMPONENT__ACTIVE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

@@ -122,10 +122,10 @@ public class LabelComponentItemProvider extends ComponentItemProvider implements
 
         switch ( notification.getFeatureID ( LabelComponent.class ) )
         {
-            case DetailViewPackage.LABEL_COMPONENT__FORMAT:
-            case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.LABEL_COMPONENT__FORMAT:
+        case DetailViewPackage.LABEL_COMPONENT__DESCRIPTOR:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

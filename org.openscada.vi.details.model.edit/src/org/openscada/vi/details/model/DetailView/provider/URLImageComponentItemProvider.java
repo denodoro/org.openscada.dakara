@@ -158,13 +158,13 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
 
         switch ( notification.getFeatureID ( URLImageComponent.class ) )
         {
-            case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
-            case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
-            case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
-            case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
-            case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.URL_IMAGE_COMPONENT__DESCRIPTOR:
+        case DetailViewPackage.URL_IMAGE_COMPONENT__IMAGE_URL:
+        case DetailViewPackage.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL:
+        case DetailViewPackage.URL_IMAGE_COMPONENT__WIDTH:
+        case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

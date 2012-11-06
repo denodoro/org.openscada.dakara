@@ -88,8 +88,8 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                return ( (InternalEList<?>)getValues () ).basicRemove ( otherEnd, msgs );
+        case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
+            return ( (InternalEList<?>)getValues () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -104,8 +104,8 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                return getValues ();
+        case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
+            return getValues ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -121,10 +121,10 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                getValues ().clear ();
-                getValues ().addAll ( (Collection<? extends ValueSource>)newValue );
-                return;
+        case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
+            getValues ().clear ();
+            getValues ().addAll ( (Collection<? extends ValueSource>)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -139,9 +139,9 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                getValues ().clear ();
-                return;
+        case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
+            getValues ().clear ();
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -156,8 +156,8 @@ public abstract class CompositeTransformerImpl extends ValueSourceImpl implement
     {
         switch ( featureID )
         {
-            case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
-                return values != null && !values.isEmpty ();
+        case DetailViewPackage.COMPOSITE_TRANSFORMER__VALUES:
+            return values != null && !values.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

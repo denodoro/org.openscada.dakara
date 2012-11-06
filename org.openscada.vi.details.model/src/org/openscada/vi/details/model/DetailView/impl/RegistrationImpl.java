@@ -190,12 +190,12 @@ public class RegistrationImpl extends EObjectImpl implements Registration
     {
         switch ( featureID )
         {
-            case DetailViewPackage.REGISTRATION__KEY:
-                return getKey ();
-            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                return getDescriptor ();
-            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                return isAggregateState ();
+        case DetailViewPackage.REGISTRATION__KEY:
+            return getKey ();
+        case DetailViewPackage.REGISTRATION__DESCRIPTOR:
+            return getDescriptor ();
+        case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
+            return isAggregateState ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -210,15 +210,15 @@ public class RegistrationImpl extends EObjectImpl implements Registration
     {
         switch ( featureID )
         {
-            case DetailViewPackage.REGISTRATION__KEY:
-                setKey ( (String)newValue );
-                return;
-            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                setDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                setAggregateState ( (Boolean)newValue );
-                return;
+        case DetailViewPackage.REGISTRATION__KEY:
+            setKey ( (String)newValue );
+            return;
+        case DetailViewPackage.REGISTRATION__DESCRIPTOR:
+            setDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
+            setAggregateState ( (Boolean)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -233,15 +233,15 @@ public class RegistrationImpl extends EObjectImpl implements Registration
     {
         switch ( featureID )
         {
-            case DetailViewPackage.REGISTRATION__KEY:
-                setKey ( KEY_EDEFAULT );
-                return;
-            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                setDescriptor ( DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                setAggregateState ( AGGREGATE_STATE_EDEFAULT );
-                return;
+        case DetailViewPackage.REGISTRATION__KEY:
+            setKey ( KEY_EDEFAULT );
+            return;
+        case DetailViewPackage.REGISTRATION__DESCRIPTOR:
+            setDescriptor ( DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
+            setAggregateState ( AGGREGATE_STATE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -256,12 +256,12 @@ public class RegistrationImpl extends EObjectImpl implements Registration
     {
         switch ( featureID )
         {
-            case DetailViewPackage.REGISTRATION__KEY:
-                return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals ( key );
-            case DetailViewPackage.REGISTRATION__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-            case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
-                return aggregateState != AGGREGATE_STATE_EDEFAULT;
+        case DetailViewPackage.REGISTRATION__KEY:
+            return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals ( key );
+        case DetailViewPackage.REGISTRATION__DESCRIPTOR:
+            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+        case DetailViewPackage.REGISTRATION__AGGREGATE_STATE:
+            return aggregateState != AGGREGATE_STATE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }

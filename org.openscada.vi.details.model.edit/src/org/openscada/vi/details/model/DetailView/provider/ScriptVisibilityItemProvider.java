@@ -122,10 +122,10 @@ public class ScriptVisibilityItemProvider extends VisibilityItemProvider impleme
 
         switch ( notification.getFeatureID ( ScriptVisibility.class ) )
         {
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

@@ -24,6 +24,7 @@ import org.openscada.vi.details.model.DetailView.DetailViewPackage;
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#isAlarm <em>Alarm</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#isExpectedValue <em>Expected Value</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.impl.BoolLEDComponentImpl#isOnOff <em>On Off</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +131,26 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * @ordered
      */
     protected boolean expectedValue = EXPECTED_VALUE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isOnOff() <em>On Off</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isOnOff()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean ON_OFF_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isOnOff() <em>On Off</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isOnOff()
+     * @generated
+     * @ordered
+     */
+    protected boolean onOff = ON_OFF_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -272,21 +293,46 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isOnOff ()
+    {
+        return onOff;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnOff ( boolean newOnOff )
+    {
+        boolean oldOnOff = onOff;
+        onOff = newOnOff;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BOOL_LED_COMPONENT__ON_OFF, oldOnOff, onOff ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
-            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                return getFormat ();
-            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                return getDescriptor ();
-            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                return isAlarm ();
-            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                return getAttribute ();
-            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-                return isExpectedValue ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+            return getFormat ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+            return getDescriptor ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+            return isAlarm ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+            return getAttribute ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            return isExpectedValue ();
+        case DetailViewPackage.BOOL_LED_COMPONENT__ON_OFF:
+            return isOnOff ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -301,21 +347,24 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                setFormat ( (String)newValue );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                setDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                setAlarm ( (Boolean)newValue );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                setAttribute ( (String)newValue );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-                setExpectedValue ( (Boolean)newValue );
-                return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+            setFormat ( (String)newValue );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+            setDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+            setAlarm ( (Boolean)newValue );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+            setAttribute ( (String)newValue );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            setExpectedValue ( (Boolean)newValue );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ON_OFF:
+            setOnOff ( (Boolean)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -330,21 +379,24 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                setFormat ( FORMAT_EDEFAULT );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                setDescriptor ( DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                setAlarm ( ALARM_EDEFAULT );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                setAttribute ( ATTRIBUTE_EDEFAULT );
-                return;
-            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-                setExpectedValue ( EXPECTED_VALUE_EDEFAULT );
-                return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+            setFormat ( FORMAT_EDEFAULT );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+            setDescriptor ( DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+            setAlarm ( ALARM_EDEFAULT );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+            setAttribute ( ATTRIBUTE_EDEFAULT );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            setExpectedValue ( EXPECTED_VALUE_EDEFAULT );
+            return;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ON_OFF:
+            setOnOff ( ON_OFF_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -359,16 +411,18 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
     {
         switch ( featureID )
         {
-            case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
-                return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
-            case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-            case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
-                return alarm != ALARM_EDEFAULT;
-            case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
-                return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
-            case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
-                return expectedValue != EXPECTED_VALUE_EDEFAULT;
+        case DetailViewPackage.BOOL_LED_COMPONENT__FORMAT:
+            return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals ( format );
+        case DetailViewPackage.BOOL_LED_COMPONENT__DESCRIPTOR:
+            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+        case DetailViewPackage.BOOL_LED_COMPONENT__ALARM:
+            return alarm != ALARM_EDEFAULT;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ATTRIBUTE:
+            return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals ( attribute );
+        case DetailViewPackage.BOOL_LED_COMPONENT__EXPECTED_VALUE:
+            return expectedValue != EXPECTED_VALUE_EDEFAULT;
+        case DetailViewPackage.BOOL_LED_COMPONENT__ON_OFF:
+            return onOff != ON_OFF_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -395,6 +449,8 @@ public class BoolLEDComponentImpl extends ComponentImpl implements BoolLEDCompon
         result.append ( attribute );
         result.append ( ", expectedValue: " );
         result.append ( expectedValue );
+        result.append ( ", onOff: " );
+        result.append ( onOff );
         result.append ( ')' );
         return result.toString ();
     }

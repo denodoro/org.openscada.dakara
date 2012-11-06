@@ -110,9 +110,9 @@ public class ItemValueSourceItemProvider extends ValueSourceItemProvider impleme
 
         switch ( notification.getFeatureID ( ItemValueSource.class ) )
         {
-            case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.ITEM_VALUE_SOURCE__VALUE_KEY:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

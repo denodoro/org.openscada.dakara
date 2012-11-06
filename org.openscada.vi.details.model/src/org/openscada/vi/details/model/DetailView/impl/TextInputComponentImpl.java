@@ -189,12 +189,12 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                return getDescriptor ();
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                return getReadDescriptor ();
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
-                return getWidth ();
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
+            return getDescriptor ();
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
+            return getReadDescriptor ();
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
+            return getWidth ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -209,15 +209,15 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                setDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                setReadDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
-                setWidth ( (Integer)newValue );
-                return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
+            setDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
+            setReadDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
+            setWidth ( (Integer)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -232,15 +232,15 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                setDescriptor ( DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
-                setWidth ( WIDTH_EDEFAULT );
-                return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
+            setDescriptor ( DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
+            setReadDescriptor ( READ_DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
+            setWidth ( WIDTH_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -255,12 +255,12 @@ public class TextInputComponentImpl extends WriteableComponentImpl implements Te
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-                return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
-                return width != WIDTH_EDEFAULT;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
+            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
+            return READ_DESCRIPTOR_EDEFAULT == null ? readDescriptor != null : !READ_DESCRIPTOR_EDEFAULT.equals ( readDescriptor );
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
+            return width != WIDTH_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
