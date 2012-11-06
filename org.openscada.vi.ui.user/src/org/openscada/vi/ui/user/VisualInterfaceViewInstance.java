@@ -151,7 +151,10 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
     @Override
     public void addSummaryListener ( final SummaryListener summaryListener )
     {
-        this.summaryListeners.add ( summaryListener );
+        if ( this.summaryListeners.add ( summaryListener ) )
+        {
+            summaryListener.summaryChanged ( this.currentSummary );
+        }
     }
 
     @Override

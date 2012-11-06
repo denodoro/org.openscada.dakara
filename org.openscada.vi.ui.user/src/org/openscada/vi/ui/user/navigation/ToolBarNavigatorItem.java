@@ -199,6 +199,8 @@ public class ToolBarNavigatorItem implements StateListener
     public void setLazy ( final boolean lazy )
     {
         this.lazy = lazy;
+
+        // update button image
         setButtonImage ( this.styleImage );
     }
 
@@ -206,14 +208,9 @@ public class ToolBarNavigatorItem implements StateListener
     {
         this.button.setSelection ( active );
         this.active = active;
-        if ( !active )
-        {
-            this.blinker.setStyle ( null );
-        }
-        else
-        {
-            setButtonImage ( this.styleImage );
-        }
+
+        // update button image
+        setButtonImage ( this.styleImage );
     }
 
     protected void handleUpdateStyle ( final Image image, final Color foreground, final Color background, final Font font )
