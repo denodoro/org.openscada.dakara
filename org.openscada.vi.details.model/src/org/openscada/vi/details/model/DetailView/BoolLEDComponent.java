@@ -19,6 +19,7 @@ package org.openscada.vi.details.model.DetailView;
  *   <li>{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#isAlarm <em>Alarm</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#isExpectedValue <em>Expected Value</em>}</li>
+ *   <li>{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#isOnOff <em>On Off</em>}</li>
  * </ul>
  * </p>
  *
@@ -158,5 +159,32 @@ public interface BoolLEDComponent extends Component
      * @generated
      */
     void setExpectedValue ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>On Off</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>On Off</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>On Off</em>' attribute.
+     * @see #setOnOff(boolean)
+     * @see org.openscada.vi.details.model.DetailView.DetailViewPackage#getBoolLEDComponent_OnOff()
+     * @model default="false"
+     * @generated
+     */
+    boolean isOnOff ();
+
+    /**
+     * Sets the value of the '{@link org.openscada.vi.details.model.DetailView.BoolLEDComponent#isOnOff <em>On Off</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>On Off</em>' attribute.
+     * @see #isOnOff()
+     * @generated
+     */
+    void setOnOff ( boolean value );
 
 } // BoolLEDComponent

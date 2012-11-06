@@ -189,12 +189,12 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                return getValueDescriptor ();
-            case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                return getSetDescriptor ();
-            case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                return getResetDescriptor ();
+        case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
+            return getValueDescriptor ();
+        case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
+            return getSetDescriptor ();
+        case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
+            return getResetDescriptor ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -209,15 +209,15 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                setValueDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                setSetDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                setResetDescriptor ( (String)newValue );
-                return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
+            setValueDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
+            setSetDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
+            setResetDescriptor ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -232,15 +232,15 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                setValueDescriptor ( VALUE_DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                setSetDescriptor ( SET_DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                setResetDescriptor ( RESET_DESCRIPTOR_EDEFAULT );
-                return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
+            setValueDescriptor ( VALUE_DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
+            setSetDescriptor ( SET_DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
+            setResetDescriptor ( RESET_DESCRIPTOR_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -255,12 +255,12 @@ public class ValueSetComponentImpl extends WriteableComponentImpl implements Val
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-                return VALUE_DESCRIPTOR_EDEFAULT == null ? valueDescriptor != null : !VALUE_DESCRIPTOR_EDEFAULT.equals ( valueDescriptor );
-            case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-                return SET_DESCRIPTOR_EDEFAULT == null ? setDescriptor != null : !SET_DESCRIPTOR_EDEFAULT.equals ( setDescriptor );
-            case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                return RESET_DESCRIPTOR_EDEFAULT == null ? resetDescriptor != null : !RESET_DESCRIPTOR_EDEFAULT.equals ( resetDescriptor );
+        case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
+            return VALUE_DESCRIPTOR_EDEFAULT == null ? valueDescriptor != null : !VALUE_DESCRIPTOR_EDEFAULT.equals ( valueDescriptor );
+        case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
+            return SET_DESCRIPTOR_EDEFAULT == null ? setDescriptor != null : !SET_DESCRIPTOR_EDEFAULT.equals ( setDescriptor );
+        case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
+            return RESET_DESCRIPTOR_EDEFAULT == null ? resetDescriptor != null : !RESET_DESCRIPTOR_EDEFAULT.equals ( resetDescriptor );
         }
         return super.eIsSet ( featureID );
     }

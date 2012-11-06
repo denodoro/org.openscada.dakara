@@ -101,8 +101,8 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                return getDescriptor ();
+        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
+            return getDescriptor ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -117,9 +117,9 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                setDescriptor ( (String)newValue );
-                return;
+        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
+            setDescriptor ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -134,9 +134,9 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                setDescriptor ( DESCRIPTOR_EDEFAULT );
-                return;
+        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
+            setDescriptor ( DESCRIPTOR_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -151,8 +151,8 @@ public class TextInputMultiComponentImpl extends WriteableComponentImpl implemen
     {
         switch ( featureID )
         {
-            case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+        case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT__DESCRIPTOR:
+            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
         }
         return super.eIsSet ( featureID );
     }

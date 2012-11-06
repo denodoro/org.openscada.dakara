@@ -145,10 +145,10 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                return getDescriptor ();
-            case DetailViewPackage.VALUE_COMPONENT__DATE:
-                return getDate ();
+        case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
+            return getDescriptor ();
+        case DetailViewPackage.VALUE_COMPONENT__DATE:
+            return getDate ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -163,12 +163,12 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                setDescriptor ( (String)newValue );
-                return;
-            case DetailViewPackage.VALUE_COMPONENT__DATE:
-                setDate ( (Boolean)newValue );
-                return;
+        case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
+            setDescriptor ( (String)newValue );
+            return;
+        case DetailViewPackage.VALUE_COMPONENT__DATE:
+            setDate ( (Boolean)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -183,12 +183,12 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                setDescriptor ( DESCRIPTOR_EDEFAULT );
-                return;
-            case DetailViewPackage.VALUE_COMPONENT__DATE:
-                setDate ( DATE_EDEFAULT );
-                return;
+        case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
+            setDescriptor ( DESCRIPTOR_EDEFAULT );
+            return;
+        case DetailViewPackage.VALUE_COMPONENT__DATE:
+            setDate ( DATE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -203,10 +203,10 @@ public class ValueComponentImpl extends ReadableComponentImpl implements ValueCo
     {
         switch ( featureID )
         {
-            case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
-                return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
-            case DetailViewPackage.VALUE_COMPONENT__DATE:
-                return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals ( date );
+        case DetailViewPackage.VALUE_COMPONENT__DESCRIPTOR:
+            return DESCRIPTOR_EDEFAULT == null ? descriptor != null : !DESCRIPTOR_EDEFAULT.equals ( descriptor );
+        case DetailViewPackage.VALUE_COMPONENT__DATE:
+            return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals ( date );
         }
         return super.eIsSet ( featureID );
     }

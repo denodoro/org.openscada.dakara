@@ -134,11 +134,11 @@ public class ValueSetComponentItemProvider extends WriteableComponentItemProvide
 
         switch ( notification.getFeatureID ( ValueSetComponent.class ) )
         {
-            case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
-            case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
-            case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.VALUE_SET_COMPONENT__VALUE_DESCRIPTOR:
+        case DetailViewPackage.VALUE_SET_COMPONENT__SET_DESCRIPTOR:
+        case DetailViewPackage.VALUE_SET_COMPONENT__RESET_DESCRIPTOR:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

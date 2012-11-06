@@ -110,9 +110,9 @@ public class LinkComponentItemProvider extends ComponentItemProvider implements 
 
         switch ( notification.getFeatureID ( LinkComponent.class ) )
         {
-            case DetailViewPackage.LINK_COMPONENT__FORMAT:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.LINK_COMPONENT__FORMAT:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

@@ -50,17 +50,23 @@ public class BoolLEDComposite extends GenericComposite
 
     private final boolean isAlarm;
 
+    private final boolean isOnOff;
+
     private final Image imageGreen;
 
     private final Image imageRed;
 
     private final Image imageGray;
 
+    private final Image imageOn;
+
+    private final Image imageOff;
+
     private final String attribute;
 
     private final ControlImage controlImage;
 
-    public BoolLEDComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final boolean expectedValue, final boolean isAlarm, final String attribute )
+    public BoolLEDComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final boolean expectedValue, final boolean isAlarm, final boolean isOnOff, final String attribute )
     {
         super ( parent, style, null, null );
 
@@ -68,6 +74,8 @@ public class BoolLEDComposite extends GenericComposite
         this.imageGreen = this.resourceManager.createImageWithDefault ( ImageDescriptor.createFromFile ( BoolLEDComposite.class, "icons/ledGreen.png" ) ); //$NON-NLS-1$
         this.imageGray = this.resourceManager.createImageWithDefault ( ImageDescriptor.createFromFile ( BoolLEDComposite.class, "icons/ledGray.png" ) ); //$NON-NLS-1$
         this.imageRed = this.resourceManager.createImageWithDefault ( ImageDescriptor.createFromFile ( BoolLEDComposite.class, "icons/ledRed.png" ) ); //$NON-NLS-1$
+        this.imageOn = this.resourceManager.createImageWithDefault ( ImageDescriptor.createFromFile ( BoolLEDComposite.class, "icons/on.png" ) ); //$NON-NLS-1$
+        this.imageOff = this.resourceManager.createImageWithDefault ( ImageDescriptor.createFromFile ( BoolLEDComposite.class, "icons/off.png" ) ); //$NON-NLS-1$
 
         final RowLayout layout = new RowLayout ();
         layout.wrap = false;
@@ -78,6 +86,7 @@ public class BoolLEDComposite extends GenericComposite
 
         this.expectedValue = expectedValue;
         this.isAlarm = isAlarm;
+        this.isOnOff = isOnOff;
         this.attribute = attribute;
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
@@ -153,19 +162,33 @@ public class BoolLEDComposite extends GenericComposite
             return;
         }
 
-        if ( value.asBoolean () == expectedValue )
+        if ( this.isOnOff )
         {
-            this.signalLabel.setImage ( this.imageGray );
-        }
-        else
-        {
-            if ( this.isAlarm )
+            if ( value.asBoolean () )
             {
-                this.signalLabel.setImage ( this.imageRed );
+                this.signalLabel.setImage ( this.imageOn );
             }
             else
             {
-                this.signalLabel.setImage ( this.imageGreen );
+                this.signalLabel.setImage ( this.imageOff );
+            }
+        }
+        else
+        {
+            if ( value.asBoolean () == this.expectedValue )
+            {
+                this.signalLabel.setImage ( this.imageGray );
+            }
+            else
+            {
+                if ( this.isAlarm )
+                {
+                    this.signalLabel.setImage ( this.imageRed );
+                }
+                else
+                {
+                    this.signalLabel.setImage ( this.imageGreen );
+                }
             }
         }
     }

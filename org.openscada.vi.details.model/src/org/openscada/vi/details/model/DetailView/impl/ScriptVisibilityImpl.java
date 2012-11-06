@@ -145,10 +145,10 @@ public class ScriptVisibilityImpl extends VisibilityImpl implements ScriptVisibi
     {
         switch ( featureID )
         {
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
-                return getScript ();
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
-                return getScriptLanguage ();
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
+            return getScript ();
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
+            return getScriptLanguage ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -163,12 +163,12 @@ public class ScriptVisibilityImpl extends VisibilityImpl implements ScriptVisibi
     {
         switch ( featureID )
         {
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
-                setScript ( (String)newValue );
-                return;
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
-                setScriptLanguage ( (String)newValue );
-                return;
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
+            setScript ( (String)newValue );
+            return;
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
+            setScriptLanguage ( (String)newValue );
+            return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -183,12 +183,12 @@ public class ScriptVisibilityImpl extends VisibilityImpl implements ScriptVisibi
     {
         switch ( featureID )
         {
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
-                setScript ( SCRIPT_EDEFAULT );
-                return;
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
-                setScriptLanguage ( SCRIPT_LANGUAGE_EDEFAULT );
-                return;
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
+            setScript ( SCRIPT_EDEFAULT );
+            return;
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
+            setScriptLanguage ( SCRIPT_LANGUAGE_EDEFAULT );
+            return;
         }
         super.eUnset ( featureID );
     }
@@ -203,10 +203,10 @@ public class ScriptVisibilityImpl extends VisibilityImpl implements ScriptVisibi
     {
         switch ( featureID )
         {
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
-                return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals ( script );
-            case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
-                return SCRIPT_LANGUAGE_EDEFAULT == null ? scriptLanguage != null : !SCRIPT_LANGUAGE_EDEFAULT.equals ( scriptLanguage );
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT:
+            return SCRIPT_EDEFAULT == null ? script != null : !SCRIPT_EDEFAULT.equals ( script );
+        case DetailViewPackage.SCRIPT_VISIBILITY__SCRIPT_LANGUAGE:
+            return SCRIPT_LANGUAGE_EDEFAULT == null ? scriptLanguage != null : !SCRIPT_LANGUAGE_EDEFAULT.equals ( scriptLanguage );
         }
         return super.eIsSet ( featureID );
     }

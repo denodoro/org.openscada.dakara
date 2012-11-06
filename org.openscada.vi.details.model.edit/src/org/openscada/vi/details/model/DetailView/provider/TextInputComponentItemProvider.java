@@ -134,11 +134,11 @@ public class TextInputComponentItemProvider extends WriteableComponentItemProvid
 
         switch ( notification.getFeatureID ( TextInputComponent.class ) )
         {
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
-            case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__DESCRIPTOR:
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__READ_DESCRIPTOR:
+        case DetailViewPackage.TEXT_INPUT_COMPONENT__WIDTH:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+            return;
         }
         super.notifyChanged ( notification );
     }

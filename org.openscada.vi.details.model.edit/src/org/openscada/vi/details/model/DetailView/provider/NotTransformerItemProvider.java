@@ -130,9 +130,9 @@ public class NotTransformerItemProvider extends ValueSourceItemProvider implemen
 
         switch ( notification.getFeatureID ( NotTransformer.class ) )
         {
-            case DetailViewPackage.NOT_TRANSFORMER__VALUE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
-                return;
+        case DetailViewPackage.NOT_TRANSFORMER__VALUE:
+            fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            return;
         }
         super.notifyChanged ( notification );
     }
