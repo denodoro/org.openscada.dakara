@@ -8,5 +8,13 @@
             class="org.openscada.vi.ui.draw2d.preferences.PreferenceInitializer">
       </initializer>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.openscada.vi.ui.draw2d.preferences.PreferencePage"
+            id="org.openscada.vi.ui.draw2d.preferences.PreferencePage"
+            name="%preference.viewSettings.label">
+      </page>
+   </extension>
 
 </plugin>
