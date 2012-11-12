@@ -123,9 +123,11 @@ public class DetailComponentImpl implements DetailComponent
         }
     }
 
-    /** Returns a list of descriptors used by this and all sub components
+    /**
+     * Returns a list of descriptors used by this and all sub components
      * 
-     * @return the list of descriptors. It never returns <code>null</code>. */
+     * @return the list of descriptors. It never returns <code>null</code>.
+     */
     @Override
     public IObservableSet getDescriptors ()
     {
@@ -551,7 +553,7 @@ public class DetailComponentImpl implements DetailComponent
     {
         final String readDescriptor = component.getReadDescriptor ();
         final DataItemDescriptor readItem;
-        if ( ( readDescriptor != null ) && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
+        if ( readDescriptor != null && !readDescriptor.equals ( "" ) ) //$NON-NLS-1$
         {
             readItem = DataItemDescriptor.create ( resolve ( component.getReadDescriptor (), properties ) );
         }
