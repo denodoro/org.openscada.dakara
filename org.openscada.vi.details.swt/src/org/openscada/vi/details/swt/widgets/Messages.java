@@ -63,22 +63,6 @@ public class Messages extends NLS
 
     public static String ValueSetComposite_valueDescriptor;
 
-    public static String VegaComposite_result;
-
-    public static String VegaComposite_resultDescriptor;
-
-    public static String VegaComposite_start;
-
-    public static String VegaComposite_startDescriptor;
-
-    public static String VegaComposite_state;
-
-    public static String VegaComposite_stateDescriptor;
-
-    public static String VegaComposite_waitingData;
-
-    public static String VegaComposite_writeFailed;
-
     public static String WriteableComposite_invalidInput;
 
     public static String WriteableComposite_requiredInput;
