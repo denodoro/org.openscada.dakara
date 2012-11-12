@@ -132,7 +132,6 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
             }
 
             final Composite box = new Composite ( parent, SWT.NONE );
-            box.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
             box.setLayout ( new GridLayout ( 1, false ) );
 
             final List<IObservableSet> lists = new LinkedList<IObservableSet> ();
