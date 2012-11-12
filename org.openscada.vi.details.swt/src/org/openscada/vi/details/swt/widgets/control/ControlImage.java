@@ -82,6 +82,9 @@ public class ControlImage extends Composite implements RegistrationManager.Liste
             };
         } );
 
+        // initialize in order to have the correct size
+        this.state.setImage ( org.openscada.vi.details.swt.Activator.getDefault ().getImageRegistry ().get ( org.openscada.vi.details.swt.Activator.IMG_ATTR_OK ) );
+
         this.blinker = new StyleBlinker () {
 
             @Override
@@ -142,8 +145,6 @@ public class ControlImage extends Composite implements RegistrationManager.Liste
         {
             this.state.setImage ( image );
         }
-
-        getParent ().layout ();
     }
 
     protected void handleDispose ()
