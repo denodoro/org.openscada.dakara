@@ -28,7 +28,6 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.openscada.core.NullValueException;
 import org.openscada.core.Variant;
 import org.openscada.eclipse.swt.CLabel;
 import org.openscada.vi.data.DataValue;
@@ -166,20 +165,12 @@ public class TextComposite extends ReadableComposite implements Listener
         }
         else if ( this.map != null )
         {
-            try
+            String convertedText = this.map.get ( value.asString ( "" ) );
+            if ( convertedText == null )
             {
-                String convertedText = this.map.get ( value.asString () );
-                if ( convertedText == null )
-                {
-                    convertedText = value.asString ();
-                }
-                this.dataText.setText ( convertedText + " (" + value.asString () + ")" ); //$NON-NLS-1$ //$NON-NLS-2$
+                convertedText = value.asString ( "" );
             }
-            catch ( final NullValueException e )
-            {
-                this.dataText.setText ( "" ); //$NON-NLS-1$
-                logger.info ( "No valid data to show value" ); //$NON-NLS-1$
-            }
+            this.dataText.setText ( convertedText + " (" + value.asString ( "" ) + ")" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         else if ( value.isDouble () )
         {
@@ -187,15 +178,7 @@ public class TextComposite extends ReadableComposite implements Listener
         }
         else
         {
-            try
-            {
-                this.dataText.setText ( value.asString () );
-            }
-            catch ( final NullValueException e )
-            {
-                this.dataText.setText ( "" ); //$NON-NLS-1$
-                logger.info ( "No valid data to show value" ); //$NON-NLS-1$
-            }
+            this.dataText.setText ( value.asString ( "" ) );
         }
     }
 
