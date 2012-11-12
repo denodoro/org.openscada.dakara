@@ -81,7 +81,6 @@ public class BoolLEDComposite extends GenericComposite
         layout.wrap = false;
         layout.center = true;
         layout.spacing = 3;
-        layout.pack = true;
         setLayout ( layout );
 
         this.expectedValue = expectedValue;
@@ -101,7 +100,7 @@ public class BoolLEDComposite extends GenericComposite
             this.registrationManager.registerItem ( "value", descriptor.getItemId (), descriptor.getConnectionInformation (), false, false ); //$NON-NLS-1$
         }
 
-        if ( Boolean.getBoolean ( "org.openscada.developer" ) )
+        if ( Boolean.getBoolean ( "org.openscada.developer" ) ) //$NON-NLS-1$
         {
 
             if ( this.isAlarm == true )
