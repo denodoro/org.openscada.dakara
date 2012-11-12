@@ -23,8 +23,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -32,6 +30,7 @@ import org.eclipse.swt.widgets.Label;
 import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.core.ui.styles.Activator;
 import org.openscada.core.ui.styles.StyleBlinker;
+import org.openscada.core.ui.styles.StyleBlinker.CurrentStyle;
 import org.openscada.da.client.dataitem.details.dialog.DataItemDetailsDialog;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.vi.data.RegistrationManager;
@@ -86,9 +85,9 @@ public class ControlImage extends Composite implements RegistrationManager.Liste
         this.blinker = new StyleBlinker () {
 
             @Override
-            public void update ( final Image image, final Color foreground, final Color background, final Font font )
+            public void update ( final CurrentStyle style )
             {
-                handleStyleUpdate ( image, foreground, background, font );
+                handleStyleUpdate ( style );
             }
         };
 
@@ -126,12 +125,14 @@ public class ControlImage extends Composite implements RegistrationManager.Liste
         }
     }
 
-    protected void handleStyleUpdate ( final Image image, final Color foreground, final Color background, final Font font )
+    protected void handleStyleUpdate ( final CurrentStyle style )
     {
         if ( this.state.isDisposed () )
         {
             return;
         }
+
+        final Image image = style.image;
 
         if ( image == null )
         {
@@ -154,7 +155,8 @@ public class ControlImage extends Composite implements RegistrationManager.Liste
     /**
      * Get the client space and create if it does not yet exists.
      * <p>
-     * Note that if the client space is not filled, the default size of the empty composite will be 64x64 due to some strange SWT philosophy.
+     * Note that if the client space is not filled, the default size of the
+     * empty composite will be 64x64 due to some strange SWT philosophy.
      * </p>
      * 
      * @return The client space composite

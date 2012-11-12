@@ -25,13 +25,12 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.openscada.core.ui.styles.StateInformation;
 import org.openscada.core.ui.styles.StyleBlinker;
+import org.openscada.core.ui.styles.StyleBlinker.CurrentStyle;
 import org.openscada.da.ui.connection.data.Item;
 import org.openscada.da.ui.connection.data.Item.Type;
 import org.openscada.vi.ui.user.Activator;
@@ -114,9 +113,9 @@ public class ToolBarNavigatorItem implements StateListener
 
         this.blinker = new StyleBlinker () {
             @Override
-            public void update ( final Image image, final Color foreground, final Color background, final Font font )
+            public void update ( final CurrentStyle style )
             {
-                handleUpdateStyle ( image, foreground, background, font );
+                handleUpdateStyle ( style );
             }
         };
 
@@ -213,11 +212,11 @@ public class ToolBarNavigatorItem implements StateListener
         setButtonImage ( this.styleImage );
     }
 
-    protected void handleUpdateStyle ( final Image image, final Color foreground, final Color background, final Font font )
+    protected void handleUpdateStyle ( final CurrentStyle style )
     {
         logger.debug ( "Update Style" );
 
-        this.styleImage = image;
+        this.styleImage = style.image;
         setButtonImage ( this.styleImage );
     }
 
