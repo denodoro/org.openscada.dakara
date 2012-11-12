@@ -26,7 +26,6 @@ import org.eclipse.swt.widgets.Label;
 import org.openscada.core.ui.connection.login.SessionManager;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 
-//this class has to be in package org.eclipse.swt.widgets. Otherwise it will throw a subclassing is not allowed exception.
 public class LabelOpenscadaDialog extends Composite
 {
     private String format;
