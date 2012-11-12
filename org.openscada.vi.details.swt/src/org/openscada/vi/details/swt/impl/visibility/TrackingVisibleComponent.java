@@ -27,9 +27,13 @@ import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.swt.widgets.Control;
 import org.openscada.vi.details.swt.data.DataItemDescriptor;
 import org.openscada.vi.details.swt.widgets.GenericComposite;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class TrackingVisibleComponent implements VisibleComponent
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( TrackingVisibleComponent.class );
 
     private final List<Control> controls = new LinkedList<Control> ();
 
@@ -72,6 +76,8 @@ public abstract class TrackingVisibleComponent implements VisibleComponent
     @Override
     public void show ()
     {
+        logger.debug ( "Showing component" );
+
         for ( final Control control : this.controls )
         {
             control.setVisible ( true );

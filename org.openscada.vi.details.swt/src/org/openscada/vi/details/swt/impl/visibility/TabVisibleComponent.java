@@ -25,6 +25,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.openscada.vi.details.swt.impl.GroupTab;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A visibility component for TabFolders
@@ -36,6 +38,9 @@ import org.openscada.vi.details.swt.impl.GroupTab;
  */
 public class TabVisibleComponent implements VisibleComponent
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( TabVisibleComponent.class );
+
     private final TabFolder folder;
 
     private final Control control;
@@ -57,6 +62,8 @@ public class TabVisibleComponent implements VisibleComponent
     @Override
     public void show ()
     {
+        logger.debug ( "Showing tab ... " );
+
         final int tabIndex = findIndex ();
 
         if ( tabIndex < 0 )
