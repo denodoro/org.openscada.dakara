@@ -119,15 +119,11 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
             final ScriptEngineManager engineManager = new ScriptEngineManager ( Activator.class.getClassLoader () );
             final ScriptContext scriptContext = new SimpleScriptContext ();
             scriptContext.setBindings ( new SimpleBindings (), ScriptContext.GLOBAL_SCOPE );
-            scriptContext.setAttribute ( "properties", properties, ScriptContext.GLOBAL_SCOPE );
+            scriptContext.setAttribute ( "properties", properties, ScriptContext.GLOBAL_SCOPE ); //$NON-NLS-1$
 
             this.visibleFactory = new VisibilityProviderFactory ( engineManager, scriptContext );
 
             load ();
-
-            final Composite box = new Composite ( parent, SWT.NONE );
-            box.setEnabled ( false );
-            logger.info ( "composite <box> disabled while init" ); //$NON-NLS-1$
 
             // load script modules
             for ( final ScriptModule module : this.scriptModuels )
@@ -135,6 +131,8 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 loadScriptModule ( engineManager, scriptContext, module );
             }
 
+            final Composite box = new Composite ( parent, SWT.NONE );
+            box.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
             box.setLayout ( new GridLayout ( 1, false ) );
 
             final List<IObservableSet> lists = new LinkedList<IObservableSet> ();
@@ -177,7 +175,6 @@ public class DetailViewImpl implements org.openscada.vi.details.DetailView, IExe
                 lists.add ( visibility.getDescriptors () );
                 i++;
             }
-            box.setEnabled ( true );
 
             // hook up realtime list to observable list
             this.realTimeTab.setInput ( new UnionSet ( lists.toArray ( new IObservableSet[lists.size ()] ) ) );
