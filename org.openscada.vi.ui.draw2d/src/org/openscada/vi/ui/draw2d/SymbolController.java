@@ -308,24 +308,7 @@ public class SymbolController implements Listener
 
     public void dispose ()
     {
-        if ( this.createdConsole != null )
-        {
-            ConsolePlugin.getDefault ().getConsoleManager ().removeConsoles ( new IConsole[] { this.createdConsole } );
-            this.createdConsole = null;
-        }
-
-        if ( this.logStream != null && !this.logStream.isClosed () )
-        {
-            try
-            {
-                this.logStream.close ();
-            }
-            catch ( final IOException e )
-            {
-                logger.warn ( "Failed to close log stream", e );
-            }
-        }
-
+        // run onDispose ... when requested
         try
         {
             if ( this.onDispose != null )
@@ -338,17 +321,46 @@ public class SymbolController implements Listener
             logger.warn ( "Failed to dispose", e );
         }
 
+        // close console
+
+        if ( this.createdConsole != null )
+        {
+            ConsolePlugin.getDefault ().getConsoleManager ().removeConsoles ( new IConsole[] { this.createdConsole } );
+            this.createdConsole = null;
+        }
+
+        // close log stream
+
+        if ( this.logStream != null && !this.logStream.isClosed () )
+        {
+            try
+            {
+                this.logStream.close ();
+            }
+            catch ( final IOException e )
+            {
+                logger.warn ( "Failed to close log stream", e );
+            }
+            finally
+            {
+                this.logStream = null;
+            }
+        }
+
         if ( this.parentController != null )
         {
             this.parentController.removeChild ( this );
         }
 
+        // dispose childs
         final ArrayList<SymbolController> controllers = new ArrayList<SymbolController> ( this.controllers );
         for ( final SymbolController controller : controllers )
         {
             controller.dispose ();
         }
         this.controllers.clear ();
+
+        // dispose registration manager
 
         if ( this.registrationManager != null )
         {
