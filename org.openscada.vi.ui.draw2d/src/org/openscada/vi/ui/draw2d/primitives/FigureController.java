@@ -87,6 +87,21 @@ IFigure figure = new PolylineShape () {
 public abstract class FigureController implements Controller
 {
 
+    public class ClickHandlerImpl extends MouseListener.Stub
+    {
+        @Override
+        public void mouseReleased ( final MouseEvent me )
+        {
+            handleOnClick ( me );
+        }
+
+        @Override
+        public void mouseDoubleClicked ( final MouseEvent me )
+        {
+            handleOnDoubleClick ( me );
+        }
+    }
+
     private static interface ColorApplier
     {
         public void applyColor ( IFigure figure, Color color );
@@ -273,19 +288,7 @@ public abstract class FigureController implements Controller
 
         if ( this.onClick != null || this.onDoubleClick != null )
         {
-            getPropertyFigure ().addMouseListener ( new MouseListener.Stub () {
-                @Override
-                public void mouseReleased ( final MouseEvent me )
-                {
-                    handleOnClick ( me );
-                }
-
-                @Override
-                public void mouseDoubleClicked ( final MouseEvent me )
-                {
-                    handleOnDoubleClick ( me );
-                }
-            } );
+            getPropertyFigure ().addMouseListener ( new ClickHandlerImpl () );
         }
     }
 
