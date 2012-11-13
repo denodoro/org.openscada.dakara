@@ -95,19 +95,6 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
     }
 
     @Override
-    public void dispose ()
-    {
-        if ( this.viewer != null )
-        {
-            this.viewer.removeSummaryListener ( this );
-            this.viewer.dispose ();
-            this.viewer = null;
-        }
-
-        super.dispose ();
-    }
-
-    @Override
     public void setFocus ()
     {
         this.viewer.setFocus ();
