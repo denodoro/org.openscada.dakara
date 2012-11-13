@@ -23,6 +23,7 @@ import org.eclipse.draw2d.TextUtilities;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Path;
 import org.eclipse.swt.graphics.Point;
@@ -141,6 +142,12 @@ public class Draw2DGraphics implements Graphics
     {
         final Dimension result = TextUtilities.INSTANCE.getTextExtents ( string, this.g.getFont () );
         return new Point ( result.width, result.height );
+    }
+
+    @Override
+    public FontMetrics getFontMetrics ()
+    {
+        return this.g.getFontMetrics ();
     }
 
     @Override

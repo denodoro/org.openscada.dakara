@@ -75,7 +75,6 @@ public class ChartFigure extends Figure
 
         final YAxis y = ChartFactory.eINSTANCE.createYAxis ();
         y.setLabel ( "Values" );
-        y.setFormat ( "%.2f" );
         configuration.getLeft ().add ( y );
 
         final XAxis x = ChartFactory.eINSTANCE.createXAxis ();
