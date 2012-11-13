@@ -40,7 +40,22 @@ public class ChartController extends FigureController
     {
         super ( symbolController, resourceManager );
 
-        this.wrapperFigure = new Figure ();
+        this.wrapperFigure = new Figure () {
+            @Override
+            public void addNotify ()
+            {
+                super.addNotify ();
+                start ();
+            }
+
+            @Override
+            public void removeNotify ()
+            {
+                stop ();
+                super.removeNotify ();
+            }
+        };
+
         this.wrapperFigure.setOpaque ( false );
         this.figure = new ChartFigure ();
 
