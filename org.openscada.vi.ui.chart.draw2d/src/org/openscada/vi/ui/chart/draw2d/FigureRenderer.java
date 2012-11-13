@@ -37,19 +37,31 @@ import org.openscada.chart.swt.ChartRenderer;
 public class FigureRenderer extends ChartRenderer
 {
 
+    public class FigureListenerImpl implements FigureListener
+    {
+        @Override
+        public void figureMoved ( final IFigure source )
+        {
+            handleResize ();
+        }
+    }
+
     private final ChartFigure chartFigure;
+
+    private final FigureListenerImpl figureListener;
 
     public FigureRenderer ( final ChartFigure chartFigure )
     {
         this.chartFigure = chartFigure;
-        chartFigure.addFigureListener ( new FigureListener () {
+        this.figureListener = new FigureListenerImpl ();
+        this.chartFigure.addFigureListener ( this.figureListener );
+    }
 
-            @Override
-            public void figureMoved ( final IFigure source )
-            {
-                handleResize ();
-            }
-        } );
+    @Override
+    public void dispose ()
+    {
+        this.chartFigure.removeFigureListener ( this.figureListener );
+        super.dispose ();
     }
 
     protected void handleResize ()
