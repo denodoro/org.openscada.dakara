@@ -53,8 +53,8 @@
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/lineWidth"/>
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/antialias"/>
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/alpha"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/fill"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/outline"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/fill"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/outline"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
     <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//VisualInterface/Text/text">

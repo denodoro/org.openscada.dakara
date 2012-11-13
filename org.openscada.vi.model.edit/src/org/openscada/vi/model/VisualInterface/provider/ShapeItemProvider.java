@@ -116,7 +116,8 @@ public class ShapeItemProvider extends FigureItemProvider implements IEditingDom
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Shape_fill_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_Shape_fill_feature", "_UI_Shape_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.SHAPE__FILL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.SHAPE__FILL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_shapePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -129,7 +130,8 @@ public class ShapeItemProvider extends FigureItemProvider implements IEditingDom
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Shape_outline_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_Shape_outline_feature", "_UI_Shape_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.SHAPE__OUTLINE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                VisualInterfacePackage.Literals.SHAPE__OUTLINE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_shapePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
