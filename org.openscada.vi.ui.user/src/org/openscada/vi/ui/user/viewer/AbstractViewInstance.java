@@ -74,6 +74,8 @@ public abstract class AbstractViewInstance implements ViewInstance
 
     public void dispose ()
     {
+        deactivateView ();
+
         if ( this.visibileRef != null )
         {
             this.evaluationService.removeEvaluationListener ( this.visibileRef );
