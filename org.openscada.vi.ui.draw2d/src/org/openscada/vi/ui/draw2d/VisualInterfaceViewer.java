@@ -311,6 +311,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
     private void internalDispose ()
     {
+        this.canvas.setContents ( null );
         if ( this.controller != null )
         {
             this.controller.dispose ();
