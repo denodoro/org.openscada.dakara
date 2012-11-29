@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openscada.core.Variant;
-import org.openscada.core.subscription.SubscriptionState;
+import org.openscada.core.data.SubscriptionState;
 import org.openscada.da.client.DataItemValue;
 import org.openscada.vi.data.DataValue;
 import org.openscada.vi.data.SummaryInformation;
