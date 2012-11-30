@@ -91,4 +91,24 @@
 	         locationURI="menu:file">
 	   </menuContribution>
    </extension>
+   
+   
+       <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            id="openscada.vi.client.default"
+            name="Default">
+      </activity>
+      <activityPatternBinding
+            activityId="openscada.vi.client.default"
+            isEqualityPattern="false"
+            pattern=".*\/org.eclipse.ui.openLocalFile">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="openscada.vi.client.default"
+            isEqualityPattern="false"
+            pattern=".*\/org.eclipse.ui.edit.text.delimiter\..*">
+      </activityPatternBinding>
+   </extension>
+   
 </plugin>
